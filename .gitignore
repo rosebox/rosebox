@@ -1,0 +1,8 @@
+node_modules
+lib/
+src/
+.DS_Store
+.cache
+./api.json
+to-do
+es5
