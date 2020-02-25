@@ -1,0 +1,1 @@
+export { boxSizing } from './internal'
