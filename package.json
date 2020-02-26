@@ -25,7 +25,11 @@
     "prepare": "npm run build"
   },
   "author": "Hugo Nteifeh <hugonteifeh@gmail.com>",
-  "keywords": [],
+  "keywords": [
+    "Functional css",
+    "declarative styling",
+    "Typed CSS"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@types/jest": "^24.9.1",
