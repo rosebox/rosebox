@@ -273,16 +273,6 @@ type HSLAInput = [number, Percentage, Percentage, number]
 
 /**
  *
- * A type that maps to CSS's **`<hex-color>`**.
- * @added 0.1.0
- */
-export interface HEX {
-  __tag: 'HEX'
-  value: string
-}
-
-/**
- *
  * A type that maps to CSS's **`<rgb()>`**
  * @added 0.1.0
  */
@@ -319,6 +309,17 @@ export interface HSL {
 export interface HSLA {
   __tag: 'HSLA'
   value: HSLAInput
+}
+
+/**
+ *
+ * A type that maps to CSS's **`<hex-color>`**.
+ * @added 0.1.0
+ * @note Currently this type is just an alias for the **`<string>`** type, and is not type-checked, use other color-types for type safety
+ */
+export interface HEX {
+  __tag: 'HEX'
+  value: string
 }
 
 /**
@@ -535,7 +536,6 @@ export const standaloneKeywords = ['currentColor', 'transparent'] as const
 export type StandaloneColorKeyword = typeof standaloneKeywords[number]
 
 export type Color =
-  | HEX
   | RGB
   | RGBA
   | HSL
