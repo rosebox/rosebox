@@ -10,5 +10,14 @@ Rosebox is a typescript library that provides a declarative, functional experien
 - Tried functional/atomic CSS libraries and really loved and got inspired by the idea behind them but soon realized that they are limiting as they need to generate static CSS in advance with predefined set of spacing and sizing rules.
 - IntelliSense and auto-completion when styling components.
 
+## Installation
+
+Using npm:
+
+```shell
+npm i rosebox
+```
+
 ## Docs
+
 [Docs](http://www.rosebox.dev)
