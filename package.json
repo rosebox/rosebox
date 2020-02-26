@@ -1,6 +1,6 @@
 {
   "name": "rosebox",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": false,
   "description": "Rosebox is a typescript library that provides a declarative, functional experience for styling your components.",
   "main": "es5/index.js",

@@ -18,6 +18,8 @@ Using npm:
 npm i rosebox
 ```
 
+![](https://gifs.com/gif/rosebox-4QqQ2n)
+
 ## Docs
 
 [Docs](http://www.rosebox.dev)
