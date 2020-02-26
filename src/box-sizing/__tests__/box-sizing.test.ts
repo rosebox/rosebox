@@ -1,4 +1,4 @@
-import { boxSizing } from '../index'
+import { boxSizing } from '../internal'
 
 test('boxSizing()', () => {
   const received = boxSizing('content-box')

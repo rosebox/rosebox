@@ -1,4 +1,4 @@
-import { display } from '../index'
+import { display } from '../internal'
 
 test('display()', () => {
   const received = display('list-item')
