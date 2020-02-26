@@ -20,7 +20,7 @@ npm i rosebox
 
 ## Here's a little taste
 
-![a glimpse of RoseBox](https://j.gifs.com/4QqQ2n.gif)
+![a glimpse of RoseBox](https://j.gifs.com/WLlLzJ.gif)
 
 ## Docs
 
