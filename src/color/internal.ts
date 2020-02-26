@@ -536,6 +536,7 @@ export const standaloneKeywords = ['currentColor', 'transparent'] as const
 export type StandaloneColorKeyword = typeof standaloneKeywords[number]
 
 export type Color =
+  | HEX
   | RGB
   | RGBA
   | HSL
