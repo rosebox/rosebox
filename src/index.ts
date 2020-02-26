@@ -20,44 +20,8 @@ export * from './visibility/index'
 export * from './width/index'
 export * from './shared/value-constructors'
 
-export type StyleProperties = {
-  width: string
-  minWidth: string
-  maxwidth: string
-  height: string
-  minHeight: string
-  maxHeight: string
-  marginTop: string
-  marginBottom: string
-  marginLeft: string
-  marginRight: string
-  margin: string
-  paddingTop: string
-  paddingRight: string
-  paddingBottom: string
-  paddingLeft: string
-  padding: string
-  display: string
-  flex: string
-  flexShrink: string
-  flexBasis: string
-  flexGrow: string
-  flexDirection: string
-  flexWrap: string
-  boxSizing: string
-  position: string
-  color: string
-  backgroundColor: string
-  top: number
-  right: number
-  bottom: number
-  left: number
-  opacity: number
-  visibility: string
-}
-
-const merge = (obj1: object, obj2: object): object =>
+export const merge = (obj1: object, obj2: object): object =>
   Object.assign({}, obj1, obj2)
 
-export const style = (x: Partial<StyleProperties>[]): CSSProperties =>
+export const style = (x: CSSProperties[]): CSSProperties =>
   x.reduce((acc, val) => merge(acc, val), {}) as CSSProperties
