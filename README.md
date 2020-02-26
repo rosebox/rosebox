@@ -18,7 +18,7 @@ Using npm:
 npm i rosebox
 ```
 
-![Rosebox video](https://j.gifs.com/4QqQ2n.gifn)
+![Rosebox video](https://j.gifs.com/4QqQ2n.gif)
 
 ## Docs
 
