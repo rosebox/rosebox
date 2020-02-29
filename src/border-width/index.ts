@@ -46,3 +46,15 @@ export const borderBottomWidth = (
     ? value
     : serializeLineWidth(value)
 })
+
+/**
+ * Creates a declaration object for the **`border-left-width`** property.
+ * @category Declaration function
+ * @formalSyntax <line-width>
+ * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
+ */
+export const borderLeftWidth = (
+  value: BorderSideWidth | GlobalCssKeyword
+): { borderLeftWidth: string } => ({
+  borderLeftWidth: isGlobalCssKeyword(value) ? value : serializeLineWidth(value)
+})
