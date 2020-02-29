@@ -48,3 +48,29 @@ export const borderLeftColor = (
 ): { borderLeftColor: string } => ({
   borderLeftColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
 })
+
+type BorderColor =
+  | Color
+  | [Color]
+  | [Color, Color]
+  | [Color, Color, Color]
+  | [Color, Color, Color, Color]
+
+const serializeBorderColor = (value: BorderColor): string =>
+  !Array.isArray(value)
+    ? serializeColor(value)
+    : (value as Color[])
+        .reduce((acc: any, item) => acc + ' ' + serializeColor(item), '')
+        .trim()
+
+/**
+ * Creates a declaration object for the **`border-color`** property.
+ * @category Declaration function
+ * @formalSyntax <color>{1,4}
+ * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
+ */
+export const borderColor = (
+  value: BorderColor | GlobalCssKeyword
+): { borderColor: string } => ({
+  borderColor: isGlobalCssKeyword(value) ? value : serializeBorderColor(value)
+})

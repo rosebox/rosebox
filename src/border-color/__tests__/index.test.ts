@@ -2,7 +2,8 @@ import {
   borderTopColor,
   borderRightColor,
   borderBottomColor,
-  borderLeftColor
+  borderLeftColor,
+  borderColor
 } from '../index'
 import { rgb } from '../../color/internal'
 
@@ -27,5 +28,49 @@ test('borderBottomColor(RGB)', () => {
 test('borderLeftColor(RGB)', () => {
   const received = borderLeftColor(rgb([255, 255, 255]))
   const expected = { borderLeftColor: 'rgb(255, 255, 255)' }
+  expect(received).toEqual(expected)
+})
+
+test('borderColor(Color)', () => {
+  const received = borderColor(rgb([255, 255, 255]))
+  const expected = { borderColor: 'rgb(255, 255, 255)' }
+  expect(received).toEqual(expected)
+})
+
+test('borderColor([Color])', () => {
+  const received = borderColor([rgb([255, 255, 255])])
+  const expected = { borderColor: 'rgb(255, 255, 255)' }
+  expect(received).toEqual(expected)
+})
+
+test('borderColor([Color, Color])', () => {
+  const received = borderColor([rgb([255, 255, 255]), rgb([255, 255, 255])])
+  const expected = { borderColor: 'rgb(255, 255, 255) rgb(255, 255, 255)' }
+  expect(received).toEqual(expected)
+})
+
+test('borderColor([Color, Color, Color])', () => {
+  const received = borderColor([
+    rgb([255, 255, 255]),
+    rgb([255, 255, 255]),
+    rgb([255, 255, 255])
+  ])
+  const expected = {
+    borderColor: 'rgb(255, 255, 255) rgb(255, 255, 255) rgb(255, 255, 255)'
+  }
+  expect(received).toEqual(expected)
+})
+
+test('borderColor([Color, Color, Color, Color])', () => {
+  const received = borderColor([
+    rgb([255, 255, 255]),
+    rgb([255, 255, 255]),
+    rgb([255, 255, 255]),
+    rgb([255, 255, 255])
+  ])
+  const expected = {
+    borderColor:
+      'rgb(255, 255, 255) rgb(255, 255, 255) rgb(255, 255, 255) rgb(255, 255, 255)'
+  }
   expect(received).toEqual(expected)
 })
