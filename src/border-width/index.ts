@@ -58,3 +58,28 @@ export const borderLeftWidth = (
 ): { borderLeftWidth: string } => ({
   borderLeftWidth: isGlobalCssKeyword(value) ? value : serializeLineWidth(value)
 })
+
+type BorderWidth =
+  | BorderSideWidth
+  | [BorderSideWidth]
+  | [BorderSideWidth, BorderSideWidth]
+  | [BorderSideWidth, BorderSideWidth, BorderSideWidth]
+  | [BorderSideWidth, BorderSideWidth, BorderSideWidth, BorderSideWidth]
+
+const serializeBorderWidth = (value: BorderWidth): string =>
+  !Array.isArray(value)
+    ? serializeLineWidth(value)
+    : (value as LineWidth[])
+        .reduce((acc: any, item) => acc + ' ' + serializeLineWidth(item), '')
+        .trim()
+/**
+ * Creates a declaration object for the **`border-width`** property.
+ * @category Declaration function
+ * @formalSyntax <line-width>
+ * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
+ */
+export const borderWidth = (
+  value: BorderWidth | GlobalCssKeyword
+): { borderWidth: string } => ({
+  borderWidth: isGlobalCssKeyword(value) ? value : serializeBorderWidth(value)
+})

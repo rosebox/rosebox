@@ -2,7 +2,8 @@ import {
   borderTopWidth,
   borderRightWidth,
   borderBottomWidth,
-  borderLeftWidth
+  borderLeftWidth,
+  borderWidth
 } from '../index'
 import { px } from '../../shared/value-constructors'
 
@@ -33,5 +34,41 @@ test('borderBottomWidth(Length<px>)', () => {
 test('borderLeftWidth(Length<px>)', () => {
   const received = borderLeftWidth(px(30))
   const expected = { borderLeftWidth: '30px' }
+  expect(received).toEqual(expected)
+})
+
+test('borderWidth(thick)', () => {
+  const received = borderWidth('thick')
+  const expected = { borderWidth: 'thick' }
+  expect(received).toEqual(expected)
+})
+
+test('borderWidth(LineWidth)', () => {
+  const received = borderWidth(px(30))
+  const expected = { borderWidth: '30px' }
+  expect(received).toEqual(expected)
+})
+
+test('borderWidth([LineWidth])', () => {
+  const received = borderWidth([px(30)])
+  const expected = { borderWidth: '30px' }
+  expect(received).toEqual(expected)
+})
+
+test('borderWidth([LineWidth, LineWidth])', () => {
+  const received = borderWidth([px(30), px(10)])
+  const expected = { borderWidth: '30px 10px' }
+  expect(received).toEqual(expected)
+})
+
+test('borderWidth([LineWidth, LineWidth, LineWidth])', () => {
+  const received = borderWidth([px(10), px(20), px(30)])
+  const expected = { borderWidth: '10px 20px 30px' }
+  expect(received).toEqual(expected)
+})
+
+test('borderWidth([LineWidth, LineWidth, LineWidth, LineWidth])', () => {
+  const received = borderWidth([px(10), px(20), px(30), px(40)])
+  const expected = { borderWidth: '10px 20px 30px 40px' }
   expect(received).toEqual(expected)
 })
