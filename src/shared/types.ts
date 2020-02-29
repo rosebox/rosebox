@@ -50,6 +50,11 @@ export type LengthPercentage = Length | Percentage
  */
 export type Width = LengthPercentage | 'auto'
 
+/**
+ * @global
+ */
+export type LineWidth = Length | 'thin' | 'medium' | 'thick'
+
 /** Type-guard */
 export const isPercentageType = (value: any): value is Percentage =>
   value.__tag === 'Percentage'
