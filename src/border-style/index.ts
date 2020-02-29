@@ -11,3 +11,15 @@ export const borderTopStyle = (
 ): { borderTopStyle: string } => ({
   borderTopStyle: value
 })
+
+/**
+ * Creates a declaration object for the **`border-right-style`** property.
+ * @category Declaration function
+ * @formalSyntax <line-style>
+ * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
+ */
+export const borderRightStyle = (
+  value: LineStyle | GlobalCssKeyword
+): { borderRightStyle: string } => ({
+  borderRightStyle: value
+})
