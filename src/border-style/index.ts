@@ -35,3 +35,15 @@ export const borderBottomStyle = (
 ): { borderBottomStyle: string } => ({
   borderBottomStyle: value
 })
+
+/**
+ * Creates a declaration object for the **`border-left-style`** property.
+ * @category Declaration function
+ * @formalSyntax <line-style>
+ * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
+ */
+export const borderLeftStyle = (
+  value: LineStyle | GlobalCssKeyword
+): { borderLeftStyle: string } => ({
+  borderLeftStyle: value
+})
