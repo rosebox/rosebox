@@ -1,4 +1,4 @@
-import { borderTopWidth, borderRightWidth } from '../index'
+import { borderTopWidth, borderRightWidth, borderBottomWidth } from '../index'
 import { px } from '../../shared/value-constructors'
 
 test('borderTopWidth(thick)', () => {
@@ -16,5 +16,11 @@ test('borderTopWidth(Length<px>)', () => {
 test('borderRightWidth(Length<px>)', () => {
   const received = borderRightWidth(px(30))
   const expected = { borderRightWidth: '30px' }
+  expect(received).toEqual(expected)
+})
+
+test('borderBottomWidth(Length<px>)', () => {
+  const received = borderBottomWidth(px(30))
+  const expected = { borderBottomWidth: '30px' }
   expect(received).toEqual(expected)
 })
