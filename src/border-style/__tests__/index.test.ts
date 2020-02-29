@@ -2,7 +2,8 @@ import {
   borderTopStyle,
   borderRightStyle,
   borderBottomStyle,
-  borderLeftStyle
+  borderLeftStyle,
+  borderStyle
 } from '../index'
 
 test('borderTopStyle(hidden)', () => {
@@ -26,5 +27,35 @@ test('borderBottomStyle(hidden)', () => {
 test('borderLeftStyle(hidden)', () => {
   const received = borderLeftStyle('hidden')
   const expected = { borderLeftStyle: 'hidden' }
+  expect(received).toEqual(expected)
+})
+
+test('borderStyle(hidden)', () => {
+  const received = borderStyle('hidden')
+  const expected = { borderStyle: 'hidden' }
+  expect(received).toEqual(expected)
+})
+
+test('borderStyle([hidden])', () => {
+  const received = borderStyle(['hidden'])
+  const expected = { borderStyle: 'hidden' }
+  expect(received).toEqual(expected)
+})
+
+test('borderStyle([hidden, none])', () => {
+  const received = borderStyle(['none', 'hidden'])
+  const expected = { borderStyle: 'none hidden' }
+  expect(received).toEqual(expected)
+})
+
+test('borderStyle([none, hidden, solid])', () => {
+  const received = borderStyle(['none', 'hidden', 'solid'])
+  const expected = { borderStyle: 'none hidden solid' }
+  expect(received).toEqual(expected)
+})
+
+test('borderStyle([none, hidden, solid, solid])', () => {
+  const received = borderStyle(['none', 'hidden', 'solid', 'solid'])
+  const expected = { borderStyle: 'none hidden solid solid' }
   expect(received).toEqual(expected)
 })
