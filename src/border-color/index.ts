@@ -12,3 +12,15 @@ export const borderTopColor = (
 ): { borderTopColor: string } => ({
   borderTopColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
 })
+
+/**
+ * Creates a declaration object for the **`border-right-color`** property.
+ * @category Declaration function
+ * @formalSyntax <color>
+ * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
+ */
+export const borderRightColor = (
+  value: Color | GlobalCssKeyword
+): { borderRightColor: string } => ({
+  borderRightColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
+})
