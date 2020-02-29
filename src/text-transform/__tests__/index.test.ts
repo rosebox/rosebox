@@ -5,5 +5,3 @@ test('textTransform()', () => {
   const expected = { textTransform: 'lowercase full-width' }
   expect(received).toEqual(expected)
 })
-
-type nu = number | nu
