@@ -23,7 +23,7 @@ const serializeBorderColor = (value: BorderCornerRadius): string =>
 /**
  * Creates a declaration object for the **`border-top-right-radius`** property.
  * @category Declaration function
- * @formalSyntax <line-width>
+ * @formalSyntax <length-percentage>{1,2}
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
  */
 export const borderTopRightRadius = (
@@ -37,7 +37,7 @@ export const borderTopRightRadius = (
 /**
  * Creates a declaration object for the **`border-bottom-right-radius`** property.
  * @category Declaration function
- * @formalSyntax <line-width>
+ * @formalSyntax <length-percentage>{1,2}
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
  */
 export const borderBottomRightRadius = (
@@ -51,7 +51,7 @@ export const borderBottomRightRadius = (
 /**
  * Creates a declaration object for the **`border-bottom-left-radius`** property.
  * @category Declaration function
- * @formalSyntax <line-width>
+ * @formalSyntax <length-percentage>{1,2}
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
  */
 export const borderBottomLeftRadius = (
@@ -65,7 +65,7 @@ export const borderBottomLeftRadius = (
 /**
  * Creates a declaration object for the **`border-top-left-radius`** property.
  * @category Declaration function
- * @formalSyntax <line-width>
+ * @formalSyntax	<length-percentage>{1,2}
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
  */
 export const borderTopLeftRadius = (
