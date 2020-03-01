@@ -1,5 +1,5 @@
 import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
-import { Color, serializeColor } from '../color/internal'
+import { Color, serializeColor, isColor } from '../color/internal'
 
 type SingleValue = 'none' | 'underline' | 'overline' | 'line-through' | 'blink'
 
@@ -95,6 +95,14 @@ export const textDecorationColor = (
   textDecorationColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
 })
 
+type TextDecorationStyle =
+  | 'solid'
+  | 'double'
+  | 'dotted'
+  | 'dashed'
+  | 'wavy'
+  | 'GlobalCssKeyword'
+
 /**
  * Creates a declaration object for the **`text-decoration-style`** property.
  * @category Declaration function
@@ -102,7 +110,61 @@ export const textDecorationColor = (
  * @implentationReference https://www.w3.org/TR/2019/CR-css-text-decor-3-20190813/#text-decoration-style-property
  */
 export const textDecorationStyle = (
-  value: 'solid' | 'double' | 'dotted' | 'dashed' | 'wavy' | 'GlobalCssKeyword'
+  value: 'solid' | 'double' | 'dotted' | 'dashed' | 'wavy' | GlobalCssKeyword
 ): { textDecorationStyle: string } => ({
   textDecorationStyle: value
+})
+
+type TextDecorationSingleValue =
+  | Color
+  | TextDecorationStyle
+  | TextDecorationLine
+  | [Color | TextDecorationLine | TextDecorationStyle]
+
+type TextDecorationTwoValues =
+  | [Color, TextDecorationStyle]
+  | [TextDecorationStyle, Color]
+  | [Color, TextDecorationLine]
+  | [TextDecorationLine, Color]
+  | [TextDecorationLine, TextDecorationStyle]
+  | [TextDecorationStyle, TextDecorationLine]
+
+type TextDecorationThreeValues =
+  | [Color, TextDecorationStyle, TextDecorationLine]
+  | [Color, TextDecorationLine, TextDecorationStyle]
+  | [TextDecorationLine, Color, TextDecorationStyle]
+  | [TextDecorationLine, TextDecorationStyle, Color]
+  | [TextDecorationStyle, Color, TextDecorationLine]
+  | [TextDecorationStyle, TextDecorationLine, Color]
+
+type TextDecoration =
+  | TextDecorationSingleValue
+  | TextDecorationTwoValues
+  | TextDecorationThreeValues
+
+const serializeShorthandleValue = (value: TextDecoration): string =>
+  !Array.isArray(value)
+    ? isColor(value)
+      ? serializeColor(value)
+      : value
+    : (value as (Color | TextDecorationStyle | TextDecorationLine)[])
+        .reduce(
+          (acc: any, item) =>
+            acc + ' ' + (isColor(item) ? serializeColor(item as Color) : item),
+          ''
+        )
+        .trim()
+
+/**
+ * Creates a declaration object for the **`text-decoration`** property.
+ * @category Declaration function
+ * @formalSyntax solid | double | dotted | dashed | wavy
+ * @implentationReference '<text-decoration-line'> || <'text-decoration-style'> || <'text-decoration-color'>
+ */
+export const textDecoration = (
+  value: TextDecoration | GlobalCssKeyword
+): { textDecoration: string } => ({
+  textDecoration: isGlobalCssKeyword(value)
+    ? value
+    : serializeShorthandleValue(value)
 })
