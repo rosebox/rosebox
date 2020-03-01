@@ -1,4 +1,4 @@
-import { Percentage, isPercentageType } from '../shared/types'
+import { Percentage, isPercentageType, GlobalCssKeyword } from '../shared/types'
 import { serializePercentage } from '../shared/serializers'
 
 /**
@@ -7,7 +7,7 @@ import { serializePercentage } from '../shared/serializers'
  * @formalSyntax <number> | <percentage>
  * @implementationReference https://drafts.csswg.org/css-color-4/#typedef-alpha-value
  */
-export const opacity = (value: number | Percentage) => ({
+export const opacity = (value: number | Percentage | GlobalCssKeyword) => ({
   opacity: isPercentageType(value) ? serializePercentage(value) : value
 })
 

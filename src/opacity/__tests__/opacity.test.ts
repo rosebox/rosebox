@@ -16,3 +16,11 @@ test('opacity(Percentage)', () => {
   }
   expect(received).toEqual(expected)
 })
+
+test('opacity(initial)', () => {
+  const received = opacity('initial')
+  const expected = {
+    opacity: 'initial'
+  }
+  expect(received).toEqual(expected)
+})
