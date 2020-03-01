@@ -1,9 +1,10 @@
 import {
   borderTopLeftRadius,
   borderTopRightRadius,
-  borderBottomRightRadius
+  borderBottomRightRadius,
+  borderBottomLeftRadius
 } from '../index'
-import { px } from '../../shared/value-constructors'
+import { px, per } from '../../shared/value-constructors'
 
 test('borderTopRightRadius(Length<px>)', () => {
   const received = borderTopRightRadius(px(10))
@@ -17,8 +18,14 @@ test('borderBottomRightRadius(Length<px>)', () => {
   expect(received).toEqual(expected)
 })
 
+test('borderBottomLeftRadius(Length<px>)', () => {
+  const received = borderBottomLeftRadius([px(10), per(10)])
+  const expected = { borderBottomLeftRadius: '10px 10%' }
+  expect(received).toEqual(expected)
+})
+
 test('borderTopLeftRadius(Length<px>)', () => {
-  const received = borderTopLeftRadius(px(10))
+  const received = borderTopLeftRadius([px(10)])
   const expected = { borderTopLeftRadius: '10px' }
   expect(received).toEqual(expected)
 })

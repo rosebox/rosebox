@@ -49,6 +49,20 @@ export const borderBottomRightRadius = (
 })
 
 /**
+ * Creates a declaration object for the **`border-bottom-left-radius`** property.
+ * @category Declaration function
+ * @formalSyntax <line-width>
+ * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
+ */
+export const borderBottomLeftRadius = (
+  value: BorderCornerRadius | GlobalCssKeyword
+): { borderBottomLeftRadius: string } => ({
+  borderBottomLeftRadius: isGlobalCssKeyword(value)
+    ? value
+    : serializeBorderColor(value)
+})
+
+/**
  * Creates a declaration object for the **`border-top-left-radius`** property.
  * @category Declaration function
  * @formalSyntax <line-width>
