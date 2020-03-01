@@ -1,6 +1,6 @@
 import { textDecorationLine } from '../index'
 
-test('textAlign(match-parent)', () => {
+test('textDecorationLine(line-through blink overline underline')', () => {
   const received = textDecorationLine('line-through blink overline underline')
   const expected = {
     textDecorationLine: 'line-through blink overline underline'
