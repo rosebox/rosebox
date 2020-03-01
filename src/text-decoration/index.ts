@@ -1,4 +1,5 @@
-import { GlobalCssKeyword } from '../shared/types'
+import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
+import { Color, serializeColor } from '../color/internal'
 
 type SingleValue = 'none' | 'underline' | 'overline' | 'line-through' | 'blink'
 
@@ -80,4 +81,16 @@ export const textDecorationLine = (
   value: TextDecorationLine | GlobalCssKeyword
 ): { textDecorationLine: string } => ({
   textDecorationLine: value
+})
+
+/**
+ * Creates a declaration object for the **`text-decoration-color`** property.
+ * @category Declaration function
+ * @formalSyntax <color>
+ * @implentationReference https://www.w3.org/TR/css-text-decor-3/#text-decoration-color-property
+ */
+export const textDecorationColor = (
+  value: Color | GlobalCssKeyword
+): { textDecorationColor: string } => ({
+  textDecorationColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
 })
