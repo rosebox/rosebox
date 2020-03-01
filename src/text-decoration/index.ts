@@ -87,10 +87,22 @@ export const textDecorationLine = (
  * Creates a declaration object for the **`text-decoration-color`** property.
  * @category Declaration function
  * @formalSyntax <color>
- * @implentationReference https://www.w3.org/TR/css-text-decor-3/#text-decoration-color-property
+ * @implentationReference https://www.w3.org/TR/2019/CR-css-text-decor-3-20190813/#text-decoration-color-property
  */
 export const textDecorationColor = (
   value: Color | GlobalCssKeyword
 ): { textDecorationColor: string } => ({
   textDecorationColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
+})
+
+/**
+ * Creates a declaration object for the **`text-decoration-style`** property.
+ * @category Declaration function
+ * @formalSyntax solid | double | dotted | dashed | wavy
+ * @implentationReference https://www.w3.org/TR/2019/CR-css-text-decor-3-20190813/#text-decoration-style-property
+ */
+export const textDecorationStyle = (
+  value: 'solid' | 'double' | 'dotted' | 'dashed' | 'wavy' | 'GlobalCssKeyword'
+): { textDecorationStyle: string } => ({
+  textDecorationStyle: value
 })

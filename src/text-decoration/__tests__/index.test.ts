@@ -1,4 +1,8 @@
-import { textDecorationLine, textDecorationColor } from '../index'
+import {
+  textDecorationLine,
+  textDecorationColor,
+  textDecorationStyle
+} from '../index'
 import { rgb } from '../../color/internal'
 
 test('textDecorationLine(line-through blink overline underline)', () => {
@@ -13,6 +17,14 @@ test('textDecorationColor(RGB)', () => {
   const received = textDecorationColor(rgb([255, 255, 255]))
   const expected = {
     textDecorationColor: 'rgb(255, 255, 255)'
+  }
+  expect(received).toEqual(expected)
+})
+
+test('textDecorationStyle(solid)', () => {
+  const received = textDecorationStyle('solid')
+  const expected = {
+    textDecorationStyle: 'solid'
   }
   expect(received).toEqual(expected)
 })
