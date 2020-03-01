@@ -32,3 +32,17 @@ export const borderTopLeftRadius = (
     ? value
     : serializeBorderColor(value)
 })
+
+/**
+ * Creates a declaration object for the **`border-top-right-radius`** property.
+ * @category Declaration function
+ * @formalSyntax <line-width>
+ * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
+ */
+export const borderTopRightRadius = (
+  value: BorderCornerRadius | GlobalCssKeyword
+): { borderTopRightRadius: string } => ({
+  borderTopRightRadius: isGlobalCssKeyword(value)
+    ? value
+    : serializeBorderColor(value)
+})
