@@ -68,7 +68,7 @@ const serializeBorderStyle = (value: BorderStyle): string =>
 /**
  * Creates a declaration object for the **`border-width`** property.
  * @category Declaration function
- * @formalSyntax <line-width>{1,4}
+ * @formalSyntax <line-style>{1,4}
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
  */
 export const borderStyle = (
