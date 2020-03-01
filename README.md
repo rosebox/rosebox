@@ -25,3 +25,9 @@ Using npm:
 ```shell
 npm i rosebox
 ```
+
+## Status of future releases
+
+To check the estimated release date or the status of the next major or minor version, all you need to do is to check the **projects** section.
+
+![Screenshot of the repository's project section](./project-section-github.png?raw=true)

@@ -315,7 +315,7 @@ export interface HSLA {
  *
  * A type that maps to CSS's **`<hex-color>`**.
  * @added 0.1.0
- * @note Currently this type is just a wrapper around the **`<string>`** type, and is not safe, consider using other color types if you need type-safe colors.
+ * @note Currently this type is just a wrapper around the **`string`** type, and is not safe, consider using other color types if you need type-safe colors.
  */
 export interface HEX {
   __tag: 'HEX'
