@@ -45,6 +45,42 @@ const serializeBorderSide = (value: BorderSide) =>
         .trim()
 
 /**
+ * Creates a declaration object for the **`border-top`** property.
+ * @category Declaration function
+ * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
+ * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
+ */
+export const borderTop = (
+  value: BorderSide | GlobalCssKeyword
+): { borderTop: string } => ({
+  borderTop: isGlobalCssKeyword(value) ? value : serializeBorderSide(value)
+})
+
+/**
+ * Creates a declaration object for the **`border-right`** property.
+ * @category Declaration function
+ * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
+ * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
+ */
+export const borderRight = (
+  value: BorderSide | GlobalCssKeyword
+): { borderRight: string } => ({
+  borderRight: isGlobalCssKeyword(value) ? value : serializeBorderSide(value)
+})
+
+/**
+ * Creates a declaration object for the **`border-bottom`** property.
+ * @category Declaration function
+ * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
+ * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
+ */
+export const borderBottom = (
+  value: BorderSide | GlobalCssKeyword
+): { borderBottom: string } => ({
+  borderBottom: isGlobalCssKeyword(value) ? value : serializeBorderSide(value)
+})
+
+/**
  * Creates a declaration object for the **`border-left`** property.
  * @category Declaration function
  * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
