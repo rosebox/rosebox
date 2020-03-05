@@ -91,3 +91,15 @@ export const borderLeft = (
 ): { borderLeft: string } => ({
   borderLeft: isGlobalCssKeyword(value) ? value : serializeBorderSide(value)
 })
+
+/**
+ * Creates a declaration object for the **`border`** property.
+ * @category Declaration function
+ * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
+ * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
+ */
+export const border = (
+  value: BorderSide | GlobalCssKeyword
+): { border: string } => ({
+  border: isGlobalCssKeyword(value) ? value : serializeBorderSide(value)
+})
