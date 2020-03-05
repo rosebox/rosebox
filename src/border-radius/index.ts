@@ -75,3 +75,42 @@ export const borderTopLeftRadius = (
     ? value
     : serializeBorderColor(value)
 })
+
+type RadiusTuple =
+  | [LengthPercentage]
+  | [LengthPercentage, LengthPercentage]
+  | [LengthPercentage, LengthPercentage, LengthPercentage]
+  | [LengthPercentage, LengthPercentage, LengthPercentage, LengthPercentage]
+
+type OneRadius = LengthPercentage | RadiusTuple
+
+type TwoRadius = [RadiusTuple, RadiusTuple]
+
+const serializRadiusTuple = (value: RadiusTuple): string =>
+  (value as LengthPercentage[])
+    .reduce((acc: any, item) => acc + ' ' + serializeLengthPercentage(item), '')
+    .trim()
+
+const serializeTwoRadius = (value: TwoRadius): string =>
+  (value as RadiusTuple[])
+    .reduce(
+      (acc: any, item, idx: number) =>
+        idx === value.length - 1
+          ? acc + serializRadiusTuple(item)
+          : acc + serializRadiusTuple(item) + ' / ',
+      ''
+    )
+    .trim()
+
+const serializeBorderRadius = (value: OneRadius | TwoRadius) =>
+  !Array.isArray(value)
+    ? serializeLengthPercentage(value)
+    : !Array.isArray(value[0])
+    ? serializRadiusTuple(value as RadiusTuple)
+    : serializeTwoRadius(value as TwoRadius)
+
+export const borderRadius = (
+  value: OneRadius | TwoRadius | GlobalCssKeyword
+): { borderRadius: string } => ({
+  borderRadius: isGlobalCssKeyword(value) ? value : serializeBorderRadius(value)
+})

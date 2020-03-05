@@ -2,7 +2,8 @@ import {
   borderTopLeftRadius,
   borderTopRightRadius,
   borderBottomRightRadius,
-  borderBottomLeftRadius
+  borderBottomLeftRadius,
+  borderRadius
 } from '../index'
 import { px, per } from '../../shared/value-constructors'
 
@@ -27,5 +28,38 @@ test('borderBottomLeftRadius(Length<px>)', () => {
 test('borderTopLeftRadius(Length<px>)', () => {
   const received = borderTopLeftRadius([px(10)])
   const expected = { borderTopLeftRadius: '10px' }
+  expect(received).toEqual(expected)
+})
+
+test('borderRadius(LengthPercentage)', () => {
+  const received = borderRadius(px(10))
+  const expected = { borderRadius: '10px' }
+  expect(received).toEqual(expected)
+})
+
+test('borderRadius([LengthPercentage])', () => {
+  const received = borderRadius([px(10)])
+  const expected = { borderRadius: '10px' }
+  expect(received).toEqual(expected)
+})
+
+test('borderRadius([LengthPercentage, LengthPercentage])', () => {
+  const received = borderRadius([px(10), per(100)])
+  const expected = { borderRadius: '10px 100%' }
+  expect(received).toEqual(expected)
+})
+
+test('borderRadius([[LengthPercentage, LengthPercentage], [LengthPercentage, LengthPercentage]])', () => {
+  const received = borderRadius([
+    [px(10), per(100)],
+    [px(10), per(100)]
+  ])
+  const expected = { borderRadius: '10px 100% / 10px 100%' }
+  expect(received).toEqual(expected)
+})
+
+test('borderRadius(GlobalCssKeyword)', () => {
+  const received = borderRadius('inherit')
+  const expected = { borderRadius: 'inherit' }
   expect(received).toEqual(expected)
 })
