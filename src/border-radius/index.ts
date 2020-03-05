@@ -109,6 +109,12 @@ const serializeBorderRadius = (value: OneRadius | TwoRadius) =>
     ? serializRadiusTuple(value as RadiusTuple)
     : serializeTwoRadius(value as TwoRadius)
 
+/**
+ * Creates a declaration object for the **`border-radius`** property.
+ * @category Declaration function
+ * @formalSyntax	<length-percentage>{1,4} [ / <length-percentage>{1,4} ]?
+ * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
+ */
 export const borderRadius = (
   value: OneRadius | TwoRadius | GlobalCssKeyword
 ): { borderRadius: string } => ({
