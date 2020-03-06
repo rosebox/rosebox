@@ -48,6 +48,7 @@ type TextTransform = SingleValueSyntax | TwoValuesSyntax | ThreeValuesSyntax
  * Creates a declaration object for the **`textTransform`** shorthand property.
  * @category Declaration function
  * @formalSyntax none | [capitalize | uppercase | lowercase ] || full-width || full-size-kana
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-text-3/#propdef-text-transform
  */
 

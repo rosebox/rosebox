@@ -11,6 +11,7 @@ export type BorderSideWidth = LineWidth
  * Creates a declaration object for the **`border-top-width`** property.
  * @category Declaration function
  * @formalSyntax <line-width>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
  */
 export const borderTopWidth = (
@@ -23,6 +24,7 @@ export const borderTopWidth = (
  * Creates a declaration object for the **`border-right-width`** property.
  * @category Declaration function
  * @formalSyntax <line-width>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
  */
 export const borderRightWidth = (
@@ -37,6 +39,7 @@ export const borderRightWidth = (
  * Creates a declaration object for the **`border-bottom-width`** property.
  * @category Declaration function
  * @formalSyntax <line-width>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
  */
 export const borderBottomWidth = (
@@ -51,6 +54,7 @@ export const borderBottomWidth = (
  * Creates a declaration object for the **`border-left-width`** property.
  * @category Declaration function
  * @formalSyntax <line-width>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
  */
 export const borderLeftWidth = (
@@ -76,6 +80,7 @@ const serializeBorderWidth = (value: BorderWidth): string =>
  * Creates a declaration object for the **`border-width`** property.
  * @category Declaration function
  * @formalSyntax <line-width>{1,4}
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
  */
 export const borderWidth = (

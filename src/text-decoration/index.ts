@@ -75,6 +75,7 @@ type TextDecorationLine = SingleValue | TwoValues | ThreeValues | FourValues
  * Creates a declaration object for the **`text-decoration-line`** property.
  * @category Declaration function
  * @formalSyntax none | [ underline || overline || line-through || blink ]
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/2019/CR-css-text-decor-3-20190813/#propdef-text-decoration-line
  */
 export const textDecorationLine = (
@@ -87,6 +88,7 @@ export const textDecorationLine = (
  * Creates a declaration object for the **`text-decoration-color`** property.
  * @category Declaration function
  * @formalSyntax <color>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/2019/CR-css-text-decor-3-20190813/#text-decoration-color-property
  */
 export const textDecorationColor = (
@@ -107,6 +109,7 @@ type TextDecorationStyle =
  * Creates a declaration object for the **`text-decoration-style`** property.
  * @category Declaration function
  * @formalSyntax solid | double | dotted | dashed | wavy
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/2019/CR-css-text-decor-3-20190813/#text-decoration-style-property
  */
 export const textDecorationStyle = (
@@ -159,6 +162,7 @@ const serializeShorthandleValue = (value: TextDecoration): string =>
  * Creates a declaration object for the **`text-decoration`** property.
  * @category Declaration function
  * @formalSyntax solid | double | dotted | dashed | wavy
+ * @added 0.1.5
  * @implentationReference '<text-decoration-line'> || <'text-decoration-style'> || <'text-decoration-color'>
  */
 export const textDecoration = (

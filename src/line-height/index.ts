@@ -12,6 +12,7 @@ import { serializeLength, serializePercentage } from '../shared/serializers'
  * Creates a declaration object for the **`line-height`** property.
  * @category Declaration function
  * @formalSyntax normal | <number> | <length> | <percentage> | inherit
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-line-height
  */
 export const lineHeight = (

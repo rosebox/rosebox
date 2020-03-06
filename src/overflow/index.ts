@@ -6,6 +6,7 @@ type OverflowKeyword = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto'
  * Creates a declaration object for the **`overflow-x`** property.
  * @category Declaration function
  * @formalSyntax visible | hidden | clip | scroll | auto
+ * @added 0.1.5
  * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
  */
 export const overflowX = (
@@ -18,6 +19,7 @@ export const overflowX = (
  * Creates a declaration object for the **`overflow-y`** property.
  * @category Declaration function
  * @formalSyntax visible | hidden | clip | scroll | auto
+ * @added 0.1.5
  * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
  */
 export const overflowY = (
@@ -41,6 +43,7 @@ const serializeOverFlow = (value: Overflow): string =>
  * Creates a declaration object for the **`overflow`** property.
  * @category Declaration function
  * @formalSyntax [ visible | hidden | clip | scroll | auto ]{1,2}
+ * @added 0.1.5
  * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
  */
 export const overflow = (
