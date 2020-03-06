@@ -24,6 +24,7 @@ const serializeBorderColor = (value: BorderCornerRadius): string =>
  * Creates a declaration object for the **`border-top-right-radius`** property.
  * @category Declaration function
  * @formalSyntax <length-percentage>{1,2}
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
  */
 export const borderTopRightRadius = (
@@ -38,6 +39,7 @@ export const borderTopRightRadius = (
  * Creates a declaration object for the **`border-bottom-right-radius`** property.
  * @category Declaration function
  * @formalSyntax <length-percentage>{1,2}
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
  */
 export const borderBottomRightRadius = (
@@ -52,6 +54,7 @@ export const borderBottomRightRadius = (
  * Creates a declaration object for the **`border-bottom-left-radius`** property.
  * @category Declaration function
  * @formalSyntax <length-percentage>{1,2}
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
  */
 export const borderBottomLeftRadius = (
@@ -66,6 +69,7 @@ export const borderBottomLeftRadius = (
  * Creates a declaration object for the **`border-top-left-radius`** property.
  * @category Declaration function
  * @formalSyntax	<length-percentage>{1,2}
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
  */
 export const borderTopLeftRadius = (
@@ -113,6 +117,7 @@ const serializeBorderRadius = (value: OneRadius | TwoRadius) =>
  * Creates a declaration object for the **`border-radius`** property.
  * @category Declaration function
  * @formalSyntax	<length-percentage>{1,4} [ / <length-percentage>{1,4} ]?
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
  */
 export const borderRadius = (

@@ -48,6 +48,7 @@ const serializeBorderSide = (value: BorderSide) =>
  * Creates a declaration object for the **`border-top`** property.
  * @category Declaration function
  * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
  */
 export const borderTop = (
@@ -60,6 +61,7 @@ export const borderTop = (
  * Creates a declaration object for the **`border-right`** property.
  * @category Declaration function
  * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
  */
 export const borderRight = (
@@ -72,6 +74,7 @@ export const borderRight = (
  * Creates a declaration object for the **`border-bottom`** property.
  * @category Declaration function
  * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
  */
 export const borderBottom = (
@@ -84,6 +87,7 @@ export const borderBottom = (
  * Creates a declaration object for the **`border-left`** property.
  * @category Declaration function
  * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
  */
 export const borderLeft = (
@@ -96,6 +100,7 @@ export const borderLeft = (
  * Creates a declaration object for the **`border`** property.
  * @category Declaration function
  * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
  */
 export const border = (

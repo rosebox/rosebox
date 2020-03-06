@@ -5,6 +5,7 @@ import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
  * Creates a declaration object for the **`border-top-color`** property.
  * @category Declaration function
  * @formalSyntax <color>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
  */
 export const borderTopColor = (
@@ -17,6 +18,7 @@ export const borderTopColor = (
  * Creates a declaration object for the **`border-right-color`** property.
  * @category Declaration function
  * @formalSyntax <color>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
  */
 export const borderRightColor = (
@@ -29,6 +31,7 @@ export const borderRightColor = (
  * Creates a declaration object for the **`border-bottom-color`** property.
  * @category Declaration function
  * @formalSyntax <color>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
  */
 export const borderBottomColor = (
@@ -41,6 +44,7 @@ export const borderBottomColor = (
  * Creates a declaration object for the **`border-left-color`** property.
  * @category Declaration function
  * @formalSyntax <color>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
  */
 export const borderLeftColor = (
@@ -67,6 +71,7 @@ const serializeBorderColor = (value: BorderColor): string =>
  * Creates a declaration object for the **`border-color`** property.
  * @category Declaration function
  * @formalSyntax <color>{1,4}
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
  */
 export const borderColor = (

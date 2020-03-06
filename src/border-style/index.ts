@@ -8,6 +8,7 @@ import {
  * Creates a declaration object for the **`border-top-style`** property.
  * @category Declaration function
  * @formalSyntax <line-style>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
  */
 export const borderTopStyle = (
@@ -20,6 +21,7 @@ export const borderTopStyle = (
  * Creates a declaration object for the **`border-right-style`** property.
  * @category Declaration function
  * @formalSyntax <line-style>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
  */
 export const borderRightStyle = (
@@ -32,6 +34,7 @@ export const borderRightStyle = (
  * Creates a declaration object for the **`border-bottom-style`** property.
  * @category Declaration function
  * @formalSyntax <line-style>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
  */
 export const borderBottomStyle = (
@@ -44,6 +47,7 @@ export const borderBottomStyle = (
  * Creates a declaration object for the **`border-left-style`** property.
  * @category Declaration function
  * @formalSyntax <line-style>
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
  */
 export const borderLeftStyle = (
@@ -69,6 +73,7 @@ const serializeBorderStyle = (value: BorderStyle): string =>
  * Creates a declaration object for the **`border-width`** property.
  * @category Declaration function
  * @formalSyntax <line-style>{1,4}
+ * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
  */
 export const borderStyle = (
