@@ -23,5 +23,10 @@ export * from './shared/value-constructors'
 export const merge = (obj1: object, obj2: object): object =>
   Object.assign({}, obj1, obj2)
 
+/**
+ * Merges several declaration objects into a single object of type React.CSSProperties
+ * @category Utility function
+ * @added 0.1.4
+ */
 export const style = (x: CSSProperties[]): CSSProperties =>
   x.reduce((acc, val) => merge(acc, val), {}) as CSSProperties
