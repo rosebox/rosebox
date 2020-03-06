@@ -148,6 +148,7 @@ export type DisplayValue =
  * Creates a declaration object for the **`display`** property.
  * @category Declaration function
  * @formalSyntax [ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy>
+ * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/css-display-3/#propdef-display
  */
 export const display = (value: DisplayValue | GlobalCssKeyword) => ({

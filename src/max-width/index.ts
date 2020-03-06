@@ -21,6 +21,7 @@ const serializeMaxWidth = (value: MaxWidth): string =>
  * Creates a declaration object for the **`margin-width`** property.
  * @category Declaration function
  * @formalSyntax <length> | <percentage> | none
+ * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-widths
  */
 export const maxWidth = (value: MaxWidth | GlobalCssKeyword) => ({

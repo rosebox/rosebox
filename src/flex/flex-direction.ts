@@ -10,6 +10,7 @@ export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse'
  * Creates a declaration object for the **`flex-direction`** property.
  * @category Declaration function
  * @formalSyntax row | row-reverse | column | column-reverse
+ * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/css-flexbox-1/#propdef-flex-direction
  */
 export const flexDirection = (value: FlexDirection | GlobalCssKeyword) => ({

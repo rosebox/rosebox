@@ -3,6 +3,7 @@ import { serializePercentage } from '../shared/serializers'
 
 /**
  * @typeTag IntRange
+ * @added 0.1.4
  */
 export type RGBInteger =
   | 0
@@ -274,7 +275,7 @@ type HSLAInput = [number, Percentage, Percentage, number]
 /**
  *
  * A type that maps to CSS's **`<rgb()>`**
- * @added 0.1.0
+ * @added 0.1.4
  */
 export interface RGB {
   __tag: 'RGB'
@@ -284,7 +285,7 @@ export interface RGB {
 /**
  *
  * A type that maps to CSS's **`<rgba()>`**.
- * @added 0.1.0
+ * @added 0.1.4
  */
 export interface RGBA {
   __tag: 'RGBA'
@@ -294,7 +295,7 @@ export interface RGBA {
 /**
  *
  * A type that maps to CSS's **`<hsl()>`**.
- * @added 0.1.0
+ * @added 0.1.4
  */
 export interface HSL {
   __tag: 'HSL'
@@ -314,7 +315,7 @@ export interface HSLA {
 /**
  *
  * A type that maps to CSS's **`<hex-color>`**.
- * @added 0.1.0
+ * @added 0.1.4
  * @note Currently this type is just a wrapper around the **`string`** type, and is not safe, consider using other color types if you need type-safe colors.
  */
 export interface HEX {
@@ -325,7 +326,7 @@ export interface HEX {
 /**
  * Constructs a value of type **`HEX`**.
  * @category Value constructor
- * @added 0.1.0
+ * @added 0.1.4
  */
 export const hex = (value: string): HEX => ({
   __tag: 'HEX',
@@ -335,7 +336,7 @@ export const hex = (value: string): HEX => ({
 /**
  * Constructs a value of type **`RGB`**.
  * @category Value constructor
- * @added 0.1.0
+ * @added 0.1.4
  */
 export const rgb = (
   value:
@@ -349,7 +350,7 @@ export const rgb = (
 /**
  * Constructs a value of type **`RGBA`**.
  * @category Value constructor
- * @added 0.1.0
+ * @added 0.1.4
  */
 export const rgba = (
   value:
@@ -360,7 +361,7 @@ export const rgba = (
 /**
  * Constructs a value of type **`HSL`**.
  * @category Value constructor
- * @added 0.1.0
+ * @added 0.1.4
  */
 export const hsl = (value: [number, Percentage, Percentage]): HSL => ({
   __tag: 'HSL',
@@ -370,7 +371,7 @@ export const hsl = (value: [number, Percentage, Percentage]): HSL => ({
 /**
  * Constructs a value of type **`HSLA`**.
  * @category Value constructor
- * @added 0.1.0
+ * @added 0.1.4
  */
 export const hsla = (
   value: [number, Percentage, Percentage, number]
@@ -616,6 +617,7 @@ export const isColor = (value: any): value is Color =>
  * Creates a declaration object for the **`color`** property.
  * @category Declaration function
  * @formalSyntax <color>
+ * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/2018/REC-css-color-3-20180619/#color0
  */
 export const color = (value: Color | GlobalCssKeyword): { color: string } => ({

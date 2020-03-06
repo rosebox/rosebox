@@ -10,6 +10,7 @@ import { serializeLengthPercentage } from '../shared/serializers'
  * Creates a declaration object for the **`top`** property.
  * @category Declaration function
  * @formalSyntax auto | <length> | <percentage>
+ * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
  */
 export const top = (
@@ -27,6 +28,7 @@ export const top = (
  * Creates a declaration object for the **`right`** property.
  * @category Declaration functionn
  * @formalSyntax auto | <length> | <percentage>
+ * @added 0.1.4
  * @implementationReference  https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
  */
 export const right = (
@@ -44,6 +46,7 @@ export const right = (
  * Creates a declaration object for the **`bottom`** property.
  * @category Declaration function
  * @formalSyntax auto | <length> | <percentage>
+ * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
  */
 export const bottom = (
@@ -61,6 +64,7 @@ export const bottom = (
  * Creates a declaration object for the **`left`** property.
  * @category Declaration functionn
  * @formalSyntax auto | <length> | <percentage>
+ * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
  */
 export const left = (

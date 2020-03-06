@@ -21,6 +21,7 @@ const serializeAtomicValue = (
  * Creates a declaration object for the `padding-top` property
  * @category Declaration function
  * @formalSyntax <length-percentage>
+ * @added 0.1.4
  * @implentationReference https://www.w3.org/TR/css-box-3/#padding-physical
  */
 export const paddingTop = (
@@ -33,6 +34,7 @@ export const paddingTop = (
  * Creates a declaration object for the `padding-right` property
  * @category Declaration function
  * @formalSyntax <length-percentage>
+ * @added 0.1.4
  * @implentationReference https://www.w3.org/TR/css-box-3/#padding-physical
  */
 export const paddingRight = (
@@ -45,6 +47,7 @@ export const paddingRight = (
  * Creates a declaration object for the `padding-bottom` property
  * @category Declaration function
  * @formalSyntax <length-percentage>
+ * @added 0.1.4
  * @implentationReference https://www.w3.org/TR/css-box-3/#padding-physical
  */
 export const paddingBottom = (
@@ -57,6 +60,7 @@ export const paddingBottom = (
  * Creates a declaration object for the `padding-left` property
  * @category Declaration function
  * @formalSyntax <length-percentage>
+ * @added 0.1.4
  * @implentationReference https://www.w3.org/TR/css-box-3/#padding-physical
  */
 export const paddingLeft = (
@@ -93,6 +97,7 @@ const serializeShorthandleValue = (value: PaddingShorthandValue): string =>
  * Creates a declaration object for the **`padding`** shorthand property.
  * @category Declaration function
  * @formalSyntax <padding-top’>{1,4}
+ * @added 0.1.4
  * @implentationReference https://www.w3.org/TR/css-box-3/#padding-shorthand
  */
 export const padding = (

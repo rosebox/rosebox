@@ -5,6 +5,7 @@ import { serializePercentage } from '../shared/serializers'
  * Creates a declaration object for the **`opacity`** property.
  * @category Declaration function
  * @formalSyntax <number> | <percentage>
+ * @added 0.1.4
  * @implementationReference https://drafts.csswg.org/css-color-4/#typedef-alpha-value
  */
 export const opacity = (value: number | Percentage | GlobalCssKeyword) => ({

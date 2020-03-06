@@ -53,6 +53,7 @@ const serializeThreeValuesSyntax = (value: FlexThreeValues) => {
  * Creates a declaration object for the **`flex`** shorthand property.
  * @category Declaration function
  * @formalSyntax none | [ <‘flex-grow’> <‘flex-shrink’>? || <‘flex-basis’> ]
+ * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/css-flexbox-1/#flex-property
  */
 export const flex = (value: Flex | GlobalCssKeyword) => ({

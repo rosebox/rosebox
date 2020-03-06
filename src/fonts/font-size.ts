@@ -22,6 +22,7 @@ type AbsoluteSizeKeyword =
  * Creates a declaration object for the **`font-size`** property.
  * @category Declaration function
  * @formalSyntax <absolute-size> | <relative-size> | <length-percentage>
+ * @added 0.1.4
  * @implentationReference https://www.w3.org/TR/css-fonts-4/#font-size-prop
  */
 export const fontSize = (

@@ -23,6 +23,7 @@ const serializeAtomicValue = (
  * Creates a declaration object for the **`margin-top`** property.
  * @category Declaration function
  * @formalSyntax <length-percentage> | auto
+ * @added 0.1.4
  * @implentationReference https://www.w3.org/TR/css-box-3/#margin-physical
  */
 export const marginTop = (
@@ -35,6 +36,7 @@ export const marginTop = (
  * Creates a declaration object for the **`margin-right`** property.
  * @category Declaration function
  * @formalSyntax <length-percentage> | auto
+ * @added 0.1.4
  * @implentationReference https://www.w3.org/TR/css-box-3/#margin-physical
  */
 export const marginRight = (
@@ -46,6 +48,7 @@ export const marginRight = (
  * Creates a declaration object for the **`margin-bottom`** property.
  * @category Declaration function
  * @formalSyntax <length-percentage> | auto
+ * @added 0.1.4
  * @implentationReference https://www.w3.org/TR/css-box-3/#margin-physical
  */
 export const marginBottom = (
@@ -58,6 +61,7 @@ export const marginBottom = (
  * Creates a declaration object for the **`margin-left`** property.
  * @category Declaration function
  * @formalSyntax <length-percentage> | auto
+ * @added 0.1.4
  * @implentationReference https://www.w3.org/TR/css-box-3/#margin-physical
  */
 export const marginLeft = (
@@ -97,6 +101,7 @@ const serializeShorthandleValue = (value: MarginShorthand): string =>
  * Creates a declaration object for the **`margin`** shorthand property.
  * @category Declaration function
  * @formalSyntax <‘margin-top’>{1,4}
+ * @added 0.1.4
  * @implentationReference https://www.w3.org/TR/css-box-3/#margin-shorthand
  */
 export const margin = (

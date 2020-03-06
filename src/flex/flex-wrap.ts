@@ -4,6 +4,7 @@ import { GlobalCssKeyword } from '../shared/types'
  * Creates a declaration object for the **`flex-wrap`** property.
  * @category Declaration function
  * @formalSyntax nowrap | wrap | wrap-reverse
+ * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/css-flexbox-1/#flex-wrap-property
  */
 
