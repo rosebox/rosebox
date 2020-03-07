@@ -161,9 +161,9 @@ const serializeShorthandleValue = (value: TextDecoration): string =>
 /**
  * Creates a declaration object for the **`text-decoration`** property.
  * @category Declaration function
- * @formalSyntax solid | double | dotted | dashed | wavy
+ * @formalSyntax '<text-decoration-line'> || <'text-decoration-style'> || <'text-decoration-color'>
  * @added 0.1.5
- * @implentationReference '<text-decoration-line'> || <'text-decoration-style'> || <'text-decoration-color'>
+ * @implentationReference https://www.w3.org/TR/2019/CR-css-text-decor-3-20190813/#text-decoration-property
  */
 export const textDecoration = (
   value: TextDecoration | GlobalCssKeyword
