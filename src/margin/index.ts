@@ -24,7 +24,7 @@ const serializeAtomicValue = (
  * @category Declaration function
  * @formalSyntax <length-percentage> | auto
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-box-3/#margin-physical
+ * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
  */
 export const marginTop = (
   value: Length | Percentage | 'auto' | GlobalCssKeyword
@@ -37,7 +37,7 @@ export const marginTop = (
  * @category Declaration function
  * @formalSyntax <length-percentage> | auto
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-box-3/#margin-physical
+ * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
  */
 export const marginRight = (
   value: Length | Percentage | 'auto' | GlobalCssKeyword
@@ -49,7 +49,7 @@ export const marginRight = (
  * @category Declaration function
  * @formalSyntax <length-percentage> | auto
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-box-3/#margin-physical
+ * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
  */
 export const marginBottom = (
   value: Length | Percentage | 'auto' | GlobalCssKeyword
@@ -62,7 +62,7 @@ export const marginBottom = (
  * @category Declaration function
  * @formalSyntax <length-percentage> | auto
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-box-3/#margin-physical
+ * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
  */
 export const marginLeft = (
   value: Length | Percentage | 'auto' | GlobalCssKeyword
@@ -102,7 +102,7 @@ const serializeShorthandleValue = (value: MarginShorthand): string =>
  * @category Declaration function
  * @formalSyntax <‘margin-top’>{1,4}
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-box-3/#margin-shorthand
+ * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
  */
 export const margin = (
   value: MarginShorthand | GlobalCssKeyword
