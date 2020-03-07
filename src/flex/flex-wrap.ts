@@ -5,7 +5,7 @@ import { GlobalCssKeyword } from '../shared/types'
  * @category Declaration function
  * @formalSyntax nowrap | wrap | wrap-reverse
  * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/css-flexbox-1/#flex-wrap-property
+ * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-wrap-property
  */
 
 export const flexWrap = (
