@@ -1,6 +1,6 @@
 import { GlobalCssKeyword } from '../shared/types'
 
-type SingleValueSyntax =
+type OneValue =
   | 'none'
   | 'capitalize'
   | 'uppercase'
@@ -8,7 +8,7 @@ type SingleValueSyntax =
   | 'full-width'
   | 'full-size-kana '
 
-type TwoValuesSyntax =
+type TwoValues =
   | 'capitalize full-width'
   | 'full-width capitalize'
   | 'uppercase full-width'
@@ -22,7 +22,7 @@ type TwoValuesSyntax =
   | 'lowercase full-size-kana'
   | 'full-size-kana lowercase'
 
-type ThreeValuesSyntax =
+type ThreeValues =
   | 'capitalize full-width full-size-kana'
   | 'capitalize full-size-kana full-width'
   | 'full-size-kana capitalize full-width'
@@ -42,7 +42,7 @@ type ThreeValuesSyntax =
   | 'full-width full-size-kana lowercase'
   | 'full-width lowercase full-size-kana'
 
-type TextTransform = SingleValueSyntax | TwoValuesSyntax | ThreeValuesSyntax
+type TextTransform = OneValue | TwoValues | ThreeValues
 
 /**
  * Creates a declaration object for the **`textTransform`** shorthand property.
