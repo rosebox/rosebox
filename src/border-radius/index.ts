@@ -25,7 +25,7 @@ const serializeBorderColor = (value: BorderCornerRadius): string =>
  * @category Declaration function
  * @formalSyntax <length-percentage>{1,2}
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
  */
 export const borderTopRightRadius = (
   value: BorderCornerRadius | GlobalCssKeyword
@@ -40,7 +40,7 @@ export const borderTopRightRadius = (
  * @category Declaration function
  * @formalSyntax <length-percentage>{1,2}
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
  */
 export const borderBottomRightRadius = (
   value: BorderCornerRadius | GlobalCssKeyword
@@ -55,7 +55,7 @@ export const borderBottomRightRadius = (
  * @category Declaration function
  * @formalSyntax <length-percentage>{1,2}
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
  */
 export const borderBottomLeftRadius = (
   value: BorderCornerRadius | GlobalCssKeyword
@@ -70,7 +70,7 @@ export const borderBottomLeftRadius = (
  * @category Declaration function
  * @formalSyntax	<length-percentage>{1,2}
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
  */
 export const borderTopLeftRadius = (
   value: BorderCornerRadius | GlobalCssKeyword
@@ -118,7 +118,7 @@ const serializeBorderRadius = (value: OneRadius | TwoRadius) =>
  * @category Declaration function
  * @formalSyntax	<length-percentage>{1,4} [ / <length-percentage>{1,4} ]?
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-radius
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
  */
 export const borderRadius = (
   value: OneRadius | TwoRadius | GlobalCssKeyword
