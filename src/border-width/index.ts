@@ -5,8 +5,6 @@ import {
 } from '../shared/types'
 import { serializeLineWidth } from '../shared/serializers'
 
-export type BorderSideWidth = LineWidth
-
 /**
  * Creates a declaration object for the **`border-top-width`** property.
  * @category Declaration function
@@ -15,7 +13,7 @@ export type BorderSideWidth = LineWidth
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
  */
 export const borderTopWidth = (
-  value: BorderSideWidth | GlobalCssKeyword
+  value: LineWidth | GlobalCssKeyword
 ): { borderTopWidth: string } => ({
   borderTopWidth: isGlobalCssKeyword(value) ? value : serializeLineWidth(value)
 })
@@ -28,7 +26,7 @@ export const borderTopWidth = (
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
  */
 export const borderRightWidth = (
-  value: BorderSideWidth | GlobalCssKeyword
+  value: LineWidth | GlobalCssKeyword
 ): { borderRightWidth: string } => ({
   borderRightWidth: isGlobalCssKeyword(value)
     ? value
@@ -43,7 +41,7 @@ export const borderRightWidth = (
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
  */
 export const borderBottomWidth = (
-  value: BorderSideWidth | GlobalCssKeyword
+  value: LineWidth | GlobalCssKeyword
 ): { borderBottomWidth: string } => ({
   borderBottomWidth: isGlobalCssKeyword(value)
     ? value
@@ -58,17 +56,17 @@ export const borderBottomWidth = (
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
  */
 export const borderLeftWidth = (
-  value: BorderSideWidth | GlobalCssKeyword
+  value: LineWidth | GlobalCssKeyword
 ): { borderLeftWidth: string } => ({
   borderLeftWidth: isGlobalCssKeyword(value) ? value : serializeLineWidth(value)
 })
 
 type BorderWidth =
-  | BorderSideWidth
-  | [BorderSideWidth]
-  | [BorderSideWidth, BorderSideWidth]
-  | [BorderSideWidth, BorderSideWidth, BorderSideWidth]
-  | [BorderSideWidth, BorderSideWidth, BorderSideWidth, BorderSideWidth]
+  | LineWidth
+  | [LineWidth]
+  | [LineWidth, LineWidth]
+  | [LineWidth, LineWidth, LineWidth]
+  | [LineWidth, LineWidth, LineWidth, LineWidth]
 
 const serializeBorderWidth = (value: BorderWidth): string =>
   !Array.isArray(value)
