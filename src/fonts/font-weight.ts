@@ -20,7 +20,7 @@ type FontWeight =
  * @category Declaration function
  * @formalSyntax normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-fonts-3/#propdef-font-weight
+ * @implentationReference https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/#font-weight-prop
  */
 export const fontWeight = (
   value: FontWeight | GlobalCssKeyword
