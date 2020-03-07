@@ -6,7 +6,7 @@ Rosebox is a typescript library that provides a declarative, functional experien
 
 ![a glimpse of RoseBox](https://j.gifs.com/WLlLzJ.gif)
 
-## Why RoseBox ?
+## Why RoseBox
 
 - Support for autocompletion
 - Includes types that map to CSS's types
