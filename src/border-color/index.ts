@@ -6,7 +6,7 @@ import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
  * @category Declaration function
  * @formalSyntax <color>
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
+ * @implentationReference hhttps://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
  */
 export const borderTopColor = (
   value: Color | GlobalCssKeyword
@@ -19,7 +19,7 @@ export const borderTopColor = (
  * @category Declaration function
  * @formalSyntax <color>
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
  */
 export const borderRightColor = (
   value: Color | GlobalCssKeyword
@@ -32,7 +32,7 @@ export const borderRightColor = (
  * @category Declaration function
  * @formalSyntax <color>
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
  */
 export const borderBottomColor = (
   value: Color | GlobalCssKeyword
@@ -45,7 +45,7 @@ export const borderBottomColor = (
  * @category Declaration function
  * @formalSyntax <color>
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
  */
 export const borderLeftColor = (
   value: Color | GlobalCssKeyword
@@ -72,7 +72,7 @@ const serializeBorderColor = (value: BorderColor): string =>
  * @category Declaration function
  * @formalSyntax <color>{1,4}
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-color
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
  */
 export const borderColor = (
   value: BorderColor | GlobalCssKeyword
