@@ -149,7 +149,7 @@ export type DisplayValue =
  * @category Declaration function
  * @formalSyntax [ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy>
  * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/css-display-3/#propdef-display
+ * @implementationReference https://www.w3.org/TR/2019/CR-css-display-3-20190711/
  */
 export const display = (value: DisplayValue | GlobalCssKeyword) => ({
   display: value
