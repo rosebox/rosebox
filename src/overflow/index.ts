@@ -57,7 +57,7 @@ type OneOverflowKeyword = OverflowKeyword
  * @category Declaration function
  * @formalSyntax [ visible | hidden | clip | scroll | auto ]{1,2}
  * @added 0.1.5
- * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
+ * @implementationReference https://www.w3.org/TR/2018/WD-css-overflow-3-20180731/#overflow-properties
  */
 export const overflow = (
   value: OneOverflowKeyword | TwoOverflowKeywords | GlobalCssKeyword
