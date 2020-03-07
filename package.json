@@ -2,7 +2,7 @@
   "name": "rosebox",
   "version": "0.1.5",
   "private": false,
-  "description": "Rosebox is a typescript library that provides a declarative, functional experience for styling your components.",
+  "description": "Rosebox is a typescript library that provides a declarative, functional experience for styling your React components.",
   "main": "es5/index.js",
   "module": "lib/index.js",
   "files": [
@@ -31,12 +31,14 @@
     "Typed CSS"
   ],
   "license": "MIT",
+  "dependencies": {
+    "@types/react": "^16.9.21"
+  },
   "devDependencies": {
     "@types/jest": "^24.9.1",
     "@types/node": "^13.7.0",
     "jest": "^24.9.0",
     "ts-jest": "^24.3.0",
-    "typescript": "^3.7.5",
-    "@types/react": "^16.9.21"
+    "typescript": "^3.7.5"
   }
 }
