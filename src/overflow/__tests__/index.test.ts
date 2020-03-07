@@ -17,7 +17,7 @@ test('overflowY(auto)', () => {
 })
 
 test('overflow(auto)', () => {
-  const received = overflow(['auto', 'hidden'])
+  const received = overflow('auto hidden')
   const expected = {
     overflow: 'auto hidden'
   }
@@ -25,7 +25,7 @@ test('overflow(auto)', () => {
 })
 
 test('overflow(auto)', () => {
-  const received = overflow(['auto'])
+  const received = overflow('auto')
   const expected = {
     overflow: 'auto'
   }
