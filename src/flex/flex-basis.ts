@@ -25,7 +25,7 @@ export const serializeFlexBasis = (value: FlexBasis): string =>
  * @category Declaration function
  * @formalSyntax content | <‘width’>
  * @added 0.1.4
- * @imlementationReference https://www.w3.org/TR/css-flexbox-1/#propdef-flex-basis
+ * @imlementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-basis-property
  */
 export const basis = (value: FlexBasis | GlobalCssKeyword) => ({
   flexBasis: isGlobalCssKeyword(value)
