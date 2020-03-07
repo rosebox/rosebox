@@ -22,7 +22,7 @@ const serializeAtomicValue = (
  * @category Declaration function
  * @formalSyntax <length-percentage>
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-box-3/#padding-physical
+ * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
  */
 export const paddingTop = (
   value: Length | Percentage | GlobalCssKeyword
@@ -35,7 +35,7 @@ export const paddingTop = (
  * @category Declaration function
  * @formalSyntax <length-percentage>
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-box-3/#padding-physical
+ * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
  */
 export const paddingRight = (
   value: Length | Percentage | GlobalCssKeyword
@@ -48,7 +48,7 @@ export const paddingRight = (
  * @category Declaration function
  * @formalSyntax <length-percentage>
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-box-3/#padding-physical
+ * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
  */
 export const paddingBottom = (
   value: Length | Percentage | GlobalCssKeyword
@@ -61,7 +61,7 @@ export const paddingBottom = (
  * @category Declaration function
  * @formalSyntax <length-percentage>
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-box-3/#padding-physical
+ * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
  */
 export const paddingLeft = (
   value: Length | Percentage | GlobalCssKeyword
@@ -98,7 +98,7 @@ const serializeShorthandleValue = (value: PaddingShorthandValue): string =>
  * @category Declaration function
  * @formalSyntax <padding-top’>{1,4}
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-box-3/#padding-shorthand
+ * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
  */
 export const padding = (
   value: PaddingShorthandValue | GlobalCssKeyword
