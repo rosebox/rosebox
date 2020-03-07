@@ -23,7 +23,7 @@ type AbsoluteSizeKeyword =
  * @category Declaration function
  * @formalSyntax <absolute-size> | <relative-size> | <length-percentage>
  * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/css-fonts-4/#font-size-prop
+ * @implentationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-size-prop
  */
 export const fontSize = (
   value:
