@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
 import { Color, serializeColor, isColor } from '../color/internal'
 
-type SingleValue = 'none' | 'underline' | 'overline' | 'line-through' | 'blink'
+type OneValue = 'none' | 'underline' | 'overline' | 'line-through' | 'blink'
 
 type TwoValues =
   | 'underline overline'
@@ -69,7 +69,7 @@ type FourValues =
   | 'blink line-through underline overline'
   | 'blink line-through overline underline'
 
-type TextDecorationLine = SingleValue | TwoValues | ThreeValues | FourValues
+type TextDecorationLine = OneValue | TwoValues | ThreeValues | FourValues
 
 /**
  * Creates a declaration object for the **`text-decoration-line`** property.
