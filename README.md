@@ -12,11 +12,11 @@ Rosebox is a typescript library that provides a declarative, functional experien
 - Includes types that map to CSS's types
 - Provides better abstractions and a more declarative system than CSS.
 - Functions, functions, functions...everywhere.
-- A detailed [API-reference](https://www.rosebox.dev/0.1.5/) where you can hover/click on types inside type signatures to inspect types.
+- A detailed [API-reference](https://www.rosebox.dev/) where you can hover/click on types inside type signatures to inspect types.
 
 ## Docs
 
-[Docs](https://www.rosebox.dev/0.1.5/)
+[Docs](https://www.rosebox.dev/)
 
 ## Installation
 
