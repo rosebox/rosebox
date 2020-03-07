@@ -40,3 +40,4 @@
 - The "textAlign" declaration function
 - The "letterSpacing" declaration function
 - The "lineHeight" declaration function
+- The "visibility" declaration function
