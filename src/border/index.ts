@@ -10,7 +10,7 @@ import { serializeLength } from '../shared/serializers'
 
 type AtomicValue = Color | LineStyle | LineWidth
 
-type SingleValue = AtomicValue | [Color] | [LineStyle] | [LineWidth]
+type OneValue = AtomicValue | [Color] | [LineStyle] | [LineWidth]
 
 type TwoValues =
   | [Color, LineStyle]
@@ -28,7 +28,7 @@ type ThreeValues =
   | [LineWidth, Color, LineStyle]
   | [LineWidth, LineStyle, Color]
 
-type BorderSide = SingleValue | TwoValues | ThreeValues
+type BorderSide = OneValue | TwoValues | ThreeValues
 
 const serializeAtomicValue = (value: AtomicValue) =>
   isColor(value)
