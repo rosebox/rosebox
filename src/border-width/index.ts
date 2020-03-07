@@ -10,7 +10,7 @@ import { serializeLineWidth } from '../shared/serializers'
  * @category Declaration function
  * @formalSyntax <line-width>
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
  */
 export const borderTopWidth = (
   value: LineWidth | GlobalCssKeyword
@@ -23,7 +23,7 @@ export const borderTopWidth = (
  * @category Declaration function
  * @formalSyntax <line-width>
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
  */
 export const borderRightWidth = (
   value: LineWidth | GlobalCssKeyword
@@ -38,7 +38,7 @@ export const borderRightWidth = (
  * @category Declaration function
  * @formalSyntax <line-width>
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
  */
 export const borderBottomWidth = (
   value: LineWidth | GlobalCssKeyword
@@ -53,7 +53,7 @@ export const borderBottomWidth = (
  * @category Declaration function
  * @formalSyntax <line-width>
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
  */
 export const borderLeftWidth = (
   value: LineWidth | GlobalCssKeyword
@@ -79,7 +79,7 @@ const serializeBorderWidth = (value: BorderWidth): string =>
  * @category Declaration function
  * @formalSyntax <line-width>{1,4}
  * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-width
+ * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
  */
 export const borderWidth = (
   value: BorderWidth | GlobalCssKeyword
