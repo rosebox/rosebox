@@ -31,9 +31,7 @@ type TwoOverflowKeywords =
  * @added 0.1.5
  * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
  */
-export const overflowX = (
-  value: OverflowKeyword | GlobalCssKeyword
-): { overflowX: string } => ({
+export const overflowX = (value: OverflowKeyword | GlobalCssKeyword) => ({
   overflowX: value
 })
 
@@ -44,9 +42,7 @@ export const overflowX = (
  * @added 0.1.5
  * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
  */
-export const overflowY = (
-  value: OverflowKeyword | GlobalCssKeyword
-): { overflowY: string } => ({
+export const overflowY = (value: OverflowKeyword | GlobalCssKeyword) => ({
   overflowY: value
 })
 
@@ -61,6 +57,6 @@ type OneOverflowKeyword = OverflowKeyword
  */
 export const overflow = (
   value: OneOverflowKeyword | TwoOverflowKeywords | GlobalCssKeyword
-): { overflow: string } => ({
+) => ({
   overflow: value
 })

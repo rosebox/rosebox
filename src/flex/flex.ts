@@ -56,7 +56,7 @@ const serializeThreeValuesSyntax = (value: FlexThreeValues) => {
  * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/css-flexbox-1/#flex-property
  */
-export const flex = (value: Flex | GlobalCssKeyword) => ({
+export const flex = (value: Flex | GlobalCssKeyword): { flex: string } => ({
   flex: isGlobalCssKeyword(value)
     ? value
     : isOneValueSyntax(value)

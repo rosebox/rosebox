@@ -18,6 +18,6 @@ export const textAlign = (
     | 'match-parent'
     | 'justify-all'
     | GlobalCssKeyword
-): { textAlign: string } => ({
+) => ({
   textAlign: value
 })
