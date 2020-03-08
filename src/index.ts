@@ -43,21 +43,28 @@ type RoseBoxCssProperties_ = ReturnType<typeof display> &
   ReturnType<typeof textAlign> &
   ReturnType<typeof textTransform>
 
-type RoseBoxCssProperties = Partial<
+type RoseBoxCssPropertiesPartial = Partial<
   Omit<React.CSSProperties, keyof RoseBoxCssProperties_> & RoseBoxCssProperties_
 >
+
+interface RoseBoxCssProperties extends RoseBoxCssPropertiesPartial {}
 
 export const merge = (obj1: object, obj2: object): object =>
   Object.assign({}, obj1, obj2)
 
 /**
- * Merges several declaration objects into a single object of type React.CSSProperties
+ * Merges one or several **`RoseBoxCssProperties`** objects into a single **`React.CSSProperties`** style object
  * @category Utility function
  * @added 0.1.4
+ * @updated 0.1.9
  */
 export const style = (x: RoseBoxCssProperties[]): CSSProperties =>
   x.reduce((acc, val) => merge(acc, val), {}) as CSSProperties
 
-export const style2 = (
-  x: (RoseBoxCssProperties | CSSProperties)[]
-): CSSProperties => x.reduce((acc, val) => merge(acc, val), {}) as CSSProperties
+/**
+ * Merges one or several **`RoseBoxCssProperties`** objects into a single **`RoseBoxCssProperties`** object. Used mainly to create mixin objects.
+ * @category Utility function
+ * @added 0.1.9
+ */
+export const compose = (x: RoseBoxCssProperties[]): RoseBoxCssProperties =>
+  x.reduce((acc, val) => merge(acc, val), {}) as RoseBoxCssProperties
