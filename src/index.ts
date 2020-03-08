@@ -3,7 +3,6 @@ import { overflowX, overflow, overflowY } from './overflow'
 import { textAlign } from './text-align'
 import { textTransform } from './text-transform'
 import { display } from './display'
-import { zIndex } from './z-index'
 
 export * from './shared/value-constructors'
 export * from './background-color'
@@ -55,7 +54,6 @@ export const merge = (obj1: object, obj2: object): object =>
  * Merges several declaration objects into a single object of type React.CSSProperties
  * @category Utility function
  * @added 0.1.4
- * @updated 0.1.8
  */
 export const style = (x: RoseBoxCssProperties[]): CSSProperties =>
   x.reduce((acc, val) => merge(acc, val), {}) as CSSProperties
