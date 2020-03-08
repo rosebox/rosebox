@@ -2,6 +2,7 @@ import { CSSProperties } from 'react'
 import { overflowX, overflow, overflowY } from './overflow'
 import { textAlign } from './text-align'
 import { textTransform } from './text-transform'
+import { display } from './display'
 
 export * from './shared/value-constructors'
 export * from './background-color'
@@ -35,21 +36,18 @@ export * from './text-decoration'
 export * from './text-transform'
 export * from './z-index'
 
-type Diff<T extends keyof any, U extends keyof any> = ({ [P in T]: P } &
-  { [P in U]: never } & { [x: string]: never })[T]
-
-type Overwrite<T, U> = Pick<T, Diff<keyof T, keyof U>> & U
-
-type RoseBoxCssProperties_ = Partial<
+type RoseBoxCssProperties_ = ReturnType<typeof display> &
   ReturnType<typeof overflowX> &
-    ReturnType<typeof overflowY> &
-    ReturnType<typeof overflow> &
-    ReturnType<typeof textAlign> &
-    ReturnType<typeof textTransform>
->
+  ReturnType<typeof overflowY> &
+  ReturnType<typeof overflow> &
+  ReturnType<typeof textAlign> &
+  ReturnType<typeof textTransform>
 
-interface RoseBoxCssProperties
-  extends Overwrite<React.CSSProperties, RoseBoxCssProperties_> {}
+type RoseBoxCssProperties = Omit<
+  React.CSSProperties,
+  keyof RoseBoxCssProperties_
+> &
+  RoseBoxCssProperties_
 
 export const merge = (obj1: object, obj2: object): object =>
   Object.assign({}, obj1, obj2)
@@ -58,6 +56,11 @@ export const merge = (obj1: object, obj2: object): object =>
  * Merges several declaration objects into a single object of type React.CSSProperties
  * @category Utility function
  * @added 0.1.4
+ * @updated 0.1.8
  */
 export const style = (x: RoseBoxCssProperties[]): CSSProperties =>
   x.reduce((acc, val) => merge(acc, val), {}) as CSSProperties
+
+export const style2 = (
+  x: (RoseBoxCssProperties | CSSProperties)[]
+): CSSProperties => x.reduce((acc, val) => merge(acc, val), {}) as CSSProperties
