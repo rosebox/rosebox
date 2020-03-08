@@ -13,7 +13,7 @@ import {
  */
 export const borderTopStyle = (
   value: LineStyle | GlobalCssKeyword
-): { borderTopStyle: string } => ({
+): { borderTopStyle: LineStyle | GlobalCssKeyword } => ({
   borderTopStyle: value
 })
 
@@ -26,7 +26,7 @@ export const borderTopStyle = (
  */
 export const borderRightStyle = (
   value: LineStyle | GlobalCssKeyword
-): { borderRightStyle: string } => ({
+): { borderRightStyle: LineStyle | GlobalCssKeyword } => ({
   borderRightStyle: value
 })
 
@@ -39,7 +39,7 @@ export const borderRightStyle = (
  */
 export const borderBottomStyle = (
   value: LineStyle | GlobalCssKeyword
-): { borderBottomStyle: string } => ({
+): { borderBottomStyle: LineStyle | GlobalCssKeyword } => ({
   borderBottomStyle: value
 })
 
@@ -52,7 +52,7 @@ export const borderBottomStyle = (
  */
 export const borderLeftStyle = (
   value: LineStyle | GlobalCssKeyword
-): { borderLeftStyle: string } => ({
+): { borderLeftStyle: LineStyle | GlobalCssKeyword } => ({
   borderLeftStyle: value
 })
 
@@ -69,6 +69,7 @@ const serializeBorderStyle = (value: BorderStyle): string =>
     : (value as LineStyle[])
         .reduce((acc: any, item) => acc + ' ' + item, '')
         .trim()
+
 /**
  * Creates a declaration object for the **`border-width`** property.
  * @category Declaration function
