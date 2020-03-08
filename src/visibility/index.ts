@@ -10,7 +10,7 @@ import { GlobalCssKeyword } from '../shared/types'
 
 export const visibility = (
   value: 'visible' | 'hidden' | 'collapse' | GlobalCssKeyword
-): { visibility: string } => ({
+) => ({
   visibility: value
 })
 
