@@ -1,5 +1,10 @@
 # Chagngelog
 
+## [0.1.8] - 2020-03-08
+
+- Update the type signature for 'style'.
+- Add 'style2'.
+
 ## [0.1.5] - 2020-03-07
 
 ### Added
