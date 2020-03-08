@@ -52,8 +52,6 @@ type TextTransform = OneValue | TwoValues | ThreeValues
  * @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-transform-property
  */
 
-export const textTransform = (
-  value: TextTransform | GlobalCssKeyword
-): { textTransform: string } => ({
+export const textTransform = (value: TextTransform | GlobalCssKeyword) => ({
   textTransform: value
 })
