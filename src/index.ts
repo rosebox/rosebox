@@ -3,6 +3,7 @@ import { overflowX, overflow, overflowY } from './overflow'
 import { textAlign } from './text-align'
 import { textTransform } from './text-transform'
 import { display } from './display'
+import { zIndex } from './z-index'
 
 export * from './shared/value-constructors'
 export * from './background-color'
@@ -43,11 +44,9 @@ type RoseBoxCssProperties_ = ReturnType<typeof display> &
   ReturnType<typeof textAlign> &
   ReturnType<typeof textTransform>
 
-type RoseBoxCssProperties = Omit<
-  React.CSSProperties,
-  keyof RoseBoxCssProperties_
-> &
-  RoseBoxCssProperties_
+type RoseBoxCssProperties = Partial<
+  Omit<React.CSSProperties, keyof RoseBoxCssProperties_> & RoseBoxCssProperties_
+>
 
 export const merge = (obj1: object, obj2: object): object =>
   Object.assign({}, obj1, obj2)
