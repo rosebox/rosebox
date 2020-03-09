@@ -47,22 +47,27 @@ type RoseBoxCssPropertiesPartial = Partial<
   Omit<React.CSSProperties, keyof RoseBoxCssProperties_> & RoseBoxCssProperties_
 >
 
+/**
+ *
+ * **`RoseBoxCssProperties`**
+ * @added 0.1.9
+ */
 interface RoseBoxCssProperties extends RoseBoxCssPropertiesPartial {}
 
 export const merge = (obj1: object, obj2: object): object =>
   Object.assign({}, obj1, obj2)
 
 /**
- * Merges one or several **`RoseBoxCssProperties`** objects into a single **`React.CSSProperties`** style object
+ * A Type assertion function that tells the compiler to consider a style object of type **`RoseBoxCssProperties`** as a **`React.CSSProperties`** style object.
  * @category Utility function
  * @added 0.1.4
- * @updated 0.1.9
+ * @updated 0.1.91
  */
-export const style = (x: RoseBoxCssProperties[]): CSSProperties =>
-  x.reduce((acc, val) => merge(acc, val), {}) as CSSProperties
+export const style = (x: RoseBoxCssProperties): CSSProperties =>
+  x as CSSProperties
 
 /**
- * Merges one or several **`RoseBoxCssProperties`** objects into a single **`RoseBoxCssProperties`** object. Used mainly to create mixin objects.
+ * Merges an array of **`RoseBoxCssProperties`** objects into a single **`RoseBoxCssProperties`** object.
  * @category Utility function
  * @added 0.1.9
  */
