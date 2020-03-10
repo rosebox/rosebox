@@ -1,9 +1,8 @@
-![a glimpse of RoseBox](./logo.jpg)
+<img height="300" style="margin-left: auto; margin-right:auto; display: block" alt="portfolio_view" src="./logo.jpg">
 
 # Rosebox
 
 Rosebox is a typescript library that provides a declarative, functional experience for styling your components.
-
 
 ## Here's a little taste
 
