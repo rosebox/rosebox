@@ -1,4 +1,6 @@
+<p align="center">
 <img height="300" style="margin-left: auto; margin-right:auto; display: block" alt="portfolio_view" src="./logo.jpg">
+</p>
 
 # Rosebox
 
