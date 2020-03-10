@@ -54,6 +54,8 @@ type RoseBoxCssPropertiesPartial = Partial<
  */
 interface RoseBoxCssProperties extends RoseBoxCssPropertiesPartial {}
 
+// Unexport
+
 export const merge = (obj1: object, obj2: object): object =>
   Object.assign({}, obj1, obj2)
 

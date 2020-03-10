@@ -2,6 +2,8 @@
 
 Rosebox is a typescript library that provides a declarative, functional experience for styling your components.
 
+![a glimpse of RoseBox](./logo.jpg)
+
 ## Here's a little taste
 
 ![a glimpse of RoseBox](https://j.gifs.com/WLlLzJ.gif)
