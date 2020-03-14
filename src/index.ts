@@ -52,7 +52,7 @@ type RoseBoxCssPropertiesPartial = Partial<
  * **`RoseBoxCssProperties`**
  * @added 0.1.9
  */
-interface RoseBoxCssProperties extends RoseBoxCssPropertiesPartial {}
+export interface RoseBoxCssProperties extends RoseBoxCssPropertiesPartial {}
 
 // Unexport
 
