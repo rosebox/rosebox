@@ -50,15 +50,42 @@ type DisplayInsideOutsideDoubleBar =
   | 'grid run-in'
   | 'ruby run-in'
 
-export const dsBlock = { display: 'block' }
-export const dsInline = { display: 'inline' }
-export const dsRunIn = { display: 'run-in' }
-export const dsFlow = { display: 'flow' }
-export const dsFlowRoot = { display: 'flow-root' }
-export const table = { display: 'table' }
-export const dsFlex = { display: 'flex' }
-export const dsGrid = { display: 'grid' }
-export const dsRuby = { display: 'ruby' }
+/**
+ * @experimental
+ */
+export const dsBlock = { display: 'block' } as const
+/**
+ * @experimental
+ */
+export const dsInline = { display: 'inline' } as const
+/**
+ * @experimental
+ */
+export const dsRunIn = { display: 'run-in' } as const
+/**
+ * @experimental
+ */
+export const dsFlow = { display: 'flow' } as const
+/**
+ * @experimental
+ */
+export const dsFlowRoot = { display: 'flow-root' } as const
+/**
+ * @experimental
+ */
+export const table = { display: 'table' } as const
+/**
+ * @experimental
+ */
+export const dsFlex = { display: 'flex' } as const
+/**
+ * @experimental
+ */
+export const dsGrid = { display: 'grid' } as const
+/**
+ * @experimental
+ */
+export const dsRuby = { display: 'ruby' } as const
 
 /**
  * @skip
@@ -112,7 +139,10 @@ type DisplayListItem =
   | 'flow-root run-in list-item'
   | 'flow-root list-item run-in'
 
-export const dsListItem = { display: 'list-item' }
+/**
+ * @experimental
+ */
+export const dsListItem = { display: 'list-item' } as const
 
 /**
  * @skip
@@ -136,8 +166,14 @@ type DisplayInternal =
  */
 type DisplayBox = 'contents' | 'none'
 
-export const dsContents = { display: 'contents' }
-export const dsNone = { display: 'none' }
+/**
+ * @experimental
+ */
+export const dsContents = { display: 'contents' } as const
+/**
+ * @experimental
+ */
+export const dsNone = { display: 'none' } as const
 
 /**
  * @skip
@@ -148,10 +184,22 @@ type DisplayLegacy =
   | 'inline-flex'
   | 'inline-grid'
 
-export const dsInlineBlock = { display: 'inline-block' }
-export const dsInlineTable = { display: 'inline-table' }
-export const dsInlineFlex = { display: 'inline-flex' }
-export const dsInlineGrid = { display: 'inline-grid' }
+/**
+ * @experimental
+ */
+export const dsInlineBlock = { display: 'inline-block' } as const
+/**
+ * @experimental
+ */
+export const dsInlineTable = { display: 'inline-table' } as const
+/**
+ * @experimental
+ */
+export const dsInlineFlex = { display: 'inline-flex' } as const
+/**
+ * @experimental
+ */
+export const dsInlineGrid = { display: 'inline-grid' } as const
 
 /**
  * Formal syntax:
