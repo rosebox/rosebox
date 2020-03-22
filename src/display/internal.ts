@@ -50,6 +50,16 @@ type DisplayInsideOutsideDoubleBar =
   | 'grid run-in'
   | 'ruby run-in'
 
+export const dsBlock = { display: 'block' }
+export const dsInline = { display: 'inline' }
+export const dsRunIn = { display: 'run-in' }
+export const dsFlow = { display: 'flow' }
+export const dsFlowRoot = { display: 'flow-root' }
+export const table = { display: 'table' }
+export const dsFlex = { display: 'flex' }
+export const dsGrid = { display: 'grid' }
+export const dsRuby = { display: 'ruby' }
+
 /**
  * @skip
  */
@@ -102,6 +112,8 @@ type DisplayListItem =
   | 'flow-root run-in list-item'
   | 'flow-root list-item run-in'
 
+export const dsListItem = { display: 'list-item' }
+
 /**
  * @skip
  */
@@ -124,6 +136,9 @@ type DisplayInternal =
  */
 type DisplayBox = 'contents' | 'none'
 
+export const dsContents = { display: 'contents' }
+export const dsNone = { display: 'none' }
+
 /**
  * @skip
  */
@@ -132,6 +147,11 @@ type DisplayLegacy =
   | 'inline-table'
   | 'inline-flex'
   | 'inline-grid'
+
+export const dsInlineBlock = { display: 'inline-block' }
+export const dsInlineTable = { display: 'inline-table' }
+export const dsInlineFlex = { display: 'inline-flex' }
+export const dsInlineGrid = { display: 'inline-grid' }
 
 /**
  * Formal syntax:
