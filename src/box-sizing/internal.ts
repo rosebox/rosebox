@@ -6,6 +6,16 @@ import { GlobalCssKeyword } from '../shared/types'
 type BoxSizing = 'content-box' | 'border-box'
 
 /**
+ * @experimental
+ */
+export const boxContent = { display: 'content-box' } as const
+
+/**
+ * @experimental
+ */
+export const boxBorder = { display: 'border-box' } as const
+
+/**
  * Creates a declaration object for the **`box-sizing`** property.
  * @category Declaration function
  * @formalSyntax content-box | border-box

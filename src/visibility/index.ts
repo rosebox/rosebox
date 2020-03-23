@@ -14,6 +14,6 @@ export const visibility = (
   visibility: value
 })
 
-export const visible = { visibility: 'visible' }
-export const hidden = { visibility: 'hidden' }
-export const collapse = { visibility: 'collapse' }
+export const visVisible = { visibility: 'visible' }
+export const visHidden = { visibility: 'hidden' }
+export const visCollapse = { visibility: 'collapse' }
