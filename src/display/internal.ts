@@ -53,39 +53,39 @@ type DisplayInsideOutsideDoubleBar =
 /**
  * @experimental
  */
-export const dsBlock = { display: 'block' } as const
+export const disBlock = { display: 'block' } as const
 /**
  * @experimental
  */
-export const dsInline = { display: 'inline' } as const
+export const disInline = { display: 'inline' } as const
 /**
  * @experimental
  */
-export const dsRunIn = { display: 'run-in' } as const
+export const disRunIn = { display: 'run-in' } as const
 /**
  * @experimental
  */
-export const dsFlow = { display: 'flow' } as const
+export const disFlow = { display: 'flow' } as const
 /**
  * @experimental
  */
-export const dsFlowRoot = { display: 'flow-root' } as const
+export const disFlowRoot = { display: 'flow-root' } as const
 /**
  * @experimental
  */
-export const table = { display: 'table' } as const
+export const disTable = { display: 'table' } as const
 /**
  * @experimental
  */
-export const dsFlex = { display: 'flex' } as const
+export const disFlex = { display: 'flex' } as const
 /**
  * @experimental
  */
-export const dsGrid = { display: 'grid' } as const
+export const disGrid = { display: 'grid' } as const
 /**
  * @experimental
  */
-export const dsRuby = { display: 'ruby' } as const
+export const disRuby = { display: 'ruby' } as const
 
 /**
  * @skip
@@ -142,7 +142,7 @@ type DisplayListItem =
 /**
  * @experimental
  */
-export const dsListItem = { display: 'list-item' } as const
+export const disListItem = { display: 'list-item' } as const
 
 /**
  * @skip
@@ -162,6 +162,61 @@ type DisplayInternal =
   | 'ruby-text-container'
 
 /**
+ * @experimental
+ */
+export const disTableRowGroup = { display: 'table-row-group' } as const
+/**
+ * @experimental
+ */
+export const disTableHeaderGroup = { display: 'table-header-group' } as const
+/**
+ * @experimental
+ */
+export const disTableFooterGroup = { display: 'table-footer-group' } as const
+/**
+ * @experimental
+ */
+export const disTableRow = { display: 'table-row' } as const
+/**
+ * @experimental
+ */
+export const disTableCell = { display: 'table-cell' } as const
+/**
+ * @experimental
+ */
+export const disTableColumnGroup = { display: 'table-column-group' } as const
+
+/**
+ * @experimental
+ */
+export const disTableColumn = { display: 'table-column' } as const
+
+/**
+ * @experimental
+ */
+export const disTableCaption = { display: 'table-caption' } as const
+
+/**
+ * @experimental
+ */
+export const disRubyBase = { display: 'ruby-base' } as const
+
+/**
+ * @experimental
+ */
+export const disRubyText = { display: 'ruby-text' } as const
+
+/**
+ * @experimental
+ */
+export const disRubyBaseContainer = { display: 'ruby-base-container' } as const
+
+/**
+ * @experimental
+ */
+export const disRubyTextContainer = { display: 'ruby-text-container' } as const
+
+/**
  * @skip
  */
 type DisplayBox = 'contents' | 'none'
@@ -169,11 +224,11 @@ type DisplayBox = 'contents' | 'none'
 /**
  * @experimental
  */
-export const dsContents = { display: 'contents' } as const
+export const disContents = { display: 'contents' } as const
 /**
  * @experimental
  */
-export const dsNone = { display: 'none' } as const
+export const disNone = { display: 'none' } as const
 
 /**
  * @skip
@@ -187,19 +242,19 @@ type DisplayLegacy =
 /**
  * @experimental
  */
-export const dsInlineBlock = { display: 'inline-block' } as const
+export const disInlineBlock = { display: 'inline-block' } as const
 /**
  * @experimental
  */
-export const dsInlineTable = { display: 'inline-table' } as const
+export const disInlineTable = { display: 'inline-table' } as const
 /**
  * @experimental
  */
-export const dsInlineFlex = { display: 'inline-flex' } as const
+export const disInlineFlex = { display: 'inline-flex' } as const
 /**
  * @experimental
  */
-export const dsInlineGrid = { display: 'inline-grid' } as const
+export const disInlineGrid = { display: 'inline-grid' } as const
 
 /**
  * Formal syntax:
