@@ -35,6 +35,7 @@ export * from './text-align'
 export * from './text-decoration'
 export * from './text-transform'
 export * from './z-index'
+export * from './cursor'
 
 type RoseBoxCssProperties_ = ReturnType<typeof display> &
   ReturnType<typeof overflowX> &
