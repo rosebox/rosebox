@@ -35,6 +35,8 @@ export * from './text-align'
 export * from './text-decoration'
 export * from './text-transform'
 export * from './z-index'
+export * from './cursor'
+export * from './font-family'
 
 type RoseBoxCssProperties_ = ReturnType<typeof display> &
   ReturnType<typeof overflowX> &
@@ -55,7 +57,6 @@ type RoseBoxCssPropertiesPartial = Partial<
 export interface RoseBoxCssProperties extends RoseBoxCssPropertiesPartial {}
 
 // Unexport
-
 export const merge = (obj1: object, obj2: object): object =>
   Object.assign({}, obj1, obj2)
 

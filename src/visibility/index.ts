@@ -17,3 +17,4 @@ export const visibility = (
 export const visVisible = { visibility: 'visible' }
 export const visHidden = { visibility: 'hidden' }
 export const visCollapse = { visibility: 'collapse' }
+

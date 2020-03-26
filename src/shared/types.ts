@@ -70,6 +70,16 @@ export type LineStyle =
   | 'inset'
   | 'outset'
 
+/**
+ *
+ * A type that maps to CSS's **`<url>`** type.
+ * @added 0.1.96
+ */
+export interface URL {
+  __tag: 'URL'
+  value: string
+}
+
 /** Type-guard */
 export const isPercentageType = (value: any): value is Percentage =>
   value.__tag === 'Percentage'
