@@ -1,5 +1,4 @@
-import { display, dsBlock, dsInline, dsInlineBlock } from '../internal'
-import { compose } from '../../index'
+import { display } from '../internal'
 
 test('display()', () => {
   const received = display('list-item')
