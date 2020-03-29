@@ -7,18 +7,18 @@ import { createStyleTag, EL_ATTRIBUTE_NAME } from '../dom'
 
 export const useStyle = () => {
   // Set up state
-  const [_ref, setRef] = useState({ current: null })
+  const [ref, setRef] = useState({ current: null })
+  const [elStyleState, setElStyle] = useState<RoseBoxCssProperties>({})
   const [beforeStyleState, setBeforeStyleState] = useState<
     RoseBoxCssProperties
   >()
   const [styleTagId] = useState('rb-' + generateId())
-  const [elStyleState, setElStyle] = useState<RoseBoxCssProperties>({})
 
   const callbackRef = useCallback(
     node => {
       setRef({ current: node })
       if (node !== null && beforeStyleState) {
-        createStyleTag(styleTagId, beforeStyleState)
+        createStyleTag(styleTagId, beforeStyleState, 'before')
       } else {
         document.querySelector(`[data-rosebox-id=${styleTagId}]`)?.remove()
       }
@@ -30,7 +30,7 @@ export const useStyle = () => {
     const styleTag = document.querySelector(`[data-rosebox-id=${styleTagId}]`)
     if (beforeStyleState && styleTag) {
       styleTag?.remove()
-      createStyleTag(styleTagId, beforeStyleState)
+      createStyleTag(styleTagId, beforeStyleState, 'before')
     }
   }, [beforeStyleState, styleTagId])
   const actualStyle = elStyleState
@@ -50,7 +50,7 @@ export const useStyle = () => {
   return {
     styleEl,
     styleBefore,
-    ref: _ref,
+    ref,
     props: {
       [EL_ATTRIBUTE_NAME]: `${styleTagId}`,
       style: style(actualStyle || {}),
