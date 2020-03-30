@@ -35,6 +35,8 @@ export * from './core/text-align'
 export * from './core/text-decoration'
 export * from './core/text-transform'
 export * from './core/z-index'
+export * from './core/font-family'
+export * from './core/cursor'
 export * from './react/hooks'
 
 type RoseBoxCssProperties_ = ReturnType<typeof display> &
