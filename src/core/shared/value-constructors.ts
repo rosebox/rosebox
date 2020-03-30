@@ -1,4 +1,4 @@
-import { Length, Percentage } from './types'
+import { Length, Percentage, URL } from './types'
 
 /**
  * Constructs a value of type **`Percentage`**.
@@ -147,4 +147,14 @@ export const pc = (x: number): Length => ({
 export const pt = (x: number): Length => ({
   __tag: 'Length',
   value: [x, 'pt']
+})
+
+/**
+ * Constructs a value of type `URL`.
+ * @category Value constructor
+ * @added 0.1.96
+ */
+export const url = (x: string): URL => ({
+  __tag: 'URL',
+  value: x
 })
