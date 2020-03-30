@@ -53,7 +53,7 @@ export const useStyle = () => {
     ref,
     props: {
       [EL_ATTRIBUTE_NAME]: `${styleTagId}`,
-      style: style(actualStyle || {}),
+      style: style(actualStyle),
       ref: callbackRef
     }
   }
