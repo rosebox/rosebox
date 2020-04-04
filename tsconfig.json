@@ -12,6 +12,8 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "jsx": "react",
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true
   },
