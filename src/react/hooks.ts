@@ -1,29 +1,26 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, MutableRefObject } from 'react'
 import { isEqual } from 'lodash'
 import { generate as generateId } from 'short-uuid'
 
-import { RoseBoxCssProperties, style } from '..'
+import { RoseBoxCssProperties } from 'rosebox'
 import { createStyleTag, EL_ATTRIBUTE_NAME } from '../dom'
 
-export const useStyle = () => {
-  // Set up state
-  const [ref, setRef] = useState({ current: null })
-  const [elStyleState, setElStyle] = useState<RoseBoxCssProperties>({})
+export const usePseudo = (elRef?: (ref: MutableRefObject<null>) => void) => {
   const [beforeStyleState, setBeforeStyleState] = useState<
     RoseBoxCssProperties
   >()
   const [styleTagId] = useState('rb-' + generateId())
 
   const callbackRef = useCallback(
-    node => {
-      setRef({ current: node })
-      if (node !== null && beforeStyleState) {
+    (node) => {
+      const ref = { current: node }
+      if (elRef) elRef(ref)
+
+      if (node !== null && beforeStyleState)
         createStyleTag(styleTagId, beforeStyleState, 'before')
-      } else {
-        document.querySelector(`[data-rosebox-id=${styleTagId}]`)?.remove()
-      }
+      else document.querySelector(`[data-rosebox-id=${styleTagId}]`)?.remove()
     },
-    [styleTagId, beforeStyleState]
+    [styleTagId, beforeStyleState, elRef]
   )
 
   useEffect(() => {
@@ -33,13 +30,6 @@ export const useStyle = () => {
       createStyleTag(styleTagId, beforeStyleState, 'before')
     }
   }, [beforeStyleState, styleTagId])
-  const actualStyle = elStyleState
-
-  const styleEl = (style: RoseBoxCssProperties) => {
-    if (!isEqual(style, elStyleState)) {
-      setElStyle(style)
-    }
-  }
 
   const styleBefore = (before: RoseBoxCssProperties) => {
     if (!isEqual(before, beforeStyleState)) {
@@ -48,13 +38,10 @@ export const useStyle = () => {
   }
 
   return {
-    styleEl,
     styleBefore,
-    ref,
     props: {
       [EL_ATTRIBUTE_NAME]: `${styleTagId}`,
-      style: style(actualStyle),
-      ref: callbackRef
-    }
+      ref: callbackRef,
+    },
   }
 }
