@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect, MutableRefObject } from 'react'
 import { isEqual } from 'lodash'
 import { generate as generateId } from 'short-uuid'
 
-import { RoseBoxCssProperties } from 'rosebox'
+import { RoseBoxCssProperties } from '..'
 import { createStyleTag, EL_ATTRIBUTE_NAME } from '../dom'
 
 export const usePseudo = (elRef?: (ref: MutableRefObject<null>) => void) => {
