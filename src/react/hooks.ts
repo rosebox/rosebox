@@ -6,6 +6,7 @@ import { RoseBoxCssProperties } from 'rosebox'
 import { createStyleTag, EL_ATTRIBUTE_NAME } from '../dom'
 
 export const usePseudo = (elRef?: (ref: MutableRefObject<null>) => void) => {
+  // Set up state
   const [beforeStyleState, setBeforeStyleState] = useState<
     RoseBoxCssProperties
   >()
@@ -32,7 +33,7 @@ export const usePseudo = (elRef?: (ref: MutableRefObject<null>) => void) => {
   }, [beforeStyleState, styleTagId])
 
   const styleBefore = (before: RoseBoxCssProperties) => {
-    if (!isEqual(before, beforeStyleState)) {
+    if (before !== beforeStyleState && !isEqual(before, beforeStyleState)) {
       setBeforeStyleState(before)
     }
   }
