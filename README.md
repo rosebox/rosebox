@@ -8,10 +8,11 @@ Rosebox is a typescript library for styling React components using functions. It
 
 ## Features
 
-- Support for autocompletion.
-- Type-safety.
-- Models CSS in a familiar FP paradigm.
-- Interactive [type signatures](https://www.rosebox.dev/api-reference) where users can inspect types by clicking or hovering over them .
+- Being written in Typescript, it makes use of Javascript's composition system.
+- Expressive, it helps you model your styles in a simple functional way, UI state -&gt; Style.
+- It's typed which helps VS code and other IDEs to provide its users IntelliSense and auto-completion.
+- Because it's type-safe, it helps a lot with catching typos, which is not uncommon with strings.
+- Provides interactive type signatures in the [API reference](https://www.rosebox.dev/api-reference) section. Just over over a type in the type signature to expand it (if expandable).</li>
 
 ## Docs
 
