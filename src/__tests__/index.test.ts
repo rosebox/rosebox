@@ -8,7 +8,7 @@ import {
 } from '../index'
 import { height } from '../core/height'
 import { px, rem } from '../core/shared/value-constructors'
-import { rgb, hex } from '../core/color'
+import { rgb, hex, hsl } from '../core/color'
 
 test('compose', () => {
   const received = compose([flex(1), width(per(3)), height(per(40))])
@@ -41,6 +41,7 @@ test('__style2__', () => {
     overflow: 'auto hidden',
     position: 'relative',
     visibility: 'collapse',
+    borderColor: hsl([3, per(3), per(3)]),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -63,6 +64,7 @@ test('__style2__', () => {
     overflow: 'auto hidden',
     position: 'relative',
     visibility: 'collapse',
+    borderColor: 'hsl(3, 3%, 3%)',
   }
   expect(received).toEqual(expected)
 })

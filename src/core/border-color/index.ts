@@ -11,7 +11,7 @@ import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
 export const borderTopColor = (
   value: Color | GlobalCssKeyword
 ): { borderTopColor: string } => ({
-  borderTopColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
+  borderTopColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
 
 /**
@@ -24,7 +24,7 @@ export const borderTopColor = (
 export const borderRightColor = (
   value: Color | GlobalCssKeyword
 ): { borderRightColor: string } => ({
-  borderRightColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
+  borderRightColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
 
 /**
@@ -37,7 +37,7 @@ export const borderRightColor = (
 export const borderBottomColor = (
   value: Color | GlobalCssKeyword
 ): { borderBottomColor: string } => ({
-  borderBottomColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
+  borderBottomColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
 
 /**
@@ -50,7 +50,7 @@ export const borderBottomColor = (
 export const borderLeftColor = (
   value: Color | GlobalCssKeyword
 ): { borderLeftColor: string } => ({
-  borderLeftColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
+  borderLeftColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
 
 type BorderColor =
@@ -77,5 +77,9 @@ const serializeBorderColor = (value: BorderColor): string =>
 export const borderColor = (
   value: BorderColor | GlobalCssKeyword
 ): { borderColor: string } => ({
-  borderColor: isGlobalCssKeyword(value) ? value : serializeBorderColor(value)
+  borderColor: isGlobalCssKeyword(value) ? value : serializeBorderColor(value),
 })
+
+export type BorderColorDeclaration = {
+  borderColor: BorderColor | GlobalCssKeyword
+}
