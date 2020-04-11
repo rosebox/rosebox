@@ -4,6 +4,7 @@ import { textAlign } from './core/text-align'
 import { textTransform } from './core/text-transform'
 import { display } from './core/display'
 import { WidthDeclaration, width } from './core/width'
+import { HeightDeclaration, height } from './core/height'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -54,13 +55,15 @@ type RoseBoxCssPropertiesPartial = Partial<
 type __RoseBoxCssProperties__ = Partial<WidthDeclaration>
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
-  return Object.keys(obj).reduce(
-    (acc, key) =>
-      key === 'width'
-        ? Object.assign({}, acc, width((obj as WidthDeclaration)[key]))
-        : acc,
-    {}
-  )
+  return Object.keys(obj).reduce((acc, key) => {
+    if (key === 'width') {
+      return Object.assign({}, acc, width((obj as WidthDeclaration)[key]))
+    }
+    if (key === 'height') {
+      return Object.assign({}, acc, height((obj as HeightDeclaration)[key]))
+    }
+    return {}
+  }, {})
 }
 
 /**

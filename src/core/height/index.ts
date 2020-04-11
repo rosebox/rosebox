@@ -2,7 +2,7 @@ import {
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
-  Width
+  Width,
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
@@ -18,5 +18,9 @@ export const height = (value: Width | GlobalCssKeyword) => ({
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
-    : value
+    : value,
 })
+
+export type HeightDeclaration = {
+  height: Width | GlobalCssKeyword
+}

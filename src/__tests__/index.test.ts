@@ -1,5 +1,6 @@
 import { flex, compose, width, per, __style2__ } from '../index'
 import { height } from '../core/height'
+import { px } from '../core/shared/value-constructors'
 
 test('compose', () => {
   const received = compose([flex(1), width(per(3)), height(per(40))])
@@ -14,10 +15,12 @@ test('compose', () => {
 test('__style2__', () => {
   const widthStyle = {
     width: per(3),
+    height: px(100),
   }
   const received = __style2__(widthStyle)
   const expected = {
     width: '3%',
+    height: '100px',
   }
   expect(received).toEqual(expected)
 })
