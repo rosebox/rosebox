@@ -3,6 +3,7 @@ import { overflowX, overflow, overflowY } from './core/overflow'
 import { textAlign } from './core/text-align'
 import { textTransform } from './core/text-transform'
 import { display } from './core/display'
+import { WidthDeclaration, width } from './core/width'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -49,6 +50,18 @@ type RoseBoxCssProperties_ = ReturnType<typeof display> &
 type RoseBoxCssPropertiesPartial = Partial<
   Omit<React.CSSProperties, keyof RoseBoxCssProperties_> & RoseBoxCssProperties_
 >
+
+type __RoseBoxCssProperties__ = Partial<WidthDeclaration>
+
+export const __style2__ = (obj: __RoseBoxCssProperties__) => {
+  return Object.keys(obj).reduce(
+    (acc, key) =>
+      key === 'width'
+        ? Object.assign({}, acc, width((obj as WidthDeclaration)[key]))
+        : acc,
+    {}
+  )
+}
 
 /**
  *

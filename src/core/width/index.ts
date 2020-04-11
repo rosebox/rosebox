@@ -9,5 +9,9 @@ import { serializeWidth } from '../shared/serializers'
  * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-width
  */
 export const width = (value: Width | GlobalCssKeyword) => ({
-  width: isGlobalCssKeyword(value) ? value : serializeWidth(value)
+  width: isGlobalCssKeyword(value) ? value : serializeWidth(value),
 })
+
+export type WidthDeclaration = {
+  width: Width | GlobalCssKeyword
+}
