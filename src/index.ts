@@ -17,6 +17,8 @@ import {
   left,
 } from './core/box-offsets/internal'
 import { BoxSizingDeclaration, boxSizing } from './core/box-sizing/internal'
+import { color } from './core/color'
+import { ColorDeclaration } from './core/color/internal'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -68,6 +70,7 @@ export type __RoseBoxCssProperties__ = Partial<
   WidthDeclaration &
     HeightDeclaration &
     BgColorDeclaration &
+    ColorDeclaration &
     TopDeclaration &
     RightDeclaration &
     BottomDeclaration &
@@ -104,6 +107,9 @@ export const __style2__ = (obj: __RoseBoxCssProperties__) => {
         acc,
         boxSizing((obj as BoxSizingDeclaration)[key])
       )
+    }
+    if (key === 'color') {
+      return Object.assign({}, acc, color((obj as ColorDeclaration)[key]))
     }
     return {}
   }, {})

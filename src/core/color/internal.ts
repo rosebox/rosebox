@@ -330,7 +330,7 @@ export interface HEX {
  */
 export const hex = (value: string): HEX => ({
   __tag: 'HEX',
-  value
+  value,
 })
 
 /**
@@ -344,7 +344,7 @@ export const rgb = (
     | [Percentage, Percentage, Percentage]
 ): RGB => ({
   __tag: 'RGB',
-  value
+  value,
 })
 
 /**
@@ -365,7 +365,7 @@ export const rgba = (
  */
 export const hsl = (value: [number, Percentage, Percentage]): HSL => ({
   __tag: 'HSL',
-  value
+  value,
 })
 
 /**
@@ -377,7 +377,7 @@ export const hsla = (
   value: [number, Percentage, Percentage, number]
 ): HSLA => ({
   __tag: 'HSLA',
-  value
+  value,
 })
 
 const extendedColorKeywords = [
@@ -528,7 +528,7 @@ const extendedColorKeywords = [
   'white',
   'whitesmoke',
   'yellow',
-  'yellowgreen'
+  'yellowgreen',
 ] as const
 
 export type NamedColorKeyword = typeof extendedColorKeywords[number]
@@ -621,5 +621,9 @@ export const isColor = (value: any): value is Color =>
  * @implementationReference https://www.w3.org/TR/2018/REC-css-color-3-20180619/#color0
  */
 export const color = (value: Color | GlobalCssKeyword): { color: string } => ({
-  color: isColor(value) ? serializeColor(value) : value
+  color: isColor(value) ? serializeColor(value) : value,
 })
+
+export type ColorDeclaration = {
+  color: Color | GlobalCssKeyword
+}
