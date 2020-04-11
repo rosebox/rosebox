@@ -32,6 +32,7 @@ test('__style2__', () => {
     boxSizing: 'border-box',
     color: hex('#000'),
     maxHeight: px(190),
+    maxWidth: per(100),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -45,6 +46,7 @@ test('__style2__', () => {
     boxSizing: 'border-box',
     color: '#000',
     maxHeight: '190px',
+    maxWidth: '100%',
   }
   expect(received).toEqual(expected)
 })

@@ -4,7 +4,7 @@ import {
   GlobalCssKeyword,
   isLengthType,
   isPercentageType,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
@@ -25,5 +25,9 @@ const serializeMaxWidth = (value: MaxWidth): string =>
  * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-widths
  */
 export const maxWidth = (value: MaxWidth | GlobalCssKeyword) => ({
-  maxWidth: isGlobalCssKeyword(value) ? value : serializeMaxWidth(value)
+  maxWidth: isGlobalCssKeyword(value) ? value : serializeMaxWidth(value),
 })
+
+export type MaxWidthDeclaration = {
+  maxWidth: MaxWidth | GlobalCssKeyword
+}
