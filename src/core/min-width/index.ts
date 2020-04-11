@@ -4,16 +4,11 @@ import {
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
-/**
- * @skip
- */
-type MinWidth = Length | Percentage
-
-const serializeMinWidth = (value: MinWidth): string =>
+const serializeMinWidth = (value: Length | Percentage): string =>
   isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
@@ -28,7 +23,11 @@ const serializeMinWidth = (value: MinWidth): string =>
  * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-widths
  */
 export const minWidth = (
-  value: MinWidth | GlobalCssKeyword
+  value: Length | Percentage | GlobalCssKeyword
 ): { minWidth: string } => ({
-  minWidth: isGlobalCssKeyword(value) ? value : serializeMinWidth(value)
+  minWidth: isGlobalCssKeyword(value) ? value : serializeMinWidth(value),
 })
+
+export type MinWidthDeclaration = {
+  minWidth: Length | Percentage | GlobalCssKeyword
+}
