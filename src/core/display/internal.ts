@@ -275,5 +275,9 @@ export type DisplayValue =
  * @implementationReference https://www.w3.org/TR/2019/CR-css-display-3-20190711/
  */
 export const display = (value: DisplayValue | GlobalCssKeyword) => ({
-  display: value
+  display: value,
 })
+
+export type DisplayDeclaration = {
+  display: DisplayValue | GlobalCssKeyword
+}

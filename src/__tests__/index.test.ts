@@ -47,6 +47,7 @@ test('__style2__', () => {
     borderBottomColor: hsl([3, per(3), per(3)]),
     borderLeftColor: hsl([3, per(3), per(3)]),
     cursor: 'pointer',
+    display: 'flex block',
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -75,6 +76,7 @@ test('__style2__', () => {
     borderBottomColor: 'hsl(3, 3%, 3%)',
     borderLeftColor: 'hsl(3, 3%, 3%)',
     cursor: 'pointer',
+    display: 'flex block',
   }
   expect(received).toEqual(expected)
 })
