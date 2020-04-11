@@ -11,10 +11,13 @@ import { GlobalCssKeyword } from '../shared/types'
 export const visibility = (
   value: 'visible' | 'hidden' | 'collapse' | GlobalCssKeyword
 ) => ({
-  visibility: value
+  visibility: value,
 })
+
+export type VisibilityDeclration = {
+  visibility: 'visible' | 'hidden' | 'collapse' | GlobalCssKeyword
+}
 
 export const visVisible = { visibility: 'visible' }
 export const visHidden = { visibility: 'hidden' }
 export const visCollapse = { visibility: 'collapse' }
-

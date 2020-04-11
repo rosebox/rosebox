@@ -10,5 +10,9 @@ type Position = 'relative' | 'absolute' | 'static' | 'fixed' | 'sticky'
  * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#position-property
  */
 export const position = (value: Position | GlobalCssKeyword) => ({
-  position: value
+  position: value,
 })
+
+export type PositionDeclaration = {
+  position: Position | GlobalCssKeyword
+}

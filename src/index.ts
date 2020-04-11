@@ -31,6 +31,8 @@ import { maxWidth, MaxWidthDeclaration } from './core/max-width'
 import { MinHeightDeclaration, minHeight } from './core/min-height'
 import { MinWidthDeclaration, minWidth } from './core/min-width'
 import { OpacityDeclaration, opacity } from './core/opacity'
+import { PositionDeclaration, position } from './core/position'
+import { VisibilityDeclration, visibility } from './core/visibility'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -95,7 +97,9 @@ export type __RoseBoxCssProperties__ = Partial<
     OpacityDeclaration &
     OverflowXDeclaration &
     OverflowYDeclaration &
-    OverflowDeclaration
+    OverflowDeclaration &
+    PositionDeclaration &
+    VisibilityDeclration
 >
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
@@ -170,6 +174,16 @@ export const __style2__ = (obj: __RoseBoxCssProperties__) => {
     }
     if (key === 'overflow') {
       return Object.assign({}, acc, overflow((obj as OverflowDeclaration)[key]))
+    }
+    if (key === 'position') {
+      return Object.assign({}, acc, position((obj as PositionDeclaration)[key]))
+    }
+    if (key === 'visibility') {
+      return Object.assign(
+        {},
+        acc,
+        visibility((obj as VisibilityDeclration)[key])
+      )
     }
     return {}
   }, {})

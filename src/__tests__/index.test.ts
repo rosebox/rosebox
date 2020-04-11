@@ -39,6 +39,8 @@ test('__style2__', () => {
     overflowX: 'clip',
     overflowY: 'auto',
     overflow: 'auto hidden',
+    position: 'relative',
+    visibility: 'collapse',
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -59,6 +61,8 @@ test('__style2__', () => {
     overflowX: 'clip',
     overflowY: 'auto',
     overflow: 'auto hidden',
+    position: 'relative',
+    visibility: 'collapse',
   }
   expect(received).toEqual(expected)
 })
