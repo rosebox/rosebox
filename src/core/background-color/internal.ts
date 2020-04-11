@@ -11,5 +11,9 @@ import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
 export const bgColor = (
   value: Color | GlobalCssKeyword
 ): { backgroundColor: string } => ({
-  backgroundColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
+  backgroundColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
+
+export type BgColorDeclaration = {
+  backgroundColor: Color | GlobalCssKeyword
+}

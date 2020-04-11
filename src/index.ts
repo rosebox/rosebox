@@ -5,6 +5,7 @@ import { textTransform } from './core/text-transform'
 import { display } from './core/display'
 import { WidthDeclaration, width } from './core/width'
 import { HeightDeclaration, height } from './core/height'
+import { BgColorDeclaration, bgColor } from './core/background-color'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -52,7 +53,9 @@ type RoseBoxCssPropertiesPartial = Partial<
   Omit<React.CSSProperties, keyof RoseBoxCssProperties_> & RoseBoxCssProperties_
 >
 
-type __RoseBoxCssProperties__ = Partial<WidthDeclaration>
+export type __RoseBoxCssProperties__ = Partial<
+  WidthDeclaration & HeightDeclaration & BgColorDeclaration
+>
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
   return Object.keys(obj).reduce((acc, key) => {
@@ -61,6 +64,9 @@ export const __style2__ = (obj: __RoseBoxCssProperties__) => {
     }
     if (key === 'height') {
       return Object.assign({}, acc, height((obj as HeightDeclaration)[key]))
+    }
+    if (key === 'backgroundColor') {
+      return Object.assign({}, acc, bgColor((obj as BgColorDeclaration)[key]))
     }
     return {}
   }, {})
