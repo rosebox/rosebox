@@ -36,6 +36,9 @@ test('__style2__', () => {
     minHeight: rem(12),
     minWidth: px(60),
     opacity: per(20),
+    overflowX: 'clip',
+    overflowY: 'auto',
+    overflow: 'auto hidden',
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -53,6 +56,9 @@ test('__style2__', () => {
     minHeight: '12rem',
     minWidth: '60px',
     opacity: '20%',
+    overflowX: 'clip',
+    overflowY: 'auto',
+    overflow: 'auto hidden',
   }
   expect(received).toEqual(expected)
 })

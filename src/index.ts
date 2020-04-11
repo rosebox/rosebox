@@ -1,5 +1,12 @@
 import { CSSProperties } from 'react'
-import { overflowX, overflow, overflowY } from './core/overflow'
+import {
+  overflowX,
+  overflow,
+  overflowY,
+  OverflowXDeclaration,
+  OverflowYDeclaration,
+  OverflowDeclaration,
+} from './core/overflow'
 import { textAlign } from './core/text-align'
 import { textTransform } from './core/text-transform'
 import { display } from './core/display'
@@ -85,7 +92,10 @@ export type __RoseBoxCssProperties__ = Partial<
     MaxWidthDeclaration &
     MinHeightDeclaration &
     MinWidthDeclaration &
-    OpacityDeclaration
+    OpacityDeclaration &
+    OverflowXDeclaration &
+    OverflowYDeclaration &
+    OverflowDeclaration
 >
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
@@ -143,6 +153,23 @@ export const __style2__ = (obj: __RoseBoxCssProperties__) => {
     }
     if (key === 'opacity') {
       return Object.assign({}, acc, opacity((obj as OpacityDeclaration)[key]))
+    }
+    if (key === 'overflowX') {
+      return Object.assign(
+        {},
+        acc,
+        overflowX((obj as OverflowXDeclaration)[key])
+      )
+    }
+    if (key === 'overflowY') {
+      return Object.assign(
+        {},
+        acc,
+        overflowY((obj as OverflowYDeclaration)[key])
+      )
+    }
+    if (key === 'overflow') {
+      return Object.assign({}, acc, overflow((obj as OverflowDeclaration)[key]))
     }
     return {}
   }, {})
