@@ -35,6 +35,7 @@ test('__style2__', () => {
     maxWidth: per(100),
     minHeight: rem(12),
     minWidth: px(60),
+    opacity: per(20),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -51,6 +52,7 @@ test('__style2__', () => {
     maxWidth: '100%',
     minHeight: '12rem',
     minWidth: '60px',
+    opacity: '20%',
   }
   expect(received).toEqual(expected)
 })

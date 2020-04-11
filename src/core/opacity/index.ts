@@ -9,8 +9,12 @@ import { serializePercentage } from '../shared/serializers'
  * @implementationReference https://drafts.csswg.org/css-color-4/#typedef-alpha-value
  */
 export const opacity = (value: number | Percentage | GlobalCssKeyword) => ({
-  opacity: isPercentageType(value) ? serializePercentage(value) : value
+  opacity: isPercentageType(value) ? serializePercentage(value) : value,
 })
+
+export type OpacityDeclaration = {
+  opacity: number | Percentage | GlobalCssKeyword
+}
 
 export const op01 = { opacity: 0.1 }
 export const op02 = { opacity: 0.2 }

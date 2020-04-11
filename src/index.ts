@@ -23,6 +23,7 @@ import { MaxHeightDeclaration, maxHeight } from './core/max-height'
 import { maxWidth, MaxWidthDeclaration } from './core/max-width'
 import { MinHeightDeclaration, minHeight } from './core/min-height'
 import { MinWidthDeclaration, minWidth } from './core/min-width'
+import { OpacityDeclaration, opacity } from './core/opacity'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -83,7 +84,8 @@ export type __RoseBoxCssProperties__ = Partial<
     MaxHeightDeclaration &
     MaxWidthDeclaration &
     MinHeightDeclaration &
-    MinWidthDeclaration
+    MinWidthDeclaration &
+    OpacityDeclaration
 >
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
@@ -138,6 +140,9 @@ export const __style2__ = (obj: __RoseBoxCssProperties__) => {
     }
     if (key === 'minWidth') {
       return Object.assign({}, acc, minWidth((obj as MinWidthDeclaration)[key]))
+    }
+    if (key === 'opacity') {
+      return Object.assign({}, acc, opacity((obj as OpacityDeclaration)[key]))
     }
     return {}
   }, {})
