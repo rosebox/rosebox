@@ -6,6 +6,16 @@ import { display } from './core/display'
 import { WidthDeclaration, width } from './core/width'
 import { HeightDeclaration, height } from './core/height'
 import { BgColorDeclaration, bgColor } from './core/background-color'
+import {
+  top,
+  TopDeclaration,
+  RightDeclaration,
+  BottomDeclaration,
+  LeftDeclaration,
+  right,
+  bottom,
+  left,
+} from './core/box-offsets/internal'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -54,7 +64,13 @@ type RoseBoxCssPropertiesPartial = Partial<
 >
 
 export type __RoseBoxCssProperties__ = Partial<
-  WidthDeclaration & HeightDeclaration & BgColorDeclaration
+  WidthDeclaration &
+    HeightDeclaration &
+    BgColorDeclaration &
+    TopDeclaration &
+    RightDeclaration &
+    BottomDeclaration &
+    LeftDeclaration
 >
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
@@ -67,6 +83,18 @@ export const __style2__ = (obj: __RoseBoxCssProperties__) => {
     }
     if (key === 'backgroundColor') {
       return Object.assign({}, acc, bgColor((obj as BgColorDeclaration)[key]))
+    }
+    if (key === 'top') {
+      return Object.assign({}, acc, top((obj as TopDeclaration)[key]))
+    }
+    if (key === 'right') {
+      return Object.assign({}, acc, right((obj as RightDeclaration)[key]))
+    }
+    if (key === 'bottom') {
+      return Object.assign({}, acc, bottom((obj as BottomDeclaration)[key]))
+    }
+    if (key === 'left') {
+      return Object.assign({}, acc, left((obj as LeftDeclaration)[key]))
     }
     return {}
   }, {})

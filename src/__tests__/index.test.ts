@@ -7,7 +7,7 @@ import {
   __RoseBoxCssProperties__,
 } from '../index'
 import { height } from '../core/height'
-import { px } from '../core/shared/value-constructors'
+import { px, rem } from '../core/shared/value-constructors'
 import { rgb } from '../core/color'
 
 test('compose', () => {
@@ -25,12 +25,20 @@ test('__style2__', () => {
     width: per(3),
     height: px(100),
     backgroundColor: rgb([2, 3, 4]),
+    top: px(3),
+    right: px(3),
+    bottom: per(10),
+    left: rem(5),
   }
   const received = __style2__(widthStyle)
   const expected = {
     width: '3%',
     height: '100px',
     backgroundColor: 'rgb(2, 3, 4)',
+    top: '3px',
+    right: '3px',
+    bottom: '10%',
+    left: '5rem',
   }
   expect(received).toEqual(expected)
 })

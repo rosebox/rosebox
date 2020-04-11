@@ -2,7 +2,7 @@ import {
   Length,
   Percentage,
   GlobalCssKeyword,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 import { serializeLengthPercentage } from '../shared/serializers'
 
@@ -21,8 +21,12 @@ export const top = (
       ? 'auto'
       : isGlobalCssKeyword(value)
       ? value
-      : serializeLengthPercentage(value)
+      : serializeLengthPercentage(value),
 })
+
+export type TopDeclaration = {
+  top: Length | Percentage | 'auto' | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`right`** property.
@@ -39,8 +43,12 @@ export const right = (
       ? 'auto'
       : isGlobalCssKeyword(value)
       ? value
-      : serializeLengthPercentage(value)
+      : serializeLengthPercentage(value),
 })
+
+export type RightDeclaration = {
+  right: Length | Percentage | 'auto' | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`bottom`** property.
@@ -57,8 +65,12 @@ export const bottom = (
       ? 'auto'
       : isGlobalCssKeyword(value)
       ? value
-      : serializeLengthPercentage(value)
+      : serializeLengthPercentage(value),
 })
+
+export type BottomDeclaration = {
+  bottom: Length | Percentage | 'auto' | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`left`** property.
@@ -75,5 +87,9 @@ export const left = (
       ? 'auto'
       : isGlobalCssKeyword(value)
       ? value
-      : serializeLengthPercentage(value)
+      : serializeLengthPercentage(value),
 })
+
+export type LeftDeclaration = {
+  left: Length | Percentage | 'auto' | GlobalCssKeyword
+}
