@@ -33,6 +33,7 @@ test('__style2__', () => {
     color: hex('#000'),
     maxHeight: px(190),
     maxWidth: per(100),
+    minHeight: rem(12),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -47,6 +48,7 @@ test('__style2__', () => {
     color: '#000',
     maxHeight: '190px',
     maxWidth: '100%',
+    minHeight: '12rem',
   }
   expect(received).toEqual(expected)
 })

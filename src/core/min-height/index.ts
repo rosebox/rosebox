@@ -4,14 +4,11 @@ import {
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
-/**  <'min-height'> = <length> | <percentage> | inherit */
-type MinHeight = Length | Percentage | GlobalCssKeyword
-
-const serializeMinHeight = (value: MinHeight): string =>
+const serializeMinHeight = (value: Length | Percentage): string =>
   isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
@@ -28,5 +25,9 @@ const serializeMinHeight = (value: MinHeight): string =>
 export const minHeight = (
   value: Length | Percentage | GlobalCssKeyword
 ): { minHeight: string } => ({
-  minHeight: isGlobalCssKeyword(value) ? `${value}` : serializeMinHeight(value)
+  minHeight: isGlobalCssKeyword(value) ? `${value}` : serializeMinHeight(value),
 })
+
+export type MinHeightDeclaration = {
+  minHeight: Length | Percentage | GlobalCssKeyword
+}
