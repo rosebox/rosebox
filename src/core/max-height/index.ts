@@ -4,7 +4,7 @@ import {
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
@@ -27,5 +27,9 @@ const serializeMaxHeight = (value: MaxHeight): string =>
 export const maxHeight = (
   value: Length | Percentage | GlobalCssKeyword | 'none'
 ): { maxHeight: string } => ({
-  maxHeight: isGlobalCssKeyword(value) ? `${value}` : serializeMaxHeight(value)
+  maxHeight: isGlobalCssKeyword(value) ? `${value}` : serializeMaxHeight(value),
 })
+
+export type MaxHeightDeclaration = {
+  maxHeight: Length | Percentage | GlobalCssKeyword | 'none'
+}

@@ -19,6 +19,7 @@ import {
 import { BoxSizingDeclaration, boxSizing } from './core/box-sizing/internal'
 import { color } from './core/color'
 import { ColorDeclaration } from './core/color/internal'
+import { MaxHeightDeclaration, maxHeight } from './core/max-height'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -75,7 +76,8 @@ export type __RoseBoxCssProperties__ = Partial<
     RightDeclaration &
     BottomDeclaration &
     LeftDeclaration &
-    BoxSizingDeclaration
+    BoxSizingDeclaration &
+    MaxHeightDeclaration
 >
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
@@ -110,6 +112,13 @@ export const __style2__ = (obj: __RoseBoxCssProperties__) => {
     }
     if (key === 'color') {
       return Object.assign({}, acc, color((obj as ColorDeclaration)[key]))
+    }
+    if (key === 'maxHeight') {
+      return Object.assign(
+        {},
+        acc,
+        maxHeight((obj as MaxHeightDeclaration)[key])
+      )
     }
     return {}
   }, {})
