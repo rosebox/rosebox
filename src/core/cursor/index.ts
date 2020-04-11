@@ -83,5 +83,9 @@ const serializeCursor = (value: Cursor): string =>
 export const cursor = (
   value: Cursor | GlobalCssKeyword
 ): { cursor: string } => ({
-  cursor: isGlobalCssKeyword(value) ? value : serializeCursor(value)
+  cursor: isGlobalCssKeyword(value) ? value : serializeCursor(value),
 })
+
+export type CursorDeclaration = {
+  cursor: Cursor | GlobalCssKeyword
+}

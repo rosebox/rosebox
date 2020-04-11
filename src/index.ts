@@ -45,6 +45,7 @@ import {
   borderBottomColor,
   borderLeftColor,
 } from './core/border-color'
+import { CursorDeclaration, cursor } from './core/cursor'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -116,7 +117,8 @@ export type __RoseBoxCssProperties__ = Partial<
     BorderTopColorDeclaration &
     BorderRightColorDeclaration &
     BorderBottomColorDeclaration &
-    BorderLeftColorDeclaration
+    BorderLeftColorDeclaration &
+    CursorDeclaration
 >
 
 const funcMapper = {
@@ -144,6 +146,7 @@ const funcMapper = {
   borderRightColor,
   borderBottomColor,
   borderLeftColor,
+  cursor,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
