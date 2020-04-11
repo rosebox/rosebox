@@ -33,7 +33,18 @@ import { MinWidthDeclaration, minWidth } from './core/min-width'
 import { OpacityDeclaration, opacity } from './core/opacity'
 import { PositionDeclaration, position } from './core/position'
 import { VisibilityDeclration, visibility } from './core/visibility'
-import { BorderColorDeclaration, borderColor } from './core/border-color'
+import {
+  BorderColorDeclaration,
+  borderColor,
+  BorderTopColorDeclaration,
+  BorderRightColorDeclaration,
+  BorderBottomColorDeclaration,
+  BorderLeftColorDeclaration,
+  borderTopColor,
+  borderRightColor,
+  borderBottomColor,
+  borderLeftColor,
+} from './core/border-color'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -101,7 +112,11 @@ export type __RoseBoxCssProperties__ = Partial<
     OverflowDeclaration &
     PositionDeclaration &
     VisibilityDeclration &
-    BorderColorDeclaration
+    BorderColorDeclaration &
+    BorderTopColorDeclaration &
+    BorderRightColorDeclaration &
+    BorderBottomColorDeclaration &
+    BorderLeftColorDeclaration
 >
 
 const funcMapper = {
@@ -125,6 +140,10 @@ const funcMapper = {
   position,
   visibility,
   borderColor,
+  borderTopColor,
+  borderRightColor,
+  borderBottomColor,
+  borderLeftColor,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {

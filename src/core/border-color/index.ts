@@ -14,6 +14,10 @@ export const borderTopColor = (
   borderTopColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
 
+export type BorderTopColorDeclaration = {
+  borderTopColor: Color | GlobalCssKeyword
+}
+
 /**
  * Creates a declaration object for the **`border-right-color`** property.
  * @category Declaration function
@@ -26,6 +30,10 @@ export const borderRightColor = (
 ): { borderRightColor: string } => ({
   borderRightColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
+
+export type BorderRightColorDeclaration = {
+  borderRightColor: Color | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`border-bottom-color`** property.
@@ -40,6 +48,10 @@ export const borderBottomColor = (
   borderBottomColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
 
+export type BorderBottomColorDeclaration = {
+  borderBottomColor: Color | GlobalCssKeyword
+}
+
 /**
  * Creates a declaration object for the **`border-left-color`** property.
  * @category Declaration function
@@ -52,6 +64,10 @@ export const borderLeftColor = (
 ): { borderLeftColor: string } => ({
   borderLeftColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
+
+export type BorderLeftColorDeclaration = {
+  borderLeftColor: Color | GlobalCssKeyword
+}
 
 type BorderColor =
   | Color

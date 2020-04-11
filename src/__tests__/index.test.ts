@@ -42,6 +42,10 @@ test('__style2__', () => {
     position: 'relative',
     visibility: 'collapse',
     borderColor: hsl([3, per(3), per(3)]),
+    borderTopColor: hsl([3, per(3), per(3)]),
+    borderRightColor: hsl([3, per(3), per(3)]),
+    borderBottomColor: hsl([3, per(3), per(3)]),
+    borderLeftColor: hsl([3, per(3), per(3)]),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -65,6 +69,10 @@ test('__style2__', () => {
     position: 'relative',
     visibility: 'collapse',
     borderColor: 'hsl(3, 3%, 3%)',
+    borderTopColor: 'hsl(3, 3%, 3%)',
+    borderRightColor: 'hsl(3, 3%, 3%)',
+    borderBottomColor: 'hsl(3, 3%, 3%)',
+    borderLeftColor: 'hsl(3, 3%, 3%)',
   }
   expect(received).toEqual(expected)
 })
