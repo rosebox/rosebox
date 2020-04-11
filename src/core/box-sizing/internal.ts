@@ -23,5 +23,9 @@ export const boxBorder = { display: 'border-box' } as const
  * @implementationReference https://www.w3.org/TR/2018/REC-css-ui-3-20180621/#propdef-box-sizing
  */
 export const boxSizing = (value: BoxSizing | GlobalCssKeyword) => ({
-  boxSizing: value
+  boxSizing: value,
 })
+
+export type BoxSizingDeclaration = {
+  boxSizing: BoxSizing | GlobalCssKeyword
+}
