@@ -102,90 +102,33 @@ export type __RoseBoxCssProperties__ = Partial<
     VisibilityDeclration
 >
 
+const funcMapper = {
+  width,
+  height,
+  minHeight,
+  maxHeight,
+  minWidth,
+  maxWidth,
+  backgroundColor: bgColor,
+  color,
+  top,
+  right,
+  bottom,
+  left,
+  boxSizing,
+  opacity,
+  overflowX,
+  overflowY,
+  overflow,
+  position,
+  visibility,
+}
+
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
   return Object.keys(obj).reduce((acc, key) => {
-    if (key === 'width') {
-      return Object.assign({}, acc, width((obj as WidthDeclaration)[key]))
-    }
-    if (key === 'height') {
-      return Object.assign({}, acc, height((obj as HeightDeclaration)[key]))
-    }
-    if (key === 'backgroundColor') {
-      return Object.assign({}, acc, bgColor((obj as BgColorDeclaration)[key]))
-    }
-    if (key === 'top') {
-      return Object.assign({}, acc, top((obj as TopDeclaration)[key]))
-    }
-    if (key === 'right') {
-      return Object.assign({}, acc, right((obj as RightDeclaration)[key]))
-    }
-    if (key === 'bottom') {
-      return Object.assign({}, acc, bottom((obj as BottomDeclaration)[key]))
-    }
-    if (key === 'left') {
-      return Object.assign({}, acc, left((obj as LeftDeclaration)[key]))
-    }
-    if (key === 'boxSizing') {
-      return Object.assign(
-        {},
-        acc,
-        boxSizing((obj as BoxSizingDeclaration)[key])
-      )
-    }
-    if (key === 'color') {
-      return Object.assign({}, acc, color((obj as ColorDeclaration)[key]))
-    }
-    if (key === 'maxHeight') {
-      return Object.assign(
-        {},
-        acc,
-        maxHeight((obj as MaxHeightDeclaration)[key])
-      )
-    }
-    if (key === 'maxWidth') {
-      return Object.assign({}, acc, maxWidth((obj as MaxWidthDeclaration)[key]))
-    }
-    if (key === 'minHeight') {
-      return Object.assign(
-        {},
-        acc,
-        minHeight((obj as MinHeightDeclaration)[key])
-      )
-    }
-    if (key === 'minWidth') {
-      return Object.assign({}, acc, minWidth((obj as MinWidthDeclaration)[key]))
-    }
-    if (key === 'opacity') {
-      return Object.assign({}, acc, opacity((obj as OpacityDeclaration)[key]))
-    }
-    if (key === 'overflowX') {
-      return Object.assign(
-        {},
-        acc,
-        overflowX((obj as OverflowXDeclaration)[key])
-      )
-    }
-    if (key === 'overflowY') {
-      return Object.assign(
-        {},
-        acc,
-        overflowY((obj as OverflowYDeclaration)[key])
-      )
-    }
-    if (key === 'overflow') {
-      return Object.assign({}, acc, overflow((obj as OverflowDeclaration)[key]))
-    }
-    if (key === 'position') {
-      return Object.assign({}, acc, position((obj as PositionDeclaration)[key]))
-    }
-    if (key === 'visibility') {
-      return Object.assign(
-        {},
-        acc,
-        visibility((obj as VisibilityDeclration)[key])
-      )
-    }
-    return {}
+    return Object.assign({}, acc, {
+      [key]: (funcMapper as any)[key]((obj as any)[key])[key],
+    })
   }, {})
 }
 
