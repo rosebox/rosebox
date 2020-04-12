@@ -41,6 +41,17 @@ export const borderRightStyle = (
   borderRightStyle: value,
 })
 
+export type BorderRightStyleDeclaration = {
+  /**
+   * Maps to CSS's **`border-right-style`** property
+   * @category Property
+   * @formalSyntaxForValue <line-style>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
+   */
+  borderRightStyle: LineStyle | GlobalCssKeyword
+}
+
 /**
  * Creates a declaration object for the **`border-bottom-style`** property.
  * @category Declaration function
