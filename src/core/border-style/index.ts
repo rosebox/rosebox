@@ -117,7 +117,7 @@ const serializeBorderStyle = (value: BorderStyle): string =>
 /**
  * Creates a declaration object for the **`border-width`** property.
  * @category Declaration function
- * @formalSyntax <line-style>{1,4}
+ * @formalSyntaxForValue <line-style>{1,4}
  * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
  */
@@ -126,3 +126,14 @@ export const borderStyle = (
 ): { borderStyle: string } => ({
   borderStyle: isGlobalCssKeyword(value) ? value : serializeBorderStyle(value),
 })
+
+export type BorderStyleDeclaration = {
+  /**
+   * Maps to CSS's **`border-style`** property
+   * @category Property
+   * @formalSyntaxForValue <line-style>{1,4}
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
+   */
+  borderStyle: BorderStyle | GlobalCssKeyword
+}
