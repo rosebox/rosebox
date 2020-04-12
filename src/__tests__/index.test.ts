@@ -24,7 +24,6 @@ test('__style2__', () => {
   const widthStyle: __RoseBoxCssProperties__ = {
     width: per(3),
     height: px(100),
-    backgroundColor: rgb([2, 3, 4]),
     top: px(3),
     right: px(3),
     bottom: per(10),
@@ -48,6 +47,7 @@ test('__style2__', () => {
     borderLeftColor: hsl([3, per(3), per(3)]),
     cursor: 'pointer',
     display: 'flex block',
+    backgroundColor: rgb([2, 3, 4]),
   }
   const received = __style2__(widthStyle)
   const expected = {

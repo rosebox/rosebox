@@ -15,5 +15,11 @@ export const bgColor = (
 })
 
 export type BgColorDeclaration = {
+  /**
+   * A RB property that maps to CSS's **`background-color`** property
+   * @category Property
+   * @formalSyntaxForValue auto | <integer>
+   * @added 0.2.0
+   */
   backgroundColor: Color | GlobalCssKeyword
 }

@@ -15,5 +15,5 @@ const serializeValue = (value: string | string[]) =>
 export const fontFamily = (
   value: string | string[]
 ): { fontFamily: string } => ({
-  fontFamily: serializeValue(value)
+  fontFamily: serializeValue(value),
 })
