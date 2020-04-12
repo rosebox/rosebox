@@ -89,6 +89,17 @@ export const borderLeftStyle = (
   borderLeftStyle: value,
 })
 
+export type BorderLeftStyleDeclaration = {
+  /**
+   * Maps to CSS's **`border-left-style`** property
+   * @category Property
+   * @formalSyntaxForValue <line-style>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
+   */
+  borderLeftStyle: LineStyle | GlobalCssKeyword
+}
+
 type BorderStyle =
   | LineStyle
   | [LineStyle]
