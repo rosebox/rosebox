@@ -160,7 +160,7 @@ const serializeBorderRadius = (value: OneRadius | TwoRadius) =>
 /**
  * Creates a declaration object for the **`border-radius`** property.
  * @category Declaration function
- * @formalSyntax	<length-percentage>{1,4} [ / <length-percentage>{1,4} ]?
+ * @formalSyntaxForValue <length-percentage>{1,4} [ / <length-percentage>{1,4} ]?
  * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
  */
@@ -171,3 +171,14 @@ export const borderRadius = (
     ? value
     : serializeBorderRadius(value),
 })
+
+export type BorderRadiusDeclaration = {
+  /**
+   * Maps to CSS's **`border-radius`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage>{1,4} [ / <length-percentage>{1,4} ]?
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+   */
+  borderRadius: OneRadius | TwoRadius | GlobalCssKeyword
+}
