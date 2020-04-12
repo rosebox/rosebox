@@ -51,6 +51,7 @@ test('__style2__', () => {
     borderTopRightRadius: px(3),
     borderBottomRightRadius: per(20),
     borderBottomLeftRadius: rem(3),
+    borderTopLeftRadius: 'unset',
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -83,6 +84,7 @@ test('__style2__', () => {
     borderTopRightRadius: '3px',
     borderBottomRightRadius: '20%',
     borderBottomLeftRadius: '3rem',
+    borderTopLeftRadius: 'unset',
   }
   expect(received).toEqual(expected)
 })
