@@ -49,6 +49,7 @@ test('__style2__', () => {
     display: 'flex block',
     backgroundColor: rgb([2, 3, 4]),
     borderTopRightRadius: px(3),
+    borderBottomRightRadius: per(20),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -79,6 +80,7 @@ test('__style2__', () => {
     cursor: 'pointer',
     display: 'flex block',
     borderTopRightRadius: '3px',
+    borderBottomRightRadius: '20%',
   }
   expect(received).toEqual(expected)
 })

@@ -49,7 +49,7 @@ export type BorderTopRightRadiusDeclaration = {
 /**
  * Creates a declaration object for the **`border-bottom-right-radius`** property.
  * @category Declaration function
- * @formalSyntax <length-percentage>{1,2}
+ * @formalSyntaxForValue <length-percentage>{1,2}
  * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
  */
@@ -60,6 +60,17 @@ export const borderBottomRightRadius = (
     ? value
     : serializeBorderColor(value),
 })
+
+export type BorderBottomRightRadius = {
+  /**
+   * Maps to CSS's **`border-bottom-right-radius`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage>{1,2}
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+   */
+  borderBottomRightRadius: BorderCornerRadius | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`border-bottom-left-radius`** property.
