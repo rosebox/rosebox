@@ -18,9 +18,9 @@ const serializeMinHeight = (value: Length | Percentage): string =>
 /**
  * Creates a declaration object for the **`min-height`** property.
  * @category Declaration function
- * @formalSyntax <length> | <percentage>
+ * @formalSyntaxForValue <length> | <percentage>
  * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
+ * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height
  */
 export const minHeight = (
   value: Length | Percentage | GlobalCssKeyword
@@ -29,5 +29,12 @@ export const minHeight = (
 })
 
 export type MinHeightDeclaration = {
+  /**
+   * Creates a declaration object for the **`min-height`** property.
+   * @category Property
+   * @formalSyntaxForValue <length> | <percentage>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height
+   */
   minHeight: Length | Percentage | GlobalCssKeyword
 }
