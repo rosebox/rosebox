@@ -18,7 +18,7 @@ const serializeMaxWidth = (value: MaxWidth): string =>
     : value
 
 /**
- * Creates a declaration object for the **`margin-width`** property.
+ * Maps to CSS's **`max-width`** property
  * @category Declaration function
  * @formalSyntaxForValue <length> | <percentage> | none
  * @added 0.1.4

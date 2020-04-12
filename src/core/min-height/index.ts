@@ -30,7 +30,7 @@ export const minHeight = (
 
 export type MinHeightDeclaration = {
   /**
-   * Creates a declaration object for the **`min-height`** property.
+   * Maps to CSS's **`min-height`** property
    * @category Property
    * @formalSyntaxForValue <length> | <percentage>
    * @added 0.2.0

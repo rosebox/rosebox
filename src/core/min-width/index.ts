@@ -18,9 +18,9 @@ const serializeMinWidth = (value: Length | Percentage): string =>
 /**
  * Creates a declaration object for the **`min-width`** property.
  * @category Declaration function
- * @formalSyntax <length> | <percentage>
+ * @formalSyntaxForValue <length> | <percentage>
  * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-widths
+ * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width
  */
 export const minWidth = (
   value: Length | Percentage | GlobalCssKeyword
@@ -29,5 +29,12 @@ export const minWidth = (
 })
 
 export type MinWidthDeclaration = {
+  /**
+   * Maps to CSS's **`min-width`** property.
+   * @category Property
+   * @formalSyntaxForValue <length> | <percentage>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width
+   */
   minWidth: Length | Percentage | GlobalCssKeyword
 }
