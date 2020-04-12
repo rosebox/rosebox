@@ -1,7 +1,7 @@
 import {
   GlobalCssKeyword,
   isGlobalCssKeyword,
-  LengthPercentage
+  LengthPercentage,
 } from '../shared/types'
 import { serializeLengthPercentage } from '../shared/serializers'
 
@@ -23,7 +23,7 @@ const serializeBorderColor = (value: BorderCornerRadius): string =>
 /**
  * Creates a declaration object for the **`border-top-right-radius`** property.
  * @category Declaration function
- * @formalSyntax <length-percentage>{1,2}
+ * @formalSyntaxForValue <length-percentage>{1,2}
  * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
  */
@@ -32,8 +32,19 @@ export const borderTopRightRadius = (
 ): { borderTopRightRadius: string } => ({
   borderTopRightRadius: isGlobalCssKeyword(value)
     ? value
-    : serializeBorderColor(value)
+    : serializeBorderColor(value),
 })
+
+export type BorderTopRightRadiusDeclaration = {
+  /**
+   * Maps to CSS's **`border-top-right-radius`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage>{1,2}
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+   */
+  borderTopRightRadius: BorderCornerRadius | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`border-bottom-right-radius`** property.
@@ -47,7 +58,7 @@ export const borderBottomRightRadius = (
 ): { borderBottomRightRadius: string } => ({
   borderBottomRightRadius: isGlobalCssKeyword(value)
     ? value
-    : serializeBorderColor(value)
+    : serializeBorderColor(value),
 })
 
 /**
@@ -62,7 +73,7 @@ export const borderBottomLeftRadius = (
 ): { borderBottomLeftRadius: string } => ({
   borderBottomLeftRadius: isGlobalCssKeyword(value)
     ? value
-    : serializeBorderColor(value)
+    : serializeBorderColor(value),
 })
 
 /**
@@ -77,7 +88,7 @@ export const borderTopLeftRadius = (
 ): { borderTopLeftRadius: string } => ({
   borderTopLeftRadius: isGlobalCssKeyword(value)
     ? value
-    : serializeBorderColor(value)
+    : serializeBorderColor(value),
 })
 
 type RadiusTuple =
@@ -123,5 +134,7 @@ const serializeBorderRadius = (value: OneRadius | TwoRadius) =>
 export const borderRadius = (
   value: OneRadius | TwoRadius | GlobalCssKeyword
 ): { borderRadius: string } => ({
-  borderRadius: isGlobalCssKeyword(value) ? value : serializeBorderRadius(value)
+  borderRadius: isGlobalCssKeyword(value)
+    ? value
+    : serializeBorderRadius(value),
 })

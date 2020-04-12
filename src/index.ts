@@ -47,6 +47,10 @@ import {
 } from './core/border-color'
 import { CursorDeclaration, cursor } from './core/cursor'
 import { DisplayDeclaration } from './core/display/internal'
+import {
+  BorderTopRightRadiusDeclaration,
+  borderTopRightRadius,
+} from './core/border-radius'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -120,7 +124,8 @@ export type __RoseBoxCssProperties__ = Partial<
     BorderBottomColorDeclaration &
     BorderLeftColorDeclaration &
     CursorDeclaration &
-    DisplayDeclaration
+    DisplayDeclaration &
+    BorderTopRightRadiusDeclaration
 >
 
 const funcMapper = {
@@ -150,6 +155,7 @@ const funcMapper = {
   borderLeftColor,
   cursor,
   display,
+  borderTopRightRadius,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
