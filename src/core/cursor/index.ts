@@ -69,7 +69,7 @@ const serializeCursor = (value: Cursor): string =>
 /**
  * Creates a declaration object for the **`cursor`** property.
  * @category Declaration function
- * @formalSyntax [ [<url> [<x> <y>]?,]*
+ * @formalSyntaxForValue [ [<url> [<x> <y>]?,]*
   [ auto | default | none |
   context-menu | help | pointer | progress | wait |
   cell | crosshair | text | vertical-text |
@@ -87,5 +87,19 @@ export const cursor = (
 })
 
 export type CursorDeclaration = {
+  /**
+ * Maps to CSS's **`cursor`** property
+ * @category Property
+ * @formalSyntaxForValue [ [<url> [<x> <y>]?,]*
+  [ auto | default | none |
+  context-menu | help | pointer | progress | wait |
+  cell | crosshair | text | vertical-text |
+  alias | copy | move | no-drop | not-allowed | grab | grabbing |
+  e-resize | n-resize | ne-resize | nw-resize | s-resize | se-resize | sw-resize | w-resize | ew-resize | ns-resize | nesw-resize | nwse-resize | col-resize | row-resize | all-scroll |
+  zoom-in | zoom-out
+  ] ]
+ * @added 0.2.0
+ * @implementationReference https://www.w3.org/TR/2020/WD-css-ui-4-20200124/#cursor
+ */
   cursor: Cursor | GlobalCssKeyword
 }
