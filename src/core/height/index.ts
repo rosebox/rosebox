@@ -9,7 +9,7 @@ import { serializeLength, serializePercentage } from '../shared/serializers'
 /**
  * Creates a declaration object for the **`height`** property.
  * @category Declaration function
- * @formalSyntax <length> | <percentage> | auto
+ * @formalSyntaxForValue <length> | <percentage> | auto
  * @added 0.1.4
  * @implentationReference https://drafts.csswg.org/css2/visudet.html#propdef-height
  */
@@ -22,5 +22,12 @@ export const height = (value: Width | GlobalCssKeyword) => ({
 })
 
 export type HeightDeclaration = {
+  /**
+   * Maps to CSS's **`height`** property
+   * @category Property
+   * @formalSyntaxForValue <length> | <percentage> | auto
+   * @added 0.2.0
+   * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-height
+   */
   height: Width | GlobalCssKeyword
 }
