@@ -616,7 +616,7 @@ export const isColor = (value: any): value is Color =>
 /**
  * Creates a declaration object for the **`color`** property.
  * @category Declaration function
- * @formalSyntax <color>
+ * @formalSyntaxForValue <color>
  * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/2018/REC-css-color-3-20180619/#color0
  */
@@ -625,5 +625,12 @@ export const color = (value: Color | GlobalCssKeyword): { color: string } => ({
 })
 
 export type ColorDeclaration = {
+  /**
+   * Maps to CSS's **`color`** property
+   * @category Property
+   * @formalSyntaxForValue <color>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/REC-css-color-3-20180619/#color0
+   */
   color: Color | GlobalCssKeyword
 }
