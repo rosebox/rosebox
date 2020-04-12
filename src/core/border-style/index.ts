@@ -1,21 +1,32 @@
 import {
   GlobalCssKeyword,
   LineStyle,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 
 /**
  * Creates a declaration object for the **`border-top-style`** property.
  * @category Declaration function
- * @formalSyntax <line-style>
+ * @formalSyntaxForValue <line-style>
  * @added 0.1.5
  * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
  */
 export const borderTopStyle = (
   value: LineStyle | GlobalCssKeyword
 ): { borderTopStyle: LineStyle | GlobalCssKeyword } => ({
-  borderTopStyle: value
+  borderTopStyle: value,
 })
+
+export type BorderTopStyleDeclaration = {
+  /**
+   * Maps to CSS's **`border-top-style`** property
+   * @category Property
+   * @formalSyntaxForValue <line-style>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+   */
+  borderTopStyle: LineStyle | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`border-right-style`** property.
@@ -27,7 +38,7 @@ export const borderTopStyle = (
 export const borderRightStyle = (
   value: LineStyle | GlobalCssKeyword
 ): { borderRightStyle: LineStyle | GlobalCssKeyword } => ({
-  borderRightStyle: value
+  borderRightStyle: value,
 })
 
 /**
@@ -40,7 +51,7 @@ export const borderRightStyle = (
 export const borderBottomStyle = (
   value: LineStyle | GlobalCssKeyword
 ): { borderBottomStyle: LineStyle | GlobalCssKeyword } => ({
-  borderBottomStyle: value
+  borderBottomStyle: value,
 })
 
 /**
@@ -53,7 +64,7 @@ export const borderBottomStyle = (
 export const borderLeftStyle = (
   value: LineStyle | GlobalCssKeyword
 ): { borderLeftStyle: LineStyle | GlobalCssKeyword } => ({
-  borderLeftStyle: value
+  borderLeftStyle: value,
 })
 
 type BorderStyle =
@@ -80,5 +91,5 @@ const serializeBorderStyle = (value: BorderStyle): string =>
 export const borderStyle = (
   value: BorderStyle | GlobalCssKeyword
 ): { borderStyle: string } => ({
-  borderStyle: isGlobalCssKeyword(value) ? value : serializeBorderStyle(value)
+  borderStyle: isGlobalCssKeyword(value) ? value : serializeBorderStyle(value),
 })
