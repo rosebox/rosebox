@@ -175,7 +175,7 @@ export * from './core/font-family'
 export * from './core/cursor'
 export * from './react'
 
-export type __RoseBoxCssProperties__ = Partial<
+export type __RoseboxProperties__ = Partial<
   WidthDeclaration &
     HeightDeclaration &
     BgColorDeclaration &
@@ -250,9 +250,8 @@ export type __RoseBoxCssProperties__ = Partial<
     TextAlignDeclaration
 >
 
-type RoseBoxProperties = Partial<
-  Omit<React.CSSProperties, keyof __RoseBoxCssProperties__> &
-    __RoseBoxCssProperties__
+export type RoseboxProperties = Partial<
+  Omit<React.CSSProperties, keyof __RoseboxProperties__> & __RoseboxProperties__
 >
 
 const funcMapper = {
@@ -329,7 +328,7 @@ const funcMapper = {
   textAlign,
 }
 
-export const style = (obj: RoseBoxProperties): CSSProperties => {
+export const style = (obj: RoseboxProperties): CSSProperties => {
   return Object.keys(obj).reduce((acc, key) => {
     return Object.assign({}, acc, {
       [key]: (funcMapper as any)[key]((obj as any)[key])[key],

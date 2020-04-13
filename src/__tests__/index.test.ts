@@ -1,9 +1,9 @@
-import { per, style, __RoseBoxCssProperties__ } from '../index'
+import { per, style, RoseboxProperties } from '../index'
 import { px, rem } from '../core/shared/value-constructors'
 import { rgb, hex, hsl } from '../core/color'
 
 test('style', () => {
-  const widthStyle: __RoseBoxCssProperties__ = {
+  const widthStyle: RoseboxProperties = {
     width: per(3),
     height: px(100),
     top: px(3),
