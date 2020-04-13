@@ -1,7 +1,7 @@
-import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
-import { serializeKeyword } from '../shared/serializers'
-import { ShrinkGrow, isShrinkGrow } from './shared/types'
-import { FlexBasis, isFlexBasis, serializeFlexBasis } from './flex-basis'
+import { GlobalCssKeyword, isGlobalCssKeyword } from '../../shared/types'
+import { serializeKeyword } from '../../shared/serializers'
+import { ShrinkGrow, isShrinkGrow } from '../shared/types'
+import { FlexBasis, isFlexBasis, serializeFlexBasis } from '../flex-basis'
 
 export type FlexSingleValue = 'none' | ShrinkGrow | FlexBasis
 export type FlexTwoValues = [ShrinkGrow, FlexBasis] | [FlexBasis, ShrinkGrow]
@@ -63,5 +63,16 @@ export const flex = (value: Flex | GlobalCssKeyword): { flex: string } => ({
     ? serializeOneValueSyntax(value)
     : isTwoValuesSyntax(value)
     ? serializeTwoValuesSyntax(value)
-    : serializeThreeValuesSyntax(value)
+    : serializeThreeValuesSyntax(value),
 })
+
+export type FlexDeclaration = {
+  /**
+   * Maps to CSS's **`flex`** property
+   * @category Property
+   * @formalSyntaxForValue none | [ <‘flex-grow’> <‘flex-shrink’>? || <‘flex-basis’> ]
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/css-flexbox-1/#flex-property
+   */
+  flex: Flex | GlobalCssKeyword
+}

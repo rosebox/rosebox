@@ -12,5 +12,16 @@ import { serializeLength } from '../shared/serializers'
 export const letterSpacing = (
   value: 'normal' | Length | GlobalCssKeyword
 ): { letterSpacing: string } => ({
-  letterSpacing: isLengthType(value) ? serializeLength(value) : value
+  letterSpacing: isLengthType(value) ? serializeLength(value) : value,
 })
+
+export type LetterSpacingDeclaration = {
+  /**
+   * Maps to CSS's **`letter-spacing`** property
+   * @category Property
+   * @formalSyntaxForValue normal | <length>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#letter-spacing-property
+   */
+  letterSpacing: 'normal' | Length | GlobalCssKeyword
+}

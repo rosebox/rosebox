@@ -11,5 +11,15 @@ import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
 export const bgColor = (
   value: Color | GlobalCssKeyword
 ): { backgroundColor: string } => ({
-  backgroundColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
+  backgroundColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
+
+export type BgColorDeclaration = {
+  /**
+   * A RB property that maps to CSS's **`background-color`** property
+   * @category Property
+   * @formalSyntaxForValue auto | <integer>
+   * @added 0.2.0
+   */
+  backgroundColor: Color | GlobalCssKeyword
+}

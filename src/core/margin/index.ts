@@ -4,7 +4,7 @@ import {
   GlobalCssKeyword,
   isLengthType,
   isPercentageType,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
@@ -28,9 +28,20 @@ const serializeAtomicValue = (
  */
 export const marginTop = (
   value: Length | Percentage | 'auto' | GlobalCssKeyword
-): { mraginTop: string } => ({
-  mraginTop: serializeAtomicValue(value)
+): { marginTop: string } => ({
+  marginTop: serializeAtomicValue(value),
 })
+
+export type MarginTopDeclaration = {
+  /**
+   * Maps to CSS's **`margin-top`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage> | auto
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
+   */
+  marginTop: Length | Percentage | 'auto' | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`margin-right`** property.
@@ -42,8 +53,20 @@ export const marginTop = (
 export const marginRight = (
   value: Length | Percentage | 'auto' | GlobalCssKeyword
 ): { marginRight: string } => ({
-  marginRight: serializeAtomicValue(value)
+  marginRight: serializeAtomicValue(value),
 })
+
+export type MarginRightDeclaration = {
+  /**
+   * Maps to CSS's **`margin-right`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage> | auto
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
+   */
+  marginRight: Length | Percentage | 'auto' | GlobalCssKeyword
+}
+
 /**
  * Creates a declaration object for the **`margin-bottom`** property.
  * @category Declaration function
@@ -54,8 +77,19 @@ export const marginRight = (
 export const marginBottom = (
   value: Length | Percentage | 'auto' | GlobalCssKeyword
 ): { marginBottom: string } => ({
-  marginBottom: serializeAtomicValue(value)
+  marginBottom: serializeAtomicValue(value),
 })
+
+export type MarginBottomDeclaration = {
+  /**
+   * Maps to CSS's **`margin-bottom`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage> | auto
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
+   */
+  marginBottom: Length | Percentage | 'auto' | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`margin-left`** property.
@@ -67,8 +101,19 @@ export const marginBottom = (
 export const marginLeft = (
   value: Length | Percentage | 'auto' | GlobalCssKeyword
 ): { marginLeft: string } => ({
-  marginLeft: serializeAtomicValue(value)
+  marginLeft: serializeAtomicValue(value),
 })
+
+export type MarginLeftDeclaration = {
+  /**
+   * Maps to CSS's **`margin-left`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage> | auto
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
+   */
+  marginLeft: Length | Percentage | 'auto' | GlobalCssKeyword
+}
 
 type MarginShorthandSingleValue = MarginSide | [MarginSide]
 type MarginShorthandTwoValues = [MarginSide, MarginSide]
@@ -107,5 +152,16 @@ const serializeShorthandleValue = (value: MarginShorthand): string =>
 export const margin = (
   value: MarginShorthand | GlobalCssKeyword
 ): { margin: string } => ({
-  margin: isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value)
+  margin: isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value),
 })
+
+export type MarginDeclaration = {
+  /**
+   * Maps to CSS's **`margin`** property
+   * @category Property
+   * @formalSyntaxForValue <‘margin-top’>{1,4}
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
+   */
+  margin: MarginShorthand | GlobalCssKeyword
+}

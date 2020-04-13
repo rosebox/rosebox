@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared/types'
+import { GlobalCssKeyword } from '../../shared/types'
 
 /**
  * Creates a declaration object for the **`order`** property.

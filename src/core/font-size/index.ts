@@ -3,7 +3,7 @@ import {
   Length,
   GlobalCssKeyword,
   isLengthType,
-  isPercentageType
+  isPercentageType,
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
@@ -37,5 +37,21 @@ export const fontSize = (
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
-    : value
+    : value,
 })
+
+export type FontSizeDeclaration = {
+  /**
+   * Maps to CSS's **`font-size`** property
+   * @category Property
+   * @formalSyntaxForValue <absolute-size> | <relative-size> | <length-percentage>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-size-prop
+   */
+  fontSize:
+    | RelativeSizeKeyword
+    | AbsoluteSizeKeyword
+    | Length
+    | Percentage
+    | GlobalCssKeyword
+}

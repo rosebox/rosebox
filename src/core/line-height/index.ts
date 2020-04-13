@@ -3,7 +3,7 @@ import {
   isLengthType,
   isPercentageType,
   Percentage,
-  Length
+  Length,
 } from '../shared/types'
 
 import { serializeLength, serializePercentage } from '../shared/serializers'
@@ -22,5 +22,16 @@ export const lineHeight = (
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
-    : value
+    : value,
 })
+
+export type LineHeightDeclaration = {
+  /**
+   * Maps to CSS's **`line-height`** property
+   * @category Property
+   * @formalSyntaxForValue normal | <number> | <length> | <percentage> | inherit
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-line-height
+   */
+  lineHeight: 'normal' | number | Length | Percentage | GlobalCssKeyword
+}

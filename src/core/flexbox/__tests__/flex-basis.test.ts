@@ -1,20 +1,20 @@
-import { basis } from '../flex-basis'
+import { flexBasis } from '../flex-basis'
 import { per, px } from '../../shared/value-constructors'
 
-test('basis() with pixels', () => {
-  const received = basis(px(2))
+test('flexBasis() with pixels', () => {
+  const received = flexBasis(px(2))
   const expected = { flexBasis: '2px' }
   expect(received).toEqual(expected)
 })
 
-test('basis() with percentage', () => {
-  const received = basis(per(20))
+test('flexBasis() with percentage', () => {
+  const received = flexBasis(per(20))
   const expected = { flexBasis: '20%' }
   expect(received).toEqual(expected)
 })
 
-test('basis() with keyword', () => {
-  const received = basis('auto')
+test('flexBasis() with keyword', () => {
+  const received = flexBasis('auto')
   const expected = { flexBasis: 'auto' }
   expect(received).toEqual(expected)
 })

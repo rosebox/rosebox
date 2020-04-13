@@ -4,7 +4,7 @@ import {
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
@@ -20,12 +20,23 @@ const serializeMaxHeight = (value: MaxHeight): string =>
 /**
  * Creates a declaration object for the **`max-height`** property.
  * @category Declaration function
- * @formalSyntax <length> | <percentage> | none
+ * @formalSyntaxForValue <length> | <percentage> | none
  * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
  */
 export const maxHeight = (
   value: Length | Percentage | GlobalCssKeyword | 'none'
 ): { maxHeight: string } => ({
-  maxHeight: isGlobalCssKeyword(value) ? `${value}` : serializeMaxHeight(value)
+  maxHeight: isGlobalCssKeyword(value) ? `${value}` : serializeMaxHeight(value),
 })
+
+export type MaxHeightDeclaration = {
+  /**
+   * Maps to CSS's **`max-height`** property
+   * @category Property
+   * @formalSyntaxForValue <length> | <percentage> | none
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
+   */
+  maxHeight: Length | Percentage | GlobalCssKeyword | 'none'
+}

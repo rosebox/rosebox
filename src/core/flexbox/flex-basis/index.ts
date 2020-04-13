@@ -2,9 +2,9 @@ import {
   GlobalCssKeyword,
   Width,
   isGlobalCssKeyword,
-  isWidthType
-} from '../shared/types'
-import { serializeKeyword, serializeWidth } from '../shared/serializers'
+  isWidthType,
+} from '../../shared/types'
+import { serializeKeyword, serializeWidth } from '../../shared/serializers'
 
 /**
  * @skip
@@ -27,8 +27,19 @@ export const serializeFlexBasis = (value: FlexBasis): string =>
  * @added 0.1.4
  * @imlementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-basis-property
  */
-export const basis = (value: FlexBasis | GlobalCssKeyword) => ({
+export const flexBasis = (value: FlexBasis | GlobalCssKeyword) => ({
   flexBasis: isGlobalCssKeyword(value)
     ? serializeKeyword(value)
-    : serializeFlexBasis(value)
+    : serializeFlexBasis(value),
 })
+
+export type FlexBasisDeclaration = {
+  /**
+   * Maps to CSS's **`flex-basis`** property
+   * @category Property
+   * @formalSyntaxForValue content | <‘width’>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-basis-property
+   */
+  flexBasis: FlexBasis | GlobalCssKeyword
+}

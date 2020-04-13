@@ -4,14 +4,11 @@ import {
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
-/**  <'min-height'> = <length> | <percentage> | inherit */
-type MinHeight = Length | Percentage | GlobalCssKeyword
-
-const serializeMinHeight = (value: MinHeight): string =>
+const serializeMinHeight = (value: Length | Percentage): string =>
   isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
@@ -21,12 +18,23 @@ const serializeMinHeight = (value: MinHeight): string =>
 /**
  * Creates a declaration object for the **`min-height`** property.
  * @category Declaration function
- * @formalSyntax <length> | <percentage>
+ * @formalSyntaxForValue <length> | <percentage>
  * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
+ * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height
  */
 export const minHeight = (
   value: Length | Percentage | GlobalCssKeyword
 ): { minHeight: string } => ({
-  minHeight: isGlobalCssKeyword(value) ? `${value}` : serializeMinHeight(value)
+  minHeight: isGlobalCssKeyword(value) ? `${value}` : serializeMinHeight(value),
 })
+
+export type MinHeightDeclaration = {
+  /**
+   * Maps to CSS's **`min-height`** property
+   * @category Property
+   * @formalSyntaxForValue <length> | <percentage>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height
+   */
+  minHeight: Length | Percentage | GlobalCssKeyword
+}

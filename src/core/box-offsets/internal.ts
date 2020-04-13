@@ -2,7 +2,7 @@ import {
   Length,
   Percentage,
   GlobalCssKeyword,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 import { serializeLengthPercentage } from '../shared/serializers'
 
@@ -21,8 +21,19 @@ export const top = (
       ? 'auto'
       : isGlobalCssKeyword(value)
       ? value
-      : serializeLengthPercentage(value)
+      : serializeLengthPercentage(value),
 })
+
+export type TopDeclaration = {
+  /**
+   * Maps to CSS's **`top`** property
+   * @category Property
+   * @formalSyntaxForValue auto | <length> | <percentage>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
+   */
+  top: Length | Percentage | 'auto' | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`right`** property.
@@ -39,8 +50,19 @@ export const right = (
       ? 'auto'
       : isGlobalCssKeyword(value)
       ? value
-      : serializeLengthPercentage(value)
+      : serializeLengthPercentage(value),
 })
+
+export type RightDeclaration = {
+  /**
+   * Maps to CSS's **`right`** property
+   * @category Property
+   * @formalSyntaxForValue auto | <length> | <percentage>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
+   */
+  right: Length | Percentage | 'auto' | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`bottom`** property.
@@ -57,8 +79,19 @@ export const bottom = (
       ? 'auto'
       : isGlobalCssKeyword(value)
       ? value
-      : serializeLengthPercentage(value)
+      : serializeLengthPercentage(value),
 })
+
+export type BottomDeclaration = {
+  /**
+   * Maps to CSS's **`bottom`** property
+   * @category Property
+   * @formalSyntaxForValue auto | <length> | <percentage>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
+   */
+  bottom: Length | Percentage | 'auto' | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`left`** property.
@@ -75,5 +108,16 @@ export const left = (
       ? 'auto'
       : isGlobalCssKeyword(value)
       ? value
-      : serializeLengthPercentage(value)
+      : serializeLengthPercentage(value),
 })
+
+export type LeftDeclaration = {
+  /**
+   * Maps to CSS's **`left`** property
+   * @category Property
+   * @formalSyntaxForValue auto | <length> | <percentage>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
+   */
+  left: Length | Percentage | 'auto' | GlobalCssKeyword
+}

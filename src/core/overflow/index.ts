@@ -27,13 +27,24 @@ type TwoOverflowKeywords =
 /**
  * Creates a declaration object for the **`overflow-x`** property.
  * @category Declaration function
- * @formalSyntax visible | hidden | clip | scroll | auto
+ * @formalSyntaxForValue visible | hidden | clip | scroll | auto
  * @added 0.1.5
  * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
  */
 export const overflowX = (value: OverflowKeyword | GlobalCssKeyword) => ({
-  overflowX: value
+  overflowX: value,
 })
+
+export type OverflowXDeclaration = {
+  /**
+   * Maps to CSS's **`overflow-x`** property
+   * @category Property
+   * @formalSyntaxForValue visible | hidden | clip | scroll | auto
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
+   */
+  overflowX: OverflowKeyword | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`overflow-y`** property.
@@ -43,8 +54,19 @@ export const overflowX = (value: OverflowKeyword | GlobalCssKeyword) => ({
  * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
  */
 export const overflowY = (value: OverflowKeyword | GlobalCssKeyword) => ({
-  overflowY: value
+  overflowY: value,
 })
+
+export type OverflowYDeclaration = {
+  /**
+   * Maps to CSS's **`overflow-y`** property
+   * @category Property
+   * @formalSyntaxForValue visible | hidden | clip | scroll | auto
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
+   */
+  overflowY: OverflowKeyword | GlobalCssKeyword
+}
 
 type OneOverflowKeyword = OverflowKeyword
 
@@ -58,5 +80,16 @@ type OneOverflowKeyword = OverflowKeyword
 export const overflow = (
   value: OneOverflowKeyword | TwoOverflowKeywords | GlobalCssKeyword
 ) => ({
-  overflow: value
+  overflow: value,
 })
+
+export type OverflowDeclaration = {
+  /**
+   * Maps to CSS's **`overflow`** property
+   * @category Property
+   * @formalSyntaxForValue visible | hidden | clip | scroll | auto
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
+   */
+  overflow: OneOverflowKeyword | TwoOverflowKeywords | GlobalCssKeyword
+}

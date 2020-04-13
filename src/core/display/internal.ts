@@ -270,10 +270,21 @@ export type DisplayValue =
 /**
  * Creates a declaration object for the **`display`** property.
  * @category Declaration function
- * @formalSyntax [ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy>
+ * @formalSyntaxForValue [ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy>
  * @added 0.1.4
  * @implementationReference https://www.w3.org/TR/2019/CR-css-display-3-20190711/
  */
 export const display = (value: DisplayValue | GlobalCssKeyword) => ({
-  display: value
+  display: value,
 })
+
+export type DisplayDeclaration = {
+  /**
+   * Maps to CSS's **`display`** property
+   * @category Property
+   * @formalSyntaxForValue [ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2019/CR-css-display-3-20190711/
+   */
+  display: DisplayValue | GlobalCssKeyword
+}

@@ -1,7 +1,7 @@
 import {
   LineWidth,
   GlobalCssKeyword,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 import { serializeLineWidth } from '../shared/serializers'
 
@@ -15,8 +15,19 @@ import { serializeLineWidth } from '../shared/serializers'
 export const borderTopWidth = (
   value: LineWidth | GlobalCssKeyword
 ): { borderTopWidth: string } => ({
-  borderTopWidth: isGlobalCssKeyword(value) ? value : serializeLineWidth(value)
+  borderTopWidth: isGlobalCssKeyword(value) ? value : serializeLineWidth(value),
 })
+
+export type BorderTopWidthDeclaration = {
+  /**
+   * Maps to CSS's **`border-top-width`** property
+   * @category Property
+   * @formalSyntaxForValue <line-width>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+   */
+  borderTopWidth: LineWidth | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`border-right-width`** property.
@@ -30,8 +41,19 @@ export const borderRightWidth = (
 ): { borderRightWidth: string } => ({
   borderRightWidth: isGlobalCssKeyword(value)
     ? value
-    : serializeLineWidth(value)
+    : serializeLineWidth(value),
 })
+
+export type BorderRightWidthDeclaration = {
+  /**
+   * Maps to CSS's **`border-right-width`** property
+   * @category Property
+   * @formalSyntaxForValue <line-width>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+   */
+  borderRightWidth: LineWidth | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`border-bottom-width`** property.
@@ -45,8 +67,19 @@ export const borderBottomWidth = (
 ): { borderBottomWidth: string } => ({
   borderBottomWidth: isGlobalCssKeyword(value)
     ? value
-    : serializeLineWidth(value)
+    : serializeLineWidth(value),
 })
+
+export type BorderBottomWidthDeclaration = {
+  /**
+   * Maps to CSS's **`border-bottom-width`** property
+   * @category Property
+   * @formalSyntaxForValue <line-width>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+   */
+  borderBottomWidth: LineWidth | GlobalCssKeyword
+}
 
 /**
  * Creates a declaration object for the **`border-left-width`** property.
@@ -58,8 +91,21 @@ export const borderBottomWidth = (
 export const borderLeftWidth = (
   value: LineWidth | GlobalCssKeyword
 ): { borderLeftWidth: string } => ({
-  borderLeftWidth: isGlobalCssKeyword(value) ? value : serializeLineWidth(value)
+  borderLeftWidth: isGlobalCssKeyword(value)
+    ? value
+    : serializeLineWidth(value),
 })
+
+export type BorderLeftWidthDeclaration = {
+  /**
+   * Maps to CSS's **`border-left-width`** property
+   * @category Property
+   * @formalSyntaxForValue <line-width>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+   */
+  borderLeftWidth: LineWidth | GlobalCssKeyword
+}
 
 type BorderWidth =
   | LineWidth
@@ -84,5 +130,16 @@ const serializeBorderWidth = (value: BorderWidth): string =>
 export const borderWidth = (
   value: BorderWidth | GlobalCssKeyword
 ): { borderWidth: string } => ({
-  borderWidth: isGlobalCssKeyword(value) ? value : serializeBorderWidth(value)
+  borderWidth: isGlobalCssKeyword(value) ? value : serializeBorderWidth(value),
 })
+
+export type BorderWidthDeclaration = {
+  /**
+   * Maps to CSS's **`border-width`** property
+   * @category Property
+   * @formalSyntaxForValue <line-width>{1,4}
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+   */
+  borderWidth: LineWidth | GlobalCssKeyword
+}

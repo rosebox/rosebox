@@ -4,16 +4,11 @@ import {
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
-  isGlobalCssKeyword
+  isGlobalCssKeyword,
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
-/**
- * @skip
- */
-type MinWidth = Length | Percentage
-
-const serializeMinWidth = (value: MinWidth): string =>
+const serializeMinWidth = (value: Length | Percentage): string =>
   isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
@@ -23,12 +18,23 @@ const serializeMinWidth = (value: MinWidth): string =>
 /**
  * Creates a declaration object for the **`min-width`** property.
  * @category Declaration function
- * @formalSyntax <length> | <percentage>
+ * @formalSyntaxForValue <length> | <percentage>
  * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-widths
+ * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width
  */
 export const minWidth = (
-  value: MinWidth | GlobalCssKeyword
+  value: Length | Percentage | GlobalCssKeyword
 ): { minWidth: string } => ({
-  minWidth: isGlobalCssKeyword(value) ? value : serializeMinWidth(value)
+  minWidth: isGlobalCssKeyword(value) ? value : serializeMinWidth(value),
 })
+
+export type MinWidthDeclaration = {
+  /**
+   * Maps to CSS's **`min-width`** property.
+   * @category Property
+   * @formalSyntaxForValue <length> | <percentage>
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width
+   */
+  minWidth: Length | Percentage | GlobalCssKeyword
+}
