@@ -83,6 +83,7 @@ import {
   BorderWidthDeclaration,
   borderWidth,
 } from './core/border-width'
+import { ZIndexDeclaration, zIndex } from './core/z-index'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -172,7 +173,8 @@ export type __RoseBoxCssProperties__ = Partial<
     BorderRightWidthDeclaration &
     BorderBottomWidthDeclaration &
     BorderLeftWidthDeclaration &
-    BorderWidthDeclaration
+    BorderWidthDeclaration &
+    ZIndexDeclaration
 >
 
 const funcMapper = {
@@ -217,6 +219,7 @@ const funcMapper = {
   borderBottomWidth,
   borderLeftWidth,
   borderWidth,
+  zIndex,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {

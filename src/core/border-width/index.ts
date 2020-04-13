@@ -135,7 +135,7 @@ export const borderWidth = (
 
 export type BorderWidthDeclaration = {
   /**
-   * Maps to CSS's **`border-left-width`** property
+   * Maps to CSS's **`border-width`** property
    * @category Property
    * @formalSyntaxForValue <line-width>{1,4}
    * @added 0.2.0
