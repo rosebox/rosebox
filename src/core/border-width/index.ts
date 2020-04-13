@@ -132,3 +132,14 @@ export const borderWidth = (
 ): { borderWidth: string } => ({
   borderWidth: isGlobalCssKeyword(value) ? value : serializeBorderWidth(value),
 })
+
+export type BorderWidthDeclaration = {
+  /**
+   * Maps to CSS's **`border-left-width`** property
+   * @category Property
+   * @formalSyntaxForValue <line-width>{1,4}
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+   */
+  borderWidth: LineWidth | GlobalCssKeyword
+}
