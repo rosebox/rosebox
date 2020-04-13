@@ -129,6 +129,17 @@ export const borderLeft = (
   borderLeft: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
 })
 
+export type BorderLeftDeclaration = {
+  /**
+   * Maps to CSS's **`border-left`** property
+   * @category Property
+   * @formalSyntaxForValue [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
+   */
+  borderLeft: BorderSide | GlobalCssKeyword
+}
+
 /**
  * Creates a declaration object for the **`border`** property.
  * @category Declaration function

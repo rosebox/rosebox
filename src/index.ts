@@ -95,6 +95,8 @@ import {
   borderRight,
   BorderBottomDeclaration,
   borderBottom,
+  BorderLeftDeclaration,
+  borderLeft,
 } from './core/border'
 
 export * from './core/shared/value-constructors'
@@ -191,7 +193,8 @@ export type __RoseBoxCssProperties__ = Partial<
     TextDecorationDeclaration &
     BorderTopDeclaration &
     BorderRightDeclaration &
-    BorderBottomDeclaration
+    BorderBottomDeclaration &
+    BorderLeftDeclaration
 >
 
 const funcMapper = {
@@ -242,6 +245,7 @@ const funcMapper = {
   borderTop,
   borderRight,
   borderBottom,
+  borderLeft,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
