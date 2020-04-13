@@ -75,6 +75,7 @@ test('__style2__', () => {
     fontFamily: 'Arial',
     flexBasis: 'content',
     flexDirection: 'column',
+    flexGrow: 0,
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -131,6 +132,7 @@ test('__style2__', () => {
     fontFamily: 'Arial',
     flexBasis: 'content',
     flexDirection: 'column',
+    flexGrow: 0,
   }
   expect(received).toEqual(expected)
 })

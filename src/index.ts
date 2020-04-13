@@ -108,6 +108,7 @@ import {
   FlexDirectionDeclaration,
   flexDirection,
 } from './core/flexbox/flex-direction'
+import { FlexGrowDeclaration, flexGrow } from './core/flexbox/flex-grow'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -211,7 +212,8 @@ export type __RoseBoxCssProperties__ = Partial<
     FontWeightDeclaration &
     FontFamilyDeclaration &
     FlexBasisDeclaration &
-    FlexDirectionDeclaration
+    FlexDirectionDeclaration &
+    FlexGrowDeclaration
 >
 
 const funcMapper = {
@@ -269,6 +271,7 @@ const funcMapper = {
   fontFamily,
   flexBasis,
   flexDirection,
+  flexGrow,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
