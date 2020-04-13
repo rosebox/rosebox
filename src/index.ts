@@ -111,6 +111,7 @@ import {
 import { FlexGrowDeclaration, flexGrow } from './core/flexbox/flex-grow'
 import { FlexShrinkDeclaration, flexShrink } from './core/flexbox/flex-shrink'
 import { FlexWrapDeclaration, flexWrap } from './core/flexbox/flex-wrap'
+import { FlexDeclaration, flex } from './core/flexbox/flex'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -217,7 +218,8 @@ export type __RoseBoxCssProperties__ = Partial<
     FlexDirectionDeclaration &
     FlexGrowDeclaration &
     FlexShrinkDeclaration &
-    FlexWrapDeclaration
+    FlexWrapDeclaration &
+    FlexDeclaration
 >
 
 const funcMapper = {
@@ -278,6 +280,7 @@ const funcMapper = {
   flexGrow,
   flexShrink,
   flexWrap,
+  flex,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
