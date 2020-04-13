@@ -44,7 +44,7 @@ export const borderRightWidth = (
     : serializeLineWidth(value),
 })
 
-export type borderRightWidthDeclaration = {
+export type BorderRightWidthDeclaration = {
   /**
    * Maps to CSS's **`border-right-width`** property
    * @category Property
@@ -70,7 +70,7 @@ export const borderBottomWidth = (
     : serializeLineWidth(value),
 })
 
-export type borderBottomWidthDeclaration = {
+export type BorderBottomWidthDeclaration = {
   /**
    * Maps to CSS's **`border-bottom-width`** property
    * @category Property

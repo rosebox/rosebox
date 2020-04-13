@@ -74,9 +74,9 @@ import {
 import {
   BorderTopWidthDeclaration,
   borderTopWidth,
-  borderRightWidthDeclaration,
+  BorderRightWidthDeclaration,
   borderRightWidth,
-  borderBottomWidthDeclaration,
+  BorderBottomWidthDeclaration,
   borderBottomWidth,
   BorderLeftWidthDeclaration,
   borderLeftWidth,
@@ -167,8 +167,8 @@ export type __RoseBoxCssProperties__ = Partial<
     BorderStyleDeclaration &
     BorderTopWidthDeclaration &
     BorderTopWidthDeclaration &
-    borderRightWidthDeclaration &
-    borderBottomWidthDeclaration &
+    BorderRightWidthDeclaration &
+    BorderBottomWidthDeclaration &
     BorderLeftWidthDeclaration
 >
 
