@@ -8,7 +8,7 @@ import {
   OverflowDeclaration,
 } from './core/overflow'
 import { textAlign } from './core/text-align'
-import { textTransform } from './core/text-transform'
+import { textTransform, TextTransformDeclaration } from './core/text-transform'
 import { display } from './core/display'
 import { WidthDeclaration, width } from './core/width'
 import { HeightDeclaration, height } from './core/height'
@@ -174,7 +174,8 @@ export type __RoseBoxCssProperties__ = Partial<
     BorderBottomWidthDeclaration &
     BorderLeftWidthDeclaration &
     BorderWidthDeclaration &
-    ZIndexDeclaration
+    ZIndexDeclaration &
+    TextTransformDeclaration
 >
 
 const funcMapper = {
@@ -220,6 +221,7 @@ const funcMapper = {
   borderLeftWidth,
   borderWidth,
   zIndex,
+  textTransform,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {

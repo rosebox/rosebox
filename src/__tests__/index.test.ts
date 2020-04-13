@@ -64,6 +64,7 @@ test('__style2__', () => {
     borderLeftWidth: px(2),
     borderWidth: px(100),
     zIndex: 3,
+    textTransform: 'lowercase full-width full-size-kana',
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -109,6 +110,7 @@ test('__style2__', () => {
     borderLeftWidth: '2px',
     borderWidth: '100px',
     zIndex: 3,
+    textTransform: 'lowercase full-width full-size-kana',
   }
   expect(received).toEqual(expected)
 })

@@ -45,7 +45,7 @@ type ThreeValues =
 type TextTransform = OneValue | TwoValues | ThreeValues
 
 /**
- * Creates a declaration object for the **`textTransform`** shorthand property.
+ * Creates a declaration object for the **`text-transform`** shorthand property.
  * @category Declaration function
  * @formalSyntax none | [capitalize | uppercase | lowercase ] || full-width || full-size-kana
  * @added 0.1.5
@@ -53,5 +53,16 @@ type TextTransform = OneValue | TwoValues | ThreeValues
  */
 
 export const textTransform = (value: TextTransform | GlobalCssKeyword) => ({
-  textTransform: value
+  textTransform: value,
 })
+
+export type TextTransformDeclaration = {
+  /**
+   * Maps to CSS's **`text-transform`** property
+   * @category Property
+   * @formalSyntaxForValue none | [capitalize | uppercase | lowercase ] || full-width || full-size-kana
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-transform-property
+   */
+  textTransform: TextTransform | GlobalCssKeyword
+}
