@@ -61,6 +61,7 @@ test('__style2__', () => {
     borderTopWidth: px(10),
     borderRightWidth: px(100),
     borderBottomWidth: px(1),
+    borderLeftWidth: px(2),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -103,6 +104,7 @@ test('__style2__', () => {
     borderTopWidth: '10px',
     borderRightWidth: '100px',
     borderBottomWidth: '1px',
+    borderLeftWidth: '2px',
   }
   expect(received).toEqual(expected)
 })

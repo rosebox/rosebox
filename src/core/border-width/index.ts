@@ -96,6 +96,17 @@ export const borderLeftWidth = (
     : serializeLineWidth(value),
 })
 
+export type BorderLeftWidthDeclaration = {
+  /**
+   * Maps to CSS's **`border-left-width`** property
+   * @category Property
+   * @formalSyntaxForValue <line-width>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+   */
+  borderLeftWidth: LineWidth | GlobalCssKeyword
+}
+
 type BorderWidth =
   | LineWidth
   | [LineWidth]
