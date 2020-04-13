@@ -55,6 +55,18 @@ export const marginRight = (
 ): { marginRight: string } => ({
   marginRight: serializeAtomicValue(value),
 })
+
+export type MarginRightDeclaration = {
+  /**
+   * Maps to CSS's **`margin-right`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage> | auto
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
+   */
+  marginRight: Length | Percentage | 'auto' | GlobalCssKeyword
+}
+
 /**
  * Creates a declaration object for the **`margin-bottom`** property.
  * @category Declaration function

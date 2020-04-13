@@ -82,6 +82,7 @@ test('__style2__', () => {
     letterSpacing: px(1),
     lineHeight: 'normal',
     marginTop: px(40),
+    marginRight: px(40),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -145,6 +146,7 @@ test('__style2__', () => {
     letterSpacing: '1px',
     lineHeight: 'normal',
     marginTop: '40px',
+    marginRight: '40px',
   }
   expect(received).toEqual(expected)
 })
