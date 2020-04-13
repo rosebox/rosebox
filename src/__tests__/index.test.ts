@@ -76,6 +76,7 @@ test('__style2__', () => {
     flexBasis: 'content',
     flexDirection: 'column',
     flexGrow: 0,
+    flexShrink: 1,
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -133,6 +134,7 @@ test('__style2__', () => {
     flexBasis: 'content',
     flexDirection: 'column',
     flexGrow: 0,
+    flexShrink: 1,
   }
   expect(received).toEqual(expected)
 })
