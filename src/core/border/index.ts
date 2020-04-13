@@ -152,3 +152,14 @@ export const border = (
 ): { border: string } => ({
   border: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
 })
+
+export type BorderDeclaration = {
+  /**
+   * Maps to CSS's **`border`** property
+   * @category Property
+   * @formalSyntaxForValue [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
+   */
+  border: BorderSide | GlobalCssKeyword
+}
