@@ -81,7 +81,7 @@ type TextDecorationLine = OneValue | TwoValues | ThreeValues | FourValues
 export const textDecorationLine = (
   value: TextDecorationLine | GlobalCssKeyword
 ): { textDecorationLine: string } => ({
-  textDecorationLine: value
+  textDecorationLine: value,
 })
 
 /**
@@ -94,7 +94,9 @@ export const textDecorationLine = (
 export const textDecorationColor = (
   value: Color | GlobalCssKeyword
 ): { textDecorationColor: string } => ({
-  textDecorationColor: isGlobalCssKeyword(value) ? value : serializeColor(value)
+  textDecorationColor: isGlobalCssKeyword(value)
+    ? value
+    : serializeColor(value),
 })
 
 type TextDecorationStyle =
@@ -115,7 +117,7 @@ type TextDecorationStyle =
 export const textDecorationStyle = (
   value: 'solid' | 'double' | 'dotted' | 'dashed' | 'wavy' | GlobalCssKeyword
 ): { textDecorationStyle: string } => ({
-  textDecorationStyle: value
+  textDecorationStyle: value,
 })
 
 type TextDecorationSingleValue =
@@ -170,5 +172,16 @@ export const textDecoration = (
 ): { textDecoration: string } => ({
   textDecoration: isGlobalCssKeyword(value)
     ? value
-    : serializeShorthandleValue(value)
+    : serializeShorthandleValue(value),
 })
+
+export type TextDecorationDeclaration = {
+  /**
+   * Maps to CSS's **`text-decoration`** property
+   * @category Property
+   * @formalSyntaxForValue '<text-decoration-line'> || <'text-decoration-style'> || <'text-decoration-color'>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2019/CR-css-text-decor-3-20190813/#text-decoration-property
+   */
+  textDecoration: TextDecoration | GlobalCssKeyword
+}
