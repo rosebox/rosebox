@@ -88,7 +88,12 @@ import {
   TextDecorationDeclaration,
   textDecoration,
 } from './core/text-decoration'
-import { BorderTopDeclaration, borderTop } from './core/border'
+import {
+  BorderTopDeclaration,
+  borderTop,
+  BorderRightDeclaration,
+  borderRight,
+} from './core/border'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -182,7 +187,8 @@ export type __RoseBoxCssProperties__ = Partial<
     ZIndexDeclaration &
     TextTransformDeclaration &
     TextDecorationDeclaration &
-    BorderTopDeclaration
+    BorderTopDeclaration &
+    BorderRightDeclaration
 >
 
 const funcMapper = {
@@ -231,6 +237,7 @@ const funcMapper = {
   textTransform,
   textDecoration,
   borderTop,
+  borderRight,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
