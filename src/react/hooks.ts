@@ -2,14 +2,12 @@ import { useState, useCallback, useEffect, MutableRefObject } from 'react'
 import { isEqual } from 'lodash'
 import { generate as generateId } from 'short-uuid'
 
-import { RoseBoxCssProperties } from '..'
+import { RoseboxProperties } from '..'
 import { createStyleTag, EL_ATTRIBUTE_NAME } from '../dom'
 
 export const usePseudo = (elRef?: (ref: MutableRefObject<null>) => void) => {
   // Set up state
-  const [beforeStyleState, setBeforeStyleState] = useState<
-    RoseBoxCssProperties
-  >()
+  const [beforeStyleState, setBeforeStyleState] = useState<RoseboxProperties>()
   const [styleTagId] = useState('rb-' + generateId())
 
   const callbackRef = useCallback(
@@ -32,7 +30,7 @@ export const usePseudo = (elRef?: (ref: MutableRefObject<null>) => void) => {
     }
   }, [beforeStyleState, styleTagId])
 
-  const styleBefore = (before: RoseBoxCssProperties) => {
+  const styleBefore = (before: RoseboxProperties) => {
     if (before !== beforeStyleState && !isEqual(before, beforeStyleState)) {
       setBeforeStyleState(before)
     }

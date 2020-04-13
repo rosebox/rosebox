@@ -13,10 +13,13 @@ export const position = (value: Position | GlobalCssKeyword) => ({
   position: value,
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type PositionDeclaration = {
   /**
    * Maps to CSS's **`position`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue relative | absolute | static | fixed | sticky
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#position-property

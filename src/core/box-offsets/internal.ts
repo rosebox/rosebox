@@ -24,10 +24,13 @@ export const top = (
       : serializeLengthPercentage(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type TopDeclaration = {
   /**
    * Maps to CSS's **`top`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue auto | <length> | <percentage>
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
@@ -53,10 +56,13 @@ export const right = (
       : serializeLengthPercentage(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type RightDeclaration = {
   /**
    * Maps to CSS's **`right`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue auto | <length> | <percentage>
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
@@ -82,10 +88,13 @@ export const bottom = (
       : serializeLengthPercentage(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BottomDeclaration = {
   /**
    * Maps to CSS's **`bottom`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue auto | <length> | <percentage>
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
@@ -111,10 +120,13 @@ export const left = (
       : serializeLengthPercentage(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type LeftDeclaration = {
   /**
    * Maps to CSS's **`left`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue auto | <length> | <percentage>
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl

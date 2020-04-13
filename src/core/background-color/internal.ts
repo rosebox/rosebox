@@ -14,10 +14,13 @@ export const bgColor = (
   backgroundColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BgColorDeclaration = {
   /**
    * A RB property that maps to CSS's **`background-color`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue auto | <integer>
    * @added 0.2.0
    */

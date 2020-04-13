@@ -6,11 +6,11 @@ import React, {
   MutableRefObject,
 } from 'react'
 import { usePseudo } from './hooks'
-import { RoseBoxCssProperties } from '../index'
+import { RoseboxProperties } from '../index'
 
 type Props = {
   children: ReactNode
-  before: RoseBoxCssProperties
+  before: RoseboxProperties
   elRef?: (ref: MutableRefObject<null>) => void
 }
 

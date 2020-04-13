@@ -35,7 +35,7 @@ export const marginTop = (
 export type MarginTopDeclaration = {
   /**
    * Maps to CSS's **`margin-top`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage> | auto
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
@@ -59,7 +59,7 @@ export const marginRight = (
 export type MarginRightDeclaration = {
   /**
    * Maps to CSS's **`margin-right`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage> | auto
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
@@ -83,7 +83,7 @@ export const marginBottom = (
 export type MarginBottomDeclaration = {
   /**
    * Maps to CSS's **`margin-bottom`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage> | auto
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
@@ -107,7 +107,7 @@ export const marginLeft = (
 export type MarginLeftDeclaration = {
   /**
    * Maps to CSS's **`margin-left`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage> | auto
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
@@ -155,10 +155,13 @@ export const margin = (
   margin: isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type MarginDeclaration = {
   /**
    * Maps to CSS's **`margin`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <‘margin-top’>{1,4}
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical

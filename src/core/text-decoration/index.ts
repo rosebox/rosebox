@@ -175,10 +175,13 @@ export const textDecoration = (
     : serializeShorthandleValue(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type TextDecorationDeclaration = {
   /**
    * Maps to CSS's **`text-decoration`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue '<text-decoration-line'> || <'text-decoration-style'> || <'text-decoration-color'>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2019/CR-css-text-decor-3-20190813/#text-decoration-property

@@ -22,10 +22,13 @@ export const textAlign = (
   textAlign: value,
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type TextAlignDeclaration = {
   /**
    * Maps to CSS's **`text-align`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue start | end | left | right | center | justify | match-parent | justify-all
    * @added 0.2.0
    * @implentationReference @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-align-property

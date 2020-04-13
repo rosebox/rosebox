@@ -21,10 +21,13 @@ export const height = (value: Width | GlobalCssKeyword) => ({
     : value,
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type HeightDeclaration = {
   /**
    * Maps to CSS's **`height`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length> | <percentage> | auto
    * @added 0.2.0
    * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-height

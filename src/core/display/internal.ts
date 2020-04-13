@@ -278,10 +278,13 @@ export const display = (value: DisplayValue | GlobalCssKeyword) => ({
   display: value,
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type DisplayDeclaration = {
   /**
    * Maps to CSS's **`display`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue [ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy>
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2019/CR-css-display-3-20190711/

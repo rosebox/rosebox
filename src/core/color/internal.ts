@@ -624,10 +624,13 @@ export const color = (value: Color | GlobalCssKeyword): { color: string } => ({
   color: isColor(value) ? serializeColor(value) : value,
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type ColorDeclaration = {
   /**
    * Maps to CSS's **`color`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <color>
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/REC-css-color-3-20180619/#color0

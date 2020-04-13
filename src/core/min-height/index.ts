@@ -28,10 +28,13 @@ export const minHeight = (
   minHeight: isGlobalCssKeyword(value) ? `${value}` : serializeMinHeight(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type MinHeightDeclaration = {
   /**
    * Maps to CSS's **`min-height`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length> | <percentage>
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height

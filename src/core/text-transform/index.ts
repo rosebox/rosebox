@@ -56,10 +56,13 @@ export const textTransform = (value: TextTransform | GlobalCssKeyword) => ({
   textTransform: value,
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type TextTransformDeclaration = {
   /**
    * Maps to CSS's **`text-transform`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue none | [capitalize | uppercase | lowercase ] || full-width || full-size-kana
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-transform-property

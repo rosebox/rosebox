@@ -57,10 +57,13 @@ export const borderTop = (
   borderTop: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderTopDeclaration = {
   /**
    * Maps to CSS's **`border-top`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
@@ -81,10 +84,13 @@ export const borderRight = (
   borderRight: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderRightDeclaration = {
   /**
    * Maps to CSS's **`border-right`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
@@ -105,10 +111,13 @@ export const borderBottom = (
   borderBottom: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderBottomDeclaration = {
   /**
    * Maps to CSS's **`border-bottom`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
@@ -129,10 +138,13 @@ export const borderLeft = (
   borderLeft: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderLeftDeclaration = {
   /**
    * Maps to CSS's **`border-left`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
@@ -153,10 +165,13 @@ export const border = (
   border: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderDeclaration = {
   /**
    * Maps to CSS's **`border`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties

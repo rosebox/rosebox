@@ -30,10 +30,13 @@ export const paddingTop = (
   paddingTop: serializeAtomicValue(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type PaddingTopDeclaration = {
   /**
    * Maps to CSS's **`padding-top`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
@@ -54,10 +57,13 @@ export const paddingRight = (
   paddingRight: serializeAtomicValue(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type PaddingRightDeclaration = {
   /**
    * Maps to CSS's **`padding-right`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
@@ -78,10 +84,13 @@ export const paddingBottom = (
   paddingBottom: serializeAtomicValue(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type PaddingBottomDeclaration = {
   /**
    * Maps to CSS's **`padding-bottom`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
@@ -102,10 +111,13 @@ export const paddingLeft = (
   paddingLeft: serializeAtomicValue(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type PaddingLeftDeclaration = {
   /**
    * Maps to CSS's **`padding-left`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
@@ -150,10 +162,13 @@ export const padding = (
   padding: isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type PaddingDeclaration = {
   /**
    * Maps to CSS's **`padding`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <padding-top’>{1,4}
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical

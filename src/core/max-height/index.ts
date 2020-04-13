@@ -30,10 +30,13 @@ export const maxHeight = (
   maxHeight: isGlobalCssKeyword(value) ? `${value}` : serializeMaxHeight(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type MaxHeightDeclaration = {
   /**
    * Maps to CSS's **`max-height`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length> | <percentage> | none
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
