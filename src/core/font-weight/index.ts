@@ -23,5 +23,5 @@ type FontWeight =
  * @implentationReference https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/#font-weight-prop
  */
 export const fontWeight = (value: FontWeight | GlobalCssKeyword) => ({
-  fontWeight: value
+  fontWeight: value,
 })

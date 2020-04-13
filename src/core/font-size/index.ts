@@ -3,7 +3,7 @@ import {
   Length,
   GlobalCssKeyword,
   isLengthType,
-  isPercentageType
+  isPercentageType,
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
@@ -37,5 +37,5 @@ export const fontSize = (
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
-    : value
+    : value,
 })
