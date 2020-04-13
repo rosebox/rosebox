@@ -54,6 +54,17 @@ export const paddingRight = (
   paddingRight: serializeAtomicValue(value),
 })
 
+export type PaddingRightDeclaration = {
+  /**
+   * Maps to CSS's **`padding-right`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
+   */
+  paddingRight: Length | Percentage | GlobalCssKeyword
+}
+
 /**
  * Creates a declaration object for the `padding-bottom` property
  * @category Declaration function
