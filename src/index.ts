@@ -175,17 +175,6 @@ export * from './core/font-family'
 export * from './core/cursor'
 export * from './react'
 
-type RoseBoxCssProperties_ = ReturnType<typeof display> &
-  ReturnType<typeof overflowX> &
-  ReturnType<typeof overflowY> &
-  ReturnType<typeof overflow> &
-  ReturnType<typeof textAlign> &
-  ReturnType<typeof textTransform>
-
-type RoseBoxCssPropertiesPartial = Partial<
-  Omit<React.CSSProperties, keyof RoseBoxCssProperties_> & RoseBoxCssProperties_
->
-
 export type __RoseBoxCssProperties__ = Partial<
   WidthDeclaration &
     HeightDeclaration &
@@ -259,6 +248,11 @@ export type __RoseBoxCssProperties__ = Partial<
     PaddingLeftDeclaration &
     PaddingDeclaration &
     TextAlignDeclaration
+>
+
+type RoseBoxProperties = Partial<
+  Omit<React.CSSProperties, keyof __RoseBoxCssProperties__> &
+    __RoseBoxCssProperties__
 >
 
 const funcMapper = {
@@ -335,38 +329,10 @@ const funcMapper = {
   textAlign,
 }
 
-export const __style2__ = (obj: __RoseBoxCssProperties__) => {
+export const style = (obj: RoseBoxProperties): CSSProperties => {
   return Object.keys(obj).reduce((acc, key) => {
     return Object.assign({}, acc, {
       [key]: (funcMapper as any)[key]((obj as any)[key])[key],
     })
-  }, {})
+  }, {}) as CSSProperties
 }
-
-/**
- *
- * **`RoseBoxCssProperties`**
- * @added 0.1.9
- */
-export interface RoseBoxCssProperties extends RoseBoxCssPropertiesPartial {}
-
-// Unexport
-export const merge = (obj1: object, obj2: object): object =>
-  Object.assign({}, obj1, obj2)
-
-/**
- * A Type assertion function that tells the compiler to consider a style object of type **`RoseBoxCssProperties`** as a **`React.CSSProperties`** style object.
- * @category Utility function
- * @added 0.1.4
- * @updated 0.1.91
- */
-export const style = (x: RoseBoxCssProperties): CSSProperties =>
-  x as CSSProperties
-
-/**
- * Merges an array of **`RoseBoxCssProperties`** objects into a single **`RoseBoxCssProperties`** object.
- * @category Utility function
- * @added 0.1.9
- */
-export const compose = (x: RoseBoxCssProperties[]): RoseBoxCssProperties =>
-  x.reduce((acc, val) => merge(acc, val), {}) as RoseBoxCssProperties
