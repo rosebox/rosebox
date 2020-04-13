@@ -63,5 +63,5 @@ export const flex = (value: Flex | GlobalCssKeyword): { flex: string } => ({
     ? serializeOneValueSyntax(value)
     : isTwoValuesSyntax(value)
     ? serializeTwoValuesSyntax(value)
-    : serializeThreeValuesSyntax(value)
+    : serializeThreeValuesSyntax(value),
 })
