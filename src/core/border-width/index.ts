@@ -44,6 +44,17 @@ export const borderRightWidth = (
     : serializeLineWidth(value),
 })
 
+export type borderRightWidthDeclaration = {
+  /**
+   * Maps to CSS's **`border-right-width`** property
+   * @category Property
+   * @formalSyntaxForValue <line-width>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+   */
+  borderRightWidth: LineWidth | GlobalCssKeyword
+}
+
 /**
  * Creates a declaration object for the **`border-bottom-width`** property.
  * @category Declaration function

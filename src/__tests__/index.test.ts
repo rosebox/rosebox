@@ -59,6 +59,7 @@ test('__style2__', () => {
     borderLeftStyle: 'none',
     borderStyle: ['dotted', 'hidden', 'inset', 'none'],
     borderTopWidth: px(10),
+    borderRightWidth: px(100),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -99,6 +100,7 @@ test('__style2__', () => {
     borderLeftStyle: 'none',
     borderStyle: 'dotted hidden inset none',
     borderTopWidth: '10px',
+    borderRightWidth: '100px',
   }
   expect(received).toEqual(expected)
 })
