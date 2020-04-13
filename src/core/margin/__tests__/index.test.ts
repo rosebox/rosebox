@@ -3,7 +3,7 @@ import {
   marginRight,
   marginBottom,
   marginTop,
-  margin
+  margin,
 } from '../index'
 import { px, per } from '../../shared/value-constructors'
 
@@ -27,7 +27,7 @@ test('marginBottom(Percentage)', () => {
 
 test('marginTop(Percentage)', () => {
   const received = marginTop(per(30))
-  const expected = { mraginTop: '30%' }
+  const expected = { marginTop: '30%' }
   expect(received).toEqual(expected)
 })
 

@@ -114,6 +114,7 @@ import { FlexWrapDeclaration, flexWrap } from './core/flexbox/flex-wrap'
 import { FlexDeclaration, flex } from './core/flexbox/flex'
 import { LetterSpacingDeclaration, letterSpacing } from './core/letter-spacing'
 import { LineHeightDeclaration, lineHeight } from './core/line-height'
+import { MarginTopDeclaration, marginTop } from './core/margin'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -223,7 +224,8 @@ export type __RoseBoxCssProperties__ = Partial<
     FlexWrapDeclaration &
     FlexDeclaration &
     LetterSpacingDeclaration &
-    LineHeightDeclaration
+    LineHeightDeclaration &
+    MarginTopDeclaration
 >
 
 const funcMapper = {
@@ -287,6 +289,7 @@ const funcMapper = {
   flex,
   letterSpacing,
   lineHeight,
+  marginTop,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
