@@ -80,6 +80,7 @@ test('__style2__', () => {
     flexWrap: 'nowrap',
     flex: [0, px(100)],
     letterSpacing: px(1),
+    lineHeight: 'normal',
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -141,6 +142,7 @@ test('__style2__', () => {
     flexWrap: 'nowrap',
     flex: '0 100px',
     letterSpacing: '1px',
+    lineHeight: 'normal',
   }
   expect(received).toEqual(expected)
 })
