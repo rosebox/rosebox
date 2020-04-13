@@ -7,7 +7,6 @@ import {
   OverflowYDeclaration,
   OverflowDeclaration,
 } from './core/overflow'
-import { textAlign } from './core/text-align'
 import { textTransform, TextTransformDeclaration } from './core/text-transform'
 import { display } from './core/display'
 import { WidthDeclaration, width } from './core/width'
@@ -138,6 +137,7 @@ import {
   PaddingDeclaration,
   padding,
 } from './core/padding'
+import { TextAlignDeclaration, textAlign } from './core/text-align'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -257,7 +257,8 @@ export type __RoseBoxCssProperties__ = Partial<
     PaddingRightDeclaration &
     PaddingBottomDeclaration &
     PaddingLeftDeclaration &
-    PaddingDeclaration
+    PaddingDeclaration &
+    TextAlignDeclaration
 >
 
 const funcMapper = {
@@ -331,6 +332,7 @@ const funcMapper = {
   paddingBottom,
   paddingLeft,
   padding,
+  textAlign,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
