@@ -79,6 +79,7 @@ test('__style2__', () => {
     flexShrink: 1,
     flexWrap: 'nowrap',
     flex: [0, px(100)],
+    letterSpacing: px(1),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -139,6 +140,7 @@ test('__style2__', () => {
     flexShrink: 1,
     flexWrap: 'nowrap',
     flex: '0 100px',
+    letterSpacing: '1px',
   }
   expect(received).toEqual(expected)
 })

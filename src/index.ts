@@ -112,6 +112,7 @@ import { FlexGrowDeclaration, flexGrow } from './core/flexbox/flex-grow'
 import { FlexShrinkDeclaration, flexShrink } from './core/flexbox/flex-shrink'
 import { FlexWrapDeclaration, flexWrap } from './core/flexbox/flex-wrap'
 import { FlexDeclaration, flex } from './core/flexbox/flex'
+import { LetterSpacingDeclaration, letterSpacing } from './core/letter-spacing'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -219,7 +220,8 @@ export type __RoseBoxCssProperties__ = Partial<
     FlexGrowDeclaration &
     FlexShrinkDeclaration &
     FlexWrapDeclaration &
-    FlexDeclaration
+    FlexDeclaration &
+    LetterSpacingDeclaration
 >
 
 const funcMapper = {
@@ -281,6 +283,7 @@ const funcMapper = {
   flexShrink,
   flexWrap,
   flex,
+  letterSpacing,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
