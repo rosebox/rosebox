@@ -1,4 +1,4 @@
-export { basis } from './flex-basis'
+export { flexBasis } from './flex-basis'
 export { flexDirection } from './flex-direction'
 export { flexGrow } from './flex-grow'
 export { flexShrink } from './flex-shrink'
