@@ -102,6 +102,7 @@ import {
 } from './core/border'
 import { FontSizeDeclaration, fontSize } from './core/font-size'
 import { FontWeightDeclaration, fontWeight } from './core/font-weight'
+import { FontFamilyDeclaration, fontFamily } from './core/font-family'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -202,7 +203,8 @@ export type __RoseBoxCssProperties__ = Partial<
     BorderLeftDeclaration &
     BorderDeclaration &
     FontSizeDeclaration &
-    FontWeightDeclaration
+    FontWeightDeclaration &
+    FontFamilyDeclaration
 >
 
 const funcMapper = {
@@ -257,6 +259,7 @@ const funcMapper = {
   border,
   fontSize,
   fontWeight,
+  fontFamily,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {

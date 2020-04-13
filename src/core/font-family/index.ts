@@ -17,3 +17,13 @@ export const fontFamily = (
 ): { fontFamily: string } => ({
   fontFamily: serializeValue(value),
 })
+
+export type FontFamilyDeclaration = {
+  /**
+   * Maps to CSS's **`font-family`** property
+   * @category Property
+   * @formalSyntaxForValue auto | <integer>
+   * @added 0.2.0
+   */
+  fontFamily: string
+}
