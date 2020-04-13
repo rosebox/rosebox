@@ -84,6 +84,7 @@ test('__style2__', () => {
     marginTop: px(40),
     marginRight: px(40),
     marginBottom: px(100),
+    marginLeft: rem(3),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -149,6 +150,7 @@ test('__style2__', () => {
     marginTop: '40px',
     marginRight: '40px',
     marginBottom: '100px',
+    marginLeft: '3rem',
   }
   expect(received).toEqual(expected)
 })

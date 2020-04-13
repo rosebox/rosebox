@@ -104,6 +104,17 @@ export const marginLeft = (
   marginLeft: serializeAtomicValue(value),
 })
 
+export type MarginLeftDeclaration = {
+  /**
+   * Maps to CSS's **`margin-left`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage> | auto
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
+   */
+  marginLeft: Length | Percentage | 'auto' | GlobalCssKeyword
+}
+
 type MarginShorthandSingleValue = MarginSide | [MarginSide]
 type MarginShorthandTwoValues = [MarginSide, MarginSide]
 type MarginShorthandThreeValues = [MarginSide, MarginSide, MarginSide]
