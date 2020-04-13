@@ -70,6 +70,7 @@ test('__style2__', () => {
     borderRight: [px(1), 'solid', 'black'],
     borderBottom: ['solid', 'black', px(1)],
     borderLeft: [rgb([1, 2, 3]), 'solid', px(1)],
+    fontSize: rem(1.2),
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -121,6 +122,7 @@ test('__style2__', () => {
     borderRight: '1px solid black',
     borderBottom: 'solid black 1px',
     borderLeft: 'rgb(1, 2, 3) solid 1px',
+    fontSize: '1.2rem',
   }
   expect(received).toEqual(expected)
 })
