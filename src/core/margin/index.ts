@@ -154,3 +154,14 @@ export const margin = (
 ): { margin: string } => ({
   margin: isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value),
 })
+
+export type MarginDeclaration = {
+  /**
+   * Maps to CSS's **`margin`** property
+   * @category Property
+   * @formalSyntaxForValue <‘margin-top’>{1,4}
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
+   */
+  margin: MarginShorthand | GlobalCssKeyword
+}
