@@ -1,7 +1,7 @@
-import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
-import { serializeKeyword } from '../shared/serializers'
-import { ShrinkGrow, isShrinkGrow } from './shared/types'
-import { FlexBasis, isFlexBasis, serializeFlexBasis } from './flex-basis'
+import { GlobalCssKeyword, isGlobalCssKeyword } from '../../shared/types'
+import { serializeKeyword } from '../../shared/serializers'
+import { ShrinkGrow, isShrinkGrow } from '../shared/types'
+import { FlexBasis, isFlexBasis, serializeFlexBasis } from '../flex-basis'
 
 export type FlexSingleValue = 'none' | ShrinkGrow | FlexBasis
 export type FlexTwoValues = [ShrinkGrow, FlexBasis] | [FlexBasis, ShrinkGrow]

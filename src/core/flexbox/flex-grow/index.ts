@@ -1,5 +1,5 @@
-import { ShrinkGrow } from './shared/types'
-import { GlobalCssKeyword } from '../shared/types'
+import { ShrinkGrow } from '../shared/types'
+import { GlobalCssKeyword } from '../../shared/types'
 
 /**
  * Creates a declaration object for the **`flex-grow`** property.
@@ -9,5 +9,5 @@ import { GlobalCssKeyword } from '../shared/types'
  * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-grow-property
  */
 export const flexGrow = (value: ShrinkGrow | GlobalCssKeyword) => ({
-  flexGrow: value
+  flexGrow: value,
 })

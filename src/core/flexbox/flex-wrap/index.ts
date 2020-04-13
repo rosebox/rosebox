@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared/types'
+import { GlobalCssKeyword } from '../../shared/types'
 
 /**
  * Creates a declaration object for the **`flex-wrap`** property.
@@ -11,5 +11,5 @@ import { GlobalCssKeyword } from '../shared/types'
 export const flexWrap = (
   value: 'nowrap' | 'wrap' | 'wrap-reverse' | GlobalCssKeyword
 ) => ({
-  flexWrap: value
+  flexWrap: value,
 })
