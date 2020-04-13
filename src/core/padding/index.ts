@@ -102,7 +102,18 @@ export const paddingLeft = (
   paddingLeft: serializeAtomicValue(value),
 })
 
-type PaddingShorthandValue =
+export type PaddingLeftDeclaration = {
+  /**
+   * Maps to CSS's **`padding-left`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
+   */
+  paddingLeft: Length | Percentage | GlobalCssKeyword
+}
+
+type PaddingShorthand =
   | Length
   | Percentage
   | [Length | Percentage]
@@ -115,7 +126,7 @@ type PaddingShorthandValue =
       Length | Percentage
     ]
 
-const serializeShorthandleValue = (value: PaddingShorthandValue): string =>
+const serializeShorthandleValue = (value: PaddingShorthand): string =>
   isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
@@ -134,7 +145,18 @@ const serializeShorthandleValue = (value: PaddingShorthandValue): string =>
  * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
  */
 export const padding = (
-  value: PaddingShorthandValue | GlobalCssKeyword
+  value: PaddingShorthand | GlobalCssKeyword
 ): { padding: string } => ({
   padding: isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value),
 })
+
+export type PaddingDeclaration = {
+  /**
+   * Maps to CSS's **`padding`** property
+   * @category Property
+   * @formalSyntaxForValue <padding-top’>{1,4}
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
+   */
+  padding: PaddingShorthand | GlobalCssKeyword
+}

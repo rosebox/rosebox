@@ -89,6 +89,8 @@ test('__style2__', () => {
     paddingTop: px(40),
     paddingRight: px(10),
     paddingBottom: px(10),
+    paddingLeft: px(10),
+    padding: [px(3), rem(3), per(20), per(20)],
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -159,6 +161,8 @@ test('__style2__', () => {
     paddingTop: '40px',
     paddingRight: '10px',
     paddingBottom: '10px',
+    paddingLeft: '10px',
+    padding: '3px 3rem 20% 20%',
   }
   expect(received).toEqual(expected)
 })

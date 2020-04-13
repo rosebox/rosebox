@@ -133,6 +133,10 @@ import {
   paddingRight,
   PaddingBottomDeclaration,
   paddingBottom,
+  PaddingLeftDeclaration,
+  paddingLeft,
+  PaddingDeclaration,
+  padding,
 } from './core/padding'
 
 export * from './core/shared/value-constructors'
@@ -251,7 +255,9 @@ export type __RoseBoxCssProperties__ = Partial<
     MarginDeclaration &
     PaddingTopDeclaration &
     PaddingRightDeclaration &
-    PaddingBottomDeclaration
+    PaddingBottomDeclaration &
+    PaddingLeftDeclaration &
+    PaddingDeclaration
 >
 
 const funcMapper = {
@@ -323,6 +329,8 @@ const funcMapper = {
   paddingTop,
   paddingRight,
   paddingBottom,
+  paddingLeft,
+  padding,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {
