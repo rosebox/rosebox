@@ -68,6 +68,7 @@ test('__style2__', () => {
     textDecoration: 'orchid',
     borderTop: [px(1), 'solid', 'black'],
     borderRight: [px(1), 'solid', 'black'],
+    borderBottom: ['solid', 'black', px(1)],
   }
   const received = __style2__(widthStyle)
   const expected = {
@@ -117,6 +118,7 @@ test('__style2__', () => {
     textDecoration: 'orchid',
     borderTop: '1px solid black',
     borderRight: '1px solid black',
+    borderBottom: 'solid black 1px',
   }
   expect(received).toEqual(expected)
 })
