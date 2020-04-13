@@ -78,6 +78,17 @@ export const paddingBottom = (
   paddingBottom: serializeAtomicValue(value),
 })
 
+export type PaddingBottomDeclaration = {
+  /**
+   * Maps to CSS's **`padding-bottom`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
+   */
+  paddingBottom: Length | Percentage | GlobalCssKeyword
+}
+
 /**
  * Creates a declaration object for the `padding-left` property
  * @category Declaration function
