@@ -13,3 +13,14 @@ export const flexWrap = (
 ) => ({
   flexWrap: value,
 })
+
+export type FlexWrapDeclaration = {
+  /**
+   * Maps to CSS's **`flex-wrap`** property
+   * @category Property
+   * @formalSyntaxForValue nowrap | wrap | wrap-reverse
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-wrap-property
+   */
+  flexWrap: 'nowrap' | 'wrap' | 'wrap-reverse' | GlobalCssKeyword
+}
