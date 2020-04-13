@@ -16,3 +16,14 @@ export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse'
 export const flexDirection = (value: FlexDirection | GlobalCssKeyword) => ({
   flexDirection: value,
 })
+
+export type FlexDirectionDeclaration = {
+  /**
+   * Maps to CSS's **`flex-direction`** property
+   * @category Property
+   * @formalSyntaxForValue row | row-reverse | column | column-reverse
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-direction-property
+   */
+  flexDirection: FlexDirection | GlobalCssKeyword
+}
