@@ -119,6 +119,8 @@ import {
   marginTop,
   MarginRightDeclaration,
   marginRight,
+  MarginBottomDeclaration,
+  marginBottom,
 } from './core/margin'
 
 export * from './core/shared/value-constructors'
@@ -231,7 +233,8 @@ export type __RoseBoxCssProperties__ = Partial<
     LetterSpacingDeclaration &
     LineHeightDeclaration &
     MarginTopDeclaration &
-    MarginRightDeclaration
+    MarginRightDeclaration &
+    MarginBottomDeclaration
 >
 
 const funcMapper = {
@@ -297,6 +300,7 @@ const funcMapper = {
   lineHeight,
   marginTop,
   marginRight,
+  marginBottom,
 }
 
 export const __style2__ = (obj: __RoseBoxCssProperties__) => {

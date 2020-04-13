@@ -80,6 +80,17 @@ export const marginBottom = (
   marginBottom: serializeAtomicValue(value),
 })
 
+export type MarginBottomDeclaration = {
+  /**
+   * Maps to CSS's **`margin-bottom`** property
+   * @category Property
+   * @formalSyntaxForValue <length-percentage> | auto
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
+   */
+  marginBottom: Length | Percentage | 'auto' | GlobalCssKeyword
+}
+
 /**
  * Creates a declaration object for the **`margin-left`** property.
  * @category Declaration function
