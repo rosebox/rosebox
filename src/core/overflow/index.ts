@@ -38,7 +38,7 @@ export const overflowX = (value: OverflowKeyword | GlobalCssKeyword) => ({
 export type OverflowXDeclaration = {
   /**
    * Maps to CSS's **`overflow-x`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue visible | hidden | clip | scroll | auto
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
@@ -60,7 +60,7 @@ export const overflowY = (value: OverflowKeyword | GlobalCssKeyword) => ({
 export type OverflowYDeclaration = {
   /**
    * Maps to CSS's **`overflow-y`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue visible | hidden | clip | scroll | auto
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
@@ -83,10 +83,13 @@ export const overflow = (
   overflow: value,
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type OverflowDeclaration = {
   /**
    * Maps to CSS's **`overflow`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue visible | hidden | clip | scroll | auto
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties

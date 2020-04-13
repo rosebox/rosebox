@@ -14,10 +14,13 @@ export const borderTopColor = (
   borderTopColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderTopColorDeclaration = {
   /**
    * Maps to CSS's **`border-top-color`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <color>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
@@ -38,10 +41,13 @@ export const borderRightColor = (
   borderRightColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderRightColorDeclaration = {
   /**
    * Maps to CSS's **`border-right-color`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <color>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
@@ -62,10 +68,13 @@ export const borderBottomColor = (
   borderBottomColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderBottomColorDeclaration = {
   /**
    * Maps to CSS's **`border-bottom-color`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <color>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
@@ -86,10 +95,13 @@ export const borderLeftColor = (
   borderLeftColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderLeftColorDeclaration = {
   /**
    * Maps to CSS's **`border-left-color`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <color>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
@@ -124,10 +136,13 @@ export const borderColor = (
   borderColor: isGlobalCssKeyword(value) ? value : serializeBorderColor(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderColorDeclaration = {
   /**
    * Maps to CSS's **`border-color`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <color>{1,4}
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color

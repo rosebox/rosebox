@@ -12,10 +12,13 @@ export const opacity = (value: number | Percentage | GlobalCssKeyword) => ({
   opacity: isPercentageType(value) ? serializePercentage(value) : value,
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type OpacityDeclaration = {
   /**
    * Maps to CSS's **`opacity`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <number> | <percentage>
    * @added 0.2.0
    * @implementationReference https://drafts.csswg.org/css-color-4/#typedef-alpha-value

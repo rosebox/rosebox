@@ -18,10 +18,13 @@ export const fontFamily = (
   fontFamily: serializeValue(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type FontFamilyDeclaration = {
   /**
    * Maps to CSS's **`font-family`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue auto | <integer>
    * @added 0.2.0
    */

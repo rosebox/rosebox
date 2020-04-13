@@ -35,10 +35,13 @@ export const borderTopRightRadius = (
     : serializeBorderColor(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderTopRightRadiusDeclaration = {
   /**
    * Maps to CSS's **`border-top-right-radius`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage>{1,2}
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
@@ -61,10 +64,13 @@ export const borderBottomRightRadius = (
     : serializeBorderColor(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderBottomRightRadiusDeclaration = {
   /**
    * Maps to CSS's **`border-bottom-right-radius`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage>{1,2}
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
@@ -87,10 +93,13 @@ export const borderBottomLeftRadius = (
     : serializeBorderColor(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderBottomLeftRadiusDeclaration = {
   /**
    * Maps to CSS's **`border-bottom-left-radius`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage>{1,2}
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
@@ -113,10 +122,13 @@ export const borderTopLeftRadius = (
     : serializeBorderColor(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderTopLeftRadiusDeclaration = {
   /**
    * Maps to CSS's **`border-top-left-radius`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage>{1,2}
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
@@ -172,10 +184,13 @@ export const borderRadius = (
     : serializeBorderRadius(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderRadiusDeclaration = {
   /**
    * Maps to CSS's **`border-radius`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length-percentage>{1,4} [ / <length-percentage>{1,4} ]?
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius

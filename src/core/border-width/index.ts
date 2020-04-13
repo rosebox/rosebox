@@ -18,10 +18,13 @@ export const borderTopWidth = (
   borderTopWidth: isGlobalCssKeyword(value) ? value : serializeLineWidth(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderTopWidthDeclaration = {
   /**
    * Maps to CSS's **`border-top-width`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <line-width>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
@@ -44,10 +47,13 @@ export const borderRightWidth = (
     : serializeLineWidth(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderRightWidthDeclaration = {
   /**
    * Maps to CSS's **`border-right-width`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <line-width>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
@@ -70,10 +76,13 @@ export const borderBottomWidth = (
     : serializeLineWidth(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderBottomWidthDeclaration = {
   /**
    * Maps to CSS's **`border-bottom-width`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <line-width>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
@@ -96,10 +105,13 @@ export const borderLeftWidth = (
     : serializeLineWidth(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderLeftWidthDeclaration = {
   /**
    * Maps to CSS's **`border-left-width`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <line-width>
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
@@ -133,10 +145,13 @@ export const borderWidth = (
   borderWidth: isGlobalCssKeyword(value) ? value : serializeBorderWidth(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type BorderWidthDeclaration = {
   /**
    * Maps to CSS's **`border-width`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <line-width>{1,4}
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width

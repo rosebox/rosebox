@@ -28,10 +28,13 @@ export const minWidth = (
   minWidth: isGlobalCssKeyword(value) ? value : serializeMinWidth(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type MinWidthDeclaration = {
   /**
    * Maps to CSS's **`min-width`** property.
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length> | <percentage>
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width

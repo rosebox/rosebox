@@ -69,7 +69,7 @@ export const flex = (value: Flex | GlobalCssKeyword): { flex: string } => ({
 export type FlexDeclaration = {
   /**
    * Maps to CSS's **`flex`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue none | [ <‘flex-grow’> <‘flex-shrink’>? || <‘flex-basis’> ]
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/css-flexbox-1/#flex-property

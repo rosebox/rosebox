@@ -40,10 +40,13 @@ export const fontSize = (
     : value,
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type FontSizeDeclaration = {
   /**
    * Maps to CSS's **`font-size`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <absolute-size> | <relative-size> | <length-percentage>
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-size-prop

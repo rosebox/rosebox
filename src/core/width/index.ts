@@ -12,10 +12,13 @@ export const width = (value: Width | GlobalCssKeyword) => ({
   width: isGlobalCssKeyword(value) ? value : serializeWidth(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type WidthDeclaration = {
   /**
    * Maps to CSS's **`width`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue <length> | <percentage> | auto
    * @added 0.2.0
    * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-width

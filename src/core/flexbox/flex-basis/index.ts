@@ -33,10 +33,13 @@ export const flexBasis = (value: FlexBasis | GlobalCssKeyword) => ({
     : serializeFlexBasis(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type FlexBasisDeclaration = {
   /**
    * Maps to CSS's **`flex-basis`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue content | <‘width’>
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-basis-property

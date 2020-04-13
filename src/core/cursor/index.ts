@@ -86,10 +86,13 @@ export const cursor = (
   cursor: isGlobalCssKeyword(value) ? value : serializeCursor(value),
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type CursorDeclaration = {
   /**
  * Maps to CSS's **`cursor`** property
- * @category Property
+ * @category RBProperty
  * @formalSyntaxForValue [ [<url> [<x> <y>]?,]*
   [ auto | default | none |
   context-menu | help | pointer | progress | wait |

@@ -15,10 +15,13 @@ export const letterSpacing = (
   letterSpacing: isLengthType(value) ? serializeLength(value) : value,
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type LetterSpacingDeclaration = {
   /**
    * Maps to CSS's **`letter-spacing`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue normal | <length>
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#letter-spacing-property

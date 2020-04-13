@@ -25,10 +25,13 @@ export const lineHeight = (
     : value,
 })
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
 export type LineHeightDeclaration = {
   /**
    * Maps to CSS's **`line-height`** property
-   * @category Property
+   * @category RBProperty
    * @formalSyntaxForValue normal | <number> | <length> | <percentage> | inherit
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-line-height
