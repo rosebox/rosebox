@@ -250,8 +250,7 @@ export type __RoseboxProperties__ = Partial<
     TextAlignDeclaration
 >
 export type RoseboxProperties = Partial<
-  Omit<React.CSSProperties, keyof __RoseboxProperties__> & __RoseboxProperties__
->
+  Omit<React.CSSProperties, keyof __RoseboxProperties__> & __RoseboxProperties__>
 
 const funcMapper = {
   width,
