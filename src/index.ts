@@ -94,6 +94,7 @@ import {
   PaddingDeclaration,
 } from './core/padding'
 import { TextAlignDeclaration } from './core/text-align'
+import { OrderDeclaration } from './core/flexbox/order/internal'
 
 export * from './core/shared/value-constructors'
 export * from './core/background-color'
@@ -203,7 +204,8 @@ export type __RoseboxProperties__ = Partial<
   PaddingBottomDeclaration &
   PaddingLeftDeclaration &
   PaddingDeclaration &
-  TextAlignDeclaration
+  TextAlignDeclaration &
+  OrderDeclaration
 >
 export type RoseboxProperties = Partial<
   Omit<React.CSSProperties, keyof __RoseboxProperties__> & __RoseboxProperties__>

@@ -93,6 +93,7 @@ import {
     padding,
 } from './core/padding/internal'
 import { textAlign } from './core/text-align/internal'
+import { order } from './core/flexbox/order/internal'
 
 export const funcMap = {
     width,
@@ -166,4 +167,5 @@ export const funcMap = {
     paddingLeft,
     padding,
     textAlign,
+    order
 }
