@@ -1,4 +1,4 @@
-import { bgColor } from '../index'
+import { bgColor } from '../internal'
 
 import { rgb } from '../../color/internal'
 

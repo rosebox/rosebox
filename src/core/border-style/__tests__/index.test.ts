@@ -4,7 +4,7 @@ import {
   borderBottomStyle,
   borderLeftStyle,
   borderStyle
-} from '../index'
+} from '../internal'
 
 test('borderTopStyle(hidden)', () => {
   const received = borderTopStyle('hidden')

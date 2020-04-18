@@ -1,4 +1,4 @@
-import { minHeight } from '../index'
+import { minHeight } from '../internal'
 import { px, per } from '../../shared/value-constructors'
 
 test('minHeight(px)', () => {

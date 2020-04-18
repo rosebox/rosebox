@@ -4,7 +4,7 @@ import {
   borderBottomWidth,
   borderLeftWidth,
   borderWidth
-} from '../index'
+} from '../internal'
 import { px } from '../../shared/value-constructors'
 
 test('borderTopWidth(thick)', () => {

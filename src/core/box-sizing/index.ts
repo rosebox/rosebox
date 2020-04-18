@@ -1,1 +1,1 @@
-export { boxSizing } from './internal'
+export { BoxSizingDeclaration } from './internal'

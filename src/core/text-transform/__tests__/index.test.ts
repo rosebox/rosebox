@@ -1,4 +1,4 @@
-import { textTransform } from '../index'
+import { textTransform } from '../internal'
 
 test('textTransform()', () => {
   const received = textTransform('lowercase full-width')

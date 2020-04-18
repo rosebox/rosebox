@@ -1,4 +1,4 @@
-import { minWidth } from '../index'
+import { minWidth } from '../internal'
 import { px, per } from '../../shared/value-constructors'
 
 test('minWidth(px)', () => {

@@ -1,4 +1,4 @@
-import { flexGrow } from '../flex-grow'
+import { flexGrow } from '../flex-grow/internal'
 
 test('flexGrow() with number', () => {
   const received = flexGrow(2)

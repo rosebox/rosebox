@@ -1,4 +1,4 @@
-import { flexDirection } from '../flex-direction'
+import { flexDirection } from '../flex-direction/internal'
 
 test('flexDirection(column)', () => {
   const received = flexDirection('column')

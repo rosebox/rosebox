@@ -1,4 +1,4 @@
-import { flexBasis } from '../flex-basis'
+import { flexBasis } from '../flex-basis/internal'
 import { per, px } from '../../shared/value-constructors'
 
 test('flexBasis() with pixels', () => {

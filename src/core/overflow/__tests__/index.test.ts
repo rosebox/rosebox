@@ -1,4 +1,4 @@
-import { overflowX, overflowY, overflow } from '../index'
+import { overflowX, overflowY, overflow } from '../internal'
 
 test('overflowX(auto)', () => {
   const received = overflowX('auto')

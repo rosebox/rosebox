@@ -4,7 +4,7 @@ import {
   paddingBottom,
   paddingLeft,
   padding
-} from '../index'
+} from '../internal'
 import { px, per } from '../../shared/value-constructors'
 
 test('paddingTop(Length<px>)', () => {

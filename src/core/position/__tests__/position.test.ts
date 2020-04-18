@@ -1,4 +1,4 @@
-import { position } from '../index'
+import { position } from '../internal'
 
 test('position(static)', () => {
   const received = position('static')

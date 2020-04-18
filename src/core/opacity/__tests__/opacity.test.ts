@@ -1,4 +1,4 @@
-import { opacity } from '../index'
+import { opacity } from '../internal'
 import { per } from '../../shared/value-constructors'
 
 test('opacity(number)', () => {

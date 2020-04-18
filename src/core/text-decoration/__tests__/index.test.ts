@@ -3,7 +3,7 @@ import {
   textDecorationColor,
   textDecorationStyle,
   textDecoration
-} from '../index'
+} from '../internal'
 import { rgb } from '../../color/internal'
 
 test('textDecorationLine(line-through blink overline underline)', () => {

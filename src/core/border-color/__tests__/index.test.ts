@@ -4,7 +4,7 @@ import {
   borderBottomColor,
   borderLeftColor,
   borderColor
-} from '../index'
+} from '../internal'
 import { rgb } from '../../color/internal'
 
 test('borderTopColor(RGB)', () => {

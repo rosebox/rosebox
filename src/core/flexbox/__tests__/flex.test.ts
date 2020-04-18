@@ -1,4 +1,4 @@
-import { flex } from '../flex'
+import { flex } from '../flex/internal'
 import { px, per } from '../../shared/value-constructors'
 
 test('flex() - One value syntax - ShrinkOrGrow', () => {

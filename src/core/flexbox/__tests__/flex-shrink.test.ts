@@ -1,4 +1,4 @@
-import { flexShrink } from '../flex-shrink'
+import { flexShrink } from '../flex-shrink/internal'
 
 test('flexShrink() with number', () => {
   const received = flexShrink(2)
