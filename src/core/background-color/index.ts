@@ -1,1 +1,1 @@
-export * from './internal'
+export { BgColorDeclaration } from './internal'

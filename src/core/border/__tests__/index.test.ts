@@ -1,4 +1,4 @@
-import { borderLeft } from '../index'
+import { borderLeft } from '../internal'
 import { px } from '../../shared/value-constructors'
 import { rgb } from '../../color/internal'
 

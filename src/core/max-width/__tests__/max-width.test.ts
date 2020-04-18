@@ -1,4 +1,4 @@
-import { maxWidth } from '../index'
+import { maxWidth } from '../internal'
 import { px, per } from '../../shared/value-constructors'
 
 test('maxWidth(px)', () => {

@@ -1,4 +1,4 @@
-import { lineHeight } from '../index'
+import { lineHeight } from '../internal'
 import { px, per } from '../../shared/value-constructors'
 
 test('lineHeight(Length<px>)', () => {

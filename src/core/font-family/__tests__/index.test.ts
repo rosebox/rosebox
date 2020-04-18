@@ -1,4 +1,4 @@
-import { fontFamily } from '../index'
+import { fontFamily } from '../internal'
 
 test('fontFamily(string)', () => {
   const received = fontFamily('Arial')

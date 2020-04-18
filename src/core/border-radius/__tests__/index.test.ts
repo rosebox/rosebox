@@ -4,7 +4,7 @@ import {
   borderBottomRightRadius,
   borderBottomLeftRadius,
   borderRadius
-} from '../index'
+} from '../internal'
 import { px, per } from '../../shared/value-constructors'
 
 test('borderTopRightRadius(Length<px>)', () => {

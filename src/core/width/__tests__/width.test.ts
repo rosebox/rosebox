@@ -1,4 +1,4 @@
-import { width } from '../index'
+import { width } from '../internal'
 import { per, px, rem, em } from '../../shared/value-constructors'
 
 test('width(number)', () => {

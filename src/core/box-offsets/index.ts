@@ -1,1 +1,1 @@
-export { right, top, left, bottom } from './internal'
+export { TopDeclaration, RightDeclaration, BottomDeclaration, LeftDeclaration } from './internal'

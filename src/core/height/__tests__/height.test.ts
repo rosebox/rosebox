@@ -1,4 +1,4 @@
-import { height } from '../index'
+import { height } from '../internal'
 import { px, per } from '../../shared/value-constructors'
 
 test('height(px)', () => {

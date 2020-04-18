@@ -1,4 +1,4 @@
-import { maxHeight } from '../index'
+import { maxHeight } from '../internal'
 import { px, per } from '../../shared/value-constructors'
 
 test('maxHeight(px)', () => {

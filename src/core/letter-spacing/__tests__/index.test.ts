@@ -1,4 +1,4 @@
-import { letterSpacing } from '../index'
+import { letterSpacing } from '../internal'
 import { px } from '../../shared/value-constructors'
 
 test('letterSpacing(Length<px>)', () => {

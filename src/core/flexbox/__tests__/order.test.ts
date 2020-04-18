@@ -1,4 +1,4 @@
-import { order } from '../order'
+import { order } from '../order/internal'
 
 test('order() with number', () => {
   const received = order(2)

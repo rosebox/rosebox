@@ -1,4 +1,4 @@
-import { cursor } from '..'
+import { cursor } from '../internal'
 import { url } from '../../shared/value-constructors'
 
 test('cursor([URL, CursorKeyword])', () => {

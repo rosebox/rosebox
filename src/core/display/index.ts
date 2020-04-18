@@ -1,1 +1,1 @@
-export { display } from './internal'
+export { DisplayDeclaration } from './internal'

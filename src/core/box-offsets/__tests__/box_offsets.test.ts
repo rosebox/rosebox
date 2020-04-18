@@ -1,4 +1,4 @@
-import { top, right, bottom } from '../index'
+import { top, right, bottom } from '../internal'
 import { px, per } from '../../shared/value-constructors'
 
 test('top(x: Length)', () => {

@@ -1,4 +1,4 @@
-import { zIndex } from '../index'
+import { zIndex } from '../internal'
 
 test('zIndex(auto)', () => {
   const received = zIndex('auto')

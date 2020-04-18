@@ -1,6 +1,5 @@
-import { RoseboxProperties } from '..'
-
 export const EL_ATTRIBUTE_NAME = 'data-rosebox-st-id'
+
 const STYLE_TAG_ATTRIBUTE_NAME = 'data-rosebox-id'
 
 type PseudoElement = 'before'
@@ -27,7 +26,7 @@ export const toCss = (
 
 export const createStyleTag = (
   id: string,
-  css: RoseboxProperties,
+  css: any,
   pseudoElement: PseudoElement
 ): HTMLStyleElement => {
   const head = document.head || document.getElementsByTagName('head')[0]

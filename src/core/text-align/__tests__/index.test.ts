@@ -1,4 +1,4 @@
-import { textAlign } from '../index'
+import { textAlign } from '../internal'
 
 test('textAlign(match-parent)', () => {
   const received = textAlign('match-parent')

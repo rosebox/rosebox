@@ -4,7 +4,7 @@ import {
   marginBottom,
   marginTop,
   margin,
-} from '../index'
+} from '../internal'
 import { px, per } from '../../shared/value-constructors'
 
 test('marginLeft(Length<px>)', () => {

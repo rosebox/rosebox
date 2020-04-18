@@ -1,5 +1,5 @@
 import { px } from '../../shared/value-constructors'
-import { fontSize } from '..'
+import { fontSize } from '../internal'
 
 test('fontSize(Length<px>)', () => {
   const received = fontSize(px(2))

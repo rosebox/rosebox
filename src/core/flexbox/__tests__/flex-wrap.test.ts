@@ -1,4 +1,4 @@
-import { flexWrap } from '../flex-wrap'
+import { flexWrap } from '../flex-wrap/internal'
 
 test('flexWrap(wrap)', () => {
   const received = flexWrap('wrap')

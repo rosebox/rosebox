@@ -1,1 +1,1 @@
-export { color, hex, rgb, rgba, hsl, hsla } from './internal'
+export { ColorDeclaration, hex, rgb, rgba, hsl, hsla } from './internal'
