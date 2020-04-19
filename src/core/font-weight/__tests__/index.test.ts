@@ -1,4 +1,4 @@
-import { fontWeight } from '..'
+import { fontWeight } from '../internal'
 
 test('fontWeight(bold)', () => {
   const received = fontWeight('bold')
