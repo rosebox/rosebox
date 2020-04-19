@@ -30,3 +30,5 @@ export type FontFamilyDeclaration = {
      */
     fontFamily: string
 }
+
+export type FontFamilyCSSProp = 'font-family'

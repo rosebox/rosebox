@@ -1,6 +1,8 @@
 import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
 import { Color, serializeColor, isColor } from '../color/internal'
 
+export type TextDecorationCSSProp = 'text-decoration'
+
 type OneValue = 'none' | 'underline' | 'overline' | 'line-through' | 'blink'
 
 type TwoValues =

@@ -8,6 +8,12 @@ import {
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
+export type MarginTopCSSProp = 'margin-top'
+export type MarginRightCSSProp = 'margin-right'
+export type MarginBottomCSSProp = 'margin-bottom'
+export type MarginLeftCSSProp = 'margin-left'
+export type MarginCSSProp = 'margin'
+
 type MarginSide = Length | Percentage | 'auto'
 
 const serializeAtomicValue = (

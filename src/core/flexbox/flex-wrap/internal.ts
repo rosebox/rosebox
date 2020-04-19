@@ -1,5 +1,7 @@
 import { GlobalCssKeyword } from '../../shared/types'
 
+export type FlexWrapCSSProp = 'flex-wrap'
+
 /**
  * Creates a declaration object for the **`flex-wrap`** property.
  * @category Declaration function

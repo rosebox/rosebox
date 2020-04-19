@@ -1,5 +1,7 @@
 import { GlobalCssKeyword } from '../shared/types'
 
+export type VisibilityCSSProp = 'visibility'
+
 /**
  * Creates a declaration object for the **`visibility`** shorthand property.
  * @category Declaration function

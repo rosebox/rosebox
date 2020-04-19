@@ -6,6 +6,11 @@ import {
 } from '../shared/types'
 import { serializeLengthPercentage } from '../shared/serializers'
 
+export type TopCSSProp = 'top'
+export type RightCSSProp = 'right'
+export type BottomCSSProp = 'bottom'
+export type LeftCSSProp = 'left'
+
 /**
  * Creates a declaration object for the **`top`** property.
  * @category Declaration function
@@ -20,8 +25,8 @@ export const top = (
     value === 'auto'
       ? 'auto'
       : isGlobalCssKeyword(value)
-      ? value
-      : serializeLengthPercentage(value),
+        ? value
+        : serializeLengthPercentage(value),
 })
 
 /**
@@ -52,8 +57,8 @@ export const right = (
     value === 'auto'
       ? 'auto'
       : isGlobalCssKeyword(value)
-      ? value
-      : serializeLengthPercentage(value),
+        ? value
+        : serializeLengthPercentage(value),
 })
 
 /**
@@ -84,8 +89,8 @@ export const bottom = (
     value === 'auto'
       ? 'auto'
       : isGlobalCssKeyword(value)
-      ? value
-      : serializeLengthPercentage(value),
+        ? value
+        : serializeLengthPercentage(value),
 })
 
 /**
@@ -116,8 +121,8 @@ export const left = (
     value === 'auto'
       ? 'auto'
       : isGlobalCssKeyword(value)
-      ? value
-      : serializeLengthPercentage(value),
+        ? value
+        : serializeLengthPercentage(value),
 })
 
 /**

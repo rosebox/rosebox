@@ -1,5 +1,7 @@
 import { GlobalCssKeyword } from '../shared/types'
 
+export type FontWeightCSSProp = 'font-weight'
+
 type FontWeight =
     | 'normal'
     | 'bold'

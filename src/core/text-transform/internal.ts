@@ -1,5 +1,7 @@
 import { GlobalCssKeyword } from '../shared/types'
 
+export type TextTransformCSSProp = 'text-transform'
+
 type OneValue =
     | 'none'
     | 'capitalize'

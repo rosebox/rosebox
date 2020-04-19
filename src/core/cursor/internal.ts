@@ -1,5 +1,7 @@
 import { URL, GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
 
+export type CursorCSSProp = 'cursor'
+
 type CursorKeyword =
     | 'auto'
     | 'default'

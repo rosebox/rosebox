@@ -2,6 +2,8 @@ import { GlobalCssKeyword, Length, isLengthType } from '../shared/types'
 
 import { serializeLength } from '../shared/serializers'
 
+export type LetterSpacingCSSProp = 'letter-spacing'
+
 /**
  * Creates a declaration object for the **`letter-spacing`** property.
  * @category Declaration function

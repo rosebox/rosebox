@@ -5,6 +5,8 @@ import {
 } from '../shared/types'
 import { serializeLineWidth } from '../shared/serializers'
 
+export type BorderWidthCSSProp = 'border-width'
+
 /**
  * Creates a declaration object for the **`border-top-width`** property.
  * @category Declaration function

@@ -8,6 +8,8 @@ import {
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
+export type MinWidthCSSProp = 'min-width'
+
 const serializeMinWidth = (value: Length | Percentage): string =>
     isLengthType(value)
         ? serializeLength(value)

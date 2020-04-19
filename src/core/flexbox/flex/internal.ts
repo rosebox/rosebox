@@ -3,6 +3,8 @@ import { serializeKeyword } from '../../shared/serializers'
 import { ShrinkGrow, isShrinkGrow } from '../shared/types'
 import { FlexBasis, isFlexBasis, serializeFlexBasis } from '../flex-basis/internal'
 
+export type FlexCSSProp = 'flex'
+
 export type FlexSingleValue = 'none' | ShrinkGrow | FlexBasis
 export type FlexTwoValues = [ShrinkGrow, FlexBasis] | [FlexBasis, ShrinkGrow]
 export type FlexThreeValues =

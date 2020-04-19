@@ -1,5 +1,7 @@
 import { GlobalCssKeyword } from '../shared/types'
 
+export type TextAlignCSSProp = 'text-align'
+
 /**
  * Creates a declaration object for the **`text-align`** property.
  * @category Declaration function

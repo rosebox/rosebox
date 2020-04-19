@@ -8,6 +8,8 @@ import {
 
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
+export type LineHeightCSSProp = 'line-height'
+
 /**
  * Creates a declaration object for the **`line-height`** property.
  * @category Declaration function

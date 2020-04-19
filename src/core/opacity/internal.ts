@@ -1,6 +1,8 @@
 import { Percentage, isPercentageType, GlobalCssKeyword } from '../shared/types'
 import { serializePercentage } from '../shared/serializers'
 
+export type OpacityCSSProp = 'opacity'
+
 /**
  * Creates a declaration object for the **`opacity`** property.
  * @category Declaration function

@@ -1,6 +1,8 @@
 import { Width, GlobalCssKeyword, isGlobalCssKeyword } from '../shared//types'
 import { serializeWidth } from '../shared/serializers'
 
+export type WidthCSSProp = 'width'
+
 /**
  * Creates a declaration object for the **`width`** property.
  * @category Declaration function

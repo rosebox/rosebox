@@ -1,5 +1,7 @@
 import { GlobalCssKeyword } from '../../shared/types'
 
+export type OrderCSSProp = 'order'
+
 /**
  * Creates a declaration object for the **`order`** property.
  * @category Declaration function

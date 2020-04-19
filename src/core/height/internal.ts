@@ -6,6 +6,8 @@ import {
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
+export type HeightCSSProp = 'height'
+
 /**
  * Creates a declaration object for the **`height`** property.
  * @category Declaration function

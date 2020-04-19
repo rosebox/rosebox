@@ -8,6 +8,8 @@ import {
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
+export type MaxHeightCSSProp = 'max-height'
+
 const serializeMinHeight = (value: Length | Percentage): string =>
     isLengthType(value)
         ? serializeLength(value)

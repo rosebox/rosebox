@@ -1,5 +1,7 @@
 import { GlobalCssKeyword } from '../../shared/types'
 
+export type FlexDirectionCSSProp = 'flex-direction'
+
 /**
  * Formal syntax: row | row-reverse | column | column-reverse
  * @skip

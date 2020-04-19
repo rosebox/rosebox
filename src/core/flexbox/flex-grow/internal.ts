@@ -1,6 +1,8 @@
 import { ShrinkGrow } from '../shared/types'
 import { GlobalCssKeyword } from '../../shared/types'
 
+export type FlexGrowCSSProp = 'flex-grow'
+
 /**
  * Creates a declaration object for the **`flex-grow`** property.
  * @category Declaration function

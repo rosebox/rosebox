@@ -1,5 +1,7 @@
 import { GlobalCssKeyword } from '../shared/types'
 
+export type PositionCSSProp = 'position'
+
 type Position = 'relative' | 'absolute' | 'static' | 'fixed' | 'sticky'
 
 /**

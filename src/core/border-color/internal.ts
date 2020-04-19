@@ -149,3 +149,5 @@ export type BorderColorDeclaration = {
      */
     borderColor: BorderColor | GlobalCssKeyword
 }
+
+export type BorderColorCSSProp = 'border-color'

@@ -1,6 +1,8 @@
 import { serializeColor, Color } from '../color/internal'
 import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
 
+export type BackgroundColorCSSProp = 'background-color'
+
 /**
  * Creates a declartion object for the **`background-color`** property
  * @category Declaration function

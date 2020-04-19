@@ -1,5 +1,7 @@
 import { GlobalCssKeyword } from '../shared/types'
 
+export type DisplayCSSProp = 'display'
+
 /**
  * @skip
  */

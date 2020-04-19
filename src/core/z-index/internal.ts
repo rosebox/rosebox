@@ -1,5 +1,7 @@
 import { GlobalCssKeyword } from '../shared/types'
 
+export type ZIndexCSSProp = 'z-index'
+
 /**
  * Creates a declaration object for the **`z-index`** property.
  * @category Declaration function

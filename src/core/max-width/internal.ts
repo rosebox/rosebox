@@ -8,6 +8,8 @@ import {
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
+export type MaxWidthCSSProp = 'max-width'
+
 type MaxWidth = Length | Percentage | 'none'
 
 const serializeMaxWidth = (value: MaxWidth): string =>

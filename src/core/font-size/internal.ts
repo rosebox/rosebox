@@ -7,6 +7,8 @@ import {
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
+export type FontSizeCSSProp = 'font-size'
+
 type RelativeSizeKeyword = 'larger' | 'smaller'
 
 type AbsoluteSizeKeyword =

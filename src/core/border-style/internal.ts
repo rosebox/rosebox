@@ -4,6 +4,8 @@ import {
     isGlobalCssKeyword,
 } from '../shared/types'
 
+export type BorderStyleCSSProp = 'border-style'
+
 /**
  * Creates a declaration object for the **`border-top-style`** property.
  * @category Declaration function

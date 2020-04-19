@@ -1,6 +1,8 @@
 import { Percentage, GlobalCssKeyword } from '../shared/types'
 import { serializePercentage } from '../shared/serializers'
 
+export type ColorCSSProp = 'color'
+
 /**
  * @typeTag IntRange
  * @added 0.1.4
@@ -563,8 +565,8 @@ const serializeRGB = (x: RGB): string => {
   return typeof value[0] === 'number'
     ? `rgb(${value[0]}, ${value[1]}, ${value[2]})`
     : `rgb(${serializePercentage(value[0])}, ${serializePercentage(
-        value[1] as Percentage
-      )}, ${serializePercentage(value[2] as Percentage)})`
+      value[1] as Percentage
+    )}, ${serializePercentage(value[2] as Percentage)})`
 }
 
 const serializeRGBA = (x: RGBA): string => {
@@ -572,8 +574,8 @@ const serializeRGBA = (x: RGBA): string => {
   return typeof value[0] === 'number'
     ? `rgba(${value[0]}, ${value[1]}, ${value[2]}, ${value[3]})`
     : `rgba(${serializePercentage(value[0])}, ${serializePercentage(
-        value[1] as Percentage
-      )}, ${serializePercentage(value[2] as Percentage)}, ${value[3]})`
+      value[1] as Percentage
+    )}, ${serializePercentage(value[2] as Percentage)}, ${value[3]})`
 }
 
 const serializeHSL = (x: HSL): string => {
@@ -594,14 +596,14 @@ export const serializeColor = (value: Color): string => {
   return isHex(value)
     ? serializeHex(value)
     : isRGB(value)
-    ? serializeRGB(value)
-    : isRGBA(value)
-    ? serializeRGBA(value)
-    : isHSL(value)
-    ? serializeHSL(value)
-    : isHSLA(value)
-    ? serializeHSLA(value)
-    : value
+      ? serializeRGB(value)
+      : isRGBA(value)
+        ? serializeRGBA(value)
+        : isHSL(value)
+          ? serializeHSL(value)
+          : isHSLA(value)
+            ? serializeHSLA(value)
+            : value
 }
 
 export const isColor = (value: any): value is Color =>

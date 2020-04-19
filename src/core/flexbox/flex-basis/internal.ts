@@ -6,6 +6,8 @@ import {
 } from '../../shared/types'
 import { serializeKeyword, serializeWidth } from '../../shared/serializers'
 
+export type FlexBasisCSSProp = 'flex-basis'
+
 /**
  * @skip
  * */

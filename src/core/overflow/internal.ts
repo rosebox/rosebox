@@ -1,5 +1,9 @@
 import { GlobalCssKeyword } from '../shared/types'
 
+export type OverflowXCSSProp = 'overflow-x'
+export type OverflowYCSSProp = 'overflow-y'
+export type OverflowCSSProp = 'overflow'
+
 type OverflowKeyword = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto'
 
 type TwoOverflowKeywords =

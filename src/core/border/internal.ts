@@ -8,6 +8,9 @@ import {
 import { Color, isColor, serializeColor } from '../color/internal'
 import { serializeLength } from '../shared/serializers'
 
+
+export type BorderCSSProp = 'border'
+
 type AtomicValue = Color | LineStyle | LineWidth
 
 type OneValue = AtomicValue | [Color] | [LineStyle] | [LineWidth]

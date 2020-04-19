@@ -1,5 +1,7 @@
 import { GlobalCssKeyword } from '../shared/types'
 
+export type BoxSizingCSSProp = 'box-sizing'
+
 /**
  * @skip
  */

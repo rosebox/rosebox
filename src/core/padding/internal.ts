@@ -8,6 +8,12 @@ import {
 } from '../shared/types'
 import { serializeLength, serializePercentage } from '../shared/serializers'
 
+export type PaddingTopCSSProp = 'padding-top'
+export type PaddingRightCSSProp = 'padding-right'
+export type PaddingBottomCSSProp = 'padding-bottom'
+export type PaddingLeftCSSProp = 'padding-left'
+export type PaddingCSSProp = 'padding'
+
 const serializeAtomicValue = (
     value: Length | Percentage | GlobalCssKeyword
 ): string =>
