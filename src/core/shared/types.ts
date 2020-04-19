@@ -36,6 +36,7 @@ import { TextTransformCSSProp } from "../text-transform/internal"
 import { VisibilityCSSProp } from "../visibility/internal"
 import { WidthCSSProp } from "../width/internal"
 import { ZIndexCSSProp } from "../z-index/internal"
+import { TransitionPropertyCSSProp } from "../transition-property/internal"
 
 export type LengthUnit =
   | 'em'
@@ -195,3 +196,23 @@ export type CSSProp =
   | VisibilityCSSProp
   | WidthCSSProp
   | ZIndexCSSProp
+  | TransitionPropertyCSSProp
+
+
+export type AnimatableCSSProp = Exclude<
+  CSSProp,
+  | 'border-style'
+  | 'box-sizing'
+  | 'cursor'
+  | 'display'
+  | 'font-family'
+  | 'flex-direction'
+  | 'flex-wrap'
+  | 'overflow-x'
+  | 'overflow-y'
+  | 'overflow'
+  | 'position'
+  | 'text-align'
+  | 'text-transform'
+  | 'transition-property'
+>
