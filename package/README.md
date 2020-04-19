@@ -4,7 +4,7 @@
 
 # Rosebox
 
-Rosebox is a typescript library for styling React components. It provides a more structured and type-safe styling paradigm than CSS.
+Rosebox is a typescript library for styling React components using functions. It provides a more structured and type-safe styling paradigm than CSS.
 
 ## Features
 
