@@ -1,3 +1,8 @@
+
+export * from './core/shared/value-constructors'
+export * from './core/color'
+export * from './react'
+
 import { CSSProperties } from 'react'
 import { funcMap } from './func-mapper'
 
@@ -96,43 +101,8 @@ import {
 import { TextAlignDeclaration } from './core/text-align'
 import { OrderDeclaration } from './core/flexbox/order/internal'
 
-export * from './core/shared/value-constructors'
-export * from './core/background-color'
-export * from './core/box-offsets'
-export * from './core/box-sizing'
-export * from './core/color'
-export * from './core/display'
-export * from './core/flexbox'
-export * from './core/font-size'
-export * from './core/font-weight'
-export * from './core/height'
-export * from './core/margin'
-export * from './core/padding'
-export * from './core/max-height'
-export * from './core/max-width'
-export * from './core/min-height'
-export * from './core/min-width'
-export * from './core/opacity'
-export * from './core/position'
-export * from './core/visibility'
-export * from './core/width'
-export * from './core/border'
-export * from './core/border-color'
-export * from './core/border-radius'
-export * from './core/border-style'
-export * from './core/border-width'
-export * from './core/letter-spacing'
-export * from './core/line-height'
-export * from './core/overflow'
-export * from './core/text-align'
-export * from './core/text-decoration'
-export * from './core/text-transform'
-export * from './core/z-index'
-export * from './core/font-family'
-export * from './core/cursor'
-export * from './react'
 
-export type __RoseboxProperties__ = Partial<
+export type RoseboxProperties = Partial<
   WidthDeclaration &
   HeightDeclaration &
   BgColorDeclaration &
@@ -207,14 +177,12 @@ export type __RoseboxProperties__ = Partial<
   TextAlignDeclaration &
   OrderDeclaration
 >
-export type RoseboxProperties = Partial<
-  Omit<React.CSSProperties, keyof __RoseboxProperties__> & __RoseboxProperties__>
-
 
 export const style = (obj: RoseboxProperties): CSSProperties => {
-  return Object.keys(obj).reduce((acc, key) => {
+  const a = Object.keys(obj).reduce((acc, key) => {
     return Object.assign({}, acc, {
       [key]: (funcMap as any)[key]((obj as any)[key])[key],
     })
   }, {}) as CSSProperties
+  return a
 }
