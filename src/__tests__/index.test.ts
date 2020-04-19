@@ -1,5 +1,5 @@
 import { per, style, RoseboxProperties } from '../index'
-import { px, rem } from '../core/shared/value-constructors'
+import { px, rem, s, ms } from '../core/shared/value-constructors'
 import { rgb, hex, hsl } from '../core/color'
 
 test('style', () => {
@@ -149,6 +149,24 @@ test('style', () => {
     padding: '3px 3rem 20% 20%',
     textAlign: 'center',
     order: 1
+  }
+  expect(received).toEqual(expected)
+})
+
+test('Test Time<s>', () => {
+  const received = s(3)
+  const expected = {
+    __tag: 'Time',
+    value: [3, 's']
+  }
+  expect(received).toEqual(expected)
+})
+
+test('Test Time<ms>', () => {
+  const received = ms(3)
+  const expected = {
+    __tag: 'Time',
+    value: [3, 'ms']
   }
   expect(received).toEqual(expected)
 })

@@ -15,6 +15,18 @@ export type LengthUnit =
   | 'pt'
   | 'px'
 
+
+type TimeUnit = 's' | 'ms'
+
+/**
+*
+* A type that maps to CSS's **`<time>`** type.
+* @added 0.2.1
+*/
+export interface Time {
+  __tag: 'Time'
+  value: [number, TimeUnit]
+}
 /**
  *
  * A type that maps to CSS's **`<length>`** type.
