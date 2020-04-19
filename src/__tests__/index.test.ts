@@ -1,5 +1,5 @@
 import { per, style, RoseboxProperties } from '../index'
-import { px, rem, s, ms } from '../core/shared/value-constructors'
+import { px, rem, s, ms, ident } from '../core/shared/value-constructors'
 import { rgb, hex, hsl } from '../core/color'
 
 test('style', () => {
@@ -75,7 +75,7 @@ test('style', () => {
     padding: [px(3), rem(3), per(20), per(20)],
     textAlign: 'center',
     order: 1,
-    transitionProperty: ['background-color', 'color'],
+    transitionProperty: ['background-color', 'color', ident('test')],
     transitionDelay: [ms(300), ms(1000)]
   }
   const received = style(widthStyle)
@@ -151,7 +151,7 @@ test('style', () => {
     padding: '3px 3rem 20% 20%',
     textAlign: 'center',
     order: 1,
-    transitionProperty: 'background-color, color',
+    transitionProperty: 'background-color, color, test',
     transitionDelay: '300ms, 1000ms'
   }
   expect(received).toEqual(expected)

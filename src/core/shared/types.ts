@@ -216,3 +216,12 @@ export type AnimatableCSSProp = Exclude<
   | 'text-transform'
   | 'transition-property'
 >
+/**
+*
+* A type that maps to CSS's **`<custom-ident>`** type.
+* @added 0.2.1
+*/
+export interface CustomIdent {
+  __tag: 'CustomIdent'
+  value: string
+}

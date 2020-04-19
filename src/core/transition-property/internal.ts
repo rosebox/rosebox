@@ -1,16 +1,25 @@
-import { GlobalCssKeyword, AnimatableCSSProp } from '../shared/types'
+import { GlobalCssKeyword, AnimatableCSSProp, CustomIdent } from '../shared/types'
+import { serializeCustomIdent } from '../shared/serializers'
 
 export type TransitionPropertyCSSProp = 'transition-property'
 
-export type TransitionPropertyPropValue = 'none' | GlobalCssKeyword | AnimatableCSSProp | AnimatableCSSProp[]
+export type TransitionPropertyPropValue =
+    'none'
+    | 'all'
+    | GlobalCssKeyword
+    | AnimatableCSSProp
+    | CustomIdent
+    | (AnimatableCSSProp | CustomIdent)[]
 
-const serializeValue = (value: TransitionPropertyPropValue) =>
-    !Array.isArray(value)
-        ? value
-        : value.reduce(
-            (acc, item, idx) => acc + item + (idx === value.length - 1 ? '' : ', '),
-            ''
-        )
+const serializeValue = (value: TransitionPropertyPropValue) => {
+    const valArray = Array.isArray(value) ? value : [value]
+    return valArray.reduce(
+        (acc, item, idx) => acc +
+            (typeof item === 'string' ? item : serializeCustomIdent(item)) +
+            (idx === valArray.length - 1 ? '' : ', '),
+        ''
+    )
+}
 
 export const transitionProperty = (
     value: TransitionPropertyPropValue

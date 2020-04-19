@@ -1,4 +1,4 @@
-import { Length, Percentage, URL, Time } from './types'
+import { Length, Percentage, URL, Time, CustomIdent } from './types'
 
 /**
  * Constructs a value of type **`Percentage`**.
@@ -160,7 +160,7 @@ export const url = (x: string): URL => ({
 })
 
 /**
- * Constructs a value of type **`Time`** where the unit is **`seconds`**..
+ * Constructs a value of type **`Time`** where the unit is **`seconds`**.
  * @category Value constructor
  * @added 0.2.1
  */
@@ -170,11 +170,22 @@ export const s = (x: number): Time => ({
 })
 
 /**
- * Constructs a value of type **`Time`** where the unit is **`milliseconds`**..
+ * Constructs a value of type **`Time`** where the unit is **`milliseconds`**.
  * @category Value constructor
  * @added 0.2.1
  */
 export const ms = (x: number): Time => ({
   __tag: 'Time',
   value: [x, 'ms']
+})
+
+
+/**
+ * Constructs a value of type **`CustomIdent`**.
+ * @category Value constructor
+ * @added 0.2.1
+ */
+export const ident = (x: string): CustomIdent => ({
+  __tag: 'CustomIdent',
+  value: x
 })
