@@ -95,6 +95,8 @@ import {
 import { textAlign } from './core/text-align/internal'
 import { order } from './core/flexbox/order/internal'
 import { transitionProperty } from './core/transition-property/internal'
+import { transitionDelay } from './core/transition-delay'
+
 
 export const funcMap = {
     width,
@@ -169,5 +171,6 @@ export const funcMap = {
     padding,
     textAlign,
     order,
-    transitionProperty
+    transitionProperty,
+    transitionDelay
 }

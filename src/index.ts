@@ -96,6 +96,7 @@ import {
 import { TextAlignDeclaration } from './core/text-align'
 import { OrderDeclaration } from './core/flexbox/order/internal'
 import { TransitionPropertyDeclaration } from './core/transition-property/internal'
+import { TransitionDelayDeclaration } from './core/transition-delay'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -175,7 +176,8 @@ export type __RoseboxProperties__ = Partial<
   PaddingDeclaration &
   TextAlignDeclaration &
   OrderDeclaration &
-  TransitionPropertyDeclaration
+  TransitionPropertyDeclaration &
+  TransitionDelayDeclaration
 >
 export type RoseboxProperties = Partial<
   Omit<React.CSSProperties, keyof __RoseboxProperties__> & __RoseboxProperties__>

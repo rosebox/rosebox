@@ -5,7 +5,8 @@ import {
   Width,
   LengthPercentage,
   Percentage,
-  LineWidth
+  LineWidth,
+  Time
 } from './types'
 
 export const serializeLength = (value: Length) =>
@@ -23,8 +24,11 @@ export const serializeWidth = (value: Width): string =>
   isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
-    ? serializePercentage(value)
-    : value
+      ? serializePercentage(value)
+      : value
 
 export const serializeLineWidth = (value: LineWidth) =>
   isLengthType(value) ? serializeLength(value) : value
+
+export const serializeTime = (value: Time): string =>
+  `${value.value[0]}${value.value[1]}` 

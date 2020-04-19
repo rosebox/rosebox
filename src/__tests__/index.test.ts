@@ -75,7 +75,8 @@ test('style', () => {
     padding: [px(3), rem(3), per(20), per(20)],
     textAlign: 'center',
     order: 1,
-    transitionProperty: ['background-color', 'color']
+    transitionProperty: ['background-color', 'color'],
+    transitionDelay: [ms(300), ms(1000)]
   }
   const received = style(widthStyle)
   const expected = {
@@ -150,7 +151,8 @@ test('style', () => {
     padding: '3px 3rem 20% 20%',
     textAlign: 'center',
     order: 1,
-    transitionProperty: 'background-color, color'
+    transitionProperty: 'background-color, color',
+    transitionDelay: '300ms, 1000ms'
   }
   expect(received).toEqual(expected)
 })
