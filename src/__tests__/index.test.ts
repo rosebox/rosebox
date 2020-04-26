@@ -4,6 +4,7 @@ import { rgb, hex, hsl } from '../core/color'
 
 test('style', () => {
   const widthStyle: RoseboxProperties = {
+    backgroundColor: rgb([2, 3, 4]),
     width: per(3),
     height: px(100),
     top: px(3),
@@ -29,7 +30,6 @@ test('style', () => {
     borderLeftColor: hsl([3, per(3), per(3)]),
     cursor: 'pointer',
     display: 'flex block',
-    backgroundColor: rgb([2, 3, 4]),
     borderTopRightRadius: px(3),
     borderBottomRightRadius: per(20),
     borderBottomLeftRadius: rem(3),
@@ -80,9 +80,9 @@ test('style', () => {
   }
   const received = style(widthStyle)
   const expected = {
+    backgroundColor: 'rgb(2, 3, 4)',
     width: '3%',
     height: '100px',
-    backgroundColor: 'rgb(2, 3, 4)',
     top: '3px',
     right: '3px',
     bottom: '10%',
