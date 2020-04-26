@@ -46,7 +46,6 @@ test('style', () => {
     borderLeftWidth: px(2),
     borderWidth: px(100),
     zIndex: 3,
-    textTransform: 'lowercase full-width full-size-kana',
     textDecoration: 'orchid',
     borderTop: [px(1), 'solid', 'black'],
     borderRight: [px(1), 'solid', 'black'],
@@ -76,7 +75,7 @@ test('style', () => {
     textAlign: 'center',
     order: 1,
     transitionProperty: ['background-color', 'color', ident('test')],
-    transitionDelay: [ms(300), ms(1000)]
+    transitionDelay: [ms(300), ms(1000)],
   }
   const received = style(widthStyle)
   const expected = {

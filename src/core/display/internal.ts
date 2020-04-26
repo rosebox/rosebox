@@ -269,16 +269,7 @@ export type DisplayValue =
   | DisplayInternal
   | DisplayBox
 
-/**
- * Creates a declaration object for the **`display`** property.
- * @category Declaration function
- * @formalSyntaxForValue [ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy>
- * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/2019/CR-css-display-3-20190711/
- */
-export const display = (value: DisplayValue | GlobalCssKeyword) => ({
-  display: value,
-})
+export const serializeDisplayValue = (value: DisplayValue | GlobalCssKeyword) => value
 
 /**
  * @category RBDeclarationTypeAlias

@@ -12,30 +12,25 @@ export type BorderCornerRadius =
     | [LengthPercentage]
     | [LengthPercentage, LengthPercentage]
 
-const serializeBorderColor = (value: BorderCornerRadius): string =>
-    !Array.isArray(value)
-        ? serializeLengthPercentage(value)
-        : (value as LengthPercentage[])
-            .reduce(
-                (acc: any, item) => acc + ' ' + serializeLengthPercentage(item),
-                ''
-            )
-            .trim()
-
-/**
- * Creates a declaration object for the **`border-top-right-radius`** property.
- * @category Declaration function
- * @formalSyntaxForValue <length-percentage>{1,2}
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
- */
-export const borderTopRightRadius = (
-    value: BorderCornerRadius | GlobalCssKeyword
-): { borderTopRightRadius: string } => ({
-    borderTopRightRadius: isGlobalCssKeyword(value)
+const serializeCornerRadius = (value: BorderCornerRadius | GlobalCssKeyword): string =>
+    isGlobalCssKeyword(value)
         ? value
-        : serializeBorderColor(value),
-})
+        :
+        !Array.isArray(value)
+            ? serializeLengthPercentage(value)
+            : (value as LengthPercentage[])
+                .reduce(
+                    (acc: any, item) => acc + ' ' + serializeLengthPercentage(item),
+                    ''
+                )
+                .trim()
+
+
+export const serializeBorderTopRightRadiusValue = serializeCornerRadius
+export const serializeBorderBottomRightRadiusValue = serializeCornerRadius
+export const serializeBorderBottomLeftRadiusValue = serializeCornerRadius
+export const serializeBorderTopLeftRadiusValue = serializeCornerRadius
+
 
 /**
  * @category RBDeclarationTypeAlias
@@ -52,21 +47,6 @@ export type BorderTopRightRadiusDeclaration = {
 }
 
 /**
- * Creates a declaration object for the **`border-bottom-right-radius`** property.
- * @category Declaration function
- * @formalSyntaxForValue <length-percentage>{1,2}
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
- */
-export const borderBottomRightRadius = (
-    value: BorderCornerRadius | GlobalCssKeyword
-): { borderBottomRightRadius: string } => ({
-    borderBottomRightRadius: isGlobalCssKeyword(value)
-        ? value
-        : serializeBorderColor(value),
-})
-
-/**
  * @category RBDeclarationTypeAlias
  */
 export type BorderBottomRightRadiusDeclaration = {
@@ -81,21 +61,6 @@ export type BorderBottomRightRadiusDeclaration = {
 }
 
 /**
- * Creates a declaration object for the **`border-bottom-left-radius`** property.
- * @category Declaration function
- * @formalSyntax <length-percentage>{1,2}
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
- */
-export const borderBottomLeftRadius = (
-    value: BorderCornerRadius | GlobalCssKeyword
-): { borderBottomLeftRadius: string } => ({
-    borderBottomLeftRadius: isGlobalCssKeyword(value)
-        ? value
-        : serializeBorderColor(value),
-})
-
-/**
  * @category RBDeclarationTypeAlias
  */
 export type BorderBottomLeftRadiusDeclaration = {
@@ -108,21 +73,6 @@ export type BorderBottomLeftRadiusDeclaration = {
      */
     borderBottomLeftRadius: BorderCornerRadius | GlobalCssKeyword
 }
-
-/**
- * Creates a declaration object for the **`border-top-left-radius`** property.
- * @category Declaration function
- * @formalSyntax	<length-percentage>{1,2}
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
- */
-export const borderTopLeftRadius = (
-    value: BorderCornerRadius | GlobalCssKeyword
-): { borderTopLeftRadius: string } => ({
-    borderTopLeftRadius: isGlobalCssKeyword(value)
-        ? value
-        : serializeBorderColor(value),
-})
 
 /**
  * @category RBDeclarationTypeAlias
@@ -164,27 +114,15 @@ const serializeTwoRadius = (value: TwoRadius): string =>
         )
         .trim()
 
-const serializeBorderRadius = (value: OneRadius | TwoRadius) =>
-    !Array.isArray(value)
-        ? serializeLengthPercentage(value)
-        : !Array.isArray(value[0])
-            ? serializRadiusTuple(value as RadiusTuple)
-            : serializeTwoRadius(value as TwoRadius)
-
-/**
- * Creates a declaration object for the **`border-radius`** property.
- * @category Declaration function
- * @formalSyntaxForValue <length-percentage>{1,4} [ / <length-percentage>{1,4} ]?
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
- */
-export const borderRadius = (
-    value: OneRadius | TwoRadius | GlobalCssKeyword
-): { borderRadius: string } => ({
-    borderRadius: isGlobalCssKeyword(value)
+export const serializeBorderRadiusValue = (value: OneRadius | TwoRadius | GlobalCssKeyword) =>
+    isGlobalCssKeyword(value)
         ? value
-        : serializeBorderRadius(value),
-})
+        : !Array.isArray(value)
+            ? serializeLengthPercentage(value)
+            : !Array.isArray(value[0])
+                ? serializRadiusTuple(value as RadiusTuple)
+                : serializeTwoRadius(value as TwoRadius)
+
 
 /**
  * @category RBDeclarationTypeAlias

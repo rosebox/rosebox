@@ -6,18 +6,18 @@ import {
 } from './core/overflow/internal'
 
 import { textTransform } from './core/text-transform/internal'
-import { display } from './core/display/internal'
+import { serializeDisplayValue } from './core/display/internal'
 import { width } from './core/width/internal'
 import { height } from './core/height/internal'
-import { bgColor } from './core/background-color/internal'
+import { serializeBackgroundColorValue } from './core/background-color/internal'
 import {
-    top,
-    right,
-    bottom,
-    left,
+    serializeTopValue,
+    serializeRightValue,
+    serializeBottomValue,
+    serializeLeftValue,
 } from './core/box-offsets/internal'
 import { boxSizing } from './core/box-sizing/internal'
-import { color } from './core/color/internal'
+import { serializeColorValue } from './core/color/internal'
 import { maxHeight } from './core/max-height/internal'
 import { maxWidth } from './core/max-width/internal'
 import { minHeight } from './core/min-height/internal'
@@ -26,56 +26,56 @@ import { opacity } from './core/opacity/internal'
 import { position } from './core/position/internal'
 import { visibility } from './core/visibility/internal'
 import {
-    borderColor,
-    borderTopColor,
-    borderRightColor,
-    borderBottomColor,
-    borderLeftColor,
+    serializeBorderColorValue,
+    serializeBorderTopColorValue,
+    serializeBorderRightColorValue,
+    serializeBorderBottomColorValue,
+    serializeBorderLeftColorValue,
 } from './core/border-color/internal'
-import { cursor } from './core/cursor/internal'
+import { serializeCursorValue } from './core/cursor/internal'
 import {
-    borderTopRightRadius,
-    borderBottomRightRadius,
-    borderBottomLeftRadius,
-    borderTopLeftRadius,
-    borderRadius,
+    serializeBorderTopRightRadiusValue,
+    serializeBorderBottomRightRadiusValue,
+    serializeBorderBottomLeftRadiusValue,
+    serializeBorderTopLeftRadiusValue,
+    serializeBorderRadiusValue,
 } from './core/border-radius/internal'
 import {
-    borderTopStyle,
-    borderRightStyle,
-    borderBottomStyle,
-    borderLeftStyle,
-    borderStyle,
+    serializeBorderTopStyleValue,
+    serializeBorderRightStyleValue,
+    serializeBorderBottomStyleValue,
+    serializeBorderLeftStyleValue,
+    serializeBorderStyleValue,
 } from './core/border-style/internal'
 import {
-    borderTopWidth,
-    borderRightWidth,
-    borderBottomWidth,
-    borderLeftWidth,
-    borderWidth,
+    serializeBorderTopWidthValue,
+    serializeBorderRightWidthValue,
+    serializeBorderBottomWidthValue,
+    serializeBorderLeftWidthValue,
+    serializeBorderWidthValue,
 } from './core/border-width/internal'
 import { zIndex } from './core/z-index/internal'
 import {
     textDecoration,
 } from './core/text-decoration/internal'
 import {
-    borderTop,
-    borderRight,
-    borderBottom,
-    borderLeft,
-    border,
+    serializeBorderTopValue,
+    serializeBorderRightValue,
+    serializeBorderBottomValue,
+    serializeBorderLeftValue,
+    serializeBorderValue,
 } from './core/border/internal'
 import { fontSize } from './core/font-size/internal'
 import { fontWeight } from './core/font-weight/internal'
 import { fontFamily } from './core/font-family/internal'
-import { flexBasis } from './core/flexbox/flex-basis/internal'
+import { serializeFlexBasisValue } from './core/flexbox/flex-basis/internal'
 import {
-    flexDirection,
+    serializeFlexDirectionValue,
 } from './core/flexbox/flex-direction/internal'
-import { flexGrow } from './core/flexbox/flex-grow/internal'
-import { flexShrink } from './core/flexbox/flex-shrink/internal'
-import { flexWrap } from './core/flexbox/flex-wrap/internal'
-import { flex } from './core/flexbox/flex/internal'
+import { serializeFlexGrowValue } from './core/flexbox/flex-grow/internal'
+import { serializeFlexShrink } from './core/flexbox/flex-shrink/internal'
+import { serializeFlexWrap } from './core/flexbox/flex-wrap/internal'
+import { serializeFlexValue } from './core/flexbox/flex/internal'
 import { letterSpacing } from './core/letter-spacing/internal'
 import { lineHeight } from './core/line-height/internal'
 import {
@@ -93,24 +93,55 @@ import {
     padding,
 } from './core/padding/internal'
 import { textAlign } from './core/text-align/internal'
-import { order } from './core/flexbox/order/internal'
+import { serializerOrder } from './core/flexbox/order/internal'
 import { transitionProperty } from './core/transition-property/internal'
 import { transitionDelay } from './core/transition-delay'
 
 
 export const funcMap = {
+    borderTopColor: serializeBorderTopColorValue,
+    borderRightColor: serializeBorderRightColorValue,
+    borderBottomColor: serializeBorderBottomColorValue,
+    borderLeftColor: serializeBorderLeftColorValue,
+    borderColor: serializeBorderColorValue,
+    borderTopRightRadius: serializeBorderTopRightRadiusValue,
+    borderBottomRightRadius: serializeBorderBottomRightRadiusValue,
+    borderBottomLeftRadius: serializeBorderBottomLeftRadiusValue,
+    borderTopLeftRadius: serializeBorderTopLeftRadiusValue,
+    borderRadius: serializeBorderRadiusValue,
+    borderTop: serializeBorderTopValue,
+    borderRight: serializeBorderRightValue,
+    borderBottom: serializeBorderBottomValue,
+    borderLeft: serializeBorderLeftValue,
+    border: serializeBorderValue,
+    borderTopStyle: serializeBorderTopStyleValue,
+    borderRightStyle: serializeBorderRightStyleValue,
+    borderBottomStyle: serializeBorderBottomStyleValue,
+    borderLeftStyle: serializeBorderLeftStyleValue,
+    borderStyle: serializeBorderStyleValue,
+    borderTopWidth: serializeBorderTopWidthValue,
+    borderRightWidth: serializeBorderRightWidthValue,
+    borderBottomWidth: serializeBorderBottomWidthValue,
+    borderLeftWidth: serializeBorderLeftWidthValue,
+    borderWidth: serializeBorderWidthValue,
+    backgroundColor: serializeBackgroundColorValue,
+    cursor: serializeCursorValue,
+    display: serializeDisplayValue,
     width,
     height,
     minHeight,
     maxHeight,
     minWidth,
     maxWidth,
-    backgroundColor: bgColor,
-    color,
-    top,
-    right,
-    bottom,
-    left,
+    color: serializeColorValue,
+    top: serializeTopValue,
+    right: serializeRightValue,
+    bottom: serializeBottomValue,
+    left: serializeLeftValue,
+    flexBasis: serializeFlexBasisValue,
+    flexDirection: serializeFlexDirectionValue,
+    flexGrow: serializeFlexGrowValue,
+    flexShrink: serializeFlexShrink,
     boxSizing,
     opacity,
     overflowX,
@@ -118,45 +149,14 @@ export const funcMap = {
     overflow,
     position,
     visibility,
-    borderColor,
-    borderTopColor,
-    borderRightColor,
-    borderBottomColor,
-    borderLeftColor,
-    cursor,
-    display,
-    borderTopRightRadius,
-    borderBottomRightRadius,
-    borderBottomLeftRadius,
-    borderTopLeftRadius,
-    borderRadius,
-    borderTopStyle,
-    borderRightStyle,
-    borderBottomStyle,
-    borderLeftStyle,
-    borderStyle,
-    borderTopWidth,
-    borderRightWidth,
-    borderBottomWidth,
-    borderLeftWidth,
-    borderWidth,
     zIndex,
     textTransform,
     textDecoration,
-    borderTop,
-    borderRight,
-    borderBottom,
-    borderLeft,
-    border,
     fontSize,
     fontWeight,
     fontFamily,
-    flexBasis,
-    flexDirection,
-    flexGrow,
-    flexShrink,
-    flexWrap,
-    flex,
+    flexWrap: serializeFlexWrap,
+    flex: serializeFlexValue,
     letterSpacing,
     lineHeight,
     marginTop,
@@ -170,7 +170,7 @@ export const funcMap = {
     paddingLeft,
     padding,
     textAlign,
-    order,
+    order: serializerOrder,
     transitionProperty,
     transitionDelay
 }

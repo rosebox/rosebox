@@ -3,16 +3,7 @@ import { GlobalCssKeyword } from '../../shared/types'
 
 export type FlexGrowCSSProp = 'flex-grow'
 
-/**
- * Creates a declaration object for the **`flex-grow`** property.
- * @category Declaration function
- * @formalSyntax <number>
- * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-grow-property
- */
-export const flexGrow = (value: ShrinkGrow | GlobalCssKeyword) => ({
-    flexGrow: value,
-})
+export const serializeFlexGrowValue = (value: ShrinkGrow | GlobalCssKeyword): string | number => value
 
 /**
  * @category RBDeclarationTypeAlias

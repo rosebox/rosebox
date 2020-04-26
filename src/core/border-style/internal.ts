@@ -6,18 +6,14 @@ import {
 
 export type BorderStyleCSSProp = 'border-style'
 
-/**
- * Creates a declaration object for the **`border-top-style`** property.
- * @category Declaration function
- * @formalSyntaxForValue <line-style>
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
- */
-export const borderTopStyle = (
-    value: LineStyle | GlobalCssKeyword
-): { borderTopStyle: LineStyle | GlobalCssKeyword } => ({
-    borderTopStyle: value,
-})
+const borderSideStyle =
+    (value: LineStyle | GlobalCssKeyword): string =>
+        value
+
+export const serializeBorderTopStyleValue = borderSideStyle
+export const serializeBorderRightStyleValue = borderSideStyle
+export const serializeBorderBottomStyleValue = borderSideStyle
+export const serializeBorderLeftStyleValue = borderSideStyle
 
 /**
  * @category RBDeclarationTypeAlias
@@ -33,18 +29,6 @@ export type BorderTopStyleDeclaration = {
     borderTopStyle: LineStyle | GlobalCssKeyword
 }
 
-/**
- * Creates a declaration object for the **`border-right-style`** property.
- * @category Declaration function
- * @formalSyntax <line-style>
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
- */
-export const borderRightStyle = (
-    value: LineStyle | GlobalCssKeyword
-): { borderRightStyle: LineStyle | GlobalCssKeyword } => ({
-    borderRightStyle: value,
-})
 
 /**
  * @category RBDeclarationTypeAlias
@@ -61,19 +45,6 @@ export type BorderRightStyleDeclaration = {
 }
 
 /**
- * Creates a declaration object for the **`border-bottom-style`** property.
- * @category Declaration function
- * @formalSyntax <line-style>
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
- */
-export const borderBottomStyle = (
-    value: LineStyle | GlobalCssKeyword
-): { borderBottomStyle: LineStyle | GlobalCssKeyword } => ({
-    borderBottomStyle: value,
-})
-
-/**
  * @category RBDeclarationTypeAlias
  */
 export type BorderBottomStyleDeclaration = {
@@ -87,18 +58,6 @@ export type BorderBottomStyleDeclaration = {
     borderBottomStyle: LineStyle | GlobalCssKeyword
 }
 
-/**
- * Creates a declaration object for the **`border-left-style`** property.
- * @category Declaration function
- * @formalSyntax <line-style>
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
- */
-export const borderLeftStyle = (
-    value: LineStyle | GlobalCssKeyword
-): { borderLeftStyle: LineStyle | GlobalCssKeyword } => ({
-    borderLeftStyle: value,
-})
 
 /**
  * @category RBDeclarationTypeAlias
@@ -121,25 +80,14 @@ type BorderStyle =
     | [LineStyle, LineStyle, LineStyle]
     | [LineStyle, LineStyle, LineStyle, LineStyle]
 
-const serializeBorderStyle = (value: BorderStyle): string =>
-    !Array.isArray(value)
+export const serializeBorderStyleValue = (value: BorderStyle | GlobalCssKeyword): string =>
+    isGlobalCssKeyword(value)
         ? value
-        : (value as LineStyle[])
-            .reduce((acc: any, item) => acc + ' ' + item, '')
-            .trim()
-
-/**
- * Creates a declaration object for the **`border-width`** property.
- * @category Declaration function
- * @formalSyntaxForValue <line-style>{1,4}
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
- */
-export const borderStyle = (
-    value: BorderStyle | GlobalCssKeyword
-): { borderStyle: string } => ({
-    borderStyle: isGlobalCssKeyword(value) ? value : serializeBorderStyle(value),
-})
+        : !Array.isArray(value)
+            ? value
+            : (value as LineStyle[])
+                .reduce((acc: any, item) => acc + ' ' + item, '')
+                .trim()
 
 /**
  * @category RBDeclarationTypeAlias

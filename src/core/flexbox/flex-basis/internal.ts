@@ -22,18 +22,11 @@ export const serializeFlexBasis = (value: FlexBasis): string =>
             ? serializeKeyword(value)
             : serializeWidth(value)
 
-/**
- * Creates a declaration object for the **`flex-basis`** property.
- * @category Declaration function
- * @formalSyntax content | <‘width’>
- * @added 0.1.4
- * @imlementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-basis-property
- */
-export const flexBasis = (value: FlexBasis | GlobalCssKeyword) => ({
-    flexBasis: isGlobalCssKeyword(value)
+export const serializeFlexBasisValue = (value: FlexBasis | GlobalCssKeyword): string =>
+    isGlobalCssKeyword(value)
         ? serializeKeyword(value)
-        : serializeFlexBasis(value),
-})
+        : serializeFlexBasis(value)
+
 
 /**
  * @category RBDeclarationTypeAlias

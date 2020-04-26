@@ -40,25 +40,20 @@ const serializeAtomicValue = (value: AtomicValue) =>
             ? serializeLength(value)
             : value
 
-const serializeBorderSide = (value: BorderSide) =>
-    !Array.isArray(value)
-        ? serializeAtomicValue(value)
-        : (value as AtomicValue[])
-            .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
-            .trim()
+const serializeBorderSide = (value: BorderSide | GlobalCssKeyword) =>
+    isGlobalCssKeyword(value)
+        ? value
+        : !Array.isArray(value)
+            ? serializeAtomicValue(value)
+            : (value as AtomicValue[])
+                .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
+                .trim()
 
-/**
- * Creates a declaration object for the **`border-top`** property.
- * @category Declaration function
- * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
- */
-export const borderTop = (
-    value: BorderSide | GlobalCssKeyword
-): { borderTop: string } => ({
-    borderTop: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
-})
+export const serializeBorderTopValue = serializeBorderSide
+export const serializeBorderRightValue = serializeBorderSide
+export const serializeBorderBottomValue = serializeBorderSide
+export const serializeBorderLeftValue = serializeBorderSide
+export const serializeBorderValue = serializeBorderSide
 
 /**
  * @category RBDeclarationTypeAlias
@@ -74,18 +69,7 @@ export type BorderTopDeclaration = {
     borderTop: BorderSide | GlobalCssKeyword
 }
 
-/**
- * Creates a declaration object for the **`border-right`** property.
- * @category Declaration function
- * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
- */
-export const borderRight = (
-    value: BorderSide | GlobalCssKeyword
-): { borderRight: string } => ({
-    borderRight: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
-})
+
 
 /**
  * @category RBDeclarationTypeAlias
@@ -101,18 +85,6 @@ export type BorderRightDeclaration = {
     borderRight: BorderSide | GlobalCssKeyword
 }
 
-/**
- * Creates a declaration object for the **`border-bottom`** property.
- * @category Declaration function
- * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
- */
-export const borderBottom = (
-    value: BorderSide | GlobalCssKeyword
-): { borderBottom: string } => ({
-    borderBottom: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
-})
 
 /**
  * @category RBDeclarationTypeAlias
@@ -129,19 +101,6 @@ export type BorderBottomDeclaration = {
 }
 
 /**
- * Creates a declaration object for the **`border-left`** property.
- * @category Declaration function
- * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
- */
-export const borderLeft = (
-    value: BorderSide | GlobalCssKeyword
-): { borderLeft: string } => ({
-    borderLeft: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
-})
-
-/**
  * @category RBDeclarationTypeAlias
  */
 export type BorderLeftDeclaration = {
@@ -154,19 +113,6 @@ export type BorderLeftDeclaration = {
      */
     borderLeft: BorderSide | GlobalCssKeyword
 }
-
-/**
- * Creates a declaration object for the **`border`** property.
- * @category Declaration function
- * @formalSyntax [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
- */
-export const border = (
-    value: BorderSide | GlobalCssKeyword
-): { border: string } => ({
-    border: isGlobalCssKeyword(value) ? value : serializeBorderSide(value),
-})
 
 /**
  * @category RBDeclarationTypeAlias

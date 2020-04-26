@@ -615,16 +615,8 @@ export const isColor = (value: any): value is Color =>
   isStandaloneColorKeyword(value) ||
   isExtendedColorKeyword(value)
 
-/**
- * Creates a declaration object for the **`color`** property.
- * @category Declaration function
- * @formalSyntaxForValue <color>
- * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/2018/REC-css-color-3-20180619/#color0
- */
-export const color = (value: Color | GlobalCssKeyword): { color: string } => ({
-  color: isColor(value) ? serializeColor(value) : value,
-})
+export const serializeColorValue = (value: Color | GlobalCssKeyword): string =>
+  isColor(value) ? serializeColor(value) : value
 
 /**
  * @category RBDeclarationTypeAlias

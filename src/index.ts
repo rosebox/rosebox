@@ -186,7 +186,7 @@ export type RoseboxProperties = Partial<
 export const style = (obj: RoseboxProperties): CSSProperties => {
   return Object.keys(obj).reduce((acc, key) => {
     return Object.assign({}, acc, {
-      [key]: (funcMap as any)[key]((obj as any)[key])[key],
+      [key]: (funcMap as any)[key]((obj as any)[key]),
     })
   }, {}) as CSSProperties
 }

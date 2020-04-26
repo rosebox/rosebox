@@ -11,23 +11,16 @@ export type RightCSSProp = 'right'
 export type BottomCSSProp = 'bottom'
 export type LeftCSSProp = 'left'
 
-/**
- * Creates a declaration object for the **`top`** property.
- * @category Declaration function
- * @formalSyntax auto | <length> | <percentage>
- * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
- */
-export const top = (
+export const serializeBoxOffsetValue = (
   value: Length | Percentage | 'auto' | GlobalCssKeyword
-): { top: string } => ({
-  top:
-    value === 'auto'
-      ? 'auto'
-      : isGlobalCssKeyword(value)
-        ? value
-        : serializeLengthPercentage(value),
-})
+): string =>
+  value === 'auto'
+    ? 'auto'
+    : isGlobalCssKeyword(value)
+      ? value
+      : serializeLengthPercentage(value)
+
+export const serializeTopValue = serializeBoxOffsetValue
 
 /**
  * @category RBDeclarationTypeAlias
@@ -43,23 +36,6 @@ export type TopDeclaration = {
   top: Length | Percentage | 'auto' | GlobalCssKeyword
 }
 
-/**
- * Creates a declaration object for the **`right`** property.
- * @category Declaration functionn
- * @formalSyntax auto | <length> | <percentage>
- * @added 0.1.4
- * @implementationReference  https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
- */
-export const right = (
-  value: Length | Percentage | 'auto' | GlobalCssKeyword
-): { right: string } => ({
-  right:
-    value === 'auto'
-      ? 'auto'
-      : isGlobalCssKeyword(value)
-        ? value
-        : serializeLengthPercentage(value),
-})
 
 /**
  * @category RBDeclarationTypeAlias
@@ -75,23 +51,8 @@ export type RightDeclaration = {
   right: Length | Percentage | 'auto' | GlobalCssKeyword
 }
 
-/**
- * Creates a declaration object for the **`bottom`** property.
- * @category Declaration function
- * @formalSyntax auto | <length> | <percentage>
- * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
- */
-export const bottom = (
-  value: Length | Percentage | 'auto' | GlobalCssKeyword
-): { bottom: string } => ({
-  bottom:
-    value === 'auto'
-      ? 'auto'
-      : isGlobalCssKeyword(value)
-        ? value
-        : serializeLengthPercentage(value),
-})
+export const serializeRightValue = serializeBoxOffsetValue
+
 
 /**
  * @category RBDeclarationTypeAlias
@@ -107,23 +68,7 @@ export type BottomDeclaration = {
   bottom: Length | Percentage | 'auto' | GlobalCssKeyword
 }
 
-/**
- * Creates a declaration object for the **`left`** property.
- * @category Declaration functionn
- * @formalSyntax auto | <length> | <percentage>
- * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
- */
-export const left = (
-  value: Length | Percentage | 'auto' | GlobalCssKeyword
-): { left: string } => ({
-  left:
-    value === 'auto'
-      ? 'auto'
-      : isGlobalCssKeyword(value)
-        ? value
-        : serializeLengthPercentage(value),
-})
+export const serializeBottomValue = serializeBoxOffsetValue
 
 /**
  * @category RBDeclarationTypeAlias
@@ -138,3 +83,5 @@ export type LeftDeclaration = {
    */
   left: Length | Percentage | 'auto' | GlobalCssKeyword
 }
+
+export const serializeLeftValue = serializeBoxOffsetValue
