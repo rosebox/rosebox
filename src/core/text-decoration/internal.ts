@@ -162,20 +162,11 @@ const serializeShorthandleValue = (value: TextDecoration): string =>
             )
             .trim()
 
-/**
- * Creates a declaration object for the **`text-decoration`** property.
- * @category Declaration function
- * @formalSyntax '<text-decoration-line'> || <'text-decoration-style'> || <'text-decoration-color'>
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/2019/CR-css-text-decor-3-20190813/#text-decoration-property
- */
-export const textDecoration = (
+export const serializeTextDecorationValue = (
     value: TextDecoration | GlobalCssKeyword
-): { textDecoration: string } => ({
-    textDecoration: isGlobalCssKeyword(value)
+): string => isGlobalCssKeyword(value)
         ? value
-        : serializeShorthandleValue(value),
-})
+        : serializeShorthandleValue(value)
 
 /**
  * @category RBDeclarationTypeAlias

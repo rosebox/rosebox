@@ -20,27 +20,19 @@ type AbsoluteSizeKeyword =
     | 'x-large'
     | 'xx-large'
 
-/**
- * Creates a declaration object for the **`font-size`** property.
- * @category Declaration function
- * @formalSyntax <absolute-size> | <relative-size> | <length-percentage>
- * @added 0.1.4
- * @implentationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-size-prop
- */
-export const fontSize = (
+export const serializeFontSize = (
     value:
         | RelativeSizeKeyword
         | AbsoluteSizeKeyword
         | Length
         | Percentage
         | GlobalCssKeyword
-): { fontSize: string } => ({
-    fontSize: isLengthType(value)
+): string =>
+    isLengthType(value)
         ? serializeLength(value)
         : isPercentageType(value)
             ? serializePercentage(value)
-            : value,
-})
+            : value
 
 /**
  * @category RBDeclarationTypeAlias

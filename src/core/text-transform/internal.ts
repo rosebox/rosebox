@@ -46,17 +46,8 @@ type ThreeValues =
 
 type TextTransform = OneValue | TwoValues | ThreeValues
 
-/**
- * Creates a declaration object for the **`text-transform`** shorthand property.
- * @category Declaration function
- * @formalSyntax none | [capitalize | uppercase | lowercase ] || full-width || full-size-kana
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-transform-property
- */
 
-export const textTransform = (value: TextTransform | GlobalCssKeyword) => ({
-    textTransform: value,
-})
+export const serializeTextTransformValue = (value: TextTransform | GlobalCssKeyword) => value
 
 /**
  * @category RBDeclarationTypeAlias

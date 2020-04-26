@@ -2,19 +2,9 @@ import { GlobalCssKeyword } from '../shared/types'
 
 export type VisibilityCSSProp = 'visibility'
 
-/**
- * Creates a declaration object for the **`visibility`** shorthand property.
- * @category Declaration function
- * @formalSyntaxForValue visible | hidden | collapse | inherit
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/2011/REC-CSS2-20110607/visufx.html#propdef-visibility
- */
-
-export const visibility = (
+export const serializeVisibilityValue = (
     value: 'visible' | 'hidden' | 'collapse' | GlobalCssKeyword
-) => ({
-    visibility: value,
-})
+) => value
 
 /**
  * @category RBDeclarationTypeAlias

@@ -12,23 +12,14 @@ export type MaxWidthCSSProp = 'max-width'
 
 type MaxWidth = Length | Percentage | 'none'
 
-const serializeMaxWidth = (value: MaxWidth): string =>
-    isLengthType(value)
-        ? serializeLength(value)
-        : isPercentageType(value)
-            ? serializePercentage(value)
-            : value
+export const serializeMaxWidthValue = (value: MaxWidth | GlobalCssKeyword): string =>
+    isGlobalCssKeyword(value) ? value :
+        isLengthType(value)
+            ? serializeLength(value)
+            : isPercentageType(value)
+                ? serializePercentage(value)
+                : value
 
-/**
- * Maps to CSS's **`max-width`** property
- * @category Declaration function
- * @formalSyntaxForValue <length> | <percentage> | none
- * @added 0.1.4
- * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-widths
- */
-export const maxWidth = (value: MaxWidth | GlobalCssKeyword) => ({
-    maxWidth: isGlobalCssKeyword(value) ? value : serializeMaxWidth(value),
-})
 
 /**
  * @category RBDeclarationTypeAlias

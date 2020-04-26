@@ -3,17 +3,10 @@ import { serializeWidth } from '../shared/serializers'
 
 export type WidthCSSProp = 'width'
 
-/**
- * Creates a declaration object for the **`width`** property.
- * @category Declaration function
- * @formalSyntaxForValue <length> | <percentage> | auto
- * @added 0.1.4
- * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-width
- */
-export const width = (value: Width | GlobalCssKeyword) => ({
-    width: isGlobalCssKeyword(value) ? value : serializeWidth(value),
-})
-
+export const serializeWidthValue = (value: Width | GlobalCssKeyword) =>
+    isGlobalCssKeyword(value)
+        ? value
+        : serializeWidth(value)
 /**
  * @category RBDeclarationTypeAlias
  */

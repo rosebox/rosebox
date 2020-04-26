@@ -8,20 +8,11 @@ import { serializeLength, serializePercentage } from '../shared/serializers'
 
 export type HeightCSSProp = 'height'
 
-/**
- * Creates a declaration object for the **`height`** property.
- * @category Declaration function
- * @formalSyntaxForValue <length> | <percentage> | auto
- * @added 0.1.4
- * @implentationReference https://drafts.csswg.org/css2/visudet.html#propdef-height
- */
-export const height = (value: Width | GlobalCssKeyword) => ({
-    height: isLengthType(value)
-        ? serializeLength(value)
-        : isPercentageType(value)
-            ? serializePercentage(value)
-            : value,
-})
+export const serializeHeight = (value: Width | GlobalCssKeyword) => isLengthType(value)
+    ? serializeLength(value)
+    : isPercentageType(value)
+        ? serializePercentage(value)
+        : value
 
 /**
  * @category RBDeclarationTypeAlias

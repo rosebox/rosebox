@@ -1,14 +1,14 @@
 
 import {
-    overflowX,
-    overflow,
-    overflowY,
+    serializeOverflowX,
+    serializeOverflowY,
+    serializeOverflow,
 } from './core/overflow/internal'
 
-import { textTransform } from './core/text-transform/internal'
+import { serializeTextTransformValue } from './core/text-transform/internal'
 import { serializeDisplayValue } from './core/display/internal'
-import { width } from './core/width/internal'
-import { height } from './core/height/internal'
+import { serializeWidthValue } from './core/width/internal'
+import { serializeHeight } from './core/height/internal'
 import { serializeBackgroundColorValue } from './core/background-color/internal'
 import {
     serializeTopValue,
@@ -16,15 +16,15 @@ import {
     serializeBottomValue,
     serializeLeftValue,
 } from './core/box-offsets/internal'
-import { boxSizing } from './core/box-sizing/internal'
+import { serializeBoxSizingValue } from './core/box-sizing/internal'
 import { serializeColorValue } from './core/color/internal'
-import { maxHeight } from './core/max-height/internal'
-import { maxWidth } from './core/max-width/internal'
-import { minHeight } from './core/min-height/internal'
-import { minWidth } from './core/min-width/internal'
-import { opacity } from './core/opacity/internal'
-import { position } from './core/position/internal'
-import { visibility } from './core/visibility/internal'
+import { serializeMaxHeightValue } from './core/max-height/internal'
+import { serializeMaxWidthValue } from './core/max-width/internal'
+import { serializeMinHeightValue } from './core/min-height/internal'
+import { serializeMinWidthValue } from './core/min-width/internal'
+import { serializeOpacity } from './core/opacity/internal'
+import { serializePosition } from './core/position/internal'
+import { serializeVisibilityValue } from './core/visibility/internal'
 import {
     serializeBorderColorValue,
     serializeBorderTopColorValue,
@@ -54,9 +54,9 @@ import {
     serializeBorderLeftWidthValue,
     serializeBorderWidthValue,
 } from './core/border-width/internal'
-import { zIndex } from './core/z-index/internal'
+import { serializezIndexValue } from './core/z-index/internal'
 import {
-    textDecoration,
+    serializeTextDecorationValue,
 } from './core/text-decoration/internal'
 import {
     serializeBorderTopValue,
@@ -65,9 +65,9 @@ import {
     serializeBorderLeftValue,
     serializeBorderValue,
 } from './core/border/internal'
-import { fontSize } from './core/font-size/internal'
-import { fontWeight } from './core/font-weight/internal'
-import { fontFamily } from './core/font-family/internal'
+import { serializeFontSize } from './core/font-size/internal'
+import { serializeFontWeight } from './core/font-weight/internal'
+import { serializeFontFamily } from './core/font-family/internal'
 import { serializeFlexBasisValue } from './core/flexbox/flex-basis/internal'
 import {
     serializeFlexDirectionValue,
@@ -76,26 +76,26 @@ import { serializeFlexGrowValue } from './core/flexbox/flex-grow/internal'
 import { serializeFlexShrink } from './core/flexbox/flex-shrink/internal'
 import { serializeFlexWrap } from './core/flexbox/flex-wrap/internal'
 import { serializeFlexValue } from './core/flexbox/flex/internal'
-import { letterSpacing } from './core/letter-spacing/internal'
-import { lineHeight } from './core/line-height/internal'
+import { serializeLetterSpacing } from './core/letter-spacing/internal'
+import { serializeLineHeight } from './core/line-height/internal'
 import {
-    marginTop,
-    marginRight,
-    marginBottom,
-    marginLeft,
-    margin,
+    serializeMarginTopValue,
+    serializeMarginRightValue,
+    serializeMarginBottomValue,
+    serializeMarginLeftValue,
+    serializeMarginValue,
 } from './core/margin/internal'
 import {
-    paddingTop,
-    paddingRight,
-    paddingBottom,
-    paddingLeft,
-    padding,
+    serializePaddingTopValue,
+    serializePaddingRightValue,
+    serializePaddingBottomValue,
+    serializePaddingLeftValue,
+    serializePaddingValue,
 } from './core/padding/internal'
-import { textAlign } from './core/text-align/internal'
+import { serializeTextAlign } from './core/text-align/internal'
 import { serializerOrder } from './core/flexbox/order/internal'
-import { transitionProperty } from './core/transition-property/internal'
-import { transitionDelay } from './core/transition-delay'
+import { serializeTransitionPropertyValue } from './core/transition-property/internal'
+import { serializeTransitionDelayValue } from './core/transition-delay'
 
 
 export const funcMap = {
@@ -127,12 +127,12 @@ export const funcMap = {
     backgroundColor: serializeBackgroundColorValue,
     cursor: serializeCursorValue,
     display: serializeDisplayValue,
-    width,
-    height,
-    minHeight,
-    maxHeight,
-    minWidth,
-    maxWidth,
+    width: serializeWidthValue,
+    height: serializeHeight,
+    minHeight: serializeMinHeightValue,
+    maxHeight: serializeMaxHeightValue,
+    minWidth: serializeMinWidthValue,
+    maxWidth: serializeMaxWidthValue,
     color: serializeColorValue,
     top: serializeTopValue,
     right: serializeRightValue,
@@ -142,35 +142,35 @@ export const funcMap = {
     flexDirection: serializeFlexDirectionValue,
     flexGrow: serializeFlexGrowValue,
     flexShrink: serializeFlexShrink,
-    boxSizing,
-    opacity,
-    overflowX,
-    overflowY,
-    overflow,
-    position,
-    visibility,
-    zIndex,
-    textTransform,
-    textDecoration,
-    fontSize,
-    fontWeight,
-    fontFamily,
+    boxSizing: serializeBoxSizingValue,
+    opacity: serializeOpacity,
+    overflowX: serializeOverflowX,
+    overflowY: serializeOverflowY,
+    overflow: serializeOverflow,
+    position: serializePosition,
+    visibility: serializeVisibilityValue,
+    zIndex: serializezIndexValue,
+    textTransform: serializeTextTransformValue,
+    textDecoration: serializeTextDecorationValue,
+    fontSize: serializeFontSize,
+    fontWeight: serializeFontWeight,
+    fontFamily: serializeFontFamily,
     flexWrap: serializeFlexWrap,
     flex: serializeFlexValue,
-    letterSpacing,
-    lineHeight,
-    marginTop,
-    marginRight,
-    marginBottom,
-    marginLeft,
-    margin,
-    paddingTop,
-    paddingRight,
-    paddingBottom,
-    paddingLeft,
-    padding,
-    textAlign,
+    letterSpacing: serializeLetterSpacing,
+    lineHeight: serializeLineHeight,
+    marginTop: serializeMarginTopValue,
+    marginRight: serializeMarginRightValue,
+    marginBottom: serializeMarginBottomValue,
+    marginLeft: serializeMarginLeftValue,
+    margin: serializeMarginValue,
+    paddingTop: serializePaddingTopValue,
+    paddingRight: serializePaddingRightValue,
+    paddingBottom: serializePaddingBottomValue,
+    paddingLeft: serializePaddingLeftValue,
+    padding: serializePaddingValue,
+    textAlign: serializeTextAlign,
     order: serializerOrder,
-    transitionProperty,
-    transitionDelay
+    transitionProperty: serializeTransitionPropertyValue,
+    transitionDelay: serializeTransitionDelayValue
 }

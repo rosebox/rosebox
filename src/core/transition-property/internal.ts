@@ -21,11 +21,9 @@ const serializeValue = (value: TransitionPropertyPropValue) => {
     )
 }
 
-export const transitionProperty = (
+export const serializeTransitionPropertyValue = (
     value: TransitionPropertyPropValue
-) => ({
-    transitionProperty: serializeValue(value),
-})
+): string => serializeValue(value)
 
 /**
  * @category RBDeclarationTypeAlias

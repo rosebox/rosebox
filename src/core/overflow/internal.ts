@@ -28,16 +28,7 @@ type TwoOverflowKeywords =
     | 'scroll auto'
     | 'auto scroll'
 
-/**
- * Creates a declaration object for the **`overflow-x`** property.
- * @category Declaration function
- * @formalSyntaxForValue visible | hidden | clip | scroll | auto
- * @added 0.1.5
- * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
- */
-export const overflowX = (value: OverflowKeyword | GlobalCssKeyword) => ({
-    overflowX: value,
-})
+export const serializeOverflowX = (value: OverflowKeyword | GlobalCssKeyword) => value
 
 export type OverflowXDeclaration = {
     /**
@@ -50,16 +41,9 @@ export type OverflowXDeclaration = {
     overflowX: OverflowKeyword | GlobalCssKeyword
 }
 
-/**
- * Creates a declaration object for the **`overflow-y`** property.
- * @category Declaration function
- * @formalSyntax visible | hidden | clip | scroll | auto
- * @added 0.1.5
- * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
- */
-export const overflowY = (value: OverflowKeyword | GlobalCssKeyword) => ({
-    overflowY: value,
-})
+
+export const serializeOverflowY = (value: OverflowKeyword | GlobalCssKeyword) => value
+
 
 export type OverflowYDeclaration = {
     /**
@@ -74,18 +58,10 @@ export type OverflowYDeclaration = {
 
 type OneOverflowKeyword = OverflowKeyword
 
-/**
- * Creates a declaration object for the **`overflow`** property.
- * @category Declaration function
- * @formalSyntax [ visible | hidden | clip | scroll | auto ]{1,2}
- * @added 0.1.5
- * @implementationReference https://www.w3.org/TR/2018/WD-css-overflow-3-20180731/#overflow-properties
- */
-export const overflow = (
+
+export const serializeOverflow = (
     value: OneOverflowKeyword | TwoOverflowKeywords | GlobalCssKeyword
-) => ({
-    overflow: value,
-})
+) => value
 
 /**
  * @category RBDeclarationTypeAlias

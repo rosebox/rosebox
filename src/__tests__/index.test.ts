@@ -76,6 +76,7 @@ test('style', () => {
     order: 1,
     transitionProperty: ['background-color', 'color', ident('test')],
     transitionDelay: [ms(300), ms(1000)],
+    textTransform: 'lowercase full-width full-size-kana',
   }
   const received = style(widthStyle)
   const expected = {
@@ -151,7 +152,7 @@ test('style', () => {
     textAlign: 'center',
     order: 1,
     transitionProperty: 'background-color, color, test',
-    transitionDelay: '300ms, 1000ms'
+    transitionDelay: '300ms, 1000ms',
   }
   expect(received).toEqual(expected)
 })
