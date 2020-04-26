@@ -67,13 +67,12 @@ const serializeValue = (value: TransitionTimingFunctionValue): string =>
                 ''
             )
 
-export const serializeTransitionTimingFunctionValue = (value: TransitionTimingFunctionValue) => ({
-    TransitionTimingFunctionValue: serializeValue(value)
-})
+export const serializeTransitionTimingFunctionValue = (value: TransitionTimingFunctionValue): string =>
+    serializeValue(value)
 /**
  * @category RBDeclarationTypeAlias
  */
-export type TransitionPropertyDeclaration = {
+export type TransitionTimingDeclaration = {
     /**
      * Maps to CSS's **`transition-timing-function`** property
      * @category RBProperty

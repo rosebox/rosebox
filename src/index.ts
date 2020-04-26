@@ -97,6 +97,7 @@ import { TextAlignDeclaration } from './core/text-align'
 import { OrderDeclaration } from './core/flexbox/order/internal'
 import { TransitionPropertyDeclaration } from './core/transition-property/internal'
 import { TransitionDelayDeclaration } from './core/transition-delay'
+import { TransitionTimingDeclaration } from './core/transition-timing-function'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -177,7 +178,8 @@ export type RoseboxProperties = Partial<
   TextAlignDeclaration &
   OrderDeclaration &
   TransitionPropertyDeclaration &
-  TransitionDelayDeclaration
+  TransitionDelayDeclaration &
+  TransitionTimingDeclaration
 >
 
 
