@@ -102,7 +102,7 @@ export * from './core/shared/value-constructors'
 export * from './core/color'
 export * from './react'
 
-export type __RoseboxProperties__ = Partial<
+export type RoseboxProperties = Partial<
   WidthDeclaration &
   HeightDeclaration &
   BgColorDeclaration &
@@ -179,8 +179,6 @@ export type __RoseboxProperties__ = Partial<
   TransitionPropertyDeclaration &
   TransitionDelayDeclaration
 >
-export type RoseboxProperties = Partial<
-  Omit<React.CSSProperties, keyof __RoseboxProperties__> & __RoseboxProperties__>
 
 
 export const style = (obj: RoseboxProperties): CSSProperties => {
