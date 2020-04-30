@@ -78,7 +78,9 @@ test('style', () => {
     transitionProperty: ['background-color', 'color', ident('test')],
     transitionDelay: [ms(300), ms(1000)],
     textTransform: 'lowercase full-width full-size-kana',
-    transitionTimingFunction: steps(3, 'jump-both')
+    transitionTimingFunction: steps(3, 'jump-both'),
+    transition: [steps(3, 'jump-both'), ms(1000)],
+    transitionDuration: ms(500)
   }
   const received = style(widthStyle)
   const expected = {
@@ -155,7 +157,9 @@ test('style', () => {
     order: 1,
     transitionProperty: 'background-color, color, test',
     transitionDelay: '300ms, 1000ms',
-    transitionTimingFunction: 'steps(3, jump-both)'
+    transitionTimingFunction: 'steps(3, jump-both)',
+    transition: 'steps(3, jump-both) 1000ms',
+    transitionDuration: '500ms'
   }
   expect(received).toEqual(expected)
 })

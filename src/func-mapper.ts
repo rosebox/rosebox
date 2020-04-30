@@ -97,6 +97,8 @@ import { serializerOrder } from './core/flexbox/order/internal'
 import { serializeTransitionPropertyValue } from './core/transition-property/internal'
 import { serializeTransitionDelayValue } from './core/transition-delay'
 import { serializeTransitionTimingFunctionValue } from './core/transition-timing-function'
+import { serializeTransitionValue } from './core/transition/internal'
+import { serializeTransitionDurationValue } from './core/transition-duration'
 
 
 export const funcMap = {
@@ -174,5 +176,7 @@ export const funcMap = {
     order: serializerOrder,
     transitionProperty: serializeTransitionPropertyValue,
     transitionDelay: serializeTransitionDelayValue,
-    transitionTimingFunction: serializeTransitionTimingFunctionValue
+    transitionTimingFunction: serializeTransitionTimingFunctionValue,
+    transition: serializeTransitionValue,
+    transitionDuration: serializeTransitionDurationValue
 }

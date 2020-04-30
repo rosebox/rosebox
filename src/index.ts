@@ -98,6 +98,8 @@ import { OrderDeclaration } from './core/flexbox/order/internal'
 import { TransitionPropertyDeclaration } from './core/transition-property/internal'
 import { TransitionDelayDeclaration } from './core/transition-delay'
 import { TransitionTimingDeclaration } from './core/transition-timing-function'
+import { TransitionDeclaration } from './core/transition/internal'
+import { TransitionDurationDeclaration } from './core/transition-duration'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -179,7 +181,9 @@ export type RoseboxProperties = Partial<
   OrderDeclaration &
   TransitionPropertyDeclaration &
   TransitionDelayDeclaration &
-  TransitionTimingDeclaration
+  TransitionTimingDeclaration &
+  TransitionDeclaration &
+  TransitionDurationDeclaration
 >
 
 

@@ -45,7 +45,7 @@ type StepTimingFunction =
 
 type TimingFunction = 'linear' | StepTimingFunction | CubicBezierTimingFunction
 
-type TransitionTimingFunctionValue = GlobalCssKeyword | TimingFunction | TimingFunction[]
+export type TransitionTimingFunctionValue = GlobalCssKeyword | TimingFunction | TimingFunction[]
 
 export const serializeSteps = (x: StepsFunction): string =>
     `steps(${x.value[0]}${x.value[1] ? ', ' + x.value[1] : ''})`

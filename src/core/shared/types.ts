@@ -66,6 +66,10 @@ export interface Time {
   __tag: 'Time'
   value: [number, TimeUnit]
 }
+
+export const isTime = (value: any): value is Time =>
+  value.__tag === 'Time'
+
 /**
  *
  * A type that maps to CSS's **`<length>`** type.
