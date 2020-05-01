@@ -81,7 +81,7 @@ test('style', () => {
     transitionTimingFunction: steps(3, 'jump-both'),
     transition: [steps(3, 'jump-both'), ms(1000)],
     transitionDuration: ms(500),
-    boxShadow: ['inset', [px(10), px(10)], rgb([155, 155, 155])]
+    boxShadow: ['inset', [px(10), px(10)], rgb([155, 155, 155])],
   }
   const received = style(widthStyle)
   const expected = {
