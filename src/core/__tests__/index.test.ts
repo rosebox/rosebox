@@ -1,7 +1,7 @@
-import { per, style, RoseboxProperties } from '../index'
-import { px, rem, s, ms, ident } from '../core/shared/value-constructors'
-import { rgb, hex, hsl } from '../core/color'
-import { steps } from '../core/transition-timing-function'
+import { per, style, RoseboxProperties } from '../../index'
+import { px, rem, s, ms, ident } from '../shared/value-constructors'
+import { rgb, hex, hsl } from '../color'
+import { steps } from '../transition-timing-function'
 
 test('style', () => {
   const widthStyle: RoseboxProperties = {
@@ -80,7 +80,8 @@ test('style', () => {
     textTransform: 'lowercase full-width full-size-kana',
     transitionTimingFunction: steps(3, 'jump-both'),
     transition: [steps(3, 'jump-both'), ms(1000)],
-    transitionDuration: ms(500)
+    transitionDuration: ms(500),
+    boxShadow: ['inset', [px(10), px(10)], rgb([155, 155, 155])]
   }
   const received = style(widthStyle)
   const expected = {
@@ -159,7 +160,8 @@ test('style', () => {
     transitionDelay: '300ms, 1000ms',
     transitionTimingFunction: 'steps(3, jump-both)',
     transition: 'steps(3, jump-both) 1000ms',
-    transitionDuration: '500ms'
+    transitionDuration: '500ms',
+    boxShadow: 'inset 10px 10px rgb(155, 155, 155)'
   }
   expect(received).toEqual(expected)
 })

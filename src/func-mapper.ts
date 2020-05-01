@@ -99,6 +99,7 @@ import { serializeTransitionDelayValue } from './core/transition-delay'
 import { serializeTransitionTimingFunctionValue } from './core/transition-timing-function'
 import { serializeTransitionValue } from './core/transition/internal'
 import { serializeTransitionDurationValue } from './core/transition-duration'
+import { serializeBoxShadowPropertyValue } from './core/box-shadow'
 
 
 export const funcMap = {
@@ -128,6 +129,7 @@ export const funcMap = {
     borderLeftWidth: serializeBorderLeftWidthValue,
     borderWidth: serializeBorderWidthValue,
     backgroundColor: serializeBackgroundColorValue,
+    boxShadow: serializeBoxShadowPropertyValue,
     cursor: serializeCursorValue,
     display: serializeDisplayValue,
     width: serializeWidthValue,
@@ -178,5 +180,5 @@ export const funcMap = {
     transitionDelay: serializeTransitionDelayValue,
     transitionTimingFunction: serializeTransitionTimingFunctionValue,
     transition: serializeTransitionValue,
-    transitionDuration: serializeTransitionDurationValue
+    transitionDuration: serializeTransitionDurationValue,
 }

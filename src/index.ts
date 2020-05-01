@@ -100,6 +100,7 @@ import { TransitionDelayDeclaration } from './core/transition-delay'
 import { TransitionTimingDeclaration } from './core/transition-timing-function'
 import { TransitionDeclaration } from './core/transition/internal'
 import { TransitionDurationDeclaration } from './core/transition-duration'
+import { BoxShadowDeclaration } from './core/box-shadow'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -183,7 +184,8 @@ export type RoseboxProperties = Partial<
   TransitionDelayDeclaration &
   TransitionTimingDeclaration &
   TransitionDeclaration &
-  TransitionDurationDeclaration
+  TransitionDurationDeclaration &
+  BoxShadowDeclaration
 >
 
 
