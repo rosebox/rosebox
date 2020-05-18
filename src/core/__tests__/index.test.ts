@@ -82,6 +82,8 @@ test('style', () => {
     transition: [steps(3, 'jump-both'), ms(1000)],
     transitionDuration: ms(500),
     boxShadow: ['inset', [px(10), px(10)], rgb([155, 155, 155])],
+    justifyContent: 'flex-end',
+    alignItems: 'baseline'
   }
   const received = style(widthStyle)
   const expected = {
@@ -161,7 +163,9 @@ test('style', () => {
     transitionTimingFunction: 'steps(3, jump-both)',
     transition: 'steps(3, jump-both) 1000ms',
     transitionDuration: '500ms',
-    boxShadow: 'inset 10px 10px rgb(155, 155, 155)'
+    boxShadow: 'inset 10px 10px rgb(155, 155, 155)',
+    justifyContent: 'flex-end',
+    alignItems: 'baseline'
   }
   expect(received).toEqual(expected)
 })

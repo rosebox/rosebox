@@ -1,5 +1,5 @@
 import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared/types'
-import { Time } from '../../../lib/core/shared/types'
+import { Time } from '../shared/types'
 import { serializeTime } from '../shared/serializers'
 
 export type TransitionDurationCSSProp = 'transition-durtion'

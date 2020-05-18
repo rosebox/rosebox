@@ -1,6 +1,6 @@
 import { serializeBoxShadowPropertyValue } from '../index'
 import { px } from '../../shared/value-constructors'
-import { rgb } from '../../color/internal'
+import { rgb } from '../../color'
 
 test('boxShadow(x: none)', () => {
   const received = serializeBoxShadowPropertyValue('none')

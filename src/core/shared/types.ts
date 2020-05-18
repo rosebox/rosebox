@@ -1,42 +1,42 @@
-import { BackgroundColorCSSProp } from "../background-color/internal"
-import { BorderCSSProp } from "../border/internal"
-import { BorderColorCSSProp } from "../border-color/internal"
-import { BorderRadiusCSSProp } from "../border-radius/internal"
-import { BorderStyleCSSProp } from "../border-style/internal"
-import { BorderWidthCSSProp } from "../border-width/internal"
-import { TopCSSProp, RightCSSProp, BottomCSSProp, LeftCSSProp } from "../box-offsets/internal"
-import { BoxSizingCSSProp } from "../box-sizing/internal"
-import { ColorCSSProp } from "../color/internal"
-import { CursorCSSProp } from "../cursor/internal"
-import { DisplayCSSProp } from "../display/internal"
-import { FlexCSSProp } from "../flexbox/flex/internal"
-import { FlexBasisCSSProp } from "../flexbox/flex-basis/internal"
-import { FlexDirectionCSSProp } from "../flexbox/flex-direction/internal"
-import { FlexGrowCSSProp } from "../flexbox/flex-grow/internal"
-import { FlexShrinkCSSProp } from "../flexbox/flex-shrink/internal"
-import { FlexWrapCSSProp } from "../flexbox/flex-wrap/internal"
-import { OrderCSSProp } from "../flexbox/order/internal"
-import { FontFamilyCSSProp } from "../font-family/internal"
-import { FontSizeCSSProp } from "../font-size/internal"
-import { FontWeightCSSProp } from "../font-weight/internal"
-import { HeightCSSProp } from "../height/internal"
-import { LetterSpacingCSSProp } from "../letter-spacing/internal"
-import { LineHeightCSSProp } from "../line-height/internal"
-import { MarginTopCSSProp, MarginRightCSSProp, MarginBottomCSSProp, MarginLeftCSSProp, MarginCSSProp } from "../margin/internal"
-import { MaxHeightCSSProp } from "../max-height/internal"
-import { MaxWidthCSSProp } from "../max-width/internal"
-import { MinWidthCSSProp } from "../min-width/internal"
-import { OpacityCSSProp } from "../opacity/internal"
-import { OverflowXCSSProp, OverflowYCSSProp, OverflowCSSProp } from "../overflow/internal"
-import { PaddingTopCSSProp, PaddingRightCSSProp, PaddingBottomCSSProp, PaddingCSSProp } from "../padding/internal"
-import { PositionCSSProp } from "../position/internal"
-import { TextAlignCSSProp } from "../text-align/internal"
-import { TextDecorationCSSProp } from "../text-decoration/internal"
-import { TextTransformCSSProp } from "../text-transform/internal"
-import { VisibilityCSSProp } from "../visibility/internal"
-import { WidthCSSProp } from "../width/internal"
-import { ZIndexCSSProp } from "../z-index/internal"
-import { TransitionPropertyCSSProp } from "../transition-property/internal"
+import { BackgroundColorCSSProp } from "../background-color"
+import { BorderCSSProp } from "../border"
+import { BorderColorCSSProp } from "../border-color"
+import { BorderRadiusCSSProp } from "../border-radius"
+import { BorderStyleCSSProp } from "../border-style"
+import { BorderWidthCSSProp } from "../border-width"
+import { TopCSSProp, RightCSSProp, BottomCSSProp, LeftCSSProp } from "../box-offsets"
+import { BoxSizingCSSProp } from "../box-sizing"
+import { ColorCSSProp } from "../color"
+import { CursorCSSProp } from "../cursor"
+import { DisplayCSSProp } from "../display"
+import { FlexCSSProp } from "../flexbox/flex"
+import { FlexBasisCSSProp } from "../flexbox/flex-basis"
+import { FlexDirectionCSSProp } from "../flexbox/flex-direction"
+import { FlexGrowCSSProp } from "../flexbox/flex-grow"
+import { FlexShrinkCSSProp } from "../flexbox/flex-shrink"
+import { FlexWrapCSSProp } from "../flexbox/flex-wrap"
+import { OrderCSSProp } from "../flexbox/order"
+import { FontFamilyCSSProp } from "../font-family"
+import { FontSizeCSSProp } from "../font-size"
+import { FontWeightCSSProp } from "../font-weight"
+import { HeightCSSProp } from "../height"
+import { LetterSpacingCSSProp } from "../letter-spacing"
+import { LineHeightCSSProp } from "../line-height"
+import { MarginTopCSSProp, MarginRightCSSProp, MarginBottomCSSProp, MarginLeftCSSProp, MarginCSSProp } from "../margin"
+import { MaxHeightCSSProp } from "../max-height"
+import { MaxWidthCSSProp } from "../max-width"
+import { MinWidthCSSProp } from "../min-width"
+import { OpacityCSSProp } from "../opacity"
+import { OverflowXCSSProp, OverflowYCSSProp, OverflowCSSProp } from "../overflow"
+import { PaddingTopCSSProp, PaddingRightCSSProp, PaddingBottomCSSProp, PaddingCSSProp } from "../padding"
+import { PositionCSSProp } from "../position"
+import { TextAlignCSSProp } from "../text-align"
+import { TextDecorationCSSProp } from "../text-decoration"
+import { TextTransformCSSProp } from "../text-transform"
+import { VisibilityCSSProp } from "../visibility"
+import { WidthCSSProp } from "../width"
+import { ZIndexCSSProp } from "../z-index"
+import { TransitionPropertyCSSProp } from "../transition-property"
 
 export type LengthUnit =
   | 'em'
@@ -220,12 +220,29 @@ export type AnimatableCSSProp = Exclude<
   | 'text-transform'
   | 'transition-property'
 >
+
 /**
-*
-* A type that maps to CSS's **`<custom-ident>`** type.
-* @added 0.2.1
-*/
+ *
+ * A type that maps to CSS's **`<custom-ident>`** .
+ * @added 0.2.1
+ */
 export interface CustomIdent {
   __tag: 'CustomIdent'
   value: string
 }
+/**
+
+
+interface CalcNumberProduct {
+  __tag: 'CalcNumberProduct',
+  value: [CalcNumberValue, CalcNumberValue]
+}
+
+interface CalcNumberSum {
+  __tag: 'CalcNumberSum',
+  opeartion: 'addition' | 'substraction',
+  value: [CalcNumberProduct, CalcNumberProduct]
+}
+
+type CalcNumberValue = number | CalcNumberSum
+*/

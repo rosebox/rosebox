@@ -1,14 +1,24 @@
-import { GlobalCssKeyword } from "../../../lib/core/shared/types"
+import { GlobalCssKeyword } from "../shared/types"
 import { isGlobalCssKeyword } from "../shared/types"
 
-type CubicBezierFunction = {
+/**
+ *
+ * A type that maps to the **`cubic-bezier()`** subset of CSS's **`<easing-function>`** .
+ * @added 0.2.1
+ */
+export interface CubicBezierFunction {
     __tag: 'CubicBezierFunction',
     value: [number, number, number, number]
 }
 
 type StepPosition = 'jump-start' | 'jump-end' | 'jump-none' | 'jump-both' | 'start' | 'end'
 
-export type StepsFunction = {
+/**
+ *
+ * A type that maps to the **`steps()`** subset of CSS's **`<easing-function>`** .
+ * @added 0.2.1
+ */
+export interface StepsFunction {
     __tag: 'StepsFunction',
     value: [number] | [number, StepPosition]
 }
