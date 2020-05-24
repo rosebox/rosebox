@@ -99,6 +99,7 @@ import { TransitionDurationDeclaration } from './core/transition-duration'
 import { BoxShadowDeclaration } from './core/box-shadow'
 import { JustifyContentDeclaration } from './core/justify-content'
 import { AlignItemsDeclaration } from './core/align-items'
+import { TransformDeclaration } from './core/transform'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -185,7 +186,8 @@ export type RoseboxProperties = Partial<
     TransitionDurationDeclaration &
     BoxShadowDeclaration &
     JustifyContentDeclaration &
-    AlignItemsDeclaration
+    AlignItemsDeclaration &
+    TransformDeclaration
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {

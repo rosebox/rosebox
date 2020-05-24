@@ -1,90 +1,95 @@
-import { LengthPercentage } from '../shared/types'
-import { serializeLengthPercentage } from '../shared/serializers'
+import {
+  isTranslateX,
+  serializeTranslateX,
+  isTranslateY,
+  serializeTranslateY,
+  isTranslateZ,
+  serializeTranslateZ,
+  isTranslate,
+  serializeTranslate,
+  isTranslate3d,
+  serializeTranslate3d
+} from './translate'
+import { isGlobalCssKeyword, GlobalCssKeyword } from '../shared/types'
+import { TransformFunction } from './shared'
+import {
+  isScaleX,
+  serializeScaleX,
+  isScaleY,
+  serializeScaleY,
+  isScale,
+  serializeScale,
+  isScale3d,
+  serializeScale3d
+} from './scale'
+import {
+  isRotateX,
+  serializeRotateX,
+  isRotateY,
+  serializeRotateY,
+  isRotateZ,
+  serializeRotateZ,
+  isRotate,
+  serializeRotate,
+  isRotate3d,
+  serializeRotate3d
+} from './rotate'
 
-interface Matrix {
-  constructor: Function
-  value:
-    | [number]
-    | [number, number]
-    | [number, number, number]
-    | [number, number, number, number]
-    | [number, number, number, number, number]
-    | [number, number, number, number, number, number]
+type TransformPropertyValue = TransformFunction<any> | GlobalCssKeyword
+
+export const serializeTransformPropertyValue = (
+  x: TransformPropertyValue
+): string => {
+  if (isGlobalCssKeyword(x)) return x
+  else if (isTranslateX(x)) {
+    return serializeTranslateX(x as TransformFunction<'translateX'>)
+  } else if (isTranslateY(x)) {
+    return serializeTranslateY(x as TransformFunction<'translateY'>)
+  } else if (isTranslateZ(x))
+    return serializeTranslateZ(x as TransformFunction<'translateZ'>)
+  else if (isTranslate(x))
+    return serializeTranslate(x as TransformFunction<'translate'>)
+  else if (isTranslate3d(x))
+    return serializeTranslate3d(x as TransformFunction<'translate3d'>)
+  else if (isScaleX(x))
+    return serializeScaleX(x as TransformFunction<'scaleSingleAxis'>)
+  else if (isScaleY(x))
+    return serializeScaleY(x as TransformFunction<'scaleSingleAxis'>)
+  else if (isScale(x)) return serializeScale(x as TransformFunction<'scale'>)
+  else if (isScale3d(x))
+    return serializeScale3d(x as TransformFunction<'scale3d'>)
+  else if (isRotateX(x))
+    return serializeRotateX(x as TransformFunction<'rotateX'>)
+  else if (isRotateY(x))
+    return serializeRotateY(x as TransformFunction<'rotateY'>)
+  else if (isRotateZ(x))
+    return serializeRotateZ(x as TransformFunction<'rotateZ'>)
+  else if (isRotate(x)) return serializeRotate(x as TransformFunction<'rotate'>)
+  else if (isRotate3d(x))
+    return serializeRotate3d(x as TransformFunction<'rotate3d'>)
+  else throw new Error('The value is not of type TransformFunction')
 }
 
-export const matrix = (
-  value:
-    | [number]
-    | [number, number]
-    | [number, number, number]
-    | [number, number, number, number]
-    | [number, number, number, number, number]
-    | [number, number, number, number, number, number]
-): Matrix => ({
-  constructor: matrix,
-  value
-})
-
-export const serializeMatrixValue = (
-  value:
-    | [number]
-    | [number, number]
-    | [number, number, number]
-    | [number, number, number, number]
-    | [number, number, number, number, number]
-    | [number, number, number, number, number, number]
-): string =>
-  value
-    .reduce(
-      (acc: any, item, idx) =>
-        acc + item + (idx === value.length - 1 ? '' : ', '),
-      ''
-    )
-    .trim()
-
-export const serializeMatrix = (value: Matrix): string =>
-  `matrix(${serializeMatrixValue(value.value)})`
-
-interface XAxisTranslation {
-  constructor: Function
-  value: LengthPercentage
+/**
+ * @category RBDeclarationTypeAlias
+ */
+export type TransformDeclaration = {
+  /**
+   * Maps to CSS's **`transform`** property
+   * @category RBProperty
+   * @formalSyntaxForValue relative | absolute | static | fixed | sticky
+   * @added 0.2.3
+   * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#position-property
+   */
+  transform: TransformFunction | GlobalCssKeyword | 'none'
 }
 
-interface YAxisTranslation {
-  constructor: Function
-  value: LengthPercentage
-}
+export {
+  translateX,
+  translateY,
+  translateZ,
+  translate,
+  translate3d
+} from './translate'
 
-interface Translation {
-  constructor: Function
-  value: [LengthPercentage, LengthPercentage]
-}
-
-export const translateX = (value: LengthPercentage): XAxisTranslation => ({
-  constructor: translateX,
-  value
-})
-
-export const serializeXAxisTranslation = (value: YAxisTranslation): string =>
-  `translateX(${serializeLengthPercentage(value.value)})`
-
-export const translateY = (value: LengthPercentage): YAxisTranslation => ({
-  constructor: translateY,
-  value
-})
-
-export const translate = (
-  xTranslation: LengthPercentage,
-  yTranslation: LengthPercentage
-): Translation => ({
-  constructor: translate,
-  value: [xTranslation, yTranslation]
-})
-
-export const serializeYAxisTranslation = (value: YAxisTranslation): string =>
-  `translateY(${serializeLengthPercentage(value.value)})`
-
-export const serializeTranslation = (value: Translation): string =>
-  `translate(${serializeLengthPercentage(
-    value.value[0]
-  )}, ${serializeLengthPercentage(value.value[1])})`
+export { scaleX, scaleY, scaleZ, scale, scale3d } from './scale'

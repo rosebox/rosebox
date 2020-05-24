@@ -97,6 +97,7 @@ import { serializeTransitionDurationValue } from './core/transition-duration'
 import { serializeBoxShadowPropertyValue } from './core/box-shadow'
 import { serializeJustifyContent } from './core/justify-content'
 import { serializeAlignItems } from './core/align-items'
+import { serializeTransformPropertyValue } from './core/transform'
 
 export const funcMap = {
   alignItems: serializeAlignItems,
@@ -178,5 +179,6 @@ export const funcMap = {
   transitionDelay: serializeTransitionDelayValue,
   transitionTimingFunction: serializeTransitionTimingFunctionValue,
   transition: serializeTransitionValue,
-  transitionDuration: serializeTransitionDurationValue
+  transitionDuration: serializeTransitionDurationValue,
+  transform: serializeTransformPropertyValue
 }

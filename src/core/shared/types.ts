@@ -126,7 +126,6 @@ export type LineStyle =
   | 'outset'
 
 /**
- *
  * A type that maps to CSS's **`<url>`** type.
  * @added 0.1.96
  */

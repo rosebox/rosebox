@@ -2,6 +2,7 @@ import { per, style, RoseboxProperties } from '../../index'
 import { px, rem, s, ms, ident } from '../shared/value-constructors'
 import { rgb, hex, hsl } from '../color'
 import { steps } from '../transition-timing-function'
+import { translateX } from '../transform'
 
 test('style', () => {
   const widthStyle: RoseboxProperties = {
@@ -83,7 +84,8 @@ test('style', () => {
     transitionDuration: ms(500),
     boxShadow: ['inset', [px(10), px(10)], rgb([155, 155, 155])],
     justifyContent: 'flex-end',
-    alignItems: 'baseline'
+    alignItems: 'baseline',
+    transform: translateX(px(3))
   }
   const received = style(widthStyle)
   const expected = {
@@ -165,7 +167,8 @@ test('style', () => {
     transitionDuration: '500ms',
     boxShadow: 'inset 10px 10px rgb(155, 155, 155)',
     justifyContent: 'flex-end',
-    alignItems: 'baseline'
+    alignItems: 'baseline',
+    transform: 'translateX(3px)'
   }
   expect(received).toEqual(expected)
 })
