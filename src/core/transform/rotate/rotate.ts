@@ -1,28 +1,28 @@
 import { Angle, serializeAngle } from '../../shared/'
 import { TransformFunction } from '../shared'
 
-export const rotateX = (x: Angle): TransformFunction<'rotateX'> => ({
+export const rotateX = (x: Angle | 0): TransformFunction<'rotateX'> => ({
   type: 'TransformFunction',
   valueConstructor: rotateX,
-  value: x
+  value: x,
 })
 
 export const rotateY = (x: Angle): TransformFunction<'rotateY'> => ({
   type: 'TransformFunction',
   valueConstructor: rotateY,
-  value: x
+  value: x,
 })
 
 export const rotateZ = (x: Angle): TransformFunction<'rotateZ'> => ({
   type: 'TransformFunction',
   valueConstructor: rotateZ,
-  value: x
+  value: x,
 })
 
 export const rotate = (x: Angle): TransformFunction<'rotate'> => ({
   type: 'TransformFunction',
   valueConstructor: rotate,
-  value: x
+  value: x,
 })
 
 export const rotate3d = (
@@ -33,7 +33,7 @@ export const rotate3d = (
 ): TransformFunction<'rotate3d'> => ({
   type: 'TransformFunction',
   valueConstructor: rotate3d,
-  value: [x, y, z, a]
+  value: [x, y, z, a],
 })
 
 export const isRotateX = (x: TransformFunction): boolean =>
@@ -52,7 +52,7 @@ export const isRotate3d = (x: TransformFunction): boolean =>
   x.valueConstructor === rotate3d
 
 export const serializeRotateX = (x: TransformFunction<'rotateX'>): string =>
-  `rotateX(${serializeAngle(x.value)})`
+  `rotateX(${x.value === 0 ? 0 : serializeAngle(x.value)})`
 
 export const serializeRotateY = (x: TransformFunction<'rotateY'>): string =>
   `rotateY(${serializeAngle(x.value)})`

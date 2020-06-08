@@ -21,7 +21,7 @@ export interface TransformFunction<A = any> {
     : A extends 'scale3d'
     ? [number, number, number]
     : A extends 'rotateX'
-    ? Angle
+    ? Angle | 0
     : A extends 'rotateY'
     ? Angle
     : A extends 'rotateZ'
