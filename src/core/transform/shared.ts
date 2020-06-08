@@ -23,7 +23,7 @@ export interface TransformFunction<A = any> {
     : A extends 'rotateX'
     ? Angle | 0
     : A extends 'rotateY'
-    ? Angle
+    ? Angle | 0
     : A extends 'rotateZ'
     ? Angle
     : A extends 'rotate'

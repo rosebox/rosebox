@@ -7,7 +7,7 @@ export const rotateX = (x: Angle | 0): TransformFunction<'rotateX'> => ({
   value: x,
 })
 
-export const rotateY = (x: Angle): TransformFunction<'rotateY'> => ({
+export const rotateY = (x: Angle | 0): TransformFunction<'rotateY'> => ({
   type: 'TransformFunction',
   valueConstructor: rotateY,
   value: x,
@@ -55,7 +55,7 @@ export const serializeRotateX = (x: TransformFunction<'rotateX'>): string =>
   `rotateX(${x.value === 0 ? 0 : serializeAngle(x.value)})`
 
 export const serializeRotateY = (x: TransformFunction<'rotateY'>): string =>
-  `rotateY(${serializeAngle(x.value)})`
+  `rotateY(${x.value === 0 ? 0 : serializeAngle(x.value)})`
 
 export const serializeRotateZ = (x: TransformFunction<'rotateZ'>): string =>
   `rotateZ(${serializeAngle(x.value)})`
