@@ -1,4 +1,4 @@
-import { per, style, RoseboxProperties } from '../../index'
+import { per, style } from '../../index'
 import { px, rem, s, ms, ident } from '../shared/value-constructors'
 import { rgb, hex, hsl } from '../color'
 import { steps } from '../transition-timing-function'
@@ -7,7 +7,7 @@ import { deg } from '../shared/angle'
 import { translateX } from '../transform'
 
 test('style', () => {
-  const widthStyle: RoseboxProperties = {
+  const received = style({
     backgroundColor: rgb(2, 3, 4),
     width: per(3),
     height: px(100),
@@ -88,8 +88,8 @@ test('style', () => {
     justifyContent: 'flex-end',
     alignItems: 'baseline',
     transform: [skew(deg(10)), translateX(per(30))],
-  }
-  const received = style(widthStyle)
+  })
+
   const expected = {
     backgroundColor: 'rgb(2, 3, 4)',
     width: '3%',
