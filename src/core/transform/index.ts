@@ -34,13 +34,39 @@ import {
   isRotate3d,
   serializeRotate3d
 } from './rotate'
+import {
+  isSkewX,
+  serializeSkewX,
+  isSkewY,
+  serializeSkewY,
+  isSkew,
+  serializeSkew
+} from './skew'
+import {
+  isMatrix,
+  serializeMatrix,
+  isMatrix3d,
+  serializeMatrix3d
+} from './matrix'
 
-type TransformPropertyValue = TransformFunction<any> | GlobalCssKeyword
+type TransformPropertyValue =
+  | TransformFunction
+  | TransformFunction[]
+  | GlobalCssKeyword
+  | 'none'
 
 export const serializeTransformPropertyValue = (
   x: TransformPropertyValue
 ): string => {
-  if (isGlobalCssKeyword(x)) return x
+  if (isGlobalCssKeyword(x) || x === 'none') return x
+  else if (Array.isArray(x))
+    return x.reduce(
+      (acc, val, idx) =>
+        idx !== x.length - 1
+          ? `${acc}${serializeTransformPropertyValue(val)} `
+          : `${acc}${serializeTransformPropertyValue(val)}`,
+      ''
+    )
   else if (isTranslateX(x)) {
     return serializeTranslateX(x as TransformFunction<'translateX'>)
   } else if (isTranslateY(x)) {
@@ -67,6 +93,14 @@ export const serializeTransformPropertyValue = (
   else if (isRotate(x)) return serializeRotate(x as TransformFunction<'rotate'>)
   else if (isRotate3d(x))
     return serializeRotate3d(x as TransformFunction<'rotate3d'>)
+  else if (isSkewX(x))
+    return serializeSkewX(x as TransformFunction<'skewSingle'>)
+  else if (isSkewY(x))
+    return serializeSkewY(x as TransformFunction<'skewSingle'>)
+  else if (isSkew(x)) return serializeSkew(x as TransformFunction<'skew'>)
+  else if (isMatrix(x)) return serializeMatrix(x as TransformFunction<'matrix'>)
+  else if (isMatrix3d(x))
+    return serializeMatrix3d(x as TransformFunction<'matrix3d'>)
   else throw new Error('The value is not of type TransformFunction')
 }
 
@@ -81,7 +115,7 @@ export type TransformDeclaration = {
    * @added 0.2.3
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#position-property
    */
-  transform: TransformFunction | GlobalCssKeyword | 'none'
+  transform: TransformFunction | TransformFunction[] | GlobalCssKeyword | 'none'
 }
 
 export {
@@ -93,3 +127,7 @@ export {
 } from './translate'
 
 export { scaleX, scaleY, scaleZ, scale, scale3d } from './scale'
+
+export { rotateX, rotateY, rotateZ, rotate, rotate3d } from './rotate'
+
+export { matrix, matrix3d } from './matrix'

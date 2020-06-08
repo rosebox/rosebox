@@ -10,6 +10,8 @@ import { serializeTransformPropertyValue } from './index'
 import { scaleX, scaleY, scale, scale3d } from './scale'
 import { rotateX, rotateY, rotateZ, rotate, rotate3d } from './rotate'
 import { deg } from '../shared/angle'
+import { skewX, skewY, skew } from './skew'
+import { matrix, matrix3d } from './matrix'
 
 test('serializeTransformPropertyValue(translateX)', () => {
   const recieved = serializeTransformPropertyValue(translateX(px(30)))
@@ -106,5 +108,55 @@ test('serializeTransformPropertyValue(rotate)', () => {
 test('serializeTransformPropertyValue(rotate3d)', () => {
   const recieved = serializeTransformPropertyValue(rotate3d(3, 3, 3, deg(10)))
   const expected = 'rotate3d(3, 3, 3, 10deg)'
+  expect(recieved).toEqual(expected)
+})
+
+test('serializeTransformPropertyValue(skewX(0))', () => {
+  const recieved = serializeTransformPropertyValue(skewX(0))
+  const expected = 'skewX(0)'
+  expect(recieved).toEqual(expected)
+})
+
+test('serializeTransformPropertyValue(skewX(deg(45)))', () => {
+  const recieved = serializeTransformPropertyValue(skewX(deg(45)))
+  const expected = 'skewX(45deg)'
+  expect(recieved).toEqual(expected)
+})
+
+test('serializeTransformPropertyValue(skewY(0))', () => {
+  const recieved = serializeTransformPropertyValue(skewY(0))
+  const expected = 'skewY(0)'
+  expect(recieved).toEqual(expected)
+})
+
+test('serializeTransformPropertyValue(skewY(deg(90)))', () => {
+  const recieved = serializeTransformPropertyValue(skewY(deg(90)))
+  const expected = 'skewY(90deg)'
+  expect(recieved).toEqual(expected)
+})
+
+test('serializeTransformPropertyValue((skew(deg(90)))', () => {
+  const recieved = serializeTransformPropertyValue(skew(deg(90)))
+  const expected = 'skew(90deg)'
+  expect(recieved).toEqual(expected)
+})
+
+test('serializeTransformPropertyValue((skew(deg(90), deg(180)))', () => {
+  const recieved = serializeTransformPropertyValue(skew(deg(90), deg(180)))
+  const expected = 'skew(90deg, 180deg)'
+  expect(recieved).toEqual(expected)
+})
+
+test('serializeTransformPropertyValue(matrix())', () => {
+  const recieved = serializeTransformPropertyValue(matrix(1, 1, 1, 1, 1, 1))
+  const expected = 'matrix(1, 1, 1, 1, 1, 1)'
+  expect(recieved).toEqual(expected)
+})
+
+test('serializeTransformPropertyValue(matrix3d())', () => {
+  const recieved = serializeTransformPropertyValue(
+    matrix3d(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+  )
+  const expected = 'matrix3d(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)'
   expect(recieved).toEqual(expected)
 })

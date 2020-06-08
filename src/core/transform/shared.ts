@@ -1,11 +1,6 @@
 import { LengthPercentage } from '../shared/types'
 import { Angle } from '../shared'
 
-type TransformFunctionValue =
-  | [LengthPercentage]
-  | [LengthPercentage, LengthPercentage]
-  | [LengthPercentage, LengthPercentage, LengthPercentage]
-
 export interface TransformFunction<A = any> {
   type: 'TransformFunction'
   valueConstructor: Function
@@ -35,5 +30,30 @@ export interface TransformFunction<A = any> {
     ? Angle
     : A extends 'rotate3d'
     ? [number, number, number, Angle]
-    : TransformFunctionValue
+    : A extends 'skewSingle'
+    ? Angle | 0
+    : A extends 'skew'
+    ? [Angle | 0] | [Angle | 0, Angle | 0]
+    : A extends 'matrix'
+    ? [number, number, number, number, number, number]
+    : A extends 'matrix3d'
+    ? [
+        number,
+        number,
+        number,
+        number,
+        number,
+        number,
+        number,
+        number,
+        number,
+        number,
+        number,
+        number,
+        number,
+        number,
+        number,
+        number
+      ]
+    : any
 }
