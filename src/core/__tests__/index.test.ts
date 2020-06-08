@@ -2,11 +2,13 @@ import { per, style, RoseboxProperties } from '../../index'
 import { px, rem, s, ms, ident } from '../shared/value-constructors'
 import { rgb, hex, hsl } from '../color'
 import { steps } from '../transition-timing-function'
+import { skew } from '../transform/skew'
+import { deg } from '../shared/angle'
 import { translateX } from '../transform'
 
 test('style', () => {
   const widthStyle: RoseboxProperties = {
-    backgroundColor: rgb([2, 3, 4]),
+    backgroundColor: rgb(2, 3, 4),
     width: per(3),
     height: px(100),
     top: px(3),
@@ -25,11 +27,11 @@ test('style', () => {
     overflow: 'auto hidden',
     position: 'relative',
     visibility: 'collapse',
-    borderColor: hsl([3, per(3), per(3)]),
-    borderTopColor: hsl([3, per(3), per(3)]),
-    borderRightColor: hsl([3, per(3), per(3)]),
-    borderBottomColor: hsl([3, per(3), per(3)]),
-    borderLeftColor: hsl([3, per(3), per(3)]),
+    borderColor: hsl(3, per(3), per(3)),
+    borderTopColor: hsl(3, per(3), per(3)),
+    borderRightColor: hsl(3, per(3), per(3)),
+    borderBottomColor: hsl(3, per(3), per(3)),
+    borderLeftColor: hsl(3, per(3), per(3)),
     cursor: 'pointer',
     display: 'flex block',
     borderTopRightRadius: px(3),
@@ -52,7 +54,7 @@ test('style', () => {
     borderTop: [px(1), 'solid', 'black'],
     borderRight: [px(1), 'solid', 'black'],
     borderBottom: ['solid', 'black', px(1)],
-    borderLeft: [rgb([1, 2, 3]), 'solid', px(1)],
+    borderLeft: [rgb(1, 2, 3), 'solid', px(1)],
     fontSize: rem(1.2),
     fontWeight: 300,
     fontFamily: 'Arial',
@@ -82,10 +84,10 @@ test('style', () => {
     transitionTimingFunction: steps(3, 'jump-both'),
     transition: [steps(3, 'jump-both'), ms(1000)],
     transitionDuration: ms(500),
-    boxShadow: ['inset', [px(10), px(10)], rgb([155, 155, 155])],
+    boxShadow: ['inset', [px(10), px(10)], rgb(155, 155, 155)],
     justifyContent: 'flex-end',
     alignItems: 'baseline',
-    transform: translateX(px(3))
+    transform: [skew(deg(10)), translateX(per(30))],
   }
   const received = style(widthStyle)
   const expected = {
@@ -168,7 +170,7 @@ test('style', () => {
     boxShadow: 'inset 10px 10px rgb(155, 155, 155)',
     justifyContent: 'flex-end',
     alignItems: 'baseline',
-    transform: 'translateX(3px)'
+    transform: 'skew(10deg) translateX(30%)',
   }
   expect(received).toEqual(expected)
 })
@@ -177,7 +179,7 @@ test('Test Time<s>', () => {
   const received = s(3)
   const expected = {
     __tag: 'Time',
-    value: [3, 's']
+    value: [3, 's'],
   }
   expect(received).toEqual(expected)
 })
@@ -186,7 +188,7 @@ test('Test Time<ms>', () => {
   const received = ms(3)
   const expected = {
     __tag: 'Time',
-    value: [3, 'ms']
+    value: [3, 'ms'],
   }
   expect(received).toEqual(expected)
 })

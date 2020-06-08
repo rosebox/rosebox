@@ -335,39 +335,62 @@ export const hex = (value: string): HEX => ({
   value,
 })
 
+export function rgb(x1: Percentage, x2: Percentage, x3: Percentage): RGB
+
+export function rgb(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger): RGB
+
 /**
  * Constructs a value of type **`RGB`**.
  * @category Value constructor
  * @added 0.1.4
  */
-export const rgb = (
-  value:
-    | [RGBInteger, RGBInteger, RGBInteger]
-    | [Percentage, Percentage, Percentage]
-): RGB => ({
-  __tag: 'RGB',
-  value,
-})
+export function rgb(
+  x1: Percentage | RGBInteger,
+  x2: Percentage | RGBInteger,
+  x3: Percentage | RGBInteger
+): RGB {
+  return {
+    __tag: 'RGB',
+    value: [x1, x2, x3] as RGBInput,
+  }
+}
+
+export function rgba(
+  x1: Percentage,
+  x2: Percentage,
+  x3: Percentage,
+  x4: number
+): RGBA
+
+export function rgba(
+  x1: RGBInteger,
+  x2: RGBInteger,
+  x3: RGBInteger,
+  x4: number
+): RGBA
 
 /**
  * Constructs a value of type **`RGBA`**.
  * @category Value constructor
  * @added 0.1.4
  */
-export const rgba = (
-  value:
-    | [RGBInteger, RGBInteger, RGBInteger, number]
-    | [Percentage, Percentage, Percentage, number]
-): RGBA => ({ __tag: 'RGBA', value })
+export function rgba(
+  x1: Percentage | RGBInteger,
+  x2: Percentage | RGBInteger,
+  x3: Percentage | RGBInteger,
+  x4: number
+): RGBA {
+  return { __tag: 'RGBA', value: [x1, x2, x3, x4] as RGBAInput }
+}
 
 /**
  * Constructs a value of type **`HSL`**.
  * @category Value constructor
  * @added 0.1.4
  */
-export const hsl = (value: [number, Percentage, Percentage]): HSL => ({
+export const hsl = (x1: number, x2: Percentage, x3: Percentage): HSL => ({
   __tag: 'HSL',
-  value,
+  value: [x1, x2, x3],
 })
 
 /**
@@ -376,10 +399,13 @@ export const hsl = (value: [number, Percentage, Percentage]): HSL => ({
  * @added 0.1.4
  */
 export const hsla = (
-  value: [number, Percentage, Percentage, number]
+  x1: number,
+  x2: Percentage,
+  x3: Percentage,
+  x4: number
 ): HSLA => ({
   __tag: 'HSLA',
-  value,
+  value: [x1, x2, x3, x4],
 })
 
 const extendedColorKeywords = [
@@ -565,8 +591,8 @@ const serializeRGB = (x: RGB): string => {
   return typeof value[0] === 'number'
     ? `rgb(${value[0]}, ${value[1]}, ${value[2]})`
     : `rgb(${serializePercentage(value[0])}, ${serializePercentage(
-      value[1] as Percentage
-    )}, ${serializePercentage(value[2] as Percentage)})`
+        value[1] as Percentage
+      )}, ${serializePercentage(value[2] as Percentage)})`
 }
 
 const serializeRGBA = (x: RGBA): string => {
@@ -574,8 +600,8 @@ const serializeRGBA = (x: RGBA): string => {
   return typeof value[0] === 'number'
     ? `rgba(${value[0]}, ${value[1]}, ${value[2]}, ${value[3]})`
     : `rgba(${serializePercentage(value[0])}, ${serializePercentage(
-      value[1] as Percentage
-    )}, ${serializePercentage(value[2] as Percentage)}, ${value[3]})`
+        value[1] as Percentage
+      )}, ${serializePercentage(value[2] as Percentage)}, ${value[3]})`
 }
 
 const serializeHSL = (x: HSL): string => {
@@ -596,14 +622,14 @@ export const serializeColor = (value: Color): string => {
   return isHex(value)
     ? serializeHex(value)
     : isRGB(value)
-      ? serializeRGB(value)
-      : isRGBA(value)
-        ? serializeRGBA(value)
-        : isHSL(value)
-          ? serializeHSL(value)
-          : isHSLA(value)
-            ? serializeHSLA(value)
-            : value
+    ? serializeRGB(value)
+    : isRGBA(value)
+    ? serializeRGBA(value)
+    : isHSL(value)
+    ? serializeHSL(value)
+    : isHSLA(value)
+    ? serializeHSLA(value)
+    : value
 }
 
 export const isColor = (value: any): value is Color =>
