@@ -1,9 +1,9 @@
 import { TransformFunction } from '../shared'
 
 /**
- * Specifies a 2D transformation in the form of a transformation matrix of the six provided arguments.
+ * Translates to CSS's **matrix(x1, x2, x3, x4, x5, x6)**
  * @category Value constructor
- * @added 0.2.2
+ * @added 0.2.3
  */
 export const matrix = (
   x1: number,
@@ -21,9 +21,9 @@ export const matrix = (
 }
 
 /**
- * Specifies a 3D transformation as a 4x4 homogeneous matrix of the 16 provided arguments.
+ * Translates to CSS's **matrix3d(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13 x14, x15, x16)**
  * @category Value constructor
- * @added 0.2.2
+ * @added 0.2.3
  */
 export const matrix3d = (
   x1: number,

@@ -2,9 +2,9 @@ import { Angle, serializeAngle } from '../../shared/'
 import { TransformFunction } from '../shared'
 
 /**
- * Specifies a transformation that rotates an element around the **x-axis**.
+ * Translates to CSS's **rotateX(x)**
  * @category Value constructor
- * @added 0.2.2
+ * @added 0.2.3
  */
 export const rotateX = (x: Angle): TransformFunction<'rotateX'> => ({
   type: 'TransformFunction',
@@ -13,9 +13,9 @@ export const rotateX = (x: Angle): TransformFunction<'rotateX'> => ({
 })
 
 /**
- * Specifies a transformation that rotates an element around the **y-axis**.
+ * Translates to CSS's **rotateY(x)**
  * @category Value constructor
- * @added 0.2.2
+ * @added 0.2.3
  */
 export const rotateY = (x: Angle): TransformFunction<'rotateY'> => ({
   type: 'TransformFunction',
@@ -24,9 +24,9 @@ export const rotateY = (x: Angle): TransformFunction<'rotateY'> => ({
 })
 
 /**
- * Specifies a transformation that rotates an element around the **z-axis**.
+ * Translates to CSS's **rotateZ(x)**
  * @category Value constructor
- * @added 0.2.2
+ * @added 0.2.3
  */
 export const rotateZ = (x: Angle): TransformFunction<'rotateZ'> => ({
   type: 'TransformFunction',
@@ -35,9 +35,9 @@ export const rotateZ = (x: Angle): TransformFunction<'rotateZ'> => ({
 })
 
 /**
- * Specifies a transformation that rotates an element around a fixed point on the 2D plane.
+ * Translates to CSS's **rotate(x)**
  * @category Value constructor
- * @added 0.2.2
+ * @added 0.2.3
  */
 export const rotate = (x: Angle): TransformFunction<'rotate'> => ({
   type: 'TransformFunction',
@@ -46,9 +46,9 @@ export const rotate = (x: Angle): TransformFunction<'rotate'> => ({
 })
 
 /**
- * Specifies a transformation that rotates an element around a fixed axis in 3D plane.
+ * Translates to CSS's **rotate3d(x, y, z, a)**.
  * @category Value constructor
- * @added 0.2.2
+ * @added 0.2.3
  */
 export const rotate3d = (
   x: number,
