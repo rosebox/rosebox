@@ -1,4 +1,4 @@
-import { LengthPercentage } from '../shared/types'
+import { LengthPercentage, Length } from '../shared/types'
 import { Angle } from '../shared'
 
 /**
@@ -60,5 +60,7 @@ export interface TransformFunction<A = any> {
         number,
         number
       ]
+    : A extends 'perspective'
+    ? Length
     : any
 }

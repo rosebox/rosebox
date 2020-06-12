@@ -50,6 +50,7 @@ import {
   isMatrix3d,
   serializeMatrix3d,
 } from './matrix'
+import { isPerspective, serializePerspective } from './perspective'
 
 type TransformPropertyValue =
   | TransformFunction
@@ -99,6 +100,8 @@ export const serializeTransformPropertyValue = (
   if (isMatrix(x)) return serializeMatrix(x as TransformFunction<'matrix'>)
   if (isMatrix3d(x))
     return serializeMatrix3d(x as TransformFunction<'matrix3d'>)
+  if (isPerspective(x))
+    return serializePerspective(x as TransformFunction<'perspective'>)
   throw new Error('The value is not of type TransformFunction')
 }
 
