@@ -2,7 +2,7 @@ import { Angle, serializeAngle } from '../../shared'
 import { TransformFunction } from '../shared'
 
 /**
- * Translates to CSS's **skewX(x)**
+ * Translates to CSS's **`skewX(x)`**
  * @category Value constructor
  * @added 0.2.3
  */
@@ -13,7 +13,7 @@ export const skewX = (x: Angle): TransformFunction<'skewSingle'> => ({
 })
 
 /**
- * Translates to CSS's **skewY(x)**
+ * Translates to CSS's **`skewY(x)`**
  * @category Value constructor
  * @added 0.2.3
  */

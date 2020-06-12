@@ -3,7 +3,7 @@ import { serializeLengthPercentage } from '../../shared/serializers'
 import { TransformFunction } from '../shared'
 
 /**
- * Translates to **translateX(x)**.
+ * Translates to **`translateX(x)`**.
  * @category Value constructor
  * @added 0.2.3
  */
@@ -16,7 +16,7 @@ export const translateX = (
 })
 
 /**
- * Translates to **translateY(x)**.
+ * Translates to **`translateY(x)`**.
  * @category Value constructor
  * @added 0.2.3
  */
@@ -29,7 +29,7 @@ export const translateY = (
 })
 
 /**
- * Translates to **translateZ(x)**.
+ * Translates to **`translateZ(x)`**.
  * @category Value constructor
  * @added 0.2.3
  */
@@ -42,7 +42,7 @@ export const translateZ = (
 })
 
 /**
- * Translates to **translate(x, y)**.
+ * Translates to **`translate(x, y)`**.
  * @category Value constructor
  * @added 0.2.3
  */
@@ -56,7 +56,7 @@ export const translate = (
 })
 
 /**
- * Translates to **translate3d(x, y, z)**.
+ * Translates to **`translate3d(x, y, z)`**.
  * @category Value constructor
  * @added 0.2.3
  */

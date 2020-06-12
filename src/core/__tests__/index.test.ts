@@ -87,7 +87,7 @@ test('style', () => {
     boxShadow: ['inset', [px(10), px(10)], rgb(155, 155, 155)],
     justifyContent: 'flex-end',
     alignItems: 'baseline',
-    transform: [skew(deg(10)), translateX(per(30))],
+    transform: [skew(deg(10), deg(10)), translateX(per(30))],
   })
 
   const expected = {
@@ -170,7 +170,7 @@ test('style', () => {
     boxShadow: 'inset 10px 10px rgb(155, 155, 155)',
     justifyContent: 'flex-end',
     alignItems: 'baseline',
-    transform: 'skew(10deg) translateX(30%)',
+    transform: 'skew(10deg, 10deg) translateX(30%)',
   }
   expect(received).toEqual(expected)
 })

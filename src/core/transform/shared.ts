@@ -4,7 +4,7 @@ import { Angle } from '../shared'
 /**
  *
  * A type that maps to CSS's **`<transform-function>`** type.
- * @added 0.2.2
+ * @added 0.2.3
  */
 export interface TransformFunction<A = any> {
   type: 'TransformFunction'

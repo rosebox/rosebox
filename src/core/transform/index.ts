@@ -119,6 +119,11 @@ export type TransformDeclaration = {
   transform: TransformFunction | TransformFunction[] | GlobalCssKeyword | 'none'
 }
 
+export { matrix, matrix3d } from './matrix'
+export { perspective } from './perspective'
+export { rotateX, rotateY, rotateZ, rotate, rotate3d } from './rotate'
+export { scaleX, scaleY, scaleZ, scale, scale3d } from './scale'
+export { skewX, skewY, skew } from './skew'
 export {
   translateX,
   translateY,
@@ -126,9 +131,3 @@ export {
   translate,
   translate3d,
 } from './translate'
-
-export { scaleX, scaleY, scaleZ, scale, scale3d } from './scale'
-
-export { rotateX, rotateY, rotateZ, rotate, rotate3d } from './rotate'
-
-export { matrix, matrix3d } from './matrix'

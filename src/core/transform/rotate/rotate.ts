@@ -2,7 +2,7 @@ import { Angle, serializeAngle } from '../../shared/'
 import { TransformFunction } from '../shared'
 
 /**
- * Translates to CSS's **rotateX(x)**
+ * Translates to CSS's **`rotateX(x)`**
  * @category Value constructor
  * @added 0.2.3
  */
@@ -13,7 +13,7 @@ export const rotateX = (x: Angle): TransformFunction<'rotateX'> => ({
 })
 
 /**
- * Translates to CSS's **rotateY(x)**
+ * Translates to CSS's **`rotateY(x)`**
  * @category Value constructor
  * @added 0.2.3
  */
@@ -24,7 +24,7 @@ export const rotateY = (x: Angle): TransformFunction<'rotateY'> => ({
 })
 
 /**
- * Translates to CSS's **rotateZ(x)**
+ * Translates to CSS's **`rotateZ(x)`**
  * @category Value constructor
  * @added 0.2.3
  */
