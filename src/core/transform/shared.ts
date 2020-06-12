@@ -36,9 +36,9 @@ export interface TransformFunction<A = any> {
     : A extends 'rotate3d'
     ? [number, number, number, Angle]
     : A extends 'skewSingle'
-    ? Angle | 0
+    ? Angle
     : A extends 'skew'
-    ? [Angle | 0] | [Angle | 0, Angle | 0]
+    ? [Angle] | [Angle, Angle]
     : A extends 'matrix'
     ? [number, number, number, number, number, number]
     : A extends 'matrix3d'

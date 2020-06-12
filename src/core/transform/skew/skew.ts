@@ -1,29 +1,40 @@
 import { Angle, serializeAngle } from '../../shared'
 import { TransformFunction } from '../shared'
 
-export const skewX = (x: Angle | 0): TransformFunction<'skewSingle'> => ({
+/**
+ * Translates to CSS's **skewX(x)**
+ * @category Value constructor
+ * @added 0.2.3
+ */
+export const skewX = (x: Angle): TransformFunction<'skewSingle'> => ({
   type: 'TransformFunction',
   valueConstructor: skewX,
-  value: x
+  value: x,
 })
 
-export const skewY = (x: Angle | 0): TransformFunction<'skewSingle'> => ({
+/**
+ * Translates to CSS's **skewY(x)**
+ * @category Value constructor
+ * @added 0.2.3
+ */
+export const skewY = (x: Angle): TransformFunction<'skewSingle'> => ({
   type: 'TransformFunction',
   valueConstructor: skewY,
-  value: x
+  value: x,
 })
 
-export const skew = (
-  x: Angle | 0,
-  y?: Angle | 0
-): TransformFunction<'skew'> => ({
+/**
+ * Translates to CSS's **skew(x, y)**
+ * @category Value constructor
+ * @added 0.2.3
+ */
+export const skew = (x: Angle, y: Angle): TransformFunction<'skew'> => ({
   type: 'TransformFunction',
   valueConstructor: skew,
-  value: y ? [x, y] : [x]
+  value: [x, y],
 })
 
-const serializeSkewAtomicValue = (x: Angle | 0): string =>
-  `${x === 0 ? 0 : serializeAngle(x)}`
+const serializeSkewAtomicValue = (x: Angle): string => `${serializeAngle(x)}`
 
 export const isSkewX = (x: TransformFunction): boolean =>
   x.valueConstructor === skewX
@@ -35,10 +46,10 @@ export const isSkew = (x: TransformFunction): boolean =>
   x.valueConstructor === skew
 
 export const serializeSkewX = (x: TransformFunction<'skewSingle'>): string =>
-  `skewX(${x.value === 0 ? x.value : serializeAngle(x.value)})`
+  `skewX(${serializeAngle(x.value)})`
 
 export const serializeSkewY = (x: TransformFunction<'skewSingle'>): string =>
-  `skewY(${x.value === 0 ? x.value : serializeAngle(x.value)})`
+  `skewY(${serializeAngle(x.value)})`
 
 export const serializeSkew = (x: TransformFunction<'skew'>): string =>
   `skew(${serializeSkewAtomicValue(x.value[0])}${
