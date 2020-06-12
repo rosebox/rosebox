@@ -1,29 +1,54 @@
 import { TransformFunction } from '../shared'
 
+/**
+ * Translates to CSS's **scaleX(x)**
+ * @category Value constructor
+ * @added 0.2.3
+ */
 export const scaleX = (x: number): TransformFunction<'scaleSingleAxis'> => ({
   type: 'TransformFunction',
   valueConstructor: scaleX,
-  value: x
+  value: x,
 })
 
+/**
+ * Translates to CSS's **scaleY(x)**
+ * @category Value constructor
+ * @added 0.2.3
+ */
 export const scaleY = (x: number): TransformFunction<'scaleSingleAxis'> => ({
   type: 'TransformFunction',
   valueConstructor: scaleY,
-  value: x
+  value: x,
 })
 
+/**
+ * Translates to CSS's **scaleZ(x)**
+ * @category Value constructor
+ * @added 0.2.3
+ */
 export const scaleZ = (x: number): TransformFunction<'scaleSingleAxis'> => ({
   type: 'TransformFunction',
   valueConstructor: scaleZ,
-  value: x
+  value: x,
 })
 
+/**
+ * Translates to CSS's **scale(x)** or **scale(x, y)**.
+ * @category Value constructor
+ * @added 0.2.3
+ */
 export const scale = (x: number, y?: number): TransformFunction<'scale'> => ({
   type: 'TransformFunction',
   valueConstructor: scale,
-  value: y ? [x, y] : [x]
+  value: y ? [x, y] : [x],
 })
 
+/**
+ * Translates to CSS's **scale3d(x, y, z)**.
+ * @category Value constructor
+ * @added 0.2.3
+ */
 export const scale3d = (
   x: number,
   y: number,
@@ -31,7 +56,7 @@ export const scale3d = (
 ): TransformFunction<'scale3d'> => ({
   type: 'TransformFunction',
   valueConstructor: scale3d,
-  value: [x, y, z]
+  value: [x, y, z],
 })
 
 export const isScaleX = (x: TransformFunction): boolean =>

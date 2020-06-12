@@ -8,7 +8,7 @@ import {
   isTranslate,
   serializeTranslate,
   isTranslate3d,
-  serializeTranslate3d
+  serializeTranslate3d,
 } from './translate'
 import { isGlobalCssKeyword, GlobalCssKeyword } from '../shared/types'
 import { TransformFunction } from './shared'
@@ -20,7 +20,9 @@ import {
   isScale,
   serializeScale,
   isScale3d,
-  serializeScale3d
+  serializeScale3d,
+  isScaleZ,
+  serializeScaleZ,
 } from './scale'
 import {
   isRotateX,
@@ -32,7 +34,7 @@ import {
   isRotate,
   serializeRotate,
   isRotate3d,
-  serializeRotate3d
+  serializeRotate3d,
 } from './rotate'
 import {
   isSkewX,
@@ -40,13 +42,13 @@ import {
   isSkewY,
   serializeSkewY,
   isSkew,
-  serializeSkew
+  serializeSkew,
 } from './skew'
 import {
   isMatrix,
   serializeMatrix,
   isMatrix3d,
-  serializeMatrix3d
+  serializeMatrix3d,
 } from './matrix'
 
 type TransformPropertyValue =
@@ -67,41 +69,37 @@ export const serializeTransformPropertyValue = (
           : `${acc}${serializeTransformPropertyValue(val)}`,
       ''
     )
-  else if (isTranslateX(x)) {
+  if (isTranslateX(x))
     return serializeTranslateX(x as TransformFunction<'translateX'>)
-  } else if (isTranslateY(x)) {
+  if (isTranslateY(x))
     return serializeTranslateY(x as TransformFunction<'translateY'>)
-  } else if (isTranslateZ(x))
+  if (isTranslateZ(x))
     return serializeTranslateZ(x as TransformFunction<'translateZ'>)
-  else if (isTranslate(x))
+  if (isTranslate(x))
     return serializeTranslate(x as TransformFunction<'translate'>)
-  else if (isTranslate3d(x))
+  if (isTranslate3d(x))
     return serializeTranslate3d(x as TransformFunction<'translate3d'>)
-  else if (isScaleX(x))
+  if (isScaleX(x))
     return serializeScaleX(x as TransformFunction<'scaleSingleAxis'>)
-  else if (isScaleY(x))
+  if (isScaleY(x))
     return serializeScaleY(x as TransformFunction<'scaleSingleAxis'>)
-  else if (isScale(x)) return serializeScale(x as TransformFunction<'scale'>)
-  else if (isScale3d(x))
-    return serializeScale3d(x as TransformFunction<'scale3d'>)
-  else if (isRotateX(x))
-    return serializeRotateX(x as TransformFunction<'rotateX'>)
-  else if (isRotateY(x))
-    return serializeRotateY(x as TransformFunction<'rotateY'>)
-  else if (isRotateZ(x))
-    return serializeRotateZ(x as TransformFunction<'rotateZ'>)
-  else if (isRotate(x)) return serializeRotate(x as TransformFunction<'rotate'>)
-  else if (isRotate3d(x))
+  if (isScaleZ(x))
+    return serializeScaleZ(x as TransformFunction<'scaleSingleAxis'>)
+  if (isScale(x)) return serializeScale(x as TransformFunction<'scale'>)
+  if (isScale3d(x)) return serializeScale3d(x as TransformFunction<'scale3d'>)
+  if (isRotateX(x)) return serializeRotateX(x as TransformFunction<'rotateX'>)
+  if (isRotateY(x)) return serializeRotateY(x as TransformFunction<'rotateY'>)
+  if (isRotateZ(x)) return serializeRotateZ(x as TransformFunction<'rotateZ'>)
+  if (isRotate(x)) return serializeRotate(x as TransformFunction<'rotate'>)
+  if (isRotate3d(x))
     return serializeRotate3d(x as TransformFunction<'rotate3d'>)
-  else if (isSkewX(x))
-    return serializeSkewX(x as TransformFunction<'skewSingle'>)
-  else if (isSkewY(x))
-    return serializeSkewY(x as TransformFunction<'skewSingle'>)
-  else if (isSkew(x)) return serializeSkew(x as TransformFunction<'skew'>)
-  else if (isMatrix(x)) return serializeMatrix(x as TransformFunction<'matrix'>)
-  else if (isMatrix3d(x))
+  if (isSkewX(x)) return serializeSkewX(x as TransformFunction<'skewSingle'>)
+  if (isSkewY(x)) return serializeSkewY(x as TransformFunction<'skewSingle'>)
+  if (isSkew(x)) return serializeSkew(x as TransformFunction<'skew'>)
+  if (isMatrix(x)) return serializeMatrix(x as TransformFunction<'matrix'>)
+  if (isMatrix3d(x))
     return serializeMatrix3d(x as TransformFunction<'matrix3d'>)
-  else throw new Error('The value is not of type TransformFunction')
+  throw new Error('The value is not of type TransformFunction')
 }
 
 /**
@@ -123,7 +121,7 @@ export {
   translateY,
   translateZ,
   translate,
-  translate3d
+  translate3d,
 } from './translate'
 
 export { scaleX, scaleY, scaleZ, scale, scale3d } from './scale'
