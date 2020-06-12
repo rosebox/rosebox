@@ -1,30 +1,55 @@
 import { Angle, serializeAngle } from '../../shared/'
 import { TransformFunction } from '../shared'
 
-export const rotateX = (x: Angle | 0): TransformFunction<'rotateX'> => ({
+/**
+ * Specifies a transformation that rotates an element around the **x-axis**.
+ * @category Value constructor
+ * @added 0.2.2
+ */
+export const rotateX = (x: Angle): TransformFunction<'rotateX'> => ({
   type: 'TransformFunction',
   valueConstructor: rotateX,
   value: x,
 })
 
-export const rotateY = (x: Angle | 0): TransformFunction<'rotateY'> => ({
+/**
+ * Specifies a transformation that rotates an element around the **y-axis**.
+ * @category Value constructor
+ * @added 0.2.2
+ */
+export const rotateY = (x: Angle): TransformFunction<'rotateY'> => ({
   type: 'TransformFunction',
   valueConstructor: rotateY,
   value: x,
 })
 
+/**
+ * Specifies a transformation that rotates an element around the **z-axis**.
+ * @category Value constructor
+ * @added 0.2.2
+ */
 export const rotateZ = (x: Angle): TransformFunction<'rotateZ'> => ({
   type: 'TransformFunction',
   valueConstructor: rotateZ,
   value: x,
 })
 
+/**
+ * Specifies a transformation that rotates an element around a fixed point on the 2D plane.
+ * @category Value constructor
+ * @added 0.2.2
+ */
 export const rotate = (x: Angle): TransformFunction<'rotate'> => ({
   type: 'TransformFunction',
   valueConstructor: rotate,
   value: x,
 })
 
+/**
+ * Specifies a transformation that rotates an element around a fixed axis in 3D plane.
+ * @category Value constructor
+ * @added 0.2.2
+ */
 export const rotate3d = (
   x: number,
   y: number,
@@ -52,10 +77,10 @@ export const isRotate3d = (x: TransformFunction): boolean =>
   x.valueConstructor === rotate3d
 
 export const serializeRotateX = (x: TransformFunction<'rotateX'>): string =>
-  `rotateX(${x.value === 0 ? 0 : serializeAngle(x.value)})`
+  `rotateX(${serializeAngle(x.value)})`
 
 export const serializeRotateY = (x: TransformFunction<'rotateY'>): string =>
-  `rotateY(${x.value === 0 ? 0 : serializeAngle(x.value)})`
+  `rotateY(${serializeAngle(x.value)})`
 
 export const serializeRotateZ = (x: TransformFunction<'rotateZ'>): string =>
   `rotateZ(${serializeAngle(x.value)})`

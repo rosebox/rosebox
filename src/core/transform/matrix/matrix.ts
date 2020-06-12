@@ -1,5 +1,10 @@
 import { TransformFunction } from '../shared'
 
+/**
+ * Specifies a 2D transformation in the form of a transformation matrix of the six provided arguments.
+ * @category Value constructor
+ * @added 0.2.2
+ */
 export const matrix = (
   x1: number,
   x2: number,
@@ -11,10 +16,15 @@ export const matrix = (
   return {
     type: 'TransformFunction',
     valueConstructor: matrix,
-    value: [x1, x2, x3, x4, x5, x6]
+    value: [x1, x2, x3, x4, x5, x6],
   }
 }
 
+/**
+ * Specifies a 3D transformation as a 4x4 homogeneous matrix of the 16 provided arguments.
+ * @category Value constructor
+ * @added 0.2.2
+ */
 export const matrix3d = (
   x1: number,
   x2: number,
@@ -52,8 +62,8 @@ export const matrix3d = (
       x13,
       x14,
       x15,
-      x16
-    ]
+      x16,
+    ],
   }
 }
 
