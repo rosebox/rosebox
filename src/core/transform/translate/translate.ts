@@ -3,8 +3,7 @@ import { serializeLengthPercentage } from '../../shared/serializers'
 import { TransformFunction } from '../shared'
 
 /**
- * Constructs a value of type **`TransformFunction`**.
- * Maps to CSS's **`translateX`** function.
+ * Specifies a translation on the **x-axis**.
  * @category Value constructor
  * @added 0.2.3
  */
@@ -13,12 +12,11 @@ export const translateX = (
 ): TransformFunction<'translateSingleAxis'> => ({
   type: 'TransformFunction',
   valueConstructor: translateX,
-  value: [x]
+  value: [x],
 })
 
 /**
- * Constructs a value of type **`TransformFunction`**.
- * Maps to CSS's **`translateY`** function.
+ * Specifies a translation on the **y-axis**.
  * @category Value constructor
  * @added 0.2.3
  */
@@ -27,12 +25,11 @@ export const translateY = (
 ): TransformFunction<'translateSingleAxis'> => ({
   type: 'TransformFunction',
   valueConstructor: translateY,
-  value: [x]
+  value: [x],
 })
 
 /**
- * Constructs a value of type **`TransformFunction`**.
- * Maps to CSS's **`translateZ`** function.
+ * Specifies a translation on the **z-axis**.
  * @category Value constructor
  * @added 0.2.3
  */
@@ -41,27 +38,25 @@ export const translateZ = (
 ): TransformFunction<'translateSingleAxis'> => ({
   type: 'TransformFunction',
   valueConstructor: translateZ,
-  value: [x]
+  value: [x],
 })
 
 /**
- * Constructs a value of type **`TransformFunction`**.
- * Maps to CSS's **`translate`** function.
+ * Specifies a 2D translation by the vector [x, y]
  * @category Value constructor
  * @added 0.2.3
  */
 export const translate = (
   x: LengthPercentage,
-  y?: LengthPercentage
+  y: LengthPercentage
 ): TransformFunction<'translate'> => ({
   type: 'TransformFunction',
   valueConstructor: translate,
-  value: y ? [x, y] : [x]
+  value: [x, y],
 })
 
 /**
- * Constructs a value of type **`TransformFunction`**.
- * Maps to CSS's **`translate3d`** function.
+ * Specifies a 3D translation by the vector [x, y, z].
  * @category Value constructor
  * @added 0.2.3
  */
@@ -72,7 +67,7 @@ export const translate3d = (
 ): TransformFunction<'translate3d'> => ({
   type: 'TransformFunction',
   valueConstructor: translate3d,
-  value: [x, y, z]
+  value: [x, y, z],
 })
 
 export const serializeTranslateX = (

@@ -17,6 +17,6 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["./src"],
+  "include": ["./src", "to-do/todo.ts"],
   "exclude": ["src/lib/**/*.test.ts"]
 }
