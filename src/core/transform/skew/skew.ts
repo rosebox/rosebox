@@ -24,7 +24,7 @@ export const skewY = (x: Angle): TransformFunction<'skewSingle'> => ({
 })
 
 /**
- * Translates to CSS's **skew(x, y)**
+ * Translates to CSS's **`skew(x, y)`**
  * @category Value constructor
  * @added 0.2.3
  */

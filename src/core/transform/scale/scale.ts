@@ -1,7 +1,7 @@
 import { TransformFunction } from '../shared'
 
 /**
- * Translates to CSS's **scaleX(x)**
+ * Translates to CSS's **`scaleX(x)`**
  * @category Value constructor
  * @added 0.2.3
  */
@@ -12,7 +12,7 @@ export const scaleX = (x: number): TransformFunction<'scaleSingleAxis'> => ({
 })
 
 /**
- * Translates to CSS's **scaleY(x)**
+ * Translates to CSS's **`scaleY(x)`**
  * @category Value constructor
  * @added 0.2.3
  */
@@ -23,7 +23,7 @@ export const scaleY = (x: number): TransformFunction<'scaleSingleAxis'> => ({
 })
 
 /**
- * Translates to CSS's **scaleZ(x)**
+ * Translates to CSS's **`scaleZ(x)`**
  * @category Value constructor
  * @added 0.2.3
  */
@@ -34,7 +34,7 @@ export const scaleZ = (x: number): TransformFunction<'scaleSingleAxis'> => ({
 })
 
 /**
- * Translates to CSS's **scale(x)** or **scale(x, y)**.
+ * Translates to CSS's **`scale(x)`** or **`scale(x, y)`**.
  * @category Value constructor
  * @added 0.2.3
  */
@@ -45,7 +45,7 @@ export const scale = (x: number, y?: number): TransformFunction<'scale'> => ({
 })
 
 /**
- * Translates to CSS's **scale3d(x, y, z)**.
+ * Translates to CSS's **`scale3d(x, y, z)`**.
  * @category Value constructor
  * @added 0.2.3
  */
