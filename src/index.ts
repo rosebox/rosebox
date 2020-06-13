@@ -4,7 +4,7 @@ import { funcMap } from './func-mapper'
 import {
   OverflowXDeclaration,
   OverflowYDeclaration,
-  OverflowDeclaration
+  OverflowDeclaration,
 } from './core/overflow'
 import { TextTransformDeclaration } from './core/text-transform'
 import { WidthDeclaration } from './core/width'
@@ -14,7 +14,7 @@ import {
   TopDeclaration,
   RightDeclaration,
   BottomDeclaration,
-  LeftDeclaration
+  LeftDeclaration,
 } from './core/box-offsets'
 import { BoxSizingDeclaration } from './core/box-sizing'
 import { ColorDeclaration } from './core/color'
@@ -30,7 +30,7 @@ import {
   BorderTopColorDeclaration,
   BorderRightColorDeclaration,
   BorderBottomColorDeclaration,
-  BorderLeftColorDeclaration
+  BorderLeftColorDeclaration,
 } from './core/border-color'
 import { CursorDeclaration } from './core/cursor'
 import { DisplayDeclaration } from './core/display'
@@ -39,21 +39,21 @@ import {
   BorderBottomRightRadiusDeclaration,
   BorderBottomLeftRadiusDeclaration,
   BorderRadiusDeclaration,
-  BorderTopLeftRadiusDeclaration
+  BorderTopLeftRadiusDeclaration,
 } from './core/border-radius'
 import {
   BorderTopStyleDeclaration,
   BorderRightStyleDeclaration,
   BorderBottomStyleDeclaration,
   BorderLeftStyleDeclaration,
-  BorderStyleDeclaration
+  BorderStyleDeclaration,
 } from './core/border-style'
 import {
   BorderTopWidthDeclaration,
   BorderRightWidthDeclaration,
   BorderBottomWidthDeclaration,
   BorderLeftWidthDeclaration,
-  BorderWidthDeclaration
+  BorderWidthDeclaration,
 } from './core/border-width'
 import { ZIndexDeclaration } from './core/z-index'
 import { TextDecorationDeclaration } from './core/text-decoration'
@@ -62,7 +62,7 @@ import {
   BorderRightDeclaration,
   BorderBottomDeclaration,
   BorderLeftDeclaration,
-  BorderDeclaration
+  BorderDeclaration,
 } from './core/border'
 import { FontSizeDeclaration } from './core/font-size'
 import { FontWeightDeclaration } from './core/font-weight'
@@ -80,14 +80,14 @@ import {
   MarginRightDeclaration,
   MarginBottomDeclaration,
   MarginLeftDeclaration,
-  MarginDeclaration
+  MarginDeclaration,
 } from './core/margin'
 import {
   PaddingTopDeclaration,
   PaddingRightDeclaration,
   PaddingBottomDeclaration,
   PaddingLeftDeclaration,
-  PaddingDeclaration
+  PaddingDeclaration,
 } from './core/padding'
 import { TextAlignDeclaration } from './core/text-align'
 import { OrderDeclaration } from './core/flexbox/order'
@@ -100,6 +100,7 @@ import { BoxShadowDeclaration } from './core/box-shadow'
 import { JustifyContentDeclaration } from './core/justify-content'
 import { AlignItemsDeclaration } from './core/align-items'
 import { TransformDeclaration } from './core/transform'
+import { TransformOriginDeclaration } from './core/transform-origin'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -187,13 +188,14 @@ export type RoseboxProperties = Partial<
     BoxShadowDeclaration &
     JustifyContentDeclaration &
     AlignItemsDeclaration &
-    TransformDeclaration
+    TransformDeclaration &
+    TransformOriginDeclaration
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {
   return Object.keys(obj).reduce((acc, key) => {
     return Object.assign({}, acc, {
-      [key]: (funcMap as any)[key]((obj as any)[key])
+      [key]: (funcMap as any)[key]((obj as any)[key]),
     })
   }, {}) as CSSProperties
 }

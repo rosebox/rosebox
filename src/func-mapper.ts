@@ -1,7 +1,7 @@
 import {
   serializeOverflowX,
   serializeOverflowY,
-  serializeOverflow
+  serializeOverflow,
 } from './core/overflow'
 
 import { serializeTextTransformValue } from './core/text-transform'
@@ -13,7 +13,7 @@ import {
   serializeTopValue,
   serializeRightValue,
   serializeBottomValue,
-  serializeLeftValue
+  serializeLeftValue,
 } from './core/box-offsets'
 import { serializeBoxSizingValue } from './core/box-sizing'
 import { serializeColorValue } from './core/color'
@@ -29,7 +29,7 @@ import {
   serializeBorderTopColorValue,
   serializeBorderRightColorValue,
   serializeBorderBottomColorValue,
-  serializeBorderLeftColorValue
+  serializeBorderLeftColorValue,
 } from './core/border-color'
 import { serializeCursorValue } from './core/cursor'
 import {
@@ -37,21 +37,21 @@ import {
   serializeBorderBottomRightRadiusValue,
   serializeBorderBottomLeftRadiusValue,
   serializeBorderTopLeftRadiusValue,
-  serializeBorderRadiusValue
+  serializeBorderRadiusValue,
 } from './core/border-radius'
 import {
   serializeBorderTopStyleValue,
   serializeBorderRightStyleValue,
   serializeBorderBottomStyleValue,
   serializeBorderLeftStyleValue,
-  serializeBorderStyleValue
+  serializeBorderStyleValue,
 } from './core/border-style'
 import {
   serializeBorderTopWidthValue,
   serializeBorderRightWidthValue,
   serializeBorderBottomWidthValue,
   serializeBorderLeftWidthValue,
-  serializeBorderWidthValue
+  serializeBorderWidthValue,
 } from './core/border-width'
 import { serializezIndexValue } from './core/z-index'
 import { serializeTextDecorationValue } from './core/text-decoration'
@@ -60,7 +60,7 @@ import {
   serializeBorderRightValue,
   serializeBorderBottomValue,
   serializeBorderLeftValue,
-  serializeBorderValue
+  serializeBorderValue,
 } from './core/border'
 import { serializeFontSize } from './core/font-size'
 import { serializeFontWeight } from './core/font-weight'
@@ -78,14 +78,14 @@ import {
   serializeMarginRightValue,
   serializeMarginBottomValue,
   serializeMarginLeftValue,
-  serializeMarginValue
+  serializeMarginValue,
 } from './core/margin'
 import {
   serializePaddingTopValue,
   serializePaddingRightValue,
   serializePaddingBottomValue,
   serializePaddingLeftValue,
-  serializePaddingValue
+  serializePaddingValue,
 } from './core/padding'
 import { serializeTextAlign } from './core/text-align'
 import { serializerOrder } from './core/flexbox/order'
@@ -98,6 +98,7 @@ import { serializeBoxShadowPropertyValue } from './core/box-shadow'
 import { serializeJustifyContent } from './core/justify-content'
 import { serializeAlignItems } from './core/align-items'
 import { serializeTransformPropertyValue } from './core/transform'
+import { serializeTransformOriginPropertyValue } from './core/transform-origin'
 
 export const funcMap = {
   alignItems: serializeAlignItems,
@@ -180,5 +181,6 @@ export const funcMap = {
   transitionTimingFunction: serializeTransitionTimingFunctionValue,
   transition: serializeTransitionValue,
   transitionDuration: serializeTransitionDurationValue,
-  transform: serializeTransformPropertyValue
+  transform: serializeTransformPropertyValue,
+  transformOrigin: serializeTransformOriginPropertyValue,
 }
