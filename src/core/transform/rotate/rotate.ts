@@ -35,7 +35,7 @@ export const rotateZ = (x: Angle): TransformFunction<'rotateZ'> => ({
 })
 
 /**
- * Translates to CSS's **rotate(x)**
+ * Translates to CSS's **`rotate(x)`**
  * @category Value constructor
  * @added 0.2.3
  */
@@ -46,7 +46,7 @@ export const rotate = (x: Angle): TransformFunction<'rotate'> => ({
 })
 
 /**
- * Translates to CSS's **rotate3d(x, y, z, a)**.
+ * Translates to CSS's **`rotate3d(x, y, z, a)`**.
  * @category Value constructor
  * @added 0.2.3
  */

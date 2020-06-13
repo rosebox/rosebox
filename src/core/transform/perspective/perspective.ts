@@ -3,7 +3,7 @@ import { TransformFunction } from '../shared'
 import { serializeLength } from '../../shared/serializers'
 
 /**
- * Translates to CSS's **perspective(x)**
+ * Translates to CSS's **`perspective(x)`**
  * @category Value constructor
  * @added 0.2.3
  */
