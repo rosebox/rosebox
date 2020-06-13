@@ -1,7 +1,6 @@
 import { TransformFunction } from '../shared'
 
 /**
- * Translates to CSS's **`matrix(x1, x2, x3, x4, x5, x6)**
  * @category Value constructor
  * @added 0.2.3
  */
