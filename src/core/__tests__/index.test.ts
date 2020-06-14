@@ -88,6 +88,7 @@ test('style', () => {
     justifyContent: 'flex-end',
     alignItems: 'baseline',
     transform: [skew(deg(10), deg(10)), translateX(per(30))],
+    alignContent: 'space-evenly',
   })
 
   const expected = {
@@ -171,6 +172,7 @@ test('style', () => {
     justifyContent: 'flex-end',
     alignItems: 'baseline',
     transform: 'skew(10deg, 10deg) translateX(30%)',
+    alignContent: 'space-evenly',
   }
   expect(received).toEqual(expected)
 })

@@ -101,6 +101,7 @@ import { JustifyContentDeclaration } from './core/justify-content'
 import { AlignItemsDeclaration } from './core/align-items'
 import { TransformDeclaration } from './core/transform'
 import { TransformOriginDeclaration } from './core/transform-origin'
+import { AlignContentDeclaration } from './core/align-content'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -189,13 +190,17 @@ export type RoseboxProperties = Partial<
     JustifyContentDeclaration &
     AlignItemsDeclaration &
     TransformDeclaration &
-    TransformOriginDeclaration
+    TransformOriginDeclaration &
+    AlignContentDeclaration
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {
+  // NEEDS improvement
   return Object.keys(obj).reduce((acc, key) => {
     return Object.assign({}, acc, {
-      [key]: (funcMap as any)[key]((obj as any)[key]),
+      [key]: (funcMap as any)[key]
+        ? (funcMap as any)[key]((obj as any)[key])
+        : (obj as any)[key],
     })
   }, {}) as CSSProperties
 }
