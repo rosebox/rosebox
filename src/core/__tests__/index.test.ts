@@ -90,6 +90,7 @@ test('style', () => {
     transform: [skew(deg(10), deg(10)), translateX(per(30))],
     alignContent: 'space-evenly',
     backfaceVisibility: 'hidden',
+    transformStyle: 'flat',
   })
 
   const expected = {
@@ -175,6 +176,7 @@ test('style', () => {
     transform: 'skew(10deg, 10deg) translateX(30%)',
     alignContent: 'space-evenly',
     backfaceVisibility: 'hidden',
+    transformStyle: 'flat',
   }
   expect(received).toEqual(expected)
 })

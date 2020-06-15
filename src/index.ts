@@ -103,6 +103,7 @@ import { TransformDeclaration } from './core/transform'
 import { TransformOriginDeclaration } from './core/transform-origin'
 import { AlignContentDeclaration } from './core/align-content'
 import { BackfaceVisibility } from './core/backface-visibility'
+import { TransformStyleDeclaration } from './core/transform-style'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -193,7 +194,8 @@ export type RoseboxProperties = Partial<
     TransformDeclaration &
     TransformOriginDeclaration &
     AlignContentDeclaration &
-    BackfaceVisibility
+    BackfaceVisibility &
+    TransformStyleDeclaration
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {
