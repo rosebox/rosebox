@@ -2,7 +2,7 @@ import { GlobalCssKeyword } from '../shared/types'
 
 type BaseLinePosition = 'first baseline' | 'last baseline' | 'baseline'
 
-type ConteentDistribution =
+type ContentDistribution =
   | 'space-between'
   | 'space-around'
   | 'space-evenly'
@@ -22,7 +22,7 @@ export type AlignContentDeclaration = {
   alignContent:
     | 'normal'
     | BaseLinePosition
-    | ConteentDistribution
+    | ContentDistribution
     | 'center'
     | 'safe center'
     | 'unsafe center'
