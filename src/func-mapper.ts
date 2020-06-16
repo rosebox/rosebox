@@ -102,6 +102,7 @@ import { serializeTransformOriginPropertyValue } from './core/transform-origin'
 import { serializePerspectiveOriginPropertyValue } from './core/perspective-origin'
 import { serializePerspectivePropertyValue } from './core/perspective'
 import { serializeFontStretchPropertyValue } from './core/font-stretch'
+import { serializeFontSizeAdjustPropValue } from './core/font-size-adjust'
 
 export const funcMap = {
   alignItems: serializeAlignItems,
@@ -161,6 +162,7 @@ export const funcMap = {
   textDecoration: serializeTextDecorationValue,
   fontSize: serializeFontSize,
   fontStretch: serializeFontStretchPropertyValue,
+  fontSizeAdjust: serializeFontSizeAdjustPropValue,
   fontWeight: serializeFontWeight,
   fontFamily: serializeFontFamily,
   flexWrap: serializeFlexWrap,
