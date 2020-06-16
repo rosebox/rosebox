@@ -8,5 +8,5 @@ export type BackfaceVisibility = {
    * Maps to CSS's **`backface-visibility`** property
    * @category RBProperty
    */
-  backfaceVisibility: 'visiblee' | 'hidden' | GlobalCssKeyword
+  backfaceVisibility: 'visible' | 'hidden' | GlobalCssKeyword
 }
