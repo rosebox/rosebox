@@ -91,6 +91,7 @@ test('style', () => {
     alignContent: 'space-evenly',
     backfaceVisibility: 'hidden',
     transformStyle: 'flat',
+    perspectiveOrigin: ['left', px(20)],
   })
 
   const expected = {
@@ -177,6 +178,7 @@ test('style', () => {
     alignContent: 'space-evenly',
     backfaceVisibility: 'hidden',
     transformStyle: 'flat',
+    perspectiveOrigin: 'left 20px',
   }
   expect(received).toEqual(expected)
 })

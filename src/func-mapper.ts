@@ -99,6 +99,7 @@ import { serializeJustifyContent } from './core/justify-content'
 import { serializeAlignItems } from './core/align-items'
 import { serializeTransformPropertyValue } from './core/transform'
 import { serializeTransformOriginPropertyValue } from './core/transform-origin'
+import { serializePerspectiveOriginPropertyValue } from './core/perspective-origin'
 
 export const funcMap = {
   alignItems: serializeAlignItems,
@@ -183,4 +184,5 @@ export const funcMap = {
   transitionDuration: serializeTransitionDurationValue,
   transform: serializeTransformPropertyValue,
   transformOrigin: serializeTransformOriginPropertyValue,
+  perspectiveOrigin: serializePerspectiveOriginPropertyValue,
 }
