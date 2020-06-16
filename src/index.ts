@@ -107,6 +107,7 @@ import { TransformStyleDeclaration } from './core/transform-style'
 import { PerspectiveOriginDeclaration } from './core/perspective-origin'
 import { PerspectiveDeclaration } from './core/perspective'
 import { TransformBoxDeclaration } from './core/transform-box'
+import { FontStretchDeclaration } from './core/font-stretch'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -201,7 +202,8 @@ export type RoseboxProperties = Partial<
     TransformStyleDeclaration &
     PerspectiveOriginDeclaration &
     PerspectiveDeclaration &
-    TransformBoxDeclaration
+    TransformBoxDeclaration &
+    FontStretchDeclaration
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {
