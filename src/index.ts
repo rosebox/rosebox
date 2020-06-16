@@ -110,6 +110,7 @@ import { TransformBoxDeclaration } from './core/transform-box'
 import { FontStretchDeclaration } from './core/font-stretch'
 import { FontSizeAdjustDeclaration } from './core/font-size-adjust'
 import { FontSynthesisWeightDeclaration } from './core/font-synthesis-weight'
+import { FontSynthesisStyleDeclaration } from './core/font-synthesis-style'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -207,7 +208,8 @@ export type RoseboxProperties = Partial<
     TransformBoxDeclaration &
     FontStretchDeclaration &
     FontSizeAdjustDeclaration &
-    FontSynthesisWeightDeclaration
+    FontSynthesisWeightDeclaration &
+    FontSynthesisStyleDeclaration
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {
