@@ -100,6 +100,7 @@ import { serializeAlignItems } from './core/align-items'
 import { serializeTransformPropertyValue } from './core/transform'
 import { serializeTransformOriginPropertyValue } from './core/transform-origin'
 import { serializePerspectiveOriginPropertyValue } from './core/perspective-origin'
+import { serializePerspectivePropertyValue } from './core/perspective'
 
 export const funcMap = {
   alignItems: serializeAlignItems,
@@ -185,4 +186,5 @@ export const funcMap = {
   transform: serializeTransformPropertyValue,
   transformOrigin: serializeTransformOriginPropertyValue,
   perspectiveOrigin: serializePerspectiveOriginPropertyValue,
+  perspective: serializePerspectivePropertyValue,
 }

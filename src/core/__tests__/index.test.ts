@@ -92,6 +92,7 @@ test('style', () => {
     backfaceVisibility: 'hidden',
     transformStyle: 'flat',
     perspectiveOrigin: ['left', px(20)],
+    perspective: px(30),
   })
 
   const expected = {
@@ -179,6 +180,7 @@ test('style', () => {
     backfaceVisibility: 'hidden',
     transformStyle: 'flat',
     perspectiveOrigin: 'left 20px',
+    perspective: '30px',
   }
   expect(received).toEqual(expected)
 })
