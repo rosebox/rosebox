@@ -1,5 +1,18 @@
 import { GlobalCssKeyword } from '../shared/types'
 
+export const serializeFontVariationSettingsPropValue = (
+  x: 'normal' | [string, number] | [string, number][] | GlobalCssKeyword
+): string =>
+  typeof x === 'string'
+    ? x
+    : !Array.isArray(x[0])
+    ? `"${x[0]}" ${x[1]}`
+    : (x as [string, number][]).reduce(
+        (acc, val, idx) =>
+          acc + `"${val[0]}" ${val[1]}` + (x.length - 1 !== idx ? ', ' : ''),
+        ''
+      )
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -10,7 +23,7 @@ export type FontVariationSettingsDeclaration = {
    * @formalSyntaxForValue auto | none
    * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-synthesis-style
    */
-  fontVariationSetting:
+  fontVariationSettings:
     | 'normal'
     | [string, number]
     | [string, number][]

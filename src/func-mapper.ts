@@ -103,6 +103,7 @@ import { serializePerspectiveOriginPropertyValue } from './core/perspective-orig
 import { serializePerspectivePropertyValue } from './core/perspective'
 import { serializeFontStretchPropertyValue } from './core/font-stretch'
 import { serializeFontSizeAdjustPropValue } from './core/font-size-adjust'
+import { serializeFontVariationSettingsPropValue } from './core/font-variation-settings'
 
 export const funcMap = {
   alignItems: serializeAlignItems,
@@ -165,6 +166,7 @@ export const funcMap = {
   fontSizeAdjust: serializeFontSizeAdjustPropValue,
   fontWeight: serializeFontWeight,
   fontFamily: serializeFontFamily,
+  fontVariationSettings: serializeFontVariationSettingsPropValue,
   flexWrap: serializeFlexWrap,
   flex: serializeFlexValue,
   justifyContent: serializeJustifyContent,

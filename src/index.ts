@@ -114,6 +114,7 @@ import { FontSynthesisStyleDeclaration } from './core/font-synthesis-style'
 import { FontSynthesisSmallCapsDeclaration } from './core/font-synthesis-small-caps'
 import { FontSynthesisDeclaration } from './core/font-synthesis'
 import { FontVariantPositionDeclaration } from './core/font-variant-position'
+import { FontVariationSettingsDeclaration } from './core/font-variation-settings'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -215,7 +216,8 @@ export type RoseboxProperties = Partial<
     FontSynthesisStyleDeclaration &
     FontSynthesisSmallCapsDeclaration &
     FontSynthesisDeclaration &
-    FontVariantPositionDeclaration
+    FontVariantPositionDeclaration &
+    FontVariationSettingsDeclaration
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {
