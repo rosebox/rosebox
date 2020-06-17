@@ -3,15 +3,6 @@ import { serializeLengthPercentage } from '../shared/serializers'
 
 const WHITESPACE = ' '
 
-type OneValueSyntax =
-  | LengthPercentage
-  | 'left'
-  | 'center'
-  | 'right'
-  | 'top'
-  | 'bottom'
-  | [LengthPercentage | 'left' | 'center' | 'right' | 'top' | 'bottom']
-
 type TwoValuesSyntax = [
   LengthPercentage | 'left' | 'center' | 'right',
   LengthPercentage | 'top' | 'center' | 'bottom'
@@ -28,12 +19,10 @@ const serializeAtomicValue = (
 ): string => (typeof x === 'string' ? x : serializeLengthPercentage(x))
 
 export const serializeTransformOriginPropertyValue = (
-  x: OneValueSyntax | TwoValuesSyntax | ThreeValuesSyntax | GlobalCssKeyword
+  x: TwoValuesSyntax | ThreeValuesSyntax | GlobalCssKeyword
 ): string =>
-  !Array.isArray(x)
-    ? typeof x === 'string'
-      ? x
-      : serializeLengthPercentage(x)
+  typeof x === 'string'
+    ? x
     : x.reduce(
         (acc, val, idx) =>
           acc +
@@ -51,9 +40,5 @@ export type TransformOriginDeclaration = {
    * @category RBProperty
    * @added 0.2.3
    */
-  transformOrigin:
-    | OneValueSyntax
-    | TwoValuesSyntax
-    | ThreeValuesSyntax
-    | GlobalCssKeyword
+  transformOrigin: TwoValuesSyntax | ThreeValuesSyntax | GlobalCssKeyword
 }

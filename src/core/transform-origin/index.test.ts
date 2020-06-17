@@ -1,36 +1,6 @@
 import { serializeTransformOriginPropertyValue } from './transform-origin'
 import { per, px } from '../shared/value-constructors'
 
-test('transormOrigin(keyword)', () => {
-  const received = {
-    transformOrigin: serializeTransformOriginPropertyValue('center'),
-  }
-  const expected = {
-    transformOrigin: 'center',
-  }
-  expect(received).toEqual(expected)
-})
-
-test('transormOrigin([keyword])', () => {
-  const received = {
-    transformOrigin: serializeTransformOriginPropertyValue(['center']),
-  }
-  const expected = {
-    transformOrigin: 'center',
-  }
-  expect(received).toEqual(expected)
-})
-
-test('transormOrigin(LengthPercentage)', () => {
-  const received = {
-    transformOrigin: serializeTransformOriginPropertyValue(per(65)),
-  }
-  const expected = {
-    transformOrigin: '65%',
-  }
-  expect(received).toEqual(expected)
-})
-
 test('transormOrigin([keyword, keyword])', () => {
   const received = {
     transformOrigin: serializeTransformOriginPropertyValue(['center', 'top']),
