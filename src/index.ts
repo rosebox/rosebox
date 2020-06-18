@@ -118,6 +118,7 @@ import { FontVariationSettingsDeclaration } from './core/font-variation-settings
 import { FontVariantNumericDeclaration } from './core/font-variant-numeric'
 import { FontVariantCapsDeclaration } from './core/font-variant-caps'
 import { FontVariantEmojiDeclaration } from './core/font-variant-emoji'
+import { FontKerningDeclaration } from './core/font-kerning'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -223,7 +224,8 @@ export type RoseboxProperties = Partial<
     FontVariationSettingsDeclaration &
     FontVariantNumericDeclaration &
     FontVariantCapsDeclaration &
-    FontVariantEmojiDeclaration
+    FontVariantEmojiDeclaration &
+    FontKerningDeclaration
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {
