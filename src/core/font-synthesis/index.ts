@@ -1,5 +1,15 @@
 import { GlobalCssKeyword } from '../shared/types'
 
+export const serializeFontSynethsisPropValue = (
+  x:
+    | 'none'
+    | 'weight'
+    | 'style'
+    | ['weight', 'style']
+    | ['style', 'weight']
+    | GlobalCssKeyword
+): string => (typeof x === 'string' ? x : `${x[0]} ${x[1]}`)
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -14,7 +24,7 @@ export type FontSynthesisDeclaration = {
     | 'none'
     | 'weight'
     | 'style'
-    | 'weight style'
-    | 'style weight'
+    | ['weight', 'style']
+    | ['style', 'weight']
     | GlobalCssKeyword
 }

@@ -104,6 +104,7 @@ import { serializePerspectivePropertyValue } from './core/perspective'
 import { serializeFontStretchPropertyValue } from './core/font-stretch'
 import { serializeFontSizeAdjustPropValue } from './core/font-size-adjust'
 import { serializeFontVariationSettingsPropValue } from './core/font-variation-settings'
+import { serializeFontSynethsisPropValue } from './core/font-synthesis'
 
 export const funcMap = {
   alignItems: serializeAlignItems,
@@ -167,6 +168,7 @@ export const funcMap = {
   fontWeight: serializeFontWeight,
   fontFamily: serializeFontFamily,
   fontVariationSettings: serializeFontVariationSettingsPropValue,
+  fontSynthesis: serializeFontSynethsisPropValue,
   flexWrap: serializeFlexWrap,
   flex: serializeFlexValue,
   justifyContent: serializeJustifyContent,
