@@ -1,6 +1,9 @@
 import { GlobalCssKeyword } from '../shared/types'
 
-type BaseLinePosition = 'first baseline' | 'last baseline' | 'baseline'
+type BaseLinePosition =
+  | ['first', 'baseline']
+  | ['last', 'baseline']
+  | 'baseline'
 
 type ContentDistribution =
   | 'space-between'
@@ -24,19 +27,42 @@ export type AlignContentDeclaration = {
     | BaseLinePosition
     | ContentDistribution
     | 'center'
-    | 'safe center'
-    | 'unsafe center'
+    | ['safe', 'center']
+    | ['unsafe', 'center']
     | 'start'
-    | 'safe start'
-    | 'unsafe start'
+    | ['safe', 'start']
+    | ['unsafe', 'start']
     | 'end'
-    | 'safe end'
-    | 'unsafe end'
+    | ['safe', 'end']
+    | ['unsafe', 'end']
     | 'flex-start'
-    | 'safe flex-start'
-    | 'unsafe flex-start'
+    | ['safe', 'flex-start']
+    | ['unsafe', 'flex-start']
     | 'flex-end'
-    | 'safe flex-end'
-    | 'unsafe flex-end'
+    | ['safe', 'flex-end']
+    | ['unsafe', 'flex-end']
     | GlobalCssKeyword
 }
+
+export const serializeAlignContentPropValue = (
+  x:
+    | 'normal'
+    | BaseLinePosition
+    | ContentDistribution
+    | 'center'
+    | ['safe', 'center']
+    | ['unsafe', 'center']
+    | 'start'
+    | ['safe', 'start']
+    | ['unsafe', 'start']
+    | 'end'
+    | ['safe', 'end']
+    | ['unsafe', 'end']
+    | 'flex-start'
+    | ['safe', 'flex-start']
+    | ['unsafe', 'flex-start']
+    | 'flex-end'
+    | ['safe', 'flex-end']
+    | ['unsafe', 'flex-end']
+    | GlobalCssKeyword
+): string => (typeof x === 'string' ? x : `${x[0]} ${x[1]}`)

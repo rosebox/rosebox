@@ -105,8 +105,10 @@ import { serializeFontStretchPropertyValue } from './core/font-stretch'
 import { serializeFontSizeAdjustPropValue } from './core/font-size-adjust'
 import { serializeFontVariationSettingsPropValue } from './core/font-variation-settings'
 import { serializeFontSynethsisPropValue } from './core/font-synthesis'
+import { serializeAlignContentPropValue } from './core/align-content'
 
 export const funcMap = {
+  alignContent: serializeAlignContentPropValue,
   alignItems: serializeAlignItems,
   borderTopColor: serializeBorderTopColorValue,
   borderRightColor: serializeBorderRightColorValue,
