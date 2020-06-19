@@ -18,5 +18,5 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": ["./src", "to-do/todo.ts"],
-  "exclude": ["src/lib/**/*.test.ts"]
+  "exclude": ["src/core/**/*.test.ts"]
 }
