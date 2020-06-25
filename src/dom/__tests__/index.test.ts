@@ -1,4 +1,4 @@
-import { camelCaseToDash, createStyleTag } from '..'
+import { camelCaseToDash } from '..'
 import '@testing-library/jest-dom'
 
 test('camelCaseToDash(marginTop)', () => {
@@ -13,7 +13,7 @@ test('camelCaseToDash(borderTopLeftRadius)', () => {
   expect(received).toEqual(expected)
 })
 
-test('Test style tag', async () => {
+/*test('Test style tag', async () => {
   const container = createStyleTag(
     'rb-gangster',
     { marginTop: '1rem' },
@@ -22,3 +22,4 @@ test('Test style tag', async () => {
   expect(container).toBeInTheDocument()
   expect(container.getAttribute('data-rosebox-id')).toEqual('rb-gangster')
 })
+*/

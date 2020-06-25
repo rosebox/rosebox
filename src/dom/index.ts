@@ -1,39 +1,38 @@
+import { funcMap } from '../func-mapper'
+
 export const EL_ATTRIBUTE_NAME = 'data-rosebox-st-id'
-
-const STYLE_TAG_ATTRIBUTE_NAME = 'data-rosebox-id'
-
-type PseudoElement = 'before'
 
 export const camelCaseToDash = (str: string) =>
   str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 
-export const toCss = (
-  style: any,
-  attributeValue: string,
-  pseudoElement: PseudoElement
-) =>
-  Object.keys(style).reduce((acc, key, idx) => {
+export const toCss = (style: any, selector: string) => {
+  const initalAcc = `\n${selector} {\n`
+  return Object.keys(style).reduce((acc, key, idx) => {
     return (
       acc +
       '\t' +
       camelCaseToDash(key) +
       ': ' +
-      style[key] +
+      ((funcMap as any)[key]
+        ? (funcMap as any)[key]((style as any)[key])
+        : (style as any)[key]) +
       ';\n' +
       (idx === Object.keys(style).length - 1 ? '}' : '')
     )
-  }, `\n[${EL_ATTRIBUTE_NAME}="${attributeValue}"]::${pseudoElement} {\n`)
+  }, initalAcc)
+}
 
-export const createStyleTag = (
-  id: string,
-  css: any,
-  pseudoElement: PseudoElement
-): HTMLStyleElement => {
+export const createStyleTag = (css: string, id: string): HTMLStyleElement => {
   const head = document.head || document.getElementsByTagName('head')[0]
   const style = document.createElement('style')
   style.setAttribute('type', 'text/css')
-  style.setAttribute(STYLE_TAG_ATTRIBUTE_NAME, id)
+  style.setAttribute('id', `${id}`)
   head.appendChild(style)
-  style.appendChild(document.createTextNode(toCss(css, id, pseudoElement)))
+  style.appendChild(document.createTextNode(css))
   return style
+}
+
+export const removeStyleTag = (id: string): void => {
+  const styleTag = document.querySelector(`#${id}`)
+  styleTag?.parentNode?.removeChild(styleTag)
 }

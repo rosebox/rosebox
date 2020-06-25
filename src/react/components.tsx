@@ -1,11 +1,10 @@
-import React, {
+/*import React, {
   Fragment,
   Children,
   ReactNode,
   useEffect,
   MutableRefObject,
 } from 'react'
-import { usePseudo } from './hooks'
 import { RoseboxProperties } from '../index'
 
 type Props = {
@@ -31,3 +30,4 @@ export const CSSPseudo: React.SFC<Props> = ({ children, before, elRef }) => {
     </Fragment>
   )
 }
+*/

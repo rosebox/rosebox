@@ -1,11 +1,52 @@
-import { useState, useCallback, useEffect, MutableRefObject } from 'react'
-import { isEqual } from 'lodash'
+import { useState, useEffect, useCallback } from 'react'
 import { generate as generateId } from 'short-uuid'
 
-import { RoseboxProperties } from '..'
-import { createStyleTag, EL_ATTRIBUTE_NAME } from '../dom'
+import { createStyleTag, toCss, removeStyleTag } from '../dom'
+import { style, RoseboxProperties } from '..'
 
-export const usePseudo = (elRef?: (ref: MutableRefObject<null>) => void) => {
+type UseStyleCallback = (
+  ...args: any[]
+) => {
+  shared: RoseboxProperties
+  computed: RoseboxProperties
+}
+
+export const useStyle = (styleFunc: UseStyleCallback) => {
+  const [className] = useState(`rb-${generateId()}`)
+  const [mounted, setMounted] = useState(false)
+  const [dataStyle, setDataStyle] = useState<any>({})
+
+  const func = useCallback(
+    (...args: any[]) => {
+      const { shared, computed } = styleFunc(...args)
+      if (JSON.stringify(shared) !== JSON.stringify(dataStyle))
+        setDataStyle(shared)
+      return {
+        className,
+        style: style({
+          ...computed,
+          ...(!mounted && {
+            display: 'none',
+          }),
+        }),
+      }
+    },
+    [dataStyle, styleFunc, className, mounted]
+  )
+
+  useEffect(() => {
+    if (className && Object.keys(dataStyle).length) {
+      const css = toCss(dataStyle, `.${className}`)
+      createStyleTag(css, className)
+      setMounted(true)
+    }
+    return () => removeStyleTag(className)
+  }, [dataStyle, className])
+
+  return func
+}
+
+/*export const usePseudo = (elRef?: (ref: MutableRefObject<null>) => void) => {
   // Set up state
   const [beforeStyleState, setBeforeStyleState] = useState<RoseboxProperties>()
   const [styleTagId] = useState('rb-' + generateId())
@@ -43,4 +84,4 @@ export const usePseudo = (elRef?: (ref: MutableRefObject<null>) => void) => {
       ref: callbackRef,
     },
   }
-}
+}*/
