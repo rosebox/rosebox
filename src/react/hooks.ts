@@ -4,27 +4,31 @@ import { generate as generateId } from 'short-uuid'
 import { createStyleTag, toCss, removeStyleTag } from '../dom'
 import { style, RoseboxProperties } from '..'
 
+export type ListItemStyle = {
+  class: RoseboxProperties
+  inline: RoseboxProperties
+}
+
 type UseStyleCallback = (
   ...args: any[]
 ) => {
-  shared: RoseboxProperties
-  computed: RoseboxProperties
+  class: RoseboxProperties
+  inline: RoseboxProperties
 }
 
-export const useStyle = (styleFunc: UseStyleCallback) => {
+export const useListItemStyle = (styleFunc: UseStyleCallback) => {
   const [className] = useState(`rb-${generateId()}`)
   const [mounted, setMounted] = useState(false)
   const [dataStyle, setDataStyle] = useState<any>({})
 
   const func = useCallback(
     (...args: any[]) => {
-      const { shared, computed } = styleFunc(...args)
-      if (JSON.stringify(shared) !== JSON.stringify(dataStyle))
-        setDataStyle(shared)
+      const { class: cls, inline } = styleFunc(...args)
+      if (JSON.stringify(cls) !== JSON.stringify(dataStyle)) setDataStyle(cls)
       return {
         className,
         style: style({
-          ...computed,
+          ...inline,
           ...(!mounted && {
             display: 'none',
           }),
