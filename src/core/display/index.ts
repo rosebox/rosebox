@@ -164,73 +164,9 @@ type DisplayInternal =
   | 'ruby-text-container'
 
 /**
- * @experimental
- */
-export const disTableRowGroup = { display: 'table-row-group' } as const
-/**
- * @experimental
- */
-export const disTableHeaderGroup = { display: 'table-header-group' } as const
-/**
- * @experimental
- */
-export const disTableFooterGroup = { display: 'table-footer-group' } as const
-/**
- * @experimental
- */
-export const disTableRow = { display: 'table-row' } as const
-/**
- * @experimental
- */
-export const disTableCell = { display: 'table-cell' } as const
-/**
- * @experimental
- */
-export const disTableColumnGroup = { display: 'table-column-group' } as const
-
-/**
- * @experimental
- */
-export const disTableColumn = { display: 'table-column' } as const
-
-/**
- * @experimental
- */
-export const disTableCaption = { display: 'table-caption' } as const
-
-/**
- * @experimental
- */
-export const disRubyBase = { display: 'ruby-base' } as const
-
-/**
- * @experimental
- */
-export const disRubyText = { display: 'ruby-text' } as const
-
-/**
- * @experimental
- */
-export const disRubyBaseContainer = { display: 'ruby-base-container' } as const
-
-/**
- * @experimental
- */
-export const disRubyTextContainer = { display: 'ruby-text-container' } as const
-
-/**
  * @skip
  */
 type DisplayBox = 'contents' | 'none'
-
-/**
- * @experimental
- */
-export const disContents = { display: 'contents' } as const
-/**
- * @experimental
- */
-export const disNone = { display: 'none' } as const
 
 /**
  * @skip
@@ -269,7 +205,8 @@ export type DisplayValue =
   | DisplayInternal
   | DisplayBox
 
-export const serializeDisplayValue = (value: DisplayValue | GlobalCssKeyword) => value
+export const serializeDisplayValue = (value: DisplayValue | GlobalCssKeyword) =>
+  value
 
 /**
  * @category RBDeclarationTypeAlias
