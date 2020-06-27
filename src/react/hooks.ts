@@ -16,6 +16,9 @@ type UseStyleCallback = (
   inline: RoseboxProperties
 }
 
+/**
+ * @experimental
+ */
 export const useListItemStyle = (styleFunc: UseStyleCallback) => {
   const [className] = useState(`rb-${generateId()}`)
   const [mounted, setMounted] = useState(false)
