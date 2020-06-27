@@ -227,7 +227,10 @@ export type RoseboxProperties = Partial<
     FontVariantCapsDeclaration &
     FontVariantEmojiDeclaration &
     FontKerningDeclaration &
-    FontStyleDeclaration
+    FontStyleDeclaration & {
+      /** Temporary  */
+      listStyleType: string
+    }
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {
