@@ -121,6 +121,7 @@ import { FontVariantEmojiDeclaration } from './core/font-variant-emoji'
 import { FontKerningDeclaration } from './core/font-kerning'
 import { FontStyleDeclaration } from './core/font-style'
 import { FontVariantLigaturesDeclaration } from './core/font-variant-ligatures'
+import { FontOpticalSizingDeclaration } from './core/font-optical-sizing'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -231,7 +232,8 @@ export type RoseboxProperties = Partial<
     FontStyleDeclaration & {
       /** Temporary  */
       listStyleType: string
-    } & FontVariantLigaturesDeclaration
+    } & FontVariantLigaturesDeclaration &
+    FontOpticalSizingDeclaration
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {
