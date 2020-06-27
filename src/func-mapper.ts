@@ -106,6 +106,7 @@ import { serializeFontSizeAdjustPropValue } from './core/font-size-adjust'
 import { serializeFontVariationSettingsPropValue } from './core/font-variation-settings'
 import { serializeFontSynethsisPropValue } from './core/font-synthesis'
 import { serializeAlignContentPropValue } from './core/align-content'
+import { serializeFontVariantLigaturesPropValue } from './core/font-variant-ligatures'
 
 export const funcMap = {
   alignContent: serializeAlignContentPropValue,
@@ -197,4 +198,5 @@ export const funcMap = {
   transformOrigin: serializeTransformOriginPropertyValue,
   perspectiveOrigin: serializePerspectiveOriginPropertyValue,
   perspective: serializePerspectivePropertyValue,
+  fontVariantLigatures: serializeFontVariantLigaturesPropValue,
 }
