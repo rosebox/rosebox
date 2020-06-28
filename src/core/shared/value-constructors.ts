@@ -1,4 +1,4 @@
-import { Length, Percentage, URL, Time, CustomIdent } from './types'
+import { Length, Percentage, URL, Time, CustomIdent, URI } from './types'
 
 /**
  * Constructs a value of type **`Percentage`**.
@@ -7,7 +7,7 @@ import { Length, Percentage, URL, Time, CustomIdent } from './types'
  */
 export const per = (x: number): Percentage => ({
   __tag: 'Percentage',
-  value: x
+  value: x,
 })
 
 /**
@@ -17,7 +17,7 @@ export const per = (x: number): Percentage => ({
  */
 export const px = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'px']
+  value: [x, 'px'],
 })
 
 /**
@@ -27,7 +27,7 @@ export const px = (x: number): Length => ({
  */
 export const em = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'em']
+  value: [x, 'em'],
 })
 
 /**
@@ -37,7 +37,7 @@ export const em = (x: number): Length => ({
  */
 export const rem = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'rem']
+  value: [x, 'rem'],
 })
 
 /**
@@ -47,7 +47,7 @@ export const rem = (x: number): Length => ({
  */
 export const ex = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'ex']
+  value: [x, 'ex'],
 })
 /**
  * Constructs a value of type `Length` where the unit is **`ch`**.
@@ -56,7 +56,7 @@ export const ex = (x: number): Length => ({
  */
 export const ch = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'ch']
+  value: [x, 'ch'],
 })
 
 /**
@@ -66,7 +66,7 @@ export const ch = (x: number): Length => ({
  */
 export const vw = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'vw']
+  value: [x, 'vw'],
 })
 
 /**
@@ -76,7 +76,7 @@ export const vw = (x: number): Length => ({
  */
 export const vh = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'vh']
+  value: [x, 'vh'],
 })
 
 /**
@@ -86,7 +86,7 @@ export const vh = (x: number): Length => ({
  */
 export const vmin = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'vmin']
+  value: [x, 'vmin'],
 })
 
 /**
@@ -96,7 +96,7 @@ export const vmin = (x: number): Length => ({
  */
 export const Q = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'Q']
+  value: [x, 'Q'],
 })
 
 /**
@@ -106,7 +106,7 @@ export const Q = (x: number): Length => ({
  */
 export const cm = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'cm']
+  value: [x, 'cm'],
 })
 
 /**
@@ -116,7 +116,7 @@ export const cm = (x: number): Length => ({
  */
 export const mm = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'mm']
+  value: [x, 'mm'],
 })
 
 /**
@@ -126,7 +126,7 @@ export const mm = (x: number): Length => ({
  */
 export const In = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'in']
+  value: [x, 'in'],
 })
 
 /**
@@ -136,7 +136,7 @@ export const In = (x: number): Length => ({
  */
 export const pc = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'pc']
+  value: [x, 'pc'],
 })
 
 /**
@@ -146,7 +146,7 @@ export const pc = (x: number): Length => ({
  */
 export const pt = (x: number): Length => ({
   __tag: 'Length',
-  value: [x, 'pt']
+  value: [x, 'pt'],
 })
 
 /**
@@ -156,7 +156,17 @@ export const pt = (x: number): Length => ({
  */
 export const url = (x: string): URL => ({
   __tag: 'URL',
-  value: x
+  value: x,
+})
+
+/**
+ * Constructs a value of type `URL`.
+ * @category Value constructor
+ * @added 0.2.7
+ */
+export const uri = (x: string): URI => ({
+  __tag: 'URI',
+  value: x,
 })
 
 /**
@@ -166,7 +176,7 @@ export const url = (x: string): URL => ({
  */
 export const s = (x: number): Time => ({
   __tag: 'Time',
-  value: [x, 's']
+  value: [x, 's'],
 })
 
 /**
@@ -176,9 +186,8 @@ export const s = (x: number): Time => ({
  */
 export const ms = (x: number): Time => ({
   __tag: 'Time',
-  value: [x, 'ms']
+  value: [x, 'ms'],
 })
-
 
 /**
  * Constructs a value of type **`CustomIdent`**.
@@ -187,5 +196,5 @@ export const ms = (x: number): Time => ({
  */
 export const ident = (x: string): CustomIdent => ({
   __tag: 'CustomIdent',
-  value: x
+  value: x,
 })

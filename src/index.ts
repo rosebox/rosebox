@@ -122,6 +122,7 @@ import { FontKerningDeclaration } from './core/font-kerning'
 import { FontStyleDeclaration } from './core/font-style'
 import { FontVariantLigaturesDeclaration } from './core/font-variant-ligatures'
 import { FontOpticalSizingDeclaration } from './core/font-optical-sizing'
+import { BgImageDeclaration } from './core/background-image'
 
 export * from './core/shared/value-constructors'
 export * from './core/color'
@@ -233,7 +234,8 @@ export type RoseboxProperties = Partial<
       /** Temporary  */
       listStyleType: string
     } & FontVariantLigaturesDeclaration &
-    FontOpticalSizingDeclaration
+    FontOpticalSizingDeclaration &
+    BgImageDeclaration
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {

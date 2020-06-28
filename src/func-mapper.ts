@@ -107,6 +107,7 @@ import { serializeFontVariationSettingsPropValue } from './core/font-variation-s
 import { serializeFontSynethsisPropValue } from './core/font-synthesis'
 import { serializeAlignContentPropValue } from './core/align-content'
 import { serializeFontVariantLigaturesPropValue } from './core/font-variant-ligatures'
+import { serializeBgImagePropValue } from './core/background-image'
 
 export const funcMap = {
   alignContent: serializeAlignContentPropValue,
@@ -137,6 +138,7 @@ export const funcMap = {
   borderLeftWidth: serializeBorderLeftWidthValue,
   borderWidth: serializeBorderWidthValue,
   backgroundColor: serializeBackgroundColorValue,
+  backgroundImage: serializeBgImagePropValue,
   boxShadow: serializeBoxShadowPropertyValue,
   cursor: serializeCursorValue,
   display: serializeDisplayValue,
