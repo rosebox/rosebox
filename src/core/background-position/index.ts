@@ -1,27 +1,10 @@
-import {
-  LengthPercentage,
-  isLengthType,
-  isPercentageType,
-  GlobalCssKeyword,
-} from '../shared/types'
-import {
-  serializeLength,
-  serializePercentage,
-  serializeLengthPercentage,
-} from '../shared/serializers'
+import { LengthPercentage, GlobalCssKeyword } from '../shared/types'
+import { serializeLengthPercentage } from '../shared/serializers'
 
 export const serializeAtomicValue = (x: Position): string => {
-  if (typeof x.value === 'string') return x.value
-  const pos = x.value
-  return pos.reduce((acc, val, idx) => {
-    const serializedVal =
-      typeof val === 'string'
-        ? val
-        : isLengthType(val)
-        ? acc + serializeLength(val)
-        : isPercentageType(val)
-        ? serializePercentage(val)
-        : `${val[0]} ${serializeLengthPercentage(val[1])}`
+  const { value } = x
+  return value.reduce((acc, val, idx) => {
+    const serializedVal = serializeLengthPercentage(val)
     return acc + serializedVal + (idx === pos.length - 1 ? '' : ' ')
   }, '')
 }
@@ -54,26 +37,24 @@ export type BgPositionDeclaration = {
 
 export interface Position {
   __tag: 'Position'
-  value: [
-    (
-      | 'left'
-      | 'center'
-      | 'right'
-      | LengthPercentage
-      | 'center'
-      | ['left' | 'right', LengthPercentage]
-    ),
-    (
-      | 'top'
-      | 'center'
-      | 'bottom'
-      | LengthPercentage
-      | 'center'
-      | ['top' | 'bottom', LengthPercentage]
-    )
-  ]
+  value: [LengthPercentage, LengthPercentage]
 }
 
+/*
+export const serializeBgPositionPropValue = (
+  x: Position | Position[]
+): string => {
+  if (typeof x === 'string') return x
+  if (Array.isArray(x))
+    return x.reduce(
+      (acc, val, idx) =>
+        acc + serializeAtomicValue(val) + (idx === x.length - 1 ? '' : ', '),
+      ''
+    )
+  return serializeAtomicValue(x)
+}*/
+
+/*
 export function pos(
   x: 'left' | 'center' | 'right' | LengthPercentage,
   y: 'top' | 'center' | 'bottom' | LengthPercentage
@@ -99,6 +80,14 @@ export function pos(
     | 'center'
     | ['top' | 'bottom', LengthPercentage]
 ): Position {
+  return {
+    __tag: 'Position',
+    value: [x, y],
+  }
+}
+*/
+
+export function pos(x: LengthPercentage, y: LengthPercentage): Position {
   return {
     __tag: 'Position',
     value: [x, y],
