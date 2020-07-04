@@ -33,7 +33,7 @@ test('style', () => {
     borderBottomColor: hsl(3, per(3), per(3)),
     borderLeftColor: hsl(3, per(3), per(3)),
     cursor: 'pointer',
-    display: 'flex block',
+    display: ['flex', 'block'],
     borderTopRightRadius: px(3),
     borderBottomRightRadius: per(20),
     borderBottomLeftRadius: rem(3),
