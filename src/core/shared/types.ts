@@ -245,6 +245,7 @@ export type AnimatableCSSProp = Exclude<
   | 'text-align'
   | 'text-transform'
   | 'transition-property'
+  | 'transform'
 >
 
 /**
