@@ -125,8 +125,7 @@ import { FontOpticalSizingDeclaration } from './core/font-optical-sizing'
 import { BgImageDeclaration } from './core/background-image'
 import { BgPositionDeclaration } from './core/background-position'
 
-export * from './core/shared/value-constructors'
-export * from './core/color'
+export * from './core'
 export * from './react'
 
 export type RoseboxProperties = Partial<

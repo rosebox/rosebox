@@ -3,10 +3,10 @@ import { scaleX, scaleY, scaleZ, scale, scale3d } from './scale'
 
 test('scaleX()', () => {
   const received = style({
-    transform: scaleX(1),
+    transform: scaleX(0),
   })
   const expected = {
-    transform: 'scaleX(1)',
+    transform: 'scaleX(0)',
   }
   expect(received).toEqual(expected)
 })
