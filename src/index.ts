@@ -124,6 +124,7 @@ import { FontVariantLigaturesDeclaration } from './core/font-variant-ligatures'
 import { FontOpticalSizingDeclaration } from './core/font-optical-sizing'
 import { BgImageDeclaration } from './core/background-image'
 import { BgPositionDeclaration } from './core/background-position'
+import { WordSpacingDeclaration } from './core/word-spacing'
 
 export * from './core'
 export * from './react'
@@ -236,7 +237,8 @@ export type RoseboxProperties = Partial<
     } & FontVariantLigaturesDeclaration &
     FontOpticalSizingDeclaration &
     BgImageDeclaration &
-    BgPositionDeclaration
+    BgPositionDeclaration &
+    WordSpacingDeclaration
 >
 
 export const style = (obj: RoseboxProperties): CSSProperties => {

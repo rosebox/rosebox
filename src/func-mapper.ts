@@ -109,6 +109,7 @@ import { serializeAlignContentPropValue } from './core/align-content'
 import { serializeFontVariantLigaturesPropValue } from './core/font-variant-ligatures'
 import { serializeBgImagePropValue } from './core/background-image'
 import { serializeBgPositionPropValue } from './core/background-position'
+import { serializeWordSpacingPropValue } from './core/word-spacing'
 
 export const funcMap = {
   alignContent: serializeAlignContentPropValue,
@@ -203,4 +204,5 @@ export const funcMap = {
   perspectiveOrigin: serializePerspectiveOriginPropertyValue,
   perspective: serializePerspectivePropertyValue,
   fontVariantLigatures: serializeFontVariantLigaturesPropValue,
+  wordSpacing: serializeWordSpacingPropValue,
 }
