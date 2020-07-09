@@ -93,6 +93,7 @@ test('style', () => {
     transformStyle: 'flat',
     perspectiveOrigin: ['left', px(20)],
     perspective: px(30),
+    objectFit: 'fill',
   })
 
   const expected = {
@@ -181,6 +182,7 @@ test('style', () => {
     transformStyle: 'flat',
     perspectiveOrigin: 'left 20px',
     perspective: '30px',
+    objectFit: 'fill',
   }
   expect(received).toEqual(expected)
 })
