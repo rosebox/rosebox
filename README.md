@@ -4,7 +4,7 @@
 
 # Rosebox
 
-Rosebox is an active project with the ultimate goal to build an independent and complete JS/TS styling framework with an emphasis on writing declarative, reliable, and conflict-free style-code.
+Rosebox is an experimental project with the ultimate goal to build a complete JS/TS styling framework with an emphasis on writing expressive, scalable, and conflict-free style-code.
 
 ## Docs
 

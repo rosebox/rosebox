@@ -5,11 +5,11 @@
   useEffect,
   MutableRefObject,
 } from 'react'
-import { RoseboxProperties } from '../index'
+import { RBStyle } from '../index'
 
 type Props = {
   children: ReactNode
-  before: RoseboxProperties
+  before: RBStyle
   elRef?: (ref: MutableRefObject<null>) => void
 }
 

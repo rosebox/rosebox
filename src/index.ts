@@ -130,7 +130,7 @@ import { ObjectFitDeclaration } from './core/object-fit'
 export * from './core'
 export * from './react'
 
-export type RoseboxProperties = Partial<
+export type RBStyle = Partial<
   WidthDeclaration &
     HeightDeclaration &
     BgColorDeclaration &
@@ -243,7 +243,7 @@ export type RoseboxProperties = Partial<
     ObjectFitDeclaration
 >
 
-export const style = (obj: RoseboxProperties): CSSProperties => {
+export const style = (obj: RBStyle): CSSProperties => {
   // NEEDS improvement
   return Object.keys(obj).reduce((acc, key) => {
     return Object.assign({}, acc, {

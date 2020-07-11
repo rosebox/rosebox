@@ -2,18 +2,18 @@ import { useState, useEffect, useCallback } from 'react'
 import { generate as generateId } from 'short-uuid'
 
 import { createStyleTag, toCss, removeStyleTag } from '../dom'
-import { style, RoseboxProperties } from '..'
+import { style, RBStyle } from '..'
 
 export type ListItemStyle = {
-  class: RoseboxProperties
-  inline: RoseboxProperties
+  class: RBStyle
+  inline: RBStyle
 }
 
 type UseStyleCallback = (
   ...args: any[]
 ) => {
-  class: RoseboxProperties
-  inline: RoseboxProperties
+  class: RBStyle
+  inline: RBStyle
 }
 
 /**
@@ -55,7 +55,7 @@ export const useListItemStyle = (styleFunc: UseStyleCallback) => {
 
 /*export const usePseudo = (elRef?: (ref: MutableRefObject<null>) => void) => {
   // Set up state
-  const [beforeStyleState, setBeforeStyleState] = useState<RoseboxProperties>()
+  const [beforeStyleState, setBeforeStyleState] = useState<RBStyle>()
   const [styleTagId] = useState('rb-' + generateId())
 
   const callbackRef = useCallback(
@@ -78,7 +78,7 @@ export const useListItemStyle = (styleFunc: UseStyleCallback) => {
     }
   }, [beforeStyleState, styleTagId])
 
-  const styleBefore = (before: RoseboxProperties) => {
+  const styleBefore = (before: RBStyle) => {
     if (before !== beforeStyleState && !isEqual(before, beforeStyleState)) {
       setBeforeStyleState(before)
     }
