@@ -243,7 +243,7 @@ export type RBStyle_ = Partial<
     ObjectFitDeclaration
 >
 
-type RBStyle = RBStyle_ & Omit<React.CSSProperties, keyof RBStyle_>
+export type RBStyle = RBStyle_ & Omit<React.CSSProperties, keyof RBStyle_>
 
 export type RoseboxProperties = RBStyle
 
