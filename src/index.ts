@@ -243,6 +243,8 @@ export type RBStyle = Partial<
     ObjectFitDeclaration
 >
 
+export type RoseboxProperties = RBStyle
+
 export const style = (obj: RBStyle): CSSProperties => {
   // NEEDS improvement
   return Object.keys(obj).reduce((acc, key) => {
