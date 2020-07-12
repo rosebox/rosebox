@@ -130,7 +130,7 @@ import { ObjectFitDeclaration } from './core/object-fit'
 export * from './core'
 export * from './react'
 
-export type RBStyle_ = Partial<
+export type RBStyle = Partial<
   WidthDeclaration &
     HeightDeclaration &
     BgColorDeclaration &
@@ -240,10 +240,10 @@ export type RBStyle_ = Partial<
     BgImageDeclaration &
     BgPositionDeclaration &
     WordSpacingDeclaration &
-    ObjectFitDeclaration
+    ObjectFitDeclaration & {
+      [x: string]: any
+    }
 >
-
-export type RBStyle = RBStyle_ & Omit<React.CSSProperties, keyof RBStyle_>
 
 export type RoseboxProperties = RBStyle
 
