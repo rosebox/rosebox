@@ -35,6 +35,10 @@ export type BgPositionDeclaration = {
   backgroundPosition: Position | Position[] | GlobalCssKeyword
 }
 
+/**
+ * A value of this type defines an (x, y) coordinate.
+ * @added 0.2.7
+ */
 export interface Position {
   __tag: 'Position'
   value: [LengthPercentage, LengthPercentage]
@@ -87,6 +91,10 @@ export function pos(
 }
 */
 
+/**
+ * @category Value constructor
+ * @added 0.2.7
+ */
 export function pos(x: LengthPercentage, y: LengthPercentage): Position {
   return {
     __tag: 'Position',
