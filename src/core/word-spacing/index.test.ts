@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { px } from '../shared/value-constructors'
+import { px } from '../shared'
 
 test('wordSpacing: Length', () => {
   const received = style({

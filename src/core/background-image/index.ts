@@ -1,5 +1,5 @@
 import { serializeColor, Color } from '../color'
-import { GlobalCssKeyword, isGlobalCssKeyword, URI } from '../shared/types'
+import { GlobalCssKeyword, isGlobalCssKeyword, URI } from '../shared'
 
 export type BackgroundColorCSSProp = 'background-color'
 

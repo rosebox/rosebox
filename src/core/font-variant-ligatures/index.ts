@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared/types'
+import { GlobalCssKeyword } from '../shared'
 
 type DoubleBar2<A, B> = A | B | [A, B] | [B, A]
 type DoubleBar3<A, B, C> =

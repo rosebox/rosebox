@@ -6,7 +6,7 @@ import {
   translate,
   translate3d,
 } from './translate'
-import { px, per } from '../../shared/value-constructors'
+import { px, per } from '../../shared'
 
 test('translateX()', () => {
   const received = style({

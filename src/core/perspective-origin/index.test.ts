@@ -1,35 +1,12 @@
 import { style } from '../../index'
-import { per, px } from '../shared/value-constructors'
+import { pos, px } from '../shared'
 
 test('perspectiveOrigin: [left center]', () => {
   const received = style({
-    perspectiveOrigin: ['left', 'center'],
+    perspectiveOrigin: pos(px(50), px(30)),
   })
   const expected = {
-    perspectiveOrigin: 'left center',
-  }
-  expect(received).toEqual(expected)
-})
-
-test('perspectiveOrigin: [Perecentage center]', () => {
-  const received = style({
-    perspectiveOrigin: [per(30), 'center'],
-  })
-  const expected = {
-    perspectiveOrigin: '30% center',
-  }
-  expect(received).toEqual(expected)
-})
-
-test('perspectiveOrigin: [right Percentage, bottom Percentage]', () => {
-  const received = style({
-    perspectiveOrigin: [
-      ['right', px(30)],
-      ['bottom', per(30)],
-    ],
-  })
-  const expected = {
-    perspectiveOrigin: 'right 30px bottom 30%',
+    perspectiveOrigin: '50px 30px',
   }
   expect(received).toEqual(expected)
 })

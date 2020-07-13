@@ -1,10 +1,10 @@
-import { AnimatableCSSProp, Time, GlobalCssKeyword } from '../shared/types'
+import { AnimatableCSSProp, Time, GlobalCssKeyword } from '../shared'
 import {
   TransitionTimingFunctionValue,
-  serializeTransitionTimingFunctionValue
+  serializeTransitionTimingFunctionValue,
 } from '../transition-timing-function'
-import { isTime } from '../shared/types'
-import { serializeTime } from '../shared/serializers'
+import { isTime } from '../shared'
+import { serializeTime } from '../shared'
 
 type SingleTransition =
   | 'none'

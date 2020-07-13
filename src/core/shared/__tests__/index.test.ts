@@ -1,6 +1,6 @@
 import { deg, serializeAngle, grad, rad, turn } from '../angle'
 import { serializeTime } from '../serializers'
-import { ms, s } from '../value-constructors'
+import { ms, s } from '../index'
 
 test('serializeTime(value: Time<ms>)', () => {
   const received = serializeTime(ms(300))

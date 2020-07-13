@@ -22,7 +22,7 @@ import { serializeMaxWidthValue } from './core/max-width'
 import { serializeMinHeightValue } from './core/min-height'
 import { serializeMinWidthValue } from './core/min-width'
 import { serializeOpacity } from './core/opacity'
-import { serializePosition } from './core/position'
+import { serializePositionPropValue } from './core/position'
 import { serializeVisibilityValue } from './core/visibility'
 import {
   serializeBorderColorValue,
@@ -165,7 +165,7 @@ export const funcMap = {
   overflowX: serializeOverflowX,
   overflowY: serializeOverflowY,
   overflow: serializeOverflow,
-  position: serializePosition,
+  position: serializePositionPropValue,
   visibility: serializeVisibilityValue,
   zIndex: serializezIndexValue,
   textTransform: serializeTextTransformValue,

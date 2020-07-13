@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { per } from '../shared/value-constructors'
+import { per } from '../shared'
 
 test('fontStretch: keyword', () => {
   const received = style({

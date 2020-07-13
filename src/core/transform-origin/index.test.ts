@@ -1,5 +1,5 @@
 import { serializeTransformOriginPropertyValue } from './transform-origin'
-import { per, px } from '../shared/value-constructors'
+import { per, px } from '../shared'
 
 test('transormOrigin([keyword, keyword])', () => {
   const received = {

@@ -1,5 +1,5 @@
 import { serializeBoxShadowPropertyValue } from '../index'
-import { px } from '../../shared/value-constructors'
+import { px } from '../../shared'
 import { rgb } from '../../color'
 
 test('boxShadow(x: none)', () => {

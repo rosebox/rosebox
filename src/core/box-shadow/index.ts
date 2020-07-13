@@ -2,10 +2,10 @@ import {
   Length,
   isLengthType,
   GlobalCssKeyword,
-  isGlobalCssKeyword
-} from '../shared/types'
+  isGlobalCssKeyword,
+} from '../shared'
 import { Color, isColor, serializeColor } from '../color'
-import { serializeLength } from '../shared/serializers'
+import { serializeLength } from '../shared'
 
 type LengthTuple =
   | [Length, Length]
@@ -42,12 +42,12 @@ export const serializeShadow = (value: Shadow): string => {
         (isColor(item)
           ? serializeColor(item)
           : isLengthType(item)
-            ? serializeLength(item)
-            : isLengthTuple(item)
-              ? serializeLengthTuple(item)
-              : item === 'inset'
-                ? 'inset'
-                : 'test')
+          ? serializeLength(item)
+          : isLengthTuple(item)
+          ? serializeLengthTuple(item)
+          : item === 'inset'
+          ? 'inset'
+          : 'test')
       )
     }, '')
     .trim()
@@ -64,12 +64,12 @@ const serializeShadowArray = (value: Shadow[]): string =>
 
 export const serializeBoxShadowPropertyValue = (
   value: Shadow | Shadow[] | GlobalCssKeyword | 'none'
-): string => value === 'none' || isGlobalCssKeyword(value)
+): string =>
+  value === 'none' || isGlobalCssKeyword(value)
     ? value
     : !Array.isArray(value[0]) || isLengthTuple(value[0])
-      ? serializeShadow(value as Shadow)
-      : serializeShadowArray(value as Shadow[])
-
+    ? serializeShadow(value as Shadow)
+    : serializeShadowArray(value as Shadow[])
 
 /**
  * @category RBDeclarationTypeAlias

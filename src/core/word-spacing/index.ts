@@ -1,5 +1,5 @@
-import { GlobalCssKeyword, Length } from '../shared/types'
-import { serializeLength } from '../shared/serializers'
+import { GlobalCssKeyword, Length } from '../shared'
+import { serializeLength } from '../shared'
 
 export type WordSpacingCSSProp = 'word-spacing'
 

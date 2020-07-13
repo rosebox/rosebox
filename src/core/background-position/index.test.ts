@@ -1,6 +1,6 @@
 import { style } from '../../index'
-import { per } from '../shared/value-constructors'
-import { pos } from '.'
+import { per } from '../shared'
+import { pos } from '../shared'
 
 test('backgroundPosition: [per(50), per(50)]', () => {
   const received = style({

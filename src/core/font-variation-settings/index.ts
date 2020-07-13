@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared/types'
+import { GlobalCssKeyword } from '../shared'
 
 export const serializeFontVariationSettingsPropValue = (
   x: 'normal' | [string, number] | [string, number][] | GlobalCssKeyword

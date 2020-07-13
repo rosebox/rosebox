@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared/types'
+import { GlobalCssKeyword } from '../shared'
 
 export type BoxSizingCSSProp = 'box-sizing'
 
@@ -17,7 +17,8 @@ export const boxContent = { display: 'content-box' } as const
  */
 export const boxBorder = { display: 'border-box' } as const
 
-export const serializeBoxSizingValue = (value: BoxSizing | GlobalCssKeyword) => value
+export const serializeBoxSizingValue = (value: BoxSizing | GlobalCssKeyword) =>
+  value
 
 /**
  * @category RBDeclarationTypeAlias

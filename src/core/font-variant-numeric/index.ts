@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared/types'
+import { GlobalCssKeyword } from '../shared'
 
 type NumericFigureValues = 'lining-nums' | 'oldstyle-num'
 type NumericSpacingValues = 'proportional-nums' | 'tabular-nums'

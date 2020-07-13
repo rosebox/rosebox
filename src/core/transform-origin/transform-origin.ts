@@ -1,5 +1,5 @@
-import { LengthPercentage, GlobalCssKeyword, Length } from '../shared/types'
-import { serializeLengthPercentage } from '../shared/serializers'
+import { LengthPercentage, GlobalCssKeyword, Length } from '../shared'
+import { serializeLengthPercentage } from '../shared'
 
 const WHITESPACE = ' '
 

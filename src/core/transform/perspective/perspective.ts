@@ -1,6 +1,6 @@
-import { Length } from '../../shared/types'
+import { Length } from '../../shared'
 import { TransformFunction } from '../shared'
-import { serializeLength } from '../../shared/serializers'
+import { serializeLength } from '../../shared'
 
 /**
  * Translates to CSS's **`perspective(x)`**

@@ -10,7 +10,7 @@ import {
   isTranslate3d,
   serializeTranslate3d,
 } from './translate'
-import { isGlobalCssKeyword, GlobalCssKeyword } from '../shared/types'
+import { isGlobalCssKeyword, GlobalCssKeyword } from '../shared'
 import { TransformFunction } from './shared'
 import {
   isScaleX,

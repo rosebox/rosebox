@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { uri } from '../shared/value-constructors'
+import { uri } from '../shared'
 
 test('backgroundImage: keyword', () => {
   const received = style({

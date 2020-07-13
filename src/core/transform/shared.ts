@@ -1,4 +1,4 @@
-import { LengthPercentage, Length } from '../shared/types'
+import { LengthPercentage, Length } from '../shared'
 import { Angle } from '../shared'
 
 /**

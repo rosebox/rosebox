@@ -3,8 +3,8 @@ import {
   Percentage,
   GlobalCssKeyword,
   isGlobalCssKeyword,
-} from '../shared/types'
-import { serializeLengthPercentage } from '../shared/serializers'
+} from '../shared'
+import { serializeLengthPercentage } from '../shared'
 
 export type TopCSSProp = 'top'
 export type RightCSSProp = 'right'
@@ -17,8 +17,8 @@ export const serializeBoxOffsetValue = (
   value === 'auto'
     ? 'auto'
     : isGlobalCssKeyword(value)
-      ? value
-      : serializeLengthPercentage(value)
+    ? value
+    : serializeLengthPercentage(value)
 
 export const serializeTopValue = serializeBoxOffsetValue
 
@@ -36,7 +36,6 @@ export type TopDeclaration = {
   top: Length | Percentage | 'auto' | GlobalCssKeyword
 }
 
-
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -52,7 +51,6 @@ export type RightDeclaration = {
 }
 
 export const serializeRightValue = serializeBoxOffsetValue
-
 
 /**
  * @category RBDeclarationTypeAlias

@@ -1,8 +1,8 @@
-import { GlobalCssKeyword } from '../shared/types'
+import { GlobalCssKeyword } from '../shared'
 
 export type PositionCSSProp = 'position'
 
-export const serializePosition = (
+export const serializePositionPropValue = (
   value:
     | 'relative'
     | 'absolute'

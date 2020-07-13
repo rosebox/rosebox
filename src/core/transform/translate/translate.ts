@@ -1,5 +1,5 @@
-import { LengthPercentage } from '../../shared/types'
-import { serializeLengthPercentage } from '../../shared/serializers'
+import { LengthPercentage } from '../../shared'
+import { serializeLengthPercentage } from '../../shared'
 import { TransformFunction } from '../shared'
 
 /**

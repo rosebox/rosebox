@@ -1,14 +1,29 @@
-import { Length, Percentage, URL, Time, CustomIdent, URI } from './types'
+export type LengthUnit =
+  | 'em'
+  | 'ex'
+  | 'ch'
+  | 'rem'
+  | 'vw'
+  | 'vh'
+  | 'vmin'
+  | 'vmax'
+  | 'cm'
+  | 'mm'
+  | 'Q'
+  | 'in'
+  | 'pc'
+  | 'pt'
+  | 'px'
 
 /**
- * Constructs a value of type **`Percentage`**.
- * @category Value constructor
+ *
+ * A type that maps to CSS's **`<length>`** type.
  * @added 0.1.0
  */
-export const per = (x: number): Percentage => ({
-  __tag: 'Percentage',
-  value: x,
-})
+export interface Length {
+  __tag: 'Length'
+  value: [number, LengthUnit]
+}
 
 /**
  * Constructs a value of type `Length` where the unit is **`px`**.
@@ -149,52 +164,6 @@ export const pt = (x: number): Length => ({
   value: [x, 'pt'],
 })
 
-/**
- * Constructs a value of type `URL`.
- * @category Value constructor
- * @added 0.1.96
- */
-export const url = (x: string): URL => ({
-  __tag: 'URL',
-  value: x,
-})
-
-/**
- * Constructs a value of type `URL`.
- * @category Value constructor
- * @added 0.2.7
- */
-export const uri = (x: string): URI => ({
-  __tag: 'URI',
-  value: x,
-})
-
-/**
- * Constructs a value of type **`Time`** where the unit is **`seconds`**.
- * @category Value constructor
- * @added 0.2.1
- */
-export const s = (x: number): Time => ({
-  __tag: 'Time',
-  value: [x, 's'],
-})
-
-/**
- * Constructs a value of type **`Time`** where the unit is **`milliseconds`**.
- * @category Value constructor
- * @added 0.2.1
- */
-export const ms = (x: number): Time => ({
-  __tag: 'Time',
-  value: [x, 'ms'],
-})
-
-/**
- * Constructs a value of type **`CustomIdent`**.
- * @category Value constructor
- * @added 0.2.1
- */
-export const ident = (x: string): CustomIdent => ({
-  __tag: 'CustomIdent',
-  value: x,
-})
+/** Type-guard */
+export const isLengthType = (value: any): value is Length =>
+  value.__tag === 'Length'

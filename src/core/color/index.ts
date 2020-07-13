@@ -1,5 +1,5 @@
-import { Percentage, GlobalCssKeyword } from '../shared/types'
-import { serializePercentage } from '../shared/serializers'
+import { Percentage, GlobalCssKeyword } from '../shared'
+import { serializePercentage } from '../shared'
 
 export type ColorCSSProp = 'color'
 

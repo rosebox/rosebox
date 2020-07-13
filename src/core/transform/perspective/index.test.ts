@@ -1,6 +1,6 @@
 import { style } from '../../../index'
 import { perspective } from './perspective'
-import { px } from '../../shared/value-constructors'
+import { px } from '../../shared'
 
 test('perspective()', () => {
   const received = style({

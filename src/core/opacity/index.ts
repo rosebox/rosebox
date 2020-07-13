@@ -1,27 +1,24 @@
-import { Percentage, isPercentageType, GlobalCssKeyword } from '../shared/types'
-import { serializePercentage } from '../shared/serializers'
+import { Percentage, isPercentageType, GlobalCssKeyword } from '../shared'
+import { serializePercentage } from '../shared'
 
 export type OpacityCSSProp = 'opacity'
 
-
-export const serializeOpacity = (value: number | Percentage | GlobalCssKeyword) =>
-    isPercentageType(value)
-        ? serializePercentage(value)
-        : value
-
+export const serializeOpacity = (
+  value: number | Percentage | GlobalCssKeyword
+) => (isPercentageType(value) ? serializePercentage(value) : value)
 
 /**
  * @category RBDeclarationTypeAlias
  */
 export type OpacityDeclaration = {
-    /**
-     * Maps to CSS's **`opacity`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <number> | <percentage>
-     * @added 0.2.0
-     * @implementationReference https://drafts.csswg.org/css-color-4/#typedef-alpha-value
-     */
-    opacity: number | Percentage | GlobalCssKeyword
+  /**
+   * Maps to CSS's **`opacity`** property
+   * @category RBProperty
+   * @formalSyntaxForValue <number> | <percentage>
+   * @added 0.2.0
+   * @implementationReference https://drafts.csswg.org/css-color-4/#typedef-alpha-value
+   */
+  opacity: number | Percentage | GlobalCssKeyword
 }
 
 export const op01 = { opacity: 0.1 }

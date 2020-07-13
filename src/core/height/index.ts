@@ -2,9 +2,9 @@ import {
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
-  Width
-} from '../shared/types'
-import { serializeLength, serializePercentage } from '../shared/serializers'
+  Width,
+} from '../shared'
+import { serializeLength, serializePercentage } from '../shared'
 
 export type HeightCSSProp = 'height'
 

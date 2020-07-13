@@ -1,5 +1,5 @@
 import { per, style } from '../../index'
-import { px, rem, s, ms, ident } from '../shared/value-constructors'
+import { px, rem, s, ms, ident, pos } from '../shared'
 import { rgb, hex, hsl } from '../color'
 import { steps } from '../transition-timing-function'
 import { skew } from '../transform/skew'
@@ -91,7 +91,7 @@ test('style', () => {
     alignContent: 'space-evenly',
     backfaceVisibility: 'hidden',
     transformStyle: 'flat',
-    perspectiveOrigin: ['left', px(20)],
+    perspectiveOrigin: pos(px(40), px(20)),
     perspective: px(30),
     objectFit: 'fill',
   })
@@ -180,7 +180,7 @@ test('style', () => {
     alignContent: 'space-evenly',
     backfaceVisibility: 'hidden',
     transformStyle: 'flat',
-    perspectiveOrigin: 'left 20px',
+    perspectiveOrigin: '40px 20px',
     perspective: '30px',
     objectFit: 'fill',
   }

@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared/types'
+import { GlobalCssKeyword } from '../shared'
 
 export const serializeFontSizeAdjustPropValue = (
   x: number | 'none' | GlobalCssKeyword

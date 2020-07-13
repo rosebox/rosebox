@@ -1,5 +1,5 @@
-import { GlobalCssKeyword, Percentage } from '../shared/types'
-import { serializePercentage } from '../shared/serializers'
+import { GlobalCssKeyword, Percentage } from '../shared'
+import { serializePercentage } from '../shared'
 
 export const serializeFontStretchPropertyValue = (
   x: Percentage | string

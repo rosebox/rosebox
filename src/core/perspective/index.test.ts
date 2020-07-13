@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { px } from '../shared/value-constructors'
+import { px } from '../shared'
 
 test('perspective: none', () => {
   const received = style({
