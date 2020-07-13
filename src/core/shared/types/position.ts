@@ -1,5 +1,5 @@
 import { LengthPercentage } from './shared'
-import { serializeLengthPercentage } from '../serializers'
+import { serializeLengthPercentage } from './shared'
 
 /**
  * A value of this type defines an (x, y) coordinate.

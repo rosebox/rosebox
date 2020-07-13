@@ -167,3 +167,6 @@ export const pt = (x: number): Length => ({
 /** Type-guard */
 export const isLengthType = (value: any): value is Length =>
   value.__tag === 'Length'
+
+export const serializeLength = (value: Length) =>
+  `${value.value[0]}${value.value[1]}`

@@ -31,3 +31,6 @@ export const ms = (x: number): Time => ({
 })
 
 export const isTime = (value: any): value is Time => value.__tag === 'Time'
+
+export const serializeTime = (value: Time): string =>
+  `${value.value[0]}${value.value[1]}`

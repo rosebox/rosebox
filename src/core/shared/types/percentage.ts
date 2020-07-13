@@ -20,3 +20,6 @@ export const per = (x: number): Percentage => ({
 /** Type-guard */
 export const isPercentageType = (value: any): value is Percentage =>
   value.__tag === 'Percentage'
+
+export const serializePercentage = (percentage: Percentage): string =>
+  `${percentage.value}%`

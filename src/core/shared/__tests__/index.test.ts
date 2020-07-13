@@ -1,5 +1,5 @@
 import { deg, serializeAngle, grad, rad, turn } from '../angle'
-import { serializeTime } from '../serializers'
+import { serializeTime } from '../'
 import { ms, s } from '../index'
 
 test('serializeTime(value: Time<ms>)', () => {

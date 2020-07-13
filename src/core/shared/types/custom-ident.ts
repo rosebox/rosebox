@@ -17,3 +17,6 @@ export const ident = (x: string): CustomIdent => ({
   __tag: 'CustomIdent',
   value: x,
 })
+
+export const serializeCustomIdent = (value: CustomIdent): string =>
+  `${value.value}`
