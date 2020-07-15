@@ -14,7 +14,7 @@ export type MarginBottomCSSProp = 'margin-bottom'
 export type MarginLeftCSSProp = 'margin-left'
 export type MarginCSSProp = 'margin'
 
-type MarginSide = Length | Percentage | 'auto'
+type MarginValue = Length | Percentage | 'auto'
 
 const serializeAtomicValue = (
   value: Length | Percentage | 'auto' | GlobalCssKeyword
@@ -77,14 +77,14 @@ export type MarginLeftDeclaration = {
   marginLeft: Length | Percentage | 'auto' | GlobalCssKeyword
 }
 
-type MarginShorthandSingleValue = MarginSide | [MarginSide]
-type MarginShorthandTwoValues = [MarginSide, MarginSide]
-type MarginShorthandThreeValues = [MarginSide, MarginSide, MarginSide]
+type MarginShorthandSingleValue = MarginValue | [MarginValue]
+type MarginShorthandTwoValues = [MarginValue, MarginValue]
+type MarginShorthandThreeValues = [MarginValue, MarginValue, MarginValue]
 type MarginShorthandFourValues = [
-  MarginSide,
-  MarginSide,
-  MarginSide,
-  MarginSide
+  MarginValue,
+  MarginValue,
+  MarginValue,
+  MarginValue
 ]
 
 type MarginShorthand =
@@ -120,5 +120,5 @@ export type MarginDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  margin: MarginShorthand | GlobalCssKeyword
+  margin: MarginValue | [MarginValue, MarginValue] | GlobalCssKeyword
 }
