@@ -5,6 +5,7 @@ import {
   isLengthType,
   isPercentageType,
   isGlobalCssKeyword,
+  LengthPercentage,
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
@@ -88,17 +89,8 @@ export type PaddingLeftDeclaration = {
 }
 
 type PaddingShorthand =
-  | Length
-  | Percentage
-  | [Length | Percentage]
-  | [Length | Percentage, Length | Percentage]
-  | [Length | Percentage, Length | Percentage, Length | Percentage]
-  | [
-      Length | Percentage,
-      Length | Percentage,
-      Length | Percentage,
-      Length | Percentage
-    ]
+  | LengthPercentage
+  | [LengthPercentage, LengthPercentage, LengthPercentage, LengthPercentage]
 
 const serializeShorthandleValue = (value: PaddingShorthand): string =>
   isLengthType(value)
@@ -121,11 +113,13 @@ export const serializePaddingValue = (
  */
 export type PaddingDeclaration = {
   /**
-   * Maps to CSS's **`padding`** property
+   * Maps to CSS's **`padding`** property.
    * @category RBProperty
-   * @formalSyntaxForValue <padding-top’>{1,4}
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  padding: PaddingShorthand | GlobalCssKeyword
+  padding:
+    | LengthPercentage
+    | [LengthPercentage, LengthPercentage, LengthPercentage, LengthPercentage]
+    | GlobalCssKeyword
 }
