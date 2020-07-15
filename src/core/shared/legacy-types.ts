@@ -57,7 +57,6 @@ import { VisibilityCSSProp } from '../visibility'
 import { WidthCSSProp } from '../width'
 import { ZIndexCSSProp } from '../z-index/index'
 import { TransitionPropertyCSSProp } from '../transition-property'
-import { CustomIdent } from './types'
 
 export type CSSProp =
   | BackgroundColorCSSProp
@@ -113,4 +112,4 @@ export type CSSProp =
   | ZIndexCSSProp
   | TransitionPropertyCSSProp
 
-export type AnimatableCSSProp = string | CustomIdent
+export type AnimatableCSSProp = string

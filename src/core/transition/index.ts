@@ -76,12 +76,7 @@ const isSingleTransition = (
   !Array.isArray(value[0]) || (!!value[1] && !Array.isArray(value[1]))
 
 const serializeSingleTransition = (value: SingleTransitionTuple): string =>
-  (value as (
-    | 'none'
-    | AnimatableCSSProp
-    | Time
-    | TransitionTimingFunctionValue
-  )[])
+  (value as any[])
     .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
     .trim()
 
