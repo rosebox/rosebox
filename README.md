@@ -4,7 +4,7 @@
 
 # Rosebox
 
-Rosebox is an experimental project with the ultimate goal to build a complete JS/TS styling framework with an emphasis on writing expressive, scalable, and conflict-free style-code.
+Rosebox is an experimental CSS-in-JS library that focuses on modeling CSS in Typescript in a way that leverages the capabilities of Typescript's type system, providing strong types and a structured and improved syntax
 
 ## Docs
 
