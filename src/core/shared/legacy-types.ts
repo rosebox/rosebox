@@ -111,5 +111,22 @@ export type CSSProp =
   | WidthCSSProp
   | ZIndexCSSProp
   | TransitionPropertyCSSProp
+  | 'transform'
 
-export type AnimatableCSSProp = string
+export type AnimatableCSSProp = Exclude<
+  CSSProp,
+  | 'border-style'
+  | 'box-sizing'
+  | 'cursor'
+  | 'display'
+  | 'font-family'
+  | 'flex-direction'
+  | 'flex-wrap'
+  | 'overflow-x'
+  | 'overflow-y'
+  | 'overflow'
+  | 'position'
+  | 'text-align'
+  | 'text-transform'
+  | 'transition-property'
+>

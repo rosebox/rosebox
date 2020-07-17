@@ -1,5 +1,9 @@
-import { GlobalCssKeyword, AnimatableCSSProp, CustomIdent } from '../shared'
-import { serializeCustomIdent } from '../shared'
+import {
+  GlobalCssKeyword,
+  AnimatableCSSProp,
+  CustomIdent,
+} from '../shared/types'
+import { serializeCustomIdent } from '../shared/serializers'
 
 export type TransitionPropertyCSSProp = 'transition-property'
 
