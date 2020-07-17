@@ -116,9 +116,9 @@ export type MarginDeclaration = {
   /**
    * Maps to CSS's **`margin`** property
    * @category RBProperty
-   * @formalSyntaxForValue <‘margin-top’>{1,4}
-   * @added 0.2.0
-   * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  margin: MarginValue | [MarginValue, MarginValue] | GlobalCssKeyword
+  margin:
+    | MarginValue
+    | [MarginValue, MarginValue, MarginValue, MarginValue]
+    | GlobalCssKeyword
 }
