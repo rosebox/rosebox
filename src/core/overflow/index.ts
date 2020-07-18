@@ -1,32 +1,6 @@
 import { GlobalCssKeyword } from '../shared'
 
-export type OverflowXCSSProp = 'overflow-x'
-export type OverflowYCSSProp = 'overflow-y'
-export type OverflowCSSProp = 'overflow'
-
 type OverflowKeyword = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto'
-
-type TwoOverflowKeywords =
-  | 'visible hidden'
-  | 'hidden visible'
-  | 'visible clip'
-  | 'clip visible'
-  | 'visible scroll'
-  | 'scroll visible'
-  | 'visible auto'
-  | 'auto visible'
-  | 'hidden clip'
-  | 'clip hidden'
-  | 'hidden scroll'
-  | 'scroll hidden'
-  | 'hidden auto'
-  | 'auto hidden'
-  | 'clip scroll'
-  | 'scroll clip'
-  | 'clip auto'
-  | 'auto clip'
-  | 'scroll auto'
-  | 'auto scroll'
 
 export const serializeOverflowX = (value: OverflowKeyword | GlobalCssKeyword) =>
   value
@@ -59,8 +33,11 @@ export type OverflowYDeclaration = {
 type OneOverflowKeyword = OverflowKeyword
 
 export const serializeOverflow = (
-  value: OneOverflowKeyword | TwoOverflowKeywords | GlobalCssKeyword
-) => value
+  value:
+    | OneOverflowKeyword
+    | [OneOverflowKeyword, OneOverflowKeyword]
+    | GlobalCssKeyword
+) => (Array.isArray(value) ? `${value[0]} ${value[1]}` : value)
 
 /**
  * @category RBDeclarationTypeAlias
@@ -73,5 +50,8 @@ export type OverflowDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
    */
-  overflow: OneOverflowKeyword | TwoOverflowKeywords | GlobalCssKeyword
+  overflow:
+    | OverflowKeyword
+    | [OverflowKeyword, OverflowKeyword]
+    | GlobalCssKeyword
 }

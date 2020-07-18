@@ -24,7 +24,7 @@ test('style', () => {
     opacity: per(20),
     overflowX: 'clip',
     overflowY: 'auto',
-    overflow: 'auto hidden',
+    overflow: ['auto', 'hidden'],
     position: 'relative',
     visibility: 'collapse',
     borderColor: hsl(3, per(3), per(3)),
