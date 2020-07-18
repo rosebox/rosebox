@@ -1,6 +1,6 @@
 import { rotateX } from './index'
 import { style } from '../../../index'
-import { deg } from '../../shared/angle'
+import { deg } from '../../shared'
 import { rotateY, rotateZ, rotate, rotate3d } from './rotate'
 
 test('rotateX(Angle<deg>)', () => {

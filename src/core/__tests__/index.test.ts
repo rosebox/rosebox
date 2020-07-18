@@ -1,9 +1,9 @@
 import { per, style } from '../../index'
-import { px, rem, s, ms, ident, pos } from '../shared'
+import { px, rem, s, ms, ident, pos } from '../../index'
 import { rgb, hex, hsl } from '../color'
 import { steps } from '../transition-timing-function'
 import { skew } from '../transform/skew'
-import { deg } from '../shared/angle'
+import { deg } from '../shared'
 import { translateX } from '../transform'
 
 test('style', () => {
@@ -78,7 +78,7 @@ test('style', () => {
     padding: [px(3), rem(3), per(20), per(20)],
     textAlign: 'center',
     order: 1,
-    transitionProperty: ['background-color', 'color', ident('test')],
+    transitionProperty: ['backgroundColor', 'color', ident('test')],
     transitionDelay: [ms(300), ms(1000)],
     textTransform: 'lowercase full-width full-size-kana',
     transitionTimingFunction: steps(3, 'jump-both'),
@@ -168,7 +168,7 @@ test('style', () => {
     padding: '3px 3rem 20% 20%',
     textAlign: 'center',
     order: 1,
-    transitionProperty: 'background-color, color, test',
+    transitionProperty: 'backgroundColor, color, test',
     transitionDelay: '300ms, 1000ms',
     transitionTimingFunction: 'steps(3, jump-both)',
     transition: 'steps(3, jump-both) 1000ms',

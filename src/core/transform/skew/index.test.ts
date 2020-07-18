@@ -1,6 +1,6 @@
 import { style } from '../../../index'
 import { skewX, skewY, skew } from './skew'
-import { deg } from '../../shared/angle'
+import { deg } from '../../shared'
 
 test('skewX()', () => {
   const received = style({
