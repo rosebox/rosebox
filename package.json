@@ -1,6 +1,6 @@
 {
   "name": "rosebox",
-  "version": "0.2.84",
+  "version": "0.2.85",
   "private": false,
   "description": "Rosebox is an experimental project with the ultimate goal to build a complete JS/TS styling framework with an emphasis on writing expressive, scalable, and conflict-free style-code.",
   "main": "es5/index.js",
@@ -22,7 +22,7 @@
     "build": "tsc -p ./tsconfig.build.json && tsc -p ./tsconfig.build-es6.json",
     "test": "jest",
     "prettier:ck": "prettier --check 'src/**/*.ts'",
-    "prepare": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "author": "Hugo Nteifeh <hugonteifeh@gmail.com>",
   "keywords": [
@@ -44,6 +44,7 @@
     "@types/jest": "^24.9.1",
     "@types/node": "^13.7.0",
     "jest": "^24.9.0",
+    "madge": "^3.9.2",
     "ts-jest": "^24.3.0",
     "typescript": "^3.9.5"
   }
