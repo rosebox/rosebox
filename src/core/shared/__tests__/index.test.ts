@@ -1,4 +1,4 @@
-import { deg, serializeAngle, grad, rad, turn } from '../angle'
+import { deg, serializeAngle, grad, rad, turn } from '../'
 import { serializeTime } from '../'
 import { ms, s } from '../index'
 
