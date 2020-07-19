@@ -1,6 +1,6 @@
 {
   "name": "rosebox",
-  "version": "0.2.87",
+  "version": "0.2.88",
   "private": false,
   "description": "Rosebox is an experimental project with the ultimate goal to build a complete JS/TS styling framework with an emphasis on writing expressive, scalable, and conflict-free style-code.",
   "main": "es5/index.js",

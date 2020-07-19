@@ -35,3 +35,9 @@ export const uri = (x: string): URI => ({
   __tag: 'URI',
   value: x,
 })
+
+export const serializeURL = (x: URL) => `url(${x.value})`
+export const serializeURI = (x: URI) => `uri(${x.value})`
+
+export const isURL = (x: any): x is URL => x.__tag === 'URL'
+export const isURI = (x: any): x is URI => x.__tag === 'URI'

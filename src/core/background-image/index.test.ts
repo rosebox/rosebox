@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { uri } from '../shared'
+import { url } from '../shared'
 
 test('backgroundImage: keyword', () => {
   const received = style({
@@ -11,12 +11,12 @@ test('backgroundImage: keyword', () => {
   expect(received).toEqual(expected)
 })
 
-test('backgroundImage: URI', () => {
+test('backgroundImage: URL', () => {
   const received = style({
-    backgroundImage: uri('/images/image.webp'),
+    backgroundImage: url('/images/image.webp'),
   })
   const expected = {
-    backgroundImage: '/images/image.webp',
+    backgroundImage: 'url(/images/image.webp)',
   }
   expect(received).toEqual(expected)
 })
