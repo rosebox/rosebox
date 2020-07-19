@@ -232,10 +232,8 @@ export type RBStyle = Partial<
     FontVariantCapsDeclaration &
     FontVariantEmojiDeclaration &
     FontKerningDeclaration &
-    FontStyleDeclaration & {
-      /** Temporary  */
-      listStyleType: string
-    } & FontVariantLigaturesDeclaration &
+    FontStyleDeclaration &
+    FontVariantLigaturesDeclaration &
     FontOpticalSizingDeclaration &
     BgImageDeclaration &
     BgPositionDeclaration &
