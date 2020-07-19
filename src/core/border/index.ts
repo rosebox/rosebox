@@ -8,8 +8,6 @@ import {
 import { Color, isColor, serializeColor } from '../color'
 import { serializeLength } from '../shared'
 
-export type BorderCSSProp = 'border'
-
 type AtomicValue = Color | LineStyle | LineWidth
 
 type OneValue = AtomicValue | [Color] | [LineStyle] | [LineWidth]
@@ -30,6 +28,9 @@ type ThreeValues =
   | [LineWidth, Color, LineStyle]
   | [LineWidth, LineStyle, Color]
 
+/**
+ * @hide
+ */
 type BorderSide = OneValue | TwoValues | ThreeValues
 
 const serializeAtomicValue = (value: AtomicValue) =>

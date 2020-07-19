@@ -1,8 +1,9 @@
 import { GlobalCssKeyword, AnimatableProperty, CustomIdent } from '../shared'
 import { serializeCustomIdent } from '../shared'
 
-export type TransitionPropertyCSSProp = 'transition-property'
-
+/**
+ * @hide
+ */
 export type TransitionPropertyPropValue =
   | 'none'
   | 'all'

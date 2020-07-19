@@ -35,5 +35,5 @@ export type BgImageDeclaration = {
    * @formalSyntaxForValue <uri> | none | inherit
    * @added https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-image
    */
-  backgroundImage: URL | URL | 'none' | GlobalCssKeyword
+  backgroundImage: URL | URI | 'none' | GlobalCssKeyword
 }
