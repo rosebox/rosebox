@@ -1,4 +1,4 @@
-import { AnimatableCSSProp, Time, GlobalCssKeyword } from '../shared'
+import { AnimatableProperty, Time, GlobalCssKeyword } from '../shared'
 import {
   TransitionTimingFunctionValue,
   serializeTransitionTimingFunctionValue,
@@ -8,47 +8,47 @@ import { serializeTime } from '../shared'
 
 type SingleTransition =
   | 'none'
-  | AnimatableCSSProp
+  | AnimatableProperty
   | Time
   | TransitionTimingFunctionValue
 
 type SingleTransitionOneValueTupleSyntax = [SingleTransition]
 
 type SingleTransitionTwoValuesSyntax =
-  | ['none' | AnimatableCSSProp, Time]
-  | ['none' | AnimatableCSSProp, TransitionTimingFunctionValue]
-  | [Time, 'none' | AnimatableCSSProp]
+  | ['none' | AnimatableProperty, Time]
+  | ['none' | AnimatableProperty, TransitionTimingFunctionValue]
+  | [Time, 'none' | AnimatableProperty]
   | [Time, TransitionTimingFunctionValue]
-  | [TransitionTimingFunctionValue, 'none' | AnimatableCSSProp]
+  | [TransitionTimingFunctionValue, 'none' | AnimatableProperty]
   | [TransitionTimingFunctionValue, Time]
 
 type SingleTransitionThreeValuesSyntax =
-  | ['none' | AnimatableCSSProp, Time, TransitionTimingFunctionValue]
-  | ['none' | AnimatableCSSProp, TransitionTimingFunctionValue, Time]
-  | ['none' | AnimatableCSSProp, Time, Time]
-  | [TransitionTimingFunctionValue, 'none' | AnimatableCSSProp, Time]
-  | [TransitionTimingFunctionValue, Time, 'none' | AnimatableCSSProp]
+  | ['none' | AnimatableProperty, Time, TransitionTimingFunctionValue]
+  | ['none' | AnimatableProperty, TransitionTimingFunctionValue, Time]
+  | ['none' | AnimatableProperty, Time, Time]
+  | [TransitionTimingFunctionValue, 'none' | AnimatableProperty, Time]
+  | [TransitionTimingFunctionValue, Time, 'none' | AnimatableProperty]
   | [TransitionTimingFunctionValue, Time, Time]
-  | [Time, 'none' | AnimatableCSSProp, TransitionTimingFunctionValue]
-  | [Time, TransitionTimingFunctionValue, 'none' | AnimatableCSSProp]
-  | [Time, 'none' | AnimatableCSSProp, Time]
-  | [Time, Time, 'none' | AnimatableCSSProp]
+  | [Time, 'none' | AnimatableProperty, TransitionTimingFunctionValue]
+  | [Time, TransitionTimingFunctionValue, 'none' | AnimatableProperty]
+  | [Time, 'none' | AnimatableProperty, Time]
+  | [Time, Time, 'none' | AnimatableProperty]
   | [Time, TransitionTimingFunctionValue, Time]
   | [Time, Time, TransitionTimingFunctionValue]
 
 type SingleTransitionFourValuesSyntax =
-  | ['none' | AnimatableCSSProp, Time, Time, TransitionTimingFunctionValue]
-  | ['none' | AnimatableCSSProp, Time, TransitionTimingFunctionValue, Time]
-  | ['none' | AnimatableCSSProp, TransitionTimingFunctionValue, Time, Time]
-  | [TransitionTimingFunctionValue, Time, Time, 'none' | AnimatableCSSProp]
-  | [TransitionTimingFunctionValue, Time, 'none' | AnimatableCSSProp, Time]
-  | [TransitionTimingFunctionValue, 'none' | AnimatableCSSProp, Time, Time]
-  | [Time, Time, 'none' | AnimatableCSSProp, TransitionTimingFunctionValue]
-  | [Time, Time, TransitionTimingFunctionValue, 'none' | AnimatableCSSProp]
-  | [Time, 'none' | AnimatableCSSProp, Time, TransitionTimingFunctionValue]
-  | [Time, 'none' | AnimatableCSSProp, TransitionTimingFunctionValue, Time]
-  | [Time, TransitionTimingFunctionValue, Time, 'none' | AnimatableCSSProp]
-  | [Time, TransitionTimingFunctionValue, 'none' | AnimatableCSSProp, Time]
+  | ['none' | AnimatableProperty, Time, Time, TransitionTimingFunctionValue]
+  | ['none' | AnimatableProperty, Time, TransitionTimingFunctionValue, Time]
+  | ['none' | AnimatableProperty, TransitionTimingFunctionValue, Time, Time]
+  | [TransitionTimingFunctionValue, Time, Time, 'none' | AnimatableProperty]
+  | [TransitionTimingFunctionValue, Time, 'none' | AnimatableProperty, Time]
+  | [TransitionTimingFunctionValue, 'none' | AnimatableProperty, Time, Time]
+  | [Time, Time, 'none' | AnimatableProperty, TransitionTimingFunctionValue]
+  | [Time, Time, TransitionTimingFunctionValue, 'none' | AnimatableProperty]
+  | [Time, 'none' | AnimatableProperty, Time, TransitionTimingFunctionValue]
+  | [Time, 'none' | AnimatableProperty, TransitionTimingFunctionValue, Time]
+  | [Time, TransitionTimingFunctionValue, Time, 'none' | AnimatableProperty]
+  | [Time, TransitionTimingFunctionValue, 'none' | AnimatableProperty, Time]
 
 type SingleTransitionTuple =
   | SingleTransitionOneValueTupleSyntax
@@ -62,7 +62,7 @@ type TransitionPropertyValue =
   | GlobalCssKeyword
 
 const serializeAtomicValue = (
-  value: 'none' | AnimatableCSSProp | Time | TransitionTimingFunctionValue
+  value: 'none' | AnimatableProperty | Time | TransitionTimingFunctionValue
 ): string =>
   typeof value === 'string'
     ? value
