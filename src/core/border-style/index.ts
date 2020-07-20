@@ -64,13 +64,10 @@ export type BorderLeftStyleDeclaration = {
    */
   borderLeftStyle: LineStyle | GlobalCssKeyword
 }
-
-type BorderStyle =
-  | LineStyle
-  | [LineStyle]
-  | [LineStyle, LineStyle]
-  | [LineStyle, LineStyle, LineStyle]
-  | [LineStyle, LineStyle, LineStyle, LineStyle]
+/**
+ * @hide
+ */
+type BorderStyle = LineStyle | [LineStyle, LineStyle, LineStyle, LineStyle]
 
 export const serializeBorderStyleValue = (
   value: BorderStyle | GlobalCssKeyword
