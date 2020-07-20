@@ -9,7 +9,6 @@ export type BorderRadiusCSSProp = 'border-radius'
 
 export type BorderCornerRadius =
   | LengthPercentage
-  | [LengthPercentage]
   | [LengthPercentage, LengthPercentage]
 
 const serializeCornerRadius = (

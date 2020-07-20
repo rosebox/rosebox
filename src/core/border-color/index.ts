@@ -72,12 +72,7 @@ export type BorderLeftColorDeclaration = {
   borderLeftColor: Color | GlobalCssKeyword
 }
 
-type BorderColor =
-  | Color
-  | [Color]
-  | [Color, Color]
-  | [Color, Color, Color]
-  | [Color, Color, Color, Color]
+type BorderColor = Color | [Color, Color, Color, Color]
 
 export const serializeBorderColorValue = (
   value: GlobalCssKeyword | BorderColor
