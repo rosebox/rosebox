@@ -12,8 +12,6 @@ type SingleTransition =
   | Time
   | TransitionTimingFunctionValue
 
-type SingleTransitionOneValueTupleSyntax = [SingleTransition]
-
 type SingleTransitionTwoValuesSyntax =
   | ['none' | AnimatableProperty, Time]
   | ['none' | AnimatableProperty, TransitionTimingFunctionValue]
@@ -51,7 +49,6 @@ type SingleTransitionFourValuesSyntax =
   | [Time, TransitionTimingFunctionValue, 'none' | AnimatableProperty, Time]
 
 type SingleTransitionTuple =
-  | SingleTransitionOneValueTupleSyntax
   | SingleTransitionTwoValuesSyntax
   | SingleTransitionThreeValuesSyntax
   | SingleTransitionFourValuesSyntax
