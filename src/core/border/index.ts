@@ -10,31 +10,10 @@ import { serializeLength } from '../shared'
 
 type AtomicValue = Color | LineStyle | LineWidth
 
-type BorderSideOneValue = AtomicValue | [Color] | [LineStyle] | [LineWidth]
-
-type BorderSideTwoValues =
-  | [Color, LineStyle]
-  | [LineStyle, Color]
-  | [Color, LineWidth]
-  | [LineWidth, Color]
-  | [LineStyle, LineWidth]
-  | [LineWidth, LineStyle]
-
-type BorderSideThreeValues =
-  | [Color, LineStyle, LineWidth]
-  | [Color, LineWidth, LineStyle]
-  | [LineStyle, Color, LineWidth]
-  | [LineStyle, LineWidth, Color]
-  | [LineWidth, Color, LineStyle]
-  | [LineWidth, LineStyle, Color]
-
 /**
  * @hide
  */
-type BorderSide =
-  | BorderSideOneValue
-  | BorderSideTwoValues
-  | BorderSideThreeValues
+type Border = [LineWidth, LineStyle, Color]
 
 const serializeAtomicValue = (value: AtomicValue) =>
   isColor(value)
@@ -43,7 +22,7 @@ const serializeAtomicValue = (value: AtomicValue) =>
     ? serializeLength(value)
     : value
 
-const serializeBorderSide = (value: BorderSide | GlobalCssKeyword) =>
+const serializeBorder = (value: Border | GlobalCssKeyword) =>
   isGlobalCssKeyword(value)
     ? value
     : !Array.isArray(value)
@@ -52,11 +31,11 @@ const serializeBorderSide = (value: BorderSide | GlobalCssKeyword) =>
         .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim()
 
-export const serializeBorderTopValue = serializeBorderSide
-export const serializeBorderRightValue = serializeBorderSide
-export const serializeBorderBottomValue = serializeBorderSide
-export const serializeBorderLeftValue = serializeBorderSide
-export const serializeBorderValue = serializeBorderSide
+export const serializeBorderTopValue = serializeBorder
+export const serializeBorderRightValue = serializeBorder
+export const serializeBorderBottomValue = serializeBorder
+export const serializeBorderLeftValue = serializeBorder
+export const serializeBorderValue = serializeBorder
 
 /**
  * @category RBDeclarationTypeAlias
@@ -69,7 +48,7 @@ export type BorderTopDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderTop: BorderSide | GlobalCssKeyword
+  borderTop: Border | GlobalCssKeyword
 }
 
 /**
@@ -83,7 +62,7 @@ export type BorderRightDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderRight: BorderSide | GlobalCssKeyword
+  borderRight: Border | GlobalCssKeyword
 }
 
 /**
@@ -97,7 +76,7 @@ export type BorderBottomDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderBottom: BorderSide | GlobalCssKeyword
+  borderBottom: Border | GlobalCssKeyword
 }
 
 /**
@@ -111,7 +90,7 @@ export type BorderLeftDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderLeft: BorderSide | GlobalCssKeyword
+  borderLeft: Border | GlobalCssKeyword
 }
 
 /**
@@ -125,5 +104,5 @@ export type BorderDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#border-shorthand-properties
    */
-  border: BorderSide | GlobalCssKeyword
+  border: Border | GlobalCssKeyword
 }
