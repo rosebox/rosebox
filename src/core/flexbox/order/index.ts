@@ -1,7 +1,5 @@
 import { GlobalCssKeyword } from '../../shared'
 
-export type OrderCSSProp = 'order'
-
 export const serializerOrder = (value: number | GlobalCssKeyword) => value
 
 export type OrderDeclaration = {

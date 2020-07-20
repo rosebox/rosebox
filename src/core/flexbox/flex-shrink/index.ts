@@ -1,8 +1,6 @@
 import { ShrinkGrow } from '../shared'
 import { GlobalCssKeyword } from '../../shared'
 
-export type FlexShrinkCSSProp = 'flex-shrink'
-
 export const serializeFlexShrink = (
   value: ShrinkGrow | GlobalCssKeyword
 ): string | number => value

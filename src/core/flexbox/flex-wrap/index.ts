@@ -1,7 +1,5 @@
 import { GlobalCssKeyword } from '../../shared'
 
-export type FlexWrapCSSProp = 'flex-wrap'
-
 export const serializeFlexWrap = (
   value: 'nowrap' | 'wrap' | 'wrap-reverse' | GlobalCssKeyword
 ) => value

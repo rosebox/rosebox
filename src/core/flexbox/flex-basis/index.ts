@@ -6,10 +6,8 @@ import {
 } from '../../shared'
 import { serializeKeyword, serializeWidth } from '../../shared'
 
-export type FlexBasisCSSProp = 'flex-basis'
-
 /**
- * @skip
+ * @hide
  * */
 export type FlexBasis = 'content' | Width
 
