@@ -126,6 +126,7 @@ import { BgImageDeclaration } from './core/background-image'
 import { BgPositionDeclaration } from './core/background-position'
 import { WordSpacingDeclaration } from './core/word-spacing'
 import { ObjectFitDeclaration } from './core/object-fit'
+import { AlignSelfDeclaration } from './core/align-self'
 
 export * from './core'
 export * from './react'
@@ -238,7 +239,8 @@ export type RBStyle = Partial<
     BgImageDeclaration &
     BgPositionDeclaration &
     WordSpacingDeclaration &
-    ObjectFitDeclaration & {
+    ObjectFitDeclaration &
+    AlignSelfDeclaration & {
       [x: string]: any
     }
 >

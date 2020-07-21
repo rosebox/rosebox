@@ -94,6 +94,7 @@ test('style', () => {
     perspectiveOrigin: pos(px(40), px(20)),
     perspective: px(30),
     objectFit: 'fill',
+    alignSelf: ['safe', 'center'],
   })
 
   const expected = {
@@ -183,6 +184,7 @@ test('style', () => {
     perspectiveOrigin: '40px 20px',
     perspective: '30px',
     objectFit: 'fill',
+    alignSelf: 'safe center',
   }
   expect(received).toEqual(expected)
 })
