@@ -1,6 +1,4 @@
 import {
-  Length,
-  Percentage,
   GlobalCssKeyword,
   isLengthType,
   isPercentageType,
@@ -16,7 +14,7 @@ export type PaddingLeftCSSProp = 'padding-left'
 export type PaddingCSSProp = 'padding'
 
 const serializeAtomicValue = (
-  value: Length | Percentage | GlobalCssKeyword
+  value: LengthPercentage | GlobalCssKeyword
 ): string =>
   isLengthType(value)
     ? serializeLength(value)
@@ -37,7 +35,7 @@ export type PaddingTopDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingTop: Length | Percentage | GlobalCssKeyword
+  paddingTop: LengthPercentage | GlobalCssKeyword
 }
 
 export const serializePaddingRightValue = serializeAtomicValue
@@ -53,7 +51,7 @@ export type PaddingRightDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingRight: Length | Percentage | GlobalCssKeyword
+  paddingRight: LengthPercentage | GlobalCssKeyword
 }
 
 export const serializePaddingBottomValue = serializeAtomicValue
@@ -69,7 +67,7 @@ export type PaddingBottomDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingBottom: Length | Percentage | GlobalCssKeyword
+  paddingBottom: LengthPercentage | GlobalCssKeyword
 }
 
 export const serializePaddingLeftValue = serializeAtomicValue
@@ -85,7 +83,7 @@ export type PaddingLeftDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingLeft: Length | Percentage | GlobalCssKeyword
+  paddingLeft: LengthPercentage | GlobalCssKeyword
 }
 
 type PaddingShorthand =
@@ -99,7 +97,7 @@ const serializeShorthandleValue = (value: PaddingShorthand): string =>
     ? serializePercentage(value)
     : isGlobalCssKeyword(value)
     ? value
-    : (value as (Length | Percentage)[])
+    : (value as LengthPercentage[])
         .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim()
 

@@ -1,10 +1,9 @@
 import {
-  Length,
-  Percentage,
   GlobalCssKeyword,
   isLengthType,
   isPercentageType,
   isGlobalCssKeyword,
+  LengthPercentage,
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
@@ -14,10 +13,10 @@ export type MarginBottomCSSProp = 'margin-bottom'
 export type MarginLeftCSSProp = 'margin-left'
 export type MarginCSSProp = 'margin'
 
-type MarginValue = Length | Percentage | 'auto'
+type MarginValue = LengthPercentage | 'auto'
 
 const serializeAtomicValue = (
-  value: Length | Percentage | 'auto' | GlobalCssKeyword
+  value: LengthPercentage | 'auto' | GlobalCssKeyword
 ): string =>
   isLengthType(value)
     ? serializeLength(value)
@@ -35,7 +34,7 @@ export type MarginTopDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginTop: Length | Percentage | 'auto' | GlobalCssKeyword
+  marginTop: LengthPercentage | 'auto' | GlobalCssKeyword
 }
 
 export const serializeMarginRightValue = serializeAtomicValue
@@ -48,7 +47,7 @@ export type MarginRightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginRight: Length | Percentage | 'auto' | GlobalCssKeyword
+  marginRight: LengthPercentage | 'auto' | GlobalCssKeyword
 }
 
 export const serializeMarginBottomValue = serializeAtomicValue
@@ -61,7 +60,7 @@ export type MarginBottomDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginBottom: Length | Percentage | 'auto' | GlobalCssKeyword
+  marginBottom: LengthPercentage | 'auto' | GlobalCssKeyword
 }
 
 export const serializeMarginLeftValue = serializeAtomicValue
@@ -74,7 +73,7 @@ export type MarginLeftDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginLeft: Length | Percentage | 'auto' | GlobalCssKeyword
+  marginLeft: LengthPercentage | 'auto' | GlobalCssKeyword
 }
 
 type MarginShorthandSingleValue = MarginValue | [MarginValue]
@@ -100,7 +99,7 @@ const serializeShorthandleValue = (value: MarginShorthand): string =>
     ? serializePercentage(value)
     : value === 'auto'
     ? value
-    : (value as (Length | Percentage | 'auto')[])
+    : (value as (LengthPercentage | 'auto')[])
         .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim()
 

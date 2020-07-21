@@ -1,16 +1,15 @@
 import {
-  Length,
-  Percentage,
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
   isGlobalCssKeyword,
+  LengthPercentage,
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
 export type MaxHeightCSSProp = 'max-height'
 
-type MaxHeight = Length | Percentage | 'none'
+type MaxHeight = LengthPercentage | 'none'
 
 export const serializeMaxHeightValue = (
   value: MaxHeight | GlobalCssKeyword
@@ -34,5 +33,5 @@ export type MaxHeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
    */
-  maxHeight: Length | Percentage | GlobalCssKeyword | 'none'
+  maxHeight: LengthPercentage | GlobalCssKeyword | 'none'
 }

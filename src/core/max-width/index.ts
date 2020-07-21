@@ -1,16 +1,15 @@
 import {
-  Length,
-  Percentage,
   GlobalCssKeyword,
   isLengthType,
   isPercentageType,
   isGlobalCssKeyword,
+  LengthPercentage,
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
 export type MaxWidthCSSProp = 'max-width'
 
-type MaxWidth = Length | Percentage | 'none'
+type MaxWidth = LengthPercentage | 'none'
 
 export const serializeMaxWidthValue = (
   value: MaxWidth | GlobalCssKeyword

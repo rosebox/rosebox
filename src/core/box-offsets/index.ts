@@ -1,18 +1,12 @@
 import {
-  Length,
-  Percentage,
   GlobalCssKeyword,
   isGlobalCssKeyword,
+  LengthPercentage,
 } from '../shared'
 import { serializeLengthPercentage } from '../shared'
 
-export type TopCSSProp = 'top'
-export type RightCSSProp = 'right'
-export type BottomCSSProp = 'bottom'
-export type LeftCSSProp = 'left'
-
 export const serializeBoxOffsetValue = (
-  value: Length | Percentage | 'auto' | GlobalCssKeyword
+  value: LengthPercentage | 'auto' | GlobalCssKeyword
 ): string =>
   value === 'auto'
     ? 'auto'
@@ -33,7 +27,7 @@ export type TopDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
    */
-  top: Length | Percentage | 'auto' | GlobalCssKeyword
+  top: LengthPercentage | 'auto' | GlobalCssKeyword
 }
 
 /**
@@ -47,7 +41,7 @@ export type RightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
    */
-  right: Length | Percentage | 'auto' | GlobalCssKeyword
+  right: LengthPercentage | 'auto' | GlobalCssKeyword
 }
 
 export const serializeRightValue = serializeBoxOffsetValue
@@ -63,7 +57,7 @@ export type BottomDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
    */
-  bottom: Length | Percentage | 'auto' | GlobalCssKeyword
+  bottom: LengthPercentage | 'auto' | GlobalCssKeyword
 }
 
 export const serializeBottomValue = serializeBoxOffsetValue
@@ -79,7 +73,7 @@ export type LeftDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
    */
-  left: Length | Percentage | 'auto' | GlobalCssKeyword
+  left: LengthPercentage | 'auto' | GlobalCssKeyword
 }
 
 export const serializeLeftValue = serializeBoxOffsetValue

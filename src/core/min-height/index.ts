@@ -1,17 +1,16 @@
 import {
-  Length,
-  Percentage,
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
   isGlobalCssKeyword,
+  LengthPercentage,
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
 export type MaxHeightCSSProp = 'max-height'
 
 export const serializeMinHeightValue = (
-  value: Length | Percentage | GlobalCssKeyword
+  value: LengthPercentage | GlobalCssKeyword
 ): string =>
   isGlobalCssKeyword(value)
     ? value
@@ -32,5 +31,5 @@ export type MinHeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height
    */
-  minHeight: Length | Percentage | GlobalCssKeyword
+  minHeight: LengthPercentage | GlobalCssKeyword
 }
