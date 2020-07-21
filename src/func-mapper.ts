@@ -111,6 +111,7 @@ import { serializeBgImagePropValue } from './core/background-image'
 import { serializeBgPositionPropValue } from './core/background-position'
 import { serializeWordSpacingPropValue } from './core/word-spacing'
 import { serializeAlignSelfPropValue } from './core/align-self'
+import { serializeBackgroundSizePropValue } from './core/background-size'
 
 export const funcMap = {
   alignContent: serializeAlignContentPropValue,
@@ -207,4 +208,5 @@ export const funcMap = {
   fontVariantLigatures: serializeFontVariantLigaturesPropValue,
   wordSpacing: serializeWordSpacingPropValue,
   alignSelf: serializeAlignSelfPropValue,
+  backgroundSize: serializeBackgroundSizePropValue,
 }

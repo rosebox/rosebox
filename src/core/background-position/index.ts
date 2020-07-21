@@ -21,8 +21,6 @@ export type BgPositionDeclaration = {
   /**
    * A RB property that maps to CSS's **`background-position`** property
    * @category RBProperty
-]
-   * @added https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-image
    */
   backgroundPosition: Position | Position[] | GlobalCssKeyword
 }
