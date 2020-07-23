@@ -107,8 +107,8 @@ import { serializeFontVariationSettingsPropValue } from './core/font-variation-s
 import { serializeFontSynethsisPropValue } from './core/font-synthesis'
 import { serializeAlignContent } from './core/align-content'
 import { serializeFontVariantLigaturesPropValue } from './core/font-variant-ligatures'
-import { serializeBgImagePropValue } from './core/background-image'
-import { serializeBgPositionPropValue } from './core/background-position'
+import { serializeBackgroundImage } from './core/background-image'
+import { serializeBackgroundPosition } from './core/background-position'
 import { serializeWordSpacingPropValue } from './core/word-spacing'
 import { serializeAlignSelf } from './core/align-self'
 import { serializeBackgroundSizePropValue } from './core/background-size'
@@ -143,8 +143,8 @@ export const funcMap = {
   borderLeftWidth: serializeBorderLeftWidthValue,
   borderWidth: serializeBorderWidthValue,
   backgroundColor: serializeBackgroundColor,
-  backgroundImage: serializeBgImagePropValue,
-  backgroundPosition: serializeBgPositionPropValue,
+  backgroundImage: serializeBackgroundImage,
+  backgroundPosition: serializeBackgroundPosition,
   boxShadow: serializeBoxShadowPropertyValue,
   cursor: serializeCursorValue,
   display: serializeDisplayValue,
