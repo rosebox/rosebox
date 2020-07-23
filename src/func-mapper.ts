@@ -8,7 +8,7 @@ import { serializeTextTransformValue } from './core/text-transform'
 import { serializeDisplayValue } from './core/display'
 import { serializeWidthValue } from './core/width'
 import { serializeHeight } from './core/height'
-import { serializeBackgroundColorValue } from './core/background-color'
+import { serializeBackgroundColor } from './core/background-color'
 import {
   serializeTopValue,
   serializeRightValue,
@@ -142,7 +142,7 @@ export const funcMap = {
   borderBottomWidth: serializeBorderBottomWidthValue,
   borderLeftWidth: serializeBorderLeftWidthValue,
   borderWidth: serializeBorderWidthValue,
-  backgroundColor: serializeBackgroundColorValue,
+  backgroundColor: serializeBackgroundColor,
   backgroundImage: serializeBgImagePropValue,
   backgroundPosition: serializeBgPositionPropValue,
   boxShadow: serializeBoxShadowPropertyValue,

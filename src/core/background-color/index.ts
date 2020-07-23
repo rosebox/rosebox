@@ -1,11 +1,11 @@
 import { serializeColor, Color } from '../color'
 import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared'
 
-export type BackgroundColorCSSProp = 'background-color'
-
-export const serializeBackgroundColorValue = (
+export const serializeBackgroundColor = (
   value: Color | GlobalCssKeyword
-): string => (isGlobalCssKeyword(value) ? value : serializeColor(value))
+): { backgroundColor: string } => ({
+  backgroundColor: isGlobalCssKeyword(value) ? value : serializeColor(value),
+})
 
 /**
  * @category RBDeclarationTypeAlias
