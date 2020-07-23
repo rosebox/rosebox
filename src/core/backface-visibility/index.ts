@@ -1,12 +1,22 @@
 import { GlobalCssKeyword } from '../shared'
 
+type BackfaceVisibility = 'visible' | 'hidden'
+
+export const serializeBackfaceVisibility = (
+  x: BackfaceVisibility | GlobalCssKeyword
+): {
+  backfaceVisibility: string
+} => ({
+  backfaceVisibility: x,
+})
+
 /**
  * @category RBDeclarationTypeAlias
  */
-export type BackfaceVisibility = {
+export type BackfaceVisibilityDeclaration = {
   /**
    * Maps to CSS's **`backface-visibility`** property
    * @category RBProperty
    */
-  backfaceVisibility: 'visible' | 'hidden' | GlobalCssKeyword
+  backfaceVisibility: BackfaceVisibility | GlobalCssKeyword
 }

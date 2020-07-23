@@ -102,7 +102,7 @@ import { AlignItemsDeclaration } from './core/align-items'
 import { TransformDeclaration } from './core/transform'
 import { TransformOriginDeclaration } from './core/transform-origin'
 import { AlignContentDeclaration } from './core/align-content'
-import { BackfaceVisibility } from './core/backface-visibility'
+import { BackfaceVisibilityDeclaration } from './core/backface-visibility'
 import { TransformStyleDeclaration } from './core/transform-style'
 import { PerspectiveOriginDeclaration } from './core/perspective-origin'
 import { PerspectiveDeclaration } from './core/perspective'
@@ -217,7 +217,7 @@ export type RBStyle = Partial<
     TransformDeclaration &
     TransformOriginDeclaration &
     AlignContentDeclaration &
-    BackfaceVisibility &
+    BackfaceVisibilityDeclaration &
     TransformStyleDeclaration &
     PerspectiveOriginDeclaration &
     PerspectiveDeclaration &

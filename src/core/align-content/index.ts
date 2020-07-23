@@ -12,57 +12,47 @@ type ContentDistribution =
   | 'stretch'
 
 /**
+ * @hide
+ */
+type AlignContent =
+  | 'normal'
+  | BaseLinePosition
+  | ContentDistribution
+  | 'center'
+  | ['safe', 'center']
+  | ['unsafe', 'center']
+  | 'start'
+  | ['safe', 'start']
+  | ['unsafe', 'start']
+  | 'end'
+  | ['safe', 'end']
+  | ['unsafe', 'end']
+  | 'flex-start'
+  | ['safe', 'flex-start']
+  | ['unsafe', 'flex-start']
+  | 'flex-end'
+  | ['safe', 'flex-end']
+  | ['unsafe', 'flex-end']
+
+/**
  * @category RBDeclarationTypeAlias
  */
 export type AlignContentDeclaration = {
   /**
    * Maps to CSS's **`align-content`** property
    * @category RBProperty
-   * @formalSyntaxForValue normal | <baseline-position> | <content-distribution> | <overflow-position>? <content-position>
-   * @added 0.2.4
-   * @implementationReference https://www.w3.org/TR/css-align-3/#propdef-justify-content
    */
-  alignContent:
-    | 'normal'
-    | BaseLinePosition
-    | ContentDistribution
-    | 'center'
-    | ['safe', 'center']
-    | ['unsafe', 'center']
-    | 'start'
-    | ['safe', 'start']
-    | ['unsafe', 'start']
-    | 'end'
-    | ['safe', 'end']
-    | ['unsafe', 'end']
-    | 'flex-start'
-    | ['safe', 'flex-start']
-    | ['unsafe', 'flex-start']
-    | 'flex-end'
-    | ['safe', 'flex-end']
-    | ['unsafe', 'flex-end']
-    | GlobalCssKeyword
+  alignContent: AlignContent | GlobalCssKeyword
 }
 
 export const serializeAlignContentPropValue = (
-  x:
-    | 'normal'
-    | BaseLinePosition
-    | ContentDistribution
-    | 'center'
-    | ['safe', 'center']
-    | ['unsafe', 'center']
-    | 'start'
-    | ['safe', 'start']
-    | ['unsafe', 'start']
-    | 'end'
-    | ['safe', 'end']
-    | ['unsafe', 'end']
-    | 'flex-start'
-    | ['safe', 'flex-start']
-    | ['unsafe', 'flex-start']
-    | 'flex-end'
-    | ['safe', 'flex-end']
-    | ['unsafe', 'flex-end']
-    | GlobalCssKeyword
+  x: AlignContent | GlobalCssKeyword
 ): string => (typeof x === 'string' ? x : `${x[0]} ${x[1]}`)
+
+export const serializeAlignContent = (
+  x: AlignContent | GlobalCssKeyword
+): {
+  alignContent: string
+} => ({
+  alignContent: serializeAlignContentPropValue(x),
+})

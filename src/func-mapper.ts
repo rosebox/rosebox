@@ -105,16 +105,17 @@ import { serializeFontStretchPropertyValue } from './core/font-stretch'
 import { serializeFontSizeAdjustPropValue } from './core/font-size-adjust'
 import { serializeFontVariationSettingsPropValue } from './core/font-variation-settings'
 import { serializeFontSynethsisPropValue } from './core/font-synthesis'
-import { serializeAlignContentPropValue } from './core/align-content'
+import { serializeAlignContent } from './core/align-content'
 import { serializeFontVariantLigaturesPropValue } from './core/font-variant-ligatures'
 import { serializeBgImagePropValue } from './core/background-image'
 import { serializeBgPositionPropValue } from './core/background-position'
 import { serializeWordSpacingPropValue } from './core/word-spacing'
-import { serializeAlignSelfPropValue } from './core/align-self'
+import { serializeAlignSelf } from './core/align-self'
 import { serializeBackgroundSizePropValue } from './core/background-size'
+import { serializeBackfaceVisibility } from './core/backface-visibility'
 
 export const funcMap = {
-  alignContent: serializeAlignContentPropValue,
+  alignContent: serializeAlignContent,
   alignItems: serializeAlignItems,
   borderTopColor: serializeBorderTopColorValue,
   borderRightColor: serializeBorderRightColorValue,
@@ -207,6 +208,7 @@ export const funcMap = {
   perspective: serializePerspectivePropertyValue,
   fontVariantLigatures: serializeFontVariantLigaturesPropValue,
   wordSpacing: serializeWordSpacingPropValue,
-  alignSelf: serializeAlignSelfPropValue,
+  alignSelf: serializeAlignSelf,
   backgroundSize: serializeBackgroundSizePropValue,
+  backfaceVisibility: serializeBackfaceVisibility,
 }
