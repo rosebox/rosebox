@@ -111,7 +111,7 @@ import { serializeBackgroundImage } from './core/background-image'
 import { serializeBackgroundPosition } from './core/background-position'
 import { serializeWordSpacingPropValue } from './core/word-spacing'
 import { serializeAlignSelf } from './core/align-self'
-import { serializeBackgroundSizePropValue } from './core/background-size'
+import { serializeBackgroundSize } from './core/background-size'
 import { serializeBackfaceVisibility } from './core/backface-visibility'
 
 export const funcMap = {
@@ -209,6 +209,6 @@ export const funcMap = {
   fontVariantLigatures: serializeFontVariantLigaturesPropValue,
   wordSpacing: serializeWordSpacingPropValue,
   alignSelf: serializeAlignSelf,
-  backgroundSize: serializeBackgroundSizePropValue,
+  backgroundSize: serializeBackgroundSize,
   backfaceVisibility: serializeBackfaceVisibility,
 }
