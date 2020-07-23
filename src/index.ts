@@ -243,10 +243,13 @@ export type RBStyle = Partial<
     ObjectFitDeclaration &
     AlignSelfDeclaration &
     BackgroundSizeDeclaration & {
-      [x: string]: any
+      x: string | number
     }
 >
 
+/**
+ * @deprecated
+ */
 export type RoseboxProperties = RBStyle
 
 export const style = (obj: RBStyle): CSSProperties => {
