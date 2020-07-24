@@ -16,7 +16,7 @@ import {
   serializeLeft,
 } from './core/box-offsets'
 import { serializeBoxSizingValue } from './core/box-sizing'
-import { serializeColorValue } from './core/color'
+import { serializeColor } from './core/color'
 import { serializeMaxHeightValue } from './core/max-height'
 import { serializeMaxWidthValue } from './core/max-width'
 import { serializeMinHeightValue } from './core/min-height'
@@ -154,7 +154,7 @@ export const funcMap = {
   maxHeight: serializeMaxHeightValue,
   minWidth: serializeMinWidthValue,
   maxWidth: serializeMaxWidthValue,
-  color: serializeColorValue,
+  color: serializeColor,
   top: serializeTop,
   right: serializeRight,
   bottom: serializeBottom,
