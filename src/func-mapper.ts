@@ -47,11 +47,11 @@ import {
   serializeBorderStyle,
 } from './core/border-style'
 import {
-  serializeBorderTopWidthValue,
-  serializeBorderRightWidthValue,
-  serializeBorderBottomWidthValue,
-  serializeBorderLeftWidthValue,
-  serializeBorderWidthValue,
+  serializeBorderTopWidth,
+  serializeBorderRightWidth,
+  serializeBorderBottomWidth,
+  serializeBorderLeftWidth,
+  serializeBorderWidth,
 } from './core/border-width'
 import { serializezIndexValue } from './core/z-index'
 import { serializeTextDecorationValue } from './core/text-decoration'
@@ -137,11 +137,11 @@ export const funcMap = {
   borderBottomStyle: serializeBorderBottomStyle,
   borderLeftStyle: serializeBorderLeftStyle,
   borderStyle: serializeBorderStyle,
-  borderTopWidth: serializeBorderTopWidthValue,
-  borderRightWidth: serializeBorderRightWidthValue,
-  borderBottomWidth: serializeBorderBottomWidthValue,
-  borderLeftWidth: serializeBorderLeftWidthValue,
-  borderWidth: serializeBorderWidthValue,
+  borderTopWidth: serializeBorderTopWidth,
+  borderRightWidth: serializeBorderRightWidth,
+  borderBottomWidth: serializeBorderBottomWidth,
+  borderLeftWidth: serializeBorderLeftWidth,
+  borderWidth: serializeBorderWidth,
   backgroundColor: serializeBackgroundColor,
   backgroundImage: serializeBackgroundImage,
   backgroundPosition: serializeBackgroundPosition,

@@ -3,10 +3,15 @@ import { serializeLineWidth } from '../shared'
 
 export type BorderWidthCSSProp = 'border-width'
 
-const serializeBorderSideWidthValue = (value: LineWidth | GlobalCssKeyword) =>
-  isGlobalCssKeyword(value) ? value : serializeLineWidth(value)
+const serializeBorderSideWidthValue = (property: string) => (
+  value: LineWidth | GlobalCssKeyword
+) => ({
+  [property]: isGlobalCssKeyword(value) ? value : serializeLineWidth(value),
+})
 
-export const serializeBorderTopWidthValue = serializeBorderSideWidthValue
+export const serializeBorderTopWidth = serializeBorderSideWidthValue(
+  'borderTopWidth'
+)
 
 /**
  * @category RBDeclarationTypeAlias
@@ -22,22 +27,9 @@ export type BorderTopWidthDeclaration = {
   borderTopWidth: LineWidth | GlobalCssKeyword
 }
 
-export const serializeBorderRightWidthValue = serializeBorderSideWidthValue
-
-/**
- * Creates a declaration object for the **`border-right-width`** property.
- * @category Declaration function
- * @formalSyntax <line-width>
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
- */
-export const borderRightWidth = (
-  value: LineWidth | GlobalCssKeyword
-): { borderRightWidth: string } => ({
-  borderRightWidth: isGlobalCssKeyword(value)
-    ? value
-    : serializeLineWidth(value),
-})
+export const serializeBorderRightWidth = serializeBorderSideWidthValue(
+  'borderRightWidth'
+)
 
 /**
  * @category RBDeclarationTypeAlias
@@ -54,21 +46,6 @@ export type BorderRightWidthDeclaration = {
 }
 
 /**
- * Creates a declaration object for the **`border-bottom-width`** property.
- * @category Declaration function
- * @formalSyntax <line-width>
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
- */
-export const borderBottomWidth = (
-  value: LineWidth | GlobalCssKeyword
-): { borderBottomWidth: string } => ({
-  borderBottomWidth: isGlobalCssKeyword(value)
-    ? value
-    : serializeLineWidth(value),
-})
-
-/**
  * @category RBDeclarationTypeAlias
  */
 export type BorderBottomWidthDeclaration = {
@@ -82,22 +59,9 @@ export type BorderBottomWidthDeclaration = {
   borderBottomWidth: LineWidth | GlobalCssKeyword
 }
 
-export const serializeBorderBottomWidthValue = serializeBorderSideWidthValue
-
-/**
- * Creates a declaration object for the **`border-left-width`** property.
- * @category Declaration function
- * @formalSyntax <line-width>
- * @added 0.1.5
- * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
- */
-export const borderLeftWidth = (
-  value: LineWidth | GlobalCssKeyword
-): { borderLeftWidth: string } => ({
-  borderLeftWidth: isGlobalCssKeyword(value)
-    ? value
-    : serializeLineWidth(value),
-})
+export const serializeBorderBottomWidth = serializeBorderSideWidthValue(
+  'borderBottomWidth'
+)
 
 /**
  * @category RBDeclarationTypeAlias
@@ -113,7 +77,9 @@ export type BorderLeftWidthDeclaration = {
   borderLeftWidth: LineWidth | GlobalCssKeyword
 }
 
-export const serializeBorderLeftWidthValue = serializeBorderSideWidthValue
+export const serializeBorderLeftWidth = serializeBorderSideWidthValue(
+  'borderLeftWidth'
+)
 
 type BorderWidth =
   | LineWidth
@@ -122,16 +88,17 @@ type BorderWidth =
   | [LineWidth, LineWidth, LineWidth]
   | [LineWidth, LineWidth, LineWidth, LineWidth]
 
-export const serializeBorderWidthValue = (
+export const serializeBorderWidth = (
   value: BorderWidth | GlobalCssKeyword
-): string =>
-  isGlobalCssKeyword(value)
+): { borderWidth: string } => ({
+  borderWidth: isGlobalCssKeyword(value)
     ? value
     : !Array.isArray(value)
     ? serializeLineWidth(value)
     : (value as LineWidth[])
         .reduce((acc: any, item) => acc + ' ' + serializeLineWidth(item), '')
-        .trim()
+        .trim(),
+})
 
 /**
  * @category RBDeclarationTypeAlias
