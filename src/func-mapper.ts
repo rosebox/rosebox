@@ -31,7 +31,7 @@ import {
   serializeBorderBottomColor,
   serializeBorderLeftColor,
 } from './core/border-color'
-import { serializeCursorValue } from './core/cursor'
+import { serializeCursor } from './core/cursor'
 import {
   serializeBorderTopRightRadius,
   serializeBorderBottomRightRadius,
@@ -146,7 +146,7 @@ export const funcMap = {
   backgroundImage: serializeBackgroundImage,
   backgroundPosition: serializeBackgroundPosition,
   boxShadow: serializeBoxShadow,
-  cursor: serializeCursorValue,
+  cursor: serializeCursor,
   display: serializeDisplayValue,
   width: serializeWidthValue,
   height: serializeHeight,

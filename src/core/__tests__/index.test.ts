@@ -23,7 +23,6 @@ test('style', () => {
     overflow: ['auto', 'hidden'],
     position: 'relative',
     visibility: 'collapse',
-    cursor: 'pointer',
     display: ['flex', 'block'],
     zIndex: 3,
     textDecoration: 'orchid',
