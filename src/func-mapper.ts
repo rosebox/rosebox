@@ -94,7 +94,7 @@ import { serializeTransitionDelayValue } from './core/transition-delay'
 import { serializeTransitionTimingFunctionValue } from './core/transition-timing-function'
 import { serializeTransitionValue } from './core/transition'
 import { serializeTransitionDurationValue } from './core/transition-duration'
-import { serializeBoxShadowPropertyValue } from './core/box-shadow'
+import { serializeBoxShadow } from './core/box-shadow'
 import { serializeJustifyContent } from './core/justify-content'
 import { serializeAlignItems } from './core/align-items'
 import { serializeTransformPropertyValue } from './core/transform'
@@ -145,7 +145,7 @@ export const funcMap = {
   backgroundColor: serializeBackgroundColor,
   backgroundImage: serializeBackgroundImage,
   backgroundPosition: serializeBackgroundPosition,
-  boxShadow: serializeBoxShadowPropertyValue,
+  boxShadow: serializeBoxShadow,
   cursor: serializeCursorValue,
   display: serializeDisplayValue,
   width: serializeWidthValue,

@@ -62,7 +62,7 @@ const serializeShadowArray = (value: Shadow[]): string =>
     ''
   )
 
-export const serializeBoxShadowPropertyValue = (
+const serializeBoxShadowPropertyValue = (
   value: Shadow | Shadow[] | GlobalCssKeyword | 'none'
 ): string =>
   value === 'none' || isGlobalCssKeyword(value)
@@ -70,6 +70,12 @@ export const serializeBoxShadowPropertyValue = (
     : !Array.isArray(value[0]) || isLengthTuple(value[0])
     ? serializeShadow(value as Shadow)
     : serializeShadowArray(value as Shadow[])
+
+export const serializeBoxShadow = (
+  x: Shadow | Shadow[] | GlobalCssKeyword | 'none'
+) => ({
+  boxShadow: serializeBoxShadowPropertyValue(x),
+})
 
 /**
  * @category RBDeclarationTypeAlias
