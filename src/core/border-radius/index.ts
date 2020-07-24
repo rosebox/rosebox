@@ -11,10 +11,10 @@ export type BorderCornerRadius =
   | LengthPercentage
   | [LengthPercentage, LengthPercentage]
 
-const serializeCornerRadius = (
+const serializeCornerRadius = (property: string) => (
   value: BorderCornerRadius | GlobalCssKeyword
-): string =>
-  isGlobalCssKeyword(value)
+) => ({
+  [property]: isGlobalCssKeyword(value)
     ? value
     : !Array.isArray(value)
     ? serializeLengthPercentage(value)
@@ -23,12 +23,21 @@ const serializeCornerRadius = (
           (acc: any, item) => acc + ' ' + serializeLengthPercentage(item),
           ''
         )
-        .trim()
+        .trim(),
+})
 
-export const serializeBorderTopRightRadiusValue = serializeCornerRadius
-export const serializeBorderBottomRightRadiusValue = serializeCornerRadius
-export const serializeBorderBottomLeftRadiusValue = serializeCornerRadius
-export const serializeBorderTopLeftRadiusValue = serializeCornerRadius
+export const serializeBorderTopRightRadius = serializeCornerRadius(
+  'borderTopRightRadius'
+)
+export const serializeBorderBottomRightRadius = serializeCornerRadius(
+  'borderBottomRightRadius'
+)
+export const serializeBorderBottomLeftRadius = serializeCornerRadius(
+  'borderBottomLeftRadius'
+)
+export const serializeBorderTopLeftRadius = serializeCornerRadius(
+  'borderTopLeftRadius'
+)
 
 /**
  * @category RBDeclarationTypeAlias
@@ -112,16 +121,17 @@ const serializeTwoRadius = (value: TwoRadius): string =>
     )
     .trim()
 
-export const serializeBorderRadiusValue = (
+export const serializeBorderRadius = (
   value: OneRadius | TwoRadius | GlobalCssKeyword
-) =>
-  isGlobalCssKeyword(value)
+): { borderRadius: string } => ({
+  borderRadius: isGlobalCssKeyword(value)
     ? value
     : !Array.isArray(value)
     ? serializeLengthPercentage(value)
     : !Array.isArray(value[0])
     ? serializRadiusTuple(value as RadiusTuple)
-    : serializeTwoRadius(value as TwoRadius)
+    : serializeTwoRadius(value as TwoRadius),
+})
 
 /**
  * @category RBDeclarationTypeAlias

@@ -33,11 +33,11 @@ import {
 } from './core/border-color'
 import { serializeCursorValue } from './core/cursor'
 import {
-  serializeBorderTopRightRadiusValue,
-  serializeBorderBottomRightRadiusValue,
-  serializeBorderBottomLeftRadiusValue,
-  serializeBorderTopLeftRadiusValue,
-  serializeBorderRadiusValue,
+  serializeBorderTopRightRadius,
+  serializeBorderBottomRightRadius,
+  serializeBorderBottomLeftRadius,
+  serializeBorderTopLeftRadius,
+  serializeBorderRadius,
 } from './core/border-radius'
 import {
   serializeBorderTopStyleValue,
@@ -122,11 +122,11 @@ export const funcMap = {
   borderBottomColor: serializeBorderBottomColor,
   borderLeftColor: serializeBorderLeftColor,
   borderColor: serializeBorderColor,
-  borderTopRightRadius: serializeBorderTopRightRadiusValue,
-  borderBottomRightRadius: serializeBorderBottomRightRadiusValue,
-  borderBottomLeftRadius: serializeBorderBottomLeftRadiusValue,
-  borderTopLeftRadius: serializeBorderTopLeftRadiusValue,
-  borderRadius: serializeBorderRadiusValue,
+  borderTopRightRadius: serializeBorderTopRightRadius,
+  borderBottomRightRadius: serializeBorderBottomRightRadius,
+  borderBottomLeftRadius: serializeBorderBottomLeftRadius,
+  borderTopLeftRadius: serializeBorderTopLeftRadius,
+  borderRadius: serializeBorderRadius,
   borderTop: serializeBorderTopValue,
   borderRight: serializeBorderRightValue,
   borderBottom: serializeBorderBottomValue,

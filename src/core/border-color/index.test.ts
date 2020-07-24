@@ -10,7 +10,7 @@ const styleObj = {
   borderLeftColor: hsl(3, per(3), per(3)),
 }
 
-test('borderColorStyle', () => {
+test('borderColor', () => {
   const received = style(styleObj)
   const expected = {
     borderColor: 'hsl(3, 3%, 3%)',
