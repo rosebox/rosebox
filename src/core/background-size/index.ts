@@ -10,7 +10,9 @@ export const serializeBackgroundSizePropValue = (
   if (Array.isArray(x[0]))
     return (x as BackgroundSize[]).reduce(
       (acc, val, idx) =>
-        acc + serializeBackgroundSize(val) + (idx === x.length - 1 ? '' : ', '),
+        acc +
+        serializeBackgroundSizeAtomic(val) +
+        (idx === x.length - 1 ? '' : ', '),
       ''
     )
   return serializeBackgroundSizeAtomic(x as BackgroundSize)

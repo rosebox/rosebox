@@ -17,8 +17,8 @@ export const serializeBackgroundColorValue = (
 
 export const serializeBackgroundImage = (
   x: BackgroundColor | GlobalCssKeyword
-): { backgroundColor: string } => ({
-  backgroundColor:
+): { backgroundImage: string } => ({
+  backgroundImage:
     typeof x === 'string' ? x : isURL(x) ? serializeURL(x) : serializeURI(x),
 })
 
