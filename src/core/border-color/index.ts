@@ -14,16 +14,16 @@ const serializeBorderSideColor = (property: string) => (
  * @added 0.1.5
  * @implentationReference hhttps://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
  */
-export const serializeBorderTopColorValue = serializeBorderSideColor(
+export const serializeBorderTopColor = serializeBorderSideColor(
   'borderTopColor'
 )
-export const serializeBorderRightColorValue = serializeBorderSideColor(
+export const serializeBorderRightColor = serializeBorderSideColor(
   'borderRightColor'
 )
-export const serializeBorderBottomColorValue = serializeBorderSideColor(
+export const serializeBorderBottomColor = serializeBorderSideColor(
   'borderBottomColor'
 )
-export const serializeBorderLeftColorValue = serializeBorderSideColor(
+export const serializeBorderLeftColor = serializeBorderSideColor(
   'borderLeftColor'
 )
 
@@ -88,7 +88,7 @@ export type BorderLeftColorDeclaration = {
  */
 type BorderColor = Color | [Color, Color, Color, Color]
 
-export const serializeBorderColorValue = (
+export const serializeBorderColor = (
   value: GlobalCssKeyword | BorderColor
 ): {
   borderColor: string

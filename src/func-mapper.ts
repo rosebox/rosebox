@@ -25,11 +25,11 @@ import { serializeOpacity } from './core/opacity'
 import { serializePositionPropValue } from './core/position'
 import { serializeVisibilityValue } from './core/visibility'
 import {
-  serializeBorderColorValue,
-  serializeBorderTopColorValue,
-  serializeBorderRightColorValue,
-  serializeBorderBottomColorValue,
-  serializeBorderLeftColorValue,
+  serializeBorderColor,
+  serializeBorderTopColor,
+  serializeBorderRightColor,
+  serializeBorderBottomColor,
+  serializeBorderLeftColor,
 } from './core/border-color'
 import { serializeCursorValue } from './core/cursor'
 import {
@@ -117,11 +117,11 @@ import { serializeBackfaceVisibility } from './core/backface-visibility'
 export const funcMap = {
   alignContent: serializeAlignContent,
   alignItems: serializeAlignItems,
-  borderTopColor: serializeBorderTopColorValue,
-  borderRightColor: serializeBorderRightColorValue,
-  borderBottomColor: serializeBorderBottomColorValue,
-  borderLeftColor: serializeBorderLeftColorValue,
-  borderColor: serializeBorderColorValue,
+  borderTopColor: serializeBorderTopColor,
+  borderRightColor: serializeBorderRightColor,
+  borderBottomColor: serializeBorderBottomColor,
+  borderLeftColor: serializeBorderLeftColor,
+  borderColor: serializeBorderColor,
   borderTopRightRadius: serializeBorderTopRightRadiusValue,
   borderBottomRightRadius: serializeBorderBottomRightRadiusValue,
   borderBottomLeftRadius: serializeBorderBottomLeftRadiusValue,
