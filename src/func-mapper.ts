@@ -10,10 +10,10 @@ import { serializeWidthValue } from './core/width'
 import { serializeHeight } from './core/height'
 import { serializeBackgroundColor } from './core/background-color'
 import {
-  serializeTopValue,
-  serializeRightValue,
-  serializeBottomValue,
-  serializeLeftValue,
+  serializeTop,
+  serializeRight,
+  serializeBottom,
+  serializeLeft,
 } from './core/box-offsets'
 import { serializeBoxSizingValue } from './core/box-sizing'
 import { serializeColorValue } from './core/color'
@@ -155,10 +155,10 @@ export const funcMap = {
   minWidth: serializeMinWidthValue,
   maxWidth: serializeMaxWidthValue,
   color: serializeColorValue,
-  top: serializeTopValue,
-  right: serializeRightValue,
-  bottom: serializeBottomValue,
-  left: serializeLeftValue,
+  top: serializeTop,
+  right: serializeRight,
+  bottom: serializeBottom,
+  left: serializeLeft,
   flexBasis: serializeFlexBasisValue,
   flexDirection: serializeFlexDirectionValue,
   flexGrow: serializeFlexGrowValue,

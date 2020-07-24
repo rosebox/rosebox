@@ -5,16 +5,18 @@ import {
 } from '../shared'
 import { serializeLengthPercentage } from '../shared'
 
-export const serializeBoxOffsetValue = (
+export const serializeBoxOffset = (property: string) => (
   value: LengthPercentage | 'auto' | GlobalCssKeyword
-): string =>
-  value === 'auto'
-    ? 'auto'
-    : isGlobalCssKeyword(value)
-    ? value
-    : serializeLengthPercentage(value)
+) => ({
+  [property]:
+    value === 'auto'
+      ? 'auto'
+      : isGlobalCssKeyword(value)
+      ? value
+      : serializeLengthPercentage(value),
+})
 
-export const serializeTopValue = serializeBoxOffsetValue
+export const serializeTop = serializeBoxOffset('top')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -44,7 +46,7 @@ export type RightDeclaration = {
   right: LengthPercentage | 'auto' | GlobalCssKeyword
 }
 
-export const serializeRightValue = serializeBoxOffsetValue
+export const serializeRight = serializeBoxOffset('right')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -60,7 +62,7 @@ export type BottomDeclaration = {
   bottom: LengthPercentage | 'auto' | GlobalCssKeyword
 }
 
-export const serializeBottomValue = serializeBoxOffsetValue
+export const serializeBottom = serializeBoxOffset('bottom')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -76,4 +78,4 @@ export type LeftDeclaration = {
   left: LengthPercentage | 'auto' | GlobalCssKeyword
 }
 
-export const serializeLeftValue = serializeBoxOffsetValue
+export const serializeLeft = serializeBoxOffset('left')
