@@ -40,11 +40,11 @@ import {
   serializeBorderRadius,
 } from './core/border-radius'
 import {
-  serializeBorderTopStyleValue,
-  serializeBorderRightStyleValue,
-  serializeBorderBottomStyleValue,
-  serializeBorderLeftStyleValue,
-  serializeBorderStyleValue,
+  serializeBorderTopStyle,
+  serializeBorderRightStyle,
+  serializeBorderBottomStyle,
+  serializeBorderLeftStyle,
+  serializeBorderStyle,
 } from './core/border-style'
 import {
   serializeBorderTopWidthValue,
@@ -132,11 +132,11 @@ export const funcMap = {
   borderBottom: serializeBorderBottomValue,
   borderLeft: serializeBorderLeftValue,
   border: serializeBorderValue,
-  borderTopStyle: serializeBorderTopStyleValue,
-  borderRightStyle: serializeBorderRightStyleValue,
-  borderBottomStyle: serializeBorderBottomStyleValue,
-  borderLeftStyle: serializeBorderLeftStyleValue,
-  borderStyle: serializeBorderStyleValue,
+  borderTopStyle: serializeBorderTopStyle,
+  borderRightStyle: serializeBorderRightStyle,
+  borderBottomStyle: serializeBorderBottomStyle,
+  borderLeftStyle: serializeBorderLeftStyle,
+  borderStyle: serializeBorderStyle,
   borderTopWidth: serializeBorderTopWidthValue,
   borderRightWidth: serializeBorderRightWidthValue,
   borderBottomWidth: serializeBorderBottomWidthValue,
