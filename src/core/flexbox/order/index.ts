@@ -1,6 +1,12 @@
 import { GlobalCssKeyword } from '../../shared'
 
-export const serializerOrder = (value: number | GlobalCssKeyword) => value
+export const serializeOrder = (
+  value: number | GlobalCssKeyword
+): {
+  order: number | string
+} => ({
+  order: value,
+})
 
 export type OrderDeclaration = {
   /**
