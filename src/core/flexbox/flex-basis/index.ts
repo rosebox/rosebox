@@ -13,19 +13,20 @@ export type FlexBasis = 'content' | Width
 
 export const isFlexBasis = (value: any): value is FlexBasis =>
   value === 'content' || isWidthType(value)
-export const serializeFlexBasis = (value: FlexBasis): string =>
+export const serializeFlexBasisValue = (value: FlexBasis): string =>
   value === 'content'
     ? 'content'
     : isGlobalCssKeyword(value)
     ? serializeKeyword(value)
     : serializeWidth(value)
 
-export const serializeFlexBasisValue = (
+export const serializeFlexBasis = (
   value: FlexBasis | GlobalCssKeyword
-): string =>
-  isGlobalCssKeyword(value)
+): { flexBasis: string } => ({
+  flexBasis: isGlobalCssKeyword(value)
     ? serializeKeyword(value)
-    : serializeFlexBasis(value)
+    : serializeFlexBasisValue(value),
+})
 
 /**
  * @category RBDeclarationTypeAlias

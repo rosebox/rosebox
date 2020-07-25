@@ -1,6 +1,6 @@
 import { style } from '../..'
 
-test('cursor', () => {
+test('display', () => {
   const received = style({
     display: ['flex', 'block'],
   })
