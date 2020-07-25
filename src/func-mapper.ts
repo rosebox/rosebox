@@ -103,10 +103,10 @@ import { serializePerspectiveOriginPropertyValue } from './core/perspective-orig
 import { serializePerspectivePropertyValue } from './core/perspective'
 import { serializeFontStretch } from './core/font-stretch'
 import { serializeFontSizeAdjust } from './core/font-size-adjust'
-import { serializeFontVariationSettingsPropValue } from './core/font-variation-settings'
+import { serializeFontVariationSettings } from './core/font-variation-settings'
 import { serializeFontSynthesis } from './core/font-synthesis'
 import { serializeAlignContent } from './core/align-content'
-import { serializeFontVariantLigaturesPropValue } from './core/font-variant-ligatures'
+import { serializeFontVariantLigatures } from './core/font-variant-ligatures'
 import { serializeBackgroundImage } from './core/background-image'
 import { serializeBackgroundPosition } from './core/background-position'
 import { serializeWordSpacingPropValue } from './core/word-spacing'
@@ -178,7 +178,7 @@ export const funcMap = {
   fontSizeAdjust: serializeFontSizeAdjust,
   fontWeight: serializeFontWeight,
   fontFamily: serializeFontFamily,
-  fontVariationSettings: serializeFontVariationSettingsPropValue,
+  fontVariationSettings: serializeFontVariationSettings,
   fontSynthesis: serializeFontSynthesis,
   flexWrap: serializeFlexWrap,
   flex: serializeFlex,
@@ -206,7 +206,7 @@ export const funcMap = {
   transformOrigin: serializeTransformOriginPropertyValue,
   perspectiveOrigin: serializePerspectiveOriginPropertyValue,
   perspective: serializePerspectivePropertyValue,
-  fontVariantLigatures: serializeFontVariantLigaturesPropValue,
+  fontVariantLigatures: serializeFontVariantLigatures,
   wordSpacing: serializeWordSpacingPropValue,
   alignSelf: serializeAlignSelf,
   backgroundSize: serializeBackgroundSize,

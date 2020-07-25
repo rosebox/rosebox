@@ -1,17 +1,19 @@
 import { GlobalCssKeyword } from '../shared'
 
-export const serializeFontVariationSettingsPropValue = (
+export const serializeFontVariationSettings = (
   x: 'normal' | [string, number] | [string, number][] | GlobalCssKeyword
-): string =>
-  typeof x === 'string'
-    ? x
-    : !Array.isArray(x[0])
-    ? `"${x[0]}" ${x[1]}`
-    : (x as [string, number][]).reduce(
-        (acc, val, idx) =>
-          acc + `"${val[0]}" ${val[1]}` + (x.length - 1 !== idx ? ', ' : ''),
-        ''
-      )
+): { fontVariationSettings: string } => ({
+  fontVariationSettings:
+    typeof x === 'string'
+      ? x
+      : !Array.isArray(x[0])
+      ? `"${x[0]}" ${x[1]}`
+      : (x as [string, number][]).reduce(
+          (acc, val, idx) =>
+            acc + `"${val[0]}" ${val[1]}` + (x.length - 1 !== idx ? ', ' : ''),
+          ''
+        ),
+})
 
 /**
  * @category RBDeclarationTypeAlias
