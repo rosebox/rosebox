@@ -1,9 +1,11 @@
 import { GlobalCssKeyword, Percentage } from '../shared'
 import { serializePercentage } from '../shared'
 
-export const serializeFontStretchPropertyValue = (
+export const serializeFontStretch = (
   x: Percentage | string
-): string => (typeof x === 'string' ? x : serializePercentage(x))
+): { fontStretch: string } => ({
+  fontStretch: typeof x === 'string' ? x : serializePercentage(x),
+})
 
 /**
  * @category RBDeclarationTypeAlias

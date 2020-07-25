@@ -101,7 +101,7 @@ import { serializeTransformPropertyValue } from './core/transform'
 import { serializeTransformOriginPropertyValue } from './core/transform-origin'
 import { serializePerspectiveOriginPropertyValue } from './core/perspective-origin'
 import { serializePerspectivePropertyValue } from './core/perspective'
-import { serializeFontStretchPropertyValue } from './core/font-stretch'
+import { serializeFontStretch } from './core/font-stretch'
 import { serializeFontSizeAdjust } from './core/font-size-adjust'
 import { serializeFontVariationSettingsPropValue } from './core/font-variation-settings'
 import { serializeFontSynethsisPropValue } from './core/font-synthesis'
@@ -174,7 +174,7 @@ export const funcMap = {
   textTransform: serializeTextTransformValue,
   textDecoration: serializeTextDecorationValue,
   fontSize: serializeFontSize,
-  fontStretch: serializeFontStretchPropertyValue,
+  fontStretch: serializeFontStretch,
   fontSizeAdjust: serializeFontSizeAdjust,
   fontWeight: serializeFontWeight,
   fontFamily: serializeFontFamily,
