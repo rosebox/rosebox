@@ -94,7 +94,6 @@ import { serializeTransitionTimingFunctionValue } from './core/transition-timing
 import { serializeTransitionValue } from './core/transition'
 import { serializeTransitionDurationValue } from './core/transition-duration'
 import { serializeBoxShadow } from './core/box-shadow'
-import { serializeJustifyContent } from './core/justify-content'
 import { serializeAlignItems } from './core/align-items'
 import { serializeTransformPropertyValue } from './core/transform'
 import { serializeTransformOriginPropertyValue } from './core/transform-origin'
@@ -180,7 +179,6 @@ export const funcMap = {
   fontSynthesis: serializeFontSynthesis,
   flexWrap: serializeFlexWrap,
   flex: serializeFlex,
-  justifyContent: serializeJustifyContent,
   letterSpacing: serializeLetterSpacing,
   lineHeight: serializeLineHeight,
   marginTop: serializeMarginTopValue,
