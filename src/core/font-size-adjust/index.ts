@@ -1,8 +1,10 @@
 import { GlobalCssKeyword } from '../shared'
 
-export const serializeFontSizeAdjustPropValue = (
+export const serializeFontSizeAdjust = (
   x: number | 'none' | GlobalCssKeyword
-): string | number => (typeof x === 'string' ? x : x)
+): { fontSizeAdjust: string | number } => ({
+  fontSizeAdjust: typeof x === 'string' ? x : x,
+})
 
 /**
  * @category RBDeclarationTypeAlias
