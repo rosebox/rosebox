@@ -5,7 +5,7 @@ import {
 } from './core/overflow'
 
 import { serializeTextTransformValue } from './core/text-transform'
-import { serializeDisplayValue } from './core/display'
+import { serializeDisplay } from './core/display'
 import { serializeWidthValue } from './core/width'
 import { serializeHeight } from './core/height'
 import { serializeBackgroundColor } from './core/background-color'
@@ -147,7 +147,7 @@ export const funcMap = {
   backgroundPosition: serializeBackgroundPosition,
   boxShadow: serializeBoxShadow,
   cursor: serializeCursor,
-  display: serializeDisplayValue,
+  display: serializeDisplay,
   width: serializeWidthValue,
   height: serializeHeight,
   minHeight: serializeMinHeightValue,
