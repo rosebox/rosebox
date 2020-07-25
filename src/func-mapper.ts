@@ -70,7 +70,7 @@ import { serializeFlexDirectionValue } from './core/flexbox/flex-direction'
 import { serializeFlexGrow } from './core/flexbox/flex-grow'
 import { serializeFlexShrink } from './core/flexbox/flex-shrink'
 import { serializeFlexWrap } from './core/flexbox/flex-wrap'
-import { serializeFlexValue } from './core/flexbox/flex'
+import { serializeFlex } from './core/flexbox/flex'
 import { serializeLetterSpacing } from './core/letter-spacing'
 import { serializeLineHeight } from './core/line-height'
 import {
@@ -181,7 +181,7 @@ export const funcMap = {
   fontVariationSettings: serializeFontVariationSettingsPropValue,
   fontSynthesis: serializeFontSynethsisPropValue,
   flexWrap: serializeFlexWrap,
-  flex: serializeFlexValue,
+  flex: serializeFlex,
   justifyContent: serializeJustifyContent,
   letterSpacing: serializeLetterSpacing,
   lineHeight: serializeLineHeight,
