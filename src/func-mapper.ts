@@ -77,7 +77,7 @@ import {
   serializeMarginRightValue,
   serializeMarginBottomValue,
   serializeMarginLeftValue,
-  serializeMarginValue,
+  serializeMargin,
 } from './core/margin'
 import {
   serializePaddingTopValue,
@@ -185,7 +185,7 @@ export const funcMap = {
   marginRight: serializeMarginRightValue,
   marginBottom: serializeMarginBottomValue,
   marginLeft: serializeMarginLeftValue,
-  margin: serializeMarginValue,
+  margin: serializeMargin,
   paddingTop: serializePaddingTopValue,
   paddingRight: serializePaddingRightValue,
   paddingBottom: serializePaddingBottomValue,

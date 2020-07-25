@@ -7,12 +7,6 @@ import {
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
-export type MarginTopCSSProp = 'margin-top'
-export type MarginRightCSSProp = 'margin-right'
-export type MarginBottomCSSProp = 'margin-bottom'
-export type MarginLeftCSSProp = 'margin-left'
-export type MarginCSSProp = 'margin'
-
 type MarginValue = LengthPercentage | 'auto'
 
 const serializeAtomicValue = (
@@ -103,10 +97,13 @@ const serializeShorthandleValue = (value: MarginShorthand): string =>
         .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim()
 
-export const serializeMarginValue = (
+export const serializeMargin = (
   value: MarginShorthand | GlobalCssKeyword
-): string =>
-  isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value)
+): {
+  margin: string
+} => ({
+  margin: isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value),
+})
 
 /**
  * @category RBDeclarationTypeAlias
