@@ -27,8 +27,6 @@ test('style', () => {
     textDecoration: 'orchid',
     fontSize: rem(1.2),
     fontWeight: 300,
-    fontFamily: 'Arial',
-
     letterSpacing: px(1),
     lineHeight: 'normal',
     marginTop: px(40),
@@ -85,7 +83,6 @@ test('style', () => {
     textDecoration: 'orchid',
     fontSize: '1.2rem',
     fontWeight: 300,
-    fontFamily: 'Arial',
     flex: '100px 0 1',
     letterSpacing: '1px',
     lineHeight: 'normal',

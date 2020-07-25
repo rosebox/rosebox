@@ -1,11 +1,11 @@
-import { style } from '../../..'
+import { style } from '../..'
 
 test('fontFamily', () => {
   const received = style({
-    fontFamily: 'Arial',
+    fontFamily: ['font1', 'font2'],
   })
   const expected = {
-    fontFamily: 'Arial',
+    fontFamily: 'font1, font2',
   }
   expect(received).toEqual(expected)
 })
