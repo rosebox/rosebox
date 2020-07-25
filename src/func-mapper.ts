@@ -63,7 +63,6 @@ import {
   serializeBorder,
 } from './core/border'
 import { serializeFontSize } from './core/font-size'
-import { serializeFontWeight } from './core/font-weight'
 import { serializeFontFamily } from './core/font-family'
 import { serializeFlexBasis } from './core/flexbox/flex-basis'
 import { serializeFlexDirectionValue } from './core/flexbox/flex-direction'
@@ -176,7 +175,6 @@ export const funcMap = {
   fontSize: serializeFontSize,
   fontStretch: serializeFontStretch,
   fontSizeAdjust: serializeFontSizeAdjust,
-  fontWeight: serializeFontWeight,
   fontFamily: serializeFontFamily,
   fontVariationSettings: serializeFontVariationSettings,
   fontSynthesis: serializeFontSynthesis,
