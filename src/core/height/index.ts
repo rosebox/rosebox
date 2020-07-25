@@ -8,12 +8,17 @@ import { serializeLength, serializePercentage } from '../shared'
 
 export type HeightCSSProp = 'height'
 
-export const serializeHeight = (value: Width | GlobalCssKeyword) =>
-  isLengthType(value)
+export const serializeHeight = (
+  value: Width | GlobalCssKeyword
+): {
+  height: string
+} => ({
+  height: isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
-    : value
+    : value,
+})
 
 /**
  * @category RBDeclarationTypeAlias
