@@ -67,7 +67,7 @@ import { serializeFontWeight } from './core/font-weight'
 import { serializeFontFamily } from './core/font-family'
 import { serializeFlexBasis } from './core/flexbox/flex-basis'
 import { serializeFlexDirectionValue } from './core/flexbox/flex-direction'
-import { serializeFlexGrowValue } from './core/flexbox/flex-grow'
+import { serializeFlexGrow } from './core/flexbox/flex-grow'
 import { serializeFlexShrink } from './core/flexbox/flex-shrink'
 import { serializeFlexWrap } from './core/flexbox/flex-wrap'
 import { serializeFlexValue } from './core/flexbox/flex'
@@ -161,7 +161,7 @@ export const funcMap = {
   left: serializeLeft,
   flexBasis: serializeFlexBasis,
   flexDirection: serializeFlexDirectionValue,
-  flexGrow: serializeFlexGrowValue,
+  flexGrow: serializeFlexGrow,
   flexShrink: serializeFlexShrink,
   boxSizing: serializeBoxSizingValue,
   opacity: serializeOpacity,

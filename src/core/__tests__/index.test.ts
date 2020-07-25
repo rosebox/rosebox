@@ -91,7 +91,6 @@ test('style', () => {
     fontWeight: 300,
     fontFamily: 'Arial',
     flexDirection: 'column',
-    flexGrow: 0,
     flexShrink: 1,
     flexWrap: 'nowrap',
     flex: '100px 0 1',

@@ -1,9 +1,13 @@
 import { ShrinkGrow } from '../shared'
 import { GlobalCssKeyword } from '../../shared'
 
-export const serializeFlexGrowValue = (
+export const serializeFlexGrow = (
   value: ShrinkGrow | GlobalCssKeyword
-): string | number => value
+): {
+  flexGrow: string | number
+} => ({
+  flexGrow: value,
+})
 
 /**
  * @category RBDeclarationTypeAlias
