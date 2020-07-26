@@ -91,7 +91,7 @@ import { serializeTransitionDurationValue } from './core/transition-duration'
 import { serializeBoxShadow } from './core/box-shadow'
 import { serializeAlignItems } from './core/align-items'
 import { serializeTransform } from './core/transform'
-import { serializeTransformOriginPropertyValue } from './core/transform-origin'
+import { serializeTransformOrigin } from './core/transform-origin'
 import { serializePerspectiveOrigin } from './core/perspective-origin'
 import { serializePerspectivePropertyValue } from './core/perspective'
 import { serializeFontStretch } from './core/font-stretch'
@@ -191,7 +191,7 @@ export const funcMap = {
   transition: serializeTransitionValue,
   transitionDuration: serializeTransitionDurationValue,
   transform: serializeTransform,
-  transformOrigin: serializeTransformOriginPropertyValue,
+  transformOrigin: serializeTransformOrigin,
   perspectiveOrigin: serializePerspectiveOrigin,
   perspective: serializePerspectivePropertyValue,
   fontVariantLigatures: serializeFontVariantLigatures,

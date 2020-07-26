@@ -11,18 +11,20 @@ const serializeAtomicValue = (
   x: LengthPercentage | 'left' | 'center' | 'right' | 'top' | 'bottom'
 ): string => (typeof x === 'string' ? x : serializeLengthPercentage(x))
 
-export const serializeTransformOriginPropertyValue = (
+export const serializeTransformOrigin = (
   x: Offset | GlobalCssKeyword
-): string =>
-  typeof x === 'string'
-    ? x
-    : x.reduce(
-        (acc, val, idx) =>
-          acc +
-          serializeAtomicValue(val) +
-          (idx === x.length - 1 ? '' : WHITESPACE),
-        ''
-      )
+): { transformOrigin: string } => ({
+  transformOrigin:
+    typeof x === 'string'
+      ? x
+      : x.reduce(
+          (acc, val, idx) =>
+            acc +
+            serializeAtomicValue(val) +
+            (idx === x.length - 1 ? '' : WHITESPACE),
+          ''
+        ),
+})
 
 /**
  * @category RBDeclarationTypeAlias
