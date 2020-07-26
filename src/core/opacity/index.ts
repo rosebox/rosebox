@@ -5,7 +5,9 @@ export type OpacityCSSProp = 'opacity'
 
 export const serializeOpacity = (
   value: number | Percentage | GlobalCssKeyword
-) => (isPercentageType(value) ? serializePercentage(value) : value)
+): { opacity: string | number } => ({
+  opacity: isPercentageType(value) ? serializePercentage(value) : value,
+})
 
 /**
  * @category RBDeclarationTypeAlias
