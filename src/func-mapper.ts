@@ -20,7 +20,7 @@ import { serializeColor } from './core/color'
 import { serializeMaxHeight } from './core/max-height'
 import { serializeMaxWidth } from './core/max-width'
 import { serializeMinHeightValue } from './core/min-height'
-import { serializeMinWidthValue } from './core/min-width'
+import { serializeMinWidth } from './core/min-width'
 import { serializeOpacity } from './core/opacity'
 import { serializePositionPropValue } from './core/position'
 import { serializeVisibilityValue } from './core/visibility'
@@ -150,7 +150,7 @@ export const funcMap = {
   height: serializeHeight,
   minHeight: serializeMinHeightValue,
   maxHeight: serializeMaxHeight,
-  minWidth: serializeMinWidthValue,
+  minWidth: serializeMinWidth,
   maxWidth: serializeMaxWidth,
   color: serializeColor,
   top: serializeTop,
