@@ -54,7 +54,7 @@ import {
   serializeBorderWidth,
 } from './core/border-width'
 import { serializezIndexValue } from './core/z-index'
-import { serializeTextDecorationValue } from './core/text-decoration'
+//import { serializeTextDecorationValue } from './core/text-decoration'
 import {
   serializeBorderTop,
   serializeBorderRight,
@@ -170,7 +170,7 @@ export const funcMap = {
   visibility: serializeVisibilityValue,
   zIndex: serializezIndexValue,
   textTransform: serializeTextTransformValue,
-  textDecoration: serializeTextDecorationValue,
+  //textDecoration: serializeTextDecorationValue,
   fontSize: serializeFontSize,
   fontStretch: serializeFontStretch,
   fontSizeAdjust: serializeFontSizeAdjust,

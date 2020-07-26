@@ -56,7 +56,7 @@ import {
   BorderWidthDeclaration,
 } from './core/border-width'
 import { ZIndexDeclaration } from './core/z-index'
-import { TextDecorationDeclaration } from './core/text-decoration'
+//import { TextDecorationDeclaration } from './core/text-decoration'
 import {
   BorderTopDeclaration,
   BorderRightDeclaration,
@@ -177,7 +177,7 @@ export type RBStyle = Partial<
     BorderWidthDeclaration &
     ZIndexDeclaration &
     TextTransformDeclaration &
-    TextDecorationDeclaration &
+    //TextDecorationDeclaration &
     BorderTopDeclaration &
     BorderRightDeclaration &
     BorderBottomDeclaration &
