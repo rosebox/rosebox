@@ -1,8 +1,4 @@
-import {
-  serializeOverflowX,
-  serializeOverflowY,
-  serializeOverflow,
-} from './core/overflow'
+import { serializeOverflow } from './core/overflow'
 
 import { serializeTextTransformValue } from './core/text-transform'
 import { serializeDisplay } from './core/display'
@@ -163,8 +159,6 @@ export const funcMap = {
   flexShrink: serializeFlexShrink,
   boxSizing: serializeBoxSizingValue,
   opacity: serializeOpacity,
-  overflowX: serializeOverflowX,
-  overflowY: serializeOverflowY,
   overflow: serializeOverflow,
   position: serializePositionPropValue,
   visibility: serializeVisibilityValue,

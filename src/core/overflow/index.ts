@@ -2,9 +2,6 @@ import { GlobalCssKeyword } from '../shared'
 
 type OverflowKeyword = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto'
 
-export const serializeOverflowX = (value: OverflowKeyword | GlobalCssKeyword) =>
-  value
-
 export type OverflowXDeclaration = {
   /**
    * Maps to CSS's **`overflow-x`** property
@@ -15,9 +12,6 @@ export type OverflowXDeclaration = {
    */
   overflowX: OverflowKeyword | GlobalCssKeyword
 }
-
-export const serializeOverflowY = (value: OverflowKeyword | GlobalCssKeyword) =>
-  value
 
 export type OverflowYDeclaration = {
   /**
@@ -37,7 +31,9 @@ export const serializeOverflow = (
     | OneOverflowKeyword
     | [OneOverflowKeyword, OneOverflowKeyword]
     | GlobalCssKeyword
-) => (Array.isArray(value) ? `${value[0]} ${value[1]}` : value)
+) => ({
+  overflow: Array.isArray(value) ? `${value[0]} ${value[1]}` : value,
+})
 
 /**
  * @category RBDeclarationTypeAlias
