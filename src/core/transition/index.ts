@@ -80,23 +80,24 @@ const serializeSingleTransition = (value: SingleTransitionTuple): string =>
     .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
     .trim()
 
-export const serializeTransitionValue = (
+export const serializeTransition = (
   value: TransitionPropertyValue
-): string => {
-  return typeof value === 'string'
-    ? value
-    : isSingleTransition(value)
-    ? serializeSingleTransition(value)
-    : (value as SingleTransitionTuple[])
-        .reduce(
-          (acc: any, item, idx) =>
-            acc +
-            serializeSingleTransition(item) +
-            (idx === value.length - 1 ? '' : ', '),
-          ''
-        )
-        .trim()
-}
+): { transition: string } => ({
+  transition:
+    typeof value === 'string'
+      ? value
+      : isSingleTransition(value)
+      ? serializeSingleTransition(value)
+      : (value as SingleTransitionTuple[])
+          .reduce(
+            (acc: any, item, idx) =>
+              acc +
+              serializeSingleTransition(item) +
+              (idx === value.length - 1 ? '' : ', '),
+            ''
+          )
+          .trim(),
+})
 
 /**
  * @category RBDeclarationTypeAlias

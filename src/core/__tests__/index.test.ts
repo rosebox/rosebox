@@ -89,7 +89,6 @@ test('style', () => {
     transitionProperty: 'backgroundColor, color, test',
     transitionDelay: '300ms, 1000ms',
     transitionTimingFunction: 'steps(3, jump-both)',
-    transition: 'steps(3, jump-both) 1000ms',
     transitionDuration: '500ms',
     boxShadow: 'inset 10px 10px rgb(155, 155, 155)',
     justifyContent: 'flex-end',
