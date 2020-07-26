@@ -17,8 +17,8 @@ import {
 } from './core/box-offsets'
 import { serializeBoxSizingValue } from './core/box-sizing'
 import { serializeColor } from './core/color'
-import { serializeMaxHeightValue } from './core/max-height'
-import { serializeMaxWidthValue } from './core/max-width'
+import { serializeMaxHeight } from './core/max-height'
+import { serializeMaxWidth } from './core/max-width'
 import { serializeMinHeightValue } from './core/min-height'
 import { serializeMinWidthValue } from './core/min-width'
 import { serializeOpacity } from './core/opacity'
@@ -149,9 +149,9 @@ export const funcMap = {
   width: serializeWidthValue,
   height: serializeHeight,
   minHeight: serializeMinHeightValue,
-  maxHeight: serializeMaxHeightValue,
+  maxHeight: serializeMaxHeight,
   minWidth: serializeMinWidthValue,
-  maxWidth: serializeMaxWidthValue,
+  maxWidth: serializeMaxWidth,
   color: serializeColor,
   top: serializeTop,
   right: serializeRight,
