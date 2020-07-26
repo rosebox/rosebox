@@ -35,7 +35,6 @@ test('style', () => {
     textAlign: 'center',
     order: 1,
     transitionProperty: ['backgroundColor', 'color', ident('test')],
-    transitionDelay: [ms(300), ms(1000)],
     textTransform: 'lowercase full-width full-size-kana',
     transitionTimingFunction: steps(3, 'jump-both'),
     transition: [steps(3, 'jump-both'), ms(1000)],

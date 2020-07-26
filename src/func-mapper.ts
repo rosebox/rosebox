@@ -84,7 +84,7 @@ import {
 import { serializeTextAlign } from './core/text-align'
 import { serializeOrder } from './core/flexbox/order'
 import { serializeTransitionPropertyValue } from './core/transition-property'
-import { serializeTransitionDelayValue } from './core/transition-delay'
+import { serializeTransitionDelay } from './core/transition-delay'
 import { serializeTransitionTimingFunctionValue } from './core/transition-timing-function'
 import { serializeTransition } from './core/transition'
 import { serializeTransitionDurationValue } from './core/transition-duration'
@@ -186,7 +186,7 @@ export const funcMap = {
   textAlign: serializeTextAlign,
   order: serializeOrder,
   transitionProperty: serializeTransitionPropertyValue,
-  transitionDelay: serializeTransitionDelayValue,
+  transitionDelay: serializeTransitionDelay,
   transitionTimingFunction: serializeTransitionTimingFunctionValue,
   transition: serializeTransition,
   transitionDuration: serializeTransitionDurationValue,
