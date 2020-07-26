@@ -1,6 +1,5 @@
 import { serializeOverflow } from './core/overflow'
 
-import { serializeTextTransformValue } from './core/text-transform'
 import { serializeDisplay } from './core/display'
 import { serializeWidthValue } from './core/width'
 import { serializeHeight } from './core/height'
@@ -163,7 +162,6 @@ export const funcMap = {
   position: serializePositionPropValue,
   visibility: serializeVisibilityValue,
   zIndex: serializezIndexValue,
-  textTransform: serializeTextTransformValue,
   //textDecoration: serializeTextDecorationValue,
   fontSize: serializeFontSize,
   fontStretch: serializeFontStretch,

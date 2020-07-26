@@ -1,7 +1,5 @@
 import { GlobalCssKeyword } from '../shared'
 
-export type TextAlignCSSProp = 'text-align'
-
 export const serializeTextAlign = (
   value:
     | 'start'

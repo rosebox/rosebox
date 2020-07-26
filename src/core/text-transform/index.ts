@@ -1,7 +1,5 @@
 import { GlobalCssKeyword } from '../shared'
 
-export type TextTransformCSSProp = 'text-transform'
-
 type OneValue =
   | 'none'
   | 'capitalize'
@@ -45,10 +43,6 @@ type ThreeValues =
   | 'full-width lowercase full-size-kana'
 
 type TextTransform = OneValue | TwoValues | ThreeValues
-
-export const serializeTextTransformValue = (
-  value: TextTransform | GlobalCssKeyword
-) => value
 
 /**
  * @category RBDeclarationTypeAlias
