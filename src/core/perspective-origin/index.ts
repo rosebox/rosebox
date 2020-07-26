@@ -5,9 +5,11 @@ import {
 } from '../shared'
 import { Position } from '../shared'
 
-export const serializePerspectiveOriginPropertyValue = (
+export const serializePerspectiveOrigin = (
   x: Position | GlobalCssKeyword
-): string => (isGlobalCssKeyword(x) ? x : serializePosition(x))
+): { perspectiveOrigin: string } => ({
+  perspectiveOrigin: isGlobalCssKeyword(x) ? x : serializePosition(x),
+})
 
 /**
  * @category RBDeclarationTypeAlias

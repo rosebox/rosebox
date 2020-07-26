@@ -93,7 +93,7 @@ import { serializeBoxShadow } from './core/box-shadow'
 import { serializeAlignItems } from './core/align-items'
 import { serializeTransformPropertyValue } from './core/transform'
 import { serializeTransformOriginPropertyValue } from './core/transform-origin'
-import { serializePerspectiveOriginPropertyValue } from './core/perspective-origin'
+import { serializePerspectiveOrigin } from './core/perspective-origin'
 import { serializePerspectivePropertyValue } from './core/perspective'
 import { serializeFontStretch } from './core/font-stretch'
 import { serializeFontSizeAdjust } from './core/font-size-adjust'
@@ -194,7 +194,7 @@ export const funcMap = {
   transitionDuration: serializeTransitionDurationValue,
   transform: serializeTransformPropertyValue,
   transformOrigin: serializeTransformOriginPropertyValue,
-  perspectiveOrigin: serializePerspectiveOriginPropertyValue,
+  perspectiveOrigin: serializePerspectiveOrigin,
   perspective: serializePerspectivePropertyValue,
   fontVariantLigatures: serializeFontVariantLigatures,
   wordSpacing: serializeWordSpacingPropValue,
