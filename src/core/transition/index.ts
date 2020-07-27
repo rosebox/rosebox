@@ -1,7 +1,7 @@
 import { AnimatableProperty, Time, GlobalCssKeyword } from '../shared'
 import {
   TransitionTimingFunctionValue,
-  serializeTransitionTimingFunctionValue,
+  transitionTimingFunctionValue,
 } from '../transition-timing-function'
 import { isTime } from '../shared'
 import { serializeTime } from '../shared'
@@ -68,7 +68,7 @@ const serializeAtomicValue = (
     ? value
     : isTime(value)
     ? serializeTime(value)
-    : serializeTransitionTimingFunctionValue(value)
+    : transitionTimingFunctionValue(value)
 
 const isSingleTransition = (
   value: TransitionPropertyValue
