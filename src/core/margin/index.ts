@@ -1,3 +1,4 @@
+import { isObject } from '../../utils'
 import {
   GlobalCssKeyword,
   isLengthType,
@@ -80,7 +81,15 @@ type MarginShorthandFourValues = [
   MarginValue
 ]
 
+type MarginObject = {
+  top?: MarginValue
+  right?: MarginValue
+  bottom?: MarginValue
+  left?: MarginValue
+}
+
 type MarginShorthand =
+  | MarginObject
   | MarginShorthandSingleValue
   | MarginShorthandTwoValues
   | MarginShorthandThreeValues
@@ -97,13 +106,30 @@ const serializeShorthandleValue = (value: MarginShorthand): string =>
         .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim()
 
-export const serializeMargin = (
-  value: MarginShorthand | GlobalCssKeyword
-): {
-  margin: string
-} => ({
-  margin: isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value),
-})
+export const serializeMargin = (value: MarginShorthand | GlobalCssKeyword) =>
+  isObject(value)
+    ? (() => {
+        const val = value as MarginObject
+        return {
+          ...(val.top && {
+            marginTop: serializeAtomicValue(val.top),
+          }),
+          ...(val.right && {
+            marginRight: serializeAtomicValue(val.right),
+          }),
+          ...(val.bottom && {
+            marginBottom: serializeAtomicValue(val.bottom),
+          }),
+          ...(val.left && {
+            marginLeft: serializeAtomicValue(val.left),
+          }),
+        }
+      })()
+    : {
+        margin: isGlobalCssKeyword(value)
+          ? value
+          : serializeShorthandleValue(value),
+      }
 
 /**
  * @category RBDeclarationTypeAlias
@@ -116,5 +142,6 @@ export type MarginDeclaration = {
   margin:
     | MarginValue
     | [MarginValue, MarginValue, MarginValue, MarginValue]
+    | MarginObject
     | GlobalCssKeyword
 }
