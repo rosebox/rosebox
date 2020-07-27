@@ -5,7 +5,7 @@ import {
   GlobalCssKeyword,
   isGlobalCssKeyword,
 } from '../shared'
-import { Color, isColor, serializeColor } from '../color'
+import { Color, isColor, serializeColorValue } from '../color'
 import { serializeLength } from '../shared'
 
 type AtomicValue = Color | LineStyle | LineWidth
@@ -17,7 +17,7 @@ type Border = [LineWidth, LineStyle, Color]
 
 const serializeAtomicValue = (value: AtomicValue) =>
   isColor(value)
-    ? serializeColor(value)
+    ? serializeColorValue(value)
     : isLengthType(value)
     ? serializeLength(value)
     : value

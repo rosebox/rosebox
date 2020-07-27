@@ -4,7 +4,7 @@ import {
   GlobalCssKeyword,
   isGlobalCssKeyword,
 } from '../shared'
-import { Color, isColor, serializeColor } from '../color'
+import { Color, isColor, serializeColorValue } from '../color'
 import { serializeLength } from '../shared'
 
 type LengthTuple =
@@ -40,7 +40,7 @@ export const serializeShadow = (value: Shadow): string => {
         acc +
         ' ' +
         (isColor(item)
-          ? serializeColor(item)
+          ? serializeColorValue(item)
           : isLengthType(item)
           ? serializeLength(item)
           : isLengthTuple(item)
