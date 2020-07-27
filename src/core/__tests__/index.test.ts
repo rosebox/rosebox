@@ -9,7 +9,6 @@ import { translateX } from '../transform'
 test('style', () => {
   const received = style({
     backgroundColor: rgb(2, 3, 4),
-    width: per(3),
     boxSizing: 'border-box',
     color: hex('#000'),
     maxHeight: px(190),

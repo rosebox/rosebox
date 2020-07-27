@@ -1,10 +1,10 @@
 import { Width, GlobalCssKeyword, isGlobalCssKeyword } from '../shared'
-import { serializeWidth } from '../shared'
+import { serializeWidth as serializeWidthValue } from '../shared'
 
-export type WidthCSSProp = 'width'
+export const serializeWidth = (value: Width | GlobalCssKeyword) => ({
+  width: isGlobalCssKeyword(value) ? value : serializeWidthValue(value),
+})
 
-export const serializeWidthValue = (value: Width | GlobalCssKeyword) =>
-  isGlobalCssKeyword(value) ? value : serializeWidth(value)
 /**
  * @category RBDeclarationTypeAlias
  */

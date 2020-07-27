@@ -1,7 +1,7 @@
 import { serializeOverflow } from './core/overflow'
 
 import { serializeDisplay } from './core/display'
-import { serializeWidthValue } from './core/width'
+import { serializeWidth } from './core/width'
 import { serializeHeight } from './core/height'
 import { serializeBackgroundColor } from './core/background-color'
 import {
@@ -18,7 +18,6 @@ import { serializeMinHeightValue } from './core/min-height'
 import { serializeMinWidth } from './core/min-width'
 import { serializeOpacity } from './core/opacity'
 import { serializePositionPropValue } from './core/position'
-import { serializeVisibilityValue } from './core/visibility'
 import {
   serializeBorderColor,
   serializeBorderTopColor,
@@ -141,7 +140,7 @@ export const funcMap = {
   boxShadow: serializeBoxShadow,
   cursor: serializeCursor,
   display: serializeDisplay,
-  width: serializeWidthValue,
+  width: serializeWidth,
   height: serializeHeight,
   minHeight: serializeMinHeightValue,
   maxHeight: serializeMaxHeight,
@@ -160,7 +159,6 @@ export const funcMap = {
   opacity: serializeOpacity,
   overflow: serializeOverflow,
   position: serializePositionPropValue,
-  visibility: serializeVisibilityValue,
   zIndex: serializezIndexValue,
   //textDecoration: serializeTextDecorationValue,
   fontSize: serializeFontSize,
