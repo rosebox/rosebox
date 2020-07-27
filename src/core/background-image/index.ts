@@ -1,4 +1,4 @@
-import { serializeColor, Color } from '../color'
+import { serializeColorValue, Color } from '../color'
 import {
   GlobalCssKeyword,
   isGlobalCssKeyword,
@@ -13,7 +13,7 @@ export type BackgroundColor = URL | URI | 'none'
 
 export const serializeBackgroundColorValue = (
   value: Color | GlobalCssKeyword
-): string => (isGlobalCssKeyword(value) ? value : serializeColor(value))
+): string => (isGlobalCssKeyword(value) ? value : serializeColorValue(value))
 
 export const serializeBackgroundImage = (
   x: BackgroundColor | GlobalCssKeyword
