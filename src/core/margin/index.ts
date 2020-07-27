@@ -95,6 +95,54 @@ type MarginShorthand =
   | MarginShorthandThreeValues
   | MarginShorthandFourValues
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
+export type MarginXDeclaration = {
+  /**
+   * Maps to CSS's **`margin-left`** and **`margin-right`** properties.
+   * If a pair (a tuple of two elements) is provided then the values in it
+   * will be mapped to **`margin-left`** and `margin-right` respectively. Otherwise
+   * the provided value will be used for both.
+   * @category RBProperty
+   */
+  marginX: MarginValue | [MarginValue, MarginValue] | GlobalCssKeyword
+}
+
+export const serializeMarginX = (
+  x: MarginValue | [MarginValue, MarginValue] | GlobalCssKeyword
+) => {
+  const value = Array.isArray(x) ? x : [x, x]
+  return {
+    marginLeft: serializeAtomicValue(value[0]),
+    marginRight: serializeAtomicValue(value[1]),
+  }
+}
+
+/**
+ * @category RBDeclarationTypeAlias
+ */
+export type MarginYDeclaration = {
+  /**
+   * Maps to CSS's **`margin-top`** and **`margin-bottom`** properties.
+   * If a pair (a tuple of two elements) is provided then the values in it
+   * will be mapped to **`margin-top`** and `margin-bottom` respectively. Otherwise
+   * the provided value will be used for both.
+   * @category RBProperty
+   */
+  marginY: MarginValue | [MarginValue, MarginValue] | GlobalCssKeyword
+}
+
+export const serializeMarginY = (
+  x: MarginValue | [MarginValue, MarginValue] | GlobalCssKeyword
+) => {
+  const value = Array.isArray(x) ? x : [x, x]
+  return {
+    marginTop: serializeAtomicValue(value[0]),
+    marginBottom: serializeAtomicValue(value[1]),
+  }
+}
+
 const serializeShorthandleValue = (value: MarginShorthand): string =>
   isLengthType(value)
     ? serializeLength(value)

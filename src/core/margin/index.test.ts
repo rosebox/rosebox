@@ -24,3 +24,25 @@ test('margin: MarginObject', () => {
   }
   expect(received).toEqual(expected)
 })
+
+test('marginX', () => {
+  const received = style({
+    marginX: [px(100), 'auto'],
+  })
+  const expected = {
+    marginLeft: '100px',
+    marginRight: 'auto',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('marginY', () => {
+  const received = style({
+    marginY: 'auto',
+  })
+  const expected = {
+    marginTop: 'auto',
+    marginBottom: 'auto',
+  }
+  expect(received).toEqual(expected)
+})

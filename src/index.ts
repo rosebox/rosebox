@@ -81,6 +81,8 @@ import {
   MarginBottomDeclaration,
   MarginLeftDeclaration,
   MarginDeclaration,
+  MarginXDeclaration,
+  MarginYDeclaration,
 } from './core/margin'
 import {
   PaddingTopDeclaration,
@@ -200,6 +202,8 @@ export type RBStyle = Partial<
     MarginBottomDeclaration &
     MarginLeftDeclaration &
     MarginDeclaration &
+    MarginXDeclaration &
+    MarginYDeclaration &
     PaddingXDeclaration &
     PaddingTopDeclaration &
     PaddingRightDeclaration &
