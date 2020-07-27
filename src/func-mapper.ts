@@ -47,7 +47,6 @@ import {
   serializeBorderLeftWidth,
   serializeBorderWidth,
 } from './core/border-width'
-import { serializezIndexValue } from './core/z-index'
 //import { serializeTextDecorationValue } from './core/text-decoration'
 import {
   serializeBorderTop,
@@ -101,7 +100,7 @@ import { serializeAlignContent } from './core/align-content'
 import { serializeFontVariantLigatures } from './core/font-variant-ligatures'
 import { serializeBackgroundImage } from './core/background-image'
 import { serializeBackgroundPosition } from './core/background-position'
-import { serializeWordSpacingPropValue } from './core/word-spacing'
+import { serializeWordSpacing } from './core/word-spacing'
 import { serializeAlignSelf } from './core/align-self'
 import { serializeBackgroundSize } from './core/background-size'
 import { serializeBackfaceVisibility } from './core/backface-visibility'
@@ -159,7 +158,6 @@ export const funcMap = {
   opacity: serializeOpacity,
   overflow: serializeOverflow,
   position: serializePositionPropValue,
-  zIndex: serializezIndexValue,
   //textDecoration: serializeTextDecorationValue,
   fontSize: serializeFontSize,
   fontStretch: serializeFontStretch,
@@ -193,7 +191,7 @@ export const funcMap = {
   perspectiveOrigin: serializePerspectiveOrigin,
   perspective: serializePerspectivePropertyValue,
   fontVariantLigatures: serializeFontVariantLigatures,
-  wordSpacing: serializeWordSpacingPropValue,
+  wordSpacing: serializeWordSpacing,
   alignSelf: serializeAlignSelf,
   backgroundSize: serializeBackgroundSize,
   backfaceVisibility: serializeBackfaceVisibility,

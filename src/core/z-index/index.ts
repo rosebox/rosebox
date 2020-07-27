@@ -1,11 +1,5 @@
 import { GlobalCssKeyword } from '../shared'
 
-export type ZIndexCSSProp = 'z-index'
-
-export const serializezIndexValue = (
-  value: number | 'auto' | GlobalCssKeyword
-) => value
-
 /**
  * @category RBDeclarationTypeAlias
  */
