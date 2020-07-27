@@ -87,7 +87,7 @@ import { serializeTransitionPropertyValue } from './core/transition-property'
 import { serializeTransitionDelay } from './core/transition-delay'
 import { serializeTransitionTimingFunctionValue } from './core/transition-timing-function'
 import { serializeTransition } from './core/transition'
-import { serializeTransitionDurationValue } from './core/transition-duration'
+import { serializeTransitionDuration } from './core/transition-duration'
 import { serializeBoxShadow } from './core/box-shadow'
 import { serializeAlignItems } from './core/align-items'
 import { serializeTransform } from './core/transform'
@@ -189,7 +189,7 @@ export const funcMap = {
   transitionDelay: serializeTransitionDelay,
   transitionTimingFunction: serializeTransitionTimingFunctionValue,
   transition: serializeTransition,
-  transitionDuration: serializeTransitionDurationValue,
+  transitionDuration: serializeTransitionDuration,
   transform: serializeTransform,
   transformOrigin: serializeTransformOrigin,
   perspectiveOrigin: serializePerspectiveOrigin,

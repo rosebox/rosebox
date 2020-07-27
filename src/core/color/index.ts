@@ -627,20 +627,21 @@ export const isColor = (value: any): value is Color =>
   isStandaloneColorKeyword(value) ||
   isExtendedColorKeyword(value)
 
-export const serializeColor = (value: Color | GlobalCssKeyword) => ({
-  color: isColor(value)
-    ? isHex(value)
-      ? serializeHex(value)
-      : isRGB(value)
-      ? serializeRGB(value)
-      : isRGBA(value)
-      ? serializeRGBA(value)
-      : isHSL(value)
-      ? serializeHSL(value)
-      : isHSLA(value)
-      ? serializeHSLA(value)
-      : value
-    : value,
+export const serializeColorValue = (x: Color): string =>
+  isHex(x)
+    ? serializeHex(x)
+    : isRGB(x)
+    ? serializeRGB(x)
+    : isRGBA(x)
+    ? serializeRGBA(x)
+    : isHSL(x)
+    ? serializeHSL(x)
+    : isHSLA(x)
+    ? serializeHSLA(x)
+    : x
+
+export const serializeColor = (x: Color | GlobalCssKeyword) => ({
+  color: isColor(x) ? serializeColorValue(x) : x,
 })
 
 /**
