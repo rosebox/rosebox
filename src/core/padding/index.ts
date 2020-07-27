@@ -4,8 +4,10 @@ import {
   isPercentageType,
   isGlobalCssKeyword,
   LengthPercentage,
+  serializeLengthPercentage,
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
+import { isObject } from '../../utils'
 
 const serializeAtomicValue = (
   value: LengthPercentage | GlobalCssKeyword
@@ -155,11 +157,37 @@ export const serializePaddingY = (
   }
 }
 
-export const serializePaddingValue = (
-  value: PaddingShorthand | GlobalCssKeyword
-): { padding: string } => ({
-  padding: isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value),
-})
+export const serializePadding = (value: PaddingShorthand | GlobalCssKeyword) =>
+  isObject(value)
+    ? (() => {
+        const val = value as PaddingObject
+        return {
+          ...(val.top && {
+            paddingTop: serializeLengthPercentage(val.top),
+          }),
+          ...(val.right && {
+            paddingRight: serializeLengthPercentage(val.right),
+          }),
+          ...(val.bottom && {
+            paddingBottom: serializeLengthPercentage(val.bottom),
+          }),
+          ...(val.left && {
+            paddingLeft: serializeLengthPercentage(val.left),
+          }),
+        }
+      })()
+    : {
+        padding: isGlobalCssKeyword(value)
+          ? value
+          : serializeShorthandleValue(value),
+      }
+
+type PaddingObject = {
+  top?: LengthPercentage
+  right?: LengthPercentage
+  bottom?: LengthPercentage
+  left?: LengthPercentage
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -174,5 +202,6 @@ export type PaddingDeclaration = {
   padding:
     | LengthPercentage
     | [LengthPercentage, LengthPercentage, LengthPercentage, LengthPercentage]
+    | PaddingObject
     | GlobalCssKeyword
 }

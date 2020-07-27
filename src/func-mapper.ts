@@ -77,7 +77,7 @@ import {
   serializePaddingRightValue,
   serializePaddingBottomValue,
   serializePaddingLeftValue,
-  serializePaddingValue,
+  serializePadding,
   serializePaddingX,
 } from './core/padding'
 import { serializeTextAlign } from './core/text-align'
@@ -179,7 +179,7 @@ export const funcMap = {
   paddingRight: serializePaddingRightValue,
   paddingBottom: serializePaddingBottomValue,
   paddingLeft: serializePaddingLeftValue,
-  padding: serializePaddingValue,
+  padding: serializePadding,
   paddingX: serializePaddingX,
   textAlign: serializeTextAlign,
   order: serializeOrder,
