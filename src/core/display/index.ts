@@ -162,6 +162,7 @@ type DisplayLegacy =
   | ['inline-grid']
 
 /**
+ * @hide
  * Formal syntax:
  * [ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy>
  */

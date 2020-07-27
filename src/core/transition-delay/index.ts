@@ -4,6 +4,9 @@ import { serializeTime } from '../shared'
 
 export type TransitionDelayCSSProp = 'transition-delay'
 
+/**
+ *@hide
+ */
 type TransitionDelayPropValue = GlobalCssKeyword | Time | Time[]
 
 export const serializeValue = (value: TransitionDelayPropValue): string =>

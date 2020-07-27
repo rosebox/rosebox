@@ -5,6 +5,9 @@ type BaseLinePosition =
   | ['last', 'baseline']
   | 'baseline'
 
+/**
+ * @hide
+ */
 type AlignSelf =
   | 'auto'
   | 'normal'

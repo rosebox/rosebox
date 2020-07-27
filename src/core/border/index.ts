@@ -10,10 +10,14 @@ import { serializeLength } from '../shared'
 
 type AtomicValue = Color | LineStyle | LineWidth
 
+type BorderWidthValue = LineWidth
+type BorderStyleValue = LineStyle
+type BorderColorValue = Color
+
 /**
  * @hide
  */
-type Border = [LineWidth, LineStyle, Color]
+type Border = [BorderWidthValue, BorderStyleValue, BorderColorValue]
 
 const serializeAtomicValue = (value: AtomicValue) =>
   isColor(value)

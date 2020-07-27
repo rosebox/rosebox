@@ -7,6 +7,9 @@ import { serializeLengthPercentage } from '../shared'
 
 export type BorderRadiusCSSProp = 'border-radius'
 
+/**
+ * @hide
+ */
 export type BorderCornerRadius =
   | LengthPercentage
   | [LengthPercentage, LengthPercentage]

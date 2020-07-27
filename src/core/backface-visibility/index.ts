@@ -1,5 +1,8 @@
 import { GlobalCssKeyword } from '../shared'
 
+/**
+ * @hide
+ */
 type BackfaceVisibility = 'visible' | 'hidden'
 
 export const serializeBackfaceVisibility = (

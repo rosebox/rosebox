@@ -76,6 +76,9 @@ type StepTimingFunction =
 
 type TimingFunction = 'linear' | StepTimingFunction | CubicBezierTimingFunction
 
+/**
+ * @hide
+ */
 export type TransitionTimingFunctionValue =
   | GlobalCssKeyword
   | TimingFunction
