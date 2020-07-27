@@ -88,6 +88,7 @@ import {
   PaddingBottomDeclaration,
   PaddingLeftDeclaration,
   PaddingDeclaration,
+  PaddingXDeclaration,
 } from './core/padding'
 import { TextAlignDeclaration } from './core/text-align'
 import { OrderDeclaration } from './core/flexbox/order'
@@ -199,6 +200,7 @@ export type RBStyle = Partial<
     MarginBottomDeclaration &
     MarginLeftDeclaration &
     MarginDeclaration &
+    PaddingXDeclaration &
     PaddingTopDeclaration &
     PaddingRightDeclaration &
     PaddingBottomDeclaration &

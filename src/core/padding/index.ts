@@ -86,6 +86,20 @@ export type PaddingLeftDeclaration = {
   paddingLeft: LengthPercentage | GlobalCssKeyword
 }
 
+/**
+ * @category RBDeclarationTypeAlias
+ */
+export type PaddingXDeclaration = {
+  /**
+   * Maps to CSS's **`padding-left`** and `padding-right` properties
+   * @category RBProperty
+   */
+  paddingX:
+    | LengthPercentage
+    | [LengthPercentage, LengthPercentage]
+    | GlobalCssKeyword
+}
+
 type PaddingShorthand =
   | LengthPercentage
   | [LengthPercentage, LengthPercentage, LengthPercentage, LengthPercentage]
@@ -100,6 +114,16 @@ const serializeShorthandleValue = (value: PaddingShorthand): string =>
     : (value as LengthPercentage[])
         .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim()
+
+export const serializePaddingX = (
+  x: LengthPercentage | [LengthPercentage, LengthPercentage] | GlobalCssKeyword
+) => {
+  const value = Array.isArray(x) ? x : [x, x]
+  return {
+    paddingLeft: serializeAtomicValue(value[0]),
+    paddingRight: serializeAtomicValue(value[1]),
+  }
+}
 
 export const serializePaddingValue = (
   value: PaddingShorthand | GlobalCssKeyword
