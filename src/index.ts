@@ -56,7 +56,7 @@ import {
   BorderWidthDeclaration,
 } from './core/border-width'
 import { ZIndexDeclaration } from './core/z-index'
-import { TextDecorationDeclaration } from './core/text-decoration'
+//import { TextDecorationDeclaration } from './core/text-decoration'
 import {
   BorderTopDeclaration,
   BorderRightDeclaration,
@@ -177,7 +177,7 @@ export type RBStyle = Partial<
     BorderWidthDeclaration &
     ZIndexDeclaration &
     TextTransformDeclaration &
-    TextDecorationDeclaration &
+    //TextDecorationDeclaration &
     BorderTopDeclaration &
     BorderRightDeclaration &
     BorderBottomDeclaration &
@@ -252,7 +252,7 @@ export type RBStyle = Partial<
  */
 export type RoseboxProperties = RBStyle
 
-export const style = (obj: RBStyle): CSSProperties => {
+export const style__ = (obj: RBStyle): CSSProperties => {
   // NEEDS improvement
   return Object.keys(obj).reduce((acc, key) => {
     return Object.assign({}, acc, {
@@ -260,5 +260,21 @@ export const style = (obj: RBStyle): CSSProperties => {
         ? (funcMap as any)[key]((obj as any)[key])
         : (obj as any)[key],
     })
+  }, {}) as CSSProperties
+}
+
+export const style = (obj: RBStyle): CSSProperties => {
+  // NEEDS improvement
+  return Object.keys(obj).reduce((acc, key) => {
+    const serializer = (funcMap as any)[key]
+    return serializer
+      ? {
+          ...acc,
+          ...serializer((obj as any)[key]),
+        }
+      : {
+          ...acc,
+          [key]: (obj as any)[key],
+        }
   }, {}) as CSSProperties
 }

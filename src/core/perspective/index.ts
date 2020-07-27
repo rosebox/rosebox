@@ -3,7 +3,9 @@ import { serializeLength } from '../shared'
 
 export const serializePerspectivePropertyValue = (
   x: 'none' | Length | GlobalCssKeyword
-): string => (typeof x === 'string' ? x : serializeLength(x))
+): { perspective: string } => ({
+  perspective: typeof x === 'string' ? x : serializeLength(x),
+})
 
 /**
  * @category RBDeclarationTypeAlias

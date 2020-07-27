@@ -17,9 +17,6 @@ type FontWeight =
   | 800
   | 900
 
-export const serializeFontWeight = (value: FontWeight | GlobalCssKeyword) =>
-  value
-
 /**
  * @category RBDeclarationTypeAlias
  */

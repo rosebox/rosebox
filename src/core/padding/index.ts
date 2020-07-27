@@ -7,12 +7,6 @@ import {
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
-export type PaddingTopCSSProp = 'padding-top'
-export type PaddingRightCSSProp = 'padding-right'
-export type PaddingBottomCSSProp = 'padding-bottom'
-export type PaddingLeftCSSProp = 'padding-left'
-export type PaddingCSSProp = 'padding'
-
 const serializeAtomicValue = (
   value: LengthPercentage | GlobalCssKeyword
 ): string =>
@@ -22,7 +16,13 @@ const serializeAtomicValue = (
     ? serializePercentage(value)
     : value
 
-export const serializePaddingTopValue = serializeAtomicValue
+const serializePaddingSide = (prop: string) => (
+  value: LengthPercentage | GlobalCssKeyword
+) => ({
+  [prop]: serializeAtomicValue(value),
+})
+
+export const serializePaddingTopValue = serializePaddingSide('paddingTop')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -38,7 +38,7 @@ export type PaddingTopDeclaration = {
   paddingTop: LengthPercentage | GlobalCssKeyword
 }
 
-export const serializePaddingRightValue = serializeAtomicValue
+export const serializePaddingRightValue = serializePaddingSide('paddingRight')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -54,7 +54,7 @@ export type PaddingRightDeclaration = {
   paddingRight: LengthPercentage | GlobalCssKeyword
 }
 
-export const serializePaddingBottomValue = serializeAtomicValue
+export const serializePaddingBottomValue = serializePaddingSide('paddingBottom')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -70,7 +70,7 @@ export type PaddingBottomDeclaration = {
   paddingBottom: LengthPercentage | GlobalCssKeyword
 }
 
-export const serializePaddingLeftValue = serializeAtomicValue
+export const serializePaddingLeftValue = serializePaddingSide('paddingLeft')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -103,8 +103,9 @@ const serializeShorthandleValue = (value: PaddingShorthand): string =>
 
 export const serializePaddingValue = (
   value: PaddingShorthand | GlobalCssKeyword
-): string =>
-  isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value)
+): { padding: string } => ({
+  padding: isGlobalCssKeyword(value) ? value : serializeShorthandleValue(value),
+})
 
 /**
  * @category RBDeclarationTypeAlias

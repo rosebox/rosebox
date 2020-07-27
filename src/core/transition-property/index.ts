@@ -1,6 +1,9 @@
 import { GlobalCssKeyword, AnimatableProperty, CustomIdent } from '../shared'
 import { serializeCustomIdent } from '../shared'
 
+const toHyphenCase = (x: string) =>
+  x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
+
 /**
  * @hide
  */
@@ -12,20 +15,24 @@ export type TransitionPropertyPropValue =
   | CustomIdent
   | (AnimatableProperty | CustomIdent)[]
 
-const serializeValue = (value: TransitionPropertyPropValue) => {
+const serializeValue = (value: TransitionPropertyPropValue): string => {
   const valArray = Array.isArray(value) ? value : [value]
   return valArray.reduce(
     (acc, item, idx) =>
       acc +
-      (typeof item === 'string' ? item : serializeCustomIdent(item)) +
+      (typeof item === 'string'
+        ? toHyphenCase(item)
+        : toHyphenCase(serializeCustomIdent(item))) +
       (idx === valArray.length - 1 ? '' : ', '),
     ''
   )
 }
 
-export const serializeTransitionPropertyValue = (
-  value: TransitionPropertyPropValue
-): string => serializeValue(value)
+export const serializeTransitionProperty = (
+  x: TransitionPropertyPropValue
+): { transitionProperty: string } => ({
+  transitionProperty: serializeValue(x),
+})
 
 /**
  * @category RBDeclarationTypeAlias

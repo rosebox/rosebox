@@ -11,16 +11,17 @@ export type MaxWidthCSSProp = 'max-width'
 
 type MaxWidth = LengthPercentage | 'none'
 
-export const serializeMaxWidthValue = (
+export const serializeMaxWidth = (
   value: MaxWidth | GlobalCssKeyword
-): string =>
-  isGlobalCssKeyword(value)
+): { maxWidth: string } => ({
+  maxWidth: isGlobalCssKeyword(value)
     ? value
     : isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
-    : value
+    : value,
+})
 
 /**
  * @category RBDeclarationTypeAlias

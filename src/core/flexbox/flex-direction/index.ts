@@ -8,7 +8,9 @@ export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse'
 
 export const serializeFlexDirectionValue = (
   value: FlexDirection | GlobalCssKeyword
-): string => value
+): { flexDirection: string } => ({
+  flexDirection: value,
+})
 
 /**
  * @category RBDeclarationTypeAlias

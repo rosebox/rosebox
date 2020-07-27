@@ -1,10 +1,10 @@
-import { serializeTransformOriginPropertyValue } from './transform-origin'
 import { per, px } from '../shared'
+import { style } from '../..'
 
 test('transormOrigin([keyword, keyword])', () => {
-  const received = {
-    transformOrigin: serializeTransformOriginPropertyValue([per(50), px(0)]),
-  }
+  const received = style({
+    transformOrigin: [per(50), px(0)],
+  })
   const expected = {
     transformOrigin: '50% 0px',
   }
@@ -12,13 +12,9 @@ test('transormOrigin([keyword, keyword])', () => {
 })
 
 test('transormOrigin([LengthPercentage, LengthPercentage, Length])', () => {
-  const received = {
-    transformOrigin: serializeTransformOriginPropertyValue([
-      per(100),
-      per(100),
-      px(50),
-    ]),
-  }
+  const received = style({
+    transformOrigin: [per(100), per(100), px(50)],
+  })
   const expected = {
     transformOrigin: '100% 100% 50px',
   }
@@ -26,9 +22,9 @@ test('transormOrigin([LengthPercentage, LengthPercentage, Length])', () => {
 })
 
 test('transormOrigin(GlobalCssKeyword)', () => {
-  const received = {
-    transformOrigin: serializeTransformOriginPropertyValue('initial'),
-  }
+  const received = style({
+    transformOrigin: 'initial',
+  })
   const expected = {
     transformOrigin: 'initial',
   }

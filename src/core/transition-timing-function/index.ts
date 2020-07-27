@@ -104,9 +104,13 @@ const serializeValue = (value: TransitionTimingFunctionValue): string =>
         ''
       )
 
-export const serializeTransitionTimingFunctionValue = (
-  value: TransitionTimingFunctionValue
-): string => serializeValue(value)
+export const transitionTimingFunctionValue = serializeValue
+
+export const serializeTransitionTimingFunction = (
+  x: TransitionTimingFunctionValue
+): { transitionTimingFunction: string } => ({
+  transitionTimingFunction: serializeValue(x),
+})
 /**
  * @category RBDeclarationTypeAlias
  */

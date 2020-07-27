@@ -3,9 +3,11 @@ import { serializeLength } from '../shared'
 
 export type WordSpacingCSSProp = 'word-spacing'
 
-export const serializeWordSpacingPropValue = (
+export const serializeWordSpacing = (
   x: 'normal' | Length | GlobalCssKeyword
-): string => (typeof x === 'string' ? x : serializeLength(x))
+): { wordSpacing: string } => ({
+  wordSpacing: typeof x === 'string' ? x : serializeLength(x),
+})
 
 /**
  * @category RBDeclarationTypeAlias

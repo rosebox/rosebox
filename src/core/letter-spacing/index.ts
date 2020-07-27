@@ -6,7 +6,9 @@ export type LetterSpacingCSSProp = 'letter-spacing'
 
 export const serializeLetterSpacing = (
   value: 'normal' | Length | GlobalCssKeyword
-): string => (isLengthType(value) ? serializeLength(value) : value)
+): { letterSpacing: string } => ({
+  letterSpacing: isLengthType(value) ? serializeLength(value) : value,
+})
 
 /**
  * @category RBDeclarationTypeAlias

@@ -11,16 +11,19 @@ export type MaxHeightCSSProp = 'max-height'
 
 type MaxHeight = LengthPercentage | 'none'
 
-export const serializeMaxHeightValue = (
+export const serializeMaxHeight = (
   value: MaxHeight | GlobalCssKeyword
-): string =>
-  isGlobalCssKeyword(value)
+): {
+  maxHeight: string
+} => ({
+  maxHeight: isGlobalCssKeyword(value)
     ? value
     : isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
-    : value
+    : value,
+})
 
 /**
  * @category RBDeclarationTypeAlias

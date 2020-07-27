@@ -1,21 +1,9 @@
 import { GlobalCssKeyword } from '../shared'
 
-export type BoxSizingCSSProp = 'box-sizing'
-
 /**
  * @skip
  */
 type BoxSizing = 'content-box' | 'border-box'
-
-/**
- * @experimental
- */
-export const boxContent = { display: 'content-box' } as const
-
-/**
- * @experimental
- */
-export const boxBorder = { display: 'border-box' } as const
 
 export const serializeBoxSizingValue = (value: BoxSizing | GlobalCssKeyword) =>
   value

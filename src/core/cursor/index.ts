@@ -50,8 +50,8 @@ const serializeCursorURL = (value: CursorURL): string =>
     ? `url(${value.value})`
     : `url(${value[0].value} ${value[1]} ${value[2]})`
 
-export const serializeCursorValue = (value: Cursor): string =>
-  isGlobalCssKeyword(value)
+export const serializeCursor = (value: Cursor) => ({
+  cursor: isGlobalCssKeyword(value)
     ? value
     : !Array.isArray(value)
     ? value
@@ -68,7 +68,8 @@ export const serializeCursorValue = (value: Cursor): string =>
           ' ' +
           value[1]
         ).trim()
-      })()
+      })(),
+})
 
 /**
  * @category RBDeclarationTypeAlias

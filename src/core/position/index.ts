@@ -1,7 +1,5 @@
 import { GlobalCssKeyword } from '../shared'
 
-export type PositionCSSProp = 'position'
-
 export const serializePositionPropValue = (
   value:
     | 'relative'

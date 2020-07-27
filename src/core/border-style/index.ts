@@ -2,12 +2,24 @@ import { GlobalCssKeyword, LineStyle, isGlobalCssKeyword } from '../shared'
 
 export type BorderStyleCSSProp = 'border-style'
 
-const borderSideStyle = (value: LineStyle | GlobalCssKeyword): string => value
+const serializeBorderSideStyle = (property: string) => (
+  value: LineStyle | GlobalCssKeyword
+) => ({
+  [property]: value,
+})
 
-export const serializeBorderTopStyleValue = borderSideStyle
-export const serializeBorderRightStyleValue = borderSideStyle
-export const serializeBorderBottomStyleValue = borderSideStyle
-export const serializeBorderLeftStyleValue = borderSideStyle
+export const serializeBorderTopStyle = serializeBorderSideStyle(
+  'borderTopStyle'
+)
+export const serializeBorderRightStyle = serializeBorderSideStyle(
+  'borderRightStyle'
+)
+export const serializeBorderBottomStyle = serializeBorderSideStyle(
+  'borderBottomStyle'
+)
+export const serializeBorderLeftStyle = serializeBorderSideStyle(
+  'borderLeftStyle'
+)
 
 /**
  * @category RBDeclarationTypeAlias
@@ -69,16 +81,19 @@ export type BorderLeftStyleDeclaration = {
  */
 type BorderStyle = LineStyle | [LineStyle, LineStyle, LineStyle, LineStyle]
 
-export const serializeBorderStyleValue = (
+export const serializeBorderStyle = (
   value: BorderStyle | GlobalCssKeyword
-): string =>
-  isGlobalCssKeyword(value)
+): {
+  borderStyle: string
+} => ({
+  borderStyle: isGlobalCssKeyword(value)
     ? value
     : !Array.isArray(value)
     ? value
     : (value as LineStyle[])
         .reduce((acc: any, item) => acc + ' ' + item, '')
-        .trim()
+        .trim(),
+})
 
 /**
  * @category RBDeclarationTypeAlias

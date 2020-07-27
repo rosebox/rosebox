@@ -11,12 +11,13 @@ export type LineHeightCSSProp = 'line-height'
 
 export const serializeLineHeight = (
   value: 'normal' | number | LengthPercentage | GlobalCssKeyword
-): string | number =>
-  isLengthType(value)
+): { lineHeight: string | number } => ({
+  lineHeight: isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
-    : value
+    : value,
+})
 
 /**
  * @category RBDeclarationTypeAlias

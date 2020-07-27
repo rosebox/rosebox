@@ -27,12 +27,13 @@ export const serializeFontSize = (
     | Length
     | Percentage
     | GlobalCssKeyword
-): string =>
-  isLengthType(value)
+): { fontSize: string } => ({
+  fontSize: isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
-    : value
+    : value,
+})
 
 /**
  * @category RBDeclarationTypeAlias

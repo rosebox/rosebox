@@ -3,7 +3,9 @@ import { GlobalCssKeyword } from '../../shared'
 
 export const serializeFlexShrink = (
   value: ShrinkGrow | GlobalCssKeyword
-): string | number => value
+): { flexShrink: string | number } => ({
+  flexShrink: value,
+})
 
 /**
  * @category RBDeclarationTypeAlias

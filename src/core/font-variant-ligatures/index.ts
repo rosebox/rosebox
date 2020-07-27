@@ -64,7 +64,7 @@ type DiscretionaryLigValues =
 type HistoricalLigValues = 'historical-ligatures' | 'no-historical-ligatures'
 type ContextualAltValues = 'contextual' | 'no-contextual'
 
-export const serializeFontVariantLigaturesPropValue = (
+export const serializeFontVariantLigatures = (
   x:
     | 'normal'
     | 'none'
@@ -75,10 +75,11 @@ export const serializeFontVariantLigaturesPropValue = (
         ContextualAltValues
       >
     | GlobalCssKeyword
-): string =>
-  !Array.isArray(x)
+): { fontVariantLigatures: string } => ({
+  fontVariantLigatures: !Array.isArray(x)
     ? x
-    : (x as string[]).reduce((acc: any, item) => acc + ' ' + item, '').trim()
+    : (x as string[]).reduce((acc: any, item) => acc + ' ' + item, '').trim(),
+})
 
 /**
  * @category RBDeclarationTypeAlias

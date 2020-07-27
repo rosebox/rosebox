@@ -5,7 +5,7 @@ import {
   GlobalCssKeyword,
   isGlobalCssKeyword,
 } from '../shared'
-import { Color, isColor, serializeColor } from '../color'
+import { Color, isColor, serializeColorValue } from '../color'
 import { serializeLength } from '../shared'
 
 type AtomicValue = Color | LineStyle | LineWidth
@@ -17,25 +17,28 @@ type Border = [LineWidth, LineStyle, Color]
 
 const serializeAtomicValue = (value: AtomicValue) =>
   isColor(value)
-    ? serializeColor(value)
+    ? serializeColorValue(value)
     : isLengthType(value)
     ? serializeLength(value)
     : value
 
-const serializeBorder = (value: Border | GlobalCssKeyword) =>
-  isGlobalCssKeyword(value)
+const serializeBorderValue = (property: string) => (
+  value: Border | GlobalCssKeyword
+) => ({
+  [property]: isGlobalCssKeyword(value)
     ? value
     : !Array.isArray(value)
     ? serializeAtomicValue(value)
     : (value as AtomicValue[])
         .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
-        .trim()
+        .trim(),
+})
 
-export const serializeBorderTopValue = serializeBorder
-export const serializeBorderRightValue = serializeBorder
-export const serializeBorderBottomValue = serializeBorder
-export const serializeBorderLeftValue = serializeBorder
-export const serializeBorderValue = serializeBorder
+export const serializeBorderTop = serializeBorderValue('borderTop')
+export const serializeBorderRight = serializeBorderValue('borderRight')
+export const serializeBorderBottom = serializeBorderValue('borderBottom')
+export const serializeBorderLeft = serializeBorderValue('borderLeft')
+export const serializeBorder = serializeBorderValue('border')
 
 /**
  * @category RBDeclarationTypeAlias

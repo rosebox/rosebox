@@ -1,15 +1,5 @@
 import { GlobalCssKeyword } from '../shared'
 
-export const serializeJustifyContent = (
-  value:
-    | 'flex-start'
-    | 'flex-end'
-    | 'center'
-    | 'space-between'
-    | 'space-around'
-    | GlobalCssKeyword
-): string => value
-
 /**
  * @category RBDeclarationTypeAlias
  */

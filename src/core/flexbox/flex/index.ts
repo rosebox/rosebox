@@ -1,16 +1,22 @@
 import { GlobalCssKeyword } from '../../shared'
 import { ShrinkGrow } from '../shared'
-import { FlexBasis, serializeFlexBasis } from '../flex-basis'
+import { FlexBasis, serializeFlexBasisValue } from '../flex-basis'
 
 /**
  * @hide
  */
 type Flex = 'none' | [FlexBasis, ShrinkGrow, ShrinkGrow]
 
-export const serializeFlexValue = (value: Flex | GlobalCssKeyword): string =>
-  typeof value === 'string'
-    ? value
-    : `${serializeFlexBasis(value[0])} ${value[1]} ${value[2]}`
+export const serializeFlex = (
+  value: Flex | GlobalCssKeyword
+): {
+  flex: string
+} => ({
+  flex:
+    typeof value === 'string'
+      ? value
+      : `${serializeFlexBasisValue(value[0])} ${value[1]} ${value[2]}`,
+})
 /**
  * @category RBDeclarationTypeAlias
  */

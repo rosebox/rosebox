@@ -17,9 +17,11 @@ export const serializeValue = (value: TransitionDurationPropValue): string =>
         ''
       )
 
-export const serializeTransitionDurationValue = (
-  value: TransitionDurationPropValue
-) => serializeValue(value)
+export const serializeTransitionDuration = (
+  x: TransitionDurationPropValue
+) => ({
+  transitionDuration: serializeValue(x),
+})
 
 /**
  * @category RBDeclarationTypeAlias

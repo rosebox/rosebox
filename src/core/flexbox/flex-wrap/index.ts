@@ -2,7 +2,9 @@ import { GlobalCssKeyword } from '../../shared'
 
 export const serializeFlexWrap = (
   value: 'nowrap' | 'wrap' | 'wrap-reverse' | GlobalCssKeyword
-) => value
+): { flexWrap: string } => ({
+  flexWrap: value,
+})
 
 export type FlexWrapDeclaration = {
   /**

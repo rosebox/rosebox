@@ -105,6 +105,14 @@ export const serializeTransformPropertyValue = (
   throw new Error('The value is not of type TransformFunction')
 }
 
+export const serializeTransform = (
+  x: TransformPropertyValue
+): {
+  transform: string
+} => ({
+  transform: serializeTransformPropertyValue(x),
+})
+
 /**
  * @category RBDeclarationTypeAlias
  */

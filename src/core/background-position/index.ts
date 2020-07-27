@@ -2,7 +2,7 @@ import { GlobalCssKeyword } from '../shared'
 import { Position, serializePosition } from '../shared'
 
 export const serializeBgPositionPropValue = (
-  x: Position | Position[]
+  x: Position | Position[] | GlobalCssKeyword
 ): string => {
   if (typeof x === 'string') return x
   if (Array.isArray(x))
@@ -13,6 +13,14 @@ export const serializeBgPositionPropValue = (
     )
   return serializePosition(x)
 }
+
+export const serializeBackgroundPosition = (
+  x: Position | Position[] | GlobalCssKeyword
+): {
+  backgroundPosition: string
+} => ({
+  backgroundPosition: serializeBgPositionPropValue(x),
+})
 
 /**
  * @category RBDeclarationTypeAlias

@@ -172,16 +172,17 @@ export type DisplayValue =
   | DisplayInternal
   | DisplayBox
 
-export const serializeDisplayValue = (
+export const serializeDisplay = (
   x: DisplayValue | GlobalCssKeyword
-): string =>
-  Array.isArray(x)
+): { display: string } => ({
+  display: Array.isArray(x)
     ? (x as string[]).reduce(
         (acc: string, val: string, idx: number) =>
           `${acc}${val}${idx === x.length - 1 ? '' : ' '}`,
         ''
       )
-    : x
+    : x,
+})
 /**
  * @category RBDeclarationTypeAlias
  */

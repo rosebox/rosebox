@@ -9,16 +9,17 @@ import { serializeLength, serializePercentage } from '../shared'
 
 export type MinWidthCSSProp = 'min-width'
 
-export const serializeMinWidthValue = (
+export const serializeMinWidth = (
   value: LengthPercentage | GlobalCssKeyword
-): string =>
-  isGlobalCssKeyword(value)
+): { minWidth: string } => ({
+  minWidth: isGlobalCssKeyword(value)
     ? value
     : isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
-    : value
+    : value,
+})
 
 /**
  * @category RBDeclarationTypeAlias

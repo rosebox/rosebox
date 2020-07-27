@@ -1,11 +1,5 @@
 import { GlobalCssKeyword } from '../shared'
 
-export type VisibilityCSSProp = 'visibility'
-
-export const serializeVisibilityValue = (
-  value: 'visible' | 'hidden' | 'collapse' | GlobalCssKeyword
-) => value
-
 /**
  * @category RBDeclarationTypeAlias
  */
