@@ -1,4 +1,4 @@
-import { steps } from '.'
+import { steps } from '../shared'
 import { style } from '../..'
 
 test('transitionTimingFunction', () => {

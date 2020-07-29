@@ -1,54 +1,52 @@
-import { AnimatableProperty, Time, GlobalCssKeyword } from '../shared'
 import {
-  TransitionTimingFunctionValue,
-  transitionTimingFunctionValue,
-} from '../transition-timing-function'
+  AnimatableProperty,
+  Time,
+  GlobalCssKeyword,
+  serializeTimingFunctionValue,
+} from '../shared'
+import { TimingFunctionValue } from '../shared'
 import { isTime } from '../shared'
 import { serializeTime } from '../shared'
 
-type SingleTransition =
-  | 'none'
-  | AnimatableProperty
-  | Time
-  | TransitionTimingFunctionValue
+type SingleTransition = 'none' | AnimatableProperty | Time | TimingFunctionValue
 
 type SingleTransitionOneValueTupleSyntax = [SingleTransition]
 
 type SingleTransitionTwoValuesSyntax =
   | ['none' | AnimatableProperty, Time]
-  | ['none' | AnimatableProperty, TransitionTimingFunctionValue]
+  | ['none' | AnimatableProperty, TimingFunctionValue]
   | [Time, 'none' | AnimatableProperty]
-  | [Time, TransitionTimingFunctionValue]
-  | [TransitionTimingFunctionValue, 'none' | AnimatableProperty]
-  | [TransitionTimingFunctionValue, Time]
+  | [Time, TimingFunctionValue]
+  | [TimingFunctionValue, 'none' | AnimatableProperty]
+  | [TimingFunctionValue, Time]
 
 type SingleTransitionThreeValuesSyntax =
-  | ['none' | AnimatableProperty, Time, TransitionTimingFunctionValue]
-  | ['none' | AnimatableProperty, TransitionTimingFunctionValue, Time]
+  | ['none' | AnimatableProperty, Time, TimingFunctionValue]
+  | ['none' | AnimatableProperty, TimingFunctionValue, Time]
   | ['none' | AnimatableProperty, Time, Time]
-  | [TransitionTimingFunctionValue, 'none' | AnimatableProperty, Time]
-  | [TransitionTimingFunctionValue, Time, 'none' | AnimatableProperty]
-  | [TransitionTimingFunctionValue, Time, Time]
-  | [Time, 'none' | AnimatableProperty, TransitionTimingFunctionValue]
-  | [Time, TransitionTimingFunctionValue, 'none' | AnimatableProperty]
+  | [TimingFunctionValue, 'none' | AnimatableProperty, Time]
+  | [TimingFunctionValue, Time, 'none' | AnimatableProperty]
+  | [TimingFunctionValue, Time, Time]
+  | [Time, 'none' | AnimatableProperty, TimingFunctionValue]
+  | [Time, TimingFunctionValue, 'none' | AnimatableProperty]
   | [Time, 'none' | AnimatableProperty, Time]
   | [Time, Time, 'none' | AnimatableProperty]
-  | [Time, TransitionTimingFunctionValue, Time]
-  | [Time, Time, TransitionTimingFunctionValue]
+  | [Time, TimingFunctionValue, Time]
+  | [Time, Time, TimingFunctionValue]
 
 type SingleTransitionFourValuesSyntax =
-  | ['none' | AnimatableProperty, Time, Time, TransitionTimingFunctionValue]
-  | ['none' | AnimatableProperty, Time, TransitionTimingFunctionValue, Time]
-  | ['none' | AnimatableProperty, TransitionTimingFunctionValue, Time, Time]
-  | [TransitionTimingFunctionValue, Time, Time, 'none' | AnimatableProperty]
-  | [TransitionTimingFunctionValue, Time, 'none' | AnimatableProperty, Time]
-  | [TransitionTimingFunctionValue, 'none' | AnimatableProperty, Time, Time]
-  | [Time, Time, 'none' | AnimatableProperty, TransitionTimingFunctionValue]
-  | [Time, Time, TransitionTimingFunctionValue, 'none' | AnimatableProperty]
-  | [Time, 'none' | AnimatableProperty, Time, TransitionTimingFunctionValue]
-  | [Time, 'none' | AnimatableProperty, TransitionTimingFunctionValue, Time]
-  | [Time, TransitionTimingFunctionValue, Time, 'none' | AnimatableProperty]
-  | [Time, TransitionTimingFunctionValue, 'none' | AnimatableProperty, Time]
+  | ['none' | AnimatableProperty, Time, Time, TimingFunctionValue]
+  | ['none' | AnimatableProperty, Time, TimingFunctionValue, Time]
+  | ['none' | AnimatableProperty, TimingFunctionValue, Time, Time]
+  | [TimingFunctionValue, Time, Time, 'none' | AnimatableProperty]
+  | [TimingFunctionValue, Time, 'none' | AnimatableProperty, Time]
+  | [TimingFunctionValue, 'none' | AnimatableProperty, Time, Time]
+  | [Time, Time, 'none' | AnimatableProperty, TimingFunctionValue]
+  | [Time, Time, TimingFunctionValue, 'none' | AnimatableProperty]
+  | [Time, 'none' | AnimatableProperty, Time, TimingFunctionValue]
+  | [Time, 'none' | AnimatableProperty, TimingFunctionValue, Time]
+  | [Time, TimingFunctionValue, Time, 'none' | AnimatableProperty]
+  | [Time, TimingFunctionValue, 'none' | AnimatableProperty, Time]
 
 type SingleTransitionTuple =
   | SingleTransitionOneValueTupleSyntax
@@ -62,13 +60,13 @@ type TransitionPropertyValue =
   | GlobalCssKeyword
 
 const serializeAtomicValue = (
-  value: 'none' | AnimatableProperty | Time | TransitionTimingFunctionValue
+  value: 'none' | AnimatableProperty | Time | TimingFunctionValue
 ): string =>
   typeof value === 'string'
     ? value
     : isTime(value)
     ? serializeTime(value)
-    : transitionTimingFunctionValue(value)
+    : serializeTimingFunctionValue(value)
 
 const isSingleTransition = (
   value: TransitionPropertyValue

@@ -1,6 +1,6 @@
 import { ms } from '../shared'
 import { style } from '../..'
-import { steps } from '../transition-timing-function'
+import { steps } from '../shared'
 
 test('transition', () => {
   const received = style({
