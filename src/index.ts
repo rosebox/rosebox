@@ -137,7 +137,7 @@ import { AnimationTimingFunctionDeclaration } from './core/animation-timing-func
 import { AnimationDelayDeclaration } from './core/animation-delay'
 import { AnimationIterationCountDeclaration } from './core/animation-iteration-count'
 import { AnimationDirectionDeclaration } from './core/animation-direction'
-import { AnimationPlayModeDeclaration } from './core/animation-play-mode'
+import { AnimationPlayStateDeclaration } from './core/animation-play-state'
 import { AnimationFillModeDeclaration } from './core/animation-fill-mode'
 
 export * from './core'
@@ -262,7 +262,7 @@ export type RBStyle = Partial<
     AnimationDelayDeclaration &
     AnimationIterationCountDeclaration &
     AnimationDirectionDeclaration &
-    AnimationPlayModeDeclaration &
+    AnimationPlayStateDeclaration &
     AnimationFillModeDeclaration &
     BackgroundSizeDeclaration & {
       x: string | number

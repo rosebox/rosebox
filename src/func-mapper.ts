@@ -113,7 +113,7 @@ import { serializeAnimationTimingFunction } from './core/animation-timing-functi
 import { serializeAnimationDelay } from './core/animation-delay'
 import { serializeAnimationIterationCount } from './core/animation-iteration-count'
 import { serializeAnimationDirection } from './core/animation-direction'
-import { serializeAnimationPlayMode } from './core/animation-play-mode'
+import { serializeAnimationPlayState } from './core/animation-play-state'
 import { serializeAnimationFillMode } from './core/animation-fill-mode'
 
 export const funcMap = {
@@ -124,7 +124,7 @@ export const funcMap = {
   animationDelay: serializeAnimationDelay,
   animationIterationCount: serializeAnimationIterationCount,
   animationDirection: serializeAnimationDirection,
-  animationPlayMode: serializeAnimationPlayMode,
+  animationPlayState: serializeAnimationPlayState,
   animationFillMode: serializeAnimationFillMode,
   borderTopColor: serializeBorderTopColor,
   borderRightColor: serializeBorderRightColor,
