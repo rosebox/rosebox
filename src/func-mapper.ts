@@ -114,6 +114,7 @@ import { serializeAnimationDelay } from './core/animation-delay'
 import { serializeAnimationIterationCount } from './core/animation-iteration-count'
 import { serializeAnimationDirection } from './core/animation-direction'
 import { serializeAnimationPlayMode } from './core/animation-play-mode'
+import { serializeAnimationFillMode } from './core/animation-fill-mode'
 
 export const funcMap = {
   alignContent: serializeAlignContent,
@@ -124,6 +125,7 @@ export const funcMap = {
   animationIterationCount: serializeAnimationIterationCount,
   animationDirection: serializeAnimationDirection,
   animationPlayMode: serializeAnimationPlayMode,
+  animationFillMode: serializeAnimationFillMode,
   borderTopColor: serializeBorderTopColor,
   borderRightColor: serializeBorderRightColor,
   borderBottomColor: serializeBorderBottomColor,

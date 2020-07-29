@@ -138,6 +138,7 @@ import { AnimationDelayDeclaration } from './core/animation-delay'
 import { AnimationIterationCountDeclaration } from './core/animation-iteration-count'
 import { AnimationDirectionDeclaration } from './core/animation-direction'
 import { AnimationPlayModeDeclaration } from './core/animation-play-mode'
+import { AnimationFillModeDeclaration } from './core/animation-fill-mode'
 
 export * from './core'
 export * from './react'
@@ -262,6 +263,7 @@ export type RBStyle = Partial<
     AnimationIterationCountDeclaration &
     AnimationDirectionDeclaration &
     AnimationPlayModeDeclaration &
+    AnimationFillModeDeclaration &
     BackgroundSizeDeclaration & {
       x: string | number
     }

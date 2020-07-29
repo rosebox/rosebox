@@ -27,7 +27,7 @@ export const serializeAnimationPlayMode = (x: AnimationPlayModeValue) => ({
  */
 export type AnimationPlayModeDeclaration = {
   /**
-   * Maps to CSS's **`animation-property`** property
+   * Maps to CSS's **`animation-play-mode`** property
    * @category RBProperty
    */
   animationPlayMode: AnimationPlayModeValue
