@@ -131,6 +131,7 @@ import { WordSpacingDeclaration } from './core/word-spacing'
 import { ObjectFitDeclaration } from './core/object-fit'
 import { AlignSelfDeclaration } from './core/align-self'
 import { BackgroundSizeDeclaration } from './core/background-size'
+import { AnimationNameDeclaration } from './core/animation-name'
 
 export * from './core'
 export * from './react'
@@ -248,6 +249,7 @@ export type RBStyle = Partial<
     WordSpacingDeclaration &
     ObjectFitDeclaration &
     AlignSelfDeclaration &
+    AnimationNameDeclaration &
     BackgroundSizeDeclaration & {
       x: string | number
     }

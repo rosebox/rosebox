@@ -107,6 +107,7 @@ import { serializeWordSpacing } from './core/word-spacing'
 import { serializeAlignSelf } from './core/align-self'
 import { serializeBackgroundSize } from './core/background-size'
 import { serializeBackfaceVisibility } from './core/backface-visibility'
+import { serializeAnimationName } from './core/animation-name'
 
 export const funcMap = {
   alignContent: serializeAlignContent,
@@ -192,6 +193,7 @@ export const funcMap = {
   transitionTimingFunction: serializeTransitionTimingFunction,
   transition: serializeTransition,
   transitionDuration: serializeTransitionDuration,
+  animationName: serializeAnimationName,
   transform: serializeTransform,
   transformOrigin: serializeTransformOrigin,
   perspectiveOrigin: serializePerspectiveOrigin,
