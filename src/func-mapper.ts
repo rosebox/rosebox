@@ -108,10 +108,12 @@ import { serializeAlignSelf } from './core/align-self'
 import { serializeBackgroundSize } from './core/background-size'
 import { serializeBackfaceVisibility } from './core/backface-visibility'
 import { serializeAnimationName } from './core/animation-name'
+import { serializeAnimationDuration } from './core/animation-duration'
 
 export const funcMap = {
   alignContent: serializeAlignContent,
   alignItems: serializeAlignItems,
+  animationDuration: serializeAnimationDuration,
   borderTopColor: serializeBorderTopColor,
   borderRightColor: serializeBorderRightColor,
   borderBottomColor: serializeBorderBottomColor,
