@@ -112,6 +112,7 @@ import { serializeAnimationDuration } from './core/animation-duration'
 import { serializeAnimationTimingFunction } from './core/animation-timing-function'
 import { serializeAnimationDelay } from './core/animation-delay'
 import { serializeAnimationIterationCount } from './core/animation-iteration-count'
+import { serializeAnimationDirection } from './core/animation-direction'
 
 export const funcMap = {
   alignContent: serializeAlignContent,
@@ -120,6 +121,7 @@ export const funcMap = {
   animationTimingFunction: serializeAnimationTimingFunction,
   animationDelay: serializeAnimationDelay,
   animationIterationCount: serializeAnimationIterationCount,
+  animationDirection: serializeAnimationDirection,
   borderTopColor: serializeBorderTopColor,
   borderRightColor: serializeBorderRightColor,
   borderBottomColor: serializeBorderBottomColor,
