@@ -109,11 +109,13 @@ import { serializeBackgroundSize } from './core/background-size'
 import { serializeBackfaceVisibility } from './core/backface-visibility'
 import { serializeAnimationName } from './core/animation-name'
 import { serializeAnimationDuration } from './core/animation-duration'
+import { serializeAnimationTimingFunction } from './core/animation-timing-function'
 
 export const funcMap = {
   alignContent: serializeAlignContent,
   alignItems: serializeAlignItems,
   animationDuration: serializeAnimationDuration,
+  animationTimingFunction: serializeAnimationTimingFunction,
   borderTopColor: serializeBorderTopColor,
   borderRightColor: serializeBorderRightColor,
   borderBottomColor: serializeBorderBottomColor,

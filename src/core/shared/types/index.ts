@@ -7,6 +7,7 @@ export * from './url'
 export * from './custom-ident'
 export * from './shared'
 export * from './angle'
+export * from './timing-function'
 
 export const globalCssKeywords = <const>['inherit', 'initial', 'unset']
 

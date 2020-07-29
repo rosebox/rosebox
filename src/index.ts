@@ -133,6 +133,7 @@ import { AlignSelfDeclaration } from './core/align-self'
 import { BackgroundSizeDeclaration } from './core/background-size'
 import { AnimationNameDeclaration } from './core/animation-name'
 import { AnimationDurationDeclaration } from './core/animation-duration'
+import { AnimationTimingFunctionDeclaration } from './core/animation-timing-function'
 
 export * from './core'
 export * from './react'
@@ -252,6 +253,7 @@ export type RBStyle = Partial<
     AlignSelfDeclaration &
     AnimationNameDeclaration &
     AnimationDurationDeclaration &
+    AnimationTimingFunctionDeclaration &
     BackgroundSizeDeclaration & {
       x: string | number
     }
