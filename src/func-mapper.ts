@@ -110,12 +110,14 @@ import { serializeBackfaceVisibility } from './core/backface-visibility'
 import { serializeAnimationName } from './core/animation-name'
 import { serializeAnimationDuration } from './core/animation-duration'
 import { serializeAnimationTimingFunction } from './core/animation-timing-function'
+import { serializeAnimationDelay } from './core/animation-delay'
 
 export const funcMap = {
   alignContent: serializeAlignContent,
   alignItems: serializeAlignItems,
   animationDuration: serializeAnimationDuration,
   animationTimingFunction: serializeAnimationTimingFunction,
+  animationDelay: serializeAnimationDelay,
   borderTopColor: serializeBorderTopColor,
   borderRightColor: serializeBorderRightColor,
   borderBottomColor: serializeBorderBottomColor,

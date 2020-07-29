@@ -134,6 +134,7 @@ import { BackgroundSizeDeclaration } from './core/background-size'
 import { AnimationNameDeclaration } from './core/animation-name'
 import { AnimationDurationDeclaration } from './core/animation-duration'
 import { AnimationTimingFunctionDeclaration } from './core/animation-timing-function'
+import { AnimationDelayDeclaration } from './core/animation-delay'
 
 export * from './core'
 export * from './react'
@@ -254,6 +255,7 @@ export type RBStyle = Partial<
     AnimationNameDeclaration &
     AnimationDurationDeclaration &
     AnimationTimingFunctionDeclaration &
+    AnimationDelayDeclaration &
     BackgroundSizeDeclaration & {
       x: string | number
     }
