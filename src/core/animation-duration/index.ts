@@ -5,7 +5,7 @@ import { serializeTime } from '../shared'
 /**
  * @hide
  */
-type AnimationDuration = GlobalCssKeyword | Time | Time[]
+export type AnimationDuration = GlobalCssKeyword | Time | Time[]
 
 export const serializeValue = (value: AnimationDuration): string =>
   !Array.isArray(value)

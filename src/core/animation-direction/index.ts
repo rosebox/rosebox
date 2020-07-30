@@ -9,7 +9,7 @@ type AnimationDirectionKeyword =
 /**
  * @hide
  */
-type AnimationDirection =
+export type AnimationDirection =
   | GlobalCssKeyword
   | AnimationDirectionKeyword
   | AnimationDirectionKeyword[]

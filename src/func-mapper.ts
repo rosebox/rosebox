@@ -115,10 +115,12 @@ import { serializeAnimationIterationCount } from './core/animation-iteration-cou
 import { serializeAnimationDirection } from './core/animation-direction'
 import { serializeAnimationPlayState } from './core/animation-play-state'
 import { serializeAnimationFillMode } from './core/animation-fill-mode'
+import { serializeAnimation } from './core/animation'
 
 export const funcMap = {
   alignContent: serializeAlignContent,
   alignItems: serializeAlignItems,
+  animation: serializeAnimation,
   animationDuration: serializeAnimationDuration,
   animationTimingFunction: serializeAnimationTimingFunction,
   animationDelay: serializeAnimationDelay,

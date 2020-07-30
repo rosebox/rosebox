@@ -6,7 +6,7 @@ const toHyphenCase = (x: string) =>
 /**
  * @hide
  */
-export type AnimationNameValue =
+export type AnimationName =
   | 'none'
   | GlobalCssKeyword
   | CustomIdent
@@ -18,7 +18,7 @@ const cb = (x: string | CustomIdent): string =>
     ? toHyphenCase(x)
     : toHyphenCase(serializeCustomIdent(x))
 
-const serializeValue = (value: AnimationNameValue) => {
+const serializeValue = (value: AnimationName) => {
   const valArray = Array.isArray(value) ? value : [value]
   return valArray.reduce(
     (acc, item, idx) =>
@@ -27,7 +27,7 @@ const serializeValue = (value: AnimationNameValue) => {
   )
 }
 
-export const serializeAnimationName = (x: AnimationNameValue) => ({
+export const serializeAnimationName = (x: AnimationName) => ({
   animationName: serializeValue(x),
 })
 
@@ -39,5 +39,5 @@ export type AnimationNameDeclaration = {
    * Maps to CSS's **`animation-property`** property
    * @category RBProperty
    */
-  animationName: AnimationNameValue
+  animationName: AnimationName
 }

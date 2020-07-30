@@ -3,7 +3,7 @@ import { GlobalCssKeyword } from '../shared'
 /**
  * @hide
  */
-type AnimationIterationCount =
+export type AnimationIterationCount =
   | GlobalCssKeyword
   | 'infinit'
   | number
