@@ -267,7 +267,7 @@ export type RBStyle = Partial<
     AnimationFillModeDeclaration &
     AnimationDeclaration &
     BackgroundSizeDeclaration & {
-      x: string | number
+      [x: string]: any
     }
 >
 
