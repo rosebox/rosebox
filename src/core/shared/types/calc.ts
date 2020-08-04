@@ -1,36 +1,4 @@
-// interface CalcAddition<T> {
-//   __tag: 'addition'
-//   operands: [CalcProduct<T> | CalcValue<T>, CalcProduct<T> | CalcValue<T>]
-// }
-
-// interface CalcSubstraction<T> {
-//   __tag: 'substraction'
-//   operands: [CalcProduct<T> | CalcValue<T>, CalcProduct<T> | CalcValue<T>]
-// }
-
-// type CalcProduct<A, B> = CalcMultiplication<A, B>
-/*
-const divide = (x1: CalcValue, x2: number): CalcDivision => ({
-  __tag: 'division',
-  operands: [x1, x2],
-})
-
-
-
-const add = (x1: CalcProduct, x2: CalcProduct): CalcAddition => ({
-  __tag: 'addition',
-  operands: [x1, x2],
-})
-
-*/
-
-// const subs = <T>(
-//   x1: CalcProduct<T> | CalcValue<T>,
-//   x2: CalcProduct<T> | CalcValue<T>
-// ): CalcSubstraction<T> => ({
-//   __tag: 'substraction',
-//   operands: [x1, x2],
-// })
+import { LengthPercentage, serializeLengthPercentage } from './shared'
 
 interface CalcMultiplication<A, B> {
   __tag: 'multiplication'
@@ -44,11 +12,16 @@ interface CalcAddition<A> {
 
 interface CalcDivision<B = any> {
   __tag: 'division'
-  operands: [LengthPercentage | WidthMultiplication | CalcDivision, number]
+  operands: [B, number]
 }
 
-function divide(
-  x1: LengthPercentage | WidthMultiplication | CalcDivision,
+interface CalcSubstraction<A> {
+  __tag: 'substraction'
+  operands: [A, A]
+}
+
+export function div(
+  x1: LengthPercentage | WidthCalculation,
   x2: number
 ): CalcDivision {
   return {
@@ -59,39 +32,44 @@ function divide(
 
 // For Width/Length
 
-function add(
-  x1: LengthPercentage | WidthMultiplication | WidthDivision,
-  x2: LengthPercentage | WidthMultiplication | WidthDivision
-): CalcAddition<LengthPercentage | WidthMultiplication | WidthDivision> {
+export function subs(
+  x1: LengthPercentage | WidthCalculation,
+  x2: LengthPercentage | WidthCalculation
+): CalcSubstraction<LengthPercentage | WidthCalculation> {
+  return {
+    __tag: 'substraction',
+    operands: [x1, x2],
+  }
+}
+
+export function add(
+  x1: LengthPercentage | WidthCalculation,
+  x2: LengthPercentage | WidthCalculation
+): CalcAddition<LengthPercentage | WidthCalculation> {
   return {
     __tag: 'addition',
     operands: [x1, x2],
   }
 }
 
-add(per(100), multi(per(100), 3))
-
-function multi(
+export function multi(
   x1: number,
-  x2: LengthPercentage | WidthMultiplication | WidthDivision
-): CalcMultiplication<
-  number,
-  LengthPercentage | WidthMultiplication | WidthDivision
->
+  x2: LengthPercentage | WidthCalculation
+): CalcMultiplication<number, LengthPercentage | WidthCalculation>
 
 // For Width/Length
-function multi(
-  x1: LengthPercentage | WidthMultiplication | WidthDivision,
+export function multi(
+  x1: LengthPercentage | WidthCalculation,
   x2: number
-): CalcMultiplication<
-  LengthPercentage | WidthMultiplication | WidthDivision,
-  number
->
+): CalcMultiplication<LengthPercentage | WidthCalculation, number>
 
 // The resolve type is number or integer
-function multi(x1: number, x2: number): CalcMultiplication<number, number>
+export function multi(
+  x1: number,
+  x2: number
+): CalcMultiplication<number, number>
 
-function multi(x1: any, x2: any): CalcMultiplication<any, any> {
+export function multi(x1: any, x2: any): CalcMultiplication<any, any> {
   return {
     __tag: 'multiplication',
     operands: [x1, x2],
@@ -99,43 +77,73 @@ function multi(x1: any, x2: any): CalcMultiplication<any, any> {
 }
 
 type WidthMultiplication =
-  | CalcMultiplication<
-      LengthPercentage | WidthMultiplication | WidthDivision,
-      number
-    >
-  | CalcMultiplication<
-      number,
-      LengthPercentage | WidthMultiplication | WidthDivision
-    >
+  | CalcMultiplication<LengthPercentage | WidthCalculation, number>
+  | CalcMultiplication<number, LengthPercentage | WidthCalculation>
 
-type WidthDivision = CalcDivision<
-  LengthPercentage | WidthMultiplication | WidthDivision
->
+type WidthDivision = CalcDivision<LengthPercentage | WidthCalculation>
 
-type WidthAddition = CalcAddition<
-  LengthPercentage | WidthMultiplication | WidthDivision
->
+type WidthAddition = CalcAddition<LengthPercentage | WidthCalculation>
 
-type WidthCalculation = WidthMultiplication | WidthDivision | WidthAddition
+type WidthSubstraction = CalcSubstraction<LengthPercentage | WidthCalculation>
 
-type StyleTest = {
-  width?: WidthCalculation
-  height?: WidthCalculation
-  height2?: WidthCalculation
-  height3?: WidthCalculation
+export type WidthCalculation =
+  | WidthSubstraction
+  | WidthMultiplication
+  | WidthDivision
+  | WidthAddition
+
+// type StyleTest = {
+//   width?: WidthCalculation
+//   height?: WidthCalculation
+//   height2?: WidthCalculation
+//   height3?: WidthCalculation
+// }
+
+const getOpSign = (x: string) => {
+  switch (x) {
+    case 'addition':
+      return '+'
+    case 'substraction':
+      return '-'
+    case 'multiplication':
+      return '*'
+    case 'division':
+      return '/'
+    default:
+      throw new Error('')
+  }
 }
 
-const t1: StyleTest = {
-  width: multi(vw(100), 3),
-}
+export const isCalculation = (x: any): x is WidthCalculation =>
+  x.__tag === 'addition' ||
+  x.__tag === 'substraction' ||
+  x.__tag === 'multiplication' ||
+  x.__tag === 'division'
 
-const t2: StyleTest = {
-  width: divide(multi(3, per(100)), 3),
-}
+const serializeWidthCalculationOperand = (
+  x: WidthCalculation | number | LengthPercentage
+): string =>
+  isCalculation(x)
+    ? `(${serializeWidthCalculationValue(x)})`
+    : typeof x === 'number'
+    ? `${x}`
+    : serializeLengthPercentage(x)
 
-const t3: StyleTest = {
-  width: multi(3, per(100)),
-  height: multi(divide(per(100), 7), 3),
-  height2: divide(multi(per(100), 0.2), 2),
-  height3: add(per(100), px(100)),
-}
+const serializeWidthCalculationValue = (x: WidthCalculation): string =>
+  `${serializeWidthCalculationOperand(x.operands[0])} ${getOpSign(
+    x.__tag
+  )} ${serializeWidthCalculationOperand(x.operands[1])}`
+
+export const serializeWidthCalculation = (x: WidthCalculation): string =>
+  `calc(${serializeWidthCalculationValue(x)})`
+
+// const t2: StyleTest = {
+//   width: div(multi(3, per(100)), 3),
+// }
+
+// const t3: StyleTest = {
+//   width: multi(3, per(100)),
+//   height: multi(div(per(100), 7), 3),
+//   height2: div(multi(per(100), 0.2), 2),
+//   height3: add(per(100), px(100)),
+// }
