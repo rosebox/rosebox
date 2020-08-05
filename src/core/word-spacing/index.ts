@@ -1,8 +1,6 @@
 import { GlobalCssKeyword, Length } from '../shared'
 import { serializeLength } from '../shared'
 
-export type WordSpacingCSSProp = 'word-spacing'
-
 export const serializeWordSpacing = (
   x: 'normal' | Length | GlobalCssKeyword
 ): { wordSpacing: string } => ({

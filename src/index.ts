@@ -140,6 +140,7 @@ import { AnimationDirectionDeclaration } from './core/animation-direction'
 import { AnimationPlayStateDeclaration } from './core/animation-play-state'
 import { AnimationFillModeDeclaration } from './core/animation-fill-mode'
 import { AnimationDeclaration } from './core/animation'
+import { WritingModeDeclaration } from './core/writing-mode'
 
 export * from './core'
 export * from './react'
@@ -266,7 +267,8 @@ export type RBStyle = Partial<
     AnimationPlayStateDeclaration &
     AnimationFillModeDeclaration &
     AnimationDeclaration &
-    BackgroundSizeDeclaration & {
+    BackgroundSizeDeclaration &
+    WritingModeDeclaration & {
       [x: string]: any
     }
 >
