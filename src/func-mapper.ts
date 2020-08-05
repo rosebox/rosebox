@@ -116,6 +116,7 @@ import { serializeAnimationDirection } from './core/animation-direction'
 import { serializeAnimationPlayState } from './core/animation-play-state'
 import { serializeAnimationFillMode } from './core/animation-fill-mode'
 import { serializeAnimation } from './core/animation'
+import { serializeWillChange } from './core/will-change'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -219,4 +220,5 @@ export const funcMap: any = {
   alignSelf: serializeAlignSelf,
   backgroundSize: serializeBackgroundSize,
   backfaceVisibility: serializeBackfaceVisibility,
+  willChange: serializeWillChange,
 }

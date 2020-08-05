@@ -141,6 +141,7 @@ import { AnimationPlayStateDeclaration } from './core/animation-play-state'
 import { AnimationFillModeDeclaration } from './core/animation-fill-mode'
 import { AnimationDeclaration } from './core/animation'
 import { WritingModeDeclaration } from './core/writing-mode'
+import { WillChangeDeclaration } from './core/will-change'
 
 export * from './core'
 export * from './react'
@@ -268,7 +269,8 @@ export type RBStyle = Partial<
     AnimationFillModeDeclaration &
     AnimationDeclaration &
     BackgroundSizeDeclaration &
-    WritingModeDeclaration & {
+    WritingModeDeclaration &
+    WillChangeDeclaration & {
       [x: string]: any
     }
 >
