@@ -117,7 +117,7 @@ import { serializeAnimationPlayState } from './core/animation-play-state'
 import { serializeAnimationFillMode } from './core/animation-fill-mode'
 import { serializeAnimation } from './core/animation'
 
-export const funcMap = {
+export const funcMap: any = {
   alignContent: serializeAlignContent,
   alignItems: serializeAlignItems,
   animation: serializeAnimation,

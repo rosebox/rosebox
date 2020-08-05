@@ -7,8 +7,9 @@ import {
   WidthCalculation,
   isCalculation,
   serializeWidthCalculation,
+  serializeLength,
+  serializePercentage,
 } from '../shared'
-import { serializeLength, serializePercentage } from '../shared'
 
 type PaddingValue = LengthPercentage | WidthCalculation
 

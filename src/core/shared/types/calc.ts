@@ -1,22 +1,22 @@
 import { LengthPercentage, serializeLengthPercentage } from './shared'
 
 interface CalcMultiplication<A, B> {
-  __tag: 'multiplication'
+  __tag: 'calc-multiplication'
   operands: [A, B]
 }
 
-interface CalcAddition<A> {
-  __tag: 'addition'
+interface CaldAddition<A> {
+  __tag: 'calc-addition'
   operands: [A, A]
 }
 
 interface CalcDivision<B = any> {
-  __tag: 'division'
+  __tag: 'calc-division'
   operands: [B, number]
 }
 
 interface CalcSubstraction<A> {
-  __tag: 'substraction'
+  __tag: 'calc-substraction'
   operands: [A, A]
 }
 
@@ -25,7 +25,7 @@ export function div(
   x2: number
 ): CalcDivision {
   return {
-    __tag: 'division',
+    __tag: 'calc-division',
     operands: [x1, x2],
   }
 }
@@ -37,7 +37,7 @@ export function subs(
   x2: LengthPercentage | WidthCalculation
 ): CalcSubstraction<LengthPercentage | WidthCalculation> {
   return {
-    __tag: 'substraction',
+    __tag: 'calc-substraction',
     operands: [x1, x2],
   }
 }
@@ -45,9 +45,9 @@ export function subs(
 export function add(
   x1: LengthPercentage | WidthCalculation,
   x2: LengthPercentage | WidthCalculation
-): CalcAddition<LengthPercentage | WidthCalculation> {
+): CaldAddition<LengthPercentage | WidthCalculation> {
   return {
-    __tag: 'addition',
+    __tag: 'calc-addition',
     operands: [x1, x2],
   }
 }
@@ -71,7 +71,7 @@ export function multi(
 
 export function multi(x1: any, x2: any): CalcMultiplication<any, any> {
   return {
-    __tag: 'multiplication',
+    __tag: 'calc-multiplication',
     operands: [x1, x2],
   }
 }
@@ -82,7 +82,7 @@ type WidthMultiplication =
 
 type WidthDivision = CalcDivision<LengthPercentage | WidthCalculation>
 
-type WidthAddition = CalcAddition<LengthPercentage | WidthCalculation>
+type WidthAddition = CaldAddition<LengthPercentage | WidthCalculation>
 
 type WidthSubstraction = CalcSubstraction<LengthPercentage | WidthCalculation>
 
@@ -94,13 +94,13 @@ export type WidthCalculation =
 
 const getOpSign = (x: string) => {
   switch (x) {
-    case 'addition':
+    case 'calc-addition':
       return '+'
-    case 'substraction':
+    case 'calc-substraction':
       return '-'
-    case 'multiplication':
+    case 'calc-multiplication':
       return '*'
-    case 'division':
+    case 'calc-division':
       return '/'
     default:
       throw new Error('')
@@ -108,10 +108,10 @@ const getOpSign = (x: string) => {
 }
 
 export const isCalculation = (x: any): x is WidthCalculation =>
-  x.__tag === 'addition' ||
-  x.__tag === 'substraction' ||
-  x.__tag === 'multiplication' ||
-  x.__tag === 'division'
+  x.__tag === 'calc-addition' ||
+  x.__tag === 'calc-substraction' ||
+  x.__tag === 'calc-multiplication' ||
+  x.__tag === 'calc-division'
 
 const serializeWidthCalculationOperand = (
   x: WidthCalculation | number | LengthPercentage
