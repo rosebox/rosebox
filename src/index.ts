@@ -144,6 +144,7 @@ import { WritingModeDeclaration } from './core/writing-mode'
 import { WillChangeDeclaration } from './core/will-change'
 import { WidowsDeclaration } from './core/widows'
 import { WhiteSpaceDeclaration } from './core/white-space'
+import { VolumeDeclaration } from './core/volume'
 
 export * from './core'
 export * from './react'
@@ -274,7 +275,8 @@ export type RBStyle = Partial<
     WritingModeDeclaration &
     WillChangeDeclaration &
     WidowsDeclaration &
-    WhiteSpaceDeclaration & {
+    WhiteSpaceDeclaration &
+    VolumeDeclaration & {
       [x: string]: any
     }
 >
