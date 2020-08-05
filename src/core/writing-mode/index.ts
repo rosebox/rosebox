@@ -3,7 +3,12 @@ import { GlobalCssKeyword } from '../shared'
 /**
  * @hide
  */
-type WritingModeValue = 'horizontal-tb' | 'vertical-rl' | 'vertical-lr'
+type WritingModeValue =
+  | 'horizontal-tb'
+  | 'vertical-rl'
+  | 'vertical-lr'
+  | 'sideways-rl'
+  | 'sideways-lr'
 
 export const serializeWritingMode = (
   x: WritingModeValue | GlobalCssKeyword
