@@ -118,6 +118,7 @@ import { serializeAnimationFillMode } from './core/animation-fill-mode'
 import { serializeAnimation } from './core/animation'
 import { serializeWillChange } from './core/will-change'
 import { serializeVolume } from './core/volume'
+import { serializeVerticalAlign } from './core/vertical-align'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -223,4 +224,5 @@ export const funcMap: any = {
   backfaceVisibility: serializeBackfaceVisibility,
   willChange: serializeWillChange,
   volume: serializeVolume,
+  verticalAlign: serializeVerticalAlign,
 }

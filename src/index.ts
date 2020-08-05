@@ -145,6 +145,7 @@ import { WillChangeDeclaration } from './core/will-change'
 import { WidowsDeclaration } from './core/widows'
 import { WhiteSpaceDeclaration } from './core/white-space'
 import { VolumeDeclaration } from './core/volume'
+import { VerticalAlignDeclaration } from './core/vertical-align'
 
 export * from './core'
 export * from './react'
@@ -276,7 +277,8 @@ export type RBStyle = Partial<
     WillChangeDeclaration &
     WidowsDeclaration &
     WhiteSpaceDeclaration &
-    VolumeDeclaration & {
+    VolumeDeclaration &
+    VerticalAlignDeclaration & {
       [x: string]: any
     }
 >
