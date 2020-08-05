@@ -148,6 +148,7 @@ import { VolumeDeclaration } from './core/volume'
 import { VerticalAlignDeclaration } from './core/vertical-align'
 import { UserSelectDeclaration } from './core/user-select'
 import { UnicodeBidiDeclaration } from './core/unicode-bidi'
+import { TextWrapDeclaration } from './core/text-wrap'
 
 export * from './core'
 export * from './react'
@@ -282,7 +283,8 @@ export type RBStyle = Partial<
     VolumeDeclaration &
     VerticalAlignDeclaration &
     UserSelectDeclaration &
-    UnicodeBidiDeclaration & {
+    UnicodeBidiDeclaration &
+    TextWrapDeclaration & {
       [x: string]: any
     }
 >
