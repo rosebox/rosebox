@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { px } from '../shared'
+import { div, multi, per, px, vw } from '../shared'
 
 test('paddingX: LengthPercentage', () => {
   const received = style({
@@ -33,6 +33,37 @@ test('padding: PaddingObject', () => {
   const expected = {
     paddingTop: '15px',
     paddingBottom: '100px',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('paddingX: WidthCalculation', () => {
+  const received = style({
+    paddingX: multi(div(per(100), 7), 3),
+  })
+  const expected = {
+    paddingLeft: 'calc((100% / 7) * 3)',
+    paddingRight: 'calc((100% / 7) * 3)',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('padding: WidthCalculation', () => {
+  const received = style({
+    padding: multi(div(per(100), 7), 3),
+  })
+  const expected = {
+    padding: 'calc((100% / 7) * 3)',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('padding: WidthCalculation', () => {
+  const received = style({
+    padding: [multi(per(100), 2), px(50), div(vw(100), 7), px(100)],
+  })
+  const expected = {
+    padding: 'calc(100% * 2) 50px calc(100vw / 7) 100px',
   }
   expect(received).toEqual(expected)
 })

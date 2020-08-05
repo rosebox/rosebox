@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { px } from '../shared'
+import { div, multi, per, px } from '../shared'
 
 test('minWidth: Length', () => {
   const received = style({
@@ -7,6 +7,16 @@ test('minWidth: Length', () => {
   })
   const expected = {
     minWidth: '40px',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('minWidth: WidthCalculation', () => {
+  const received = style({
+    minHeight: multi(div(per(100), 7), 3),
+  })
+  const expected = {
+    minHeight: 'calc((100% / 7) * 3)',
   }
   expect(received).toEqual(expected)
 })

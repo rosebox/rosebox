@@ -4,18 +4,21 @@ import {
   isPercentageType,
   isGlobalCssKeyword,
   LengthPercentage,
-  serializeLengthPercentage,
+  WidthCalculation,
+  isCalculation,
+  serializeWidthCalculation,
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
-import { isObject } from '../../utils'
 
-const serializeAtomicValue = (
-  value: LengthPercentage | GlobalCssKeyword
-): string =>
+type PaddingValue = LengthPercentage | WidthCalculation
+
+const serializeAtomicValue = (value: PaddingValue | GlobalCssKeyword): string =>
   isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
+    : isCalculation(value)
+    ? serializeWidthCalculation(value)
     : value
 
 const serializePaddingSide = (prop: string) => (
@@ -37,7 +40,7 @@ export type PaddingTopDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingTop: LengthPercentage | GlobalCssKeyword
+  paddingTop: PaddingValue | GlobalCssKeyword
 }
 
 export const serializePaddingRightValue = serializePaddingSide('paddingRight')
@@ -53,7 +56,7 @@ export type PaddingRightDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingRight: LengthPercentage | GlobalCssKeyword
+  paddingRight: PaddingValue | GlobalCssKeyword
 }
 
 export const serializePaddingBottomValue = serializePaddingSide('paddingBottom')
@@ -69,7 +72,7 @@ export type PaddingBottomDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingBottom: LengthPercentage | GlobalCssKeyword
+  paddingBottom: PaddingValue | GlobalCssKeyword
 }
 
 export const serializePaddingLeftValue = serializePaddingSide('paddingLeft')
@@ -85,7 +88,7 @@ export type PaddingLeftDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingLeft: LengthPercentage | GlobalCssKeyword
+  paddingLeft: PaddingValue | GlobalCssKeyword
 }
 
 /**
@@ -99,10 +102,7 @@ export type PaddingXDeclaration = {
    * if a single value of type `LengthPercentage` is provided then it will be used for both.
    * @category RBProperty
    */
-  paddingX:
-    | LengthPercentage
-    | [LengthPercentage, LengthPercentage]
-    | GlobalCssKeyword
+  paddingX: PaddingValue | [PaddingValue, PaddingValue] | GlobalCssKeyword
 }
 
 /**
@@ -116,29 +116,22 @@ export type PaddingYDeclaration = {
    * if a single value of type `LengthPercentage` is provided then it will be used for both.
    * @category RBProperty
    */
-  paddingY:
-    | LengthPercentage
-    | [LengthPercentage, LengthPercentage]
-    | GlobalCssKeyword
+  paddingY: PaddingValue | [PaddingValue, PaddingValue] | GlobalCssKeyword
 }
 
 type PaddingShorthand =
-  | LengthPercentage
-  | [LengthPercentage, LengthPercentage, LengthPercentage, LengthPercentage]
+  | PaddingValue
+  | [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
 
 const serializeShorthandleValue = (value: PaddingShorthand): string =>
-  isLengthType(value)
-    ? serializeLength(value)
-    : isPercentageType(value)
-    ? serializePercentage(value)
-    : isGlobalCssKeyword(value)
-    ? value
-    : (value as LengthPercentage[])
+  !Array.isArray(value)
+    ? serializeAtomicValue(value)
+    : (value as PaddingValue[])
         .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim()
 
 export const serializePaddingX = (
-  x: LengthPercentage | [LengthPercentage, LengthPercentage] | GlobalCssKeyword
+  x: PaddingValue | [PaddingValue, PaddingValue] | GlobalCssKeyword
 ) => {
   const value = Array.isArray(x) ? x : [x, x]
   return {
@@ -148,7 +141,7 @@ export const serializePaddingX = (
 }
 
 export const serializePaddingY = (
-  x: LengthPercentage | [LengthPercentage, LengthPercentage] | GlobalCssKeyword
+  x: PaddingValue | [PaddingValue, PaddingValue] | GlobalCssKeyword
 ) => {
   const value = Array.isArray(x) ? x : [x, x]
   return {
@@ -157,36 +150,43 @@ export const serializePaddingY = (
   }
 }
 
-export const serializePadding = (value: PaddingShorthand | GlobalCssKeyword) =>
-  isObject(value)
-    ? (() => {
-        const val = value as PaddingObject
-        return {
-          ...(val.top && {
-            paddingTop: serializeLengthPercentage(val.top),
-          }),
-          ...(val.right && {
-            paddingRight: serializeLengthPercentage(val.right),
-          }),
-          ...(val.bottom && {
-            paddingBottom: serializeLengthPercentage(val.bottom),
-          }),
-          ...(val.left && {
-            paddingLeft: serializeLengthPercentage(val.left),
-          }),
-        }
-      })()
-    : {
-        padding: isGlobalCssKeyword(value)
-          ? value
-          : serializeShorthandleValue(value),
-      }
+const serializePaddingObject = (x: PaddingObject) => ({
+  ...(x.top && {
+    paddingTop: serializeAtomicValue(x.top),
+  }),
+  ...(x.right && {
+    paddingRight: serializeAtomicValue(x.right),
+  }),
+  ...(x.bottom && {
+    paddingBottom: serializeAtomicValue(x.bottom),
+  }),
+  ...(x.left && {
+    paddingLeft: serializeAtomicValue(x.left),
+  }),
+})
+
+const isPaddingObject = (x: any): x is PaddingObject =>
+  x.hasOwnProperty('top') ||
+  x.hasOwnProperty('right') ||
+  x.hasOwnProperty('bottom') ||
+  x.hasOwnProperty('left')
+
+const serializeNonPaddingObject = (
+  x:
+    | PaddingValue
+    | [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
+    | GlobalCssKeyword
+) => ({
+  padding: isGlobalCssKeyword(x) ? x : serializeShorthandleValue(x),
+})
+export const serializePadding = (x: PaddingShorthand | GlobalCssKeyword) =>
+  isPaddingObject(x) ? serializePaddingObject(x) : serializeNonPaddingObject(x)
 
 type PaddingObject = {
-  top?: LengthPercentage
-  right?: LengthPercentage
-  bottom?: LengthPercentage
-  left?: LengthPercentage
+  top?: PaddingValue
+  right?: PaddingValue
+  bottom?: PaddingValue
+  left?: PaddingValue
 }
 
 /**
@@ -200,8 +200,8 @@ export type PaddingDeclaration = {
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
   padding:
-    | LengthPercentage
-    | [LengthPercentage, LengthPercentage, LengthPercentage, LengthPercentage]
+    | PaddingValue
+    | [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
     | PaddingObject
     | GlobalCssKeyword
 }

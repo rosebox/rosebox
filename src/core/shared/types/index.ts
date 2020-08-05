@@ -8,6 +8,7 @@ export * from './custom-ident'
 export * from './shared'
 export * from './angle'
 export * from './timing-function'
+export * from './calc'
 
 export const globalCssKeywords = <const>['inherit', 'initial', 'unset']
 

@@ -2,28 +2,28 @@ import {
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
-  isGlobalCssKeyword,
   LengthPercentage,
+  WidthCalculation,
+  isCalculation,
+  serializeWidthCalculation,
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
-export type MaxHeightCSSProp = 'max-height'
-
-type MaxHeight = LengthPercentage | 'none'
-
 export const serializeMaxHeight = (
-  value: MaxHeight | GlobalCssKeyword
+  x: LengthPercentage | 'none' | GlobalCssKeyword
 ): {
   maxHeight: string
-} => ({
-  maxHeight: isGlobalCssKeyword(value)
-    ? value
-    : isLengthType(value)
-    ? serializeLength(value)
-    : isPercentageType(value)
-    ? serializePercentage(value)
-    : value,
-})
+} => {
+  return {
+    maxHeight: isLengthType(x)
+      ? serializeLength(x)
+      : isPercentageType(x)
+      ? serializePercentage(x)
+      : isCalculation(x)
+      ? serializeWidthCalculation(x)
+      : x,
+  }
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -36,5 +36,5 @@ export type MaxHeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
    */
-  maxHeight: LengthPercentage | GlobalCssKeyword | 'none'
+  maxHeight: LengthPercentage | WidthCalculation | GlobalCssKeyword | 'none'
 }

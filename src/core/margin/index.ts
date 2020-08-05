@@ -1,22 +1,26 @@
-import { isObject } from '../../utils'
 import {
   GlobalCssKeyword,
   isLengthType,
   isPercentageType,
   isGlobalCssKeyword,
   LengthPercentage,
+  WidthCalculation,
+  isCalculation,
+  serializeWidthCalculation,
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
-type MarginValue = LengthPercentage | 'auto'
+type MarginValue = LengthPercentage | WidthCalculation | 'auto'
 
 const serializeAtomicValue = (
-  value: LengthPercentage | 'auto' | GlobalCssKeyword
+  value: LengthPercentage | 'auto' | WidthCalculation | GlobalCssKeyword
 ): string =>
   isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
+    : isCalculation(value)
+    ? serializeWidthCalculation(value)
     : value
 
 export const serializeMarginTopValue = serializeAtomicValue
@@ -29,7 +33,7 @@ export type MarginTopDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginTop: LengthPercentage | 'auto' | GlobalCssKeyword
+  marginTop: MarginValue | GlobalCssKeyword
 }
 
 export const serializeMarginRightValue = serializeAtomicValue
@@ -42,7 +46,7 @@ export type MarginRightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginRight: LengthPercentage | 'auto' | GlobalCssKeyword
+  marginRight: MarginValue | GlobalCssKeyword
 }
 
 export const serializeMarginBottomValue = serializeAtomicValue
@@ -55,7 +59,7 @@ export type MarginBottomDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginBottom: LengthPercentage | 'auto' | GlobalCssKeyword
+  marginBottom: MarginValue | GlobalCssKeyword
 }
 
 export const serializeMarginLeftValue = serializeAtomicValue
@@ -68,18 +72,8 @@ export type MarginLeftDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginLeft: LengthPercentage | 'auto' | GlobalCssKeyword
+  marginLeft: MarginValue | GlobalCssKeyword
 }
-
-type MarginShorthandSingleValue = MarginValue | [MarginValue]
-type MarginShorthandTwoValues = [MarginValue, MarginValue]
-type MarginShorthandThreeValues = [MarginValue, MarginValue, MarginValue]
-type MarginShorthandFourValues = [
-  MarginValue,
-  MarginValue,
-  MarginValue,
-  MarginValue
-]
 
 type MarginObject = {
   top?: MarginValue
@@ -88,12 +82,14 @@ type MarginObject = {
   left?: MarginValue
 }
 
-type MarginShorthand =
+/**
+ * @hide
+ */
+type Margin =
+  | MarginValue
+  | [MarginValue, MarginValue, MarginValue, MarginValue]
   | MarginObject
-  | MarginShorthandSingleValue
-  | MarginShorthandTwoValues
-  | MarginShorthandThreeValues
-  | MarginShorthandFourValues
+  | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -143,41 +139,44 @@ export const serializeMarginY = (
   }
 }
 
-const serializeShorthandleValue = (value: MarginShorthand): string =>
-  isLengthType(value)
-    ? serializeLength(value)
-    : isPercentageType(value)
-    ? serializePercentage(value)
-    : value === 'auto'
-    ? value
-    : (value as (LengthPercentage | 'auto')[])
+const serializeShorthandleValue = (
+  x: MarginValue | [MarginValue, MarginValue, MarginValue, MarginValue]
+): string =>
+  Array.isArray(x)
+    ? (x as MarginValue[])
         .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim()
+    : serializeAtomicValue(x)
 
-export const serializeMargin = (value: MarginShorthand | GlobalCssKeyword) =>
-  isObject(value)
-    ? (() => {
-        const val = value as MarginObject
-        return {
-          ...(val.top && {
-            marginTop: serializeAtomicValue(val.top),
-          }),
-          ...(val.right && {
-            marginRight: serializeAtomicValue(val.right),
-          }),
-          ...(val.bottom && {
-            marginBottom: serializeAtomicValue(val.bottom),
-          }),
-          ...(val.left && {
-            marginLeft: serializeAtomicValue(val.left),
-          }),
-        }
-      })()
-    : {
-        margin: isGlobalCssKeyword(value)
-          ? value
-          : serializeShorthandleValue(value),
-      }
+const serializeMarginObject = (x: MarginObject) => ({
+  ...(x.top && {
+    marginTop: serializeAtomicValue(x.top),
+  }),
+  ...(x.right && {
+    marginRight: serializeAtomicValue(x.right),
+  }),
+  ...(x.bottom && {
+    marginBottom: serializeAtomicValue(x.bottom),
+  }),
+  ...(x.left && {
+    marginLeft: serializeAtomicValue(x.left),
+  }),
+})
+
+const serializeNonMarginObject = (x: Exclude<Margin, MarginObject>) => ({
+  margin: isGlobalCssKeyword(x) ? x : serializeShorthandleValue(x),
+})
+
+const isMarginObject = (x: Margin): x is MarginObject =>
+  x.hasOwnProperty('top') ||
+  x.hasOwnProperty('right') ||
+  x.hasOwnProperty('bottom') ||
+  x.hasOwnProperty('left')
+
+export const serializeMargin = (value: Margin) =>
+  isMarginObject(value)
+    ? serializeMarginObject(value)
+    : serializeNonMarginObject(value)
 
 /**
  * @category RBDeclarationTypeAlias
@@ -187,9 +186,5 @@ export type MarginDeclaration = {
    * Maps to CSS's **`margin`** property
    * @category RBProperty
    */
-  margin:
-    | MarginValue
-    | [MarginValue, MarginValue, MarginValue, MarginValue]
-    | MarginObject
-    | GlobalCssKeyword
+  margin: Margin
 }

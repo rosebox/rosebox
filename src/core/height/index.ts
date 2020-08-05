@@ -3,6 +3,9 @@ import {
   isPercentageType,
   GlobalCssKeyword,
   Width,
+  WidthCalculation,
+  isCalculation,
+  serializeWidthCalculation,
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
@@ -17,6 +20,8 @@ export const serializeHeight = (
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
+    : isCalculation(value)
+    ? serializeWidthCalculation(value)
     : value,
 })
 
@@ -31,5 +36,5 @@ export type HeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-height
    */
-  height: Width | GlobalCssKeyword
+  height: Width | WidthCalculation | GlobalCssKeyword
 }
