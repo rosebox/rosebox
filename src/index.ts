@@ -143,6 +143,7 @@ import { AnimationDeclaration } from './core/animation'
 import { WritingModeDeclaration } from './core/writing-mode'
 import { WillChangeDeclaration } from './core/will-change'
 import { WidowsDeclaration } from './core/widows'
+import { WhiteSpaceDeclaration } from './core/white-space'
 
 export * from './core'
 export * from './react'
@@ -272,7 +273,8 @@ export type RBStyle = Partial<
     BackgroundSizeDeclaration &
     WritingModeDeclaration &
     WillChangeDeclaration &
-    WidowsDeclaration & {
+    WidowsDeclaration &
+    WhiteSpaceDeclaration & {
       [x: string]: any
     }
 >
