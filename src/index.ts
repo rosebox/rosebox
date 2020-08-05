@@ -142,6 +142,7 @@ import { AnimationFillModeDeclaration } from './core/animation-fill-mode'
 import { AnimationDeclaration } from './core/animation'
 import { WritingModeDeclaration } from './core/writing-mode'
 import { WillChangeDeclaration } from './core/will-change'
+import { WidowsDeclaration } from './core/widows'
 
 export * from './core'
 export * from './react'
@@ -270,7 +271,8 @@ export type RBStyle = Partial<
     AnimationDeclaration &
     BackgroundSizeDeclaration &
     WritingModeDeclaration &
-    WillChangeDeclaration & {
+    WillChangeDeclaration &
+    WidowsDeclaration & {
       [x: string]: any
     }
 >
