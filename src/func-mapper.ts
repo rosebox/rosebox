@@ -120,6 +120,7 @@ import { serializeWillChange } from './core/will-change'
 import { serializeVolume } from './core/volume'
 import { serializeVerticalAlign } from './core/vertical-align'
 import { serializeTextUnderlinePosition } from './core/text-underline-position'
+import { serializeTextUnderlineOffset } from './core/text-underline-offset'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -227,4 +228,5 @@ export const funcMap: any = {
   volume: serializeVolume,
   verticalAlign: serializeVerticalAlign,
   textUnderlinePosition: serializeTextUnderlinePosition,
+  textUnderlineOffset: serializeTextUnderlineOffset,
 }

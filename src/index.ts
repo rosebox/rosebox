@@ -150,6 +150,7 @@ import { UserSelectDeclaration } from './core/user-select'
 import { UnicodeBidiDeclaration } from './core/unicode-bidi'
 import { TextWrapDeclaration } from './core/text-wrap'
 import { TextUnderlinePositionDeclaration } from './core/text-underline-position'
+import { TextUnderlineOffsetDeclaration } from './core/text-underline-offset'
 
 export * from './core'
 export * from './react'
@@ -286,7 +287,8 @@ export type RBStyle = Partial<
     UserSelectDeclaration &
     UnicodeBidiDeclaration &
     TextWrapDeclaration &
-    TextUnderlinePositionDeclaration & {
+    TextUnderlinePositionDeclaration &
+    TextUnderlineOffsetDeclaration & {
       [x: string]: any
     }
 >
