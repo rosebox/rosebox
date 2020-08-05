@@ -146,6 +146,7 @@ import { WidowsDeclaration } from './core/widows'
 import { WhiteSpaceDeclaration } from './core/white-space'
 import { VolumeDeclaration } from './core/volume'
 import { VerticalAlignDeclaration } from './core/vertical-align'
+import { UserSelectDeclaration } from './core/user-select'
 
 export * from './core'
 export * from './react'
@@ -278,7 +279,8 @@ export type RBStyle = Partial<
     WidowsDeclaration &
     WhiteSpaceDeclaration &
     VolumeDeclaration &
-    VerticalAlignDeclaration & {
+    VerticalAlignDeclaration &
+    UserSelectDeclaration & {
       [x: string]: any
     }
 >
