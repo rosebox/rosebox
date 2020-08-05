@@ -119,6 +119,7 @@ import { serializeAnimation } from './core/animation'
 import { serializeWillChange } from './core/will-change'
 import { serializeVolume } from './core/volume'
 import { serializeVerticalAlign } from './core/vertical-align'
+import { serializeTextUnderlinePosition } from './core/text-underline-position'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -225,4 +226,5 @@ export const funcMap: any = {
   willChange: serializeWillChange,
   volume: serializeVolume,
   verticalAlign: serializeVerticalAlign,
+  textUnderlinePosition: serializeTextUnderlinePosition,
 }

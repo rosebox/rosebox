@@ -149,6 +149,7 @@ import { VerticalAlignDeclaration } from './core/vertical-align'
 import { UserSelectDeclaration } from './core/user-select'
 import { UnicodeBidiDeclaration } from './core/unicode-bidi'
 import { TextWrapDeclaration } from './core/text-wrap'
+import { TextUnderlinePositionDeclaration } from './core/text-underline-position'
 
 export * from './core'
 export * from './react'
@@ -284,7 +285,8 @@ export type RBStyle = Partial<
     VerticalAlignDeclaration &
     UserSelectDeclaration &
     UnicodeBidiDeclaration &
-    TextWrapDeclaration & {
+    TextWrapDeclaration &
+    TextUnderlinePositionDeclaration & {
       [x: string]: any
     }
 >
