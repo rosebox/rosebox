@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, LengthPercentage, per, px, vw } from '../shared'
+import { GlobalCssKeyword } from '../shared'
 
 type OneValue =
   | 'none'
