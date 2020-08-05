@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { px } from '../shared'
+import { div, multi, per, px, vw } from '../shared'
 
 test('margin: [Length, Length, Length, Length]', () => {
   const received = style({
@@ -43,6 +43,26 @@ test('marginY', () => {
   const expected = {
     marginTop: 'auto',
     marginBottom: 'auto',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('margin: WidthCalculation', () => {
+  const received = style({
+    margin: multi(div(per(100), 7), 3),
+  })
+  const expected = {
+    margin: 'calc((100% / 7) * 3)',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('margin: WidthCalculation', () => {
+  const received = style({
+    margin: [multi(per(100), 2), px(50), div(vw(100), 7), 'auto'],
+  })
+  const expected = {
+    margin: 'calc(100% * 2) 50px calc(100vw / 7) auto',
   }
   expect(received).toEqual(expected)
 })

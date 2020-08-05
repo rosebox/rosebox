@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { px } from '../shared'
+import { div, multi, per, px } from '../shared'
 
 test('maxWidth: Length', () => {
   const received = style({
@@ -7,6 +7,16 @@ test('maxWidth: Length', () => {
   })
   const expected = {
     maxWidth: '40px',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('maxWidth: WidthCalculation', () => {
+  const received = style({
+    maxWidth: multi(div(per(100), 7), 3),
+  })
+  const expected = {
+    maxWidth: 'calc((100% / 7) * 3)',
   }
   expect(received).toEqual(expected)
 })

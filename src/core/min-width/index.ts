@@ -3,21 +3,23 @@ import {
   isLengthType,
   isPercentageType,
   GlobalCssKeyword,
-  isGlobalCssKeyword,
+  WidthCalculation,
+  isCalculation,
+  serializeWidthCalculation,
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
 export type MinWidthCSSProp = 'min-width'
 
 export const serializeMinWidth = (
-  value: LengthPercentage | GlobalCssKeyword
+  value: LengthPercentage | WidthCalculation | GlobalCssKeyword
 ): { minWidth: string } => ({
-  minWidth: isGlobalCssKeyword(value)
-    ? value
-    : isLengthType(value)
+  minWidth: isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
+    : isCalculation(value)
+    ? serializeWidthCalculation(value)
     : value,
 })
 
@@ -32,5 +34,5 @@ export type MinWidthDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width
    */
-  minWidth: LengthPercentage | GlobalCssKeyword
+  minWidth: LengthPercentage | WidthCalculation | GlobalCssKeyword
 }

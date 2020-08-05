@@ -11,7 +11,7 @@ test('width', () => {
   expect(received).toEqual(expected)
 })
 
-test('width', () => {
+test('width: WidthCalculation', () => {
   const received = style({
     width: multi(div(per(100), 7), 3),
   })

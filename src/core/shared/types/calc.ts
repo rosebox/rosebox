@@ -92,13 +92,6 @@ export type WidthCalculation =
   | WidthDivision
   | WidthAddition
 
-// type StyleTest = {
-//   width?: WidthCalculation
-//   height?: WidthCalculation
-//   height2?: WidthCalculation
-//   height3?: WidthCalculation
-// }
-
 const getOpSign = (x: string) => {
   switch (x) {
     case 'addition':
@@ -136,14 +129,3 @@ const serializeWidthCalculationValue = (x: WidthCalculation): string =>
 
 export const serializeWidthCalculation = (x: WidthCalculation): string =>
   `calc(${serializeWidthCalculationValue(x)})`
-
-// const t2: StyleTest = {
-//   width: div(multi(3, per(100)), 3),
-// }
-
-// const t3: StyleTest = {
-//   width: multi(3, per(100)),
-//   height: multi(div(per(100), 7), 3),
-//   height2: div(multi(per(100), 0.2), 2),
-//   height3: add(per(100), px(100)),
-// }

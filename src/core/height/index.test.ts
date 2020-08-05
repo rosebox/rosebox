@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { px } from '../shared'
+import { div, multi, per, px } from '../shared'
 
 test('height: Length', () => {
   const received = style({
@@ -7,6 +7,16 @@ test('height: Length', () => {
   })
   const expected = {
     height: '100px',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('height: WidthCalculation', () => {
+  const received = style({
+    height: multi(div(per(100), 7), 3),
+  })
+  const expected = {
+    height: 'calc((100% / 7) * 3)',
   }
   expect(received).toEqual(expected)
 })
