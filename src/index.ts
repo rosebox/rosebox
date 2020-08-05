@@ -147,6 +147,7 @@ import { WhiteSpaceDeclaration } from './core/white-space'
 import { VolumeDeclaration } from './core/volume'
 import { VerticalAlignDeclaration } from './core/vertical-align'
 import { UserSelectDeclaration } from './core/user-select'
+import { UnicodeBidiDeclaration } from './core/unicode-bidi'
 
 export * from './core'
 export * from './react'
@@ -280,7 +281,8 @@ export type RBStyle = Partial<
     WhiteSpaceDeclaration &
     VolumeDeclaration &
     VerticalAlignDeclaration &
-    UserSelectDeclaration & {
+    UserSelectDeclaration &
+    UnicodeBidiDeclaration & {
       [x: string]: any
     }
 >
