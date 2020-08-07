@@ -152,6 +152,7 @@ import { TextWrapDeclaration } from './core/text-wrap'
 import { TextUnderlinePositionDeclaration } from './core/text-underline-position'
 import { TextUnderlineOffsetDeclaration } from './core/text-underline-offset'
 import { VoiceVolumeDeclaration } from './core/voice-volume'
+import { VoiceStressDeclaration } from './core/voice-stress'
 
 export * from './core'
 export * from './react'
@@ -290,7 +291,8 @@ export type RBStyle = Partial<
     TextWrapDeclaration &
     TextUnderlinePositionDeclaration &
     TextUnderlineOffsetDeclaration &
-    VoiceVolumeDeclaration & {
+    VoiceVolumeDeclaration &
+    VoiceStressDeclaration & {
       [x: string]: any
     }
 >
