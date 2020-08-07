@@ -5,7 +5,7 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
-    "lib": ["es6", "dom"],
+    "lib": ["es2019", "dom"],
     "sourceMap": false,
     "declaration": true,
     "strict": true,

@@ -151,6 +151,7 @@ import { UnicodeBidiDeclaration } from './core/unicode-bidi'
 import { TextWrapDeclaration } from './core/text-wrap'
 import { TextUnderlinePositionDeclaration } from './core/text-underline-position'
 import { TextUnderlineOffsetDeclaration } from './core/text-underline-offset'
+import { VoiceVolumeDeclaration } from './core/voice-volume'
 
 export * from './core'
 export * from './react'
@@ -288,7 +289,8 @@ export type RBStyle = Partial<
     UnicodeBidiDeclaration &
     TextWrapDeclaration &
     TextUnderlinePositionDeclaration &
-    TextUnderlineOffsetDeclaration & {
+    TextUnderlineOffsetDeclaration &
+    VoiceVolumeDeclaration & {
       [x: string]: any
     }
 >

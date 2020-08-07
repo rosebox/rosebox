@@ -9,6 +9,7 @@ export * from './shared'
 export * from './angle'
 export * from './timing-function'
 export * from './calc'
+export * from './decibel'
 
 export const globalCssKeywords = <const>['inherit', 'initial', 'unset']
 
