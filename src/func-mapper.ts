@@ -122,6 +122,7 @@ import { serializeVerticalAlign } from './core/vertical-align'
 import { serializeTextUnderlinePosition } from './core/text-underline-position'
 import { serializeTextUnderlineOffset } from './core/text-underline-offset'
 import { serializeVoiceVolume } from './core/voice-volume'
+import { serializeVoiceRate } from './core/voice-rate'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -231,4 +232,5 @@ export const funcMap: any = {
   textUnderlinePosition: serializeTextUnderlinePosition,
   textUnderlineOffset: serializeTextUnderlineOffset,
   voiceVolume: serializeVoiceVolume,
+  voiceRate: serializeVoiceRate,
 }
