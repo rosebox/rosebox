@@ -1,6 +1,3 @@
-export * from './types'
-export * from './legacy-types'
-
 export type DoubleBar2<A, B> = A | B | [B, A] | [A, B]
 export type DoubleBar3<A, B, C> =
   | DoubleBar2<A, B>
@@ -66,7 +63,6 @@ export type DoubleBar4<A, B, C, D> =
   | [A, C, B, D]
   | [A, B, D, C]
   | [A, B, C, D]
-
 export type DoubleBar5<A, B, C, D, E> =
   | DoubleBar4<A, B, C, D>
   | E

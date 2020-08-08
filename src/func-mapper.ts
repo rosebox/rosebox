@@ -116,6 +116,13 @@ import { serializeAnimationDirection } from './core/animation-direction'
 import { serializeAnimationPlayState } from './core/animation-play-state'
 import { serializeAnimationFillMode } from './core/animation-fill-mode'
 import { serializeAnimation } from './core/animation'
+import { serializeWillChange } from './core/will-change'
+import { serializeVolume } from './core/volume'
+import { serializeVerticalAlign } from './core/vertical-align'
+import { serializeTextUnderlinePosition } from './core/text-underline-position'
+import { serializeTextUnderlineOffset } from './core/text-underline-offset'
+import { serializeVoiceVolume } from './core/voice-volume'
+import { serializeVoiceRate } from './core/voice-rate'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -219,4 +226,11 @@ export const funcMap: any = {
   alignSelf: serializeAlignSelf,
   backgroundSize: serializeBackgroundSize,
   backfaceVisibility: serializeBackfaceVisibility,
+  willChange: serializeWillChange,
+  volume: serializeVolume,
+  verticalAlign: serializeVerticalAlign,
+  textUnderlinePosition: serializeTextUnderlinePosition,
+  textUnderlineOffset: serializeTextUnderlineOffset,
+  voiceVolume: serializeVoiceVolume,
+  voiceRate: serializeVoiceRate,
 }

@@ -140,6 +140,20 @@ import { AnimationDirectionDeclaration } from './core/animation-direction'
 import { AnimationPlayStateDeclaration } from './core/animation-play-state'
 import { AnimationFillModeDeclaration } from './core/animation-fill-mode'
 import { AnimationDeclaration } from './core/animation'
+import { WritingModeDeclaration } from './core/writing-mode'
+import { WillChangeDeclaration } from './core/will-change'
+import { WidowsDeclaration } from './core/widows'
+import { WhiteSpaceDeclaration } from './core/white-space'
+import { VolumeDeclaration } from './core/volume'
+import { VerticalAlignDeclaration } from './core/vertical-align'
+import { UserSelectDeclaration } from './core/user-select'
+import { UnicodeBidiDeclaration } from './core/unicode-bidi'
+import { TextWrapDeclaration } from './core/text-wrap'
+import { TextUnderlinePositionDeclaration } from './core/text-underline-position'
+import { TextUnderlineOffsetDeclaration } from './core/text-underline-offset'
+import { VoiceVolumeDeclaration } from './core/voice-volume'
+import { VoiceStressDeclaration } from './core/voice-stress'
+import { VoiceRateDeclaration } from './core/voice-rate'
 
 export * from './core'
 export * from './react'
@@ -266,7 +280,21 @@ export type RBStyle = Partial<
     AnimationPlayStateDeclaration &
     AnimationFillModeDeclaration &
     AnimationDeclaration &
-    BackgroundSizeDeclaration & {
+    BackgroundSizeDeclaration &
+    WritingModeDeclaration &
+    WillChangeDeclaration &
+    WidowsDeclaration &
+    WhiteSpaceDeclaration &
+    VolumeDeclaration &
+    VerticalAlignDeclaration &
+    UserSelectDeclaration &
+    UnicodeBidiDeclaration &
+    TextWrapDeclaration &
+    TextUnderlinePositionDeclaration &
+    TextUnderlineOffsetDeclaration &
+    VoiceVolumeDeclaration &
+    VoiceStressDeclaration &
+    VoiceRateDeclaration & {
       [x: string]: any
     }
 >
