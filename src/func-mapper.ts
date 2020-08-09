@@ -17,7 +17,6 @@ import { serializeMaxWidth } from './core/max-width'
 import { serializeMinHeightValue } from './core/min-height'
 import { serializeMinWidth } from './core/min-width'
 import { serializeOpacity } from './core/opacity'
-import { serializePositionPropValue } from './core/position'
 import {
   serializeBorderColor,
   serializeBorderTopColor,
