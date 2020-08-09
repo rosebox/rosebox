@@ -184,7 +184,6 @@ export const funcMap: any = {
   boxSizing: serializeBoxSizingValue,
   opacity: serializeOpacity,
   overflow: serializeOverflow,
-  position: serializePositionPropValue,
   //textDecoration: serializeTextDecorationValue,
   fontSize: serializeFontSize,
   fontStretch: serializeFontStretch,
