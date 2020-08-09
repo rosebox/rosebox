@@ -15,16 +15,23 @@ type MarginValue = LengthPercentage | WidthCalculation | 'auto'
 
 const serializeAtomicValue = (
   value: LengthPercentage | 'auto' | WidthCalculation | GlobalCssKeyword
-): string =>
-  isLengthType(value)
+): string => {
+  return isLengthType(value)
     ? serializeLength(value)
     : isPercentageType(value)
     ? serializePercentage(value)
     : isCalculation(value)
     ? serializeWidthCalculation(value)
     : value
+}
 
-export const serializeMarginTopValue = serializeAtomicValue
+const serializeMarginSide = (prop: string) => (
+  value: LengthPercentage | 'auto' | WidthCalculation | GlobalCssKeyword
+) => ({
+  [prop]: serializeAtomicValue(value),
+})
+
+export const serializeMarginTopValue = serializeMarginSide('marginTop')
 
 export type MarginTopDeclaration = {
   /**
@@ -37,7 +44,7 @@ export type MarginTopDeclaration = {
   marginTop: MarginValue | GlobalCssKeyword
 }
 
-export const serializeMarginRightValue = serializeAtomicValue
+export const serializeMarginRightValue = serializeMarginSide('marginRight')
 
 export type MarginRightDeclaration = {
   /**
@@ -50,7 +57,7 @@ export type MarginRightDeclaration = {
   marginRight: MarginValue | GlobalCssKeyword
 }
 
-export const serializeMarginBottomValue = serializeAtomicValue
+export const serializeMarginBottomValue = serializeMarginSide('marginBottom')
 
 export type MarginBottomDeclaration = {
   /**
@@ -63,7 +70,7 @@ export type MarginBottomDeclaration = {
   marginBottom: MarginValue | GlobalCssKeyword
 }
 
-export const serializeMarginLeftValue = serializeAtomicValue
+export const serializeMarginLeftValue = serializeMarginSide('marginLeft')
 
 export type MarginLeftDeclaration = {
   /**
@@ -142,12 +149,13 @@ export const serializeMarginY = (
 
 const serializeShorthandleValue = (
   x: MarginValue | [MarginValue, MarginValue, MarginValue, MarginValue]
-): string =>
-  Array.isArray(x)
+): string => {
+  return Array.isArray(x)
     ? (x as MarginValue[])
         .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim()
     : serializeAtomicValue(x)
+}
 
 const serializeMarginObject = (x: MarginObject) => ({
   ...(x.top && {
