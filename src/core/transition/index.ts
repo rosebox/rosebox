@@ -8,6 +8,9 @@ import { TimingFunctionValue } from '../shared'
 import { isTime } from '../shared'
 import { serializeTime } from '../shared'
 
+const toHyphenCase = (x: string) =>
+  x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
+
 type SingleTransition = 'none' | AnimatableProperty | Time | TimingFunctionValue
 
 type SingleTransitionOneValueTupleSyntax = [SingleTransition]
@@ -63,7 +66,7 @@ const serializeAtomicValue = (
   value: 'none' | AnimatableProperty | Time | TimingFunctionValue
 ): string =>
   typeof value === 'string'
-    ? value
+    ? toHyphenCase(value)
     : isTime(value)
     ? serializeTime(value)
     : serializeTimingFunctionValue(value)

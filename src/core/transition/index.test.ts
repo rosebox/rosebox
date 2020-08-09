@@ -11,3 +11,13 @@ test('transition', () => {
   }
   expect(received).toEqual(expected)
 })
+
+test('transition', () => {
+  const received = style({
+    transition: ['backgroundColor', ms(1000)],
+  })
+  const expected = {
+    transition: 'background-color 1000ms',
+  }
+  expect(received).toEqual(expected)
+})
