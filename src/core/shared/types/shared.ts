@@ -47,4 +47,4 @@ export type RBType<A = string, B = any> = {
 export const getData = <A, B>(x: RBType<A, B>) => x[NAMESPACE].data
 export const getValConstructor = <A, B>(x: RBType<A, B>) =>
   x[NAMESPACE]?.valueConstructor
-export const getTypeName = <A, B>(x: RBType<A, B>) => x[NAMESPACE]?.type
+export const getTypeName = (x: any): string => x[NAMESPACE]?.type ?? ''
