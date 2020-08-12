@@ -1,20 +1,32 @@
 import { LengthPercentage, serializeLengthPercentage } from './shared'
 
+/**
+ * @internal
+ */
 interface CalcMultiplication<A, B> {
   __tag: 'calc-multiplication'
   operands: [A, B]
 }
 
+/**
+ * @internal
+ */
 interface CaldAddition<A> {
   __tag: 'calc-addition'
   operands: [A, A]
 }
 
+/**
+ * @internal
+ */
 interface CalcDivision<B = any> {
   __tag: 'calc-division'
   operands: [B, number]
 }
 
+/**
+ * @internal
+ */
 interface CalcSubstraction<A> {
   __tag: 'calc-substraction'
   operands: [A, A]
