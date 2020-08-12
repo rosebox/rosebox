@@ -1,14 +1,13 @@
 import { GlobalCssKeyword, isGlobalCssKeyword } from '.'
+import { getData, getValConstructor, NAMESPACE, RBType } from './shared'
 
 /**
  *
  * A type that maps to the **`cubic-bezier()`** subset of CSS's **`<easing-function>`** .
  * @added 0.2.1
  */
-export interface CubicBezierFunction {
-  __tag: 'CubicBezierFunction'
-  value: [number, number, number, number]
-}
+export interface CubicBezierFunction
+  extends RBType<'CubicBezierFunction', [number, number, number, number]> {}
 
 type StepPosition =
   | 'jump-start'
@@ -23,10 +22,8 @@ type StepPosition =
  * A type that maps to the **`steps()`** subset of CSS's **`<easing-function>`** .
  * @added 0.2.1
  */
-export interface StepsFunction {
-  __tag: 'StepsFunction'
-  value: [number] | [number, StepPosition]
-}
+export interface StepsFunction
+  extends RBType<'StepsFunction', [number] | [number, StepPosition]> {}
 
 /**
  * Constructs a value of type **`CubicBezierFunction`**..
@@ -39,12 +36,17 @@ export const bezier = (
   x3: number,
   x4: number
 ): CubicBezierFunction => ({
-  __tag: 'CubicBezierFunction',
-  value: [x1, x2, x3, x4],
+  [NAMESPACE]: {
+    type: 'CubicBezierFunction',
+    data: [x1, x2, x3, x4],
+    valueConstructor: bezier,
+  },
 })
 
-export const serializeBezier = (x: CubicBezierFunction): string =>
-  `cubic-bezier(${x.value[0]}, ${x.value[1]}, ${x.value[2]}, ${x.value[3]})`
+export const serializeBezier = (x: CubicBezierFunction): string => {
+  const [x1, x2, x3, x4] = getData(x)
+  return `cubic-bezier(${x1}, ${x2}, ${x3}, ${x4})`
+}
 
 /**
  * Constructs a value of type **`StepsFunction`**.
@@ -55,8 +57,11 @@ export const steps = (
   num: number,
   stepPosition?: StepPosition
 ): StepsFunction => ({
-  __tag: 'StepsFunction',
-  value: stepPosition ? [num, stepPosition] : [num],
+  [NAMESPACE]: {
+    type: 'StepsFunction',
+    data: stepPosition ? [num, stepPosition] : [num],
+    valueConstructor: steps,
+  },
 })
 
 type CubicBezierTimingFunction =
@@ -83,15 +88,19 @@ export type TimingFunctionValue =
   | TimingFunction
   | TimingFunction[]
 
-export const serializeSteps = (x: StepsFunction): string =>
-  `steps(${x.value[0]}${x.value[1] ? ', ' + x.value[1] : ''})`
+export const serializeSteps = (x: StepsFunction): string => {
+  const [x0, x1] = getData(x)
+  return `steps(${x0}${x1 ? ', ' + x1 : ''})`
+}
 
-export const serializeSingleValue = (value: TimingFunction): string =>
-  typeof value === 'string'
-    ? value
-    : value.__tag === 'StepsFunction'
-    ? serializeSteps(value)
-    : serializeBezier(value)
+const isSteps = (x: any): x is StepsFunction => getValConstructor(x) === steps
+
+export const serializeSingleValue = (x: TimingFunction): string =>
+  typeof x === 'string'
+    ? x
+    : isSteps(x)
+    ? serializeSteps(x)
+    : serializeBezier(x)
 
 export const serializeTimingFunctionValue = (
   value: TimingFunctionValue

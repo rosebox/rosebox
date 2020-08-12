@@ -1,14 +1,12 @@
-import { LengthPercentage } from './shared'
+import { getData, LengthPercentage, NAMESPACE, RBType } from './shared'
 import { serializeLengthPercentage } from './shared'
 
 /**
  * A value of this type defines an (x, y) coordinate.
  * @added 0.2.7
  */
-export interface Position {
-  __tag: 'Position'
-  value: [LengthPercentage, LengthPercentage]
-}
+export interface Position
+  extends RBType<'Position', [LengthPercentage, LengthPercentage]> {}
 
 /**
  * @category Value constructor
@@ -16,15 +14,16 @@ export interface Position {
  */
 export function pos(x: LengthPercentage, y: LengthPercentage): Position {
   return {
-    __tag: 'Position',
-    value: [x, y],
+    [NAMESPACE]: {
+      type: 'Position',
+      data: [x, y],
+      valueConstructor: pos,
+    },
   }
 }
 
-export const serializePosition = (x: Position): string => {
-  const { value } = x
-  return value.reduce((acc, val, idx) => {
+export const serializePosition = (x: Position): string =>
+  getData(x).reduce((acc, val, idx) => {
     const serializedVal = serializeLengthPercentage(val)
     return acc + serializedVal + (idx === pos.length - 1 ? '' : ' ')
   }, '')
-}

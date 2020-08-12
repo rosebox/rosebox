@@ -1,20 +1,16 @@
+import { getData, getTypeName, NAMESPACE, RBType } from './shared'
+
 /**
  * A type that maps to CSS's **`<url>`** type.
  * @added 0.1.96
  */
-export interface URL {
-  __tag: 'URL'
-  value: string
-}
+export interface URL extends RBType<'URL', string> {}
 
 /**
  * A type that maps to CSS's **`<uri>`** type.
  * @added 0.1.96
  */
-export interface URI {
-  __tag: 'URI'
-  value: string
-}
+export interface URI extends RBType<'URI', string> {}
 
 /**
  * Constructs a value of type `URL`.
@@ -22,8 +18,11 @@ export interface URI {
  * @added 0.1.96
  */
 export const url = (x: string): URL => ({
-  __tag: 'URL',
-  value: x,
+  [NAMESPACE]: {
+    type: 'URL',
+    data: x,
+    valueConstructor: url,
+  },
 })
 
 /**
@@ -32,12 +31,15 @@ export const url = (x: string): URL => ({
  * @added 0.2.7
  */
 export const uri = (x: string): URI => ({
-  __tag: 'URI',
-  value: x,
+  [NAMESPACE]: {
+    type: 'URI',
+    data: x,
+    valueConstructor: uri,
+  },
 })
 
-export const serializeURL = (x: URL) => `url(${x.value})`
-export const serializeURI = (x: URI) => `uri(${x.value})`
+export const serializeURL = (x: URL) => `url(${getData(x)})`
+export const serializeURI = (x: URI) => `uri(${getData(x)})`
 
-export const isURL = (x: any): x is URL => x.__tag === 'URL'
-export const isURI = (x: any): x is URI => x.__tag === 'URI'
+export const isURL = (x: any): x is URL => getTypeName(x) === 'URL'
+export const isURI = (x: any): x is URI => getTypeName(x) === 'URI'

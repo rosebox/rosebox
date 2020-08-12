@@ -31,3 +31,20 @@ export type LineStyle =
 
 export const serializeLengthPercentage = (value: LengthPercentage) =>
   isLengthType(value) ? serializeLength(value) : serializePercentage(value)
+
+export const NAMESPACE = 'npmjs.com/package/rosebox'
+
+export interface RBTypeVal<A, B> {
+  type: A
+  valueConstructor: Function
+  data: B
+}
+
+export type RBType<A = string, B = any> = {
+  [NAMESPACE]: RBTypeVal<A, B>
+}
+
+export const getData = <A, B>(x: RBType<A, B>) => x[NAMESPACE].data
+export const getValConstructor = <A, B>(x: RBType<A, B>) =>
+  x[NAMESPACE]?.valueConstructor
+export const getTypeName = (x: any): string => x[NAMESPACE]?.type ?? ''
