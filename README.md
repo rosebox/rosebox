@@ -18,6 +18,10 @@ Using npm:
 npm i rosebox
 ```
 
+## Examples
+
+- [A Simple image carousel](https://codesandbox.io/s/image-carousel-rosebox-h1urb?file=/src/App.tsx)
+
 ## Status of future releases
 
 To check the estimated release date or the status of the next major or minor version, all you need to do is to check the **projects** section.

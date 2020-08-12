@@ -9,6 +9,9 @@ import {
 } from '../shared'
 import { serializeLength, serializePercentage } from '../shared'
 
+/**
+ * @hide
+ */
 type MaxWidth = LengthPercentage | 'none'
 
 export const serializeMaxWidth = (
