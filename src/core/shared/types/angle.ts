@@ -1,6 +1,6 @@
 import { NAMESPACE, RBType } from './shared'
 
-const getVal = <A>(x: RBType<A>) => x[NAMESPACE].value
+const getData = <A>(x: RBType<A>) => x[NAMESPACE].data
 const getValConstructor = <A>(x: RBType<A>) => x[NAMESPACE].valueConstructor
 
 /**
@@ -11,30 +11,29 @@ export interface Angle {
   [NAMESPACE]: {
     type: 'Angle'
     valueConstructor: Function
-    value: number
+    data: number
   }
 }
 
-export const isAngle = (value: any): value is Angle =>
-  value[NAMESPACE]?.type === 'Angle'
+export const isAngle = (x: any): x is Angle => x[NAMESPACE]?.type === 'Angle'
 
 /**
  * Constructs a value of type **`Angle`** where the unit is **`deg`**.
  * @category Value constructor
  * @added 0.2.3
  */
-export const deg = (value: number): Angle => ({
+export const deg = (x: number): Angle => ({
   [NAMESPACE]: {
     type: 'Angle',
     valueConstructor: deg,
-    value,
+    data: x,
   },
 })
 
 const isDeg = (value: Angle): boolean =>
   value[NAMESPACE].valueConstructor === deg
 
-const serializeDeg = (value: Angle): string => `${getVal(value)}deg`
+const serializeDeg = (x: Angle): string => `${getData(x)}deg`
 
 /**
  * Constructs a value of type **`Angle`** where the unit is **`grad`**.
@@ -45,13 +44,13 @@ export const grad = (x: number): Angle => ({
   [NAMESPACE]: {
     type: 'Angle',
     valueConstructor: grad,
-    value: x,
+    data: x,
   },
 })
 
 const isGrad = (x: Angle): boolean => getValConstructor(x) === grad
 
-const serializeGrad = (x: Angle): string => `${getVal(x)}grad`
+const serializeGrad = (x: Angle): string => `${getData(x)}grad`
 
 /**
  * Constructs a value of type **`Angle`** where the unit is **`rad`**.
@@ -62,30 +61,30 @@ export const rad = (x: number): Angle => ({
   [NAMESPACE]: {
     type: 'Angle',
     valueConstructor: rad,
-    value: x,
+    data: x,
   },
 })
 
 const isRad = (x: Angle): boolean => getValConstructor(x) === rad
 
-const serializeRad = (x: Angle): string => `${getVal(x)}rad`
+const serializeRad = (x: Angle): string => `${getData(x)}rad`
 
 /**
  * Constructs a value of type **`Angle`** where the unit is **`turn`**.
  * @category Value constructor
  * @added 0.2.3
  */
-export const turn = (value: number): Angle => ({
+export const turn = (x: number): Angle => ({
   [NAMESPACE]: {
     type: 'Angle',
     valueConstructor: turn,
-    value,
+    data: x,
   },
 })
 
 const isTurn = (x: Angle): boolean => getValConstructor(x) === turn
 
-const serializeTurn = (x: Angle): string => `${getVal(x)}turn`
+const serializeTurn = (x: Angle): string => `${getData(x)}turn`
 
 export const serializeAngle = (value: Angle): string => {
   if (isDeg(value)) return serializeDeg(value)

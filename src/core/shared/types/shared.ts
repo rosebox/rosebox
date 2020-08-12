@@ -37,7 +37,7 @@ export const NAMESPACE = 'npmjs.com/package/rosebox'
 export type RBTypeVal<A> = {
   type: string
   valueConstructor: Function
-  value: A
+  data: A
 }
 
 export type RBType<A> = {
