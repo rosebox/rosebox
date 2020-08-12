@@ -1,4 +1,4 @@
-import { URL, GlobalCssKeyword, isGlobalCssKeyword } from '../shared'
+import { URL, GlobalCssKeyword, isGlobalCssKeyword, getData } from '../shared'
 
 export type CursorCSSProp = 'cursor'
 
@@ -45,10 +45,10 @@ type CursorURL = URL | [URL, number, number]
 
 type Cursor = CursorKeyword | [CursorURL | CursorURL[], CursorKeyword]
 
-const serializeCursorURL = (value: CursorURL): string =>
-  !Array.isArray(value)
-    ? `url(${value.value})`
-    : `url(${value[0].value} ${value[1]} ${value[2]})`
+const serializeCursorURL = (x: CursorURL): string =>
+  !Array.isArray(x)
+    ? `url(${getData(x)})`
+    : `url(${getData(x[0])} ${x[1]} ${x[2]})`
 
 export const serializeCursor = (value: Cursor) => ({
   cursor: isGlobalCssKeyword(value)
