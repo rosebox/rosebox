@@ -19,8 +19,7 @@ export const per = (x: number): Percentage => ({
   },
 })
 
-/** Type-guard */
-export const isPercentageType = (x: RBType): x is Percentage =>
+export const isPercentageType = (x: any): x is Percentage =>
   getTypeName(x) === 'Percentage'
 
 export const serializePercentage = (x: Percentage): string => `${getData(x)}%`
