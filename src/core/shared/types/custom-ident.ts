@@ -1,12 +1,11 @@
+import { NAMESPACE, RBType, getData } from './shared'
+
 /**
  *
  * A type that maps to CSS's **`<custom-ident>`** .
  * @added 0.2.1
  */
-export interface CustomIdent {
-  __tag: 'CustomIdent'
-  value: string
-}
+export interface CustomIdent extends RBType<'CustomIdent', string> {}
 
 /**
  * Constructs a value of type **`CustomIdent`**.
@@ -14,9 +13,11 @@ export interface CustomIdent {
  * @added 0.2.1
  */
 export const ident = (x: string): CustomIdent => ({
-  __tag: 'CustomIdent',
-  value: x,
+  [NAMESPACE]: {
+    type: 'CustomIdent',
+    data: x,
+    valueConstructor: ident,
+  },
 })
 
-export const serializeCustomIdent = (value: CustomIdent): string =>
-  `${value.value}`
+export const serializeCustomIdent = getData

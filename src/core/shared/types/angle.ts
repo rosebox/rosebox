@@ -1,7 +1,4 @@
-import { NAMESPACE, RBType } from './shared'
-
-const getData = <A>(x: RBType<A>) => x[NAMESPACE].data
-const getValConstructor = <A>(x: RBType<A>) => x[NAMESPACE].valueConstructor
+import { NAMESPACE, getData, getValConstructor } from './shared'
 
 /**
  * A type that maps to CSS's **`<angle>`** type.

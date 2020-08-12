@@ -1,29 +1,17 @@
-export type LengthUnit =
-  | 'em'
-  | 'ex'
-  | 'ch'
-  | 'rem'
-  | 'vw'
-  | 'vh'
-  | 'vmin'
-  | 'vmax'
-  | 'cm'
-  | 'mm'
-  | 'Q'
-  | 'in'
-  | 'pc'
-  | 'pt'
-  | 'px'
+import {
+  getData,
+  getValConstructor,
+  NAMESPACE,
+  RBType,
+  getTypeName,
+} from './shared'
 
 /**
  *
  * A type that maps to CSS's **`<length>`** type.
  * @added 0.1.0
  */
-export interface Length {
-  __tag: 'Length'
-  value: [number, LengthUnit]
-}
+export interface Length extends RBType<'Length', number> {}
 
 /**
  * Constructs a value of type `Length` where the unit is **`px`**.
@@ -31,8 +19,11 @@ export interface Length {
  * @added 0.1.0
  */
 export const px = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'px'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: px,
+  },
 })
 
 /**
@@ -41,8 +32,11 @@ export const px = (x: number): Length => ({
  * @added 0.1.0
  */
 export const em = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'em'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: em,
+  },
 })
 
 /**
@@ -51,8 +45,11 @@ export const em = (x: number): Length => ({
  * @added 0.1.0
  */
 export const rem = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'rem'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: rem,
+  },
 })
 
 /**
@@ -61,8 +58,11 @@ export const rem = (x: number): Length => ({
  * @added 0.1.0
  */
 export const ex = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'ex'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: ex,
+  },
 })
 /**
  * Constructs a value of type `Length` where the unit is **`ch`**.
@@ -70,8 +70,11 @@ export const ex = (x: number): Length => ({
  * @added 0.1.0
  */
 export const ch = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'ch'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: ch,
+  },
 })
 
 /**
@@ -80,8 +83,11 @@ export const ch = (x: number): Length => ({
  * @added 0.1.0
  */
 export const vw = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'vw'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: vw,
+  },
 })
 
 /**
@@ -90,8 +96,11 @@ export const vw = (x: number): Length => ({
  * @added 0.1.0
  */
 export const vh = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'vh'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: vh,
+  },
 })
 
 /**
@@ -100,8 +109,24 @@ export const vh = (x: number): Length => ({
  * @added 0.1.0
  */
 export const vmin = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'vmin'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: vmin,
+  },
+})
+
+/**
+ * Constructs a value of type `Length` where the unit is **`vmax`**.
+ * @category Value constructor
+ * @added 0.1.0
+ */
+export const vmax = (x: number): Length => ({
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: vmax,
+  },
 })
 
 /**
@@ -110,8 +135,11 @@ export const vmin = (x: number): Length => ({
  * @added 0.1.0
  */
 export const Q = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'Q'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: Q,
+  },
 })
 
 /**
@@ -120,8 +148,11 @@ export const Q = (x: number): Length => ({
  * @added 0.1.0
  */
 export const cm = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'cm'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: cm,
+  },
 })
 
 /**
@@ -130,8 +161,11 @@ export const cm = (x: number): Length => ({
  * @added 0.1.0
  */
 export const mm = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'mm'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: mm,
+  },
 })
 
 /**
@@ -140,8 +174,11 @@ export const mm = (x: number): Length => ({
  * @added 0.1.0
  */
 export const In = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'in'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: In,
+  },
 })
 
 /**
@@ -150,8 +187,11 @@ export const In = (x: number): Length => ({
  * @added 0.1.0
  */
 export const pc = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'pc'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: pc,
+  },
 })
 
 /**
@@ -160,13 +200,50 @@ export const pc = (x: number): Length => ({
  * @added 0.1.0
  */
 export const pt = (x: number): Length => ({
-  __tag: 'Length',
-  value: [x, 'pt'],
+  [NAMESPACE]: {
+    type: 'Length',
+    data: x,
+    valueConstructor: pt,
+  },
 })
 
-/** Type-guard */
-export const isLengthType = (value: any): value is Length =>
-  value.__tag === 'Length'
+export const isLengthType = (x: any): x is Length => getTypeName(x) === 'Length'
 
-export const serializeLength = (value: Length) =>
-  `${value.value[0]}${value.value[1]}`
+const getUnit = (x: Length) => {
+  switch (getValConstructor(x)) {
+    case px:
+      return 'px'
+    case pt:
+      return 'pt'
+    case pc:
+      return 'pc'
+    case In:
+      return 'in'
+    case Q:
+      return 'q'
+    case mm:
+      return 'mm'
+    case cm:
+      return 'cm'
+    case vmin:
+      return 'vmin'
+    case vmax:
+      return 'vmax'
+    case vh:
+      return 'vh'
+    case vw:
+      return 'vw'
+    case rem:
+      return 'rem'
+    case ch:
+      return 'ch'
+    case em:
+      return 'em'
+    case ex:
+      return 'ex'
+    default:
+      throw new Error("We don't recognize this unit")
+  }
+}
+
+export const serializeLength = (x: Length) => `${getData(x)}${getUnit(x)}`
