@@ -1,3 +1,6 @@
+import ColorM from 'color'
+import { pipe } from 'ramda'
+
 import {
   Percentage,
   GlobalCssKeyword,
@@ -5,6 +8,7 @@ import {
   NAMESPACE,
   getData,
   getTypeName,
+  per,
 } from '../shared'
 import { serializePercentage } from '../shared'
 
@@ -663,4 +667,55 @@ export type ColorDeclaration = {
    * @implementationReference https://www.w3.org/TR/2018/REC-css-color-3-20180619/#color0
    */
   color: Color | GlobalCssKeyword
+}
+
+export const lighten = (x: HEX | RGB | HSL, y: number): typeof x => {
+  if (isRGB(x)) {
+    const lightened = ColorM.rgb(getData(x)).lighten(y)
+    return rgb(
+      lightened.red() as RGBInteger,
+      lightened.green() as RGBInteger,
+      lightened.blue() as RGBInteger
+    )
+  }
+
+  if (isHSL(x)) {
+    const fn = pipe(
+      (x: HSL) => getData(x),
+      (x: HSLInput) => ColorM.hsl(x[0], getData(x[1]), getData(x[2])),
+      (x) => x.lighten(y).array(),
+      (x) => hsl(x[0], per(x[1]), per(x[2]))
+    )
+    return fn(x)
+  }
+
+  const darkened = ColorM(getData(x)).lighten(y).hex()
+  return hex(darkened)
+}
+
+export const darken = (x: HEX | RGB | HSL, y: number): typeof x => {
+  if (isRGB(x)) {
+    const darkened = ColorM.rgb(getData(x)).darken(y)
+    return rgb(
+      darkened.red() as RGBInteger,
+      darkened.green() as RGBInteger,
+      darkened.blue() as RGBInteger
+    )
+  }
+
+  if (isHSL(x)) {
+    const fn = pipe(
+      (x: HSL) => getData(x),
+      (x: HSLInput) => ColorM.hsl(x[0], getData(x[1]), getData(x[2])),
+      (x) => x.darken(y).array(),
+      (x) => hsl(x[0], per(x[1]), per(x[2]))
+    )
+    return fn(x)
+  }
+
+  if (isHex(x)) {
+    const darkened = ColorM(getData(x)).darken(y).hex()
+    return hex(darkened)
+  }
+  return x
 }
