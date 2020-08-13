@@ -669,10 +669,15 @@ export type ColorDeclaration = {
   color: Color | GlobalCssKeyword
 }
 
+export function lighten(x: HEX, y: number): HEX
+export function lighten(x: RGB, y: number): RGB
+export function lighten(x: HSL, y: number): HSL
+
 /**
+ * Takes a color and a number between 0 and 1 and returns a tint of that color
  * @category utilityFunction
  */
-export const lighten = (x: HEX | RGB | HSL, y: number): typeof x => {
+export function lighten(x: HEX | RGB | HSL, y: number): HEX | RGB | HSL {
   if (isRGB(x)) {
     const lightened = ColorM.rgb(getData(x)).lighten(y)
     return rgb(
@@ -696,10 +701,15 @@ export const lighten = (x: HEX | RGB | HSL, y: number): typeof x => {
   return hex(darkened)
 }
 
+export function darken(x: HEX, y: number): HEX
+export function darken(x: RGB, y: number): RGB
+export function darken(x: HSL, y: number): HSL
+
 /**
+ * Takes a color and a number between 0 and 1 and returns a shade of that color
  * @category utilityFunction
  */
-export const darken = (x: HEX | RGB | HSL, y: number): typeof x => {
+export function darken(x: HEX | RGB | HSL, y: number): HEX | RGB | HSL {
   if (isRGB(x)) {
     const darkened = ColorM.rgb(getData(x)).darken(y)
     return rgb(
