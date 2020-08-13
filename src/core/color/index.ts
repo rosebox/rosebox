@@ -669,6 +669,9 @@ export type ColorDeclaration = {
   color: Color | GlobalCssKeyword
 }
 
+/**
+ * @category utilityFunction
+ */
 export const lighten = (x: HEX | RGB | HSL, y: number): typeof x => {
   if (isRGB(x)) {
     const lightened = ColorM.rgb(getData(x)).lighten(y)
@@ -693,6 +696,9 @@ export const lighten = (x: HEX | RGB | HSL, y: number): typeof x => {
   return hex(darkened)
 }
 
+/**
+ * @category utilityFunction
+ */
 export const darken = (x: HEX | RGB | HSL, y: number): typeof x => {
   if (isRGB(x)) {
     const darkened = ColorM.rgb(getData(x)).darken(y)
