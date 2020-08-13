@@ -15,8 +15,9 @@ test('color', () => {
 })
 
 test('darken: HSL', () => {
+  const baseColor = hsl(100, per(50), per(50))
   const received = style({
-    color: darken(hsl(100, per(50), per(50)), 0.5),
+    color: darken(baseColor, 0.5),
   })
   const expected = {
     color: 'hsl(100, 50%, 25%)',
@@ -24,9 +25,10 @@ test('darken: HSL', () => {
   expect(received).toEqual(expected)
 })
 
-test('lighte: HSL', () => {
+test('lighten: HSL', () => {
+  const baseColor = hsl(100, per(50), per(50))
   const received = style({
-    color: lighten(hsl(100, per(50), per(50)), 0.5),
+    color: lighten(baseColor, 0.5),
   })
   const expected = {
     color: 'hsl(100, 50%, 75%)',
