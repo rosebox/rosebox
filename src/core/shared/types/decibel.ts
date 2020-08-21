@@ -2,7 +2,7 @@ import { getData, NAMESPACE, RBType } from './shared'
 
 /**
  *
- * A type that maps to CSS's **`<length>`** type.
+ * A type that maps to CSS's **`<decibel>`** type.
  * @added 0.1.0
  */
 export interface Decibel extends RBType<'Decibel', number> {}
