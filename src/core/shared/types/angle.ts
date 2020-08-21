@@ -2,7 +2,6 @@ import { NAMESPACE, getData, getValConstructor } from './shared'
 
 /**
  * A type that maps to CSS's **`<angle>`** type.
- * @added 0.2.3
  */
 export interface Angle {
   [NAMESPACE]: {
