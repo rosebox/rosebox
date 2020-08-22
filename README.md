@@ -22,6 +22,3 @@ npm i rosebox
 
 - [A Simple image carousel](https://codesandbox.io/s/image-carousel-rosebox-h1urb?file=/src/App.tsx)
 
-## Roadmap and future releases
-
-Check out this [link](https://github.com/hugonteifeh/rosebox/projects/12) for the roadmap and information about future releases.
