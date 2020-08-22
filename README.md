@@ -25,5 +25,3 @@ npm i rosebox
 ## Roadmap and future releases
 
 Check out this [link](https://github.com/hugonteifeh/rosebox/projects/12) for the roadmap and information about future releases.
-
-![Screenshot of the repository's project section](./project-section-github.png?raw=true)
