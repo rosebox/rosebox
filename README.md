@@ -22,8 +22,8 @@ npm i rosebox
 
 - [A Simple image carousel](https://codesandbox.io/s/image-carousel-rosebox-h1urb?file=/src/App.tsx)
 
-## Status of future releases
+## Roadmap and future releases
 
-To check the estimated release date or the status of the next major or minor version, all you need to do is to check the **projects** section.
+Check out this [link](https://github.com/hugonteifeh/rosebox/projects/12) for the roadmap and information about future releases.
 
 ![Screenshot of the repository's project section](./project-section-github.png?raw=true)
