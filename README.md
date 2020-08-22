@@ -24,4 +24,4 @@ npm i rosebox
 
 ## Roadmap and future releases
 
-Refer to [milestones](https://github.com/hugonteifeh/rosebox/milestones/) to check the status of releases and the [roadmap project](https://github.com/hugonteifeh/rosebox/projects/12) for roadmap-related information
+Refer to [milestones](https://github.com/hugonteifeh/rosebox/milestones/) for information about releases and the [roadmap project](https://github.com/hugonteifeh/rosebox/projects/12) for roadmap.
