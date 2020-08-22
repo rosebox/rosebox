@@ -1,5 +1,10 @@
 # Chagngelog
 
+## [0.3.52] - 2020-08-13
+
+- Add a `darken` function for colors.
+- Add a `lighten` function for colors.
+
 ## [0.1.8] - 2020-03-08
 
 - Update the type signature for 'style'.
