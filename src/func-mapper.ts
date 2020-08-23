@@ -123,6 +123,7 @@ import { serializeTextUnderlinePosition } from './core/text-underline-position'
 import { serializeTextUnderlineOffset } from './core/text-underline-offset'
 import { serializeVoiceVolume } from './core/voice-volume'
 import { serializeVoiceRate } from './core/voice-rate'
+import { serializeTextTransform } from './core/text-transform'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -185,6 +186,7 @@ export const funcMap: any = {
   opacity: serializeOpacity,
   overflow: serializeOverflow,
   //textDecoration: serializeTextDecorationValue,
+  textTransform: serializeTextTransform,
   fontSize: serializeFontSize,
   fontStretch: serializeFontStretch,
   fontSizeAdjust: serializeFontSizeAdjust,
