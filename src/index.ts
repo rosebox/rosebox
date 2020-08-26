@@ -160,6 +160,7 @@ import { TextEmphasisPositionDeclaration } from './core/text-emphasis-position'
 import { TextIndentDeclaration } from './core/text-indent'
 import { TextJustifyDeclaration } from './core/text-justify'
 import { TextGroupAlignDeclaration } from './core/text-group-align'
+import { TextOrientationDeclaration } from './core/text-orientation'
 
 export * from './core'
 export * from './react'
@@ -306,6 +307,7 @@ export type RBStyle = Partial<
     TextIndentDeclaration &
     TextJustifyDeclaration &
     TextGroupAlignDeclaration &
+    TextOrientationDeclaration &
     VoiceRateDeclaration & {
       [x: string]: any
     }
