@@ -1,18 +1,5 @@
 import { GlobalCssKeyword } from '../shared'
 
-export const serializeTextAlign = (
-  value:
-    | 'start'
-    | 'end'
-    | 'left'
-    | 'right'
-    | 'center'
-    | 'justify'
-    | 'match-parent'
-    | 'justify-all'
-    | GlobalCssKeyword
-) => value
-
 /**
  * @category RBDeclarationTypeAlias
  */
