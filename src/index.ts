@@ -159,6 +159,7 @@ import { TextEmphasisSkipDeclaration } from './core/text-emphasis-skip'
 import { TextEmphasisPositionDeclaration } from './core/text-emphasis-position'
 import { TextIndentDeclaration } from './core/text-indent'
 import { TextJustifyDeclaration } from './core/text-justify'
+import { TextGroupAlignDeclaration } from './core/text-group-align'
 
 export * from './core'
 export * from './react'
@@ -304,6 +305,7 @@ export type RBStyle = Partial<
     TextEmphasisPositionDeclaration &
     TextIndentDeclaration &
     TextJustifyDeclaration &
+    TextGroupAlignDeclaration &
     VoiceRateDeclaration & {
       [x: string]: any
     }
