@@ -154,6 +154,7 @@ import { TextUnderlineOffsetDeclaration } from './core/text-underline-offset'
 import { VoiceVolumeDeclaration } from './core/voice-volume'
 import { VoiceStressDeclaration } from './core/voice-stress'
 import { VoiceRateDeclaration } from './core/voice-rate'
+import { TextEmphasisColorDeclaration } from './core/text-emphasis-color'
 
 export * from './core'
 export * from './react'
@@ -294,6 +295,7 @@ export type RBStyle = Partial<
     TextUnderlineOffsetDeclaration &
     VoiceVolumeDeclaration &
     VoiceStressDeclaration &
+    TextEmphasisColorDeclaration &
     VoiceRateDeclaration & {
       [x: string]: any
     }
