@@ -1,5 +1,6 @@
 export * from './types'
 export * from './legacy-types'
+export * from './utilities'
 
 export type DoubleBar2<A, B> = A | B | [B, A] | [A, B]
 export type DoubleBar3<A, B, C> =

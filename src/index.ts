@@ -154,6 +154,13 @@ import { TextUnderlineOffsetDeclaration } from './core/text-underline-offset'
 import { VoiceVolumeDeclaration } from './core/voice-volume'
 import { VoiceStressDeclaration } from './core/voice-stress'
 import { VoiceRateDeclaration } from './core/voice-rate'
+import { TextEmphasisColorDeclaration } from './core/text-emphasis-color'
+import { TextEmphasisSkipDeclaration } from './core/text-emphasis-skip'
+import { TextEmphasisPositionDeclaration } from './core/text-emphasis-position'
+import { TextIndentDeclaration } from './core/text-indent'
+import { TextJustifyDeclaration } from './core/text-justify'
+import { TextGroupAlignDeclaration } from './core/text-group-align'
+import { TextOrientationDeclaration } from './core/text-orientation'
 
 export * from './core'
 export * from './react'
@@ -294,6 +301,13 @@ export type RBStyle = Partial<
     TextUnderlineOffsetDeclaration &
     VoiceVolumeDeclaration &
     VoiceStressDeclaration &
+    TextEmphasisColorDeclaration &
+    TextEmphasisSkipDeclaration &
+    TextEmphasisPositionDeclaration &
+    TextIndentDeclaration &
+    TextJustifyDeclaration &
+    TextGroupAlignDeclaration &
+    TextOrientationDeclaration &
     VoiceRateDeclaration & {
       [x: string]: any
     }

@@ -123,6 +123,10 @@ import { serializeTextUnderlineOffset } from './core/text-underline-offset'
 import { serializeVoiceVolume } from './core/voice-volume'
 import { serializeVoiceRate } from './core/voice-rate'
 import { serializeTextTransform } from './core/text-transform'
+import { serializeTextEmphasisColor } from './core/text-emphasis-color'
+import { serializeTextEmphasisSkip } from './core/text-emphasis-skip'
+import { serializeTextEmphasisPosition } from './core/text-emphasis-position'
+import { serializeTexIndent } from './core/text-indent'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -186,6 +190,10 @@ export const funcMap: any = {
   overflow: serializeOverflow,
   //textDecoration: serializeTextDecorationValue,
   textTransform: serializeTextTransform,
+  textEmphasisColor: serializeTextEmphasisColor,
+  textEmphasisSkip: serializeTextEmphasisSkip,
+  textEmphasisPosition: serializeTextEmphasisPosition,
+  textIndent: serializeTexIndent,
   fontSize: serializeFontSize,
   fontStretch: serializeFontStretch,
   fontSizeAdjust: serializeFontSizeAdjust,
