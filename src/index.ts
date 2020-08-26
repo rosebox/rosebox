@@ -155,6 +155,7 @@ import { VoiceVolumeDeclaration } from './core/voice-volume'
 import { VoiceStressDeclaration } from './core/voice-stress'
 import { VoiceRateDeclaration } from './core/voice-rate'
 import { TextEmphasisColorDeclaration } from './core/text-emphasis-color'
+import { TextEmphasisSkipDeclaration } from './core/text-emphasis-skip'
 
 export * from './core'
 export * from './react'
@@ -296,6 +297,7 @@ export type RBStyle = Partial<
     VoiceVolumeDeclaration &
     VoiceStressDeclaration &
     TextEmphasisColorDeclaration &
+    TextEmphasisSkipDeclaration &
     VoiceRateDeclaration & {
       [x: string]: any
     }
