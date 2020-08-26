@@ -126,6 +126,7 @@ import { serializeTextTransform } from './core/text-transform'
 import { serializeTextEmphasisColor } from './core/text-emphasis-color'
 import { serializeTextEmphasisSkip } from './core/text-emphasis-skip'
 import { serializeTextEmphasisPosition } from './core/text-emphasis-position'
+import { serializeTexIndent } from './core/text-indent'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -192,6 +193,7 @@ export const funcMap: any = {
   textEmphasisColor: serializeTextEmphasisColor,
   textEmphasisSkip: serializeTextEmphasisSkip,
   textEmphasisPosition: serializeTextEmphasisPosition,
+  textIndent: serializeTexIndent,
   fontSize: serializeFontSize,
   fontStretch: serializeFontStretch,
   fontSizeAdjust: serializeFontSizeAdjust,

@@ -1,6 +1,6 @@
-export const serializeDoubleBar = (
-  x: string[],
-  serializer?: Function
+export const serializeDoubleBar = <A>(
+  x: A[],
+  serializer?: (x: A) => string
 ): string =>
   x
     .reduce(

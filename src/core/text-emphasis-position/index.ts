@@ -1,11 +1,28 @@
 import { GlobalCssKeyword, serializeDoubleBar } from '../shared'
-import { DoubleBar4 } from '../shared/types'
 
 export const serializeTextEmphasisPosition = (
-  x: DoubleBar4<'spaces', 'punctuation', 'symbols', 'narrow'> | GlobalCssKeyword
+  x: TextEmphasisPositionValue
 ) => ({
   textEmphasisPosition: typeof x === 'string' ? x : serializeDoubleBar(x),
 })
+
+/**
+ * @hide
+ */
+type TextEmphasisPositionValue =
+  | 'over'
+  | 'under'
+  | ['over']
+  | ['under']
+  | ['over', 'right']
+  | ['right', 'over']
+  | ['over', 'left']
+  | ['left', 'over']
+  | ['under', 'right']
+  | ['right', 'under']
+  | ['under', 'left']
+  | ['left', 'under']
+  | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
