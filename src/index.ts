@@ -156,6 +156,7 @@ import { VoiceStressDeclaration } from './core/voice-stress'
 import { VoiceRateDeclaration } from './core/voice-rate'
 import { TextEmphasisColorDeclaration } from './core/text-emphasis-color'
 import { TextEmphasisSkipDeclaration } from './core/text-emphasis-skip'
+import { TextEmphasisPositionDeclaration } from './core/text-emphasis-position'
 
 export * from './core'
 export * from './react'
@@ -298,6 +299,7 @@ export type RBStyle = Partial<
     VoiceStressDeclaration &
     TextEmphasisColorDeclaration &
     TextEmphasisSkipDeclaration &
+    TextEmphasisPositionDeclaration &
     VoiceRateDeclaration & {
       [x: string]: any
     }

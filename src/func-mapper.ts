@@ -125,6 +125,7 @@ import { serializeVoiceRate } from './core/voice-rate'
 import { serializeTextTransform } from './core/text-transform'
 import { serializeTextEmphasisColor } from './core/text-emphasis-color'
 import { serializeTextEmphasisSkip } from './core/text-emphasis-skip'
+import { serializeTextEmphasisPosition } from './core/text-emphasis-position'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -190,6 +191,7 @@ export const funcMap: any = {
   textTransform: serializeTextTransform,
   textEmphasisColor: serializeTextEmphasisColor,
   textEmphasisSkip: serializeTextEmphasisSkip,
+  textEmphasisPosition: serializeTextEmphasisPosition,
   fontSize: serializeFontSize,
   fontStretch: serializeFontStretch,
   fontSizeAdjust: serializeFontSizeAdjust,
