@@ -1,5 +1,16 @@
 # Chagngelog
 
+## [0.3.6] - 2020-08-27
+
+- Add textOrientation
+- Add textGroupAlign
+- Add textJustify
+- Add textIndent
+- Add textEmphasisColor
+- Add textEmphasisSkip
+- Add textEmphasisPosition
+- Update syntax for textTransform
+
 ## [0.3.52] - 2020-08-13
 
 - Add a `darken` function for colors.
