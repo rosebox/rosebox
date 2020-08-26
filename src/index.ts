@@ -158,6 +158,7 @@ import { TextEmphasisColorDeclaration } from './core/text-emphasis-color'
 import { TextEmphasisSkipDeclaration } from './core/text-emphasis-skip'
 import { TextEmphasisPositionDeclaration } from './core/text-emphasis-position'
 import { TextIndentDeclaration } from './core/text-indent'
+import { TextJustifyDeclaration } from './core/text-justify'
 
 export * from './core'
 export * from './react'
@@ -302,6 +303,7 @@ export type RBStyle = Partial<
     TextEmphasisSkipDeclaration &
     TextEmphasisPositionDeclaration &
     TextIndentDeclaration &
+    TextJustifyDeclaration &
     VoiceRateDeclaration & {
       [x: string]: any
     }
