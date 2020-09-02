@@ -3,10 +3,10 @@ import { px } from '../../shared'
 
 test('flex', () => {
   const received = style({
-    flex: [px(100), 0, 1],
+    flex: [0, 1, px(100)],
   })
   const expected = {
-    flex: '100px 0 1',
+    flex: '0 1 100px',
   }
   expect(received).toEqual(expected)
 })

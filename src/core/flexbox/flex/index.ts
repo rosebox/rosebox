@@ -5,7 +5,7 @@ import { FlexBasis, serializeFlexBasisValue } from '../flex-basis'
 /**
  * @hide
  */
-type Flex = 'none' | [FlexBasis, ShrinkGrow, ShrinkGrow]
+type Flex = 'none' | [ShrinkGrow, ShrinkGrow, FlexBasis]
 
 export const serializeFlex = (
   value: Flex | GlobalCssKeyword
@@ -15,7 +15,7 @@ export const serializeFlex = (
   flex:
     typeof value === 'string'
       ? value
-      : `${serializeFlexBasisValue(value[0])} ${value[1]} ${value[2]}`,
+      : `${value[0]} ${value[1]} ${serializeFlexBasisValue(value[2])}`,
 })
 /**
  * @category RBDeclarationTypeAlias
