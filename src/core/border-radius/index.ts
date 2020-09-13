@@ -2,6 +2,7 @@ import {
   GlobalCssKeyword,
   isGlobalCssKeyword,
   LengthPercentage,
+  serializeAtomicValue,
 } from '../shared'
 import { serializeLengthPercentage } from '../shared'
 
@@ -15,17 +16,12 @@ export type BorderCornerRadius =
   | [LengthPercentage, LengthPercentage]
 
 const serializeCornerRadius = (property: string) => (
-  value: BorderCornerRadius | GlobalCssKeyword
+  x: BorderCornerRadius | GlobalCssKeyword
 ) => ({
-  [property]: isGlobalCssKeyword(value)
-    ? value
-    : !Array.isArray(value)
-    ? serializeLengthPercentage(value)
-    : (value as LengthPercentage[])
-        .reduce(
-          (acc: any, item) => acc + ' ' + serializeLengthPercentage(item),
-          ''
-        )
+  [property]: !Array.isArray(x)
+    ? serializeAtomicValue(x)
+    : x
+        .reduce((acc, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim(),
 })
 
