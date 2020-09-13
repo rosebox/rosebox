@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
 import { Time } from '../shared'
 import { serializeTime } from '../shared'
 
@@ -9,14 +9,12 @@ export type TransitionDelayCSSProp = 'transition-delay'
  */
 type TransitionDelayPropValue = GlobalCssKeyword | Time | Time[]
 
-export const serializeValue = (value: TransitionDelayPropValue): string =>
-  !Array.isArray(value)
-    ? isGlobalCssKeyword(value)
-      ? value
-      : serializeTime(value)
-    : value.reduce(
+export const serializeValue = (x: TransitionDelayPropValue): string =>
+  !Array.isArray(x)
+    ? serializeAtomicValue(x)
+    : x.reduce(
         (acc, item, idx) =>
-          acc + serializeTime(item) + (idx === value.length - 1 ? '' : ', '),
+          acc + serializeTime(item) + (idx === x.length - 1 ? '' : ', '),
         ''
       )
 
