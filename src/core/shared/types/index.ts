@@ -12,6 +12,7 @@ export * from './calc'
 export * from './decibel'
 export * from './generated-types'
 export * from './color'
+export * from './env'
 
 export const globalCssKeywords = <const>['inherit', 'initial', 'unset']
 

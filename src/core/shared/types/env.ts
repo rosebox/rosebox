@@ -1,7 +1,9 @@
-import { NAMESPACE, RBType, serializeAtomicValue } from './shared'
+import { getData, NAMESPACE, RBType, serializeAtomicValue } from './shared'
 
-const serializer = (x: SafeAreaInsetVariable, y?: string | number | RBType) =>
-  `env(${x}${y ? serializeAtomicValue(y) : ''})`
+const serializer = (x: Env) => {
+  const [x1, x2] = getData(x)
+  return `env(${x1}${x2 ? serializeAtomicValue(x2) : ''})`
+}
 
 type SafeAreaInsetVariable =
   | 'safe-area-inset-top'

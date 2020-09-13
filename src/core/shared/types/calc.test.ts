@@ -1,4 +1,5 @@
 import { csubs, cadd, cmulti, cdiv } from './calc'
+import { env } from './env'
 import { px, vw } from './length'
 import { per } from './percentage'
 import { NAMESPACE } from './shared'
@@ -34,6 +35,13 @@ test('cdiv()', () => {
 test('cmulti(cdiv)', () => {
   const value = cmulti(cdiv(per(100), 7), 3)
   const recieved = value[NAMESPACE].serializer(value)
-  const expected = 'calc((calc(100% / 7)) * 3)'
+  const expected = 'calc(calc(100% / 7) * 3)'
+  expect(recieved).toEqual(expected)
+})
+
+test('cmulti(csubs)', () => {
+  const value = cmulti(csubs(env('safe-area-inset-bottom'), px(10)), 3)
+  const recieved = value[NAMESPACE].serializer(value)
+  const expected = 'calc(calc(env(safe-area-inset-bottom) - 10px) * 3)'
   expect(recieved).toEqual(expected)
 })
