@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { div, multi, per, px } from '../shared'
+import { cdiv, cmulti, per, px } from '../shared'
 
 test('height: Length', () => {
   const received = style({
@@ -13,7 +13,7 @@ test('height: Length', () => {
 
 test('height: WidthCalculation', () => {
   const received = style({
-    height: multi(div(per(100), 7), 3),
+    height: cmulti(cdiv(per(100), 7), 3),
   })
   const expected = {
     height: 'calc((100% / 7) * 3)',
