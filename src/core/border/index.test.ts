@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { rgb } from '../color'
+import { rgb } from '../shared'
 import { px } from '../shared'
 
 test('border', () => {
@@ -14,6 +14,16 @@ test('border', () => {
     borderRight: '1px solid black',
     borderBottom: '1px solid black',
     borderLeft: '1px solid rgb(1, 2, 3)',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('border', () => {
+  const received = style({
+    border: 'none',
+  })
+  const expected = {
+    border: 'none',
   }
   expect(received).toEqual(expected)
 })

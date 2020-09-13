@@ -1,12 +1,11 @@
 import {
   LineWidth,
   LineStyle,
-  isLengthType,
   GlobalCssKeyword,
   isGlobalCssKeyword,
+  serializeAtomicValue,
 } from '../shared'
-import { Color, isColor, serializeColorValue } from '../color'
-import { serializeLength } from '../shared'
+import { Color } from '../shared'
 
 type AtomicValue = Color | LineStyle | LineWidth
 
@@ -18,13 +17,6 @@ type BorderColorValue = Color
  * @hide
  */
 type Border = [BorderWidthValue, BorderStyleValue, BorderColorValue]
-
-const serializeAtomicValue = (value: AtomicValue) =>
-  isColor(value)
-    ? serializeColorValue(value)
-    : isLengthType(value)
-    ? serializeLength(value)
-    : value
 
 const serializeBorderValue = (property: string) => (
   value: Border | GlobalCssKeyword
@@ -55,7 +47,7 @@ export type BorderTopDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderTop: Border | GlobalCssKeyword
+  borderTop: Border | GlobalCssKeyword | 'none'
 }
 
 /**
@@ -69,7 +61,7 @@ export type BorderRightDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderRight: Border | GlobalCssKeyword
+  borderRight: Border | GlobalCssKeyword | 'none'
 }
 
 /**
@@ -83,7 +75,7 @@ export type BorderBottomDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderBottom: Border | GlobalCssKeyword
+  borderBottom: Border | GlobalCssKeyword | 'none'
 }
 
 /**
@@ -97,7 +89,7 @@ export type BorderLeftDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderLeft: Border | GlobalCssKeyword
+  borderLeft: Border | GlobalCssKeyword | 'none'
 }
 
 /**
@@ -109,5 +101,5 @@ export type BorderDeclaration = {
    * @category RBProperty
    * @added 0.2.0
    */
-  border: Border | GlobalCssKeyword
+  border: Border | GlobalCssKeyword | 'none'
 }
