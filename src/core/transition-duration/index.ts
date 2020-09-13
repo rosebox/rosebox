@@ -1,6 +1,5 @@
-import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
 import { Time } from '../shared'
-import { serializeTime } from '../shared'
 
 export type TransitionDurationCSSProp = 'transition-durtion'
 
@@ -9,14 +8,16 @@ export type TransitionDurationCSSProp = 'transition-durtion'
  */
 type TransitionDurationPropValue = GlobalCssKeyword | Time | Time[]
 
-export const serializeValue = (value: TransitionDurationPropValue): string =>
+export const serializeValue = (
+  value: TransitionDurationPropValue
+): string | number =>
   !Array.isArray(value)
-    ? isGlobalCssKeyword(value)
-      ? value
-      : serializeTime(value)
+    ? serializeAtomicValue(value)
     : value.reduce(
         (acc, item, idx) =>
-          acc + serializeTime(item) + (idx === value.length - 1 ? '' : ', '),
+          acc +
+          serializeAtomicValue(item) +
+          (idx === value.length - 1 ? '' : ', '),
         ''
       )
 

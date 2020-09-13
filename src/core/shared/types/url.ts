@@ -12,6 +12,9 @@ export interface URL extends RBType<'URL', string> {}
  */
 export interface URI extends RBType<'URI', string> {}
 
+export const serializeURL = (x: URL) => `url(${getData(x)})`
+export const serializeURI = (x: URI) => `uri(${getData(x)})`
+
 /**
  * Constructs a value of type `URL`.
  * @category Value constructor
@@ -22,6 +25,7 @@ export const url = (x: string): URL => ({
     type: 'URL',
     data: x,
     valueConstructor: url,
+    serializer: serializeURL,
   },
 })
 
@@ -35,11 +39,9 @@ export const uri = (x: string): URI => ({
     type: 'URI',
     data: x,
     valueConstructor: uri,
+    serializer: serializeURI,
   },
 })
-
-export const serializeURL = (x: URL) => `url(${getData(x)})`
-export const serializeURI = (x: URI) => `uri(${getData(x)})`
 
 export const isURL = (x: any): x is URL => getTypeName(x) === 'URL'
 export const isURI = (x: any): x is URI => getTypeName(x) === 'URI'

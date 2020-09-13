@@ -18,6 +18,7 @@ export function pos(x: LengthPercentage, y: LengthPercentage): Position {
       type: 'Position',
       data: [x, y],
       valueConstructor: pos,
+      serializer: serializePosition,
     },
   }
 }

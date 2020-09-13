@@ -16,6 +16,7 @@ export const per = (x: number): Percentage => ({
     type: 'Percentage',
     data: x,
     valueConstructor: per,
+    serializer: serializePercentage,
   },
 })
 

@@ -17,6 +17,7 @@ export const ident = (x: string): CustomIdent => ({
     type: 'CustomIdent',
     data: x,
     valueConstructor: ident,
+    serializer: serializeCustomIdent,
   },
 })
 

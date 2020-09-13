@@ -1,44 +1,43 @@
-import { LengthPercentage, serializeLengthPercentage } from './shared'
+import {
+  getTypeName,
+  LengthPercentage,
+  NAMESPACE,
+  RBType,
+  serializeLengthPercentage,
+} from './shared'
 
 /**
  * @internal
  */
-interface CalcMultiplication<A, B> {
-  __tag: 'calc-multiplication'
-  operands: [A, B]
-}
+interface CalcMultiplication<A, B>
+  extends RBType<'CalcMultiplication', [A, B]> {}
 
 /**
  * @internal
  */
-interface CaldAddition<A> {
-  __tag: 'calc-addition'
-  operands: [A, A]
-}
+interface CalcAddition<A> extends RBType<'CalcAddition', [A, A]> {}
 
 /**
  * @internal
  */
-interface CalcDivision<B = any> {
-  __tag: 'calc-division'
-  operands: [B, number]
-}
+interface CalcDivision<A = any> extends RBType<'CalcDivision', [A, number]> {}
 
 /**
  * @internal
  */
-interface CalcSubstraction<A> {
-  __tag: 'calc-substraction'
-  operands: [A, A]
-}
+interface CalcSubstraction<A> extends RBType<'CalcSubstraction', [A, A]> {}
 
 export function cdiv(
   x1: LengthPercentage | WidthCalculation,
   x2: number
 ): CalcDivision {
   return {
-    __tag: 'calc-division',
-    operands: [x1, x2],
+    [NAMESPACE]: {
+      type: 'CalcDivision',
+      data: [x1, x2],
+      valueConstructor: csubs,
+      serializer: serializeWidthCalculationValue,
+    },
   }
 }
 
@@ -49,18 +48,26 @@ export function csubs(
   x2: LengthPercentage | WidthCalculation
 ): CalcSubstraction<LengthPercentage | WidthCalculation> {
   return {
-    __tag: 'calc-substraction',
-    operands: [x1, x2],
+    [NAMESPACE]: {
+      type: 'CalcSubstraction',
+      data: [x1, x2],
+      valueConstructor: csubs,
+      serializer: serializeWidthCalculationValue,
+    },
   }
 }
 
 export function cadd(
   x1: LengthPercentage | WidthCalculation,
   x2: LengthPercentage | WidthCalculation
-): CaldAddition<LengthPercentage | WidthCalculation> {
+): CalcAddition<LengthPercentage | WidthCalculation> {
   return {
-    __tag: 'calc-addition',
-    operands: [x1, x2],
+    [NAMESPACE]: {
+      type: 'CalcAddition',
+      data: [x1, x2],
+      valueConstructor: csubs,
+      serializer: serializeWidthCalculationValue,
+    },
   }
 }
 
@@ -83,8 +90,12 @@ export function cmulti(
 
 export function cmulti(x1: any, x2: any): CalcMultiplication<any, any> {
   return {
-    __tag: 'calc-multiplication',
-    operands: [x1, x2],
+    [NAMESPACE]: {
+      type: 'CalcMultiplication',
+      data: [x1, x2],
+      valueConstructor: csubs,
+      serializer: serializeWidthCalculationValue,
+    },
   }
 }
 
@@ -94,7 +105,7 @@ type WidthMultiplication =
 
 type WidthDivision = CalcDivision<LengthPercentage | WidthCalculation>
 
-type WidthAddition = CaldAddition<LengthPercentage | WidthCalculation>
+type WidthAddition = CalcAddition<LengthPercentage | WidthCalculation>
 
 type WidthSubstraction = CalcSubstraction<LengthPercentage | WidthCalculation>
 
@@ -106,24 +117,28 @@ export type WidthCalculation =
 
 const getOpSign = (x: string) => {
   switch (x) {
-    case 'calc-addition':
+    case 'CalcAddition':
       return '+'
-    case 'calc-substraction':
+    case 'CalcSubstraction':
       return '-'
-    case 'calc-multiplication':
+    case 'CalcMultiplication':
       return '*'
-    case 'calc-division':
+    case 'CalcDivision':
       return '/'
     default:
-      throw new Error('')
+      throw new Error('Unkown')
   }
 }
 
-export const isCalculation = (x: any): x is WidthCalculation =>
-  x.__tag === 'calc-addition' ||
-  x.__tag === 'calc-substraction' ||
-  x.__tag === 'calc-multiplication' ||
-  x.__tag === 'calc-division'
+export const isCalculation = (x: any): x is WidthCalculation => {
+  const typeName = getTypeName(x)
+  return (
+    typeName === 'CalcAddition' ||
+    typeName === 'CalcSubstraction' ||
+    typeName === 'CalcMultiplication' ||
+    typeName === 'CalcDivision'
+  )
+}
 
 const serializeWidthCalculationOperand = (
   x: WidthCalculation | number | LengthPercentage
@@ -135,9 +150,9 @@ const serializeWidthCalculationOperand = (
     : serializeLengthPercentage(x)
 
 const serializeWidthCalculationValue = (x: WidthCalculation): string =>
-  `${serializeWidthCalculationOperand(x.operands[0])} ${getOpSign(
-    x.__tag
-  )} ${serializeWidthCalculationOperand(x.operands[1])}`
+  `calc(${serializeWidthCalculationOperand(x[NAMESPACE].data[0])} ${getOpSign(
+    getTypeName(x)
+  )} ${serializeWidthCalculationOperand(x[NAMESPACE].data[1])})`
 
 export const serializeWidthCalculation = (x: WidthCalculation): string =>
   `calc(${serializeWidthCalculationValue(x)})`

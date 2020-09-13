@@ -12,6 +12,7 @@ export const db = (x: number): Decibel => ({
     type: 'Decibel',
     data: x,
     valueConstructor: db,
+    serializer: serializeDecibel,
   },
 })
 

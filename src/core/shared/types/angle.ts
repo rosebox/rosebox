@@ -1,15 +1,15 @@
-import { NAMESPACE, getData, getValConstructor } from './shared'
+import {
+  NAMESPACE,
+  getData,
+  getValConstructor,
+  RBType,
+  getSerializer,
+} from './shared'
 
 /**
  * A type that maps to CSS's **`<angle>`** type.
  */
-export interface Angle {
-  [NAMESPACE]: {
-    type: 'Angle'
-    valueConstructor: Function
-    data: number
-  }
-}
+export interface Angle extends RBType<'Angle', number> {}
 
 export const isAngle = (x: any): x is Angle => x[NAMESPACE]?.type === 'Angle'
 
@@ -23,10 +23,11 @@ export const deg = (x: number): Angle => ({
     type: 'Angle',
     valueConstructor: deg,
     data: x,
+    serializer: serializeDeg,
   },
 })
 
-const isDeg = (value: Angle): boolean =>
+export const isDeg = (value: Angle): boolean =>
   value[NAMESPACE].valueConstructor === deg
 
 const serializeDeg = (x: Angle): string => `${getData(x)}deg`
@@ -41,10 +42,11 @@ export const grad = (x: number): Angle => ({
     type: 'Angle',
     valueConstructor: grad,
     data: x,
+    serializer: serializeGrad,
   },
 })
 
-const isGrad = (x: Angle): boolean => getValConstructor(x) === grad
+export const isGrad = (x: Angle): boolean => getValConstructor(x) === grad
 
 const serializeGrad = (x: Angle): string => `${getData(x)}grad`
 
@@ -58,10 +60,11 @@ export const rad = (x: number): Angle => ({
     type: 'Angle',
     valueConstructor: rad,
     data: x,
+    serializer: serializeRad,
   },
 })
 
-const isRad = (x: Angle): boolean => getValConstructor(x) === rad
+export const isRad = (x: Angle): boolean => getValConstructor(x) === rad
 
 const serializeRad = (x: Angle): string => `${getData(x)}rad`
 
@@ -75,17 +78,13 @@ export const turn = (x: number): Angle => ({
     type: 'Angle',
     valueConstructor: turn,
     data: x,
+    serializer: serializeTurn,
   },
 })
 
-const isTurn = (x: Angle): boolean => getValConstructor(x) === turn
+export const isTurn = (x: Angle): boolean => getValConstructor(x) === turn
 
 const serializeTurn = (x: Angle): string => `${getData(x)}turn`
 
-export const serializeAngle = (value: Angle): string => {
-  if (isDeg(value)) return serializeDeg(value)
-  else if (isGrad(value)) return serializeGrad(value)
-  else if (isRad(value)) return serializeRad(value)
-  else if (isTurn(value)) return serializeTurn(value)
-  else throw new Error('Value is not of type Angle')
-}
+export const serializeAngle = (value: Angle): string =>
+  getSerializer(value)(value)
