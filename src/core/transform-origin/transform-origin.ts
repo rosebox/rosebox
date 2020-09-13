@@ -1,22 +1,31 @@
-import { LengthPercentage, GlobalCssKeyword, Length } from '../shared'
-import { serializeLengthPercentage } from '../shared'
-
+import {
+  LengthPercentage,
+  GlobalCssKeyword,
+  Length,
+  WidthCalculation,
+  serializeAtomicValue,
+} from '../shared'
 const WHITESPACE = ' '
 
 type Offset =
-  | [LengthPercentage, LengthPercentage]
-  | [LengthPercentage, LengthPercentage, Length]
+  | [LengthPercentage | WidthCalculation, LengthPercentage | WidthCalculation]
+  | [
+      LengthPercentage | WidthCalculation,
+      LengthPercentage | WidthCalculation,
+      Length | WidthCalculation
+    ]
 
-const serializeAtomicValue = (
-  x: LengthPercentage | 'left' | 'center' | 'right' | 'top' | 'bottom'
-): string => (typeof x === 'string' ? x : serializeLengthPercentage(x))
+/**
+ * @hide
+ */
+type TransformOrigin = Offset | GlobalCssKeyword
 
 export const serializeTransformOrigin = (
   x: Offset | GlobalCssKeyword
 ): { transformOrigin: string } => ({
   transformOrigin:
     typeof x === 'string'
-      ? x
+      ? serializeAtomicValue(x)
       : x.reduce(
           (acc, val, idx) =>
             acc +
@@ -37,5 +46,5 @@ export type TransformOriginDeclaration = {
    * @category RBProperty
    * @added 0.2.3
    */
-  transformOrigin: Offset | GlobalCssKeyword
+  transformOrigin: TransformOrigin
 }

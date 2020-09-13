@@ -1,5 +1,14 @@
+/**
+ * @hide
+ */
 type Group1 = 'trim-start' | 'space-start' | 'space-first'
+/**
+ * @hide
+ */
 type Group2 = 'trim-end' | 'space-end' | 'allow-end'
+/**
+ * @hide
+ */
 type Group3 = 'trim-adjacent' | 'space-adjacent'
 
 type TextSpacing =
