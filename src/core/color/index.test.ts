@@ -1,4 +1,4 @@
-import { darken, hex, hsl, lighten } from '.'
+import { darken, hex, hsl, lighten } from '../shared'
 import { RBStyle, style } from '../..'
 import { per } from '../shared'
 

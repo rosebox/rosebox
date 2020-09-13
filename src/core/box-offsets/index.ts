@@ -1,19 +1,13 @@
 import {
   GlobalCssKeyword,
-  isGlobalCssKeyword,
   LengthPercentage,
+  serializeAtomicValue,
 } from '../shared'
-import { serializeLengthPercentage } from '../shared'
 
 export const serializeBoxOffset = (property: string) => (
-  value: LengthPercentage | 'auto' | GlobalCssKeyword
+  x: LengthPercentage | 'auto' | GlobalCssKeyword
 ) => ({
-  [property]:
-    value === 'auto'
-      ? 'auto'
-      : isGlobalCssKeyword(value)
-      ? value
-      : serializeLengthPercentage(value),
+  [property]: serializeAtomicValue(x),
 })
 
 export const serializeTop = serializeBoxOffset('top')
