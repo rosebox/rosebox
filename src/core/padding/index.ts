@@ -1,26 +1,12 @@
 import {
   GlobalCssKeyword,
-  isLengthType,
-  isPercentageType,
   isGlobalCssKeyword,
   LengthPercentage,
+  serializeAtomicValue,
   WidthCalculation,
-  isCalculation,
-  serializeWidthCalculation,
-  serializeLength,
-  serializePercentage,
 } from '../shared'
 
 type PaddingValue = LengthPercentage | WidthCalculation
-
-const serializeAtomicValue = (value: PaddingValue | GlobalCssKeyword): string =>
-  isLengthType(value)
-    ? serializeLength(value)
-    : isPercentageType(value)
-    ? serializePercentage(value)
-    : isCalculation(value)
-    ? serializeWidthCalculation(value)
-    : value
 
 const serializePaddingSide = (prop: string) => (
   value: LengthPercentage | GlobalCssKeyword
@@ -122,6 +108,8 @@ export type PaddingYDeclaration = {
 
 type PaddingShorthand =
   | PaddingValue
+  | [PaddingValue, PaddingValue]
+  | [PaddingValue, PaddingValue, PaddingValue]
   | [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
 
 const serializeShorthandleValue = (value: PaddingShorthand): string =>
@@ -175,6 +163,8 @@ const isPaddingObject = (x: any): x is PaddingObject =>
 const serializeNonPaddingObject = (
   x:
     | PaddingValue
+    | [PaddingValue, PaddingValue]
+    | [PaddingValue, PaddingValue, PaddingValue]
     | [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
     | GlobalCssKeyword
 ) => ({

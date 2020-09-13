@@ -1,29 +1,12 @@
 import {
   GlobalCssKeyword,
-  isLengthType,
-  isPercentageType,
   isGlobalCssKeyword,
   LengthPercentage,
   WidthCalculation,
-  isCalculation,
-  serializeWidthCalculation,
-  serializeLength,
-  serializePercentage,
+  serializeAtomicValue,
 } from '../shared'
 
 type MarginValue = LengthPercentage | WidthCalculation | 'auto'
-
-const serializeAtomicValue = (
-  value: LengthPercentage | 'auto' | WidthCalculation | GlobalCssKeyword
-): string => {
-  return isLengthType(value)
-    ? serializeLength(value)
-    : isPercentageType(value)
-    ? serializePercentage(value)
-    : isCalculation(value)
-    ? serializeWidthCalculation(value)
-    : value
-}
 
 const serializeMarginSide = (prop: string) => (
   value: LengthPercentage | 'auto' | WidthCalculation | GlobalCssKeyword
@@ -95,6 +78,8 @@ type MarginObject = {
  */
 type Margin =
   | MarginValue
+  | [MarginValue, MarginValue]
+  | [MarginValue, MarginValue, MarginValue]
   | [MarginValue, MarginValue, MarginValue, MarginValue]
   | MarginObject
   | GlobalCssKeyword
@@ -148,7 +133,11 @@ export const serializeMarginY = (
 }
 
 const serializeShorthandleValue = (
-  x: MarginValue | [MarginValue, MarginValue, MarginValue, MarginValue]
+  x:
+    | MarginValue
+    | [MarginValue, MarginValue]
+    | [MarginValue, MarginValue, MarginValue]
+    | [MarginValue, MarginValue, MarginValue, MarginValue]
 ): string => {
   return Array.isArray(x)
     ? (x as MarginValue[])

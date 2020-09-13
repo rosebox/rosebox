@@ -1,10 +1,9 @@
 import {
   GlobalCssKeyword,
-  isLengthType,
-  isPercentageType,
   LengthPercentage,
+  serializeAtomicValue,
+  WidthCalculation,
 } from '../shared'
-import { serializeLength, serializePercentage } from '../shared'
 
 export type FontSizeCSSProp = 'font-size'
 
@@ -20,17 +19,14 @@ type AbsoluteSizeKeyword =
   | 'xx-large'
 
 export const serializeFontSize = (
-  value:
+  x:
     | RelativeSizeKeyword
     | AbsoluteSizeKeyword
     | LengthPercentage
+    | WidthCalculation
     | GlobalCssKeyword
 ): { fontSize: string } => ({
-  fontSize: isLengthType(value)
-    ? serializeLength(value)
-    : isPercentageType(value)
-    ? serializePercentage(value)
-    : value,
+  fontSize: serializeAtomicValue(x),
 })
 
 /**
@@ -48,5 +44,6 @@ export type FontSizeDeclaration = {
     | RelativeSizeKeyword
     | AbsoluteSizeKeyword
     | LengthPercentage
+    | WidthCalculation
     | GlobalCssKeyword
 }

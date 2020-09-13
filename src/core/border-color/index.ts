@@ -1,10 +1,10 @@
-import { Color, serializeColorValue } from '../color'
-import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared'
+import { Color } from '../shared'
+import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
 
 const serializeBorderSideColor = (property: string) => (
-  value: Color | GlobalCssKeyword
+  x: Color | GlobalCssKeyword
 ) => ({
-  [property]: isGlobalCssKeyword(value) ? value : serializeColorValue(value),
+  [property]: serializeAtomicValue(x),
 })
 
 /**
@@ -89,16 +89,14 @@ export type BorderLeftColorDeclaration = {
 type BorderColor = Color | [Color, Color, Color, Color]
 
 export const serializeBorderColor = (
-  value: GlobalCssKeyword | BorderColor
+  x: GlobalCssKeyword | BorderColor
 ): {
   borderColor: string
 } => ({
-  borderColor: isGlobalCssKeyword(value)
-    ? value
-    : !Array.isArray(value)
-    ? serializeColorValue(value)
-    : (value as Color[])
-        .reduce((acc: any, item) => acc + ' ' + serializeColorValue(item), '')
+  borderColor: !Array.isArray(x)
+    ? serializeAtomicValue(x)
+    : x
+        .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim(),
 })
 

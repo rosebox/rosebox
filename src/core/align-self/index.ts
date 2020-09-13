@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
 
 type BaseLinePosition =
   | ['first', 'baseline']
@@ -36,7 +36,9 @@ type AlignSelf =
   | ['unsafe', 'self-end']
 
 export const serializeAlignSelfPropValue = (x: string | string[]): string =>
-  typeof x === 'string' ? x : `${x[0]} ${x[1]}`
+  Array.isArray(x)
+    ? `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}`
+    : serializeAtomicValue(x)
 
 export const serializeAlignSelf = (
   x: AlignSelf | GlobalCssKeyword

@@ -16,7 +16,7 @@ test('minWidth: WidthCalculation', () => {
     minHeight: cmulti(cdiv(per(100), 7), 3),
   })
   const expected = {
-    minHeight: 'calc((100% / 7) * 3)',
+    minHeight: 'calc(calc(100% / 7) * 3)',
   }
   expect(received).toEqual(expected)
 })

@@ -42,8 +42,8 @@ test('paddingX: WidthCalculation', () => {
     paddingX: cmulti(cdiv(per(100), 7), 3),
   })
   const expected = {
-    paddingLeft: 'calc((100% / 7) * 3)',
-    paddingRight: 'calc((100% / 7) * 3)',
+    paddingLeft: 'calc(calc(100% / 7) * 3)',
+    paddingRight: 'calc(calc(100% / 7) * 3)',
   }
   expect(received).toEqual(expected)
 })
@@ -53,7 +53,7 @@ test('padding: WidthCalculation', () => {
     padding: cmulti(cdiv(per(100), 7), 3),
   })
   const expected = {
-    padding: 'calc((100% / 7) * 3)',
+    padding: 'calc(calc(100% / 7) * 3)',
   }
   expect(received).toEqual(expected)
 })

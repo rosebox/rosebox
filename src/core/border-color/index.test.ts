@@ -1,6 +1,5 @@
 import { style } from '../..'
-import { hsl } from '../color'
-import { per } from '../shared'
+import { per, hsl } from '../shared'
 
 const styleObj = {
   borderColor: hsl(3, per(3), per(3)),

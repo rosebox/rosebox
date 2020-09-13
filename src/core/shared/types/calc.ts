@@ -1,77 +1,85 @@
-import { LengthPercentage, serializeLengthPercentage } from './shared'
+import { Env } from './env'
+import {
+  getTypeName,
+  LengthPercentage,
+  NAMESPACE,
+  RBType,
+  serializeAtomicValue,
+} from './shared'
 
 /**
  * @internal
  */
-interface CalcMultiplication<A, B> {
-  __tag: 'calc-multiplication'
-  operands: [A, B]
-}
+interface CalcMultiplication<A, B>
+  extends RBType<'CalcMultiplication', [A, B]> {}
 
 /**
  * @internal
  */
-interface CaldAddition<A> {
-  __tag: 'calc-addition'
-  operands: [A, A]
-}
+interface CalcAddition<A> extends RBType<'CalcAddition', [A, A]> {}
 
 /**
  * @internal
  */
-interface CalcDivision<B = any> {
-  __tag: 'calc-division'
-  operands: [B, number]
-}
+interface CalcDivision<A = any> extends RBType<'CalcDivision', [A, number]> {}
 
 /**
  * @internal
  */
-interface CalcSubstraction<A> {
-  __tag: 'calc-substraction'
-  operands: [A, A]
-}
+interface CalcSubstraction<A> extends RBType<'CalcSubstraction', [A, A]> {}
 
 export function cdiv(
-  x1: LengthPercentage | WidthCalculation,
+  x1: LengthPercentage | WidthCalculation | Env,
   x2: number
 ): CalcDivision {
   return {
-    __tag: 'calc-division',
-    operands: [x1, x2],
+    [NAMESPACE]: {
+      type: 'CalcDivision',
+      data: [x1, x2],
+      valueConstructor: csubs,
+      serializer: serializeWidthCalculationValue,
+    },
   }
 }
 
 // For Width/Length
 
 export function csubs(
-  x1: LengthPercentage | WidthCalculation,
-  x2: LengthPercentage | WidthCalculation
-): CalcSubstraction<LengthPercentage | WidthCalculation> {
+  x1: LengthPercentage | WidthCalculation | Env,
+  x2: LengthPercentage | WidthCalculation | Env
+): CalcSubstraction<LengthPercentage | WidthCalculation | Env> {
   return {
-    __tag: 'calc-substraction',
-    operands: [x1, x2],
+    [NAMESPACE]: {
+      type: 'CalcSubstraction',
+      data: [x1, x2],
+      valueConstructor: csubs,
+      serializer: serializeWidthCalculationValue,
+    },
   }
 }
 
 export function cadd(
-  x1: LengthPercentage | WidthCalculation,
-  x2: LengthPercentage | WidthCalculation
-): CaldAddition<LengthPercentage | WidthCalculation> {
+  x1: LengthPercentage | WidthCalculation | Env,
+  x2: LengthPercentage | WidthCalculation | Env
+): CalcAddition<LengthPercentage | WidthCalculation | Env> {
   return {
-    __tag: 'calc-addition',
-    operands: [x1, x2],
+    [NAMESPACE]: {
+      type: 'CalcAddition',
+      data: [x1, x2],
+      valueConstructor: csubs,
+      serializer: serializeWidthCalculationValue,
+    },
   }
 }
 
 export function cmulti(
   x1: number,
-  x2: LengthPercentage | WidthCalculation
-): CalcMultiplication<number, LengthPercentage | WidthCalculation>
+  x2: LengthPercentage | WidthCalculation | Env
+): CalcMultiplication<number, LengthPercentage | WidthCalculation | Env>
 
 // For Width/Length
 export function cmulti(
-  x1: LengthPercentage | WidthCalculation,
+  x1: LengthPercentage | WidthCalculation | Env,
   x2: number
 ): CalcMultiplication<LengthPercentage | WidthCalculation, number>
 
@@ -83,20 +91,26 @@ export function cmulti(
 
 export function cmulti(x1: any, x2: any): CalcMultiplication<any, any> {
   return {
-    __tag: 'calc-multiplication',
-    operands: [x1, x2],
+    [NAMESPACE]: {
+      type: 'CalcMultiplication',
+      data: [x1, x2],
+      valueConstructor: csubs,
+      serializer: serializeWidthCalculationValue,
+    },
   }
 }
 
 type WidthMultiplication =
-  | CalcMultiplication<LengthPercentage | WidthCalculation, number>
-  | CalcMultiplication<number, LengthPercentage | WidthCalculation>
+  | CalcMultiplication<LengthPercentage | WidthCalculation | Env, number>
+  | CalcMultiplication<number, LengthPercentage | WidthCalculation | Env>
 
-type WidthDivision = CalcDivision<LengthPercentage | WidthCalculation>
+type WidthDivision = CalcDivision<LengthPercentage | WidthCalculation | Env>
 
-type WidthAddition = CaldAddition<LengthPercentage | WidthCalculation>
+type WidthAddition = CalcAddition<LengthPercentage | WidthCalculation | Env>
 
-type WidthSubstraction = CalcSubstraction<LengthPercentage | WidthCalculation>
+type WidthSubstraction = CalcSubstraction<
+  LengthPercentage | WidthCalculation | Env
+>
 
 export type WidthCalculation =
   | WidthSubstraction
@@ -106,38 +120,37 @@ export type WidthCalculation =
 
 const getOpSign = (x: string) => {
   switch (x) {
-    case 'calc-addition':
+    case 'CalcAddition':
       return '+'
-    case 'calc-substraction':
+    case 'CalcSubstraction':
       return '-'
-    case 'calc-multiplication':
+    case 'CalcMultiplication':
       return '*'
-    case 'calc-division':
+    case 'CalcDivision':
       return '/'
     default:
-      throw new Error('')
+      throw new Error('Unkown')
   }
 }
 
-export const isCalculation = (x: any): x is WidthCalculation =>
-  x.__tag === 'calc-addition' ||
-  x.__tag === 'calc-substraction' ||
-  x.__tag === 'calc-multiplication' ||
-  x.__tag === 'calc-division'
+export const isCalculation = (x: any): x is WidthCalculation => {
+  const typeName = getTypeName(x)
+  return (
+    typeName === 'CalcAddition' ||
+    typeName === 'CalcSubstraction' ||
+    typeName === 'CalcMultiplication' ||
+    typeName === 'CalcDivision'
+  )
+}
 
 const serializeWidthCalculationOperand = (
-  x: WidthCalculation | number | LengthPercentage
-): string =>
-  isCalculation(x)
-    ? `(${serializeWidthCalculationValue(x)})`
-    : typeof x === 'number'
-    ? `${x}`
-    : serializeLengthPercentage(x)
+  x: WidthCalculation | number | LengthPercentage | Env
+): string => serializeAtomicValue(x)
 
 const serializeWidthCalculationValue = (x: WidthCalculation): string =>
-  `${serializeWidthCalculationOperand(x.operands[0])} ${getOpSign(
-    x.__tag
-  )} ${serializeWidthCalculationOperand(x.operands[1])}`
+  `calc(${serializeWidthCalculationOperand(x[NAMESPACE].data[0])} ${getOpSign(
+    getTypeName(x)
+  )} ${serializeWidthCalculationOperand(x[NAMESPACE].data[1])})`
 
 export const serializeWidthCalculation = (x: WidthCalculation): string =>
   `calc(${serializeWidthCalculationValue(x)})`

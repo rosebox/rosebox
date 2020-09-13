@@ -1,7 +1,14 @@
-import { GlobalCssKeyword, serializeWidth, Width } from '../shared'
+import {
+  GlobalCssKeyword,
+  serializeAtomicValue,
+  Width,
+  WidthCalculation,
+} from '../shared'
 
 const serializeBackgroundSizeAtomic = (x: BackgroundSize): string =>
-  typeof x === 'string' ? x : `${serializeWidth(x[0])} ${serializeWidth(x[1])}`
+  typeof x === 'string'
+    ? x
+    : `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}`
 
 export const serializeBackgroundSizePropValue = (
   x: BackgroundSize | BackgroundSize[] | GlobalCssKeyword
@@ -18,7 +25,10 @@ export const serializeBackgroundSizePropValue = (
   return serializeBackgroundSizeAtomic(x as BackgroundSize)
 }
 
-type BackgroundSize = [Width, Width] | 'cover' | 'contain'
+type BackgroundSize =
+  | [Width | WidthCalculation, Width | WidthCalculation]
+  | 'cover'
+  | 'contain'
 
 export const serializeBackgroundSize = (
   x: BackgroundSize | BackgroundSize[] | GlobalCssKeyword

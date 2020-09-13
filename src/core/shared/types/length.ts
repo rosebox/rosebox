@@ -13,6 +13,13 @@ import {
  */
 export interface Length extends RBType<'Length', number> {}
 
+export const serializeLength = (x: Length) => `${getData(x)}${getUnit(x)}`
+
+const lengthMixin = {
+  type: 'Length',
+  serializer: serializeLength,
+} as const
+
 /**
  * Constructs a value of type `Length` where the unit is **`px`**.
  * @category Value constructor
@@ -20,7 +27,7 @@ export interface Length extends RBType<'Length', number> {}
  */
 export const px = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: px,
   },
@@ -33,7 +40,7 @@ export const px = (x: number): Length => ({
  */
 export const em = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: em,
   },
@@ -46,7 +53,7 @@ export const em = (x: number): Length => ({
  */
 export const rem = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: rem,
   },
@@ -59,7 +66,7 @@ export const rem = (x: number): Length => ({
  */
 export const ex = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: ex,
   },
@@ -71,7 +78,7 @@ export const ex = (x: number): Length => ({
  */
 export const ch = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: ch,
   },
@@ -84,7 +91,7 @@ export const ch = (x: number): Length => ({
  */
 export const vw = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: vw,
   },
@@ -97,7 +104,7 @@ export const vw = (x: number): Length => ({
  */
 export const vh = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: vh,
   },
@@ -110,7 +117,7 @@ export const vh = (x: number): Length => ({
  */
 export const vmin = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: vmin,
   },
@@ -123,7 +130,7 @@ export const vmin = (x: number): Length => ({
  */
 export const vmax = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: vmax,
   },
@@ -136,7 +143,7 @@ export const vmax = (x: number): Length => ({
  */
 export const Q = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: Q,
   },
@@ -149,7 +156,7 @@ export const Q = (x: number): Length => ({
  */
 export const cm = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: cm,
   },
@@ -162,7 +169,7 @@ export const cm = (x: number): Length => ({
  */
 export const mm = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: mm,
   },
@@ -175,7 +182,7 @@ export const mm = (x: number): Length => ({
  */
 export const In = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: In,
   },
@@ -188,7 +195,7 @@ export const In = (x: number): Length => ({
  */
 export const pc = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: pc,
   },
@@ -201,7 +208,7 @@ export const pc = (x: number): Length => ({
  */
 export const pt = (x: number): Length => ({
   [NAMESPACE]: {
-    type: 'Length',
+    ...lengthMixin,
     data: x,
     valueConstructor: pt,
   },
@@ -245,5 +252,3 @@ const getUnit = (x: Length) => {
       throw new Error("We don't recognize this unit")
   }
 }
-
-export const serializeLength = (x: Length) => `${getData(x)}${getUnit(x)}`

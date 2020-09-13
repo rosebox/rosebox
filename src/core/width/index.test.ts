@@ -16,7 +16,7 @@ test('width: WidthCalculation', () => {
     width: cmulti(cdiv(per(100), 7), 3),
   })
   const expected = {
-    width: 'calc((100% / 7) * 3)',
+    width: 'calc(calc(100% / 7) * 3)',
   }
   expect(received).toEqual(expected)
 })

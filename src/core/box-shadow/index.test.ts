@@ -1,6 +1,6 @@
 import { px } from '../shared'
 import { style } from '../..'
-import { rgb } from '../color'
+import { rgb } from '../shared'
 
 test('boxShadow(x: none)', () => {
   const received = style({

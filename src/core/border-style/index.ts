@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, LineStyle, isGlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, LineStyle, serializeAtomicValue } from '../shared'
 
 export type BorderStyleCSSProp = 'border-style'
 
@@ -82,15 +82,13 @@ export type BorderLeftStyleDeclaration = {
 type BorderStyle = LineStyle | [LineStyle, LineStyle, LineStyle, LineStyle]
 
 export const serializeBorderStyle = (
-  value: BorderStyle | GlobalCssKeyword
+  x: BorderStyle | GlobalCssKeyword
 ): {
   borderStyle: string
 } => ({
-  borderStyle: isGlobalCssKeyword(value)
-    ? value
-    : !Array.isArray(value)
-    ? value
-    : (value as LineStyle[])
+  borderStyle: !Array.isArray(x)
+    ? serializeAtomicValue(x)
+    : (x as LineStyle[])
         .reduce((acc: any, item) => acc + ' ' + item, '')
         .trim(),
 })

@@ -1,10 +1,19 @@
-import { GlobalCssKeyword, Length } from '../shared'
-import { serializeLength } from '../shared'
+import {
+  GlobalCssKeyword,
+  Length,
+  serializeAtomicValue,
+  WidthCalculation,
+} from '../shared'
+
+/**
+ * @hide
+ */
+type Perspective = 'none' | Length | WidthCalculation | GlobalCssKeyword
 
 export const serializePerspectivePropertyValue = (
-  x: 'none' | Length | GlobalCssKeyword
+  x: Perspective
 ): { perspective: string } => ({
-  perspective: typeof x === 'string' ? x : serializeLength(x),
+  perspective: serializeAtomicValue(x),
 })
 
 /**
@@ -15,5 +24,5 @@ export type PerspectiveDeclaration = {
    * Maps to CSS's **`perspective`** property
    * @category RBProperty
    */
-  perspective: 'none' | Length | GlobalCssKeyword
+  perspective: Perspective
 }

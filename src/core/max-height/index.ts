@@ -1,13 +1,9 @@
 import {
-  isLengthType,
-  isPercentageType,
   GlobalCssKeyword,
   LengthPercentage,
   WidthCalculation,
-  isCalculation,
-  serializeWidthCalculation,
+  serializeAtomicValue,
 } from '../shared'
-import { serializeLength, serializePercentage } from '../shared'
 
 export const serializeMaxHeight = (
   x: LengthPercentage | 'none' | GlobalCssKeyword
@@ -15,13 +11,7 @@ export const serializeMaxHeight = (
   maxHeight: string
 } => {
   return {
-    maxHeight: isLengthType(x)
-      ? serializeLength(x)
-      : isPercentageType(x)
-      ? serializePercentage(x)
-      : isCalculation(x)
-      ? serializeWidthCalculation(x)
-      : x,
+    maxHeight: serializeAtomicValue(x),
   }
 }
 

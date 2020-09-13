@@ -1,5 +1,13 @@
 # Chagngelog
 
+## [0.3.6] - 2020-09-13
+
+- Add support for env()
+- Add calc() support for more properties.
+- Readd support for 2-values and 3-values syntax for padding and margin.
+- Add missing value for border.
+- Update the names for calc functions from (add, subs, multi, div) to (cadd, csubs, cmulti, cdiv) in repsective order.
+
 ## [0.3.6] - 2020-08-27
 
 - Add textOrientation
