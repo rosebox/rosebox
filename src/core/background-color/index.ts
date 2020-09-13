@@ -1,12 +1,10 @@
-import { serializeColorValue, Color } from '../color'
-import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared'
+import { Color, getSerializer } from '../shared'
+import { GlobalCssKeyword } from '../shared'
 
 export const serializeBackgroundColor = (
-  value: Color | GlobalCssKeyword
+  x: Color | GlobalCssKeyword
 ): { backgroundColor: string } => ({
-  backgroundColor: isGlobalCssKeyword(value)
-    ? value
-    : serializeColorValue(value),
+  backgroundColor: typeof x === 'string' ? x : getSerializer(x)(x),
 })
 
 /**
