@@ -1,5 +1,11 @@
 # Chagngelog
 
+## [0.3.6] - 2020-09-13
+
+- Add support for env()
+- Readd support for 2-values and 3-values syntax for padding and margin.
+- Add missing value for border.
+
 ## [0.3.6] - 2020-08-27
 
 - Add textOrientation
