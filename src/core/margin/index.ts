@@ -95,6 +95,8 @@ type MarginObject = {
  */
 type Margin =
   | MarginValue
+  | [MarginValue, MarginValue]
+  | [MarginValue, MarginValue, MarginValue]
   | [MarginValue, MarginValue, MarginValue, MarginValue]
   | MarginObject
   | GlobalCssKeyword
@@ -148,7 +150,11 @@ export const serializeMarginY = (
 }
 
 const serializeShorthandleValue = (
-  x: MarginValue | [MarginValue, MarginValue, MarginValue, MarginValue]
+  x:
+    | MarginValue
+    | [MarginValue, MarginValue]
+    | [MarginValue, MarginValue, MarginValue]
+    | [MarginValue, MarginValue, MarginValue, MarginValue]
 ): string => {
   return Array.isArray(x)
     ? (x as MarginValue[])
