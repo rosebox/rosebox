@@ -1,24 +1,19 @@
 import {
-  isLengthType,
-  isPercentageType,
   GlobalCssKeyword,
   LengthPercentage,
   WidthCalculation,
-  isCalculation,
-  serializeWidthCalculation,
+  serializeAtomicValue,
 } from '../shared'
-import { serializeLength, serializePercentage } from '../shared'
+
+/**
+ * @hide
+ */
+type MinHeight = LengthPercentage | WidthCalculation | GlobalCssKeyword
 
 export const serializeMinHeightValue = (
-  x: LengthPercentage | WidthCalculation | GlobalCssKeyword
+  x: MinHeight
 ): { minHeight: string } => ({
-  minHeight: isLengthType(x)
-    ? serializeLength(x)
-    : isPercentageType(x)
-    ? serializePercentage(x)
-    : isCalculation(x)
-    ? serializeWidthCalculation(x)
-    : x,
+  minHeight: serializeAtomicValue(x),
 })
 
 /**
@@ -32,5 +27,5 @@ export type MinHeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height
    */
-  minHeight: LengthPercentage | WidthCalculation | GlobalCssKeyword
+  minHeight: MinHeight
 }
