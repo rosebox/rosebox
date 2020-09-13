@@ -1,25 +1,11 @@
-import { serializeColorValue, Color } from '../color'
-import {
-  GlobalCssKeyword,
-  isGlobalCssKeyword,
-  isURL,
-  URI,
-  URL,
-  serializeURL,
-  serializeURI,
-} from '../shared'
+import { GlobalCssKeyword, URI, URL, getSerializer } from '../shared'
 
-export type BackgroundColor = URL | URI | 'none'
-
-export const serializeBackgroundColorValue = (
-  value: Color | GlobalCssKeyword
-): string => (isGlobalCssKeyword(value) ? value : serializeColorValue(value))
+export type BackgroundImageValue = URL | URI | 'none'
 
 export const serializeBackgroundImage = (
-  x: BackgroundColor | GlobalCssKeyword
+  x: BackgroundImageValue | GlobalCssKeyword
 ): { backgroundImage: string } => ({
-  backgroundImage:
-    typeof x === 'string' ? x : isURL(x) ? serializeURL(x) : serializeURI(x),
+  backgroundImage: typeof x === 'string' ? x : getSerializer(x)(x),
 })
 
 /**
@@ -32,5 +18,5 @@ export type BgImageDeclaration = {
    * @formalSyntaxForValue <uri> | none | inherit
    * @added https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-image
    */
-  backgroundImage: BackgroundColor | GlobalCssKeyword
+  backgroundImage: BackgroundImageValue | GlobalCssKeyword
 }
