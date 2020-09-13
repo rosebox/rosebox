@@ -1,12 +1,16 @@
-import { LineWidth, GlobalCssKeyword, isGlobalCssKeyword } from '../shared'
-import { serializeLineWidth } from '../shared'
+import {
+  LineWidth,
+  GlobalCssKeyword,
+  WidthCalculation,
+  serializeAtomicValue,
+} from '../shared'
 
 export type BorderWidthCSSProp = 'border-width'
 
 const serializeBorderSideWidthValue = (property: string) => (
-  value: LineWidth | GlobalCssKeyword
+  x: LineWidth | WidthCalculation | GlobalCssKeyword
 ) => ({
-  [property]: isGlobalCssKeyword(value) ? value : serializeLineWidth(value),
+  [property]: serializeAtomicValue(x),
 })
 
 export const serializeBorderTopWidth = serializeBorderSideWidthValue(
@@ -89,14 +93,12 @@ type BorderWidth =
   | [LineWidth, LineWidth, LineWidth, LineWidth]
 
 export const serializeBorderWidth = (
-  value: BorderWidth | GlobalCssKeyword
+  x: BorderWidth | GlobalCssKeyword
 ): { borderWidth: string } => ({
-  borderWidth: isGlobalCssKeyword(value)
-    ? value
-    : !Array.isArray(value)
-    ? serializeLineWidth(value)
-    : (value as LineWidth[])
-        .reduce((acc: any, item) => acc + ' ' + serializeLineWidth(item), '')
+  borderWidth: !Array.isArray(x)
+    ? serializeAtomicValue(x)
+    : (x as LineWidth[])
+        .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
         .trim(),
 })
 
