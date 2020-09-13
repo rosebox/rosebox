@@ -1,6 +1,5 @@
-import { GlobalCssKeyword, isGlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
 import { Time } from '../shared'
-import { serializeTime } from '../shared'
 
 /**
  * @hide
@@ -9,12 +8,12 @@ export type AnimationDelay = GlobalCssKeyword | Time | Time[]
 
 export const serializeValue = (value: AnimationDelay): string =>
   !Array.isArray(value)
-    ? isGlobalCssKeyword(value)
-      ? value
-      : serializeTime(value)
+    ? serializeAtomicValue(value)
     : value.reduce(
         (acc, item, idx) =>
-          acc + serializeTime(item) + (idx === value.length - 1 ? '' : ', '),
+          acc +
+          serializeAtomicValue(item) +
+          (idx === value.length - 1 ? '' : ', '),
         ''
       )
 
