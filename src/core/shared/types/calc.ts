@@ -32,7 +32,7 @@ interface CalcSubstraction<A> {
   operands: [A, A]
 }
 
-export function div(
+export function cdiv(
   x1: LengthPercentage | WidthCalculation,
   x2: number
 ): CalcDivision {
@@ -44,7 +44,7 @@ export function div(
 
 // For Width/Length
 
-export function subs(
+export function csubs(
   x1: LengthPercentage | WidthCalculation,
   x2: LengthPercentage | WidthCalculation
 ): CalcSubstraction<LengthPercentage | WidthCalculation> {
@@ -54,7 +54,7 @@ export function subs(
   }
 }
 
-export function add(
+export function cadd(
   x1: LengthPercentage | WidthCalculation,
   x2: LengthPercentage | WidthCalculation
 ): CaldAddition<LengthPercentage | WidthCalculation> {
@@ -64,24 +64,24 @@ export function add(
   }
 }
 
-export function multi(
+export function cmulti(
   x1: number,
   x2: LengthPercentage | WidthCalculation
 ): CalcMultiplication<number, LengthPercentage | WidthCalculation>
 
 // For Width/Length
-export function multi(
+export function cmulti(
   x1: LengthPercentage | WidthCalculation,
   x2: number
 ): CalcMultiplication<LengthPercentage | WidthCalculation, number>
 
 // The resolve type is number or integer
-export function multi(
+export function cmulti(
   x1: number,
   x2: number
 ): CalcMultiplication<number, number>
 
-export function multi(x1: any, x2: any): CalcMultiplication<any, any> {
+export function cmulti(x1: any, x2: any): CalcMultiplication<any, any> {
   return {
     __tag: 'calc-multiplication',
     operands: [x1, x2],
