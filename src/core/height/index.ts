@@ -1,28 +1,18 @@
 import {
-  isLengthType,
-  isPercentageType,
   GlobalCssKeyword,
   Width,
   WidthCalculation,
-  isCalculation,
-  serializeWidthCalculation,
+  serializeAtomicValue,
 } from '../shared'
-import { serializeLength, serializePercentage } from '../shared'
 
 export type HeightCSSProp = 'height'
 
 export const serializeHeight = (
-  value: Width | GlobalCssKeyword
+  x: Width | GlobalCssKeyword
 ): {
   height: string
 } => ({
-  height: isLengthType(value)
-    ? serializeLength(value)
-    : isPercentageType(value)
-    ? serializePercentage(value)
-    : isCalculation(value)
-    ? serializeWidthCalculation(value)
-    : value,
+  height: serializeAtomicValue(x),
 })
 
 /**
