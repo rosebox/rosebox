@@ -1,23 +1,10 @@
-import {
-  Width,
-  GlobalCssKeyword,
-  isGlobalCssKeyword,
-  serializeWidthCalculation,
-  isCalculation,
-} from '../shared'
-import {
-  serializeWidth as serializeWidthValue,
-  WidthCalculation,
-} from '../shared'
+import { Width, GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import { WidthCalculation } from '../shared'
 
 export const serializeWidth = (
-  value: Width | WidthCalculation | GlobalCssKeyword
+  x: Width | WidthCalculation | GlobalCssKeyword
 ) => ({
-  width: isGlobalCssKeyword(value)
-    ? value
-    : isCalculation(value)
-    ? serializeWidthCalculation(value)
-    : serializeWidthValue(value),
+  width: serializeAtomicValue(x),
 })
 
 /**

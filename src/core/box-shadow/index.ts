@@ -4,7 +4,7 @@ import {
   GlobalCssKeyword,
   isGlobalCssKeyword,
 } from '../shared'
-import { Color, isColor, serializeColorValue } from '../color'
+import { Color, isColor, serializeColorValue } from '../shared'
 import { serializeLength } from '../shared'
 
 type LengthTuple =

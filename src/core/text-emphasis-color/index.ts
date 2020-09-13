@@ -1,8 +1,8 @@
-import { Color, serializeColorValue } from '../color'
+import { Color, serializeAtomicValue } from '../shared'
 import { GlobalCssKeyword } from '../shared'
 
 export const serializeTextEmphasisColor = (x: Color | GlobalCssKeyword) => ({
-  textEmphasisColor: typeof x === 'string' ? x : serializeColorValue(x),
+  textEmphasisColor: serializeAtomicValue(x),
 })
 
 /**

@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { rgb } from '../color'
+import { rgb } from '../shared'
 
 test('textEmphasisColor: Color', () => {
   const received = style({
