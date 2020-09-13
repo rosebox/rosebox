@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { getSerializer, GlobalCssKeyword } from '../shared'
 import { Position, serializePosition } from '../shared'
 
 export const serializeBgPositionPropValue = (
@@ -8,7 +8,7 @@ export const serializeBgPositionPropValue = (
   if (Array.isArray(x))
     return x.reduce(
       (acc, val, idx) =>
-        acc + serializePosition(val) + (idx === x.length - 1 ? '' : ', '),
+        acc + getSerializer(val)(val) + (idx === x.length - 1 ? '' : ', '),
       ''
     )
   return serializePosition(x)
