@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
 
 /**
  * @hide
@@ -8,7 +8,7 @@ type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch'
 export const serializeAlignItems = (
   x: AlignItems | GlobalCssKeyword
 ): { alignItems: string } => ({
-  alignItems: x,
+  alignItems: serializeAtomicValue(x),
 })
 
 /**
