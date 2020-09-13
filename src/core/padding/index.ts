@@ -122,6 +122,8 @@ export type PaddingYDeclaration = {
 
 type PaddingShorthand =
   | PaddingValue
+  | [PaddingValue, PaddingValue]
+  | [PaddingValue, PaddingValue, PaddingValue]
   | [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
 
 const serializeShorthandleValue = (value: PaddingShorthand): string =>
@@ -175,6 +177,8 @@ const isPaddingObject = (x: any): x is PaddingObject =>
 const serializeNonPaddingObject = (
   x:
     | PaddingValue
+    | [PaddingValue, PaddingValue]
+    | [PaddingValue, PaddingValue, PaddingValue]
     | [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
     | GlobalCssKeyword
 ) => ({
