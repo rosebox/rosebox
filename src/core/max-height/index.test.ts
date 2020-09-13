@@ -16,7 +16,7 @@ test('maxHeight: WidthCalculation', () => {
     maxHeight: cmulti(cdiv(per(100), 7), 3),
   })
   const expected = {
-    maxHeight: 'calc((calc(100% / 7)) * 3)',
+    maxHeight: 'calc(calc(100% / 7) * 3)',
   }
   expect(received).toEqual(expected)
 })
