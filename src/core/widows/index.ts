@@ -8,5 +8,5 @@ export type WidowsDeclaration = {
    * Maps to CSS's **`widows`** property
    * @category RBProperty
    */
-  visibility: number | GlobalCssKeyword
+  widows: number | GlobalCssKeyword
 }
