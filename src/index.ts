@@ -164,6 +164,7 @@ import { TextOrientationDeclaration } from './core/text-orientation'
 
 export * from './core'
 export * from './react'
+export { toNum } from './utils'
 
 export type RBStyle = Partial<
   WidthDeclaration &
