@@ -10,3 +10,4 @@ export type WidowsDeclaration = {
    */
   widows: number | GlobalCssKeyword
 }
+

@@ -5,13 +5,16 @@ import {
   RBType,
   getTypeName,
 } from './shared'
-
+ 
 /**
  *
  * A type that maps to CSS's **`<length>`** type.
  * @added 0.1.0
  */
-export interface Length extends RBType<'Length', number> {}
+export interface Length extends RBType<'Length', number> {
+  toNum: (x: Length) => number
+}
+
 
 export const serializeLength = (x: Length) => `${getData(x)}${getUnit(x)}`
 
@@ -19,6 +22,8 @@ const lengthMixin = {
   type: 'Length',
   serializer: serializeLength,
 } as const
+
+const toNum = (x: Length): number => x[NAMESPACE].data
 
 /**
  * Constructs a value of type `Length` where the unit is **`px`**.
@@ -31,6 +36,7 @@ export const px = (x: number): Length => ({
     data: x,
     valueConstructor: px,
   },
+  toNum
 })
 
 /**
@@ -44,6 +50,7 @@ export const em = (x: number): Length => ({
     data: x,
     valueConstructor: em,
   },
+  toNum
 })
 
 /**
@@ -57,6 +64,7 @@ export const rem = (x: number): Length => ({
     data: x,
     valueConstructor: rem,
   },
+  toNum
 })
 
 /**
@@ -70,6 +78,7 @@ export const ex = (x: number): Length => ({
     data: x,
     valueConstructor: ex,
   },
+  toNum
 })
 /**
  * Constructs a value of type `Length` where the unit is **`ch`**.
@@ -82,6 +91,7 @@ export const ch = (x: number): Length => ({
     data: x,
     valueConstructor: ch,
   },
+  toNum
 })
 
 /**
@@ -95,6 +105,7 @@ export const vw = (x: number): Length => ({
     data: x,
     valueConstructor: vw,
   },
+  toNum
 })
 
 /**
@@ -108,6 +119,7 @@ export const vh = (x: number): Length => ({
     data: x,
     valueConstructor: vh,
   },
+  toNum
 })
 
 /**
@@ -121,6 +133,7 @@ export const vmin = (x: number): Length => ({
     data: x,
     valueConstructor: vmin,
   },
+  toNum
 })
 
 /**
@@ -134,6 +147,7 @@ export const vmax = (x: number): Length => ({
     data: x,
     valueConstructor: vmax,
   },
+  toNum
 })
 
 /**
@@ -147,6 +161,7 @@ export const Q = (x: number): Length => ({
     data: x,
     valueConstructor: Q,
   },
+  toNum
 })
 
 /**
@@ -160,6 +175,7 @@ export const cm = (x: number): Length => ({
     data: x,
     valueConstructor: cm,
   },
+  toNum
 })
 
 /**
@@ -173,6 +189,7 @@ export const mm = (x: number): Length => ({
     data: x,
     valueConstructor: mm,
   },
+  toNum
 })
 
 /**
@@ -186,6 +203,7 @@ export const In = (x: number): Length => ({
     data: x,
     valueConstructor: In,
   },
+  toNum
 })
 
 /**
@@ -199,6 +217,7 @@ export const pc = (x: number): Length => ({
     data: x,
     valueConstructor: pc,
   },
+  toNum
 })
 
 /**
@@ -212,6 +231,7 @@ export const pt = (x: number): Length => ({
     data: x,
     valueConstructor: pt,
   },
+  toNum
 })
 
 export const isLengthType = (x: any): x is Length => getTypeName(x) === 'Length'
