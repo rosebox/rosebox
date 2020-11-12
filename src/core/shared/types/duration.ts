@@ -11,7 +11,11 @@ import {
  * A type that maps to CSS's **`<Duration>`** type.
  * @added 0.2.1
  */
-export interface Duration extends RBType<'Duration', number> {}
+export interface Duration extends RBType<'Duration', number> {
+  toNum: (x: Duration) => number
+}
+
+const toNum = (x: Duration): number => x[NAMESPACE].data
 
 export const serializeDuration = (x: Duration): string => {
   const unit = getValConstructor(x) === s ? 's' : 'ms'
@@ -30,6 +34,7 @@ export const s = (x: number): Duration => ({
     valueConstructor: s,
     serializer: serializeDuration,
   },
+  toNum,
 })
 
 /**
@@ -44,6 +49,8 @@ export const ms = (x: number): Duration => ({
     valueConstructor: ms,
     serializer: serializeDuration,
   },
+  toNum,
 })
 
-export const isDuration = (x: any): x is Duration => getTypeName(x) === 'Duration'
+export const isDuration = (x: any): x is Duration =>
+  getTypeName(x) === 'Duration'
