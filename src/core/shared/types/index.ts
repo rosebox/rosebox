@@ -1,5 +1,5 @@
 export * from './position'
-export * from './time'
+export * from './duration'
 export * from './percentage'
 export * from './length'
 export * from './width'

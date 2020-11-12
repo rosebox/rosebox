@@ -1,55 +1,55 @@
 import {
   AnimatableProperty,
-  Time,
+  Duration,
   GlobalCssKeyword,
   serializeTimingFunctionValue,
 } from '../shared'
 import { TimingFunctionValue } from '../shared'
-import { isTime } from '../shared'
-import { serializeTime } from '../shared'
+import { isDuration } from '../shared'
+import { serializeDuration } from '../shared'
 
 const toHyphenCase = (x: string) =>
   x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
 
-type SingleTransition = 'none' | AnimatableProperty | Time | TimingFunctionValue
+type SingleTransition = 'none' | AnimatableProperty | Duration | TimingFunctionValue
 
 type SingleTransitionOneValueTupleSyntax = [SingleTransition]
 
 type SingleTransitionTwoValuesSyntax =
-  | ['none' | AnimatableProperty, Time]
+  | ['none' | AnimatableProperty, Duration]
   | ['none' | AnimatableProperty, TimingFunctionValue]
-  | [Time, 'none' | AnimatableProperty]
-  | [Time, TimingFunctionValue]
+  | [Duration, 'none' | AnimatableProperty]
+  | [Duration, TimingFunctionValue]
   | [TimingFunctionValue, 'none' | AnimatableProperty]
-  | [TimingFunctionValue, Time]
+  | [TimingFunctionValue, Duration]
 
 type SingleTransitionThreeValuesSyntax =
-  | ['none' | AnimatableProperty, Time, TimingFunctionValue]
-  | ['none' | AnimatableProperty, TimingFunctionValue, Time]
-  | ['none' | AnimatableProperty, Time, Time]
-  | [TimingFunctionValue, 'none' | AnimatableProperty, Time]
-  | [TimingFunctionValue, Time, 'none' | AnimatableProperty]
-  | [TimingFunctionValue, Time, Time]
-  | [Time, 'none' | AnimatableProperty, TimingFunctionValue]
-  | [Time, TimingFunctionValue, 'none' | AnimatableProperty]
-  | [Time, 'none' | AnimatableProperty, Time]
-  | [Time, Time, 'none' | AnimatableProperty]
-  | [Time, TimingFunctionValue, Time]
-  | [Time, Time, TimingFunctionValue]
+  | ['none' | AnimatableProperty, Duration, TimingFunctionValue]
+  | ['none' | AnimatableProperty, TimingFunctionValue, Duration]
+  | ['none' | AnimatableProperty, Duration, Duration]
+  | [TimingFunctionValue, 'none' | AnimatableProperty, Duration]
+  | [TimingFunctionValue, Duration, 'none' | AnimatableProperty]
+  | [TimingFunctionValue, Duration, Duration]
+  | [Duration, 'none' | AnimatableProperty, TimingFunctionValue]
+  | [Duration, TimingFunctionValue, 'none' | AnimatableProperty]
+  | [Duration, 'none' | AnimatableProperty, Duration]
+  | [Duration, Duration, 'none' | AnimatableProperty]
+  | [Duration, TimingFunctionValue, Duration]
+  | [Duration, Duration, TimingFunctionValue]
 
 type SingleTransitionFourValuesSyntax =
-  | ['none' | AnimatableProperty, Time, Time, TimingFunctionValue]
-  | ['none' | AnimatableProperty, Time, TimingFunctionValue, Time]
-  | ['none' | AnimatableProperty, TimingFunctionValue, Time, Time]
-  | [TimingFunctionValue, Time, Time, 'none' | AnimatableProperty]
-  | [TimingFunctionValue, Time, 'none' | AnimatableProperty, Time]
-  | [TimingFunctionValue, 'none' | AnimatableProperty, Time, Time]
-  | [Time, Time, 'none' | AnimatableProperty, TimingFunctionValue]
-  | [Time, Time, TimingFunctionValue, 'none' | AnimatableProperty]
-  | [Time, 'none' | AnimatableProperty, Time, TimingFunctionValue]
-  | [Time, 'none' | AnimatableProperty, TimingFunctionValue, Time]
-  | [Time, TimingFunctionValue, Time, 'none' | AnimatableProperty]
-  | [Time, TimingFunctionValue, 'none' | AnimatableProperty, Time]
+  | ['none' | AnimatableProperty, Duration, Duration, TimingFunctionValue]
+  | ['none' | AnimatableProperty, Duration, TimingFunctionValue, Duration]
+  | ['none' | AnimatableProperty, TimingFunctionValue, Duration, Duration]
+  | [TimingFunctionValue, Duration, Duration, 'none' | AnimatableProperty]
+  | [TimingFunctionValue, Duration, 'none' | AnimatableProperty, Duration]
+  | [TimingFunctionValue, 'none' | AnimatableProperty, Duration, Duration]
+  | [Duration, Duration, 'none' | AnimatableProperty, TimingFunctionValue]
+  | [Duration, Duration, TimingFunctionValue, 'none' | AnimatableProperty]
+  | [Duration, 'none' | AnimatableProperty, Duration, TimingFunctionValue]
+  | [Duration, 'none' | AnimatableProperty, TimingFunctionValue, Duration]
+  | [Duration, TimingFunctionValue, Duration, 'none' | AnimatableProperty]
+  | [Duration, TimingFunctionValue, 'none' | AnimatableProperty, Duration]
 
 type SingleTransitionTuple =
   | SingleTransitionOneValueTupleSyntax
@@ -63,12 +63,12 @@ type TransitionPropertyValue =
   | GlobalCssKeyword
 
 const serializeAtomicValue = (
-  value: 'none' | AnimatableProperty | Time | TimingFunctionValue
+  value: 'none' | AnimatableProperty | Duration | TimingFunctionValue
 ): string =>
   typeof value === 'string'
     ? toHyphenCase(value)
-    : isTime(value)
-    ? serializeTime(value)
+    : isDuration(value)
+    ? serializeDuration(value)
     : serializeTimingFunctionValue(value)
 
 const isSingleTransition = (

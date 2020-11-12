@@ -1,10 +1,10 @@
 import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
-import { Time } from '../shared'
+import { Duration } from '../shared'
 
 /**
  * @hide
  */
-export type AnimationDuration = GlobalCssKeyword | Time | Time[]
+export type AnimationDuration = GlobalCssKeyword | Duration | Duration[]
 
 export const serializeValue = (value: AnimationDuration): string =>
   !Array.isArray(value)

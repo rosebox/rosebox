@@ -1,15 +1,15 @@
 import { deg, serializeAngle, grad, rad, turn } from '../'
-import { serializeTime } from '../'
+import { serializeDuration } from '../'
 import { ms, s } from '../index'
 
-test('serializeTime(value: Time<ms>)', () => {
-  const received = serializeTime(ms(300))
+test('serializeDuration(value: Duration<ms>)', () => {
+  const received = serializeDuration(ms(300))
   const expected = '300ms'
   expect(received).toEqual(expected)
 })
 
-test('serializeTime(value: Time<s>)', () => {
-  const received = serializeTime(s(3))
+test('serializeDuration(value: Duration<s>)', () => {
+  const received = serializeDuration(s(3))
   const expected = '3s'
   expect(received).toEqual(expected)
 })
