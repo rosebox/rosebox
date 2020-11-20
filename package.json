@@ -1,6 +1,6 @@
 {
   "name": "rosebox",
-  "version": "0.3.86",
+  "version": "0.3.87",
   "private": false,
   "description": "Rosebox is an experimental project with the ultimate goal to build a complete JS/TS styling framework with an emphasis on writing expressive, scalable, and conflict-free style-code.",
   "main": "es5/index.js",
@@ -28,7 +28,9 @@
   "keywords": [
     "Functional css",
     "declarative styling",
-    "Typed CSS"
+    "Typed CSS",
+    "color",
+    "colors"
   ],
   "license": "MIT",
   "dependencies": {
