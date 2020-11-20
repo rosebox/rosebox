@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { url } from '../shared'
+import { linGrad, per, url } from '../shared'
 
 test('backgroundImage: keyword', () => {
   const received = style({
@@ -17,6 +17,17 @@ test('backgroundImage: URL', () => {
   })
   const expected = {
     backgroundImage: 'url(/images/image.webp)',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('backgroundImage: LinearGradient', () => {
+  const gradient = linGrad(['red', per(30), ['black', per(20)]])
+  const received = style({
+    backgroundImage: gradient,
+  })
+  const expected = {
+    backgroundImage: 'linear-gradient(red, 30%, black 20%)',
   }
   expect(received).toEqual(expected)
 })

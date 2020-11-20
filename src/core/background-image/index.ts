@@ -1,6 +1,7 @@
-import { GlobalCssKeyword, URI, URL, getSerializer } from '../shared'
+import { GlobalCssKeyword, getSerializer } from '../shared'
+import { Image } from '../shared/types/image'
 
-export type BackgroundImageValue = URL | URI | 'none'
+export type BackgroundImageValue = Image | 'none'
 
 export const serializeBackgroundImage = (
   x: BackgroundImageValue | GlobalCssKeyword
