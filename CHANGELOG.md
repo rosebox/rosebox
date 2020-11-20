@@ -1,5 +1,8 @@
 # Chagngelog
 
+## [0.3.88] - 2020-09-13
+- Add support for linearGradient (with the value constructor linGrad()).
+
 ## [0.3.6] - 2020-09-13
 
 - Add support for env()
