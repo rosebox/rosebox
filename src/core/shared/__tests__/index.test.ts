@@ -1,6 +1,7 @@
 import { deg, serializeAngle, grad, rad, turn } from '../'
 import { serializeDuration } from '../'
-import { ms, s } from '../index'
+import { ms, s, add } from '../index'
+import { getData, subs } from '../types'
 
 test('serializeDuration(value: Duration<ms>)', () => {
   const received = serializeDuration(ms(300))
@@ -35,5 +36,29 @@ test('serializeAngle(rad)', () => {
 test('serializeAngle(turn)', () => {
   const received = serializeAngle(turn(2))
   const expected = '2turn'
+  expect(received).toEqual(expected)
+})
+
+test('add(x1: Duration, x2: Duration)', () => {
+  const received = getData(add(ms(100), ms(100)))
+  const expected = 200
+  expect(received).toEqual(expected)
+})
+
+test('add(x1: Duration, x2: Duration)', () => {
+  const received = getData(add(s(2), ms(100)))
+  const expected = 2100
+  expect(received).toEqual(expected)
+})
+
+test('sub(x1: Duration, x2: Duration)', () => {
+  const received = getData(subs(ms(300), ms(100)))
+  const expected = 200
+  expect(received).toEqual(expected)
+})
+
+test('sub(x1: Duration, x2: Duration)', () => {
+  const received = getData(subs(s(2), ms(100)))
+  const expected = 1900
   expect(received).toEqual(expected)
 })
