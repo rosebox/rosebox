@@ -192,6 +192,8 @@ export type PaddingDeclaration = {
    */
   padding:
     | PaddingValue
+    | [PaddingValue, PaddingValue]
+    | [PaddingValue, PaddingValue, PaddingValue]
     | [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
     | PaddingObject
     | GlobalCssKeyword
