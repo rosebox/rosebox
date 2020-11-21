@@ -20,7 +20,7 @@ const serializeColorStopListItem = (
 ): string => {
   return isPercentageType(x)
     ? serializePercentage(x)
-    : isColor(x)
+    : !Array.isArray(x)
     ? serializeColorValue(x)
     : `${serializeColorValue(x[0])} ${serializeLengthPercentage(x[1])}`
 }
