@@ -1,5 +1,5 @@
 import { Angle, serializeAngle } from './angle'
-import { Color, isColor, serializeColorValue } from './color'
+import { Color, serializeColorValue } from './color'
 import { isPercentageType, Percentage, serializePercentage } from './percentage'
 import {
   getData,
