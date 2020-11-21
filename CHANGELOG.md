@@ -1,6 +1,9 @@
 # Chagngelog
 
-## [0.3.88] - 2020-09-13
+## [0.3.89] - 2020-11-21
+- Add back suuport for 2-values and 3-values syntax for padding.
+
+## [0.3.88] - 2020-11-20
 - Add support for linearGradient (with the value constructor linGrad()).
 
 ## [0.3.6] - 2020-09-13
