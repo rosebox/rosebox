@@ -21,6 +21,7 @@ npm i rosebox
 ## Examples
 
 - [A Simple image carousel](https://codesandbox.io/s/image-carousel-rosebox-h1urb?file=/src/App.tsx)
+- More examples of react-components using Rosebox can be found [here](https://github.com/hugonteifeh/react-components)
 
 ## Roadmap and future releases
 
