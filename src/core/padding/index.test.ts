@@ -23,6 +23,16 @@ test('paddingX: [LengthPercentage, LengthPercentage]', () => {
   expect(received).toEqual(expected)
 })
 
+test('padding: [LengthPercentage, LengthPercentage, LengthPercentage]', () => {
+  const received = style({
+    padding: [px(15), px(100), px(100)],
+  })
+  const expected = {
+    padding: '15px 100px 100px'
+  }
+  expect(received).toEqual(expected)
+})
+
 test('padding: PaddingObject', () => {
   const received = style({
     padding: {
