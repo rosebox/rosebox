@@ -1,5 +1,8 @@
 # Chagngelog
 
+## [0.3.89] - 2020-11-23
+- Implement outlineWidth, outlineStyle, outlineColor and outline.
+
 ## [0.3.89] - 2020-11-21
 - Add back suuport for 2-values and 3-values syntax for padding.
 
