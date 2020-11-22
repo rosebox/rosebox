@@ -69,15 +69,6 @@ export const ms = (x: number): Duration<'milliseconds'> => ({
   eq
 })
 
-<<<<<<< HEAD
-export const toSeconds = (x: Duration<'milliseconds'>): Duration<'seconds'> => s(
-  getData(x) / 1000
-)
-
-export const toMilliseconds = (x: Duration<'seconds'>): Duration<'milliseconds'> => ms(
-  getData(x) * 1000
-)
-=======
 export const toSeconds = (x: Duration): Duration<'seconds'> => {
   const value = x[NAMESPACE].unit === 'seconds' ? toNum(x) : toNum(x) / 1000
   return s(value)
@@ -87,7 +78,6 @@ export const toMilliseconds = (x: Duration): Duration<'milliseconds'> => {
   const value = x[NAMESPACE].unit === 'milliseconds' ? toNum(x) : toNum(x) * 1000
   return ms(value)
 }
->>>>>>> master
 
 export const isDuration = (x: any): x is Duration =>
   getTypeName(x) === 'Duration'
