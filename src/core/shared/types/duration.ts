@@ -21,10 +21,15 @@ export interface Duration<A extends 'milliseconds' | 'seconds' | 'any' = any> {
     valueConstructor: (x: number) => Duration<any>
     serializer: (x: Duration<A>) => string
   }
-  toNum: (x: Duration<any>) => number
+  toNum: (x: Duration) => number
+  eq: (x: Duration, y: Duration) => boolean
 }
 
-const toNum = (x: Duration<any>): number => x[NAMESPACE].data
+const toNum = (x: Duration): number => x[NAMESPACE].data
+const eq = (x: Duration, y: Duration): boolean => {
+  return getData(toMilliseconds(x)) === getData(toMilliseconds(y))
+}
+
 
 export const serializeDuration = (x: Duration<any>): string => {
   const unit = getValConstructor(x) === s ? 's' : 'ms'
@@ -45,6 +50,7 @@ export const s = (x: number): Duration<'seconds'> => ({
     serializer: serializeDuration,
   },
   toNum,
+  eq
 })
 
 /**
@@ -61,15 +67,18 @@ export const ms = (x: number): Duration<'milliseconds'> => ({
     serializer: serializeDuration,
   },
   toNum,
+  eq
 })
 
-export const toSeconds = (x: Duration<'milliseconds'>): Duration<'seconds'> => s(
-  getData(x) / 1000
-)
+export const toSeconds = (x: Duration): Duration<'seconds'> => {
+  const value = x[NAMESPACE].unit === 'seconds' ? toNum(x) : toNum(x) / 1000
+  return s(value)
+}
 
-export const toMilliseconds = (x: Duration<'seconds'>): Duration<'milliseconds'> => ms(
-  getData(x) * 1000
-)
+export const toMilliseconds = (x: Duration): Duration<'milliseconds'> => {
+  const value = x[NAMESPACE].unit === 'milliseconds' ? toNum(x) : toNum(x) * 1000
+  return ms(value)
+}
 
 export const isDuration = (x: any): x is Duration =>
   getTypeName(x) === 'Duration'
