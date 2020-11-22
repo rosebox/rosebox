@@ -163,6 +163,7 @@ import { TextGroupAlignDeclaration } from './core/text-group-align'
 import { TextOrientationDeclaration } from './core/text-orientation'
 import { OutlineColorDeclaration } from './core/outline-color'
 import { OutlineWidthDeclaration } from './core/outline-width'
+import { OutlineStyleDeclaration } from './core/outline-style'
 
 export * from './core'
 export * from './react'
@@ -313,6 +314,7 @@ export type RBStyle = Partial<
     TextOrientationDeclaration &
     OutlineColorDeclaration &
     OutlineWidthDeclaration &
+    OutlineStyleDeclaration &
     VoiceRateDeclaration & {
       [x: string]: any
     }
