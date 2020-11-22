@@ -127,6 +127,7 @@ import { serializeTextEmphasisColor } from './core/text-emphasis-color'
 import { serializeTextEmphasisSkip } from './core/text-emphasis-skip'
 import { serializeTextEmphasisPosition } from './core/text-emphasis-position'
 import { serializeTexIndent } from './core/text-indent'
+import { serializeOutlineColor } from './core/outline-color'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -241,4 +242,5 @@ export const funcMap: any = {
   textUnderlineOffset: serializeTextUnderlineOffset,
   voiceVolume: serializeVoiceVolume,
   voiceRate: serializeVoiceRate,
+  outlineColor: serializeOutlineColor
 }
