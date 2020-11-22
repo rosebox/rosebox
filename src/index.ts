@@ -162,6 +162,7 @@ import { TextJustifyDeclaration } from './core/text-justify'
 import { TextGroupAlignDeclaration } from './core/text-group-align'
 import { TextOrientationDeclaration } from './core/text-orientation'
 import { OutlineColorDeclaration } from './core/outline-color'
+import { OutlineWidthDeclaration } from './core/outline-width'
 
 export * from './core'
 export * from './react'
@@ -311,6 +312,7 @@ export type RBStyle = Partial<
     TextGroupAlignDeclaration &
     TextOrientationDeclaration &
     OutlineColorDeclaration &
+    OutlineWidthDeclaration &
     VoiceRateDeclaration & {
       [x: string]: any
     }

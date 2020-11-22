@@ -128,6 +128,7 @@ import { serializeTextEmphasisSkip } from './core/text-emphasis-skip'
 import { serializeTextEmphasisPosition } from './core/text-emphasis-position'
 import { serializeTexIndent } from './core/text-indent'
 import { serializeOutlineColor } from './core/outline-color'
+import { serializeOutlineWidth } from './core/outline-width'
 
 export const funcMap: any = {
   alignContent: serializeAlignContent,
@@ -242,5 +243,6 @@ export const funcMap: any = {
   textUnderlineOffset: serializeTextUnderlineOffset,
   voiceVolume: serializeVoiceVolume,
   voiceRate: serializeVoiceRate,
-  outlineColor: serializeOutlineColor
+  outlineColor: serializeOutlineColor,
+  outlineWidth: serializeOutlineWidth
 }
