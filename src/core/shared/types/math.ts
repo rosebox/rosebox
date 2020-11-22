@@ -32,3 +32,9 @@ export function add(x1: any, x2: any): any {
   }
   return null
 }
+
+export function eq(x1: Duration, x2: Duration): boolean
+
+export function eq(x1: any, x2: any): boolean {
+  return x1.eq(x1, x2)
+}

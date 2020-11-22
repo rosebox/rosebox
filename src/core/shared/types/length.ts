@@ -2,16 +2,25 @@ import {
   getData,
   getValConstructor,
   NAMESPACE,
-  RBType,
   getTypeName,
 } from './shared'
+
+type Unit = 'px' | 'em' | 'rem' | 'ex' | 'ch' | 'vw' | 'vh' | 'vmin' | 'vmax' | 'q' | 'cm' | 'mm' | 'in' | 'pc'
+| 'pt'
  
 /**
  *
  * A type that maps to CSS's **`<length>`** type.
  * @added 0.1.0
  */
-export interface Length extends RBType<'Length', number> {
+export interface Length<A extends Unit = any> {
+  [NAMESPACE]: {
+    unit: A extends any ? Unit : A
+    data: number
+    type: 'Length'
+    valueConstructor: (x: number) => Length
+    serializer: (x: Length<A>) => string
+  },
   toNum: (x: Length) => number
 }
 
@@ -30,8 +39,9 @@ const toNum = (x: Length): number => x[NAMESPACE].data
  * @category Value constructor
  * @added 0.1.0
  */
-export const px = (x: number): Length => ({
+export const px = (x: number): Length<'px'> => ({
   [NAMESPACE]: {
+    unit: 'px',
     ...lengthMixin,
     data: x,
     valueConstructor: px,
@@ -44,9 +54,10 @@ export const px = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const em = (x: number): Length => ({
+export const em = (x: number): Length<'em'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'em',
     data: x,
     valueConstructor: em,
   },
@@ -58,9 +69,10 @@ export const em = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const rem = (x: number): Length => ({
+export const rem = (x: number): Length<'rem'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'rem',
     data: x,
     valueConstructor: rem,
   },
@@ -72,8 +84,9 @@ export const rem = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const ex = (x: number): Length => ({
+export const ex = (x: number): Length<'ex'> => ({
   [NAMESPACE]: {
+    unit: 'ex',
     ...lengthMixin,
     data: x,
     valueConstructor: ex,
@@ -85,9 +98,10 @@ export const ex = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const ch = (x: number): Length => ({
+export const ch = (x: number): Length<'ch'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'ch',
     data: x,
     valueConstructor: ch,
   },
@@ -99,9 +113,10 @@ export const ch = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const vw = (x: number): Length => ({
+export const vw = (x: number): Length<'vw'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'vw',
     data: x,
     valueConstructor: vw,
   },
@@ -113,9 +128,10 @@ export const vw = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const vh = (x: number): Length => ({
+export const vh = (x: number): Length<'vh'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'vh',
     data: x,
     valueConstructor: vh,
   },
@@ -127,9 +143,10 @@ export const vh = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const vmin = (x: number): Length => ({
+export const vmin = (x: number): Length<'vmin'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'vmin',
     data: x,
     valueConstructor: vmin,
   },
@@ -141,9 +158,10 @@ export const vmin = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const vmax = (x: number): Length => ({
+export const vmax = (x: number): Length<'vmax'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'vmax',
     data: x,
     valueConstructor: vmax,
   },
@@ -155,9 +173,10 @@ export const vmax = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const Q = (x: number): Length => ({
+export const Q = (x: number): Length<'q'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'q',
     data: x,
     valueConstructor: Q,
   },
@@ -169,9 +188,10 @@ export const Q = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const cm = (x: number): Length => ({
+export const cm = (x: number): Length<'cm'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'cm',
     data: x,
     valueConstructor: cm,
   },
@@ -183,9 +203,10 @@ export const cm = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const mm = (x: number): Length => ({
+export const mm = (x: number): Length<'mm'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'mm',
     data: x,
     valueConstructor: mm,
   },
@@ -197,9 +218,10 @@ export const mm = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const In = (x: number): Length => ({
+export const In = (x: number): Length<'in'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'in',
     data: x,
     valueConstructor: In,
   },
@@ -211,9 +233,10 @@ export const In = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const pc = (x: number): Length => ({
+export const pc = (x: number): Length<'pc'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'pc',
     data: x,
     valueConstructor: pc,
   },
@@ -225,9 +248,10 @@ export const pc = (x: number): Length => ({
  * @category Value constructor
  * @added 0.1.0
  */
-export const pt = (x: number): Length => ({
+export const pt = (x: number): Length<'pt'> => ({
   [NAMESPACE]: {
     ...lengthMixin,
+    unit: 'pt',
     data: x,
     valueConstructor: pt,
   },
@@ -269,6 +293,6 @@ const getUnit = (x: Length) => {
     case ex:
       return 'ex'
     default:
-      throw new Error("We don't recognize this unit")
+      throw new Error("Invalid Length unit")
   }
 }

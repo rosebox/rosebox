@@ -1,4 +1,5 @@
 import { deg, serializeAngle, grad, rad, turn } from '../'
+import { eq } from '../types/math'
 import { serializeDuration } from '../'
 import { toNum } from '../../../utils'
 import { ms, s, add } from '../index'
@@ -68,5 +69,13 @@ test('sub(x1: Duration, x2: Duration)', () => {
 test('toMilliseconds', () => {
   const received = toNum(toMilliseconds(s(1)))
   const expected = 1000
+  expect(received).toEqual(expected)
+})
+
+test('eq', () => {
+  const val1 = ms(1000)
+  const val2 = ms(1000)
+  const received = eq(val1, val2)
+  const expected = true
   expect(received).toEqual(expected)
 })
