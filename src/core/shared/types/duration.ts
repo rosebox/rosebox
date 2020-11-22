@@ -30,7 +30,6 @@ const eq = (x: Duration, y: Duration): boolean => {
   return getData(toMilliseconds(x)) === getData(toMilliseconds(y))
 }
 
-
 export const serializeDuration = (x: Duration<any>): string => {
   const unit = getValConstructor(x) === s ? 's' : 'ms'
   return `${getData(x)}${unit}`
