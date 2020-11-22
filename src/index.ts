@@ -164,6 +164,7 @@ import { TextOrientationDeclaration } from './core/text-orientation'
 import { OutlineColorDeclaration } from './core/outline-color'
 import { OutlineWidthDeclaration } from './core/outline-width'
 import { OutlineStyleDeclaration } from './core/outline-style'
+import { OutlineDeclaration } from './core/outline'
 
 export * from './core'
 export * from './react'
@@ -315,6 +316,7 @@ export type RBStyle = Partial<
     OutlineColorDeclaration &
     OutlineWidthDeclaration &
     OutlineStyleDeclaration &
+    OutlineDeclaration &
     VoiceRateDeclaration & {
       [x: string]: any
     }
