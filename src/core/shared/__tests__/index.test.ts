@@ -1,7 +1,8 @@
 import { deg, serializeAngle, grad, rad, turn } from '../'
 import { serializeDuration } from '../'
+import { toNum } from '../../../utils'
 import { ms, s, add } from '../index'
-import { getData, subs } from '../types'
+import { getData, subs, toMilliseconds } from '../types'
 
 test('serializeDuration(value: Duration<ms>)', () => {
   const received = serializeDuration(ms(300))
@@ -60,5 +61,12 @@ test('sub(x1: Duration, x2: Duration)', () => {
 test('sub(x1: Duration, x2: Duration)', () => {
   const received = getData(subs(s(2), ms(100)))
   const expected = 1900
+  expect(received).toEqual(expected)
+})
+
+
+test('toMilliseconds', () => {
+  const received = toNum(toMilliseconds(s(1)))
+  const expected = 1000
   expect(received).toEqual(expected)
 })
