@@ -1,9 +1,12 @@
 import { deg, serializeAngle, grad, rad, turn } from '../'
 import { eq } from '../types/math'
-import { serializeDuration } from '../'
-import { toNum } from '../../../utils'
 import { ms, s, add } from '../index'
-import { getData, subs, toMilliseconds } from '../types'
+import { mult, px, sub, toMilliseconds } from '../types'
+
+
+const toNum = (x: any): number => x.data
+
+const serializeDuration = ms(100).serialize
 
 test('serializeDuration(value: Duration<ms>)', () => {
   const received = serializeDuration(ms(300))
@@ -42,25 +45,25 @@ test('serializeAngle(turn)', () => {
 })
 
 test('add(x1: Duration, x2: Duration)', () => {
-  const received = getData(add(ms(100), ms(100)))
+  const received = add(ms(100), ms(100)).data
   const expected = 200
   expect(received).toEqual(expected)
 })
 
-test('add(x1: Duration, x2: Duration)', () => {
-  const received = getData(add(s(2), ms(100)))
-  const expected = 2100
-  expect(received).toEqual(expected)
-})
-
-test('sub(x1: Duration, x2: Duration)', () => {
-  const received = getData(subs(ms(300), ms(100)))
+test('mult(x1: Duration, x2: Duration)', () => {
+  const received = (mult(ms(100), 2)).data
   const expected = 200
   expect(received).toEqual(expected)
 })
 
 test('sub(x1: Duration, x2: Duration)', () => {
-  const received = getData(subs(s(2), ms(100)))
+  const received = sub(ms(300), ms(100)).data
+  const expected = 200
+  expect(received).toEqual(expected)
+})
+
+test('sub(x1: Duration, x2: Duration)', () => {
+  const received = sub(s(2), ms(100)).data
   const expected = 1900
   expect(received).toEqual(expected)
 })
@@ -71,6 +74,32 @@ test('toMilliseconds', () => {
   const expected = 1000
   expect(received).toEqual(expected)
 })
+
+test('mult<Duration, number>', () => {
+  const val1 = ms(1000)
+  const val2 = 3
+  const received = toNum(mult(val1, val2))
+  const expected = 3000
+  expect(received).toEqual(expected)
+})
+
+test('mult<number, Duration>', () => {
+  const val1 = 3
+  const val2 = ms(1000)
+  const received = toNum(mult(val1, val2))
+  const expected = 3000
+  expect(received).toEqual(expected)
+})
+
+
+test('mult<Length, number>', () => {
+  const val1 = px(1000)
+  const val2 = 3
+  const received = toNum(mult(val1, val2))
+  const expected = 3000
+  expect(received).toEqual(expected)
+})
+
 
 test('eq', () => {
   const val1 = ms(1000)

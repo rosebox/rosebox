@@ -1,4 +1,4 @@
-import { getData, NAMESPACE, RBType } from './shared'
+import { getData, RBType } from './shared'
 
 /**
  *
@@ -8,12 +8,10 @@ import { getData, NAMESPACE, RBType } from './shared'
 export interface Decibel extends RBType<'Decibel', number> {}
 
 export const db = (x: number): Decibel => ({
-  [NAMESPACE]: {
     type: 'Decibel',
     data: x,
     valueConstructor: db,
-    serializer: serializeDecibel,
-  },
+    serialize: serializeDecibel,
 })
 
 export const isDecibel = (x: any): x is Decibel => x.__tag === 'Decibel'

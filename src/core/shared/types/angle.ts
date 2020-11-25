@@ -1,5 +1,4 @@
 import {
-  NAMESPACE,
   getData,
   getValConstructor,
   RBType,
@@ -11,7 +10,7 @@ import {
  */
 export interface Angle extends RBType<'Angle', number> {}
 
-export const isAngle = (x: any): x is Angle => x[NAMESPACE]?.type === 'Angle'
+export const isAngle = (x: any): x is Angle => x?.type === 'Angle'
 
 /**
  * Constructs a value of type **`Angle`** where the unit is **`deg`**.
@@ -19,16 +18,13 @@ export const isAngle = (x: any): x is Angle => x[NAMESPACE]?.type === 'Angle'
  * @added 0.2.3
  */
 export const deg = (x: number): Angle => ({
-  [NAMESPACE]: {
-    type: 'Angle',
-    valueConstructor: deg,
-    data: x,
-    serializer: serializeDeg,
-  },
+  type: 'Angle',
+  valueConstructor: deg,
+  data: x,
+  serialize: serializeDeg,
 })
 
-export const isDeg = (value: Angle): boolean =>
-  value[NAMESPACE].valueConstructor === deg
+export const isDeg = (value: Angle): boolean => value.valueConstructor === deg
 
 const serializeDeg = (x: Angle): string => `${getData(x)}deg`
 
@@ -38,12 +34,10 @@ const serializeDeg = (x: Angle): string => `${getData(x)}deg`
  * @added 0.2.3
  */
 export const grad = (x: number): Angle => ({
-  [NAMESPACE]: {
-    type: 'Angle',
-    valueConstructor: grad,
-    data: x,
-    serializer: serializeGrad,
-  },
+  type: 'Angle',
+  valueConstructor: grad,
+  data: x,
+  serialize: serializeGrad,
 })
 
 export const isGrad = (x: Angle): boolean => getValConstructor(x) === grad
@@ -56,12 +50,10 @@ const serializeGrad = (x: Angle): string => `${getData(x)}grad`
  * @added 0.2.3
  */
 export const rad = (x: number): Angle => ({
-  [NAMESPACE]: {
     type: 'Angle',
     valueConstructor: rad,
     data: x,
-    serializer: serializeRad,
-  },
+    serialize: serializeRad,
 })
 
 export const isRad = (x: Angle): boolean => getValConstructor(x) === rad
@@ -74,12 +66,10 @@ const serializeRad = (x: Angle): string => `${getData(x)}rad`
  * @added 0.2.3
  */
 export const turn = (x: number): Angle => ({
-  [NAMESPACE]: {
     type: 'Angle',
     valueConstructor: turn,
     data: x,
-    serializer: serializeTurn,
-  },
+    serialize: serializeTurn,
 })
 
 export const isTurn = (x: Angle): boolean => getValConstructor(x) === turn

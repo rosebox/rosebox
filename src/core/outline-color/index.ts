@@ -1,4 +1,4 @@
-import { Color, serializeColorValue } from '../shared'
+import { Color } from '../shared'
 import { GlobalCssKeyword } from '../shared'
 
 
@@ -7,7 +7,7 @@ export const serializeOutlineColor = (
 ): {
   outlineColor: string
 } => ({
-  outlineColor: typeof x === 'string' ? x : serializeColorValue(x) 
+  outlineColor: typeof x === 'string' ? x : x.serialize(x)
 })
 
 /**

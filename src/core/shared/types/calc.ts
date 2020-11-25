@@ -2,7 +2,6 @@ import { Env } from './env'
 import {
   getTypeName,
   LengthPercentage,
-  NAMESPACE,
   RBType,
   serializeAtomicValue,
 } from './shared'
@@ -33,12 +32,10 @@ export function cdiv(
   x2: number
 ): CalcDivision {
   return {
-    [NAMESPACE]: {
       type: 'CalcDivision',
       data: [x1, x2],
       valueConstructor: csubs,
-      serializer: serializeWidthCalculationValue,
-    },
+      serialize: serializeWidthCalculationValue,
   }
 }
 
@@ -49,12 +46,10 @@ export function csubs(
   x2: LengthPercentage | WidthCalculation | Env
 ): CalcSubstraction<LengthPercentage | WidthCalculation | Env> {
   return {
-    [NAMESPACE]: {
       type: 'CalcSubstraction',
       data: [x1, x2],
       valueConstructor: csubs,
-      serializer: serializeWidthCalculationValue,
-    },
+      serialize: serializeWidthCalculationValue
   }
 }
 
@@ -63,12 +58,10 @@ export function cadd(
   x2: LengthPercentage | WidthCalculation | Env
 ): CalcAddition<LengthPercentage | WidthCalculation | Env> {
   return {
-    [NAMESPACE]: {
       type: 'CalcAddition',
       data: [x1, x2],
       valueConstructor: csubs,
-      serializer: serializeWidthCalculationValue,
-    },
+      serialize: serializeWidthCalculationValue,
   }
 }
 
@@ -91,12 +84,10 @@ export function cmulti(
 
 export function cmulti(x1: any, x2: any): CalcMultiplication<any, any> {
   return {
-    [NAMESPACE]: {
       type: 'CalcMultiplication',
       data: [x1, x2],
       valueConstructor: csubs,
-      serializer: serializeWidthCalculationValue,
-    },
+      serialize: serializeWidthCalculationValue
   }
 }
 
@@ -148,9 +139,9 @@ const serializeWidthCalculationOperand = (
 ): string => serializeAtomicValue(x)
 
 const serializeWidthCalculationValue = (x: WidthCalculation): string =>
-  `calc(${serializeWidthCalculationOperand(x[NAMESPACE].data[0])} ${getOpSign(
+  `calc(${serializeWidthCalculationOperand(x.data[0])} ${getOpSign(
     getTypeName(x)
-  )} ${serializeWidthCalculationOperand(x[NAMESPACE].data[1])})`
+  )} ${serializeWidthCalculationOperand(x.data[1])})`
 
 export const serializeWidthCalculation = (x: WidthCalculation): string =>
   `calc(${serializeWidthCalculationValue(x)})`

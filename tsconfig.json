@@ -2,7 +2,7 @@
   "compilerOptions": {
     "noEmit": true,
     "outDir": "./es5",
-    "target": "es5",
+    "target": "ES2015",
     "module": "commonjs",
     "moduleResolution": "node",
     "lib": ["es2019", "ESNext.Array", "dom"],

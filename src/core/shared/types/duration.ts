@@ -1,83 +1,79 @@
-import {
-  getData,
-  getTypeName,
-  getValConstructor,
-  NAMESPACE,
-} from './shared'
+import { Setoid } from './math'
 
-/**
- *
- * A type that maps to CSS's **`<Duration>`** type.
- * @added 0.2.1
- */
-export interface Duration<A extends 'milliseconds' | 'seconds' | 'any' = any> {
-  [NAMESPACE]: {
-    unit: A extends 'milliseconds' ? 'milliseconds' 
-    : A extends 'seconds'
-    ? 'seconds'
-    : ('seconds' | 'milliseconds')
-    data: number
-    type: 'Duration'
-    valueConstructor: (x: number) => Duration<any>
-    serializer: (x: Duration<A>) => string
+export const serialize = (x: Duration<any>): string => {
+  const unitSuffix = x.unit === 'milliseconds' ? 'ms' : 's'
+  return `${x.data}${unitSuffix}`
+}
+
+export const toSeconds = (x: Duration): Duration<'seconds'> => {
+  const value = x.unit === 'seconds' ? x.data : x.data / 1000
+  return Duration.s(value)
+}
+
+export const toMilliseconds = (x: Duration): Duration<'milliseconds'> => {
+  const value = x.unit === 'milliseconds' ? x.data : x.data * 1000
+  return Duration.ms(value)
+}
+
+const eq = (x: any, y: any): boolean => {
+  return toMilliseconds(x).data === toMilliseconds(y).data
+}
+
+const add = (x1: Duration, x2: Duration): Duration<'milliseconds'> => {
+  const x1ms = x1.unit === 'milliseconds' ? x1.data : x1.data * 1000
+  const x2m2 = x2.unit === 'milliseconds' ? x2.data : x2.data * 1000
+  return ms(x1ms + x2m2)
+}
+
+const sub = (x1: Duration, x2: Duration): Duration<'milliseconds'> => {
+  const x1ms = x1.unit === 'milliseconds' ? x1.data : x1.data * 1000
+  const x2m2 = x2.unit === 'milliseconds' ? x2.data : x2.data * 1000
+  return ms(x1ms - x2m2)
+}
+
+export class Duration<A extends 'milliseconds' | 'seconds' | 'any' = any>
+  implements Setoid<Duration<A>> {
+  valueConstructor: Function
+  public unit: A
+  public data: number
+  constructor(unit: A, data: number) {
+    this.unit = unit
+    this.data = data
+    this.valueConstructor = unit === 'milliseconds' ? Duration.ms : Duration.s
   }
-  toNum: (x: Duration) => number
-  eq: (x: Duration, y: Duration) => boolean
+  static ms(x: number): Duration<'milliseconds'> {
+    return new Duration('milliseconds', x)
+  }
+  static s(x: number): Duration<'seconds'> {
+    return new Duration('seconds', x)
+  }
+  serialize = serialize
+  eq = eq
+  mult = mult
+  add = add
+  sub = sub
 }
-
-const toNum = (x: Duration): number => x[NAMESPACE].data
-const eq = (x: Duration, y: Duration): boolean => {
-  return getData(toMilliseconds(x)) === getData(toMilliseconds(y))
-}
-
-export const serializeDuration = (x: Duration<any>): string => {
-  const unit = getValConstructor(x) === s ? 's' : 'ms'
-  return `${getData(x)}${unit}`
-}
-
-/**
- * Constructs a value of type **`Duration`** where the unit is **`seconds`**.
- * @category Value constructor
- * @added 0.2.1
- */
-export const s = (x: number): Duration<'seconds'> => ({
-  [NAMESPACE]: {
-    unit: 'seconds',
-    type: 'Duration',
-    data: x,
-    valueConstructor: s,
-    serializer: serializeDuration,
-  },
-  toNum,
-  eq
-})
 
 /**
  * Constructs a value of type **`Duration`** where the unit is **`milliseconds`**.
  * @category Value constructor
  * @added 0.2.1
  */
-export const ms = (x: number): Duration<'milliseconds'> => ({
-  [NAMESPACE]: {
-    type: 'Duration',
-    unit: 'milliseconds',
-    data: x,
-    valueConstructor: ms,
-    serializer: serializeDuration,
-  },
-  toNum,
-  eq
-})
 
-export const toSeconds = (x: Duration): Duration<'seconds'> => {
-  const value = x[NAMESPACE].unit === 'seconds' ? toNum(x) : toNum(x) / 1000
-  return s(value)
+export const ms = Duration.ms
+
+/**
+ * Constructs a value of type **`Duration`** where the unit is **`seconds`**.
+ * @category Value constructor
+ * @added 0.2.1
+ */
+
+export const s = Duration.s
+
+export const isDuration = (x: any): x is Duration => x instanceof Duration
+
+function mult(x: any, y: any): Duration {
+  const val = isDuration(x) ? x.data * y : (y as Duration).data * x
+  const valueConstructor = x?.valueConstructor ?? y?.valueConstructor
+  return valueConstructor(val)
 }
-
-export const toMilliseconds = (x: Duration): Duration<'milliseconds'> => {
-  const value = x[NAMESPACE].unit === 'milliseconds' ? toNum(x) : toNum(x) * 1000
-  return ms(value)
-}
-
-export const isDuration = (x: any): x is Duration =>
-  getTypeName(x) === 'Duration'

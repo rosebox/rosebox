@@ -7,5 +7,5 @@ export const isObject = (value: any) =>
   export function toNum(x: Duration): number
   export function toNum(x: Length): number
   export function toNum(x: any): number {
-    return x.toNum(x)
+    return x.data
   }

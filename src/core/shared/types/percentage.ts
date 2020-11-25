@@ -1,4 +1,4 @@
-import { getData, getTypeName, NAMESPACE, RBType } from './shared'
+import { getData, getTypeName, RBType } from './shared'
 
 /**
  * A type that maps to CSS's **`<percentage>`** type.
@@ -12,12 +12,10 @@ export interface Percentage extends RBType<'Percentage', number> {}
  * @added 0.1.0
  */
 export const per = (x: number): Percentage => ({
-  [NAMESPACE]: {
     type: 'Percentage',
     data: x,
     valueConstructor: per,
-    serializer: serializePercentage,
-  },
+    serialize: serializePercentage,
 })
 
 export const isPercentageType = (x: any): x is Percentage =>

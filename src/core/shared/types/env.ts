@@ -1,6 +1,6 @@
-import { getData, NAMESPACE, RBType, serializeAtomicValue } from './shared'
+import { getData, RBType, serializeAtomicValue } from './shared'
 
-const serializer = (x: Env) => {
+const serialize = (x: Env) => {
   const [x1, x2] = getData(x)
   return `env(${x1}${x2 ? serializeAtomicValue(x2) : ''})`
 }
@@ -22,11 +22,9 @@ export function env(
   x?: any
 ): Env {
   return {
-    [NAMESPACE]: {
       type: 'Env',
       data: [safeAreaInsetVariable, x],
       valueConstructor: env,
-      serializer,
-    },
+      serialize,
   }
 }

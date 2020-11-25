@@ -4,7 +4,6 @@ import { isPercentageType, Percentage, serializePercentage } from './percentage'
 import {
   getData,
   LengthPercentage,
-  NAMESPACE,
   RBType,
   serializeLengthPercentage,
 } from './shared'
@@ -30,7 +29,7 @@ export const serializeLinearGradient = (val: LinearGradient): string => {
   const x = Array.isArray(value) ? value[0] : null
   const y = (Array.isArray(value) ? value[1] : value) as ColorStopList
   const angleStr = x ? `${serializeAngle(x as Angle)}, ` : ''
-  const colorstopStr = (y as ColorStopList) .reduce(
+  const colorstopStr = (y as ColorStopList).reduce(
     (acc, item, idx) =>
       acc +
       serializeColorStopListItem(item) +
@@ -41,17 +40,13 @@ export const serializeLinearGradient = (val: LinearGradient): string => {
 }
 
 export function linGrad(x: ColorStopList): LinearGradient
-
 export function linGrad(x: Angle, y: ColorStopList): LinearGradient
-
 export function linGrad(y: any, x?: any): LinearGradient {
   return {
-    [NAMESPACE]: {
-      type: 'LinearGradient',
-      valueConstructor: linGrad,
-      data: y ? [x, y] : x,
-      serializer: serializeLinearGradient,
-    },
+    type: 'LinearGradient',
+    valueConstructor: linGrad,
+    data: y ? [x, y] : x,
+    serialize: serializeLinearGradient,
   }
 }
 

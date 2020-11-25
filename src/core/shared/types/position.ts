@@ -2,7 +2,6 @@ import { WidthCalculation } from './calc'
 import {
   getData,
   LengthPercentage,
-  NAMESPACE,
   RBType,
   serializeAtomicValue,
 } from './shared'
@@ -23,12 +22,10 @@ export interface Position
  */
 export function pos(x: LengthPercentage, y: LengthPercentage): Position {
   return {
-    [NAMESPACE]: {
-      type: 'Position',
-      data: [x, y],
-      valueConstructor: pos,
-      serializer: serializePosition,
-    },
+    type: 'Position',
+    data: [x, y],
+    valueConstructor: pos,
+    serialize: serializePosition,
   }
 }
 

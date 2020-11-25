@@ -1,5 +1,5 @@
 import { GlobalCssKeyword, isGlobalCssKeyword } from '.'
-import { getData, getValConstructor, NAMESPACE, RBType } from './shared'
+import { getData, getValConstructor, RBType } from './shared'
 
 /**
  *
@@ -41,12 +41,10 @@ export const bezier = (
   x3: number,
   x4: number
 ): CubicBezierFunction => ({
-  [NAMESPACE]: {
-    type: 'CubicBezierFunction',
-    data: [x1, x2, x3, x4],
-    valueConstructor: bezier,
-    serializer: serializeBezier,
-  },
+  type: 'CubicBezierFunction',
+  data: [x1, x2, x3, x4],
+  valueConstructor: bezier,
+  serialize: serializeBezier,
 })
 
 export const serializeSteps = (x: StepsFunction): string => {
@@ -63,12 +61,10 @@ export const steps = (
   num: number,
   stepPosition?: StepPosition
 ): StepsFunction => ({
-  [NAMESPACE]: {
-    type: 'StepsFunction',
-    data: stepPosition ? [num, stepPosition] : [num],
-    valueConstructor: steps,
-    serializer: serializeSteps,
-  },
+  type: 'StepsFunction',
+  data: stepPosition ? [num, stepPosition] : [num],
+  valueConstructor: steps,
+  serialize: serializeSteps,
 })
 
 type CubicBezierTimingFunction =

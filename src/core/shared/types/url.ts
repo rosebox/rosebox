@@ -1,4 +1,4 @@
-import { getData, getTypeName, NAMESPACE, RBType } from './shared'
+import { getData, getTypeName, RBType } from './shared'
 
 /**
  * A type that maps to CSS's **`<url>`** type.
@@ -21,12 +21,10 @@ export const serializeURI = (x: URI) => `uri(${getData(x)})`
  * @added 0.1.96
  */
 export const url = (x: string): URL => ({
-  [NAMESPACE]: {
-    type: 'URL',
-    data: x,
-    valueConstructor: url,
-    serializer: serializeURL,
-  },
+  type: 'URL',
+  data: x,
+  valueConstructor: url,
+  serialize: serializeURL,
 })
 
 /**
@@ -35,12 +33,10 @@ export const url = (x: string): URL => ({
  * @added 0.2.7
  */
 export const uri = (x: string): URI => ({
-  [NAMESPACE]: {
-    type: 'URI',
-    data: x,
-    valueConstructor: uri,
-    serializer: serializeURI,
-  },
+  type: 'URI',
+  data: x,
+  valueConstructor: uri,
+  serialize: serializeURI,
 })
 
 export const isURL = (x: any): x is URL => getTypeName(x) === 'URL'

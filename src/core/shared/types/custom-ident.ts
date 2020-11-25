@@ -1,4 +1,4 @@
-import { NAMESPACE, RBType, getData } from './shared'
+import { RBType, getData } from './shared'
 
 /**
  *
@@ -13,12 +13,10 @@ export interface CustomIdent extends RBType<'CustomIdent', string> {}
  * @added 0.2.1
  */
 export const ident = (x: string): CustomIdent => ({
-  [NAMESPACE]: {
     type: 'CustomIdent',
     data: x,
     valueConstructor: ident,
-    serializer: serializeCustomIdent,
-  },
+    serialize: serializeCustomIdent,
 })
 
 export const serializeCustomIdent = getData
