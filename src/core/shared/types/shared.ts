@@ -1,6 +1,12 @@
 import { isLengthType, Length, serializeLength } from './length'
 import { Percentage, serializePercentage } from './percentage'
 
+export interface RBType<B = any> {
+  data: B
+  valueConstructor: Function
+  serialize: () => string
+}
+
 /**
  * @global
  */
@@ -34,13 +40,6 @@ export const serializeLengthPercentage = (value: LengthPercentage) =>
 
 export const NAMESPACE = 'npmjs.com/package/rosebox'
 
-export interface RBType<A = string, B = any> {
-  type: A
-  data: B
-  valueConstructor: Function
-  serialize: Function
-}
-
 export const serializeAtomicValue = (x: string | number | RBType): string => {
   if (typeof x === 'number') return `${x}`
   if (typeof x === 'string') return x
@@ -49,7 +48,7 @@ export const serializeAtomicValue = (x: string | number | RBType): string => {
 
 
 export const getData = (x: any) => x.data
-export const getValConstructor = <A, B>(x: RBType<A, B>) =>
+export const getValConstructor = <B>(x: RBType<B>) =>
   x.valueConstructor
 export const getTypeName = (x: any): string => x?.type ?? ''
 export const getSerializer = (x: RBType): Function => x.serialize
