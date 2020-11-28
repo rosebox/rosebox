@@ -1,5 +1,4 @@
-import { LengthPercentage } from '../../shared'
-import { serializeLengthPercentage } from '../../shared'
+import { LengthPercentage, serializeAtomicValue } from '../../shared'
 import { TransformFunction } from '../shared'
 
 /**
@@ -72,31 +71,31 @@ export const translate3d = (
 
 export const serializeTranslateX = (
   value: TransformFunction<'translateX'>
-): string => `translateX(${serializeLengthPercentage(value.value[0])})`
+): string => `translateX(${serializeAtomicValue(value.value[0])})`
 
 export const serializeTranslateY = (
   value: TransformFunction<'translateY'>
-): string => `translateY(${serializeLengthPercentage(value.value[0])})`
+): string => `translateY(${serializeAtomicValue(value.value[0])})`
 
 export const serializeTranslateZ = (
   value: TransformFunction<'translateZ'>
-): string => `translateZ(${serializeLengthPercentage(value.value[0])})`
+): string => `translateZ(${serializeAtomicValue(value.value[0])})`
 
 export const serializeTranslate = (
   value: TransformFunction<'translate'>
 ): string =>
-  `translate(${serializeLengthPercentage(value.value[0])}${
-    value.value[1] ? `, ${serializeLengthPercentage(value.value[1])}` : ''
+  `translate(${serializeAtomicValue(value.value[0])}${
+    value.value[1] ? `, ${serializeAtomicValue(value.value[1])}` : ''
   })`
 
 export const serializeTranslate3d = (
   value: TransformFunction<'translate3d'>
 ): string =>
-  `translate3d(${serializeLengthPercentage(
+  `translate3d(${serializeAtomicValue(
     value.value[0]
-  )}, ${serializeLengthPercentage(
+  )}, ${serializeAtomicValue(
     value.value[1] as LengthPercentage
-  )}, ${serializeLengthPercentage(value.value[2] as LengthPercentage)})`
+  )}, ${serializeAtomicValue(value.value[2] as LengthPercentage)})`
 
 export const isTranslateX = (x: TransformFunction): boolean =>
   x.valueConstructor === translateX

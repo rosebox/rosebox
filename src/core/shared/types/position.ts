@@ -1,6 +1,5 @@
-import { WidthCalculation } from './calc'
+import { Calculation } from './calc'
 import {
-  getData,
   LengthPercentage,
   RBType,
   serializeAtomicValue,
@@ -10,27 +9,28 @@ import {
  * A value of this type defines an (x, y) coordinate.
  * @added 0.2.7
  */
-export interface Position
-  extends RBType<
-    'Position',
-    [LengthPercentage | WidthCalculation, LengthPercentage | WidthCalculation]
-  > {}
+export class Position
+  implements RBType<
+    [LengthPercentage | Calculation, LengthPercentage | Calculation]
+  > {
+    data: [LengthPercentage | Calculation, LengthPercentage | Calculation]
+    valueConstructor: Function
 
-/**
- * @category Value constructor
- * @added 0.2.7
- */
-export function pos(x: LengthPercentage, y: LengthPercentage): Position {
-  return {
-    type: 'Position',
-    data: [x, y],
-    valueConstructor: pos,
-    serialize: serializePosition,
+  private constructor(x: [LengthPercentage | Calculation, LengthPercentage | Calculation]) {
+    this.data = x
+    this.valueConstructor = Position.pos
   }
-}
+
+  static pos(x: LengthPercentage, y: LengthPercentage): Position {
+    return new Position([x, y])
+  }
+  serialize = () => serializePosition(this)
+  }
+
+export const pos = Position.pos
 
 export const serializePosition = (x: Position): string =>
-  getData(x).reduce((acc, val, idx) => {
+  (x.data as (LengthPercentage | Calculation)[]).reduce((acc, val, idx) => {
     const serializedVal = serializeAtomicValue(val)
-    return acc + serializedVal + (idx === pos.length - 1 ? '' : ' ')
+    return acc + serializedVal + (idx === x.data.length - 1 ? '' : ' ')
   }, '')

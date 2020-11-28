@@ -1,4 +1,4 @@
-import { CustomIdent, GlobalCssKeyword, serializeCustomIdent } from '../shared'
+import { CustomIdent, GlobalCssKeyword, serializeAtomicValue } from '../shared'
 
 type AnimateableFeature = 'scroll-position' | 'contents' | CustomIdent
 
@@ -11,8 +11,6 @@ const serializeMultiComma = <A>(fn: Function, arr: A[]): string =>
     )
     .trim()
 
-const serializeAtomicValue = (x: 'auto' | AnimateableFeature): string =>
-  typeof x === 'string' ? x : serializeCustomIdent(x)
 
 const serializeArrayValue = (x: ('auto' | AnimateableFeature)[]) =>
   serializeMultiComma(serializeAtomicValue, x)

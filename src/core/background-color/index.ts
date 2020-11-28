@@ -1,10 +1,10 @@
-import { Color, getSerializer } from '../shared'
+import { Color, serializeAtomicValue } from '../shared'
 import { GlobalCssKeyword } from '../shared'
 
 export const serializeBackgroundColor = (
   x: Color | GlobalCssKeyword
 ): { backgroundColor: string } => ({
-  backgroundColor: typeof x === 'string' ? x : getSerializer(x)(x),
+  backgroundColor: serializeAtomicValue(x),
 })
 
 /**

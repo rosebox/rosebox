@@ -1,8 +1,5 @@
 import { GlobalCssKeyword, serializeDoubleBar } from '../shared'
-import { LengthPercentage, serializeLengthPercentage } from '../shared/types'
-
-const serializeAtomicValue = (x: string | LengthPercentage): string =>
-  typeof x === 'string' ? x : serializeLengthPercentage(x)
+import { LengthPercentage, serializeAtomicValue } from '../shared/types'
 
 export const serializeTexIndent = (x: TextIndentValue) => ({
   textIndent:

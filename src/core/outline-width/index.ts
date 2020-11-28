@@ -1,4 +1,4 @@
-import { Length, serializeLength } from '../shared'
+import { Length, serializeAtomicValue } from '../shared'
 import { GlobalCssKeyword } from '../shared'
 
 
@@ -12,7 +12,7 @@ export const serializeOutlineWidth = (
 ): {
   outlineWidth: string
 } => ({
-  outlineWidth: typeof x === 'string' ? x : serializeLength(x) 
+  outlineWidth: serializeAtomicValue(x)
 })
 
 /**

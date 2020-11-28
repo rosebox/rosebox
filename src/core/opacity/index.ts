@@ -1,12 +1,11 @@
-import { Percentage, isPercentageType, GlobalCssKeyword } from '../shared'
-import { serializePercentage } from '../shared'
+import { Percentage, GlobalCssKeyword, serializeAtomicValue } from '../shared'
 
 export type OpacityCSSProp = 'opacity'
 
 export const serializeOpacity = (
-  value: number | Percentage | GlobalCssKeyword
+  x: number | Percentage | GlobalCssKeyword
 ): { opacity: string | number } => ({
-  opacity: isPercentageType(value) ? serializePercentage(value) : value,
+  opacity: serializeAtomicValue(x)
 })
 
 /**

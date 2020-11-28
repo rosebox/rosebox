@@ -11,20 +11,24 @@ type SafeAreaInsetVariable =
   | 'safe-area-inset-bottom'
   | 'safe-area-inset-left'
 
-export interface Env extends RBType<'Env', any> {}
+export class Env implements RBType<any> {
+  data: any
+  valueConstructor: Function
+
+  constructor(x: SafeAreaInsetVariable, y: any) {
+    this.data = [x, y]
+    this.valueConstructor = Env.env
+  }
+
+  static env = env
+  serialize = () => serialize(this)
+}
 
 export function env(safeAreaInsetVariable: SafeAreaInsetVariable): Env
-
 export function env(safeAreaInsetVariable: SafeAreaInsetVariable, x: any): Env
-
 export function env(
   safeAreaInsetVariable: SafeAreaInsetVariable,
   x?: any
 ): Env {
-  return {
-      type: 'Env',
-      data: [safeAreaInsetVariable, x],
-      valueConstructor: env,
-      serialize,
-  }
+  return new Env(safeAreaInsetVariable, x)
 }

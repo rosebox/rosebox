@@ -4,8 +4,7 @@ import {
   GlobalCssKeyword,
   isGlobalCssKeyword,
 } from '../shared'
-import { Color, isColor, serializeColorValue } from '../shared'
-import { serializeLength } from '../shared'
+import { Color, isColor, serializeAtomicValue } from '../shared'
 
 type LengthTuple =
   | [Length, Length]
@@ -30,7 +29,7 @@ const isLengthTuple = (value: any): value is LengthTuple =>
 
 const serializeLengthTuple = (value: LengthTuple): string =>
   (value as Length[])
-    .reduce((acc, item) => acc + serializeLength(item) + ' ', '')
+    .reduce((acc, item) => acc + serializeAtomicValue(item) + ' ', '')
     .trim()
 
 export const serializeShadow = (value: Shadow): string => {
@@ -40,9 +39,9 @@ export const serializeShadow = (value: Shadow): string => {
         acc +
         ' ' +
         (isColor(item)
-          ? serializeColorValue(item)
+          ? serializeAtomicValue(item)
           : isLengthType(item)
-          ? serializeLength(item)
+          ? serializeAtomicValue(item)
           : isLengthTuple(item)
           ? serializeLengthTuple(item)
           : item === 'inset'

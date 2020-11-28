@@ -31,12 +31,14 @@ const sub = (x1: Duration, x2: Duration): Duration<'milliseconds'> => {
   return ms(x1ms - x2m2)
 }
 
+export type DurationUnit = 'milliseconds' | 'seconds'
+
 export class Duration<A extends 'milliseconds' | 'seconds' | 'any' = any>
   implements Setoid<Duration<A>> {
   valueConstructor: Function
   public unit: A
   public data: number
-  constructor(unit: A, data: number) {
+  private constructor(unit: A, data: number) {
     this.unit = unit
     this.data = data
     this.valueConstructor = unit === 'milliseconds' ? Duration.ms : Duration.s
@@ -47,7 +49,9 @@ export class Duration<A extends 'milliseconds' | 'seconds' | 'any' = any>
   static s(x: number): Duration<'seconds'> {
     return new Duration('seconds', x)
   }
-  serialize = serialize
+  serialize() {
+    return serialize(this)
+  }
   eq = eq
   mult = mult
   add = add

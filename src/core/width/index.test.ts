@@ -1,5 +1,5 @@
 import { style } from '../..'
-import { cdiv, cmulti, per } from '../shared'
+import { cdiv, cmult, per } from '../shared'
 
 test('width', () => {
   const received = style({
@@ -13,7 +13,7 @@ test('width', () => {
 
 test('width: WidthCalculation', () => {
   const received = style({
-    width: cmulti(cdiv(per(100), 7), 3),
+    width: cmult(cdiv(per(100), 7), 3),
   })
   const expected = {
     width: 'calc(calc(100% / 7) * 3)',

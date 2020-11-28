@@ -1,4 +1,4 @@
-import { CustomIdent, GlobalCssKeyword, serializeCustomIdent } from '../shared'
+import { CustomIdent, GlobalCssKeyword, serializeAtomicValue } from '../shared'
 
 const toHyphenCase = (x: string) =>
   x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
@@ -14,9 +14,7 @@ export type AnimationName =
   | (string | CustomIdent)[]
 
 const cb = (x: string | CustomIdent): string =>
-  typeof x === 'string'
-    ? toHyphenCase(x)
-    : toHyphenCase(serializeCustomIdent(x))
+    toHyphenCase(serializeAtomicValue(x))
 
 const serializeValue = (value: AnimationName) => {
   const valArray = Array.isArray(value) ? value : [value]

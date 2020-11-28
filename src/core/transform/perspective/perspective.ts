@@ -1,6 +1,5 @@
-import { Length } from '../../shared'
+import { Length, serializeAtomicValue } from '../../shared'
 import { TransformFunction } from '../shared'
-import { serializeLength } from '../../shared'
 
 /**
  * Translates to CSS's **`perspective(x)`**
@@ -18,4 +17,4 @@ export const isPerspective = (x: TransformFunction): boolean =>
 
 export const serializePerspective = (
   x: TransformFunction<'perspective'>
-): string => `perspective(${serializeLength(x.value)})`
+): string => `perspective(${serializeAtomicValue(x.value)})`

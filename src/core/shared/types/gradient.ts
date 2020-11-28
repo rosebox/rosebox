@@ -1,34 +1,19 @@
-import { Angle, serializeAngle } from './angle'
-import { Color, serializeColorValue } from './color'
-import { isPercentageType, Percentage, serializePercentage } from './percentage'
+import { Angle } from './angle'
+import { Color } from './color'
+import { Percentage } from './percentage'
 import {
-  getData,
   LengthPercentage,
   RBType,
-  serializeLengthPercentage,
+  serializeAtomicValue
 } from './shared'
 
 type LinearColorStop = Color | [Color, LengthPercentage]
 type ColorStopList = (LinearColorStop | Percentage)[]
 
-export interface LinearGradient
-  extends RBType<'LinearGradient', ColorStopList | [Angle, ColorStopList]> {}
-
-const serializeColorStopListItem = (
-  x: LinearColorStop | Percentage
-): string => {
-  return isPercentageType(x)
-    ? serializePercentage(x)
-    : !Array.isArray(x)
-    ? serializeColorValue(x)
-    : `${serializeColorValue(x[0])} ${serializeLengthPercentage(x[1])}`
-}
-
 export const serializeLinearGradient = (val: LinearGradient): string => {
-  const value = getData(val)
-  const x = Array.isArray(value) ? value[0] : null
-  const y = (Array.isArray(value) ? value[1] : value) as ColorStopList
-  const angleStr = x ? `${serializeAngle(x as Angle)}, ` : ''
+  const {withAngle, data} = val
+  const y = (withAngle ? data[1] : data) as ColorStopList
+  const angleStr = withAngle ? `${serializeAtomicValue(data[0] as Angle)}, ` : ''
   const colorstopStr = (y as ColorStopList).reduce(
     (acc, item, idx) =>
       acc +
@@ -39,15 +24,38 @@ export const serializeLinearGradient = (val: LinearGradient): string => {
   return `linear-gradient(${angleStr}${colorstopStr})`
 }
 
-export function linGrad(x: ColorStopList): LinearGradient
-export function linGrad(x: Angle, y: ColorStopList): LinearGradient
-export function linGrad(y: any, x?: any): LinearGradient {
-  return {
-    type: 'LinearGradient',
-    valueConstructor: linGrad,
-    data: y ? [x, y] : x,
-    serialize: serializeLinearGradient,
+export class LinearGradient
+  implements RBType<ColorStopList | [Angle, ColorStopList]> {
+    data: ColorStopList | [Angle, ColorStopList]
+    valueConstructor: Function
+    withAngle: boolean
+
+    private constructor(x: any, y?: any) {
+      this.valueConstructor = LinearGradient.linGrad
+      this.data = y ? [x, y] : x
+      this.withAngle = y ? true : false
+      console.log(y ? [x, y] : x)
+    }
+
+  static linGrad(x: ColorStopList): LinearGradient
+  static linGrad(x: Angle, y: ColorStopList): LinearGradient
+  static linGrad(x: any, y?: any): LinearGradient {
+    return new LinearGradient(x, y)
   }
+    
+    serialize = () => serializeLinearGradient(this)
+  }
+
+/** @valueConstructor */
+export const linGrad = LinearGradient.linGrad
+
+const serializeColorStopListItem = (
+  x: LinearColorStop | Percentage
+): string => {
+  return !Array.isArray(x)
+    ? serializeAtomicValue(x)
+    : `${serializeAtomicValue(x[0])} ${(serializeAtomicValue(x[1]))}`
 }
+
 
 export type Gradient = LinearGradient

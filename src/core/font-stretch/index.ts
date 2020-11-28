@@ -1,10 +1,9 @@
-import { GlobalCssKeyword, Percentage } from '../shared'
-import { serializePercentage } from '../shared'
+import { GlobalCssKeyword, Percentage, serializeAtomicValue } from '../shared'
 
 export const serializeFontStretch = (
   x: Percentage | string
 ): { fontStretch: string } => ({
-  fontStretch: typeof x === 'string' ? x : serializePercentage(x),
+  fontStretch: serializeAtomicValue(x),
 })
 
 /**

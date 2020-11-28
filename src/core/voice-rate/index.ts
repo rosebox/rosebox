@@ -2,8 +2,7 @@ import { DoubleBar2 } from '../shared'
 import {
   GlobalCssKeyword,
   Percentage,
-  isPercentageType,
-  serializePercentage,
+  serializeAtomicValue,
 } from '../shared/types'
 
 type VoiceRate = DoubleBar2<
@@ -13,16 +12,14 @@ type VoiceRate = DoubleBar2<
 
 export const serializeVoiceRate = (x: VoiceRate | GlobalCssKeyword) => ({
   voiceRate:
-    typeof x === 'string'
-      ? x
-      : isPercentageType(x)
-      ? serializePercentage(x)
+    !Array.isArray(x)
+    ? serializeAtomicValue(x)
       : x
           .reduce(
             (acc: any, item) =>
               acc +
               ' ' +
-              (typeof item === 'string' ? item : serializePercentage(item)),
+              (serializeAtomicValue(item)),
             ''
           )
           .trim(),

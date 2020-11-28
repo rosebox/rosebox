@@ -1,7 +1,7 @@
 import {
   GlobalCssKeyword,
   LengthPercentage,
-  serializeLengthPercentage,
+  serializeAtomicValue,
 } from '../shared'
 
 type BaselineSource = 'auto' | 'first' | 'last'
@@ -29,7 +29,7 @@ type BaselineShift =
 export const serializeVerticalAlign = (
   x: BaselineSource | AlignmentBaseline | BaselineShift | GlobalCssKeyword
 ) => ({
-  verticalAlign: typeof x === 'string' ? x : serializeLengthPercentage(x),
+  verticalAlign: serializeAtomicValue(x),
 })
 
 /**

@@ -1,4 +1,4 @@
-import { Angle, serializeAngle } from '../../shared/'
+import { Angle, serializeAtomicValue } from '../../shared/'
 import { TransformFunction } from '../shared'
 
 /**
@@ -77,19 +77,19 @@ export const isRotate3d = (x: TransformFunction): boolean =>
   x.valueConstructor === rotate3d
 
 export const serializeRotateX = (x: TransformFunction<'rotateX'>): string =>
-  `rotateX(${serializeAngle(x.value)})`
+  `rotateX(${serializeAtomicValue(x.value)})`
 
 export const serializeRotateY = (x: TransformFunction<'rotateY'>): string =>
-  `rotateY(${serializeAngle(x.value)})`
+  `rotateY(${serializeAtomicValue(x.value)})`
 
 export const serializeRotateZ = (x: TransformFunction<'rotateZ'>): string =>
-  `rotateZ(${serializeAngle(x.value)})`
+  `rotateZ(${serializeAtomicValue(x.value)})`
 
 export const serializeRotate = (x: TransformFunction<'rotate'>): string =>
-  `rotate(${serializeAngle(x.value)})`
+  `rotate(${serializeAtomicValue(x.value)})`
 
 export const serializeRotate3d = (x: TransformFunction<'rotate3d'>): string => {
   return `rotate3d(${x.value[0]}, ${x.value[1]}, ${
     x.value[2]
-  }, ${serializeAngle(x.value[3])})`
+  }, ${serializeAtomicValue(x.value[3])})`
 }

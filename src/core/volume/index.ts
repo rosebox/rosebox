@@ -1,8 +1,7 @@
 import {
   GlobalCssKeyword,
-  isPercentageType,
   Percentage,
-  serializePercentage,
+  serializeAtomicValue,
 } from '../shared'
 
 type Volume =
@@ -16,7 +15,7 @@ type Volume =
   | 'x-loud'
 
 export const serializeVolume = (x: Volume | GlobalCssKeyword) => ({
-  volume: isPercentageType(x) ? serializePercentage(x) : x,
+  volume: serializeAtomicValue(x),
 })
 
 /**

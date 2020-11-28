@@ -1,4 +1,4 @@
-import { Duration, DurationUnit, isDuration } from './duration'
+import { Duration, DurationUnit } from './duration'
 import { Length, LengthUnit } from './length'
 
 export interface Setoid<A> {

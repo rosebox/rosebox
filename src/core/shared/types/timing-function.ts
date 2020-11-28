@@ -1,13 +1,35 @@
 import { GlobalCssKeyword, isGlobalCssKeyword } from '.'
-import { getData, getValConstructor, RBType } from './shared'
+import { getData, RBType, serializeAtomicValue } from './shared'
+
+const serializeBezier = (x: CubicBezierFunction): string => {
+  const [x1, x2, x3, x4] = getData(x)
+  return `cubic-bezier(${x1}, ${x2}, ${x3}, ${x4})`
+}
 
 /**
  *
  * A type that maps to the **`cubic-bezier()`** subset of CSS's **`<easing-function>`** .
  * @added 0.2.1
  */
-export interface CubicBezierFunction
-  extends RBType<'CubicBezierFunction', [number, number, number, number]> {}
+export class CubicBezierFunction
+  implements RBType<[number, number, number, number]> {
+  data: [number, number, number, number]
+  valueConstructor: Function
+
+  private constructor(x: [number, number, number, number]) {
+    this.data = x
+    this.valueConstructor = CubicBezierFunction.bezier
+  }
+
+  static bezier(x1: number, x2: number, x3: number, x4: number) {
+    return new CubicBezierFunction([x1, x2, x3, x4])
+  }
+  serialize() {
+    return serializeBezier(this)
+  }
+}
+
+export const bezier = CubicBezierFunction.bezier
 
 type StepPosition =
   | 'jump-start'
@@ -22,50 +44,30 @@ type StepPosition =
  * A type that maps to the **`steps()`** subset of CSS's **`<easing-function>`** .
  * @added 0.2.1
  */
-export interface StepsFunction
-  extends RBType<'StepsFunction', [number] | [number, StepPosition]> {}
+export class StepsFunction
+  implements RBType<[number] | [number, StepPosition]> {
+    data: [number] | [number, StepPosition]
+  valueConstructor: Function
 
-export const serializeBezier = (x: CubicBezierFunction): string => {
-  const [x1, x2, x3, x4] = getData(x)
-  return `cubic-bezier(${x1}, ${x2}, ${x3}, ${x4})`
-}
+  private constructor(x: number, y?: StepPosition) {
+    this.data = y ? [x, y] : [x]
+    this.valueConstructor = StepsFunction.steps
+  }
 
-/**
- * Constructs a value of type **`CubicBezierFunction`**..
- * @category Value constructor
- * @added 0.2.1
- */
-export const bezier = (
-  x1: number,
-  x2: number,
-  x3: number,
-  x4: number
-): CubicBezierFunction => ({
-  type: 'CubicBezierFunction',
-  data: [x1, x2, x3, x4],
-  valueConstructor: bezier,
-  serialize: serializeBezier,
-})
+  static steps(num: number, stepPosition?: StepPosition) {
+    return new StepsFunction(num ,stepPosition)
+  }
+  serialize() {
+    return serializeStepsFunction(this)
+  }
+  }
 
-export const serializeSteps = (x: StepsFunction): string => {
+export const steps = StepsFunction.steps
+
+export const serializeStepsFunction = (x: StepsFunction): string => {
   const [x0, x1] = getData(x)
   return `steps(${x0}${x1 ? ', ' + x1 : ''})`
 }
-
-/**
- * Constructs a value of type **`StepsFunction`**.
- * @category Value constructor
- * @added 0.2.1
- */
-export const steps = (
-  num: number,
-  stepPosition?: StepPosition
-): StepsFunction => ({
-  type: 'StepsFunction',
-  data: stepPosition ? [num, stepPosition] : [num],
-  valueConstructor: steps,
-  serialize: serializeSteps,
-})
 
 type CubicBezierTimingFunction =
   | 'ease'
@@ -91,14 +93,6 @@ export type TimingFunctionValue =
   | TimingFunction
   | TimingFunction[]
 
-const isSteps = (x: any): x is StepsFunction => getValConstructor(x) === steps
-
-export const serializeSingleValue = (x: TimingFunction): string =>
-  typeof x === 'string'
-    ? x
-    : isSteps(x)
-    ? serializeSteps(x)
-    : serializeBezier(x)
 
 export const serializeTimingFunctionValue = (
   value: TimingFunctionValue
@@ -106,11 +100,11 @@ export const serializeTimingFunctionValue = (
   isGlobalCssKeyword(value)
     ? value
     : !Array.isArray(value)
-    ? serializeSingleValue(value)
+    ? serializeAtomicValue(value)
     : value.reduce(
         (acc, item, idx) =>
           acc +
-          serializeSingleValue(item) +
+          serializeAtomicValue(item) +
           (idx === value.length - 1 ? '' : ', '),
         ''
       )

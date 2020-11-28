@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { cdiv, cmulti, per, px, vw } from '../shared'
+import { cdiv, cmult, per, px, vw } from '../shared'
 
 test('paddingX: LengthPercentage', () => {
   const received = style({
@@ -49,7 +49,7 @@ test('padding: PaddingObject', () => {
 
 test('paddingX: WidthCalculation', () => {
   const received = style({
-    paddingX: cmulti(cdiv(per(100), 7), 3),
+    paddingX: cmult(cdiv(per(100), 7), 3),
   })
   const expected = {
     paddingLeft: 'calc(calc(100% / 7) * 3)',
@@ -60,7 +60,7 @@ test('paddingX: WidthCalculation', () => {
 
 test('padding: WidthCalculation', () => {
   const received = style({
-    padding: cmulti(cdiv(per(100), 7), 3),
+    padding: cmult(cdiv(per(100), 7), 3),
   })
   const expected = {
     padding: 'calc(calc(100% / 7) * 3)',
@@ -70,7 +70,7 @@ test('padding: WidthCalculation', () => {
 
 test('padding: WidthCalculation', () => {
   const received = style({
-    padding: [cmulti(per(100), 2), px(50), cdiv(vw(100), 7), px(100)],
+    padding: [cmult(per(100), 2), px(50), cdiv(vw(100), 7), px(100)],
   })
   const expected = {
     padding: 'calc(100% * 2) 50px calc(100vw / 7) 100px',
