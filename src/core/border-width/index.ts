@@ -1,14 +1,14 @@
 import {
   LineWidth,
   GlobalCssKeyword,
-  WidthCalculation,
+  Calculation,
   serializeAtomicValue,
 } from '../shared'
 
 export type BorderWidthCSSProp = 'border-width'
 
 const serializeBorderSideWidthValue = (property: string) => (
-  x: LineWidth | WidthCalculation | GlobalCssKeyword
+  x: LineWidth | Calculation | GlobalCssKeyword
 ) => ({
   [property]: serializeAtomicValue(x),
 })

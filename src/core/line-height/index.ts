@@ -2,13 +2,13 @@ import {
   GlobalCssKeyword,
   LengthPercentage,
   serializeAtomicValue,
-  WidthCalculation,
+  Calculation,
 } from '../shared'
 
 export type LineHeightCSSProp = 'line-height'
 
 export const serializeLineHeight = (
-  x: 'normal' | number | LengthPercentage | WidthCalculation | GlobalCssKeyword
+  x: 'normal' | number | LengthPercentage | Calculation | GlobalCssKeyword
 ): { lineHeight: string | number } => ({
   lineHeight: serializeAtomicValue(x),
 })
@@ -28,6 +28,6 @@ export type LineHeightDeclaration = {
     | 'normal'
     | number
     | LengthPercentage
-    | WidthCalculation
+    | Calculation
     | GlobalCssKeyword
 }

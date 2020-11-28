@@ -1,14 +1,14 @@
 import {
   GlobalCssKeyword,
   Length,
-  WidthCalculation,
+  Calculation,
   serializeAtomicValue,
 } from '../shared'
 
 export type LetterSpacingCSSProp = 'letter-spacing'
 
 export const serializeLetterSpacing = (
-  x: 'normal' | Length | WidthCalculation | GlobalCssKeyword
+  x: 'normal' | Length | Calculation | GlobalCssKeyword
 ): { letterSpacing: string } => ({
   letterSpacing: serializeAtomicValue(x),
 })

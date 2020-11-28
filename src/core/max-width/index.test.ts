@@ -11,7 +11,7 @@ test('maxWidth: Length', () => {
   expect(received).toEqual(expected)
 })
 
-test('maxWidth: WidthCalculation', () => {
+test('maxWidth: Calculation', () => {
   const received = style({
     maxWidth: cmult(cdiv(per(100), 7), 3),
   })

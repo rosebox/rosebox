@@ -67,7 +67,7 @@ export class Calculation<A extends CalcOperation = any> implements RBType<any> {
   }
 
   serialize(): string {
-    return serializeWidthCalculation(this)
+    return serializeCalculation(this)
   }
 }
 
@@ -91,11 +91,11 @@ const getOpSign = (x: Calculation<CalcOperation>) => {
   }
 }
 
-const serializeWidthCalculationOperand = (
+const serializeCalculationOperand = (
   x: Calculation<CalcOperation> | number | LengthPercentage | Env
 ): string => serializeAtomicValue(x)
 
-const serializeWidthCalculation = (x: Calculation<CalcOperation>): string =>
-  `calc(${serializeWidthCalculationOperand(x.data[0])} ${getOpSign(
+const serializeCalculation = (x: Calculation<CalcOperation>): string =>
+  `calc(${serializeCalculationOperand(x.data[0])} ${getOpSign(
     x
-  )} ${serializeWidthCalculationOperand(x.data[1])})`
+  )} ${serializeCalculationOperand(x.data[1])})`

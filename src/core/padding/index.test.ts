@@ -47,7 +47,7 @@ test('padding: PaddingObject', () => {
   expect(received).toEqual(expected)
 })
 
-test('paddingX: WidthCalculation', () => {
+test('paddingX: Calculation', () => {
   const received = style({
     paddingX: cmult(cdiv(per(100), 7), 3),
   })
@@ -58,7 +58,7 @@ test('paddingX: WidthCalculation', () => {
   expect(received).toEqual(expected)
 })
 
-test('padding: WidthCalculation', () => {
+test('padding: Calculation', () => {
   const received = style({
     padding: cmult(cdiv(per(100), 7), 3),
   })
@@ -68,7 +68,7 @@ test('padding: WidthCalculation', () => {
   expect(received).toEqual(expected)
 })
 
-test('padding: WidthCalculation', () => {
+test('padding: Calculation', () => {
   const received = style({
     padding: [cmult(per(100), 2), px(50), cdiv(vw(100), 7), px(100)],
   })

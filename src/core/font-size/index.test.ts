@@ -11,7 +11,7 @@ test('fontSize: Length<rem>', () => {
   expect(received).toEqual(expected)
 })
 
-test('fontSize: WidthCalculation', () => {
+test('fontSize: Calculation', () => {
   const received = style({
     fontSize: csub(vw(10), px(200)),
   })

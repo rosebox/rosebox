@@ -3,10 +3,10 @@ import {
   isGlobalCssKeyword,
   LengthPercentage,
   serializeAtomicValue,
-  WidthCalculation,
+  Calculation,
 } from '../shared'
 
-type PaddingValue = LengthPercentage | WidthCalculation
+type PaddingValue = LengthPercentage | Calculation
 
 const serializePaddingSide = (prop: string) => (
   value: LengthPercentage | GlobalCssKeyword

@@ -1,14 +1,14 @@
 import {
   GlobalCssKeyword,
   LengthPercentage,
-  WidthCalculation,
+  Calculation,
   serializeAtomicValue,
 } from '../shared'
 
 /**
  * @hide
  */
-type MinHeight = LengthPercentage | WidthCalculation | GlobalCssKeyword
+type MinHeight = LengthPercentage | Calculation | GlobalCssKeyword
 
 export const serializeMinHeightValue = (
   x: MinHeight

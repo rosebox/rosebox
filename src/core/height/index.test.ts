@@ -11,7 +11,7 @@ test('height: Length', () => {
   expect(received).toEqual(expected)
 })
 
-test('height: WidthCalculation', () => {
+test('height: Calculation', () => {
   const received = style({
     height: cmult(cdiv(per(100), 7), 3),
   })

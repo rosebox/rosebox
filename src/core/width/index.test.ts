@@ -11,7 +11,7 @@ test('width', () => {
   expect(received).toEqual(expected)
 })
 
-test('width: WidthCalculation', () => {
+test('width: Calculation', () => {
   const received = style({
     width: cmult(cdiv(per(100), 7), 3),
   })

@@ -15,7 +15,6 @@ export function add<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): Length<
 export function add(x1: Duration, x2: Duration): Duration
 export function add(x1: any, x2: any): any {
   return x1.add(x1, x2)
-  return null
 }
 
 export function mult<A extends DurationUnit>(x1: Duration<A>, x2: number): Duration<A>

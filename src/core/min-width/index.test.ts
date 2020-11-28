@@ -11,7 +11,7 @@ test('minWidth: Length', () => {
   expect(received).toEqual(expected)
 })
 
-test('minWidth: WidthCalculation', () => {
+test('minWidth: Calculation', () => {
   const received = style({
     minHeight: cmult(cdiv(per(100), 7), 3),
   })

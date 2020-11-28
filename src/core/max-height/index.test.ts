@@ -11,7 +11,7 @@ test('maxHeight: Length', () => {
   expect(received).toEqual(expected)
 })
 
-test('maxHeight: WidthCalculation', () => {
+test('maxHeight: Calculation', () => {
   const received = style({
     maxHeight: cmult(cdiv(per(100), 7), 3),
   })

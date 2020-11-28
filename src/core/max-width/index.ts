@@ -1,14 +1,14 @@
 import {
   GlobalCssKeyword,
   LengthPercentage,
-  WidthCalculation,
+  Calculation,
   serializeAtomicValue,
 } from '../shared'
 
 /**
  * @hide
  */
-type MaxWidth = LengthPercentage | WidthCalculation | GlobalCssKeyword | 'none'
+type MaxWidth = LengthPercentage | Calculation | GlobalCssKeyword | 'none'
 
 export const serializeMaxWidth = (
   x: MaxWidth | GlobalCssKeyword

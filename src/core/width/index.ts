@@ -1,8 +1,8 @@
 import { Width, GlobalCssKeyword, serializeAtomicValue } from '../shared'
-import { WidthCalculation } from '../shared'
+import { Calculation } from '../shared'
 
 export const serializeWidth = (
-  x: Width | WidthCalculation | GlobalCssKeyword
+  x: Width | Calculation | GlobalCssKeyword
 ) => ({
   width: serializeAtomicValue(x),
 })
@@ -18,5 +18,5 @@ export type WidthDeclaration = {
    * @added 0.2.0
    * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-width
    */
-  width: Width | WidthCalculation | GlobalCssKeyword
+  width: Width | Calculation | GlobalCssKeyword
 }
