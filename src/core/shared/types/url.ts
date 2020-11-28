@@ -1,43 +1,47 @@
-import { getData, getTypeName, RBType } from './shared'
-
-/**
- * A type that maps to CSS's **`<url>`** type.
- * @added 0.1.96
- */
-export interface URL extends RBType<'URL', string> {}
-
-/**
- * A type that maps to CSS's **`<uri>`** type.
- * @added 0.1.96
- */
-export interface URI extends RBType<'URI', string> {}
+import { getData, RBType } from './shared'
 
 export const serializeURL = (x: URL) => `url(${getData(x)})`
 export const serializeURI = (x: URI) => `uri(${getData(x)})`
 
 /**
- * Constructs a value of type `URL`.
- * @category Value constructor
+ * A type that maps to CSS's **`<url>`** type.
  * @added 0.1.96
  */
-export const url = (x: string): URL => ({
-  type: 'URL',
-  data: x,
-  valueConstructor: url,
-  serialize: serializeURL,
-})
+export class URL implements RBType<string> {
+  data: string
+  valueConstructor: Function
+
+  private constructor(x: string) {
+    this.data = x
+    this.valueConstructor = URL.url
+  }
+
+  static url(x: string) {
+    return new URL(x)
+  }
+  serialize = () => serializeURL(this)
+}
+
+export const url = URL.url
+export const isURL = (x: any): x is URL => x instanceof URL
 
 /**
- * Constructs a value of type `URL`.
- * @category Value constructor
- * @added 0.2.7
+ * A type that maps to CSS's **`<uri>`** type.
+ * @added 0.1.96
  */
-export const uri = (x: string): URI => ({
-  type: 'URI',
-  data: x,
-  valueConstructor: uri,
-  serialize: serializeURI,
-})
+export class URI implements RBType<string> {
+  data: string
+  valueConstructor: Function
 
-export const isURL = (x: any): x is URL => getTypeName(x) === 'URL'
-export const isURI = (x: any): x is URI => getTypeName(x) === 'URI'
+  private constructor(x: string) {
+    this.data = x
+    this.valueConstructor = URI.uri
+  }
+
+  static uri(x: string) {
+    return new URI(x)
+  }
+  serialize = () => serializeURI(this)
+}
+export const uri = URI.uri
+export const isURI = (x: any): x is URI => x instanceof URI
