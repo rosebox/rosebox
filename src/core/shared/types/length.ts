@@ -1,6 +1,6 @@
 import { getTypeName, RBType } from './shared'
 
-type Unit =
+export type LengthUnit =
   | 'px'
   | 'em'
   | 'rem'
@@ -22,12 +22,12 @@ type Unit =
  * A type that maps to CSS's **`<length>`** type.
  * @added 0.1.0
  */
-export class Length<A extends Unit = any> implements RBType<number>{
-  unit: A extends any ? Unit : A
+export class Length<A extends LengthUnit = any> implements RBType<number>{
+  unit: A extends any ? LengthUnit : A
   data: number
   valueConstructor: (x: number) => Length
 
-  private constructor(data: number, unit: Unit, valueConstructor: (x: number) => Length) {
+  private constructor(data: number, unit: LengthUnit, valueConstructor: (x: number) => Length) {
     this.data = data
     this.unit = unit as any
     this.valueConstructor = valueConstructor
@@ -81,6 +81,8 @@ export class Length<A extends Unit = any> implements RBType<number>{
   serialize(): string {
     return `${this.data}${this.unit}`
   }
+
+  mult = mult
 }
 
 export const px = Length.px
@@ -102,10 +104,10 @@ export const pt = Length.pt
 const toNum = (x: Length): number => x.data
 
 function mult(x: any, y: any): Length {
-  const val = isLengthType(x) ? toNum(x) * y : toNum(y as Length) * x
+  const val = isLengthType(x) ? x.data * y : toNum(y as Length) * x
   const valueConstructor = x?.valueConstructor ?? y?.valueConstructor
   return valueConstructor(val)
 }
 
-export const isLengthType = (x: any): x is Length => getTypeName(x) === 'Length'
+export const isLengthType = (x: any): x is Length => x instanceof Length
 

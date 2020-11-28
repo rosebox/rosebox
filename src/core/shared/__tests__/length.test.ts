@@ -1,3 +1,4 @@
+import { mult } from "../types"
 import { px, em, rem, ex, vw, vh, vmax, vmin, ch, q, cm, mm, In, pc, pt } from "../types/length"
 
 test('Serialize Length<"px">', () => {
@@ -81,5 +82,11 @@ test('Serialize Length<"pc">', () => {
 test('Serialize Length<"pt">', () => {
     const received = pt(300).serialize()
     const expected = '300pt'
+    expect(received).toEqual(expected)
+})
+
+test('Serialize Length<"pt">', () => {
+    const received = mult(px(300), 3).serialize()
+    const expected = '900px'
     expect(received).toEqual(expected)
 })
