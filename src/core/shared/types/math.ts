@@ -27,7 +27,7 @@ export function mult(x1: any, x2: any) {
   return func(x1, x2)
 }
 
-export function eq(x1: Duration, x2: Duration): boolean
+export function eq<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): boolean
 export function eq(x1: any, x2: any): boolean {
   return x1.eq(x1, x2)
 }
