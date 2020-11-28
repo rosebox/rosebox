@@ -49,7 +49,7 @@ export class Duration<A extends 'milliseconds' | 'seconds' | 'any' = any>
   static s(x: number): Duration<'seconds'> {
     return new Duration('seconds', x)
   }
-  serialize() {
+  serialize(): string {
     return serialize(this)
   }
   eq = eq
