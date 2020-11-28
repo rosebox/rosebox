@@ -67,7 +67,7 @@ const serializeAtomicValue = (
   typeof value === 'string'
     ? toHyphenCase(value)
     : isDuration(value)
-    ? value.serialize(value)
+    ? value.serialize()
     : serializeTimingFunctionValue(value)
 
 const isSingleTransition = (
