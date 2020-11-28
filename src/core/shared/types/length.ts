@@ -1,4 +1,4 @@
-import { getTypeName, RBType } from './shared'
+import { RBType } from './shared'
 
 export type LengthUnit =
   | 'px'
@@ -83,6 +83,7 @@ export class Length<A extends LengthUnit = any> implements RBType<number>{
   }
 
   mult = mult
+  add = add
 }
 
 export const px = Length.px
@@ -107,6 +108,10 @@ function mult(x: any, y: any): Length {
   const val = isLengthType(x) ? x.data * y : toNum(y as Length) * x
   const valueConstructor = x?.valueConstructor ?? y?.valueConstructor
   return valueConstructor(val)
+}
+
+function add<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): Length<A> {
+  return x1.valueConstructor(x1.data + x2.data)
 }
 
 export const isLengthType = (x: any): x is Length => x instanceof Length
