@@ -26,6 +26,12 @@ export function mult(x1: any, x2: any) {
   const func = x1?.mult ?? x2?.mult
   return func(x1, x2)
 }
+export function div<A extends LengthUnit>(x1: Length<A>, x2: number): Length<A>
+export function div<A extends LengthUnit>(x1: number, x2: Length<A>): Length<A>
+export function div(x1: any, x2: any) {
+  const func = x1?.div ?? x2?.div
+  return func(x1, x2)
+}
 
 export function eq<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): boolean
 export function eq(x1: any, x2: any): boolean {

@@ -1,4 +1,4 @@
-import { add, eq, ms, mult, px, sub } from "../types"
+import { add, eq, ms, mult, px, sub, div } from "../types"
 
 test('mult(Length, number)', () => {
     const received = mult(px(300), 3).serialize()
@@ -21,6 +21,12 @@ test('add(Length, Length)', () => {
 test('sub(Length, Length)', () => {
     const received = sub(px(600), px(500)).serialize()
     const expected = '100px'
+    expect(received).toEqual(expected)
+})
+
+test('div(Length, Length)', () => {
+    const received = eq(div(px(600), 2), px(300))
+    const expected = true
     expect(received).toEqual(expected)
 })
 
