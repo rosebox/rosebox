@@ -1,5 +1,4 @@
-import { GlobalCssKeyword, AnimatableProperty, CustomIdent } from '../shared'
-import { serializeCustomIdent } from '../shared'
+import { GlobalCssKeyword, AnimatableProperty, CustomIdent, serializeAtomicValue } from '../shared'
 
 const toHyphenCase = (x: string) =>
   x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
@@ -22,7 +21,7 @@ const serializeValue = (value: TransitionPropertyPropValue): string => {
       acc +
       (typeof item === 'string'
         ? toHyphenCase(item)
-        : toHyphenCase(serializeCustomIdent(item))) +
+        : toHyphenCase(serializeAtomicValue(item))) +
       (idx === valArray.length - 1 ? '' : ', '),
     ''
   )

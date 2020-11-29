@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { cdiv, cmulti, per, px } from '../shared'
+import { cdiv, cmult, per, px } from '../shared'
 
 test('maxWidth: Length', () => {
   const received = style({
@@ -11,9 +11,9 @@ test('maxWidth: Length', () => {
   expect(received).toEqual(expected)
 })
 
-test('maxWidth: WidthCalculation', () => {
+test('maxWidth: Calculation', () => {
   const received = style({
-    maxWidth: cmulti(cdiv(per(100), 7), 3),
+    maxWidth: cmult(cdiv(per(100), 7), 3),
   })
   const expected = {
     maxWidth: 'calc(calc(100% / 7) * 3)',

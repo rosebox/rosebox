@@ -2,7 +2,7 @@ import {
   GlobalCssKeyword,
   serializeAtomicValue,
   Width,
-  WidthCalculation,
+  Calculation,
 } from '../shared'
 
 const serializeBackgroundSizeAtomic = (x: BackgroundSize): string =>
@@ -26,7 +26,7 @@ export const serializeBackgroundSizePropValue = (
 }
 
 type BackgroundSize =
-  | [Width | WidthCalculation, Width | WidthCalculation]
+  | [Width | Calculation, Width | Calculation]
   | 'cover'
   | 'contain'
 

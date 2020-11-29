@@ -1,14 +1,14 @@
 import {
   LengthPercentage,
   GlobalCssKeyword,
-  WidthCalculation,
+  Calculation,
   serializeAtomicValue,
 } from '../shared'
 
 /**
  * @hide
  */
-type MinWidth = LengthPercentage | WidthCalculation | GlobalCssKeyword
+type MinWidth = LengthPercentage | Calculation | GlobalCssKeyword
 
 export type MinWidthCSSProp = 'min-width'
 

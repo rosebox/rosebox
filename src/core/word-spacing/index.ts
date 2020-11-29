@@ -1,10 +1,9 @@
-import { GlobalCssKeyword, Length } from '../shared'
-import { serializeLength } from '../shared'
+import { GlobalCssKeyword, Length, serializeAtomicValue } from '../shared'
 
 export const serializeWordSpacing = (
   x: 'normal' | Length | GlobalCssKeyword
 ): { wordSpacing: string } => ({
-  wordSpacing: typeof x === 'string' ? x : serializeLength(x),
+  wordSpacing: typeof x === 'string' ? x : serializeAtomicValue(x),
 })
 
 /**

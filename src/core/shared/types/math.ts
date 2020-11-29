@@ -1,40 +1,38 @@
-import { Duration, isDuration, ms } from './duration'
-import { NAMESPACE } from './shared'
+import { Duration, DurationUnit } from './duration'
+import { Length, LengthUnit } from './length'
 
-export function subs(x1: Duration, x2: Duration): Duration
-
-export function subs(x1: any, x2: any): any {
-  if (isDuration(x1)) {
-    const x1ms =
-      x1[NAMESPACE].valueConstructor === ms
-        ? x1[NAMESPACE].data
-        : x1[NAMESPACE].data * 1000
-     const x2m2 = x2[NAMESPACE].valueConstructor === ms
-        ? x2[NAMESPACE].data
-        : x2[NAMESPACE].data * 1000
-    return ms(x1ms - x2m2)
-  }
-  return null
+export interface Setoid<A> {
+  eq(x: A, y: A): boolean
 }
 
+export function sub<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): Length<A>
+export function sub(x1: any, x2: any): any {
+  return x1.sub(x1, x2)
+}
+
+
+export function add<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): Length<A>
 export function add(x1: Duration, x2: Duration): Duration
-
 export function add(x1: any, x2: any): any {
-  if (isDuration(x1)) {
-    const x1ms =
-      x1[NAMESPACE].valueConstructor === ms
-        ? x1[NAMESPACE].data
-        : x1[NAMESPACE].data * 1000
-     const x2m2 = x2[NAMESPACE].valueConstructor === ms
-        ? x2[NAMESPACE].data
-        : x2[NAMESPACE].data * 1000
-    return ms(x2m2 + x1ms)
-  }
-  return null
+  return x1.add(x1, x2)
 }
 
-export function eq(x1: Duration, x2: Duration): boolean
+export function mult<A extends DurationUnit>(x1: Duration<A>, x2: number): Duration<A>
+export function mult<A extends DurationUnit>(x1: number, x2: Duration<A>): Duration<A>
+export function mult<A extends LengthUnit>(x1: Length<A>, x2: number): Length<A>
+export function mult<A extends LengthUnit>(x1: number, x2: Length<A>): Length<A>
+export function mult(x1: any, x2: any) {
+  const func = x1?.mult ?? x2?.mult
+  return func(x1, x2)
+}
+export function div<A extends LengthUnit>(x1: Length<A>, x2: number): Length<A>
+export function div<A extends LengthUnit>(x1: number, x2: Length<A>): Length<A>
+export function div(x1: any, x2: any) {
+  const func = x1?.div ?? x2?.div
+  return func(x1, x2)
+}
 
+export function eq<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): boolean
 export function eq(x1: any, x2: any): boolean {
   return x1.eq(x1, x2)
 }

@@ -1,298 +1,153 @@
-import {
-  getData,
-  getValConstructor,
-  NAMESPACE,
-  getTypeName,
-} from './shared'
+import { RBType } from './shared'
 
-type Unit = 'px' | 'em' | 'rem' | 'ex' | 'ch' | 'vw' | 'vh' | 'vmin' | 'vmax' | 'q' | 'cm' | 'mm' | 'in' | 'pc'
-| 'pt'
- 
+export type LengthUnit =
+  | 'px'
+  | 'em'
+  | 'rem'
+  | 'ex'
+  | 'ch'
+  | 'vw'
+  | 'vh'
+  | 'vmin'
+  | 'vmax'
+  | 'q'
+  | 'cm'
+  | 'mm'
+  | 'in'
+  | 'pc'
+  | 'pt'
+
 /**
  *
  * A type that maps to CSS's **`<length>`** type.
  * @added 0.1.0
  */
-export interface Length<A extends Unit = any> {
-  [NAMESPACE]: {
-    unit: A extends any ? Unit : A
-    data: number
-    type: 'Length'
-    valueConstructor: (x: number) => Length
-    serializer: (x: Length<A>) => string
-  },
-  toNum: (x: Length) => number
-}
+export class Length<A extends LengthUnit = any> implements RBType<number>{
+  unit: A extends any ? LengthUnit : A
+  data: number
+  valueConstructor: (x: number) => Length
 
-
-export const serializeLength = (x: Length) => `${getData(x)}${getUnit(x)}`
-
-const lengthMixin = {
-  type: 'Length',
-  serializer: serializeLength,
-} as const
-
-const toNum = (x: Length): number => x[NAMESPACE].data
-
-/**
- * Constructs a value of type `Length` where the unit is **`px`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const px = (x: number): Length<'px'> => ({
-  [NAMESPACE]: {
-    unit: 'px',
-    ...lengthMixin,
-    data: x,
-    valueConstructor: px,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`em`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const em = (x: number): Length<'em'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'em',
-    data: x,
-    valueConstructor: em,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`rem`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const rem = (x: number): Length<'rem'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'rem',
-    data: x,
-    valueConstructor: rem,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`ex`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const ex = (x: number): Length<'ex'> => ({
-  [NAMESPACE]: {
-    unit: 'ex',
-    ...lengthMixin,
-    data: x,
-    valueConstructor: ex,
-  },
-  toNum
-})
-/**
- * Constructs a value of type `Length` where the unit is **`ch`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const ch = (x: number): Length<'ch'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'ch',
-    data: x,
-    valueConstructor: ch,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`vw`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const vw = (x: number): Length<'vw'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'vw',
-    data: x,
-    valueConstructor: vw,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`vh`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const vh = (x: number): Length<'vh'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'vh',
-    data: x,
-    valueConstructor: vh,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`vmin`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const vmin = (x: number): Length<'vmin'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'vmin',
-    data: x,
-    valueConstructor: vmin,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`vmax`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const vmax = (x: number): Length<'vmax'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'vmax',
-    data: x,
-    valueConstructor: vmax,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`q`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const Q = (x: number): Length<'q'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'q',
-    data: x,
-    valueConstructor: Q,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`cm`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const cm = (x: number): Length<'cm'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'cm',
-    data: x,
-    valueConstructor: cm,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`mm`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const mm = (x: number): Length<'mm'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'mm',
-    data: x,
-    valueConstructor: mm,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`in`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const In = (x: number): Length<'in'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'in',
-    data: x,
-    valueConstructor: In,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`pc`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const pc = (x: number): Length<'pc'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'pc',
-    data: x,
-    valueConstructor: pc,
-  },
-  toNum
-})
-
-/**
- * Constructs a value of type `Length` where the unit is **`pt`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const pt = (x: number): Length<'pt'> => ({
-  [NAMESPACE]: {
-    ...lengthMixin,
-    unit: 'pt',
-    data: x,
-    valueConstructor: pt,
-  },
-  toNum
-})
-
-export const isLengthType = (x: any): x is Length => getTypeName(x) === 'Length'
-
-const getUnit = (x: Length) => {
-  switch (getValConstructor(x)) {
-    case px:
-      return 'px'
-    case pt:
-      return 'pt'
-    case pc:
-      return 'pc'
-    case In:
-      return 'in'
-    case Q:
-      return 'q'
-    case mm:
-      return 'mm'
-    case cm:
-      return 'cm'
-    case vmin:
-      return 'vmin'
-    case vmax:
-      return 'vmax'
-    case vh:
-      return 'vh'
-    case vw:
-      return 'vw'
-    case rem:
-      return 'rem'
-    case ch:
-      return 'ch'
-    case em:
-      return 'em'
-    case ex:
-      return 'ex'
-    default:
-      throw new Error("Invalid Length unit")
+  private constructor(data: number, unit: LengthUnit, valueConstructor: (x: number) => Length) {
+    this.data = data
+    this.unit = unit as any
+    this.valueConstructor = valueConstructor
   }
+
+  /** @category Value constructor */
+  static px(x: number): Length<'px'> {
+    return new Length(x, 'px', Length.px)
+  }
+  /** @category Value constructor */
+  static em(x: number): Length<'em'> {
+    return new Length(x, 'em', Length.em)
+  }
+  /** @category Value constructor */
+  static rem(x: number): Length<'rem'> {
+    return new Length(x, 'rem', Length.rem)
+  }
+  /** @category Value constructor */
+  static ex(x: number): Length<'ex'> {
+    return new Length(x, 'ex', Length.ex)
+  }
+  /** @category Value constructor */
+  static vw(x: number): Length<'vw'> {
+    return new Length(x, 'vw', Length.vw)
+  }
+  /** @category Value constructor */
+  static vh(x: number): Length<'vh'> {
+    return new Length(x, 'vh', Length.vh)
+  }
+  /** @category Value constructor */
+  static vmin(x: number): Length<'vmin'> {
+    return new Length(x, 'vmin', Length.vmin)
+  }
+  /** @category Value constructor */
+  static vmax(x: number): Length<'vmax'> {
+    return new Length(x, 'vmax', Length.vmax)
+  }
+  /** @category Value constructor */
+  static ch(x: number): Length<'ch'> {
+    return new Length(x, 'ch', Length.ch)
+  }
+  /** @category Value constructor */
+  static q(x: number): Length<'q'> {
+    return new Length(x, 'q', Length.q)
+  }
+  /** @category Value constructor */
+  static cm(x: number): Length<'cm'> {
+    return new Length(x, 'cm', Length.cm)
+  }
+  /** @category Value constructor */
+  static mm(x: number): Length<'mm'> {
+    return new Length(x, 'mm', Length.mm)
+  }
+  /** @category Value constructor */
+  static in(x: number): Length<'in'> {
+    return new Length(x, 'in', Length.in)
+  }
+  /** @category Value constructor */
+  static pc(x: number): Length<'pc'> {
+    return new Length(x, 'pc', Length.pc)
+  }
+  /** @category Value constructor */
+  static pt(x: number): Length<'pt'> {
+    return new Length(x, 'pt', Length.pt)
+  }
+  serialize(): string {
+    return `${this.data}${this.unit}`
+  }
+
+  add = add
+  sub = sub
+  mult = mult
+  div = div
+  eq = eq
 }
+
+export const px = Length.px
+export const em = Length.em
+export const rem = Length.rem
+export const ex = Length.ex
+export const vw = Length.vw
+export const vh = Length.vh
+export const vmin = Length.vmin
+export const vmax = Length.vmax
+export const ch = Length.ch
+export const q = Length.q
+export const cm = Length.cm
+export const mm = Length.mm
+export const In = Length.in
+export const pc = Length.pc
+export const pt = Length.pt
+
+const toNum = (x: Length): number => x.data
+
+function mult(x: any, y: any): Length {
+  const val = isLengthType(x) ? x.data * y : toNum(y as Length) * x
+  const valueConstructor = x?.valueConstructor ?? y?.valueConstructor
+  return valueConstructor(val)
+}
+
+function add<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): Length<A> {
+  return x1.valueConstructor(x1.data + x2.data)
+}
+
+function sub<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): Length<A> {
+  return x1.valueConstructor(x1.data - x2.data)
+}
+function div<A extends LengthUnit>(x: Length<A>, x2: number): Length<A>
+function div<A extends LengthUnit>(x: number, x2: Length<A>): Length<A>
+function div(x: any, y: any): Length {
+  const val = isLengthType(x) ? x.data / y : toNum(y as Length) / x
+  const valueConstructor = x?.valueConstructor ?? y?.valueConstructor
+  return valueConstructor(val)
+}
+
+function eq<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): boolean {
+  return x1.data === x2.data
+}
+
+
+
+export const isLengthType = (x: any): x is Length => x instanceof Length
+

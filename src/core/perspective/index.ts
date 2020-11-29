@@ -2,13 +2,13 @@ import {
   GlobalCssKeyword,
   Length,
   serializeAtomicValue,
-  WidthCalculation,
+  Calculation,
 } from '../shared'
 
 /**
  * @hide
  */
-type Perspective = 'none' | Length | WidthCalculation | GlobalCssKeyword
+type Perspective = 'none' | Length | Calculation | GlobalCssKeyword
 
 export const serializePerspectivePropertyValue = (
   x: Perspective

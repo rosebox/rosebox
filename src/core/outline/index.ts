@@ -2,18 +2,10 @@ import { GlobalCssKeyword, LineStyle } from '../shared'
 import {
   Color,
   DoubleBar3,
-  isLengthType,
   LineWidth,
-  serializeColorValue,
-  serializeLength,
 } from '../shared/types'
 
-const serializeAtomicValue = (x: Color | LineStyle | LineWidth): string =>
-  typeof x === 'string'
-    ? x
-    : isLengthType(x)
-    ? serializeLength(x)
-    : serializeColorValue(x)
+import {serializeAtomicValue} from '../shared'
 
 export const serializeOutline = (
   x: DoubleBar3<Color, LineStyle, LineWidth> | GlobalCssKeyword

@@ -1,5 +1,5 @@
 import { style } from '../..'
-import { csubs, px, rem, vw } from '../shared'
+import { csub, px, rem, vw } from '../shared'
 
 test('fontSize: Length<rem>', () => {
   const received = style({
@@ -11,9 +11,9 @@ test('fontSize: Length<rem>', () => {
   expect(received).toEqual(expected)
 })
 
-test('fontSize: WidthCalculation', () => {
+test('fontSize: Calculation', () => {
   const received = style({
-    fontSize: csubs(vw(10), px(200)),
+    fontSize: csub(vw(10), px(200)),
   })
   const expected = {
     fontSize: 'calc(10vw - 200px)',

@@ -1,10 +1,8 @@
 import {
   GlobalCssKeyword,
-  isGlobalCssKeyword,
   LengthPercentage,
   serializeAtomicValue,
 } from '../shared'
-import { serializeLengthPercentage } from '../shared'
 
 export type BorderRadiusCSSProp = 'border-radius'
 
@@ -106,7 +104,7 @@ type TwoRadius = [RadiusTuple, RadiusTuple]
 
 const serializRadiusTuple = (value: RadiusTuple): string =>
   (value as LengthPercentage[])
-    .reduce((acc: any, item) => acc + ' ' + serializeLengthPercentage(item), '')
+    .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
     .trim()
 
 const serializeTwoRadius = (value: TwoRadius): string =>
@@ -123,10 +121,8 @@ const serializeTwoRadius = (value: TwoRadius): string =>
 export const serializeBorderRadius = (
   value: OneRadius | TwoRadius | GlobalCssKeyword
 ): { borderRadius: string } => ({
-  borderRadius: isGlobalCssKeyword(value)
-    ? value
-    : !Array.isArray(value)
-    ? serializeLengthPercentage(value)
+  borderRadius: !Array.isArray(value)
+    ? serializeAtomicValue(value)
     : !Array.isArray(value[0])
     ? serializRadiusTuple(value as RadiusTuple)
     : serializeTwoRadius(value as TwoRadius),

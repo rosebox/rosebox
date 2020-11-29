@@ -2,17 +2,17 @@ import {
   LengthPercentage,
   GlobalCssKeyword,
   Length,
-  WidthCalculation,
+  Calculation,
   serializeAtomicValue,
 } from '../shared'
 const WHITESPACE = ' '
 
 type Offset =
-  | [LengthPercentage | WidthCalculation, LengthPercentage | WidthCalculation]
+  | [LengthPercentage | Calculation, LengthPercentage | Calculation]
   | [
-      LengthPercentage | WidthCalculation,
-      LengthPercentage | WidthCalculation,
-      Length | WidthCalculation
+      LengthPercentage | Calculation,
+      LengthPercentage | Calculation,
+      Length | Calculation
     ]
 
 /**

@@ -1,7 +1,7 @@
 import {
   GlobalCssKeyword,
   LengthPercentage,
-  WidthCalculation,
+  Calculation,
   serializeAtomicValue,
 } from '../shared'
 
@@ -26,5 +26,5 @@ export type MaxHeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
    */
-  maxHeight: LengthPercentage | WidthCalculation | GlobalCssKeyword | 'none'
+  maxHeight: LengthPercentage | Calculation | GlobalCssKeyword | 'none'
 }

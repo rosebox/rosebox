@@ -1,156 +1,110 @@
 import { Env } from './env'
-import {
-  getTypeName,
-  LengthPercentage,
-  NAMESPACE,
-  RBType,
-  serializeAtomicValue,
-} from './shared'
+import { LengthPercentage, RBType, serializeAtomicValue } from './shared'
 
-/**
- * @internal
+type CalcOperation = 'addition' | 'substraction' | 'multiplication' | 'division'
+
+type CalculationData<A extends CalcOperation = any> = A extends 'addition'
+  ? [
+      LengthPercentage | Calculation<CalcOperation> | Env,
+      LengthPercentage | Calculation<CalcOperation> | Env
+    ]
+  : A extends 'substraction'
+  ? [
+      LengthPercentage | Calculation<CalcOperation> | Env,
+      LengthPercentage | Calculation<CalcOperation> | Env
+    ]
+  : A extends 'multiplication'
+  ?
+      | [LengthPercentage | Calculation<CalcOperation> | Env, number]
+      | [number, LengthPercentage | Calculation<CalcOperation> | Env]
+  : A extends 'division'
+  ? [LengthPercentage | Calculation<CalcOperation> | Env, number]
+  : any
+
+  /**
+ *
+ * The type of values that are to be computed by the browser (**`<calc()>`**)
+ * @added 0.1.0
  */
-interface CalcMultiplication<A, B>
-  extends RBType<'CalcMultiplication', [A, B]> {}
+export class Calculation<A extends CalcOperation = any> implements RBType<any> {
+  operationType: A extends any ? CalcOperation : A
+  data: CalculationData<A>
+  valueConstructor: Function
 
-/**
- * @internal
- */
-interface CalcAddition<A> extends RBType<'CalcAddition', [A, A]> {}
+  private constructor(data: any, operationType: A extends any ? CalcOperation : A, valueConstructor: Function) {
+    this.operationType = operationType
+    this.data = data
+    this.valueConstructor = valueConstructor
+  }
 
-/**
- * @internal
- */
-interface CalcDivision<A = any> extends RBType<'CalcDivision', [A, number]> {}
+  /** @valueConstructor */
+  static cadd(
+    x1: LengthPercentage | Calculation<CalcOperation> | Env,
+    x2: LengthPercentage | Calculation<CalcOperation> | Env
+  ): Calculation<'addition'> {
+    return new Calculation([x1, x2], 'addition', Calculation.cadd)
+  }
 
-/**
- * @internal
- */
-interface CalcSubstraction<A> extends RBType<'CalcSubstraction', [A, A]> {}
+  /** @valueConstructor */
+  static csub(
+    x1: LengthPercentage | Calculation<CalcOperation> | Env,
+    x2: LengthPercentage | Calculation<CalcOperation> | Env
+  ): Calculation<'substraction'> {
+    return new Calculation([x1, x2], 'substraction', Calculation.csub)
+  }
 
-export function cdiv(
-  x1: LengthPercentage | WidthCalculation | Env,
-  x2: number
-): CalcDivision {
-  return {
-    [NAMESPACE]: {
-      type: 'CalcDivision',
-      data: [x1, x2],
-      valueConstructor: csubs,
-      serializer: serializeWidthCalculationValue,
-    },
+  /** @valueConstructor */
+  static cdiv(
+    x1: LengthPercentage | Calculation<CalcOperation> | Env,
+    x2: number
+  ): Calculation<'division'> {
+    return new Calculation([x1, x2], 'division', Calculation.cdiv)
+  }
+
+  /** @valueConstructor */
+  static cmult(
+    x1: LengthPercentage | Calculation<CalcOperation> | Env,
+    x2: number
+  ): Calculation<'multiplication'>
+  static cmult(
+    x1: number,
+    x2: LengthPercentage | Calculation<CalcOperation> | Env
+  ): Calculation<'multiplication'>
+
+  static cmult(x1: any, x2: any): Calculation<'multiplication'> {
+    return new Calculation([x1, x2], 'multiplication', Calculation.cmult)
+  }
+
+  serialize(): string {
+    return serializeCalculation(this)
   }
 }
 
-// For Width/Length
+export const cadd = Calculation.cadd
+export const csub = Calculation.csub
+export const cmult = Calculation.cmult
+export const cdiv = Calculation.cdiv
 
-export function csubs(
-  x1: LengthPercentage | WidthCalculation | Env,
-  x2: LengthPercentage | WidthCalculation | Env
-): CalcSubstraction<LengthPercentage | WidthCalculation | Env> {
-  return {
-    [NAMESPACE]: {
-      type: 'CalcSubstraction',
-      data: [x1, x2],
-      valueConstructor: csubs,
-      serializer: serializeWidthCalculationValue,
-    },
-  }
-}
-
-export function cadd(
-  x1: LengthPercentage | WidthCalculation | Env,
-  x2: LengthPercentage | WidthCalculation | Env
-): CalcAddition<LengthPercentage | WidthCalculation | Env> {
-  return {
-    [NAMESPACE]: {
-      type: 'CalcAddition',
-      data: [x1, x2],
-      valueConstructor: csubs,
-      serializer: serializeWidthCalculationValue,
-    },
-  }
-}
-
-export function cmulti(
-  x1: number,
-  x2: LengthPercentage | WidthCalculation | Env
-): CalcMultiplication<number, LengthPercentage | WidthCalculation | Env>
-
-// For Width/Length
-export function cmulti(
-  x1: LengthPercentage | WidthCalculation | Env,
-  x2: number
-): CalcMultiplication<LengthPercentage | WidthCalculation, number>
-
-// The resolve type is number or integer
-export function cmulti(
-  x1: number,
-  x2: number
-): CalcMultiplication<number, number>
-
-export function cmulti(x1: any, x2: any): CalcMultiplication<any, any> {
-  return {
-    [NAMESPACE]: {
-      type: 'CalcMultiplication',
-      data: [x1, x2],
-      valueConstructor: csubs,
-      serializer: serializeWidthCalculationValue,
-    },
-  }
-}
-
-type WidthMultiplication =
-  | CalcMultiplication<LengthPercentage | WidthCalculation | Env, number>
-  | CalcMultiplication<number, LengthPercentage | WidthCalculation | Env>
-
-type WidthDivision = CalcDivision<LengthPercentage | WidthCalculation | Env>
-
-type WidthAddition = CalcAddition<LengthPercentage | WidthCalculation | Env>
-
-type WidthSubstraction = CalcSubstraction<
-  LengthPercentage | WidthCalculation | Env
->
-
-export type WidthCalculation =
-  | WidthSubstraction
-  | WidthMultiplication
-  | WidthDivision
-  | WidthAddition
-
-const getOpSign = (x: string) => {
-  switch (x) {
-    case 'CalcAddition':
+const getOpSign = (x: Calculation<CalcOperation>) => {
+  switch (x.operationType) {
+    case 'addition':
       return '+'
-    case 'CalcSubstraction':
+    case 'substraction':
       return '-'
-    case 'CalcMultiplication':
+    case 'multiplication':
       return '*'
-    case 'CalcDivision':
+    case 'division':
       return '/'
     default:
       throw new Error('Unkown')
   }
 }
 
-export const isCalculation = (x: any): x is WidthCalculation => {
-  const typeName = getTypeName(x)
-  return (
-    typeName === 'CalcAddition' ||
-    typeName === 'CalcSubstraction' ||
-    typeName === 'CalcMultiplication' ||
-    typeName === 'CalcDivision'
-  )
-}
-
-const serializeWidthCalculationOperand = (
-  x: WidthCalculation | number | LengthPercentage | Env
+const serializeCalculationOperand = (
+  x: Calculation<CalcOperation> | number | LengthPercentage | Env
 ): string => serializeAtomicValue(x)
 
-const serializeWidthCalculationValue = (x: WidthCalculation): string =>
-  `calc(${serializeWidthCalculationOperand(x[NAMESPACE].data[0])} ${getOpSign(
-    getTypeName(x)
-  )} ${serializeWidthCalculationOperand(x[NAMESPACE].data[1])})`
-
-export const serializeWidthCalculation = (x: WidthCalculation): string =>
-  `calc(${serializeWidthCalculationValue(x)})`
+const serializeCalculation = (x: Calculation<CalcOperation>): string =>
+  `calc(${serializeCalculationOperand(x.data[0])} ${getOpSign(
+    x
+  )} ${serializeCalculationOperand(x.data[1])})`

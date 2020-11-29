@@ -5,7 +5,7 @@ test('opacity: number', () => {
     opacity: 1,
   })
   const expected = {
-    opacity: 1,
+    opacity: "1",
   }
   expect(received).toEqual(expected)
 })

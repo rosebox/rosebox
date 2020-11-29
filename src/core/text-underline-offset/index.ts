@@ -1,13 +1,13 @@
 import {
   GlobalCssKeyword,
   LengthPercentage,
-  serializeLengthPercentage,
+  serializeAtomicValue,
 } from '../shared'
 
 export const serializeTextUnderlineOffset = (
   x: LengthPercentage | 'auto' | GlobalCssKeyword
 ) => ({
-  textUnderlineOffset: typeof x === 'string' ? x : serializeLengthPercentage(x),
+  textUnderlineOffset: serializeAtomicValue(x),
 })
 
 /**

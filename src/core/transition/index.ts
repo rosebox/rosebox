@@ -6,7 +6,6 @@ import {
 } from '../shared'
 import { TimingFunctionValue } from '../shared'
 import { isDuration } from '../shared'
-import { serializeDuration } from '../shared'
 
 const toHyphenCase = (x: string) =>
   x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
@@ -68,7 +67,7 @@ const serializeAtomicValue = (
   typeof value === 'string'
     ? toHyphenCase(value)
     : isDuration(value)
-    ? serializeDuration(value)
+    ? value.serialize()
     : serializeTimingFunctionValue(value)
 
 const isSingleTransition = (

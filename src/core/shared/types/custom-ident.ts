@@ -1,24 +1,26 @@
-import { NAMESPACE, RBType, getData } from './shared'
+import { RBType } from './shared'
 
 /**
  *
  * A type that maps to CSS's **`<custom-ident>`** .
  * @added 0.2.1
  */
-export interface CustomIdent extends RBType<'CustomIdent', string> {}
+export class CustomIdent implements RBType<string> {
+  data: string
+  valueConstructor: Function
+  private constructor(data: string) {
+    this.data = data
+    this.valueConstructor = CustomIdent.ident
+  }
+  /**
+   * * @category Value constructor
+   */
+  static ident(x: string): CustomIdent {
+    return new CustomIdent(x)
+  }
+  serialize() {
+      return this.data
+  }
+}
 
-/**
- * Constructs a value of type **`CustomIdent`**.
- * @category Value constructor
- * @added 0.2.1
- */
-export const ident = (x: string): CustomIdent => ({
-  [NAMESPACE]: {
-    type: 'CustomIdent',
-    data: x,
-    valueConstructor: ident,
-    serializer: serializeCustomIdent,
-  },
-})
-
-export const serializeCustomIdent = getData
+export const ident = CustomIdent.ident

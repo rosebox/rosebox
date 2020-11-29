@@ -1,21 +1,27 @@
-import { getData, NAMESPACE, RBType } from './shared'
+import { RBType } from './shared'
 
 /**
  *
  * A type that maps to CSS's **`<decibel>`** type.
  * @added 0.1.0
  */
-export interface Decibel extends RBType<'Decibel', number> {}
+export class Decibel implements RBType<number> {
+  valueConstructor: Function
+  data: number
 
-export const db = (x: number): Decibel => ({
-  [NAMESPACE]: {
-    type: 'Decibel',
-    data: x,
-    valueConstructor: db,
-    serializer: serializeDecibel,
-  },
-})
+  private constructor(data: number) {
+    this.data = data
+    this.valueConstructor = Decibel.db
+  }
+  /** @category Value constructor */
+  static db(x: number): Decibel {
+      return new Decibel(x)
+  }
 
-export const isDecibel = (x: any): x is Decibel => x.__tag === 'Decibel'
+  serialize(): string {
+    return `${this.data}dB`
+  }
+}
 
-export const serializeDecibel = (x: Decibel): string => `${getData(x)}dB`
+export const db = Decibel.db
+export const isDecibel = (x: any): x is Decibel => x instanceof Decibel

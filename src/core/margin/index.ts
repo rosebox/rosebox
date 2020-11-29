@@ -2,14 +2,14 @@ import {
   GlobalCssKeyword,
   isGlobalCssKeyword,
   LengthPercentage,
-  WidthCalculation,
+  Calculation,
   serializeAtomicValue,
 } from '../shared'
 
-type MarginValue = LengthPercentage | WidthCalculation | 'auto'
+type MarginValue = LengthPercentage | Calculation | 'auto'
 
 const serializeMarginSide = (prop: string) => (
-  value: LengthPercentage | 'auto' | WidthCalculation | GlobalCssKeyword
+  value: LengthPercentage | 'auto' | Calculation | GlobalCssKeyword
 ) => ({
   [prop]: serializeAtomicValue(value),
 })

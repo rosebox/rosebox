@@ -1,7 +1,7 @@
 import {
   GlobalCssKeyword,
   Width,
-  WidthCalculation,
+  Calculation,
   serializeAtomicValue,
 } from '../shared'
 
@@ -26,5 +26,5 @@ export type HeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-height
    */
-  height: Width | WidthCalculation | GlobalCssKeyword
+  height: Width | Calculation | GlobalCssKeyword
 }

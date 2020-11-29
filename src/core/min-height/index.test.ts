@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { cdiv, cmulti, per, px } from '../shared'
+import { cdiv, cmult, per, px } from '../shared'
 
 test('minHeight: Length', () => {
   const received = style({
@@ -11,9 +11,9 @@ test('minHeight: Length', () => {
   expect(received).toEqual(expected)
 })
 
-test('minHeight: WidthCalculation', () => {
+test('minHeight: Calculation', () => {
   const received = style({
-    minHeight: cmulti(cdiv(per(100), 7), 3),
+    minHeight: cmult(cdiv(per(100), 7), 3),
   })
   const expected = {
     minHeight: 'calc(calc(100% / 7) * 3)',

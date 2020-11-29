@@ -1,6 +1,5 @@
 import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
 import { Duration } from '../shared'
-import { serializeDuration } from '../shared'
 
 export type TransitionDelayCSSProp = 'transition-delay'
 
@@ -14,7 +13,7 @@ export const serializeValue = (x: TransitionDelayPropValue): string =>
     ? serializeAtomicValue(x)
     : x.reduce(
         (acc, item, idx) =>
-          acc + serializeDuration(item) + (idx === x.length - 1 ? '' : ', '),
+          acc + serializeAtomicValue(item) + (idx === x.length - 1 ? '' : ', '),
         ''
       )
 

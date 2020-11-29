@@ -1,6 +1,6 @@
-import { getData, NAMESPACE, RBType, serializeAtomicValue } from './shared'
+import { getData, RBType, serializeAtomicValue } from './shared'
 
-const serializer = (x: Env) => {
+const serialize = (x: Env) => {
   const [x1, x2] = getData(x)
   return `env(${x1}${x2 ? serializeAtomicValue(x2) : ''})`
 }
@@ -11,22 +11,22 @@ type SafeAreaInsetVariable =
   | 'safe-area-inset-bottom'
   | 'safe-area-inset-left'
 
-export interface Env extends RBType<'Env', any> {}
+export class Env implements RBType<any> {
+  data: any
+  valueConstructor: Function
 
-export function env(safeAreaInsetVariable: SafeAreaInsetVariable): Env
-
-export function env(safeAreaInsetVariable: SafeAreaInsetVariable, x: any): Env
-
-export function env(
-  safeAreaInsetVariable: SafeAreaInsetVariable,
-  x?: any
-): Env {
-  return {
-    [NAMESPACE]: {
-      type: 'Env',
-      data: [safeAreaInsetVariable, x],
-      valueConstructor: env,
-      serializer,
-    },
+  private constructor(x: SafeAreaInsetVariable, y: any) {
+    this.data = [x, y]
+    this.valueConstructor = Env.env
   }
+
+  /** @category Value constructor */
+  static env(safeAreaInsetVariable: SafeAreaInsetVariable): Env
+  static env(safeAreaInsetVariable: SafeAreaInsetVariable, x: any): Env
+  static env(safeAreaInsetVariable: SafeAreaInsetVariable, x?: any): Env {
+    return new Env(safeAreaInsetVariable, x)
+  }
+  serialize = () => serialize(this)
 }
+
+export const env = Env.env

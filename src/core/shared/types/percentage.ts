@@ -1,26 +1,31 @@
-import { getData, getTypeName, NAMESPACE, RBType } from './shared'
+import { RBType } from './shared'
+
+const serializePercentage = (x: Percentage): string => `${x.data}%`
 
 /**
  * A type that maps to CSS's **`<percentage>`** type.
  * @added 0.1.0
  */
-export interface Percentage extends RBType<'Percentage', number> {}
+export class Percentage implements RBType<number> {
+  valueConstructor: Function
+  public data: number
 
-/**
- * Constructs a value of type **`Percentage`**.
- * @category Value constructor
- * @added 0.1.0
- */
-export const per = (x: number): Percentage => ({
-  [NAMESPACE]: {
-    type: 'Percentage',
-    data: x,
-    valueConstructor: per,
-    serializer: serializePercentage,
-  },
-})
+  private constructor(data: number) {
+    this.data = data
+    this.valueConstructor = Percentage.per
+  }
 
-export const isPercentageType = (x: any): x is Percentage =>
-  getTypeName(x) === 'Percentage'
+  /** @category Value constructor */
+  static per(x: number) {
+    return new Percentage(x)
+  }
 
-export const serializePercentage = (x: Percentage): string => `${getData(x)}%`
+  serialize() {
+    return serializePercentage(this)
+  }
+}
+
+export const per = Percentage.per
+
+export const isPercentageType = (x: any): x is Percentage => x instanceof Percentage
+
