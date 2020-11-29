@@ -21,6 +21,11 @@ type CalculationData<A extends CalcOperation = any> = A extends 'addition'
   ? [LengthPercentage | Calculation<CalcOperation> | Env, number]
   : any
 
+  /**
+ *
+ * The type of values that are to be computed by the browser (**`<calc()>`**)
+ * @added 0.1.0
+ */
 export class Calculation<A extends CalcOperation = any> implements RBType<any> {
   operationType: A extends any ? CalcOperation : A
   data: CalculationData<A>

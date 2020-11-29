@@ -24,7 +24,7 @@ export const serializeLinearGradient = (val: Gradient): string => {
 
 /**
  *
- * A type that maps to CSS's **`<linear-gradient>`** type.
+ * A type that maps to CSS's **`<gradient>`** type.
  * @added 0.1.0
  */
 export class Gradient<A extends 'linear-gradient' | 'radial-gradient' = any>
@@ -41,7 +41,9 @@ export class Gradient<A extends 'linear-gradient' | 'radial-gradient' = any>
     this.withAngle = y ? true : false
   }
 
-  /** @category Value constructor */
+  /** @category Value constructor 
+   * Creates a linear-gradient.
+  */
   static linGrad(x: ColorStopList): Gradient<'linear-gradient'>
   static linGrad(x: Angle, y: ColorStopList): Gradient<'linear-gradient'>
   static linGrad(x: any, y?: any): Gradient<'linear-gradient'> {

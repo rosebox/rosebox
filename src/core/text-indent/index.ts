@@ -9,7 +9,7 @@ export const serializeTexIndent = (x: TextIndentValue) => ({
 })
 
 /**
- * @hidden
+ * @skip
  */
 type TextIndentValue =
   | LengthPercentage
