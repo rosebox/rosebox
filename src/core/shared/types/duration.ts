@@ -33,6 +33,11 @@ const sub = (x1: Duration, x2: Duration): Duration<'milliseconds'> => {
 
 export type DurationUnit = 'milliseconds' | 'seconds'
 
+/**
+ *
+ * A type that maps to CSS's **`<time>`** type.
+ * @added 0.1.0
+ */
 export class Duration<A extends 'milliseconds' | 'seconds' | 'any' = any>
   implements Setoid<Duration<A>> {
   valueConstructor: Function
@@ -43,12 +48,16 @@ export class Duration<A extends 'milliseconds' | 'seconds' | 'any' = any>
     this.data = data
     this.valueConstructor = unit === 'milliseconds' ? Duration.ms : Duration.s
   }
+
+  /** @category Value constructor */
   static ms(x: number): Duration<'milliseconds'> {
     return new Duration('milliseconds', x)
   }
+  /** @category Value constructor */
   static s(x: number): Duration<'seconds'> {
     return new Duration('seconds', x)
   }
+
   serialize(): string {
     return serialize(this)
   }
@@ -63,7 +72,6 @@ export class Duration<A extends 'milliseconds' | 'seconds' | 'any' = any>
  * @category Value constructor
  * @added 0.2.1
  */
-
 export const ms = Duration.ms
 
 /**

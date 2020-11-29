@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, getSerializer } from '../shared'
+import { GlobalCssKeyword, getSerializer, serializeAtomicValue } from '../shared'
 import { Image } from '../shared/types/image'
 
 export type BackgroundImageValue = Image | 'none'
@@ -6,7 +6,7 @@ export type BackgroundImageValue = Image | 'none'
 export const serializeBackgroundImage = (
   x: BackgroundImageValue | GlobalCssKeyword
 ): { backgroundImage: string } => ({
-  backgroundImage: typeof x === 'string' ? x : getSerializer(x)(x),
+  backgroundImage: serializeAtomicValue(x),
 })
 
 /**

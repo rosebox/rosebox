@@ -33,48 +33,63 @@ export class Length<A extends LengthUnit = any> implements RBType<number>{
     this.valueConstructor = valueConstructor
   }
 
+  /** @category Value constructor */
   static px(x: number): Length<'px'> {
     return new Length(x, 'px', Length.px)
   }
+  /** @category Value constructor */
   static em(x: number): Length<'em'> {
     return new Length(x, 'em', Length.em)
   }
+  /** @category Value constructor */
   static rem(x: number): Length<'rem'> {
     return new Length(x, 'rem', Length.rem)
   }
+  /** @category Value constructor */
   static ex(x: number): Length<'ex'> {
     return new Length(x, 'ex', Length.ex)
   }
+  /** @category Value constructor */
   static vw(x: number): Length<'vw'> {
     return new Length(x, 'vw', Length.vw)
   }
+  /** @category Value constructor */
   static vh(x: number): Length<'vh'> {
     return new Length(x, 'vh', Length.vh)
   }
+  /** @category Value constructor */
   static vmin(x: number): Length<'vmin'> {
     return new Length(x, 'vmin', Length.vmin)
   }
+  /** @category Value constructor */
   static vmax(x: number): Length<'vmax'> {
     return new Length(x, 'vmax', Length.vmax)
   }
+  /** @category Value constructor */
   static ch(x: number): Length<'ch'> {
     return new Length(x, 'ch', Length.ch)
   }
+  /** @category Value constructor */
   static q(x: number): Length<'q'> {
     return new Length(x, 'q', Length.q)
   }
+  /** @category Value constructor */
   static cm(x: number): Length<'cm'> {
     return new Length(x, 'cm', Length.cm)
   }
+  /** @category Value constructor */
   static mm(x: number): Length<'mm'> {
     return new Length(x, 'mm', Length.mm)
   }
+  /** @category Value constructor */
   static in(x: number): Length<'in'> {
     return new Length(x, 'in', Length.in)
   }
+  /** @category Value constructor */
   static pc(x: number): Length<'pc'> {
     return new Length(x, 'pc', Length.pc)
   }
+  /** @category Value constructor */
   static pt(x: number): Length<'pt'> {
     return new Length(x, 'pt', Length.pt)
   }

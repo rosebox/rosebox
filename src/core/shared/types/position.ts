@@ -21,6 +21,7 @@ export class Position
     this.valueConstructor = Position.pos
   }
 
+  /** @category Value constructor */
   static pos(x: LengthPercentage, y: LengthPercentage): Position {
     return new Position([x, y])
   }

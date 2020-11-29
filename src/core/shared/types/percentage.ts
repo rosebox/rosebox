@@ -15,6 +15,7 @@ export class Percentage implements RBType<number> {
     this.valueConstructor = Percentage.per
   }
 
+  /** @category Value constructor */
   static per(x: number) {
     return new Percentage(x)
   }

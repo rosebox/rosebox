@@ -284,21 +284,25 @@ export class RGB implements RBType<RGBInput> {
   valueConstructor: Function
   data: RGBInput
 
-  constructor(data: RGBInput) {
+  private constructor(data: RGBInput) {
     this.data = data
-    this.valueConstructor = rgb
+    this.valueConstructor = RGB.rgb
   }
-  /** @valueConstructor */
-  static rgb = rgb
+  /** @category Value constructor */
+  static rgb(x1: Percentage, x2: Percentage, x3: Percentage): RGB
+  static rgb(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger): RGB
+  static rgb(x1: any, x2: any, x3: any): RGB {
+    return new RGB([x1, x2, x3])
+  }
 
   serialize(): string {
     const value = this.data
     return typeof value[0] === 'number'
       ? `rgb(${value[0]}, ${value[1]}, ${value[2]})`
-      : `rgb(${(value[0]).serialize()}, ${
-          (value[1] as Percentage).serialize()}, ${(value[2] as Percentage).serialize()})`
+      : `rgb(${value[0].serialize()}, ${(value[1] as Percentage).serialize()}, ${(value[2] as Percentage).serialize()})`
   }
 }
+export const rgb = RGB.rgb
 
 /**
  *
@@ -309,30 +313,34 @@ export class RGBA implements RBType<RGBAInput> {
   valueConstructor: Function
   data: RGBAInput
 
-  constructor(data: RGBAInput) {
+  private constructor(data: RGBAInput) {
     this.data = data
-    this.valueConstructor = rgba
+    this.valueConstructor = RGBA.rgba
   }
-  /** @valueConstructor */
-  static rgba = rgba
+
+  /** @category Value constructor */
+  static rgba(x1: Percentage, x2: Percentage, x3: Percentage, x4: number): RGBA
+  static rgba(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger, x4: number): RGBA
+  static rgba(
+    x1: Percentage | RGBInteger,
+    x2: Percentage | RGBInteger,
+    x3: Percentage | RGBInteger,
+    x4: number
+  ): RGBA {
+    return new RGBA([x1, x2, x3, x4] as any)
+  }
 
   serialize(): string {
     const value = this.data
     return typeof value[0] === 'number'
       ? `rgba(${value[0]}, ${value[1]}, ${value[2]}, ${value[3]})`
-      : `rgba(${value[0].serialize()}, ${(
-          value[1] as Percentage
-        ).serialize()}, ${(value[2] as Percentage).serialize()}, ${value[3]})`
+      : `rgba(${value[0].serialize()}, ${(value[1] as Percentage).serialize()}, ${(value[2] as Percentage).serialize()}, ${
+          value[3]
+        })`
   }
 }
 
-/**
- * Constructs a value of type **`HSL`**.
- * @category Value constructor
- * @added 0.1.4
- */
-export const hsl = (x1: number, x2: Percentage, x3: Percentage): HSL =>
-  new HSL([x1, x2, x3])
+export const rgba = RGBA.rgba
 
 /**
  *
@@ -343,32 +351,22 @@ export class HSL implements RBType<HSLInput> {
   valueConstructor: Function
   data: HSLInput
 
-  constructor(data: HSLInput) {
+  private constructor(data: HSLInput) {
     this.data = data
-    this.valueConstructor = hsl
+    this.valueConstructor = HSL.hsl
   }
-  /** @valueConstructor */
-  static hsl = hsl
+  /** @category Value constructor */
+  static hsl(x1: number, x2: Percentage, x3: Percentage): HSL {
+    return new HSL([x1, x2, x3])
+  }
 
   serialize(): string {
     const value = this.data
-    return `hsl(${value[0]}, ${(
-      value[1]
-    ).serialize()}, ${(value[2]).serialize()})`
+    return `hsl(${value[0]}, ${value[1].serialize()}, ${value[2].serialize()})`
   }
 }
 
-/**
- * Constructs a value of type **`HSLA`**.
- * @category Value constructor
- * @added 0.1.4
- */
-export const hsla = (
-  x1: number,
-  x2: Percentage,
-  x3: Percentage,
-  x4: number
-): HSLA => new HSLA([x1, x2, x3, x4])
+export const hsl = HSL.hsl
 
 /**
  *
@@ -379,27 +377,26 @@ export class HSLA implements RBType<HSLAInput> {
   valueConstructor: Function
   data: HSLAInput
 
-  constructor(data: HSLAInput) {
+  private constructor(data: HSLAInput) {
     this.data = data
-    this.valueConstructor = hsla
+    this.valueConstructor = HSLA.hsla
   }
-  /** @valueConstructor */
-  static hsla = hsla
+
+  /** @category Value constructor */
+  static hsla(x1: number, x2: Percentage, x3: Percentage, x4: number): HSLA {
+    return new HSLA([x1, x2, x3, x4])
+  }
 
   serialize(): string {
     const value = this.data
-    return `hsla(${value[0]}, ${(
-      value[1]
-    ).serialize()}, ${(value[2]).serialize()}, ${value[3]})`
+    return `hsla(${
+      value[0]
+    }, ${value[1].serialize()}, ${value[2].serialize()}, ${value[3]})`
   }
 }
 
-/**
- * Constructs a value of type **`HEX`**.
- * @category Value constructor
- * @added 0.1.4
- */
-export const hex = (x: string): HEX => new HEX(x)
+export const hsla = HSLA.hsla
+
 
 /**
  *
@@ -411,57 +408,21 @@ export class HEX implements RBType<string> {
   valueConstructor: Function
   data: string
 
-  constructor(data: string) {
+  private constructor(data: string) {
     this.data = data
-    this.valueConstructor = hsla
+    this.valueConstructor = HEX.hex
   }
   /** @valueConstructor */
-  static hex = hex
+  static hex(x: string): HEX {
+    return new HEX(x)
+  }
 
   serialize(): string {
     return this.data
   }
 }
 
-export function rgb(x1: Percentage, x2: Percentage, x3: Percentage): RGB
-
-export function rgb(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger): RGB
-/**
- * Constructs a value of type **`RGB`**.
- * @category Value constructor
- * @added 0.1.4
- */
-export function rgb(x1: any, x2: any, x3: any): RGB {
-  return new RGB([x1, x2, x3])
-}
-
-export function rgba(
-  x1: Percentage,
-  x2: Percentage,
-  x3: Percentage,
-  x4: number
-): RGBA
-
-export function rgba(
-  x1: RGBInteger,
-  x2: RGBInteger,
-  x3: RGBInteger,
-  x4: number
-): RGBA
-
-/**
- * Constructs a value of type **`RGBA`**.
- * @category Value constructor
- * @added 0.1.4
- */
-export function rgba(
-  x1: Percentage | RGBInteger,
-  x2: Percentage | RGBInteger,
-  x3: Percentage | RGBInteger,
-  x4: number
-): RGBA {
-  return new RGBA([x1, x2, x3, x4] as any)
-}
+export const hex = HEX.hex
 
 const extendedColorKeywords = [
   'aliceblue',
@@ -640,7 +601,7 @@ const isStandaloneColorKeyword = (
 ): value is StandaloneColorKeyword => standaloneKeywords.includes(value)
 
 /**
- * 
+ *
  * @deprecated
  */
 export const isColor = (value: any): value is Color =>

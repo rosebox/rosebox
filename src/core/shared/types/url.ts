@@ -16,6 +16,7 @@ export class URL implements RBType<string> {
     this.valueConstructor = URL.url
   }
 
+  /** @category Value constructor */
   static url(x: string) {
     return new URL(x)
   }
@@ -38,6 +39,7 @@ export class URI implements RBType<string> {
     this.valueConstructor = URI.uri
   }
 
+  /** @category Value constructor */
   static uri(x: string) {
     return new URI(x)
   }

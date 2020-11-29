@@ -7,7 +7,7 @@ type AngleUnit = 'deg' | 'grad' | 'rad' | 'turn'
 /**
  * A type that maps to CSS's **`<angle>`** type.
  */
-export class Angle<A extends AngleUnit | 'any' = any> implements RBType<number> {
+export class Angle<A extends AngleUnit = any> implements RBType<number> {
   valueConstructor: Function
   data: number
   unit: AngleUnit
@@ -19,8 +19,11 @@ export class Angle<A extends AngleUnit | 'any' = any> implements RBType<number> 
   }
   /** @valueConstructor */
   static deg = (x: number): Angle<'deg'> => new Angle(x, 'deg', Angle.deg)
+  /** @valueConstructor */
   static turn = (x: number): Angle<'turn'> => new Angle(x, 'turn', Angle.turn)
+  /** @valueConstructor */
   static grad = (x: number): Angle<'grad'> => new Angle(x, 'deg', Angle.grad)
+  /** @valueConstructor */
   static rad = (x: number): Angle<'rad'> => new Angle(x, 'rad', Angle.rad)
   
   serialize() {

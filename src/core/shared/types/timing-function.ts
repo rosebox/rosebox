@@ -21,6 +21,7 @@ export class CubicBezierFunction
     this.valueConstructor = CubicBezierFunction.bezier
   }
 
+  /** @category Value constructor */
   static bezier(x1: number, x2: number, x3: number, x4: number) {
     return new CubicBezierFunction([x1, x2, x3, x4])
   }
@@ -54,6 +55,7 @@ export class StepsFunction
     this.valueConstructor = StepsFunction.steps
   }
 
+  /** @category Value constructor */
   static steps(num: number, stepPosition?: StepPosition) {
     return new StepsFunction(num ,stepPosition)
   }

@@ -32,6 +32,7 @@ export class Calculation<A extends CalcOperation = any> implements RBType<any> {
     this.valueConstructor = valueConstructor
   }
 
+  /** @valueConstructor */
   static cadd(
     x1: LengthPercentage | Calculation<CalcOperation> | Env,
     x2: LengthPercentage | Calculation<CalcOperation> | Env
@@ -39,6 +40,7 @@ export class Calculation<A extends CalcOperation = any> implements RBType<any> {
     return new Calculation([x1, x2], 'addition', Calculation.cadd)
   }
 
+  /** @valueConstructor */
   static csub(
     x1: LengthPercentage | Calculation<CalcOperation> | Env,
     x2: LengthPercentage | Calculation<CalcOperation> | Env
@@ -46,6 +48,7 @@ export class Calculation<A extends CalcOperation = any> implements RBType<any> {
     return new Calculation([x1, x2], 'substraction', Calculation.csub)
   }
 
+  /** @valueConstructor */
   static cdiv(
     x1: LengthPercentage | Calculation<CalcOperation> | Env,
     x2: number
@@ -53,6 +56,7 @@ export class Calculation<A extends CalcOperation = any> implements RBType<any> {
     return new Calculation([x1, x2], 'division', Calculation.cdiv)
   }
 
+  /** @valueConstructor */
   static cmult(
     x1: LengthPercentage | Calculation<CalcOperation> | Env,
     x2: number

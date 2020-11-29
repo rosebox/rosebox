@@ -15,20 +15,18 @@ export class Env implements RBType<any> {
   data: any
   valueConstructor: Function
 
-  constructor(x: SafeAreaInsetVariable, y: any) {
+  private constructor(x: SafeAreaInsetVariable, y: any) {
     this.data = [x, y]
     this.valueConstructor = Env.env
   }
 
-  static env = env
+  /** @category Value constructor */
+  static env(safeAreaInsetVariable: SafeAreaInsetVariable): Env
+  static env(safeAreaInsetVariable: SafeAreaInsetVariable, x: any): Env
+  static env(safeAreaInsetVariable: SafeAreaInsetVariable, x?: any): Env {
+    return new Env(safeAreaInsetVariable, x)
+  }
   serialize = () => serialize(this)
 }
 
-export function env(safeAreaInsetVariable: SafeAreaInsetVariable): Env
-export function env(safeAreaInsetVariable: SafeAreaInsetVariable, x: any): Env
-export function env(
-  safeAreaInsetVariable: SafeAreaInsetVariable,
-  x?: any
-): Env {
-  return new Env(safeAreaInsetVariable, x)
-}
+export const env = Env.env

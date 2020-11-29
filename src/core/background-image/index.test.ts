@@ -23,6 +23,7 @@ test('backgroundImage: URL', () => {
 
 test('backgroundImage: LinearGradient', () => {
   const gradient = linGrad(['red', per(30), ['black', per(20)]])
+  console.log(gradient)
   const received = style({
     backgroundImage: gradient,
   })

@@ -1,19 +1,17 @@
 import { Angle } from './angle'
 import { Color } from './color'
 import { Percentage } from './percentage'
-import {
-  LengthPercentage,
-  RBType,
-  serializeAtomicValue
-} from './shared'
+import { LengthPercentage, RBType, serializeAtomicValue } from './shared'
 
 type LinearColorStop = Color | [Color, LengthPercentage]
 type ColorStopList = (LinearColorStop | Percentage)[]
 
-export const serializeLinearGradient = (val: LinearGradient): string => {
-  const {withAngle, data} = val
+export const serializeLinearGradient = (val: Gradient): string => {
+  const { withAngle, data } = val
   const y = (withAngle ? data[1] : data) as ColorStopList
-  const angleStr = withAngle ? `${serializeAtomicValue(data[0] as Angle)}, ` : ''
+  const angleStr = withAngle
+    ? `${serializeAtomicValue(data[0] as Angle)}, `
+    : ''
   const colorstopStr = (y as ColorStopList).reduce(
     (acc, item, idx) =>
       acc +
@@ -24,38 +22,43 @@ export const serializeLinearGradient = (val: LinearGradient): string => {
   return `linear-gradient(${angleStr}${colorstopStr})`
 }
 
-export class LinearGradient
+/**
+ *
+ * A type that maps to CSS's **`<linear-gradient>`** type.
+ * @added 0.1.0
+ */
+export class Gradient<A extends 'linear-gradient' | 'radial-gradient' = any>
   implements RBType<ColorStopList | [Angle, ColorStopList]> {
-    data: ColorStopList | [Angle, ColorStopList]
-    valueConstructor: Function
-    withAngle: boolean
+  gradientType: A
+  data: ColorStopList | [Angle, ColorStopList]
+  valueConstructor: Function
+  withAngle: boolean
 
-    private constructor(x: any, y?: any) {
-      this.valueConstructor = LinearGradient.linGrad
-      this.data = y ? [x, y] : x
-      this.withAngle = y ? true : false
-      console.log(y ? [x, y] : x)
-    }
-
-  static linGrad(x: ColorStopList): LinearGradient
-  static linGrad(x: Angle, y: ColorStopList): LinearGradient
-  static linGrad(x: any, y?: any): LinearGradient {
-    return new LinearGradient(x, y)
-  }
-    
-    serialize = () => serializeLinearGradient(this)
+  private constructor(gradientType: A, x: any, y?: any) {
+    this.gradientType = gradientType
+    this.valueConstructor = Gradient.linGrad
+    this.data = y ? [x, y] : x
+    this.withAngle = y ? true : false
   }
 
-/** @valueConstructor */
-export const linGrad = LinearGradient.linGrad
+  /** @category Value constructor */
+  static linGrad(x: ColorStopList): Gradient<'linear-gradient'>
+  static linGrad(x: Angle, y: ColorStopList): Gradient<'linear-gradient'>
+  static linGrad(x: any, y?: any): Gradient<'linear-gradient'> {
+    return new Gradient('linear-gradient', x, y)
+  }
+
+  serialize(): string {
+    return serializeLinearGradient(this)
+  }
+}
+
+export const linGrad = Gradient.linGrad
 
 const serializeColorStopListItem = (
   x: LinearColorStop | Percentage
 ): string => {
   return !Array.isArray(x)
     ? serializeAtomicValue(x)
-    : `${serializeAtomicValue(x[0])} ${(serializeAtomicValue(x[1]))}`
+    : `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}`
 }
-
-
-export type Gradient = LinearGradient

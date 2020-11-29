@@ -9,11 +9,11 @@ export class Decibel implements RBType<number> {
   valueConstructor: Function
   data: number
 
-  constructor(data: number) {
+  private constructor(data: number) {
     this.data = data
     this.valueConstructor = Decibel.db
   }
-  /** @valueConstructor */
+  /** @category Value constructor */
   static db(x: number): Decibel {
       return new Decibel(x)
   }
