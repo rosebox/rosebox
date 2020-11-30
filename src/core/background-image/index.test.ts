@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { linGrad, per, url } from '../shared'
+import { deg, linGrad, per, url } from '../shared'
 
 test('backgroundImage: keyword', () => {
   const received = style({
@@ -22,13 +22,42 @@ test('backgroundImage: URL', () => {
 })
 
 test('backgroundImage: LinearGradient', () => {
-  const gradient = linGrad(['red', per(30), ['black', per(20)]])
-  console.log(gradient)
+  const gradient = linGrad({
+    colorStopList: ['red', per(30), ['black', per(20)]]
+  })
   const received = style({
     backgroundImage: gradient,
   })
   const expected = {
     backgroundImage: 'linear-gradient(red, 30%, black 20%)',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('backgroundImage: LinearGradient', () => {
+  const gradient = linGrad({
+    direction: 'to left',
+    colorStopList: ['red', per(30), ['black', per(20)]]
+  })
+  const received = style({
+    backgroundImage: gradient,
+  })
+  const expected = {
+    backgroundImage: 'linear-gradient(to left, red, 30%, black 20%)',
+  }
+  expect(received).toEqual(expected)
+})
+
+test('backgroundImage: LinearGradient', () => {
+  const gradient = linGrad({
+    direction: deg(50),
+    colorStopList: ['red', per(30), ['black', per(20)]]
+  })
+  const received = style({
+    backgroundImage: gradient,
+  })
+  const expected = {
+    backgroundImage: 'linear-gradient(50deg, red, 30%, black 20%)',
   }
   expect(received).toEqual(expected)
 })

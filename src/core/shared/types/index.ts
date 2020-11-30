@@ -15,6 +15,7 @@ export * from './color'
 export * from './env'
 export * from './math'
 export * from './gradient'
+export * from './image'
 
 export const globalCssKeywords = <const>['inherit', 'initial', 'unset']
 

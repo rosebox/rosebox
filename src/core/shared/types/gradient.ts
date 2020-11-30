@@ -7,19 +7,34 @@ type LinearColorStop = Color | [Color, LengthPercentage]
 type ColorStopList = (LinearColorStop | Percentage)[]
 
 export const serializeLinearGradient = (val: Gradient): string => {
-  const { withAngle, data } = val
-  const y = (withAngle ? data[1] : data) as ColorStopList
-  const angleStr = withAngle
-    ? `${serializeAtomicValue(data[0] as Angle)}, `
-    : ''
-  const colorstopStr = (y as ColorStopList).reduce(
+  const { data } = val
+  const { direction,  colorStopList} = data
+  const angleStr = direction ? `${serializeAtomicValue(direction)}, ` : ''
+  const colorstopStr = (colorStopList).reduce(
     (acc, item, idx) =>
       acc +
       serializeColorStopListItem(item) +
-      (idx === y.length - 1 ? '' : ', '),
+      (idx === colorStopList.length - 1 ? '' : ', '),
     ''
   )
   return `linear-gradient(${angleStr}${colorstopStr})`
+}
+
+
+type ToSideOrCorner = 
+| 'to left' | 'to right'
+| 'to top' | 'to bottom'
+| 'to left top' | 'to top left'
+| 'to left bottom' | 'to bottom left'
+| 'to right top' | 'to top right'
+| 'to right bottom' | 'to bottom right'
+
+/**
+ * @skip
+ */
+type LinearGradientParamsObj = {
+  direction?: Angle | ToSideOrCorner,
+  colorStopList: ColorStopList
 }
 
 /**
@@ -28,17 +43,15 @@ export const serializeLinearGradient = (val: Gradient): string => {
  * @added 0.1.0
  */
 export class Gradient<A extends 'linear-gradient' | 'radial-gradient' = any>
-  implements RBType<ColorStopList | [Angle, ColorStopList]> {
+  implements RBType<LinearGradientParamsObj> {
   gradientType: A
-  data: ColorStopList | [Angle, ColorStopList]
+  data: LinearGradientParamsObj
   valueConstructor: Function
-  withAngle: boolean
 
-  private constructor(gradientType: A, x: any, y?: any) {
+  private constructor(gradientType: A, x: LinearGradientParamsObj) {
     this.gradientType = gradientType
     this.valueConstructor = Gradient.linGrad
-    this.data = y ? [x, y] : x
-    this.withAngle = y ? true : false
+    this.data = x
   }
 
 <<<<<<< HEAD
@@ -49,10 +62,8 @@ export class Gradient<A extends 'linear-gradient' | 'radial-gradient' = any>
    * Constructs a value of type **`Gradient<linear-gradient>`**. This function maps to CSS's **`linear-gradient()`**
 >>>>>>> master
   */
-  static linGrad(x: ColorStopList): Gradient<'linear-gradient'>
-  static linGrad(x: Angle, y: ColorStopList): Gradient<'linear-gradient'>
-  static linGrad(x: any, y?: any): Gradient<'linear-gradient'> {
-    return new Gradient('linear-gradient', x, y)
+  static linGrad(x: LinearGradientParamsObj): Gradient<'linear-gradient'> {
+    return new Gradient('linear-gradient', x)
   }
 
   serialize(): string {
