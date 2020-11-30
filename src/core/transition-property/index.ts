@@ -38,7 +38,7 @@ export const serializeTransitionProperty = (
  */
 export type TransitionPropertyDeclaration = {
   /**
-   * Maps to CSS's **`text-align`** property
+   * Maps to CSS's **`transition-property`** property
    * @category RBProperty
    * @formalSyntaxForValue none | <single-transition-property>#
    * @added 0.2.1

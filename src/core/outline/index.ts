@@ -26,7 +26,7 @@ export const serializeOutline = (
  */
 export type OutlineDeclaration = {
   /**
-   * Maps to CSS's **`outline-style`** property
+   * Maps to CSS's **`outline`** property
    * @category RBProperty
    */
   outline: DoubleBar3<Color, LineStyle, LineWidth> | GlobalCssKeyword

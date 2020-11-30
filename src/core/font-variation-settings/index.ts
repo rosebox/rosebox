@@ -20,10 +20,9 @@ export const serializeFontVariationSettings = (
  */
 export type FontVariationSettingsDeclaration = {
   /**
-   * Maps to CSS's **`font-synthesis-style`** property
+   * Maps to CSS's **`font-variation-settings`** property
    * @category RBProperty
    * @formalSyntaxForValue auto | none
-   * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-synthesis-style
    */
   fontVariationSettings:
     | 'normal'
