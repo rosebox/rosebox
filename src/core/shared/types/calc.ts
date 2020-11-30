@@ -3,7 +3,9 @@ import { LengthPercentage, RBType, serializeAtomicValue } from './shared'
 
 type CalcOperation = 'addition' | 'substraction' | 'multiplication' | 'division'
 
-type CalculationData<A extends CalcOperation = any> = A extends 'addition'
+type CalculationData<
+  A extends CalcOperation | void = void
+> = A extends 'addition'
   ? [
       LengthPercentage | Calculation<CalcOperation> | Env,
       LengthPercentage | Calculation<CalcOperation> | Env
@@ -19,19 +21,35 @@ type CalculationData<A extends CalcOperation = any> = A extends 'addition'
       | [number, LengthPercentage | Calculation<CalcOperation> | Env]
   : A extends 'division'
   ? [LengthPercentage | Calculation<CalcOperation> | Env, number]
-  : any
+  :
+      | [
+          LengthPercentage | Calculation<CalcOperation> | Env,
+          LengthPercentage | Calculation<CalcOperation> | Env
+        ]
+      | [
+          LengthPercentage | Calculation<CalcOperation> | Env,
+          LengthPercentage | Calculation<CalcOperation> | Env
+        ]
+      | [LengthPercentage | Calculation<CalcOperation> | Env, number]
+      | [number, LengthPercentage | Calculation<CalcOperation> | Env]
+      | [LengthPercentage | Calculation<CalcOperation> | Env, number]
 
-  /**
+/**
  *
  * The type of values that are to be computed by the browser (**`<calc()>`**)
  * @added 0.1.0
  */
-export class Calculation<A extends CalcOperation = any> implements RBType<any> {
-  operationType: A extends any ? CalcOperation : A
+export class Calculation<A extends CalcOperation | void = void>
+  implements RBType<any> {
+  operationType: A extends void ? CalcOperation : A
   data: CalculationData<A>
   valueConstructor: Function
 
-  private constructor(data: any, operationType: A extends any ? CalcOperation : A, valueConstructor: Function) {
+  private constructor(
+    data: any,
+    operationType: A extends void ? CalcOperation : A,
+    valueConstructor: Function
+  ) {
     this.operationType = operationType
     this.data = data
     this.valueConstructor = valueConstructor
@@ -85,7 +103,7 @@ export const csub = Calculation.csub
 export const cmult = Calculation.cmult
 export const cdiv = Calculation.cdiv
 
-const getOpSign = (x: Calculation<CalcOperation>) => {
+const getOpSign = (x: Calculation) => {
   switch (x.operationType) {
     case 'addition':
       return '+'
@@ -104,7 +122,7 @@ const serializeCalculationOperand = (
   x: Calculation<CalcOperation> | number | LengthPercentage | Env
 ): string => serializeAtomicValue(x)
 
-const serializeCalculation = (x: Calculation<CalcOperation>): string =>
+const serializeCalculation = (x: Calculation): string =>
   `calc(${serializeCalculationOperand(x.data[0])} ${getOpSign(
     x
   )} ${serializeCalculationOperand(x.data[1])})`

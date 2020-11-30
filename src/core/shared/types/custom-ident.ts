@@ -13,7 +13,7 @@ export class CustomIdent implements RBType<string> {
     this.valueConstructor = CustomIdent.ident
   }
   /**
-   * * @category Value constructor
+   * @category Value constructor
    */
   static ident(x: string): CustomIdent {
     return new CustomIdent(x)

@@ -41,12 +41,13 @@ export type DurationUnit = 'milliseconds' | 'seconds'
  * A type that maps to CSS's **`<time>`** type.
  * @added 0.1.0
  */
-export class Duration<A extends 'milliseconds' | 'seconds' | 'any' = any>
+export class Duration<A extends DurationUnit | void = void>
   implements Setoid<Duration<A>> {
   valueConstructor: Function
-  public unit: A
+  public unit: A extends void ? DurationUnit : A
   public data: number
-  private constructor(unit: A, data: number) {
+
+  private constructor(unit: A extends void ? DurationUnit : A, data: number) {
     this.unit = unit
     this.data = data
     this.valueConstructor = unit === 'milliseconds' ? Duration.ms : Duration.s

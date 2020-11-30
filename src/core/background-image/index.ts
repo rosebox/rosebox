@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
-import { Image } from '../shared/types/image'
+import { ImageValue } from '../shared/types/image'
 
-export type BackgroundImageValue = Image | 'none'
+export type BackgroundImageValue = ImageValue | 'none'
 
 export const serializeBackgroundImage = (
   x: BackgroundImageValue | GlobalCssKeyword

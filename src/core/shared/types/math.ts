@@ -49,6 +49,7 @@ export function div(x1: any, x2: any) {
  * @category utilityFunction
  */
 export function eq<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): boolean
+export function eq<A extends DurationUnit>(x1: Duration<A>, x2: Duration<A>): boolean
 export function eq(x1: any, x2: any): boolean {
   return x1.eq(x1, x2)
 }

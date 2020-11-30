@@ -1,4 +1,4 @@
-import { add, eq, ms, mult, px, sub, div } from "../types"
+import { add, eq, ms, mult, px, sub, div, s } from "../types"
 
 test('mult(Length, number)', () => {
     const received = mult(px(300), 3).serialize()
@@ -39,5 +39,29 @@ test('eq(Length, Length): boolean<false>', () => {
 test('eq(Length, Length): boolean<true>', () => {
     const received = eq(px(600), px(600))
     const expected = true
+    expect(received).toEqual(expected)
+})
+
+test('eq(Duration<ms>, Duration<ms>): boolean<true>', () => {
+    const received = eq(ms(500), ms(500))
+    const expected = true
+    expect(received).toEqual(expected)
+})
+
+test('eq(Duration<ms>, Duration<ms>): boolean<false>', () => {
+    const received = eq(ms(500), ms(400))
+    const expected = false
+    expect(received).toEqual(expected)
+})
+
+test('eq(Duration<ms>, Duration<s>): boolean<true>', () => {
+    const received = eq(ms(500), s(0.5))
+    const expected = true
+    expect(received).toEqual(expected)
+})
+
+test('eq(Duration<ms>, Duration<s>): boolean<false>', () => {
+    const received = eq(ms(500), s(0.4))
+    const expected = false
     expect(received).toEqual(expected)
 })
