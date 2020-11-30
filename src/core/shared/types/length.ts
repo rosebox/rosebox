@@ -22,18 +22,18 @@ export type LengthUnit =
  * A type that maps to CSS's **`<length>`** type.
  * @added 0.1.0
  */
-export class Length<A extends LengthUnit | void = void> implements RBType<number> {
-  unit: A extends void ? LengthUnit : A
+export class Length<A extends LengthUnit = LengthUnit> implements RBType<number> {
+  unit: A
   data: number
   valueConstructor: Function
 
   private constructor(
     data: number,
-    unit: LengthUnit,
+    unit: A,
     valueConstructor: Function
   ) {
     this.data = data
-    this.unit = unit as any
+    this.unit = unit
     this.valueConstructor = valueConstructor
   }
 
