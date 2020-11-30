@@ -23,7 +23,7 @@ export const serializeVolume = (x: Volume | GlobalCssKeyword) => ({
  */
 export type VolumeDeclaration = {
   /**
-   * Maps to CSS's **`visibility`** property
+   * Maps to CSS's **`volume`** property
    * @category RBProperty
    */
   volume: Volume | GlobalCssKeyword

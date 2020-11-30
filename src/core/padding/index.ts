@@ -85,7 +85,7 @@ export type PaddingXDeclaration = {
   /**
    * Maps to CSS's **`padding-left`** and **`padding-right`** properties.
    * If a pair (a tuple of two elements) is provided then the values in it
-   * will be mapped to **`padding-left`** and `padding-right` respectively. Otherwise
+   * will be mapped to **`padding-left`** and **`padding-right`** respectively. Otherwise
    * if a single value of type `LengthPercentage` is provided then it will be used for both.
    * @category RBProperty
    */
@@ -99,7 +99,7 @@ export type PaddingYDeclaration = {
   /**
    * Maps to CSS's **`padding-top`** and **`padding-bottom`** properties.
    * If a pair (a tuple of two elements) is provided then the values in it
-   * will be mapped to **`padding-top`** and `padding-bottom` respectively. Otherwise
+   * will be mapped to **`padding-top`** and **`padding-bottom`** respectively. Otherwise
    * if a single value of type `LengthPercentage` is provided then it will be used for both.
    * @category RBProperty
    */

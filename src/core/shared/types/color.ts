@@ -580,6 +580,7 @@ export type NamedColorKeyword = typeof extendedColorKeywords[number]
 export const standaloneKeywords = ['currentColor', 'transparent'] as const
 export type StandaloneColorKeyword = typeof standaloneKeywords[number]
 
+/** @global */
 export type Color =
   | HEX
   | RGB

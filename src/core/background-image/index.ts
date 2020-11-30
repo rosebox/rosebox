@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, getSerializer, serializeAtomicValue } from '../shared'
+import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
 import { Image } from '../shared/types/image'
 
 export type BackgroundImageValue = Image | 'none'

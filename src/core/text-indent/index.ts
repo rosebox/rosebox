@@ -31,7 +31,7 @@ type TextIndentValue =
  */
 export type TextIndentDeclaration = {
   /**
-   * Maps to CSS's **`text-emphasis-skip`** property
+   * Maps to CSS's **`text-indent`** property
    * @category RBProperty
    */
   textIndent: TextIndentValue

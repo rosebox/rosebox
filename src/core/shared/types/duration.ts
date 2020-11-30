@@ -15,16 +15,28 @@ export const toMilliseconds = (x: Duration): Duration<'milliseconds'> => {
   return Duration.ms(value)
 }
 
+<<<<<<< HEAD
+=======
+/** @ignore */
+>>>>>>> master
 const eq = (x: any, y: any): boolean => {
   return toMilliseconds(x).data === toMilliseconds(y).data
 }
 
+<<<<<<< HEAD
+=======
+/** @ignore */
+>>>>>>> master
 const add = (x1: Duration, x2: Duration): Duration<'milliseconds'> => {
   const x1ms = x1.unit === 'milliseconds' ? x1.data : x1.data * 1000
   const x2m2 = x2.unit === 'milliseconds' ? x2.data : x2.data * 1000
   return ms(x1ms + x2m2)
 }
 
+<<<<<<< HEAD
+=======
+/** @ignore */
+>>>>>>> master
 const sub = (x1: Duration, x2: Duration): Duration<'milliseconds'> => {
   const x1ms = x1.unit === 'milliseconds' ? x1.data : x1.data * 1000
   const x2m2 = x2.unit === 'milliseconds' ? x2.data : x2.data * 1000
@@ -49,11 +61,23 @@ export class Duration<A extends 'milliseconds' | 'seconds' | 'any' = any>
     this.valueConstructor = unit === 'milliseconds' ? Duration.ms : Duration.s
   }
 
+<<<<<<< HEAD
   /** @category Value constructor */
   static ms(x: number): Duration<'milliseconds'> {
     return new Duration('milliseconds', x)
   }
   /** @category Value constructor */
+=======
+  /**
+   * Constructs a value of type **`Duration`** where the unit is **`milliseconds`**
+  */
+  static ms(x: number): Duration<'milliseconds'> {
+    return new Duration('milliseconds', x)
+  }
+  /**
+   * Constructs a value of type **`Duration`** where the unit is **`seconds`**
+  */
+>>>>>>> master
   static s(x: number): Duration<'seconds'> {
     return new Duration('seconds', x)
   }

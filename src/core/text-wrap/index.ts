@@ -5,7 +5,7 @@ import { GlobalCssKeyword } from '../shared'
  */
 export type TextWrapDeclaration = {
   /**
-   *  Maps to CSS's **`text-transform`** property
+   *  Maps to CSS's **`text-wrap`** property
    * @category RBProperty
    */
   textWrap:

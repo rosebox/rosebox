@@ -13,6 +13,7 @@ export class Decibel implements RBType<number> {
     this.data = data
     this.valueConstructor = Decibel.db
   }
+<<<<<<< HEAD
   /** @category Value constructor */
   static db(x: number): Decibel {
       return new Decibel(x)
@@ -23,5 +24,18 @@ export class Decibel implements RBType<number> {
   }
 }
 
+=======
+
+  static db(x: number): Decibel {
+      return new Decibel(x)
+  }
+
+  serialize(): string {
+    return `${this.data}dB`
+  }
+}
+
+  /** @category Value constructor */
+>>>>>>> master
 export const db = Decibel.db
 export const isDecibel = (x: any): x is Decibel => x instanceof Decibel
