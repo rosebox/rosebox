@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-import {
-  RBType,
-} from './shared'
-=======
 import { RBType } from './shared'
 
 type AngleUnit = 'deg' | 'grad' | 'rad' | 'turn'
->>>>>>> master
-
-type AngleUnit = 'deg' | 'grad' | 'rad' | 'turn'
 
 /**
  * A type that maps to CSS's **`<angle>`** type.
@@ -17,32 +9,16 @@ export class Angle<A extends AngleUnit = any> implements RBType<number> {
   valueConstructor: Function
   data: number
   unit: AngleUnit
-<<<<<<< HEAD
-  
-  private constructor(data: number, unit: AngleUnit, valConstructor: (x: number) => Angle<A>) {
-=======
 
   private constructor(
     data: number,
     unit: AngleUnit,
     valConstructor: (x: number) => Angle<A>
   ) {
->>>>>>> master
     this.unit = unit
     this.data = data
     this.valueConstructor = valConstructor
   }
-<<<<<<< HEAD
-  /** @valueConstructor */
-  static deg = (x: number): Angle<'deg'> => new Angle(x, 'deg', Angle.deg)
-  /** @valueConstructor */
-  static turn = (x: number): Angle<'turn'> => new Angle(x, 'turn', Angle.turn)
-  /** @valueConstructor */
-  static grad = (x: number): Angle<'grad'> => new Angle(x, 'deg', Angle.grad)
-  /** @valueConstructor */
-  static rad = (x: number): Angle<'rad'> => new Angle(x, 'rad', Angle.rad)
-  
-=======
   /** 
    * Constructs a value of type **`Angle`** where the unit is **`deg`**.
    */
@@ -60,7 +36,6 @@ export class Angle<A extends AngleUnit = any> implements RBType<number> {
   */
   static rad = (x: number): Angle<'rad'> => new Angle(x, 'rad', Angle.rad)
 
->>>>>>> master
   serialize() {
     if (this.unit === 'deg') return `${this.data}deg`
     if (this.unit === 'rad') return `${this.data}rad`
@@ -95,21 +70,9 @@ export const deg = Angle.deg
  * @added 0.2.3
  */
 export const rad = Angle.rad
-<<<<<<< HEAD
 
 export const isAngle = (x: any): x is Angle => x instanceof Angle
 export const isDeg = (x: Angle): boolean => isAngle(x) && x.unit === 'deg'
 export const isGrad = (x: any): boolean => isAngle(x) && x.unit === 'grad'
 export const isRad = (x: Angle): boolean => isAngle(x) && x.unit === 'rad'
 export const isTurn = (x: Angle): boolean => isAngle(x) && x.unit === 'turn'
-
-
-
-=======
-
-export const isAngle = (x: any): x is Angle => x instanceof Angle
-export const isDeg = (x: Angle): boolean => isAngle(x) && x.unit === 'deg'
-export const isGrad = (x: any): boolean => isAngle(x) && x.unit === 'grad'
-export const isRad = (x: Angle): boolean => isAngle(x) && x.unit === 'rad'
-export const isTurn = (x: Angle): boolean => isAngle(x) && x.unit === 'turn'
->>>>>>> master

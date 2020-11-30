@@ -20,11 +20,7 @@ export class Env implements RBType<any> {
     this.valueConstructor = Env.env
   }
 
-<<<<<<< HEAD
-  /** @category Value constructor */
-=======
   /** Constructs a value of type **`Env`**. This functions maps to CSS's **`env()`**  */
->>>>>>> master
   static env(safeAreaInsetVariable: SafeAreaInsetVariable): Env
   static env(safeAreaInsetVariable: SafeAreaInsetVariable, x: any): Env
   static env(safeAreaInsetVariable: SafeAreaInsetVariable, x?: any): Env {
@@ -33,8 +29,5 @@ export class Env implements RBType<any> {
   serialize = () => serialize(this)
 }
 
-<<<<<<< HEAD
-=======
 /** @category Value constructor */
->>>>>>> master
 export const env = Env.env

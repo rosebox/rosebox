@@ -54,13 +54,8 @@ export class Gradient<A extends 'linear-gradient' | 'radial-gradient' = any>
     this.data = x
   }
 
-<<<<<<< HEAD
-  /** @category Value constructor 
-   * Creates a linear-gradient.
-=======
   /**
    * Constructs a value of type **`Gradient<linear-gradient>`**. This function maps to CSS's **`linear-gradient()`**
->>>>>>> master
   */
   static linGrad(x: LinearGradientParamsObj): Gradient<'linear-gradient'> {
     return new Gradient('linear-gradient', x)
@@ -71,10 +66,7 @@ export class Gradient<A extends 'linear-gradient' | 'radial-gradient' = any>
   }
 }
 
-<<<<<<< HEAD
-=======
 /** @category Value constructor */
->>>>>>> master
 export const linGrad = Gradient.linGrad
 
 const serializeColorStopListItem = (
