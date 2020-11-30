@@ -122,32 +122,35 @@ export const pt = Length.pt
 
 const toNum = (x: Length): number => x.data
 
+/** @ignore */
 function mult(x: any, y: any): Length {
   const val = isLengthType(x) ? x.data * y : toNum(y as Length) * x
   const valueConstructor = x?.valueConstructor ?? y?.valueConstructor
   return valueConstructor(val)
 }
 
+/** @ignore */
 function add<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): Length<A> {
   return x1.valueConstructor(x1.data + x2.data)
 }
 
+/** @ignore */
 function sub<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): Length<A> {
   return x1.valueConstructor(x1.data - x2.data)
 }
+
+/** @ignore */
 function div<A extends LengthUnit>(x: Length<A>, x2: number): Length<A>
-function div<A extends LengthUnit>(x: number, x2: Length<A>): Length<A>
 function div(x: any, y: any): Length {
   const val = isLengthType(x) ? x.data / y : toNum(y as Length) / x
   const valueConstructor = x?.valueConstructor ?? y?.valueConstructor
   return valueConstructor(val)
 }
 
+/** @ignore */
 function eq<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): boolean {
   return x1.data === x2.data
 }
-
-
 
 export const isLengthType = (x: any): x is Length => x instanceof Length
 

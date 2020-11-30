@@ -13,7 +13,7 @@ export class Decibel implements RBType<number> {
     this.data = data
     this.valueConstructor = Decibel.db
   }
-  /** @category Value constructor */
+
   static db(x: number): Decibel {
       return new Decibel(x)
   }
@@ -23,5 +23,6 @@ export class Decibel implements RBType<number> {
   }
 }
 
+  /** @category Value constructor */
 export const db = Decibel.db
 export const isDecibel = (x: any): x is Decibel => x instanceof Decibel

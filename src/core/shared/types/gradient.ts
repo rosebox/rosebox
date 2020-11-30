@@ -41,8 +41,8 @@ export class Gradient<A extends 'linear-gradient' | 'radial-gradient' = any>
     this.withAngle = y ? true : false
   }
 
-  /** @category Value constructor 
-   * Creates a linear-gradient.
+  /**
+   * Constructs a value of type **`Gradient<linear-gradient>`**. This function maps to CSS's **`linear-gradient()`**
   */
   static linGrad(x: ColorStopList): Gradient<'linear-gradient'>
   static linGrad(x: Angle, y: ColorStopList): Gradient<'linear-gradient'>
@@ -55,6 +55,7 @@ export class Gradient<A extends 'linear-gradient' | 'radial-gradient' = any>
   }
 }
 
+/** @category Value constructor */
 export const linGrad = Gradient.linGrad
 
 const serializeColorStopListItem = (
