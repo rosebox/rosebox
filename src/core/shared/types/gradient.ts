@@ -37,18 +37,20 @@ type LinearGradientParamsObj = {
   colorStopList: ColorStopList
 }
 
+type GradientType = 'linear-gradient' | 'radial-gradient'
+
 /**
  *
  * A type that maps to CSS's **`<gradient>`** type.
  * @added 0.1.0
  */
-export class Gradient<A extends 'linear-gradient' | 'radial-gradient' = any>
+export class Gradient<A extends GradientType | void = void>
   implements RBType<LinearGradientParamsObj> {
-  gradientType: A
+  gradientType: A extends void ? GradientType : A
   data: LinearGradientParamsObj
   valueConstructor: Function
 
-  private constructor(gradientType: A, x: LinearGradientParamsObj) {
+  private constructor(gradientType: A extends void ? GradientType : A, x: LinearGradientParamsObj) {
     this.gradientType = gradientType
     this.valueConstructor = Gradient.linGrad
     this.data = x
@@ -76,3 +78,8 @@ const serializeColorStopListItem = (
     ? serializeAtomicValue(x)
     : `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}`
 }
+
+
+type ExcludeTypeKey<K> = K extends "type" ? never : K
+
+type Test = ExcludeTypeKey<"emailAddress" | "type" | "foo">
