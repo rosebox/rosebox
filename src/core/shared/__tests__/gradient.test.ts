@@ -10,7 +10,7 @@ test('Serialize radGrad', () => {
     expect(received).toEqual(expected)
 })
 
-test('Serialize radGrad', () => {
+test('Serialize repRadGrad', () => {
     const received = repRadGrad({
         position: pos(per(50), per(50)),
         endingShape: 'circle',
