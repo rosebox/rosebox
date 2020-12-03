@@ -2,6 +2,7 @@ import {
   GlobalCssKeyword,
   LengthPercentage,
   serializeAtomicValue,
+  ValueOrFunc,
 } from '../shared'
 
 type BaselineSource = 'auto' | 'first' | 'last'
@@ -32,6 +33,12 @@ export const serializeVerticalAlign = (
   verticalAlign: serializeAtomicValue(x),
 })
 
+/** @hide */
+type PropValue = BaselineSource
+| AlignmentBaseline
+| BaselineShift
+| GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -40,9 +47,9 @@ export type VerticalAlignDeclaration = {
    * Maps to CSS's **`vertical-align`** property
    * @category RBProperty
    */
-  verticalAlign:
-    | BaselineSource
-    | AlignmentBaseline
-    | BaselineShift
-    | GlobalCssKeyword
+  verticalAlign: PropValue
+}
+
+export type VerticalAlignDeclarationJSS = {
+  verticalAlign: ValueOrFunc<PropValue>
 }
