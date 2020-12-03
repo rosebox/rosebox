@@ -1,3 +1,4 @@
+import { Calculation } from './calc'
 import { RBType } from './shared'
 
 export type LengthUnit =
@@ -26,6 +27,7 @@ export class Length<A extends LengthUnit = LengthUnit> implements RBType<number>
   unit: A
   data: number
   valueConstructor: Function
+  serialize: () => string
 
   private constructor(
     data: number,
@@ -35,6 +37,9 @@ export class Length<A extends LengthUnit = LengthUnit> implements RBType<number>
     this.data = data
     this.unit = unit
     this.valueConstructor = valueConstructor
+    this.serialize = (): string => {
+      return `${this.data}${this.unit}`
+    }
   }
 
   /**
@@ -142,9 +147,8 @@ export class Length<A extends LengthUnit = LengthUnit> implements RBType<number>
   static pt(x: number): Length<'pt'> {
     return new Length(x, 'pt', Length.pt)
   }
-  serialize(): string {
-    return `${this.data}${this.unit}`
-  }
+  
+
 
   add = add
   sub = sub
@@ -217,3 +221,5 @@ function eq<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): boolean {
 }
 
 export const isLengthType = (x: any): x is Length => x instanceof Length
+
+export type LengthValue = Length | Calculation

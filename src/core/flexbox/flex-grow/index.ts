@@ -1,12 +1,12 @@
 import { ShrinkGrow } from '../shared'
-import { GlobalCssKeyword } from '../../shared'
+import { GlobalCssKeyword, PropType } from '../../shared'
 
-export const serializeFlexGrow = (
+export const serializeFlexGrow = (type: PropType) => (
   value: ShrinkGrow | GlobalCssKeyword
 ): {
-  flexGrow: string | number
+  [key: string]: string | number
 } => ({
-  flexGrow: value,
+  [type === 'inline' ? 'flexGrow' : 'flex-grow']: value,
 })
 
 /**

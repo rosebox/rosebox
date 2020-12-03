@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
 type AnimationDirectionKeyword =
   | 'normal'
@@ -22,9 +22,15 @@ export const serializeValue = (value: AnimationDirection): string | number =>
         ''
       )
 
-export const serializeAnimationDirection = (x: AnimationDirection) => ({
-  animationDirection: serializeValue(x),
-})
+export const serializeAnimationDirection = (type: PropType) => (x: AnimationDirection) => {
+  const propName = type === 'inline' ? 'animationDirection' : 'animation-direction'
+  return {
+    [propName]: serializeValue(x),
+  }
+}
+
+/** @hide */
+type PropValue = AnimationDirection
 
 /**
  * @category RBDeclarationTypeAlias
@@ -34,5 +40,8 @@ export type AnimationDirectionDeclaration = {
    * Maps to CSS's **`animation-direction`** property
    * @category RBProperty
    */
-  animationDirection: AnimationDirection
+  animationDirection: PropValue
+}
+export type AnimationDirectionDeclarationJSS = {
+  animationDirection: ValueOrFunc<PropValue>
 }

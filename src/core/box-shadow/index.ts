@@ -3,6 +3,7 @@ import {
   isLengthType,
   GlobalCssKeyword,
   isGlobalCssKeyword,
+  PropType,
 } from '../shared'
 import { Color, isColor, serializeAtomicValue } from '../shared'
 
@@ -70,10 +71,10 @@ const serializeBoxShadowPropertyValue = (
     ? serializeShadow(value as Shadow)
     : serializeShadowArray(value as Shadow[])
 
-export const serializeBoxShadow = (
+export const serializeBoxShadow = (type: PropType) => (
   x: Shadow | Shadow[] | GlobalCssKeyword | 'none'
 ) => ({
-  boxShadow: serializeBoxShadowPropertyValue(x),
+  [type === 'inline' ? 'boxShadow' : 'box-shadow']: serializeBoxShadowPropertyValue(x),
 })
 
 /**

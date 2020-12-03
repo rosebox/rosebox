@@ -4,6 +4,7 @@ import {
   LengthPercentage,
   Calculation,
   serializeAtomicValue,
+  PropType,
 } from '../shared'
 
 type MarginValue = LengthPercentage | Calculation | 'auto'
@@ -14,7 +15,8 @@ const serializeMarginSide = (prop: string) => (
   [prop]: serializeAtomicValue(value),
 })
 
-export const serializeMarginTopValue = serializeMarginSide('marginTop')
+export const serializeMarginTopValue = (type: PropType) =>
+  serializeMarginSide(type === 'inline' ? 'marginTop' : 'margin-top')
 
 export type MarginTopDeclaration = {
   /**
@@ -27,7 +29,8 @@ export type MarginTopDeclaration = {
   marginTop: MarginValue | GlobalCssKeyword
 }
 
-export const serializeMarginRightValue = serializeMarginSide('marginRight')
+export const serializeMarginRightValue = (type: PropType) =>
+serializeMarginSide(type === 'inline' ? 'marginRight' : 'margin-right')
 
 export type MarginRightDeclaration = {
   /**
@@ -40,7 +43,8 @@ export type MarginRightDeclaration = {
   marginRight: MarginValue | GlobalCssKeyword
 }
 
-export const serializeMarginBottomValue = serializeMarginSide('marginBottom')
+export const serializeMarginBottomValue = (type: PropType) =>
+serializeMarginSide(type === 'inline' ? 'marginBottom' : 'margin-bottom')
 
 export type MarginBottomDeclaration = {
   /**
@@ -53,7 +57,8 @@ export type MarginBottomDeclaration = {
   marginBottom: MarginValue | GlobalCssKeyword
 }
 
-export const serializeMarginLeftValue = serializeMarginSide('marginLeft')
+export const serializeMarginLeftValue = (type: PropType) =>
+serializeMarginSide(type === 'inline' ? 'marginLeft' : 'margin-left')
 
 export type MarginLeftDeclaration = {
   /**

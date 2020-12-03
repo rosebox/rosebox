@@ -17,6 +17,10 @@ export * from './math'
 export * from './gradient'
 export * from './image'
 
+export type ValueOrFunc<T> = T | ((x: any) => T)
+
+export type PropType = 'css' | 'inline'
+
 export const globalCssKeywords = <const>['inherit', 'initial', 'unset']
 
 /**

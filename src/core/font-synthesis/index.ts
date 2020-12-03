@@ -1,6 +1,6 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType } from '../shared'
 
-export const serializeFontSynthesis = (
+export const serializeFontSynthesis = (type: PropType) => (
   x:
     | 'none'
     | 'weight'
@@ -8,8 +8,9 @@ export const serializeFontSynthesis = (
     | ['weight', 'style']
     | ['style', 'weight']
     | GlobalCssKeyword
-): { fontSynthesis: string } => ({
-  fontSynthesis: typeof x === 'string' ? x : `${x[0]} ${x[1]}`,
+) => ({
+  [type === 'inline' ? 'fontSynthesis' : 'font-synthesis']:
+    typeof x === 'string' ? x : `${x[0]} ${x[1]}`,
 })
 
 /**

@@ -1,4 +1,5 @@
-import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import { ValueOfRecord } from 'ramda'
+import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 type BaseLinePosition =
   | ['first', 'baseline']
@@ -34,6 +35,7 @@ type AlignContent =
   | ['safe', 'flex-end']
   | ['unsafe', 'flex-end']
 
+type PropValue = AlignContent | GlobalCssKeyword
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -42,7 +44,11 @@ export type AlignContentDeclaration = {
    * Maps to CSS's **`align-content`** property
    * @category RBProperty
    */
-  alignContent: AlignContent | GlobalCssKeyword
+  alignContent: PropValue
+}
+
+export type AlignContentDeclarationJSS = {
+  alignContent: ValueOrFunc<PropValue>
 }
 
 export const serializeAlignContentPropValue = (
@@ -52,10 +58,11 @@ export const serializeAlignContentPropValue = (
     ? `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}`
     : serializeAtomicValue(x)
 
-export const serializeAlignContent = (
+export const serializeAlignContent = (type: 'css' | 'inline') => (
   x: AlignContent | GlobalCssKeyword
-): {
-  alignContent: string
-} => ({
-  alignContent: serializeAlignContentPropValue(x),
-})
+) => {
+  const propName = type === 'inline' ? 'alignContent' : 'align-content'
+  return {
+    [propName]: serializeAlignContentPropValue(x),
+  }
+}

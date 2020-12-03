@@ -1,10 +1,16 @@
-import { serializeTimingFunctionValue, TimingFunctionValue } from '../shared'
+import { GlobalCssKeyword, PropType, serializeTimingFunctionValue, TimingFunctionValue, ValueOrFunc } from '../shared'
 
-export const serializeAnimationTimingFunction = (
+export const serializeAnimationTimingFunction = (type: PropType) => (
   x: TimingFunctionValue
-): { animationTimingFunction: string } => ({
-  animationTimingFunction: serializeTimingFunctionValue(x),
-})
+) => {
+  const propName = type === 'inline' ? 'animationTimingFunction' : 'animation-timing-function'
+  return ({
+    [propName]: serializeTimingFunctionValue(x),
+  })
+}
+
+/** @hide */
+type PropValue = TimingFunctionValue | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -14,5 +20,8 @@ export type AnimationTimingFunctionDeclaration = {
    * Maps to CSS's **`animation-timing-function`** property
    * @category RBProperty
    */
-  animationTimingFunction: TimingFunctionValue
+  animationTimingFunction: PropValue
+}
+export type AnimationTimingFunctionDeclarationJSS = {
+  animationTimingFunction: ValueOrFunc<PropValue>
 }

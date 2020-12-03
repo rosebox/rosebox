@@ -1,4 +1,10 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType } from '../shared'
+
+export const serializeFontStyle = (type: PropType) => (
+  x: 'normal' | 'italic' | 'oblique' | GlobalCssKeyword
+) => ({
+  [type === 'inline' ? 'fontStyle' : 'font-style']: x,
+})
 
 /**
  * @category RBDeclarationTypeAlias

@@ -407,19 +407,20 @@ export const hsla = HSLA.hsla
 export class HEX implements RBType<string> {
   valueConstructor: Function
   data: string
+  serialize: () => string
 
   private constructor(data: string) {
     this.data = data
     this.valueConstructor = HEX.hex
+    this.serialize = (): string => {
+      return this.data
+    }
   }
   /** @valueConstructor */
   static hex(x: string): HEX {
     return new HEX(x)
   }
 
-  serialize(): string {
-    return this.data
-  }
 }
 
 export const hex = HEX.hex

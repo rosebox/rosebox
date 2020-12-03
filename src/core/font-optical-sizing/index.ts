@@ -1,4 +1,10 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType } from '../shared'
+
+export const serializeFontOpticalSizing = (type: PropType) => (
+  x: 'auto' | 'normal' | 'none' | GlobalCssKeyword
+) => ({
+  [type === 'inline' ? 'fontOpticalSizing' : 'font-optical-sizing']: x,
+})
 
 /**
  * @category RBDeclarationTypeAlias

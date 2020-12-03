@@ -1,9 +1,9 @@
-import { GlobalCssKeyword, Percentage, serializeAtomicValue } from '../shared'
+import { GlobalCssKeyword, Percentage, PropType, serializeAtomicValue } from '../shared'
 
-export const serializeFontStretch = (
+export const serializeFontStretch = (type: PropType) => (
   x: Percentage | string
-): { fontStretch: string } => ({
-  fontStretch: serializeAtomicValue(x),
+) => ({
+  [type === 'inline' ? 'fontStretch' : 'font-stretch']: serializeAtomicValue(x),
 })
 
 /**

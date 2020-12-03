@@ -3,6 +3,7 @@ import {
   LengthPercentage,
   serializeAtomicValue,
   Calculation,
+  PropType,
 } from '../shared'
 
 export type FontSizeCSSProp = 'font-size'
@@ -18,15 +19,15 @@ type AbsoluteSizeKeyword =
   | 'x-large'
   | 'xx-large'
 
-export const serializeFontSize = (
+export const serializeFontSize = (type: PropType) => (
   x:
     | RelativeSizeKeyword
     | AbsoluteSizeKeyword
     | LengthPercentage
     | Calculation
     | GlobalCssKeyword
-): { fontSize: string } => ({
-  fontSize: serializeAtomicValue(x),
+) => ({
+  [type === 'inline' ? 'fontSize' : 'font-size']: serializeAtomicValue(x),
 })
 
 /**

@@ -3,14 +3,15 @@ import {
   LengthPercentage,
   serializeAtomicValue,
   Calculation,
+  PropType,
 } from '../shared'
 
 export type LineHeightCSSProp = 'line-height'
 
-export const serializeLineHeight = (
+export const serializeLineHeight = (type: PropType) => (
   x: 'normal' | number | LengthPercentage | Calculation | GlobalCssKeyword
-): { lineHeight: string | number } => ({
-  lineHeight: serializeAtomicValue(x),
+) => ({
+  [type === 'inline' ? 'lineHeight' : 'line-height']: serializeAtomicValue(x),
 })
 
 /**

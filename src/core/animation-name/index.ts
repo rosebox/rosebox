@@ -1,4 +1,4 @@
-import { CustomIdent, GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import { CustomIdent, GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 const toHyphenCase = (x: string) =>
   x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
@@ -25,9 +25,15 @@ const serializeValue = (value: AnimationName) => {
   )
 }
 
-export const serializeAnimationName = (x: AnimationName) => ({
-  animationName: serializeValue(x),
-})
+export const serializeAnimationName = (type: PropType) => (x: AnimationName) => {
+  const propName = type === 'inline' ? 'animationName' : 'animation-name'
+  return ({
+    [propName]: serializeValue(x),
+  })
+}
+
+/** @hide */
+type PropValue = AnimationName | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -37,5 +43,13 @@ export type AnimationNameDeclaration = {
    * Maps to CSS's **`animation-property`** property
    * @category RBProperty
    */
-  animationName: AnimationName
+  animationName: PropValue
+}
+
+export type AnimationNameDeclarationJSS = {
+  /**
+   * Maps to CSS's **`animation-property`** property
+   * @category RBProperty
+   */
+  animationName: ValueOrFunc<PropValue>
 }

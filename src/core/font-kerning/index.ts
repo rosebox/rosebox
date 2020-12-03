@@ -1,4 +1,10 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType } from '../shared'
+
+export const serializeFontKerning = (type: PropType) => (
+  x: 'auto' | 'normal' | 'none' | GlobalCssKeyword
+) => ({
+  [type === 'inline' ? 'fontKerning' : 'font-kerning']: x,
+})
 
 /**
  * @category RBDeclarationTypeAlias

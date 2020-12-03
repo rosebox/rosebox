@@ -3,6 +3,7 @@ import {
   Width,
   isGlobalCssKeyword,
   isWidthType,
+  PropType,
 } from '../../shared'
 import { serializeKeyword, serializeWidth } from '../../shared'
 
@@ -20,10 +21,10 @@ export const serializeFlexBasisValue = (value: FlexBasis): string =>
     ? serializeKeyword(value)
     : serializeWidth(value)
 
-export const serializeFlexBasis = (
+export const serializeFlexBasis = (type: PropType) => (
   value: FlexBasis | GlobalCssKeyword
-): { flexBasis: string } => ({
-  flexBasis: isGlobalCssKeyword(value)
+)=> ({
+  [type === 'inline' ? 'flexBasis' : 'flex-basis']: isGlobalCssKeyword(value)
     ? serializeKeyword(value)
     : serializeFlexBasisValue(value),
 })

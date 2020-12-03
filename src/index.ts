@@ -165,6 +165,7 @@ import { OutlineColorDeclaration } from './core/outline-color'
 import { OutlineWidthDeclaration } from './core/outline-width'
 import { OutlineStyleDeclaration } from './core/outline-style'
 import { OutlineDeclaration } from './core/outline'
+import { camelCaseToDash } from './dom'
 
 export * from './core'
 export * from './react'
@@ -327,21 +328,10 @@ export type RBStyle = Partial<
  */
 export type RoseboxProperties = RBStyle
 
-export const style__ = (obj: RBStyle): CSSProperties => {
-  // NEEDS improvement
-  return Object.keys(obj).reduce((acc, key) => {
-    return Object.assign({}, acc, {
-      [key]: (funcMap as any)[key]
-        ? (funcMap as any)[key]((obj as any)[key])
-        : (obj as any)[key],
-    })
-  }, {}) as CSSProperties
-}
-
 export const style = (obj: RBStyle): CSSProperties => {
   // NEEDS improvement
   return Object.keys(obj).reduce((acc, key) => {
-    const serializer = (funcMap as any)[key]
+    const serializer = ((funcMap as any)('inline'))[key]
     return serializer
       ? {
           ...acc,
@@ -353,3 +343,28 @@ export const style = (obj: RBStyle): CSSProperties => {
         }
   }, {}) as CSSProperties
 }
+
+export const toCSSMap = (obj: RBStyle) => {
+  /** Needs improvement */
+ const js = style(obj)
+ const objs = Object.keys(js).map(key => [camelCaseToDash(key), (js as any)[key]])
+ return Object.fromEntries(objs)
+}
+
+export const style2 = (obj: any) => {
+  // NEEDS improvement
+  return Object.keys(obj).reduce((acc, key) => {
+    const serializerKey = key.replace(/-([a-z])/g, function (g) { return g[1].toUpperCase(); });
+    const serializer = ((funcMap as any)('inline'))[serializerKey]
+    return serializer
+      ? {
+          ...acc,
+          ...(toCSSMap(serializer((obj as any)[key]))),
+        }
+      : {
+          ...acc,
+          [key]: (obj as any)[key],
+        }
+  }, {})
+}
+

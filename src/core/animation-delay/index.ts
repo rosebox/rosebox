@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 import { Duration } from '../shared'
 
 /**
@@ -17,9 +17,17 @@ export const serializeValue = (value: AnimationDelay): string =>
         ''
       )
 
-export const serializeAnimationDelay = (x: AnimationDelay) => ({
-  animationDelay: serializeValue(x),
-})
+export const serializeAnimationDelay = (type: PropType) => (
+  x: AnimationDelay
+) => {
+  const propName = type === 'inline' ? 'animationDelay' : 'animation-delay'
+  return {
+    [propName]: serializeValue(x),
+  }
+}
+
+/** @hide */
+type PropValue = AnimationDelay
 
 /**
  * @category RBDeclarationTypeAlias
@@ -30,4 +38,8 @@ export type AnimationDelayDeclaration = {
    * @category RBProperty
    */
   animationDelay: AnimationDelay
+}
+
+export type AnimationDelayDeclarationJSS = {
+  animationDelay: ValueOrFunc<PropValue>
 }

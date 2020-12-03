@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../../shared'
+import { GlobalCssKeyword, PropType } from '../../shared'
 
 /**
  * Formal syntax: row | row-reverse | column | column-reverse
@@ -6,10 +6,10 @@ import { GlobalCssKeyword } from '../../shared'
  * */
 export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse'
 
-export const serializeFlexDirectionValue = (
+export const serializeFlexDirectionValue = (type: PropType) => (
   value: FlexDirection | GlobalCssKeyword
-): { flexDirection: string } => ({
-  flexDirection: value,
+) => ({
+  [type === 'inline' ? 'flexDirection' : 'flex-direction']: value,
 })
 
 /**

@@ -1,9 +1,9 @@
-import { GlobalCssKeyword } from '../../shared'
+import { GlobalCssKeyword, PropType } from '../../shared'
 
-export const serializeFlexWrap = (
+export const serializeFlexWrap = (type: PropType) => (
   value: 'nowrap' | 'wrap' | 'wrap-reverse' | GlobalCssKeyword
-): { flexWrap: string } => ({
-  flexWrap: value,
+): { [key: string]: string } => ({
+  [type === 'inline' ? 'flexWrap' : 'flex-wrap']: value,
 })
 
 export type FlexWrapDeclaration = {

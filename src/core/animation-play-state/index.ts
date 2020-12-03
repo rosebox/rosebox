@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
 type AnimationPlayStateKeyword = 'running' | 'paused'
 
@@ -18,9 +18,15 @@ const serializeValue = (value: AnimationPlayState) => {
   )
 }
 
-export const serializeAnimationPlayState = (x: AnimationPlayState) => ({
-  animationPlayState: serializeValue(x),
-})
+export const serializeAnimationPlayState = (type: PropType) => (x: AnimationPlayState) => {
+  const propName = type === 'inline' ? 'animationPlayState' : 'animation-play-state'
+  return {
+    [propName]: serializeValue(x),
+  }
+}
+
+/** @hide */
+type PropValue = AnimationPlayState | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -30,5 +36,8 @@ export type AnimationPlayStateDeclaration = {
    * Maps to CSS's **`animation-play-state`** property
    * @category RBProperty
    */
-  animationPlayState: AnimationPlayState
+  animationPlayState: PropValue
+}
+export type AnimationPlayStateDeclarationJSS = {
+  animationPlayState: ValueOrFunc<PropValue>
 }

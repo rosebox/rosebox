@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType } from '../shared'
 
 /**
  * @skip
@@ -21,3 +21,9 @@ export type BoxSizingDeclaration = {
    */
   boxSizing: BoxSizing | GlobalCssKeyword
 }
+
+export const serializeBoxSizing = (type: PropType) => (
+  x:  BoxSizing | GlobalCssKeyword
+) => ({
+  [type === 'inline' ? 'boxSizing' : 'box-sizing']: serializeBoxSizingValue(x),
+})

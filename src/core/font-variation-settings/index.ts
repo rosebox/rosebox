@@ -1,9 +1,9 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType } from '../shared'
 
-export const serializeFontVariationSettings = (
+export const serializeFontVariationSettings = (type: PropType) => (
   x: 'normal' | [string, number] | [string, number][] | GlobalCssKeyword
-): { fontVariationSettings: string } => ({
-  fontVariationSettings:
+) => ({
+  [type === 'inline' ? 'fontVariationSettings' : 'font-variation-settings']:
     typeof x === 'string'
       ? x
       : !Array.isArray(x[0])

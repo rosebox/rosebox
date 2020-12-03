@@ -1,9 +1,9 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType } from '../shared'
 
-export const serializeFontSizeAdjust = (
+export const serializeFontSizeAdjust = (type: PropType) => (
   x: number | 'none' | GlobalCssKeyword
-): { fontSizeAdjust: string | number } => ({
-  fontSizeAdjust: typeof x === 'string' ? x : x,
+) => ({
+  [type === 'inline' ? 'fontSizeAdjust' : 'font-size-adjust']: typeof x === 'string' ? x : x,
 })
 
 /**

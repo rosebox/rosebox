@@ -3,14 +3,15 @@ import {
   Length,
   Calculation,
   serializeAtomicValue,
+  PropType,
 } from '../shared'
 
 export type LetterSpacingCSSProp = 'letter-spacing'
 
-export const serializeLetterSpacing = (
+export const serializeLetterSpacing = (type: PropType) => (
   x: 'normal' | Length | Calculation | GlobalCssKeyword
-): { letterSpacing: string } => ({
-  letterSpacing: serializeAtomicValue(x),
+) => ({
+  [type === 'inline' ? 'letterSpacing' : 'letter-spacing']: serializeAtomicValue(x),
 })
 
 /**

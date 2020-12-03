@@ -41,6 +41,7 @@ export const NAMESPACE = 'npmjs.com/package/rosebox'
 export const serializeAtomicValue = (x: string | number | RBType): string => {
   if (typeof x === 'number') return `${x}`
   if (typeof x === 'string') return x
+  if (!x.serialize) console.log('Not found: ', x)
   return x.serialize()
 }
 

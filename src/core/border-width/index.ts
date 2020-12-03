@@ -3,6 +3,7 @@ import {
   GlobalCssKeyword,
   Calculation,
   serializeAtomicValue,
+  PropType,
 } from '../shared'
 
 export type BorderWidthCSSProp = 'border-width'
@@ -13,9 +14,10 @@ const serializeBorderSideWidthValue = (property: string) => (
   [property]: serializeAtomicValue(x),
 })
 
-export const serializeBorderTopWidth = serializeBorderSideWidthValue(
-  'borderTopWidth'
-)
+export const serializeBorderTopWidth = (type: PropType) =>
+  serializeBorderSideWidthValue(
+    type === 'inline' ? 'borderTopWidth' : 'border-top-width'
+  )
 
 /**
  * @category RBDeclarationTypeAlias
@@ -31,9 +33,10 @@ export type BorderTopWidthDeclaration = {
   borderTopWidth: LineWidth | GlobalCssKeyword
 }
 
-export const serializeBorderRightWidth = serializeBorderSideWidthValue(
-  'borderRightWidth'
-)
+export const serializeBorderRightWidth = (type: PropType) =>
+  serializeBorderSideWidthValue(
+    type === 'inline' ? 'borderRightWidth' : 'border-right-width'
+  )
 
 /**
  * @category RBDeclarationTypeAlias
@@ -48,6 +51,10 @@ export type BorderRightWidthDeclaration = {
    */
   borderRightWidth: LineWidth | GlobalCssKeyword
 }
+export const serializeBorderBottomWidth = (type: PropType) =>
+  serializeBorderSideWidthValue(
+    type === 'inline' ? 'borderBottomWidth' : 'border-bottom-width'
+  )
 
 /**
  * @category RBDeclarationTypeAlias
@@ -63,9 +70,10 @@ export type BorderBottomWidthDeclaration = {
   borderBottomWidth: LineWidth | GlobalCssKeyword
 }
 
-export const serializeBorderBottomWidth = serializeBorderSideWidthValue(
-  'borderBottomWidth'
-)
+export const serializeBorderLeftWidth = (type: PropType) =>
+  serializeBorderSideWidthValue(
+    type === 'inline' ? 'borderLeftWidth' : 'border-left-width'
+  )
 
 /**
  * @category RBDeclarationTypeAlias
@@ -81,10 +89,6 @@ export type BorderLeftWidthDeclaration = {
   borderLeftWidth: LineWidth | GlobalCssKeyword
 }
 
-export const serializeBorderLeftWidth = serializeBorderSideWidthValue(
-  'borderLeftWidth'
-)
-
 type BorderWidth =
   | LineWidth
   | [LineWidth]
@@ -92,15 +96,21 @@ type BorderWidth =
   | [LineWidth, LineWidth, LineWidth]
   | [LineWidth, LineWidth, LineWidth, LineWidth]
 
-export const serializeBorderWidth = (
+export const serializeBorderWidth = (type: PropType) => (
   x: BorderWidth | GlobalCssKeyword
-): { borderWidth: string } => ({
-  borderWidth: !Array.isArray(x)
-    ? serializeAtomicValue(x)
-    : (x as LineWidth[])
-        .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
-        .trim(),
-})
+): { [key: string]: string } => {
+  const propName = type === 'inline' ? 'borderWidth' : 'border-width'
+  return {
+    [propName]: !Array.isArray(x)
+      ? serializeAtomicValue(x)
+      : (x as LineWidth[])
+          .reduce(
+            (acc: any, item) => acc + ' ' + serializeAtomicValue(item),
+            ''
+          )
+          .trim(),
+  }
+}
 
 /**
  * @category RBDeclarationTypeAlias

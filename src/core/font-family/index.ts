@@ -1,3 +1,5 @@
+import { PropType } from "../shared"
+
 const serializeValue = (value: string | string[]) =>
   !Array.isArray(value)
     ? value
@@ -6,12 +8,10 @@ const serializeValue = (value: string | string[]) =>
         ''
       )
 
-export const serializeFontFamily = (
+export const serializeFontFamily = (type: PropType) => (
   value: string | string[]
-): {
-  fontFamily: string
-} => ({
-  fontFamily: serializeValue(value),
+) => ({
+  [type === 'inline' ? 'fontFamily' : 'font-family']: serializeValue(value),
 })
 
 /**
