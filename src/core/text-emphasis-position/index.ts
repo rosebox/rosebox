@@ -1,7 +1,7 @@
-import { GlobalCssKeyword, serializeDoubleBar } from '../shared'
+import { GlobalCssKeyword, serializeDoubleBar, ValueOrFunc } from '../shared'
 
 export const serializeTextEmphasisPosition = (
-  x: TextEmphasisPositionValue
+  x: PropValue
 ) => ({
   textEmphasisPosition: typeof x === 'string' ? x : serializeDoubleBar(x),
 })
@@ -9,7 +9,7 @@ export const serializeTextEmphasisPosition = (
 /**
  * @hide
  */
-type TextEmphasisPositionValue =
+type PropValue =
   | 'over'
   | 'under'
   | ['over']
@@ -32,18 +32,9 @@ export type TextEmphasisPositionDeclaration = {
    * Maps to CSS's **`text-emphasis-position`** property
    * @category RBProperty
    */
-  textEmphasisPosition:
-    | 'over'
-    | 'under'
-    | ['over']
-    | ['under']
-    | ['over', 'right']
-    | ['right', 'over']
-    | ['over', 'left']
-    | ['left', 'over']
-    | ['under', 'right']
-    | ['right', 'under']
-    | ['under', 'left']
-    | ['left', 'under']
-    | GlobalCssKeyword
+  textEmphasisPosition: PropValue
+}
+
+export type TextEmphasisPositionDeclarationJSS = {
+  textEmphasisPosition: ValueOrFunc<PropValue>
 }
