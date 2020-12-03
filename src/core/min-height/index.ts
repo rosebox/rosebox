@@ -3,15 +3,16 @@ import {
   LengthPercentage,
   Calculation,
   serializeAtomicValue,
+  ValueOrFunc,
 } from '../shared'
 
 /**
  * @hide
  */
-type MinHeight = LengthPercentage | Calculation | GlobalCssKeyword
+type PropValue = LengthPercentage | Calculation | GlobalCssKeyword
 
 export const serializeMinHeightValue = (
-  x: MinHeight
+  x: PropValue
 ): { minHeight: string } => ({
   minHeight: serializeAtomicValue(x),
 })
@@ -27,5 +28,9 @@ export type MinHeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-height
    */
-  minHeight: MinHeight
+  minHeight: PropValue
+}
+
+export type MinHeightDeclarationJSS = {
+  minHeight: ValueOrFunc<PropValue>
 }
