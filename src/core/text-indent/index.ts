@@ -8,9 +8,6 @@ export const serializeTexIndent = (x: TextIndentValue) => ({
       : serializeDoubleBar(!Array.isArray(x) ? [x] : x, serializeAtomicValue),
 })
 
-/**
- * @skip
- */
 type TextIndentValue =
   | LengthPercentage
   | [LengthPercentage]
