@@ -1,5 +1,6 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
+/** @hide */
 type PropValue = 'auto' | 'none' | GlobalCssKeyword
 
 /**
