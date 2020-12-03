@@ -14,6 +14,7 @@ export const serializeFontFamily = (type: PropType) => (
   [type === 'inline' ? 'fontFamily' : 'font-family']: serializeValue(value),
 })
 
+/** @hide */
 type PropValue = string | string[]
 
 /**
