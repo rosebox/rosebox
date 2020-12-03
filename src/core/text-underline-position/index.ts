@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 type TextUnderlinePosition =
   | 'auto'
@@ -21,6 +21,9 @@ export const serializeTextUnderlinePosition = (
   textUnderlinePosition: typeof x === 'string' ? x : `${x[0]} ${x[1]}`,
 })
 
+/** @hide */
+type PropValue = TextUnderlinePosition | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -29,5 +32,9 @@ export type TextUnderlinePositionDeclaration = {
    * Maps to CSS's **`text-underline-position`** property
    * @category RBProperty
    */
-  textUnderlinePosition: TextUnderlinePosition | GlobalCssKeyword
+  textUnderlinePosition: PropValue
+}
+
+export type TextUnderlinePositionDeclarationJSS = {
+  textUnderlinePosition: ValueOrFunc<PropValue>
 }

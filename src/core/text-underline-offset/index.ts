@@ -2,6 +2,7 @@ import {
   GlobalCssKeyword,
   LengthPercentage,
   serializeAtomicValue,
+  ValueOrFunc,
 } from '../shared'
 
 export const serializeTextUnderlineOffset = (
@@ -9,6 +10,9 @@ export const serializeTextUnderlineOffset = (
 ) => ({
   textUnderlineOffset: serializeAtomicValue(x),
 })
+
+/** @hide */
+type PropValue = LengthPercentage | 'auto' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -18,5 +22,9 @@ export type TextUnderlineOffsetDeclaration = {
    * Maps to CSS's **`text-underline-position`** property
    * @category RBProperty
    */
-  textUnderlineOffset: LengthPercentage | 'auto' | GlobalCssKeyword
+  textUnderlineOffset: PropValue
+}
+
+export type TextUnderlineOffsetDeclarationJSS = {
+  textUnderlineOffset: ValueOrFunc<PropValue>
 }
