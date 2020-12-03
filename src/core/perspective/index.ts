@@ -3,15 +3,16 @@ import {
   Length,
   serializeAtomicValue,
   Calculation,
+  ValueOrFunc,
 } from '../shared'
 
 /**
  * @hide
  */
-type Perspective = 'none' | Length | Calculation | GlobalCssKeyword
+type PropValue = 'none' | Length | Calculation | GlobalCssKeyword
 
 export const serializePerspectivePropertyValue = (
-  x: Perspective
+  x: PropValue
 ): { perspective: string } => ({
   perspective: serializeAtomicValue(x),
 })
@@ -24,5 +25,9 @@ export type PerspectiveDeclaration = {
    * Maps to CSS's **`perspective`** property
    * @category RBProperty
    */
-  perspective: Perspective
+  perspective: PropValue
+}
+
+export type PerspectiveDeclarationJS = {
+  perspective: ValueOrFunc<PropValue>
 }
