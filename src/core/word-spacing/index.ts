@@ -1,10 +1,13 @@
-import { GlobalCssKeyword, Length, serializeAtomicValue } from '../shared'
+import { GlobalCssKeyword, Length, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 export const serializeWordSpacing = (
   x: 'normal' | Length | GlobalCssKeyword
 ): { wordSpacing: string } => ({
   wordSpacing: typeof x === 'string' ? x : serializeAtomicValue(x),
 })
+
+/** @hide */
+type PropValue = 'normal' | Length | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -17,5 +20,9 @@ export type WordSpacingDeclaration = {
    * @added 0.2.0
    * @implentationReference https://drafts.csswg.org/css-text-3/#propdef-word-spacing
    */
-  wordSpacing: 'normal' | Length | GlobalCssKeyword
+  wordSpacing: PropValue
+}
+
+export type WordSpacingDeclarationJSS = {
+  wordSpacing: ValueOrFunc<PropValue>
 }
