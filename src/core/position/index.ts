@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 export const serializePositionPropValue = (
   value:
@@ -9,6 +9,14 @@ export const serializePositionPropValue = (
     | 'sticky'
     | GlobalCssKeyword
 ) => value
+
+/** @hide */
+type PropValue = 'relative'
+| 'absolute'
+| 'static'
+| 'fixed'
+| 'sticky'
+| GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -21,11 +29,9 @@ export type PositionDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#position-property
    */
-  position:
-    | 'relative'
-    | 'absolute'
-    | 'static'
-    | 'fixed'
-    | 'sticky'
-    | GlobalCssKeyword
+  position: PropValue
+}
+
+export type PositionDeclarationJSS = {
+  position: ValueOrFunc<PropValue>
 }
