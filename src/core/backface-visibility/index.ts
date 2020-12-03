@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, Position, PropType, ValueOrFunc } from '../shared'
+import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
 /**
  * @hide
