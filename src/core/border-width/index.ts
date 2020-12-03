@@ -4,6 +4,7 @@ import {
   Calculation,
   serializeAtomicValue,
   PropType,
+  ValueOrFunc,
 } from '../shared'
 
 export type BorderWidthCSSProp = 'border-width'
@@ -19,6 +20,9 @@ export const serializeBorderTopWidth = (type: PropType) =>
     type === 'inline' ? 'borderTopWidth' : 'border-top-width'
   )
 
+/** @hide */
+type BorderSideWidthPropValue = LineWidth | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -30,7 +34,10 @@ export type BorderTopWidthDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
    */
-  borderTopWidth: LineWidth | GlobalCssKeyword
+  borderTopWidth: BorderSideWidthPropValue
+}
+export type BorderTopWidthDeclarationJSS = {
+  borderTopWidth: ValueOrFunc<BorderSideWidthPropValue>
 }
 
 export const serializeBorderRightWidth = (type: PropType) =>
@@ -49,8 +56,13 @@ export type BorderRightWidthDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
    */
-  borderRightWidth: LineWidth | GlobalCssKeyword
+  borderRightWidth: BorderSideWidthPropValue
 }
+export type BorderRightWidthDeclarationJSS = {
+  borderRightWidth: ValueOrFunc<BorderSideWidthPropValue>
+}
+
+
 export const serializeBorderBottomWidth = (type: PropType) =>
   serializeBorderSideWidthValue(
     type === 'inline' ? 'borderBottomWidth' : 'border-bottom-width'
@@ -67,7 +79,17 @@ export type BorderBottomWidthDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
    */
-  borderBottomWidth: LineWidth | GlobalCssKeyword
+  borderBottomWidth: BorderSideWidthPropValue
+}
+export type BorderBottomWidthDeclarationJSS = {
+  /**
+   * Maps to CSS's **`border-bottom-width`** property
+   * @category RBProperty
+   * @formalSyntaxForValue <line-width>
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+   */
+  borderBottomWidth: ValueOrFunc<BorderSideWidthPropValue>
 }
 
 export const serializeBorderLeftWidth = (type: PropType) =>
@@ -86,7 +108,10 @@ export type BorderLeftWidthDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
    */
-  borderLeftWidth: LineWidth | GlobalCssKeyword
+  borderLeftWidth: BorderSideWidthPropValue
+}
+export type BorderLeftWidthDeclarationJSS = {
+  borderLeftWidth: ValueOrFunc<BorderSideWidthPropValue>
 }
 
 type BorderWidth =
@@ -95,6 +120,9 @@ type BorderWidth =
   | [LineWidth, LineWidth]
   | [LineWidth, LineWidth, LineWidth]
   | [LineWidth, LineWidth, LineWidth, LineWidth]
+
+/** @hide */
+type PropValue = BorderWidth | GlobalCssKeyword
 
 export const serializeBorderWidth = (type: PropType) => (
   x: BorderWidth | GlobalCssKeyword
@@ -123,5 +151,8 @@ export type BorderWidthDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
    */
-  borderWidth: LineWidth | GlobalCssKeyword
+  borderWidth: PropValue
+}
+export type BorderWidthDeclarationJSS = {
+  borderWidth: ValueOrFunc<PropValue>
 }
