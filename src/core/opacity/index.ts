@@ -1,4 +1,4 @@
-import { Percentage, GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import { Percentage, GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 export type OpacityCSSProp = 'opacity'
 
@@ -7,6 +7,9 @@ export const serializeOpacity = (
 ): { opacity: string | number } => ({
   opacity: serializeAtomicValue(x)
 })
+
+/** @hide */
+type PropValue = number | Percentage | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -19,7 +22,11 @@ export type OpacityDeclaration = {
    * @added 0.2.0
    * @implementationReference https://drafts.csswg.org/css-color-4/#typedef-alpha-value
    */
-  opacity: number | Percentage | GlobalCssKeyword
+  opacity: PropValue
+}
+
+export type OpacityDeclarationJSS = {
+  opacity: ValueOrFunc<PropValue>
 }
 
 export const op01 = { opacity: 0.1 }
