@@ -3,16 +3,17 @@ import {
   GlobalCssKeyword,
   Calculation,
   serializeAtomicValue,
+  ValueOrFunc,
 } from '../shared'
 
 /**
  * @hide
  */
-type MinWidth = LengthPercentage | Calculation | GlobalCssKeyword
+type PropValue = LengthPercentage | Calculation | GlobalCssKeyword
 
 export type MinWidthCSSProp = 'min-width'
 
-export const serializeMinWidth = (x: MinWidth): { minWidth: string } => ({
+export const serializeMinWidth = (x: PropValue): { minWidth: string } => ({
   minWidth: serializeAtomicValue(x),
 })
 
@@ -27,5 +28,9 @@ export type MinWidthDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-min-width
    */
-  minWidth: MinWidth
+  minWidth: PropValue
+}
+
+export type MinWidthDeclarationJSS = {
+  minWidth: ValueOrFunc<PropValue>
 }
