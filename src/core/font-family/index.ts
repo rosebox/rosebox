@@ -1,4 +1,4 @@
-import { PropType } from "../shared"
+import { PropType, ValueOrFunc } from "../shared"
 
 const serializeValue = (value: string | string[]) =>
   !Array.isArray(value)
@@ -14,6 +14,8 @@ export const serializeFontFamily = (type: PropType) => (
   [type === 'inline' ? 'fontFamily' : 'font-family']: serializeValue(value),
 })
 
+type PropValue = string | string[]
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -24,5 +26,8 @@ export type FontFamilyDeclaration = {
    * @formalSyntaxForValue auto | <integer>
    * @added 0.2.0
    */
-  fontFamily: string | string[]
+  fontFamily: PropValue
+}
+export type FontFamilyDeclarationJSS = {
+  fontFamily: ValueOrFunc<PropValue>
 }
