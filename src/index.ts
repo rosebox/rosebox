@@ -168,6 +168,7 @@ import { OutlineDeclaration } from './core/outline'
 import { camelCaseToDash } from './dom'
 
 export * from './core'
+export { RBJSSStyle } from './rb-jss'
 export * from './react'
 export { toNum } from './utils'
 

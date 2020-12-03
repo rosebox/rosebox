@@ -28,6 +28,6 @@ export type PerspectiveDeclaration = {
   perspective: PropValue
 }
 
-export type PerspectiveDeclarationJS = {
+export type PerspectiveDeclarationJSS = {
   perspective: ValueOrFunc<PropValue>
 }

@@ -10,7 +10,7 @@ import {
   isTranslate3d,
   serializeTranslate3d,
 } from './translate'
-import { isGlobalCssKeyword, GlobalCssKeyword } from '../shared'
+import { isGlobalCssKeyword, GlobalCssKeyword, ValueOrFunc } from '../shared'
 import { TransformFunction } from './shared'
 import {
   isScaleX,
@@ -113,6 +113,9 @@ export const serializeTransform = (
   transform: serializeTransformPropertyValue(x),
 })
 
+/** @hide */
+type PropValue = TransformFunction | TransformFunction[] | GlobalCssKeyword | 'none'
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -124,7 +127,11 @@ export type TransformDeclaration = {
    * @added 0.2.3
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#position-property
    */
-  transform: TransformFunction | TransformFunction[] | GlobalCssKeyword | 'none'
+  transform: PropValue
+}
+
+export type TransformDeclarationJSS = {
+  transform: ValueOrFunc<PropValue>
 }
 
 export { matrix, matrix3d } from './matrix'

@@ -1,3 +1,4 @@
+import { ValueOfRecord } from 'ramda'
 import {
   GlobalCssKeyword,
   LengthPercentage,
@@ -105,6 +106,11 @@ export type BorderTopLeftRadiusDeclaration = {
    */
   borderTopLeftRadius: BorderCornerPropValue
 }
+
+export type BorderTopLeftRadiusDeclarationJSS = {
+  borderTopLeftRadius: ValueOfRecord<BorderCornerPropValue>
+}
+
 
 type RadiusTuple =
   | [LengthPercentage]

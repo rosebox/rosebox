@@ -1,4 +1,3 @@
-import { ValueOfRecord } from 'ramda'
 import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 type BaseLinePosition =
