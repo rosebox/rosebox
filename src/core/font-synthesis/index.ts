@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, PropType } from '../shared'
+import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
 export const serializeFontSynthesis = (type: PropType) => (
   x:
@@ -13,6 +13,14 @@ export const serializeFontSynthesis = (type: PropType) => (
     typeof x === 'string' ? x : `${x[0]} ${x[1]}`,
 })
 
+/** @hide */
+type PropValue = 'none'
+| 'weight'
+| 'style'
+| ['weight', 'style']
+| ['style', 'weight']
+| GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -23,11 +31,8 @@ export type FontSynthesisDeclaration = {
    * @formalSyntaxForValue none | [ weight || style ]
    * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-synthesis
    */
-  fontSynthesis:
-    | 'none'
-    | 'weight'
-    | 'style'
-    | ['weight', 'style']
-    | ['style', 'weight']
-    | GlobalCssKeyword
+  fontSynthesis: PropValue
+}
+export type FontSynthesisDeclarationJSS = {
+  fontSynthesis: ValueOrFunc<PropValue>
 }
