@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 export type DisplayCSSProp = 'display'
 
@@ -184,6 +184,10 @@ export const serializeDisplay = (
       )
     : x,
 })
+
+/** @hide */
+type PropValue = DisplayValue | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -195,5 +199,8 @@ export type DisplayDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2019/CR-css-display-3-20190711/
    */
-  display: DisplayValue | GlobalCssKeyword
+  display: PropValue
+}
+export type DisplayDeclarationJSS = {
+  display: ValueOrFunc<PropValue>
 }
