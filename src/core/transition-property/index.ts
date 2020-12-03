@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, AnimatableProperty, CustomIdent, serializeAtomicValue } from '../shared'
+import { GlobalCssKeyword, AnimatableProperty, CustomIdent, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 const toHyphenCase = (x: string) =>
   x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
@@ -45,4 +45,8 @@ export type TransitionPropertyDeclaration = {
    * @implentationReference @implentationReference https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-property-property
    */
   transitionProperty: TransitionPropertyPropValue
+}
+
+export type TransitionPropertyDeclarationJSS = {
+  transitionProperty: ValueOrFunc<TransitionPropertyPropValue>
 }
