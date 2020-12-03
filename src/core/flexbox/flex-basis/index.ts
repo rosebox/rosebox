@@ -4,6 +4,7 @@ import {
   isGlobalCssKeyword,
   isWidthType,
   PropType,
+  ValueOrFunc,
 } from '../../shared'
 import { serializeKeyword, serializeWidth } from '../../shared'
 
@@ -29,6 +30,9 @@ export const serializeFlexBasis = (type: PropType) => (
     : serializeFlexBasisValue(value),
 })
 
+/** @hide */
+type PropValue = FlexBasis | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -40,5 +44,8 @@ export type FlexBasisDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-basis-property
    */
-  flexBasis: FlexBasis | GlobalCssKeyword
+  flexBasis: PropValue
+}
+export type FlexBasisDeclarationJSS = {
+  flexBasis: ValueOrFunc<PropValue>
 }

@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../../shared'
+import { GlobalCssKeyword, ValueOrFunc } from '../../shared'
 import { ShrinkGrow } from '../shared'
 import { FlexBasis, serializeFlexBasisValue } from '../flex-basis'
 
@@ -17,6 +17,10 @@ export const serializeFlex = (
       ? value
       : `${value[0]} ${value[1]} ${serializeFlexBasisValue(value[2])}`,
 })
+
+/** @hide */
+type PropValue = Flex | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -25,5 +29,8 @@ export type FlexDeclaration = {
    * Maps to CSS's **`flex`** property
    * @category RBProperty
    */
-  flex: Flex | GlobalCssKeyword
+  flex: PropValue
+}
+export type FlexDeclarationJSS = {
+  flex: ValueOrFunc<PropValue>
 }
