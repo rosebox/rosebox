@@ -1,4 +1,4 @@
-import { CustomIdent, GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import { CustomIdent, GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 type AnimateableFeature = 'scroll-position' | 'contents' | CustomIdent
 
@@ -31,6 +31,9 @@ export const serializeWillChange = (
       : serializeArrayValue(x),
 })
 
+/** @hide */
+type PropValue = WillChangeValue | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -39,5 +42,9 @@ export type WillChangeDeclaration = {
    * Maps to CSS's **`will-change`** property
    * @category RBProperty
    */
-  willChange: WillChangeValue | GlobalCssKeyword
+  willChange: PropValue
+}
+
+export type WillChangeDeclarationJSS = {
+  willChange: ValueOrFunc<PropValue>
 }
