@@ -1,9 +1,11 @@
+import { PropValue } from '../animation-iteration-count'
 import {
   GlobalCssKeyword,
   Length,
   Calculation,
   serializeAtomicValue,
   PropType,
+  ValueOrFunc,
 } from '../shared'
 
 export type LetterSpacingCSSProp = 'letter-spacing'
@@ -13,6 +15,9 @@ export const serializeLetterSpacing = (type: PropType) => (
 ) => ({
   [type === 'inline' ? 'letterSpacing' : 'letter-spacing']: serializeAtomicValue(x),
 })
+
+/** @hide */
+type Propvalue = 'normal' | Length | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -25,5 +30,9 @@ export type LetterSpacingDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#letter-spacing-property
    */
-  letterSpacing: 'normal' | Length | GlobalCssKeyword
+  letterSpacing: Propvalue
+}
+
+export type LetterSpacingDeclarationJSS = {
+  letterSpacing: ValueOrFunc<PropValue>
 }
