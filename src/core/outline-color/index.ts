@@ -1,4 +1,4 @@
-import { Color, serializeAtomicValue } from '../shared'
+import { Color, serializeAtomicValue, ValueOrFunc } from '../shared'
 import { GlobalCssKeyword } from '../shared'
 
 
@@ -10,6 +10,9 @@ export const serializeOutlineColor = (
   outlineColor: serializeAtomicValue(x)
 })
 
+/** @hide */
+type Propvalue = Color | 'invert' | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -18,5 +21,9 @@ export type OutlineColorDeclaration = {
    * Maps to CSS's **`outline-color`** property
    * @category RBProperty
    */
-  outlineColor: Color | 'invert' | GlobalCssKeyword
+  outlineColor: Propvalue
+}
+
+export type OutlineColorDeclarationJSS = {
+  outlineColor: ValueOrFunc<Propvalue>
 }
