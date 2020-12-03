@@ -3,6 +3,7 @@ import {
   GlobalCssKeyword,
   Percentage,
   serializeAtomicValue,
+  ValueOrFunc,
 } from '../shared/types'
 
 type VoiceRate = DoubleBar2<
@@ -25,6 +26,9 @@ export const serializeVoiceRate = (x: VoiceRate | GlobalCssKeyword) => ({
           .trim(),
 })
 
+/** @hide */
+type PropValue = VoiceRate | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -33,5 +37,9 @@ export type VoiceRateDeclaration = {
    * Maps to CSS's **`voice-rate`** property
    * @category RBProperty
    */
-  voiceRate: VoiceRate | GlobalCssKeyword
+  voiceRate: PropValue
+}
+
+export type VoiceRateDeclarationJSS = {
+  voiceRate: ValueOrFunc<PropValue>
 }
