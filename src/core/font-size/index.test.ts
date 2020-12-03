@@ -15,6 +15,7 @@ test('fontSize: Length<rem>', () => {
   const received = style({
     fontSize: px(2),
   })
+  console.log()
   const expected = {
     fontSize: '2px',
   }

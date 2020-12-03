@@ -4,6 +4,7 @@ import {
   serializeAtomicValue,
   Calculation,
   PropType,
+  ValueOrFunc,
 } from '../shared'
 
 export type FontSizeCSSProp = 'font-size'
@@ -30,6 +31,14 @@ export const serializeFontSize = (type: PropType) => (
   [type === 'inline' ? 'fontSize' : 'font-size']: serializeAtomicValue(x),
 })
 
+/** @hide */
+type PropValue =
+  | RelativeSizeKeyword
+  | AbsoluteSizeKeyword
+  | LengthPercentage
+  | Calculation
+  | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -41,10 +50,8 @@ export type FontSizeDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-size-prop
    */
-  fontSize:
-    | RelativeSizeKeyword
-    | AbsoluteSizeKeyword
-    | LengthPercentage
-    | Calculation
-    | GlobalCssKeyword
+  fontSize: PropValue
+}
+export type FontSizeDeclarationJSS = {
+  fontSize: ValueOrFunc<PropValue>
 }
