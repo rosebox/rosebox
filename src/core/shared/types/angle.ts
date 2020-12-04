@@ -2,6 +2,13 @@ import { RBType } from './shared'
 
 type AngleUnit = 'deg' | 'grad' | 'rad' | 'turn'
 
+const serializeAngle = (x: Angle): string => {
+  if (x.unit === 'deg') return `${x.data}deg`
+  if (x.unit === 'rad') return `${x.data}rad`
+  if (x.unit === 'grad') return `${x.data}grad`
+  return `${x.data}turn`
+}
+
 /**
  * A type that maps to CSS's **`<angle>`** type.
  */
@@ -9,6 +16,7 @@ export class Angle<A extends AngleUnit = AngleUnit> implements RBType<number> {
   valueConstructor: Function
   data: number
   unit: AngleUnit
+  serialize: () => string
 
   private constructor(
     data: number,
@@ -18,8 +26,9 @@ export class Angle<A extends AngleUnit = AngleUnit> implements RBType<number> {
     this.unit = unit
     this.data = data
     this.valueConstructor = valConstructor
+    this.serialize = () => serializeAngle(this)
   }
-  /** 
+  /**
    * Constructs a value of type **`Angle`** where the unit is **`deg`**.
    */
   static deg = (x: number): Angle<'deg'> => new Angle(x, 'deg', Angle.deg)
@@ -29,19 +38,12 @@ export class Angle<A extends AngleUnit = AngleUnit> implements RBType<number> {
   static turn = (x: number): Angle<'turn'> => new Angle(x, 'turn', Angle.turn)
   /**
    *  Constructs a value of type **`Angle`** where the unit is **`grad`**.
-  */
+   */
   static grad = (x: number): Angle<'grad'> => new Angle(x, 'deg', Angle.grad)
   /**
    * Constructs a value of type **`Angle`** where the unit is **`rad`**.
-  */
+   */
   static rad = (x: number): Angle<'rad'> => new Angle(x, 'rad', Angle.rad)
-
-  serialize() {
-    if (this.unit === 'deg') return `${this.data}deg`
-    if (this.unit === 'rad') return `${this.data}rad`
-    if (this.unit === 'grad') return `${this.data}grad`
-    return `${this.data}turn`
-  }
 }
 
 /**

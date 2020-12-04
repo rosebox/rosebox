@@ -168,8 +168,7 @@ import { OutlineDeclaration } from './core/outline'
 import { camelCaseToDash } from './dom'
 
 export * from './core'
-export { RBJSSStyle } from './rb-jss'
-export * from './react'
+export { RBJSSStyle } from './integrations/rb-jss'
 export { toNum } from './utils'
 
 export type RBStyle = Partial<
@@ -332,7 +331,7 @@ export type RoseboxProperties = RBStyle
 export const style = (obj: RBStyle): CSSProperties => {
   // NEEDS improvement
   return Object.keys(obj).reduce((acc, key) => {
-    const serializer = ((funcMap as any)('inline'))[key]
+    const serializer = (funcMap as any)('inline')[key]
     return serializer
       ? {
           ...acc,
@@ -346,21 +345,26 @@ export const style = (obj: RBStyle): CSSProperties => {
 }
 
 export const toCSSMap = (obj: RBStyle) => {
-  /** Needs improvement */
- const js = style(obj)
- const objs = Object.keys(js).map(key => [camelCaseToDash(key), (js as any)[key]])
- return Object.fromEntries(objs)
+  // NEEDS improvement
+  const js = style(obj)
+  const objs = Object.keys(js).map((key) => [
+    camelCaseToDash(key),
+    (js as any)[key],
+  ])
+  return Object.fromEntries(objs)
 }
 
 export const style2 = (obj: any) => {
   // NEEDS improvement
   return Object.keys(obj).reduce((acc, key) => {
-    const serializerKey = key.replace(/-([a-z])/g, function (g) { return g[1].toUpperCase(); });
-    const serializer = ((funcMap as any)('inline'))[serializerKey]
+    const serializerKey = key.replace(/-([a-z])/g, function (g) {
+      return g[1].toUpperCase()
+    })
+    const serializer = (funcMap as any)('inline')[serializerKey]
     return serializer
       ? {
           ...acc,
-          ...(toCSSMap(serializer((obj as any)[key]))),
+          ...toCSSMap(serializer((obj as any)[key])),
         }
       : {
           ...acc,
@@ -368,4 +372,3 @@ export const style2 = (obj: any) => {
         }
   }, {})
 }
-
