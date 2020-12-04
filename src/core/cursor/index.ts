@@ -1,4 +1,4 @@
-import { URL, GlobalCssKeyword, isGlobalCssKeyword, getData } from '../shared'
+import { URL, GlobalCssKeyword, isGlobalCssKeyword, getData, ValueOrFunc } from '../shared'
 
 export type CursorCSSProp = 'cursor'
 
@@ -71,6 +71,9 @@ export const serializeCursor = (value: Cursor) => ({
       })(),
 })
 
+/** @hide */
+type PropValue = Cursor | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -89,5 +92,8 @@ export type CursorDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2020/WD-css-ui-4-20200124/#cursor
    */
-  cursor: Cursor | GlobalCssKeyword
+  cursor: PropValue
+}
+export type CursorDeclarationJSS = {
+  cursor: ValueOrFunc<PropValue>
 }

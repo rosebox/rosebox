@@ -3,6 +3,7 @@ import {
   Duration,
   GlobalCssKeyword,
   serializeTimingFunctionValue,
+  ValueOrFunc,
 } from '../shared'
 import { TimingFunctionValue } from '../shared'
 import { isDuration } from '../shared'
@@ -108,4 +109,8 @@ export type TransitionDeclaration = {
    * @category RBProperty
    */
   transition: TransitionPropertyValue
+}
+
+export type TransitionDeclarationJSS = {
+  transition: ValueOrFunc<TransitionPropertyValue>
 }

@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /**
  * @hide
@@ -16,6 +16,9 @@ export const serializeWritingMode = (
   writingMode: x,
 })
 
+/** @hide */
+type PropValue =  WritingModeValue | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -24,5 +27,9 @@ export type WritingModeDeclaration = {
    * Maps to CSS's **`writing-mode`** property
    * @category RBProperty
    */
-  writingMode: WritingModeValue | GlobalCssKeyword
+  writingMode: PropValue
+}
+
+export type WritingModeDeclarationJSS = {
+  writingMode: ValueOrFunc<PropValue>
 }

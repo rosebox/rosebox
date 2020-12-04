@@ -4,6 +4,8 @@ import {
   GlobalCssKeyword,
   isGlobalCssKeyword,
   serializeAtomicValue,
+  PropType,
+  ValueOrFunc,
 } from '../shared'
 import { Color } from '../shared'
 
@@ -18,6 +20,9 @@ type BorderColorValue = Color
  */
 type Border = [BorderWidthValue, BorderStyleValue, BorderColorValue]
 
+/** @hide */
+type PropValue = Border | GlobalCssKeyword | 'none'
+
 const serializeBorderValue = (property: string) => (
   value: Border | GlobalCssKeyword
 ) => ({
@@ -30,11 +35,16 @@ const serializeBorderValue = (property: string) => (
         .trim(),
 })
 
-export const serializeBorderTop = serializeBorderValue('borderTop')
-export const serializeBorderRight = serializeBorderValue('borderRight')
-export const serializeBorderBottom = serializeBorderValue('borderBottom')
-export const serializeBorderLeft = serializeBorderValue('borderLeft')
-export const serializeBorder = serializeBorderValue('border')
+export const serializeBorderTop = (type: PropType) =>
+  serializeBorderValue(type === 'inline' ? 'borderTop' : 'border-top')
+export const serializeBorderRight = (type: PropType) =>
+  serializeBorderValue(type === 'inline' ? 'borderRight' : 'border-right')
+export const serializeBorderBottom = (type: PropType) =>
+  serializeBorderValue(type === 'inline' ? 'borderBottom' : 'border-bottom')
+export const serializeBorderLeft = (type: PropType) =>
+serializeBorderValue(type === 'inline' ? 'borderLeft' : 'border-left')
+export const serializeBorder = (type: PropType) =>
+serializeBorderValue(type === 'inline' ? 'border' : 'border')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -47,7 +57,10 @@ export type BorderTopDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderTop: Border | GlobalCssKeyword | 'none'
+  borderTop: PropValue
+}
+export type BorderTopDeclarationJSS = {
+  borderTop: ValueOrFunc<PropValue>
 }
 
 /**
@@ -61,7 +74,10 @@ export type BorderRightDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderRight: Border | GlobalCssKeyword | 'none'
+  borderRight: PropValue
+}
+export type BorderRightDeclarationJSS = {
+  borderRight: ValueOrFunc<PropValue>
 }
 
 /**
@@ -75,7 +91,10 @@ export type BorderBottomDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderBottom: Border | GlobalCssKeyword | 'none'
+  borderBottom: PropValue
+}
+export type BorderBottomDeclarationJSS = {
+  borderBottom: ValueOrFunc<PropValue>
 }
 
 /**
@@ -89,7 +108,10 @@ export type BorderLeftDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderLeft: Border | GlobalCssKeyword | 'none'
+  borderLeft: PropValue
+}
+export type BorderLeftDeclarationJSS = {
+  borderLeft: ValueOrFunc<PropValue>
 }
 
 /**
@@ -101,5 +123,8 @@ export type BorderDeclaration = {
    * @category RBProperty
    * @added 0.2.0
    */
-  border: Border | GlobalCssKeyword | 'none'
+  border: PropValue
+}
+export type BorderDeclarationJSS = {
+  border: ValueOrFunc<PropValue>
 }

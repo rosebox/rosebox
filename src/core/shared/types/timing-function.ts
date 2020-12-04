@@ -15,19 +15,19 @@ export class CubicBezierFunction
   implements RBType<[number, number, number, number]> {
   data: [number, number, number, number]
   valueConstructor: Function
+  serialize: () => string
 
   private constructor(x: [number, number, number, number]) {
     this.data = x
     this.valueConstructor = CubicBezierFunction.bezier
+    this.serialize = () => serializeBezier(this)
   }
 
   /** @category Value constructor */
   static bezier(x1: number, x2: number, x3: number, x4: number) {
     return new CubicBezierFunction([x1, x2, x3, x4])
   }
-  serialize() {
-    return serializeBezier(this)
-  }
+ 
 }
 
 export const bezier = CubicBezierFunction.bezier
@@ -47,22 +47,21 @@ type StepPosition =
  */
 export class StepsFunction
   implements RBType<[number] | [number, StepPosition]> {
-    data: [number] | [number, StepPosition]
+  data: [number] | [number, StepPosition]
   valueConstructor: Function
+  serialize: () => string
 
   private constructor(x: number, y?: StepPosition) {
     this.data = y ? [x, y] : [x]
     this.valueConstructor = StepsFunction.steps
+    this.serialize = () => serializeStepsFunction(this)
   }
 
   /** @category Value constructor */
   static steps(num: number, stepPosition?: StepPosition) {
-    return new StepsFunction(num ,stepPosition)
+    return new StepsFunction(num, stepPosition)
   }
-  serialize() {
-    return serializeStepsFunction(this)
-  }
-  }
+}
 
 export const steps = StepsFunction.steps
 
@@ -94,7 +93,6 @@ export type TimingFunctionValue =
   | GlobalCssKeyword
   | TimingFunction
   | TimingFunction[]
-
 
 export const serializeTimingFunctionValue = (
   value: TimingFunctionValue

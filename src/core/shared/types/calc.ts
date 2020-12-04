@@ -44,6 +44,7 @@ export class Calculation<A extends CalcOperation = CalcOperation>
   operationType: A
   data: CalculationData<A>
   valueConstructor: Function
+  serialize: () => string
 
   private constructor(
     data: any,
@@ -53,6 +54,9 @@ export class Calculation<A extends CalcOperation = CalcOperation>
     this.operationType = operationType
     this.data = data
     this.valueConstructor = valueConstructor
+    this.serialize = () => {
+      return serializeCalculation(this)
+    }
   }
 
   /** @valueConstructor */
@@ -93,9 +97,6 @@ export class Calculation<A extends CalcOperation = CalcOperation>
     return new Calculation([x1, x2], 'multiplication', Calculation.cmult)
   }
 
-  serialize(): string {
-    return serializeCalculation(this)
-  }
 }
 
 export const cadd = Calculation.cadd

@@ -1,10 +1,23 @@
-import { GlobalCssKeyword, Percentage, serializeAtomicValue } from '../shared'
+import { GlobalCssKeyword, Percentage, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
-export const serializeFontStretch = (
+export const serializeFontStretch = (type: PropType) => (
   x: Percentage | string
-): { fontStretch: string } => ({
-  fontStretch: serializeAtomicValue(x),
+) => ({
+  [type === 'inline' ? 'fontStretch' : 'font-stretch']: serializeAtomicValue(x),
 })
+
+/** @hide */
+type PropValue = Percentage
+| 'normal'
+| 'ultra-condensed'
+| 'extra-condensed'
+| 'condensed'
+| 'semi-condensed'
+| 'semi-expanded'
+| 'expanded'
+| 'extra-expanded'
+| 'ultra-expanded'
+| GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -15,16 +28,8 @@ export type FontStretchDeclaration = {
    * @category RBProperty
    * @formalSyntaxForValu normal | <percentage> | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded
    */
-  fontStretch:
-    | Percentage
-    | 'normal'
-    | 'ultra-condensed'
-    | 'extra-condensed'
-    | 'condensed'
-    | 'semi-condensed'
-    | 'semi-expanded'
-    | 'expanded'
-    | 'extra-expanded'
-    | 'ultra-expanded'
-    | GlobalCssKeyword
+  fontStretch: PropValue
+}
+export type FontStretchDeclarationJSS = {
+  fontStretch: ValueOrFunc<PropValue>
 }

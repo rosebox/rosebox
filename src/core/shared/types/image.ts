@@ -36,18 +36,16 @@ const serializeImage = (x: Image): string => {
 export class Image implements RBType<ImageParamsObj> {
   valueConstructor: Function
   public data: ImageParamsObj
+  serialize: () => string
 
   private constructor(data: ImageParamsObj) {
     this.data = data
     this.valueConstructor = Image.image
+    this.serialize = () => serializeImage(this)
   }
 
   static image(x: ImageParamsObj): Image {
       return new Image(x)
-  }
-
-  serialize(): string {
-      return serializeImage(this)
   }
 }
 /** @category Value constructor */

@@ -3,7 +3,7 @@ import {
   AnimationDuration,
   serializeValue as serializeDuration,
 } from '../animation-duration'
-import { GlobalCssKeyword, TimingFunctionValue } from '../shared'
+import { GlobalCssKeyword, TimingFunctionValue, ValueOrFunc } from '../shared'
 import { AnimationDelay } from '../animation-delay'
 import { AnimationIterationCount } from '../animation-iteration-count'
 import { AnimationDirection } from '../animation-direction'
@@ -32,24 +32,31 @@ const serializeSingleAnimationValue = (x: Animation): string => {
   return `${name} ${duration} ${timingFunction} ${delay} ${iterationCount} ${direction} ${fillMode} ${playState}`
 }
 
+const serializeAnimationPropValue = (
+  x: Animation | Animation[] | GlobalCssKeyword
+): string =>
+  typeof x === 'string'
+    ? x
+    : !Array.isArray(x)
+    ? serializeSingleAnimationValue(x)
+    : x
+        .reduce(
+          (acc: any, item, idx) =>
+            acc +
+            serializeSingleAnimationValue(item) +
+            (idx === x.length - 1 ? '' : ', '),
+          ''
+        )
+        .trim()
+
 export const serializeAnimation = (
   x: Animation | Animation[] | GlobalCssKeyword
 ) => ({
-  animation:
-    typeof x === 'string'
-      ? x
-      : !Array.isArray(x)
-      ? serializeSingleAnimationValue(x)
-      : x
-          .reduce(
-            (acc: any, item, idx) =>
-              acc +
-              serializeSingleAnimationValue(item) +
-              (idx === x.length - 1 ? '' : ', '),
-            ''
-          )
-          .trim(),
+  animation: serializeAnimationPropValue(x),
 })
+
+/** @hide */
+type PropValue = Animation | Animation[] | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -60,4 +67,8 @@ export type AnimationDeclaration = {
    * @category RBProperty
    */
   animation: Animation | Animation[] | GlobalCssKeyword
+}
+
+export type AnimationDeclarationJSS = {
+  animation: ValueOrFunc<PropValue>
 }

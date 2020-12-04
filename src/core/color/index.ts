@@ -1,4 +1,4 @@
-import { Color, GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import { Color, GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 export const serializeColor = (
   x: Color | GlobalCssKeyword
@@ -7,6 +7,9 @@ export const serializeColor = (
 } => ({
   color: serializeAtomicValue(x),
 })
+
+/** @hide */
+type PropValue = Color | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -19,5 +22,8 @@ export type ColorDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/REC-css-color-3-20180619/#color0
    */
-  color: Color | GlobalCssKeyword
+  color: PropValue
+}
+export type ColorDeclarationJSS = {
+  color: ValueOrFunc<PropValue>
 }

@@ -8,18 +8,18 @@ import { RBType } from './shared'
 export class CustomIdent implements RBType<string> {
   data: string
   valueConstructor: Function
+  serialize: () => string
+
   private constructor(data: string) {
     this.data = data
     this.valueConstructor = CustomIdent.ident
+    this.serialize = () => this.data
   }
   /**
    * @category Value constructor
    */
   static ident(x: string): CustomIdent {
     return new CustomIdent(x)
-  }
-  serialize() {
-      return this.data
   }
 }
 

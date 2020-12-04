@@ -3,6 +3,8 @@ import {
   Width,
   isGlobalCssKeyword,
   isWidthType,
+  PropType,
+  ValueOrFunc,
 } from '../../shared'
 import { serializeKeyword, serializeWidth } from '../../shared'
 
@@ -20,13 +22,16 @@ export const serializeFlexBasisValue = (value: FlexBasis): string =>
     ? serializeKeyword(value)
     : serializeWidth(value)
 
-export const serializeFlexBasis = (
+export const serializeFlexBasis = (type: PropType) => (
   value: FlexBasis | GlobalCssKeyword
-): { flexBasis: string } => ({
-  flexBasis: isGlobalCssKeyword(value)
+)=> ({
+  [type === 'inline' ? 'flexBasis' : 'flex-basis']: isGlobalCssKeyword(value)
     ? serializeKeyword(value)
     : serializeFlexBasisValue(value),
 })
+
+/** @hide */
+type PropValue = FlexBasis | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -39,5 +44,8 @@ export type FlexBasisDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-basis-property
    */
-  flexBasis: FlexBasis | GlobalCssKeyword
+  flexBasis: PropValue
+}
+export type FlexBasisDeclarationJSS = {
+  flexBasis: ValueOrFunc<PropValue>
 }

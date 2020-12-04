@@ -3,15 +3,19 @@ import {
   LengthPercentage,
   Calculation,
   serializeAtomicValue,
+  ValueOrFunc,
 } from '../shared'
 
 /**
  * @hide
  */
-type MaxWidth = LengthPercentage | Calculation | GlobalCssKeyword | 'none'
+type PropValue = LengthPercentage | Calculation | GlobalCssKeyword | 'none'
+
+/** @hide */
+
 
 export const serializeMaxWidth = (
-  x: MaxWidth | GlobalCssKeyword
+  x: PropValue
 ): { maxWidth: string } => ({
   maxWidth: serializeAtomicValue(x),
 })
@@ -27,5 +31,9 @@ export type MaxWidthDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-widths
    */
-  maxWidth: MaxWidth
+  maxWidth: PropValue
+}
+
+export type MaxWidthDeclarationJSS = {
+  maxWidth: ValueOrFunc<PropValue>
 }

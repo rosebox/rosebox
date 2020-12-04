@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, LineStyle, serializeAtomicValue } from '../shared'
+import { GlobalCssKeyword, LineStyle, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 export type BorderStyleCSSProp = 'border-style'
 
@@ -8,18 +8,21 @@ const serializeBorderSideStyle = (property: string) => (
   [property]: value,
 })
 
-export const serializeBorderTopStyle = serializeBorderSideStyle(
-  'borderTopStyle'
+export const serializeBorderTopStyle = (type: PropType) => serializeBorderSideStyle(
+  type === 'inline' ? 'borderTopStyle' : 'border-top-style'
 )
-export const serializeBorderRightStyle = serializeBorderSideStyle(
-  'borderRightStyle'
+export const serializeBorderRightStyle = (type: PropType) => serializeBorderSideStyle(
+  type === 'inline' ? 'borderRightStyle' : 'border-right-style'
 )
-export const serializeBorderBottomStyle = serializeBorderSideStyle(
-  'borderBottomStyle'
+export const serializeBorderBottomStyle = (type: PropType) => serializeBorderSideStyle(
+  type === 'inline' ? 'borderBottomStyle' : 'border-bottom-style'
 )
-export const serializeBorderLeftStyle = serializeBorderSideStyle(
-  'borderLeftStyle'
+export const serializeBorderLeftStyle = (type: PropType) => serializeBorderSideStyle(
+  type === 'inline' ? 'borderLeftStyle' : 'border-Left-style'
 )
+
+/** @hide */
+type BorderSideStylePropValue = LineStyle | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -34,6 +37,9 @@ export type BorderTopStyleDeclaration = {
    */
   borderTopStyle: LineStyle | GlobalCssKeyword
 }
+export type BorderTopStyleDeclarationJSS = {
+  borderTopStyle: ValueOrFunc<BorderSideStylePropValue>
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -46,7 +52,10 @@ export type BorderRightStyleDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
    */
-  borderRightStyle: LineStyle | GlobalCssKeyword
+  borderRightStyle: BorderSideStylePropValue
+}
+export type BorderRightStyleDeclarationJSS = {
+  borderRightStyle: ValueOrFunc<BorderSideStylePropValue>
 }
 
 /**
@@ -60,7 +69,10 @@ export type BorderBottomStyleDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
    */
-  borderBottomStyle: LineStyle | GlobalCssKeyword
+  borderBottomStyle: BorderSideStylePropValue
+}
+export type BorderBottomStyleDeclarationJSS = {
+  borderBottomStyle: ValueOrFunc<BorderSideStylePropValue>
 }
 
 /**
@@ -74,24 +86,33 @@ export type BorderLeftStyleDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
    */
-  borderLeftStyle: LineStyle | GlobalCssKeyword
+  borderLeftStyle: BorderSideStylePropValue
 }
+export type BorderLeftStyleDeclarationJSS = {
+  borderLeftStyle: ValueOrFunc<BorderSideStylePropValue>
+}
+
 /**
  * @hide
  */
 type BorderStyle = LineStyle | [LineStyle, LineStyle, LineStyle, LineStyle]
 
-export const serializeBorderStyle = (
+export const serializeBorderStyle = (type: PropType) => (
   x: BorderStyle | GlobalCssKeyword
 ): {
-  borderStyle: string
-} => ({
-  borderStyle: !Array.isArray(x)
-    ? serializeAtomicValue(x)
-    : (x as LineStyle[])
-        .reduce((acc: any, item) => acc + ' ' + item, '')
-        .trim(),
-})
+  [key: string]: string
+} => {
+  const propName= type === 'inline' ? 'borderStyle' : 'border-style'
+  return {
+    [propName]: !Array.isArray(x)
+      ? serializeAtomicValue(x)
+      : (x as LineStyle[])
+          .reduce((acc: any, item) => acc + ' ' + item, '')
+          .trim(),
+  }
+}
+/** @hide */
+type PropValue = BorderStyle | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -104,5 +125,15 @@ export type BorderStyleDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
    */
-  borderStyle: BorderStyle | GlobalCssKeyword
+  borderStyle: PropValue
+}
+export type BorderStyleDeclarationJSS = {
+  /**
+   * Maps to CSS's **`border-style`** property
+   * @category RBProperty
+   * @formalSyntaxForValue <line-style>{1,4}
+   * @added 0.2.0
+   * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
+   */
+  borderStyle: ValueOrFunc<PropValue>
 }

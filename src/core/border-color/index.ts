@@ -1,4 +1,4 @@
-import { Color } from '../shared'
+import { Color, PropType, ValueOrFunc } from '../shared'
 import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
 
 const serializeBorderSideColor = (property: string) => (
@@ -14,19 +14,24 @@ const serializeBorderSideColor = (property: string) => (
  * @added 0.1.5
  * @implentationReference hhttps://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
  */
-export const serializeBorderTopColor = serializeBorderSideColor(
-  'borderTopColor'
-)
-export const serializeBorderRightColor = serializeBorderSideColor(
-  'borderRightColor'
-)
-export const serializeBorderBottomColor = serializeBorderSideColor(
-  'borderBottomColor'
-)
-export const serializeBorderLeftColor = serializeBorderSideColor(
-  'borderLeftColor'
-)
+export const serializeBorderTopColor = (type: PropType) =>
+  serializeBorderSideColor(
+    type === 'inline' ? 'borderTopColor' : 'border-top-color'
+  )
+export const serializeBorderRightColor = (type: PropType) =>
+  serializeBorderSideColor(
+    type === 'inline' ? 'borderRightColor' : 'border-right-color'
+  )
+export const serializeBorderBottomColor = (type: PropType) =>
+  serializeBorderSideColor(
+    type === 'inline' ? 'borderBottomColor' : 'border-bottom-color'
+  )
+export const serializeBorderLeftColor = (type: PropType) =>
+  serializeBorderSideColor(
+    type === 'inline' ? 'borderLeftColor' : 'border-left-color'
+  )
 
+type BorderSidePropValue =  Color | GlobalCssKeyword
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -38,8 +43,13 @@ export type BorderTopColorDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
    */
-  borderTopColor: Color | GlobalCssKeyword
+  borderTopColor: BorderSidePropValue
 }
+export type BorderTopColorDeclarationJSS = {
+  borderTopColor: ValueOrFunc<BorderSidePropValue>
+}
+
+
 
 /**
  * @category RBDeclarationTypeAlias
@@ -52,7 +62,10 @@ export type BorderRightColorDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
    */
-  borderRightColor: Color | GlobalCssKeyword
+  borderRightColor: BorderSidePropValue
+}
+export type BorderRightColorDeclarationJSS = {
+  borderRightColor: ValueOrFunc<BorderSidePropValue>
 }
 
 /**
@@ -66,7 +79,10 @@ export type BorderBottomColorDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
    */
-  borderBottomColor: Color | GlobalCssKeyword
+  borderBottomColor: BorderSidePropValue
+}
+export type BorderBottomColorDeclarationJSS = {
+  borderBottomColor: ValueOrFunc<BorderSidePropValue>
 }
 
 /**
@@ -80,7 +96,10 @@ export type BorderLeftColorDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
    */
-  borderLeftColor: Color | GlobalCssKeyword
+  borderLeftColor: BorderSidePropValue
+}
+export type BorderLeftColorDeclarationJSS = {
+  borderLeftColor: ValueOrFunc<BorderSidePropValue>
 }
 
 /**
@@ -88,17 +107,26 @@ export type BorderLeftColorDeclaration = {
  */
 type BorderColor = Color | [Color, Color, Color, Color]
 
-export const serializeBorderColor = (
+export const serializeBorderColor = (type: PropType) => (
   x: GlobalCssKeyword | BorderColor
 ): {
-  borderColor: string
-} => ({
-  borderColor: !Array.isArray(x)
-    ? serializeAtomicValue(x)
-    : x
-        .reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '')
-        .trim(),
-})
+  [key: string]: string
+} => {
+  const propName = type === 'inline' ? 'borderColor' : 'border-color'
+  return {
+    [propName]: !Array.isArray(x)
+      ? serializeAtomicValue(x)
+      : x
+          .reduce(
+            (acc: any, item) => acc + ' ' + serializeAtomicValue(item),
+            ''
+          )
+          .trim(),
+  }
+}
+
+/** @hide */
+type PropValue = BorderColor | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -111,5 +139,8 @@ export type BorderColorDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
    */
-  borderColor: BorderColor | GlobalCssKeyword
+  borderColor: PropValue
+}
+export type BorderColorDeclarationJSS = {
+  borderColor: ValueOrFunc<PropValue>
 }

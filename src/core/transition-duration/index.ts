@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
 import { Duration } from '../shared'
 
 export type TransitionDurationCSSProp = 'transition-durtion'
@@ -39,4 +39,8 @@ export type TransitionDurationDeclaration = {
    * @implentationReference @implentationReference https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-duration-property
    */
   transitionDuration: TransitionDurationPropValue
+}
+
+export type TransitionDurationDeclarationJSS = {
+  transitionDuration: ValueOrFunc<TransitionDurationPropValue>
 }

@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
 import { Duration } from '../shared'
 
 export type TransitionDelayCSSProp = 'transition-delay'
@@ -33,4 +33,8 @@ export type TransitionDelayDeclaration = {
    * @implentationReference @implentationReference https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-delay-property
    */
   transitionDelay: TransitionDelayPropValue
+}
+
+export type TransitionDelayDeclarationJSS = {
+  transitionDelay: ValueOrFunc<TransitionDelayPropValue>
 }

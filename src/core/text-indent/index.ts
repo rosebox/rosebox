@@ -8,9 +8,6 @@ export const serializeTexIndent = (x: TextIndentValue) => ({
       : serializeDoubleBar(!Array.isArray(x) ? [x] : x, serializeAtomicValue),
 })
 
-/**
- * @skip
- */
 type TextIndentValue =
   | LengthPercentage
   | [LengthPercentage]
@@ -24,7 +21,9 @@ type TextIndentValue =
   | ['hanging', 'each-line', LengthPercentage]
   | ['each-line', LengthPercentage, 'hanging']
   | ['each-line', 'hanging', LengthPercentage]
-  | GlobalCssKeyword
+
+/** @hide */
+type PropValue = TextIndentValue | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -34,5 +33,9 @@ export type TextIndentDeclaration = {
    * Maps to CSS's **`text-indent`** property
    * @category RBProperty
    */
-  textIndent: TextIndentValue
+  textIndent: PropValue
+}
+
+export type TextIndentDeclarationJSS = {
+  textIndent: PropValue
 }

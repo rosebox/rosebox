@@ -8,19 +8,18 @@ import { RBType } from './shared'
 export class Decibel implements RBType<number> {
   valueConstructor: Function
   data: number
+  serialize: () => string
 
   private constructor(data: number) {
     this.data = data
     this.valueConstructor = Decibel.db
+    this.serialize = () => `${this.data}dB`
   }
 
   static db(x: number): Decibel {
       return new Decibel(x)
   }
 
-  serialize(): string {
-    return `${this.data}dB`
-  }
 }
 
   /** @category Value constructor */

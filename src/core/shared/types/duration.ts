@@ -46,11 +46,13 @@ export class Duration<A extends DurationUnit = DurationUnit>
   valueConstructor: Function
   public unit: A extends void ? DurationUnit : A
   public data: number
+  serialize: () => string
 
   private constructor(unit: A, data: number) {
     this.unit = unit
     this.data = data
     this.valueConstructor = unit === 'milliseconds' ? Duration.ms : Duration.s
+    this.serialize = () => serialize(this)
   }
 
   /**
@@ -66,9 +68,6 @@ export class Duration<A extends DurationUnit = DurationUnit>
     return new Duration('seconds', x)
   }
 
-  serialize(): string {
-    return serialize(this)
-  }
   eq = eq
   mult = mult
   add = add

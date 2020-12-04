@@ -1,4 +1,4 @@
-import { getSerializer, GlobalCssKeyword } from '../shared'
+import { getSerializer, GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 import { Position, serializePosition } from '../shared'
 
 export const serializeBgPositionPropValue = (
@@ -14,13 +14,17 @@ export const serializeBgPositionPropValue = (
   return serializePosition(x)
 }
 
-export const serializeBackgroundPosition = (
+export const serializeBackgroundPosition = (type: PropType) => (
   x: Position | Position[] | GlobalCssKeyword
-): {
-  backgroundPosition: string
-} => ({
-  backgroundPosition: serializeBgPositionPropValue(x),
-})
+)=> {
+  const propName = type === 'inline' ? 'backgroundPosition' : 'background-position'
+  return ({
+    [propName]: serializeBgPositionPropValue(x),
+  })
+}
+
+/** @hide */
+type PropValue = Position | Position[] | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -30,5 +34,8 @@ export type BgPositionDeclaration = {
    * A RB property that maps to CSS's **`background-position`** property
    * @category RBProperty
    */
-  backgroundPosition: Position | Position[] | GlobalCssKeyword
+  backgroundPosition: PropValue
+}
+export type BgPositionDeclarationJSS = {
+  backgroundPosition: ValueOrFunc<PropValue>
 }

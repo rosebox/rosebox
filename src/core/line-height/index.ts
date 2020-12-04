@@ -3,15 +3,24 @@ import {
   LengthPercentage,
   serializeAtomicValue,
   Calculation,
+  PropType,
+  ValueOrFunc,
 } from '../shared'
 
 export type LineHeightCSSProp = 'line-height'
 
-export const serializeLineHeight = (
+export const serializeLineHeight = (type: PropType) => (
   x: 'normal' | number | LengthPercentage | Calculation | GlobalCssKeyword
-): { lineHeight: string | number } => ({
-  lineHeight: serializeAtomicValue(x),
+) => ({
+  [type === 'inline' ? 'lineHeight' : 'line-height']: serializeAtomicValue(x),
 })
+
+/** @hide */
+type PropValue = 'normal'
+| number
+| LengthPercentage
+| Calculation
+| GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -24,10 +33,9 @@ export type LineHeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-line-height
    */
-  lineHeight:
-    | 'normal'
-    | number
-    | LengthPercentage
-    | Calculation
-    | GlobalCssKeyword
+  lineHeight: PropValue
+}
+
+export type LineHeightDeclarationJSS = {
+  lineHeight: ValueOrFunc<PropValue>
 }

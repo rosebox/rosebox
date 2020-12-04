@@ -3,6 +3,7 @@ import {
   Decibel,
   GlobalCssKeyword,
   serializeAtomicValue,
+  ValueOrFunc,
 } from '../shared/types'
 
 type VoiceVolume =
@@ -23,6 +24,9 @@ export const serializeVoiceVolume = (x: VoiceVolume | GlobalCssKeyword) => ({
         .trim(),
 })
 
+/** @hide */
+type PropValue = VoiceVolume | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -31,5 +35,13 @@ export type VoiceVolumeDeclaration = {
    * Maps to CSS's **`voice-volume`** property
    * @category RBProperty
    */
-  voiceVolume: VoiceVolume | GlobalCssKeyword
+  voiceVolume: PropValue
+}
+
+export type VoiceVolumeDeclarationJSS = {
+  /**
+   * Maps to CSS's **`voice-volume`** property
+   * @category RBProperty
+   */
+  voiceVolume: ValueOrFunc<PropValue>
 }

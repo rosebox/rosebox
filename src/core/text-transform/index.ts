@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 type OneValue =
   | 'none'
@@ -44,6 +44,9 @@ type ThreeValues =
 
 type TextTransform = OneValue | TwoValues | ThreeValues
 
+/** @hide */
+type Propvalue = TextTransform | GlobalCssKeyword
+
 export const serializeTextTransform = (value: TextTransform) => ({
   textTransform: !Array.isArray(value)
     ? value
@@ -61,5 +64,9 @@ export type TextTransformDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-transform-property
    */
-  textTransform: TextTransform | GlobalCssKeyword
+  textTransform: Propvalue
+}
+
+export type TextTransformDeclarationJSS = {
+  textTransform: ValueOrFunc<Propvalue>
 }

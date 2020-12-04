@@ -1,3 +1,5 @@
+import { PropType, ValueOrFunc } from "../shared"
+
 const serializeValue = (value: string | string[]) =>
   !Array.isArray(value)
     ? value
@@ -6,13 +8,14 @@ const serializeValue = (value: string | string[]) =>
         ''
       )
 
-export const serializeFontFamily = (
+export const serializeFontFamily = (type: PropType) => (
   value: string | string[]
-): {
-  fontFamily: string
-} => ({
-  fontFamily: serializeValue(value),
+) => ({
+  [type === 'inline' ? 'fontFamily' : 'font-family']: serializeValue(value),
 })
+
+/** @hide */
+type PropValue = string | string[]
 
 /**
  * @category RBDeclarationTypeAlias
@@ -24,5 +27,8 @@ export type FontFamilyDeclaration = {
    * @formalSyntaxForValue auto | <integer>
    * @added 0.2.0
    */
-  fontFamily: string | string[]
+  fontFamily: PropValue
+}
+export type FontFamilyDeclarationJSS = {
+  fontFamily: ValueOrFunc<PropValue>
 }

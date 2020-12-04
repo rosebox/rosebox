@@ -1,6 +1,9 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 type OverflowKeyword = 'visible' | 'hidden' | 'clip' | 'scroll' | 'auto'
+
+/** @hide */
+type OverflowAxisPropValue = OverflowKeyword | GlobalCssKeyword
 
 export type OverflowXDeclaration = {
   /**
@@ -10,7 +13,11 @@ export type OverflowXDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
    */
-  overflowX: OverflowKeyword | GlobalCssKeyword
+  overflowX: OverflowAxisPropValue
+}
+
+export type OverflowXDeclarationJSS = {
+  overflowX: ValueOrFunc<OverflowAxisPropValue>
 }
 
 export type OverflowYDeclaration = {
@@ -21,7 +28,11 @@ export type OverflowYDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
    */
-  overflowY: OverflowKeyword | GlobalCssKeyword
+  overflowY: OverflowAxisPropValue
+}
+
+export type OverflowYDeclarationJSS = {
+  overflowY: ValueOrFunc<OverflowAxisPropValue>
 }
 
 type OneOverflowKeyword = OverflowKeyword
@@ -35,6 +46,11 @@ export const serializeOverflow = (
   overflow: Array.isArray(value) ? `${value[0]} ${value[1]}` : value,
 })
 
+/** @hide */
+type PropValue = OverflowKeyword
+| [OverflowKeyword, OverflowKeyword]
+| GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -46,8 +62,9 @@ export type OverflowDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
    */
-  overflow:
-    | OverflowKeyword
-    | [OverflowKeyword, OverflowKeyword]
-    | GlobalCssKeyword
+  overflow: PropValue
+}
+
+export type OverflowDeclarationJSS = {
+  overflow: ValueOrFunc<PropValue>
 }

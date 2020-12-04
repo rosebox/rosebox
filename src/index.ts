@@ -167,7 +167,7 @@ import { OutlineStyleDeclaration } from './core/outline-style'
 import { OutlineDeclaration } from './core/outline'
 
 export * from './core'
-export * from './react'
+export { RBJSSStyle } from './integrations/rb-jss'
 export { toNum } from './utils'
 
 export type RBStyle = Partial<
@@ -327,21 +327,10 @@ export type RBStyle = Partial<
  */
 export type RoseboxProperties = RBStyle
 
-export const style__ = (obj: RBStyle): CSSProperties => {
-  // NEEDS improvement
-  return Object.keys(obj).reduce((acc, key) => {
-    return Object.assign({}, acc, {
-      [key]: (funcMap as any)[key]
-        ? (funcMap as any)[key]((obj as any)[key])
-        : (obj as any)[key],
-    })
-  }, {}) as CSSProperties
-}
-
 export const style = (obj: RBStyle): CSSProperties => {
   // NEEDS improvement
   return Object.keys(obj).reduce((acc, key) => {
-    const serializer = (funcMap as any)[key]
+    const serializer = (funcMap as any)('inline')[key]
     return serializer
       ? {
           ...acc,

@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
 /**
  * @hide
@@ -19,11 +19,18 @@ export const serializeValue = (
         ''
       )
 
-export const serializeAnimationIterationCount = (
+export const serializeAnimationIterationCount = (type: PropType) => (
   x: AnimationIterationCount
-) => ({
-  animationIterationCount: serializeValue(x),
-})
+) => {
+  const propName =
+    type === 'inline' ? 'animationIterationCount' : 'animation-iteration-count'
+  return {
+    [propName]: serializeValue(x),
+  }
+}
+
+/** @hide */
+export type PropValue = AnimationIterationCount
 
 /**
  * @category RBDeclarationTypeAlias
@@ -33,5 +40,8 @@ export type AnimationIterationCountDeclaration = {
    * Maps to CSS's **`animation-iteration-count`** property
    * @category RBProperty
    */
-  animationIterationCount: AnimationIterationCount
+  animationIterationCount: PropValue
+}
+export type AnimationIterationCountDeclarationJSS = {
+  animationIterationCount: ValueOrFunc<PropValue>
 }

@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 export type FontWeightCSSProp = 'font-weight'
 
@@ -17,6 +17,9 @@ type FontWeight =
   | 800
   | 900
 
+ /** @hide */
+ type PropValue = FontWeight | GlobalCssKeyword
+ 
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -29,4 +32,8 @@ export type FontWeightDeclaration = {
    * @implementationReference https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/#font-weight-prop
    */
   fontWeight: FontWeight | GlobalCssKeyword
+}
+
+export type FontWeightDeclarationJSS = {
+  fontWeight: ValueOrFunc<PropValue>
 }
