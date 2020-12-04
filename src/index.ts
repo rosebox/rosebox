@@ -165,7 +165,6 @@ import { OutlineColorDeclaration } from './core/outline-color'
 import { OutlineWidthDeclaration } from './core/outline-width'
 import { OutlineStyleDeclaration } from './core/outline-style'
 import { OutlineDeclaration } from './core/outline'
-import { camelCaseToDash } from './dom'
 
 export * from './core'
 export { RBJSSStyle } from './integrations/rb-jss'
@@ -342,33 +341,4 @@ export const style = (obj: RBStyle): CSSProperties => {
           [key]: (obj as any)[key],
         }
   }, {}) as CSSProperties
-}
-
-export const toCSSMap = (obj: RBStyle) => {
-  // NEEDS improvement
-  const js = style(obj)
-  const objs = Object.keys(js).map((key) => [
-    camelCaseToDash(key),
-    (js as any)[key],
-  ])
-  return Object.fromEntries(objs)
-}
-
-export const style2 = (obj: any) => {
-  // NEEDS improvement
-  return Object.keys(obj).reduce((acc, key) => {
-    const serializerKey = key.replace(/-([a-z])/g, function (g) {
-      return g[1].toUpperCase()
-    })
-    const serializer = (funcMap as any)('inline')[serializerKey]
-    return serializer
-      ? {
-          ...acc,
-          ...toCSSMap(serializer((obj as any)[key])),
-        }
-      : {
-          ...acc,
-          [key]: (obj as any)[key],
-        }
-  }, {})
 }
