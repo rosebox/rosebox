@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
 type DoubleBar2<A, B> = A | B | [A, B] | [B, A]
 type DoubleBar3<A, B, C> =
@@ -74,7 +74,7 @@ type DiscretionaryLigValues =
 type HistoricalLigValues = 'historical-ligatures' | 'no-historical-ligatures'
 type ContextualAltValues = 'contextual' | 'no-contextual'
 
-export const serializeFontVariantLigatures = (
+export const serializeFontVariantLigatures = (type: PropType) => (
   x:
     | 'normal'
     | 'none'
@@ -85,11 +85,25 @@ export const serializeFontVariantLigatures = (
         ContextualAltValues
       >
     | GlobalCssKeyword
-): { fontVariantLigatures: string } => ({
-  fontVariantLigatures: !Array.isArray(x)
+) => ({
+  [type === 'inline'
+    ? 'fontVariantLigatures'
+    : 'font-variant-ligatures']: !Array.isArray(x)
     ? x
     : (x as string[]).reduce((acc: any, item) => acc + ' ' + item, '').trim(),
 })
+
+/** @hide */
+type PropValue =
+  | 'normal'
+  | 'none'
+  | DoubleBar4<
+      CommonLigValues,
+      DiscretionaryLigValues,
+      HistoricalLigValues,
+      ContextualAltValues
+    >
+  | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -101,14 +115,9 @@ export type FontVariantLigaturesDeclaration = {
    * @formalSyntaxForValue normal | none | [ <common-lig-values> || <discretionary-lig-values> || <historical-lig-values> || <contextual-alt-values> ]
    * @implementationReference https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-ligatures
    */
-  fontVariantLigatures:
-    | 'normal'
-    | 'none'
-    | DoubleBar4<
-        CommonLigValues,
-        DiscretionaryLigValues,
-        HistoricalLigValues,
-        ContextualAltValues
-      >
-    | GlobalCssKeyword
+  fontVariantLigatures: PropValue
+}
+
+export type FontVariantLigaturesDeclarationJSS = {
+  fontVariantLigatures: ValueOrFunc<PropValue>
 }

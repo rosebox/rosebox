@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 type BaseLinePosition =
   | ['first', 'baseline']
@@ -40,13 +40,17 @@ export const serializeAlignSelfPropValue = (x: string | string[]): string =>
     ? `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}`
     : serializeAtomicValue(x)
 
-export const serializeAlignSelf = (
+export const serializeAlignSelf = (type: PropType) => (
   x: AlignSelf | GlobalCssKeyword
-): {
-  alignSelf: string
-} => ({
-  alignSelf: serializeAlignSelfPropValue(x),
-})
+): { [key: string]: string } => {
+  const propName = type === 'inline' ? 'alignSelf' : 'align-self'
+  return {
+    [propName]: serializeAlignSelfPropValue(x),
+  }
+}
+
+/** @hide */
+type PropValue = AlignSelf | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -56,5 +60,9 @@ export type AlignSelfDeclaration = {
    * Maps to CSS's **`align-self`** property
    * @category RBProperty
    */
-  alignSelf: AlignSelf | GlobalCssKeyword
+  alignSelf: PropValue
+}
+
+export type AlignSelfDeclarationJSS = {
+  alignSelf: ValueOrFunc<PropValue>
 }

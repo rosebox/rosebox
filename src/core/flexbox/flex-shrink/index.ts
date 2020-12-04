@@ -1,11 +1,14 @@
 import { ShrinkGrow } from '../shared'
-import { GlobalCssKeyword } from '../../shared'
+import { GlobalCssKeyword, PropType, ValueOrFunc } from '../../shared'
 
-export const serializeFlexShrink = (
+export const serializeFlexShrink = (type: PropType) => (
   value: ShrinkGrow | GlobalCssKeyword
-): { flexShrink: string | number } => ({
-  flexShrink: value,
+): { [key: string]: string | number } => ({
+  [type === 'inline' ? 'flexShrink' : 'flex-shrink']: value,
 })
+
+/** @hide */
+type PropValue = ShrinkGrow | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -18,5 +21,8 @@ export type FlexShrinkDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-shrink-property
    */
-  flexShrink: ShrinkGrow | GlobalCssKeyword
+  flexShrink: PropValue
+}
+export type FlexShrinkDeclarationJSS = {
+  flexShrink: ValueOrFunc<PropValue>
 }

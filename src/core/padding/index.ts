@@ -4,12 +4,16 @@ import {
   LengthPercentage,
   serializeAtomicValue,
   Calculation,
+  ValueOrFunc,
 } from '../shared'
 
 type PaddingValue = LengthPercentage | Calculation
 
+/** @hide */
+type PaddingSidePropValue = PaddingValue | GlobalCssKeyword
+
 const serializePaddingSide = (prop: string) => (
-  value: LengthPercentage | GlobalCssKeyword
+  value: PaddingValue
 ) => ({
   [prop]: serializeAtomicValue(value),
 })
@@ -27,7 +31,11 @@ export type PaddingTopDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingTop: PaddingValue | GlobalCssKeyword
+  paddingTop: PaddingSidePropValue
+}
+
+export type PaddingTopDeclarationJSS = {
+  paddingTop: ValueOrFunc<PaddingSidePropValue>
 }
 
 export const serializePaddingRightValue = serializePaddingSide('paddingRight')
@@ -43,7 +51,11 @@ export type PaddingRightDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingRight: PaddingValue | GlobalCssKeyword
+  paddingRight: PaddingSidePropValue
+}
+
+export type PaddingRightDeclarationJSS = {
+  paddingRight: ValueOrFunc<PaddingSidePropValue>
 }
 
 export const serializePaddingBottomValue = serializePaddingSide('paddingBottom')
@@ -59,7 +71,11 @@ export type PaddingBottomDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingBottom: PaddingValue | GlobalCssKeyword
+  paddingBottom: PaddingSidePropValue
+}
+
+export type PaddingBottomDeclarationJSS = {
+  paddingBottom: ValueOrFunc<PaddingSidePropValue>
 }
 
 export const serializePaddingLeftValue = serializePaddingSide('paddingLeft')
@@ -75,8 +91,15 @@ export type PaddingLeftDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  paddingLeft: PaddingValue | GlobalCssKeyword
+  paddingLeft: PaddingSidePropValue
 }
+
+export type PaddingLeftDeclarationJSS = {
+  paddingLeft: ValueOrFunc<PaddingSidePropValue>
+}
+
+/** @hide */
+type PaddingAxisPropValue = PaddingValue | [PaddingValue, PaddingValue] | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -89,7 +112,11 @@ export type PaddingXDeclaration = {
    * if a single value of type `LengthPercentage` is provided then it will be used for both.
    * @category RBProperty
    */
-  paddingX: PaddingValue | [PaddingValue, PaddingValue] | GlobalCssKeyword
+  paddingX: PaddingAxisPropValue
+}
+
+export type PaddingXDeclarationJSS = {
+  paddingX: ValueOrFunc<PaddingAxisPropValue>
 }
 
 /**
@@ -103,7 +130,11 @@ export type PaddingYDeclaration = {
    * if a single value of type `LengthPercentage` is provided then it will be used for both.
    * @category RBProperty
    */
-  paddingY: PaddingValue | [PaddingValue, PaddingValue] | GlobalCssKeyword
+  paddingY: PaddingAxisPropValue
+}
+
+export type PaddingYDeclarationJSS = {
+  paddingY: ValueOrFunc<PaddingAxisPropValue>
 }
 
 type PaddingShorthand =
@@ -180,6 +211,14 @@ type PaddingObject = {
   left?: PaddingValue
 }
 
+/** @hide */
+type PropValue = PaddingValue
+| [PaddingValue, PaddingValue]
+| [PaddingValue, PaddingValue, PaddingValue]
+| [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
+| PaddingObject
+| GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -190,11 +229,9 @@ export type PaddingDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  padding:
-    | PaddingValue
-    | [PaddingValue, PaddingValue]
-    | [PaddingValue, PaddingValue, PaddingValue]
-    | [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
-    | PaddingObject
-    | GlobalCssKeyword
+  padding: PropValue
+}
+
+export type PaddingDeclarationJSS = {
+  padding: ValueOrFunc<PropValue>
 }

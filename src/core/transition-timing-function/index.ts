@@ -1,4 +1,4 @@
-import { TimingFunctionValue, serializeTimingFunctionValue } from '../shared'
+import { TimingFunctionValue, serializeTimingFunctionValue, ValueOrFunc } from '../shared'
 
 export const serializeTransitionTimingFunction = (
   x: TimingFunctionValue
@@ -14,4 +14,8 @@ export type TransitionTimingDeclaration = {
    * @category RBProperty
    */
   transitionTimingFunction: TimingFunctionValue
+}
+
+export type TransitionTimingDeclarationJSS = {
+  transitionTimingFunction: ValueOrFunc<TimingFunctionValue>
 }

@@ -95,6 +95,14 @@ type GradientType =
   | 'repeat-radial-gradient'
   | 'repeat-linear-gradient'
 
+const serializeGradient = (x: Gradient): string => {
+  if (isLinearGradient(x)) return serializeLinearGradient(x)
+      if (isRadialGradient(x)) return serializeRadialGradient(x)
+      if (isRepLinearGradient(x)) return serializeRepLinearGradient(x)
+      if (isRepRadialGradient(x)) return serializeRepRadialGradient(x)
+      throw new Error('Unrecognized type')
+    }
+
 /**
  *
  * A type that maps to CSS's **`<gradient>`** type.
@@ -107,12 +115,14 @@ export class Gradient<A extends GradientType = GradientType>
     ? LinearGradientParamsObj
     : RadialGradientParamsObj
   valueConstructor: Function
+  serialize: () => string
 
   private constructor(gradientType: A, x: LinearGradientParamsObj) {
     this.gradientType = gradientType
     this.valueConstructor =
       gradientType === 'linear-gradient' ? Gradient.linGrad : Gradient.radGrad
     this.data = x as any
+    this.serialize = () => serializeGradient(this)
   }
 
   /**
@@ -144,14 +154,6 @@ export class Gradient<A extends GradientType = GradientType>
     x: RadialGradientParamsObj
   ): Gradient<'repeat-radial-gradient'> {
     return new Gradient('repeat-radial-gradient', x)
-  }
-
-  serialize(): string {
-    if (isLinearGradient(this)) return serializeLinearGradient(this)
-    if (isRadialGradient(this)) return serializeRadialGradient(this)
-    if (isRepLinearGradient(this)) return serializeRepLinearGradient(this)
-    if (isRepRadialGradient(this)) return serializeRepRadialGradient(this)
-    throw new Error('Unrecognized type')
   }
 }
 

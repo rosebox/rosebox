@@ -3,6 +3,8 @@ import {
   serializeAtomicValue,
   Width,
   Calculation,
+  PropType,
+  ValueOrFunc,
 } from '../shared'
 
 const serializeBackgroundSizeAtomic = (x: BackgroundSize): string =>
@@ -30,13 +32,17 @@ type BackgroundSize =
   | 'cover'
   | 'contain'
 
-export const serializeBackgroundSize = (
+export const serializeBackgroundSize = (type: PropType) => (
   x: BackgroundSize | BackgroundSize[] | GlobalCssKeyword
-): {
-  backgroundSize: string
-} => ({
-  backgroundSize: serializeBackgroundSizePropValue(x),
-})
+)=> {
+  const propName = type === 'inline' ? 'backgroundSize' : 'background-size'
+  return ({
+    [propName]: serializeBackgroundSizePropValue(x),
+  })
+}
+
+/** @hide */
+type PropValue = BackgroundSize | BackgroundSize[] | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -46,5 +52,8 @@ export type BackgroundSizeDeclaration = {
    * A RB property that maps to CSS's **`background-size`** property
    * @category RBProperty
    */
-  backgroundSize: BackgroundSize | BackgroundSize[] | GlobalCssKeyword
+  backgroundSize: PropValue
+}
+export type BackgroundSizeDeclarationJSS = {
+  backgroundSize: ValueOrFunc<PropValue>
 }

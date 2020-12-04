@@ -1,11 +1,16 @@
-import { Color, serializeAtomicValue } from '../shared'
+import { Color, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 import { GlobalCssKeyword } from '../shared'
 
-export const serializeBackgroundColor = (
+export const serializeBackgroundColor = (type: PropType) => (
   x: Color | GlobalCssKeyword
-): { backgroundColor: string } => ({
-  backgroundColor: serializeAtomicValue(x),
+) => ({
+  [type === 'inline'
+    ? 'backgroundColor'
+    : 'background-color']: serializeAtomicValue(x),
 })
+
+/** @hide */
+type PropValue = Color | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -17,5 +22,8 @@ export type BgColorDeclaration = {
    * @formalSyntaxForValue auto | <integer>
    * @added 0.2.0
    */
-  backgroundColor: Color | GlobalCssKeyword
+  backgroundColor: PropValue
+}
+export type BgColorDeclarationJSS = {
+  backgroundColor: ValueOrFunc<PropValue>
 }

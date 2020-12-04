@@ -3,6 +3,8 @@ import {
   isLengthType,
   GlobalCssKeyword,
   isGlobalCssKeyword,
+  PropType,
+  ValueOrFunc,
 } from '../shared'
 import { Color, isColor, serializeAtomicValue } from '../shared'
 
@@ -70,11 +72,14 @@ const serializeBoxShadowPropertyValue = (
     ? serializeShadow(value as Shadow)
     : serializeShadowArray(value as Shadow[])
 
-export const serializeBoxShadow = (
+export const serializeBoxShadow = (type: PropType) => (
   x: Shadow | Shadow[] | GlobalCssKeyword | 'none'
 ) => ({
-  boxShadow: serializeBoxShadowPropertyValue(x),
+  [type === 'inline' ? 'boxShadow' : 'box-shadow']: serializeBoxShadowPropertyValue(x),
 })
+
+/** @hide */
+type PropValue = Shadow | Shadow[] | 'none' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -87,5 +92,8 @@ export type BoxShadowDeclaration = {
    * @added 0.2.1
    * @implementationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-box-shadow
    */
-  boxShadow: Shadow | Shadow[] | 'none' | GlobalCssKeyword
+  boxShadow: PropValue
+}
+export type BoxShadowDeclarationJSS = {
+  boxShadow: ValueOrFunc<PropValue>
 }

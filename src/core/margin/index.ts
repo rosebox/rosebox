@@ -4,9 +4,14 @@ import {
   LengthPercentage,
   Calculation,
   serializeAtomicValue,
+  PropType,
+  ValueOrFunc,
 } from '../shared'
 
 type MarginValue = LengthPercentage | Calculation | 'auto'
+
+/** @hide */
+type MarginSidePropValue = MarginValue | GlobalCssKeyword
 
 const serializeMarginSide = (prop: string) => (
   value: LengthPercentage | 'auto' | Calculation | GlobalCssKeyword
@@ -14,7 +19,8 @@ const serializeMarginSide = (prop: string) => (
   [prop]: serializeAtomicValue(value),
 })
 
-export const serializeMarginTopValue = serializeMarginSide('marginTop')
+export const serializeMarginTopValue = (type: PropType) =>
+  serializeMarginSide(type === 'inline' ? 'marginTop' : 'margin-top')
 
 export type MarginTopDeclaration = {
   /**
@@ -24,10 +30,21 @@ export type MarginTopDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginTop: MarginValue | GlobalCssKeyword
+  marginTop: MarginSidePropValue
+}
+export type MarginTopDeclarationJSS = {
+  /**
+   * Maps to CSS's **`margin-top`** property
+   * @category RBProperty
+   * @formalSyntaxForValue <length-percentage> | auto
+   * @added 0.2.0
+   * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
+   */
+  marginTop: ValueOrFunc<MarginSidePropValue>
 }
 
-export const serializeMarginRightValue = serializeMarginSide('marginRight')
+export const serializeMarginRightValue = (type: PropType) =>
+serializeMarginSide(type === 'inline' ? 'marginRight' : 'margin-right')
 
 export type MarginRightDeclaration = {
   /**
@@ -37,10 +54,15 @@ export type MarginRightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginRight: MarginValue | GlobalCssKeyword
+  marginRight: MarginSidePropValue
 }
 
-export const serializeMarginBottomValue = serializeMarginSide('marginBottom')
+export type MarginRightDeclarationJSS = {
+  marginRight: ValueOrFunc<MarginSidePropValue>
+}
+
+export const serializeMarginBottomValue = (type: PropType) =>
+serializeMarginSide(type === 'inline' ? 'marginBottom' : 'margin-bottom')
 
 export type MarginBottomDeclaration = {
   /**
@@ -50,10 +72,15 @@ export type MarginBottomDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginBottom: MarginValue | GlobalCssKeyword
+  marginBottom: MarginSidePropValue
 }
 
-export const serializeMarginLeftValue = serializeMarginSide('marginLeft')
+export type MarginBottomDeclarationJSS = {
+  marginBottom: ValueOrFunc<MarginSidePropValue>
+}
+
+export const serializeMarginLeftValue = (type: PropType) =>
+serializeMarginSide(type === 'inline' ? 'marginLeft' : 'margin-left')
 
 export type MarginLeftDeclaration = {
   /**
@@ -63,7 +90,11 @@ export type MarginLeftDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#margin-physical
    */
-  marginLeft: MarginValue | GlobalCssKeyword
+  marginLeft: MarginSidePropValue
+}
+
+export type MarginLeftDeclarationJSS = {
+  marginLeft: ValueOrFunc<MarginSidePropValue>
 }
 
 type MarginObject = {
@@ -85,6 +116,14 @@ type Margin =
   | GlobalCssKeyword
 
 /**
+ * @hide
+ */
+type PropValue = Margin
+
+/** @hide */
+type MarginAxisPropValue = MarginValue | [MarginValue, MarginValue] | GlobalCssKeyword
+
+/**
  * @category RBDeclarationTypeAlias
  */
 export type MarginXDeclaration = {
@@ -96,6 +135,10 @@ export type MarginXDeclaration = {
    * @category RBProperty
    */
   marginX: MarginValue | [MarginValue, MarginValue] | GlobalCssKeyword
+}
+
+export type MarginXDeclarationJSS = {
+  marginX: ValueOrFunc<MarginAxisPropValue>
 }
 
 export const serializeMarginX = (
@@ -119,7 +162,11 @@ export type MarginYDeclaration = {
    * the provided value will be used for both.
    * @category RBProperty
    */
-  marginY: MarginValue | [MarginValue, MarginValue] | GlobalCssKeyword
+  marginY: MarginAxisPropValue
+}
+
+export type MarginYDeclarationJSS = {
+  marginY: ValueOrFunc<MarginAxisPropValue>
 }
 
 export const serializeMarginY = (
@@ -184,5 +231,9 @@ export type MarginDeclaration = {
    * Maps to CSS's **`margin`** property
    * @category RBProperty
    */
-  margin: Margin
+  margin: PropValue
+}
+
+export type MarginDeclarationJSS = {
+  margin: ValueOrFunc<PropValue>
 }

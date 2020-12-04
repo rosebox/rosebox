@@ -11,6 +11,16 @@ test('fontSize: Length<rem>', () => {
   expect(received).toEqual(expected)
 })
 
+test('fontSize: Length<rem>', () => {
+  const received = style({
+    fontSize: px(2),
+  })
+  const expected = {
+    fontSize: '2px',
+  }
+  expect(received).toEqual(expected)
+})
+
 test('fontSize: Calculation', () => {
   const received = style({
     fontSize: csub(vw(10), px(200)),

@@ -1,4 +1,7 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
+
+/** @hide */
+type PropValue = 'auto' | 'text' | 'emoji' | 'unicode' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -10,5 +13,9 @@ export type FontVariantEmojiDeclaration = {
    * @formalSyntaxForValue auto | text | emoji | unicode
    * @implementationReference https://drafts.csswg.org/css-fonts-4/#font-variant-emoji-prop
    */
-  fontVariantEmoji: 'auto' | 'text' | 'emoji' | 'unicode' | GlobalCssKeyword
+  fontVariantEmoji: PropValue
+}
+
+export type FontVariantEmojiDeclarationJSS = {
+  fontVariantEmoji: ValueOrFunc<PropValue>
 }

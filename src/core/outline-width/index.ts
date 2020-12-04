@@ -1,14 +1,14 @@
-import { Length, serializeAtomicValue } from '../shared'
+import { Length, serializeAtomicValue, ValueOrFunc } from '../shared'
 import { GlobalCssKeyword } from '../shared'
 
 
 /**
  * @hide
  */
-type OutlineValue = Length | 'thin' | 'medium' | 'thick' | GlobalCssKeyword
+type PropValue = Length | 'thin' | 'medium' | 'thick' | GlobalCssKeyword
 
 export const serializeOutlineWidth = (
-  x: OutlineValue
+  x: PropValue
 ): {
   outlineWidth: string
 } => ({
@@ -23,5 +23,13 @@ export type OutlineWidthDeclaration = {
    * Maps to CSS's **`outline-width`** property
    * @category RBProperty
    */
-  outlineWidth: OutlineValue
+  outlineWidth: PropValue
+}
+
+export type OutlineWidthDeclarationJSS = {
+  /**
+   * Maps to CSS's **`outline-width`** property
+   * @category RBProperty
+   */
+  outlineWidth: ValueOrFunc<PropValue>
 }

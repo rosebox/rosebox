@@ -1,15 +1,20 @@
-import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 /**
  * @hide
  */
 type AlignItems = 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch'
 
-export const serializeAlignItems = (
+export const serializeAlignItems = (type: PropType) => (
   x: AlignItems | GlobalCssKeyword
-): { alignItems: string } => ({
-  alignItems: serializeAtomicValue(x),
-})
+): { [key: string]: string } => {
+  const propName = type === 'inline' ? 'alignItems' : 'align-items'
+  return ({
+    [propName]: serializeAtomicValue(x),
+  })
+}
+/** @hide */
+type PropValue = AlignItems | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -23,4 +28,8 @@ export type AlignItemsDeclaration = {
    * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#align-items-property
    */
   alignItems: AlignItems | GlobalCssKeyword
+}
+
+export type AlignItemsDeclarationJSS = {
+  alignItems: ValueOrFunc<PropValue>
 }

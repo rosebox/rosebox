@@ -1,4 +1,4 @@
-import { GlobalCssKeyword } from '../shared'
+import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
 type AnimationFillModeKeyword = 'none' | 'forwards' | 'backwards' | 'both'
 
@@ -18,9 +18,15 @@ const serializeValue = (value: AnimationFillMode) => {
   )
 }
 
-export const serializeAnimationFillMode = (x: AnimationFillMode) => ({
-  animationFillMode: serializeValue(x),
-})
+export const serializeAnimationFillMode =  (type: PropType) => (x: AnimationFillMode) => {
+  const propName = type === 'inline' ? 'animationFillMode' : 'animation-fill-mode'
+  return {
+    [propName]: serializeValue(x),
+  }
+}
+
+/** @hide */
+type PropValue = AnimationFillMode | GlobalCssKeyword 
 
 /**
  * @category RBDeclarationTypeAlias
@@ -30,5 +36,8 @@ export type AnimationFillModeDeclaration = {
    * Maps to CSS's **`animation-fill-mode`** property
    * @category RBProperty
    */
-  animationFillMode: AnimationFillMode
+  animationFillMode: PropValue
+}
+export type AnimationFillModeDeclarationJSS = {
+  animationFillMode: ValueOrFunc<PropValue>
 }
