@@ -39,15 +39,15 @@ type CalculationData<
  * The type of values that are to be computed by the browser (**`<calc()>`**)
  * @added 0.1.0
  */
-export class Calculation<A extends CalcOperation | void = void>
+export class Calculation<A extends CalcOperation = CalcOperation>
   implements RBType<any> {
-  operationType: A extends void ? CalcOperation : A
+  operationType: A
   data: CalculationData<A>
   valueConstructor: Function
 
   private constructor(
     data: any,
-    operationType: A extends void ? CalcOperation : A,
+    operationType: A,
     valueConstructor: Function
   ) {
     this.operationType = operationType

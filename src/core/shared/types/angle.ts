@@ -5,7 +5,7 @@ type AngleUnit = 'deg' | 'grad' | 'rad' | 'turn'
 /**
  * A type that maps to CSS's **`<angle>`** type.
  */
-export class Angle<A extends AngleUnit | void = void> implements RBType<number> {
+export class Angle<A extends AngleUnit = AngleUnit> implements RBType<number> {
   valueConstructor: Function
   data: number
   unit: AngleUnit

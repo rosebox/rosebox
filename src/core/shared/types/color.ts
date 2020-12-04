@@ -620,7 +620,7 @@ export function lighten(x: HSL, y: number): HSL
 
 /**
  * Takes a color and a number between 0 and 1 and returns a tint of that color
- * @category utilityFunction
+ * @category Utility function
  */
 export function lighten(x: HEX | RGB | HSL, y: number): HEX | RGB | HSL {
   if (isRGB(x)) {
@@ -652,7 +652,7 @@ export function darken(x: HSL, y: number): HSL
 
 /**
  * Takes a color and a number between 0 and 1 and returns a shade of that color
- * @category utilityFunction
+ * @category Utility function
  */
 export function darken(x: HEX | RGB | HSL, y: number): HEX | RGB | HSL {
   if (isRGB(x)) {
