@@ -9,10 +9,13 @@ const serializePercentage = (x: Percentage): string => `${x.data}%`
 export class Percentage implements RBType<number> {
   valueConstructor: Function
   public data: number
+  serialize: () => string
 
   private constructor(data: number) {
     this.data = data
     this.valueConstructor = Percentage.per
+    this.serialize = () => serializePercentage(this)
+    
   }
 
   /** @category Value constructor */
@@ -20,9 +23,6 @@ export class Percentage implements RBType<number> {
     return new Percentage(x)
   }
 
-  serialize() {
-    return serializePercentage(this)
-  }
 }
 
 export const per = Percentage.per

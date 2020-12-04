@@ -148,8 +148,6 @@ export class Length<A extends LengthUnit = LengthUnit> implements RBType<number>
     return new Length(x, 'pt', Length.pt)
   }
   
-
-
   add = add
   sub = sub
   mult = mult
