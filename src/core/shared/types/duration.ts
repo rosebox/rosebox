@@ -44,7 +44,7 @@ export type DurationUnit = 'milliseconds' | 'seconds'
 export class Duration<A extends DurationUnit = DurationUnit>
   implements Setoid<Duration<A>> {
   valueConstructor: Function
-  public unit: A extends void ? DurationUnit : A
+  public unit: A
   public data: number
   serialize: () => string
 

@@ -15,12 +15,12 @@ const serializeAngle = (x: Angle): string => {
 export class Angle<A extends AngleUnit = AngleUnit> implements RBType<number> {
   valueConstructor: Function
   data: number
-  unit: AngleUnit
+  unit: A
   serialize: () => string
 
   private constructor(
     data: number,
-    unit: AngleUnit,
+    unit: A,
     valConstructor: (x: number) => Angle<A>
   ) {
     this.unit = unit
@@ -39,7 +39,7 @@ export class Angle<A extends AngleUnit = AngleUnit> implements RBType<number> {
   /**
    *  Constructs a value of type **`Angle`** where the unit is **`grad`**.
    */
-  static grad = (x: number): Angle<'grad'> => new Angle(x, 'deg', Angle.grad)
+  static grad = (x: number): Angle<'grad'> => new Angle(x, 'grad', Angle.grad)
   /**
    * Constructs a value of type **`Angle`** where the unit is **`rad`**.
    */
