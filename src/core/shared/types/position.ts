@@ -1,32 +1,31 @@
 import { Calculation } from './calc'
-import {
-  LengthPercentage,
-  RBType,
-  serializeAtomicValue,
-} from './shared'
+import { LengthPercentage, RBType, serializeAtomicValue } from './shared'
 
 /**
  * A value of this type defines an (x, y) coordinate.
  * @added 0.2.7
  */
 export class Position
-  implements RBType<
-    [LengthPercentage | Calculation, LengthPercentage | Calculation]
-  > {
-    data: [LengthPercentage | Calculation, LengthPercentage | Calculation]
-    valueConstructor: Function
+  implements
+    RBType<[LengthPercentage | Calculation, LengthPercentage | Calculation]> {
+  data: [LengthPercentage | Calculation, LengthPercentage | Calculation]
+  valueConstructor: Function
+  serialize: () => string
 
-  private constructor(x: [LengthPercentage | Calculation, LengthPercentage | Calculation]) {
+  private constructor(
+    x: [LengthPercentage | Calculation, LengthPercentage | Calculation]
+  ) {
     this.data = x
     this.valueConstructor = Position.pos
+    this.serialize = () => serializePosition(this)
   }
 
   /** @category Value constructor */
   static pos(x: LengthPercentage, y: LengthPercentage): Position {
     return new Position([x, y])
   }
-  serialize = () => serializePosition(this)
-  }
+  
+}
 
 export const pos = Position.pos
 
