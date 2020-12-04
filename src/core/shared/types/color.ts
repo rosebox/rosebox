@@ -284,11 +284,9 @@ const serializeRGB = (x: RGB) => {
 
 const serializeRGBA = (x: RGBA) => {
   const { data } = x
-  return typeof data[0] === 'number'
-    ? `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3]})`
-    : `rgba(${data[0].serialize()}, ${(data[1] as Percentage).serialize()}, ${(data[2] as Percentage).serialize()}, ${
-        data[3]
-      })`
+  return `rgba(${serializeAtomicValue(data[0])}, ${serializeAtomicValue(
+    data[1]
+  )}, ${serializeAtomicValue(data[2])}, ${serializeAtomicValue(data[3])})`
 }
 
 const serializeHSL = (x: HSL) => {
