@@ -10,17 +10,19 @@ export const serializeURI = (x: URI) => `uri(${getData(x)})`
 export class URL implements RBType<string> {
   data: string
   valueConstructor: Function
+  serialize: () => string
 
   private constructor(x: string) {
     this.data = x
     this.valueConstructor = URL.url
+    this.serialize = () => serializeURL(this)
   }
 
   /** @category Value constructor */
   static url(x: string) {
     return new URL(x)
   }
-  serialize = () => serializeURL(this)
+  
 }
 
 export const url = URL.url
