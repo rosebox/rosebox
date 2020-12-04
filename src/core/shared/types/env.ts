@@ -14,10 +14,12 @@ type SafeAreaInsetVariable =
 export class Env implements RBType<any> {
   data: any
   valueConstructor: Function
+  serialize: () => string
 
   private constructor(x: SafeAreaInsetVariable, y: any) {
     this.data = [x, y]
     this.valueConstructor = Env.env
+    this.serialize = () => serialize(this)
   }
 
   /** Constructs a value of type **`Env`**. This functions maps to CSS's **`env()`**  */
@@ -26,7 +28,6 @@ export class Env implements RBType<any> {
   static env(safeAreaInsetVariable: SafeAreaInsetVariable, x?: any): Env {
     return new Env(safeAreaInsetVariable, x)
   }
-  serialize = () => serialize(this)
 }
 
 /** @category Value constructor */
