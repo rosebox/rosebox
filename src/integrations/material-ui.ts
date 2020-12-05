@@ -5,6 +5,6 @@ type StyleMap = {
   [key: string]: RBJSSStyle
 }
 
-export const makeStylesRB = (styleMap: StyleMap, options: any) => {
+export const makeStylesRB = (styleMap: StyleMap, options?: any) => {
   return makeStyles(styleMap as any, options)
 }
