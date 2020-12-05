@@ -1,42 +1,45 @@
 # Chagngelog
 
+## [0.4.0] - 2020-12-05
+- Added supports for a class-strategy using @material-ui/styles.
+
 ## [0.3.89] - 2020-11-23
-- Implement outlineWidth, outlineStyle, outlineColor and outline.
+- Implemented outlineWidth, outlineStyle, outlineColor and outline.
 
 ## [0.3.89] - 2020-11-21
-- Add back suuport for 2-values and 3-values syntax for padding.
+- Added back suuport for 2-values and 3-values syntax for padding.
 
 ## [0.3.88] - 2020-11-20
-- Add support for linearGradient (with the value constructor linGrad()).
+- Added support for linearGradient (with the value constructor linGrad()).
 
 ## [0.3.6] - 2020-09-13
 
-- Add support for env()
-- Add calc() support for more properties.
-- Readd support for 2-values and 3-values syntax for padding and margin.
-- Add missing value for border.
+- Added support for env()
+- Added calc() support for more properties.
+- Readded support for 2-values and 3-values syntax for padding and margin.
+- Added missing value for border.
 - Update the names for calc functions from (add, subs, multi, div) to (cadd, csubs, cmulti, cdiv) in repsective order.
 
 ## [0.3.6] - 2020-08-27
 
-- Add textOrientation
-- Add textGroupAlign
-- Add textJustify
-- Add textIndent
-- Add textEmphasisColor
-- Add textEmphasisSkip
-- Add textEmphasisPosition
+- Added textOrientation
+- Added textGroupAlign
+- Added textJustify
+- Added textIndent
+- Added textEmphasisColor
+- Added textEmphasisSkip
+- Added textEmphasisPosition
 - Update syntax for textTransform
 
 ## [0.3.52] - 2020-08-13
 
-- Add a `darken` function for colors.
-- Add a `lighten` function for colors.
+- Added a `darken` function for colors.
+- Added a `lighten` function for colors.
 
 ## [0.1.8] - 2020-03-08
 
 - Update the type signature for 'style'.
-- Add 'style2'.
+- Added 'style2'.
 
 ## [0.1.5] - 2020-03-07
 
