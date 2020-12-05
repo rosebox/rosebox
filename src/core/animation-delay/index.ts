@@ -4,7 +4,7 @@ import { Duration } from '../shared'
 /**
  * @hide
  */
-export type AnimationDelay = GlobalCssKeyword | Duration | Duration[]
+export type AnimationDelay = Duration | Duration[] | GlobalCssKeyword
 
 export const serializeValue = (value: AnimationDelay): string =>
   !Array.isArray(value)
@@ -35,9 +35,11 @@ type PropValue = AnimationDelay
 export type AnimationDelayDeclaration = {
   /**
    * Maps to CSS's **`animation-delay`** property
-   * @category RBProperty
+   * @inital 0s
+   * @docsUrl https://www.rosebox.dev/api/#rb-prop-animationdelay
+   * @basedOn https://drafts.csswg.org/css-animations/#animation-delay
    */
-  animationDelay: AnimationDelay
+  animationDelay: PropValue
 }
 
 export type AnimationDelayDeclarationJSS = {

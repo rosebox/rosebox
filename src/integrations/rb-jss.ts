@@ -319,6 +319,8 @@ export type RBJSSStyle = Partial<
     }
 >
 
+const isIntrinsic = (val: any) => typeof val === 'number' || typeof val === 'string'
+
 const toCSSMap = (obj: RBStyle) => {
   // NEEDS improvement
   const js = style(obj)
@@ -336,7 +338,7 @@ const style2 = (obj: any) => {
       return g[1].toUpperCase()
     })
     const serializer = (funcMap as any)('inline')[serializerKey]
-    return serializer
+    return serializer && !isIntrinsic((obj as any)[key])
       ? {
           ...acc,
           ...toCSSMap(serializer((obj as any)[key])),

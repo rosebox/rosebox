@@ -38,7 +38,9 @@ type PropValue = AnimationDirection
 export type AnimationDirectionDeclaration = {
   /**
    * Maps to CSS's **`animation-direction`** property
-   * @category RBProperty
+   * @docsUrl https://www.rosebox.dev/api/#rb-prop-animationdirection
+   * @initial normal
+   * @basedOn https://drafts.csswg.org/css-animations/#animation-direction
    */
   animationDirection: PropValue
 }

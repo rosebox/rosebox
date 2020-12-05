@@ -3,7 +3,7 @@ import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 export type DisplayCSSProp = 'display'
 
 /**
- * @skip
+ * @hide
  */
 type DisplayInsideOutsideDoubleBar =
   | 'block'
@@ -115,7 +115,7 @@ type DisplayListItem =
   | ['flow-root', 'list-item', 'run-in']
 
 /**
- * @skip
+ * @hide
  */
 type DisplayInternal =
   | 'table-row-group'
@@ -144,12 +144,12 @@ type DisplayInternal =
   | ['ruby-text-container']
 
 /**
- * @skip
+ * @hide
  */
 type DisplayBox = 'contents' | 'none'
 
 /**
- * @skip
+ * @hide
  */
 type DisplayLegacy =
   | 'inline-block'
@@ -201,6 +201,7 @@ export type DisplayDeclaration = {
    */
   display: PropValue
 }
+
 export type DisplayDeclarationJSS = {
   display: ValueOrFunc<PropValue>
 }

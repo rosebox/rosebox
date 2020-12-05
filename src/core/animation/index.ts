@@ -64,9 +64,11 @@ type PropValue = Animation | Animation[] | GlobalCssKeyword
 export type AnimationDeclaration = {
   /**
    * Maps to CSS's **`animation`** property
-   * @category RBProperty
+   * @initial See individual properties
+   * @docsUrL https://www.rosebox.dev/api/#rb-prop-animation
+   * @basedOn https://drafts.csswg.org/css-animations-1/#animation
    */
-  animation: Animation | Animation[] | GlobalCssKeyword
+  animation: PropValue
 }
 
 export type AnimationDeclarationJSS = {
