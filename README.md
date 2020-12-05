@@ -8,7 +8,7 @@ Rosebox is a Typescript library that models CSS in Typescript in a way that leve
 
 ## Docs
 
-[Docs](https://www.rosebox.dev)
+[Docs](https://rosebox.dev)
 
 ## Installation
 
