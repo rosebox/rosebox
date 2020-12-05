@@ -4,7 +4,7 @@ import { ImageValue } from '../shared/types/image'
 export type BackgroundImageValue = ImageValue | 'none'
 
 export const serializeBackgroundImage = (type: PropType) => (
-  x: BackgroundImageValue | GlobalCssKeyword
+  x: BackgroundImagePropValue
 ) => {
   const propName = type === 'inline' ? 'backgroundImage' : 'background-image'
   return ({
@@ -13,7 +13,7 @@ export const serializeBackgroundImage = (type: PropType) => (
 }
 
 /** @hide */
-type PropValue = BackgroundImageValue | GlobalCssKeyword
+type BackgroundImagePropValue = BackgroundImageValue | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -25,8 +25,8 @@ export type BgImageDeclaration = {
    * @formalSyntaxForValue <uri> | none | inherit
    * @added https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-image
    */
-  backgroundImage: PropValue
+  backgroundImage: BackgroundImagePropValue
 }
 export type BgImageDeclarationJSS = {
-  backgroundImage: ValueOrFunc<PropValue>
+  backgroundImage: ValueOrFunc<BackgroundImagePropValue>
 }

@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue = 
+type WhiteSpacPropValue = 
 | 'normal'
 | 'pre'
 | 'nowrap'
@@ -17,9 +17,9 @@ export type WhiteSpaceDeclaration = {
    * Maps to CSS's **`white-space`** property
    * @category RBProperty
    */
-  whiteSpace: PropValue
+  whiteSpace: WhiteSpacPropValue
 }
 
 export type WhiteSpaceDeclarationJSS = {
-  whiteSpace: ValueOrFunc<PropValue>
+  whiteSpace: ValueOrFunc<WhiteSpacPropValue>
 }

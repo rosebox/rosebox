@@ -14,7 +14,7 @@ export const serializeAlignItems = (type: PropType) => (
   })
 }
 /** @hide */
-type PropValue = AlignItems | GlobalCssKeyword
+type AlignItemsPropValue = AlignItems | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -25,9 +25,9 @@ export type AlignItemsDeclaration = {
    * @inital stretch
    * @basedOn https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#align-items-property
    */
-  alignItems: PropValue
+  alignItems: AlignItemsPropValue
 }
 
 export type AlignItemsDeclarationJSS = {
-  alignItems: ValueOrFunc<PropValue>
+  alignItems: ValueOrFunc<AlignItemsPropValue>
 }

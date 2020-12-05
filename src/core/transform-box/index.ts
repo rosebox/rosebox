@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue =
+type TransformBoxPropValue =
   | 'content-box'
   | 'border-box'
   | 'fill-box'
@@ -17,9 +17,9 @@ export type TransformBoxDeclaration = {
    * Maps to CSS's **`transform-box`** property
    * @category RBProperty
    */
-  transformBox: PropValue
+  transformBox: TransformBoxPropValue
 }
 
 export type TransformBoxDeclarationJSS = {
-  transformBox: ValueOrFunc<PropValue>
+  transformBox: ValueOrFunc<TransformBoxPropValue>
 }

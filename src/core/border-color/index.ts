@@ -31,7 +31,8 @@ export const serializeBorderLeftColor = (type: PropType) =>
     type === 'inline' ? 'borderLeftColor' : 'border-left-color'
   )
 
-type BorderSidePropValue =  Color | GlobalCssKeyword
+/** @hide */
+type BorderSidePropValue = Color | GlobalCssKeyword
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -48,8 +49,6 @@ export type BorderTopColorDeclaration = {
 export type BorderTopColorDeclarationJSS = {
   borderTopColor: ValueOrFunc<BorderSidePropValue>
 }
-
-
 
 /**
  * @category RBDeclarationTypeAlias
@@ -126,7 +125,7 @@ export const serializeBorderColor = (type: PropType) => (
 }
 
 /** @hide */
-type PropValue = BorderColor | GlobalCssKeyword
+type BorderColorPropValue = BorderColor | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -139,8 +138,8 @@ export type BorderColorDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
    */
-  borderColor: PropValue
+  borderColor: BorderColorPropValue
 }
 export type BorderColorDeclarationJSS = {
-  borderColor: ValueOrFunc<PropValue>
+  borderColor: ValueOrFunc<BorderColorPropValue>
 }

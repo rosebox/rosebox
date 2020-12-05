@@ -8,7 +8,6 @@ const toHyphenCase = (x: string) =>
  */
 export type AnimationName =
   | 'none'
-  | GlobalCssKeyword
   | CustomIdent
   | string
   | (string | CustomIdent)[]
@@ -16,7 +15,7 @@ export type AnimationName =
 const cb = (x: string | CustomIdent): string =>
     toHyphenCase(serializeAtomicValue(x))
 
-const serializeValue = (value: AnimationName) => {
+const serializeValue = (value: AnimationNamePropValue) => {
   const valArray = Array.isArray(value) ? value : [value]
   return valArray.reduce(
     (acc, item, idx) =>
@@ -25,7 +24,7 @@ const serializeValue = (value: AnimationName) => {
   )
 }
 
-export const serializeAnimationName = (type: PropType) => (x: AnimationName) => {
+export const serializeAnimationName = (type: PropType) => (x: AnimationNamePropValue) => {
   const propName = type === 'inline' ? 'animationName' : 'animation-name'
   return ({
     [propName]: serializeValue(x),
@@ -33,7 +32,7 @@ export const serializeAnimationName = (type: PropType) => (x: AnimationName) => 
 }
 
 /** @hide */
-type PropValue = AnimationName | GlobalCssKeyword
+type AnimationNamePropValue = AnimationName | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -43,7 +42,7 @@ export type AnimationNameDeclaration = {
    * Maps to CSS's **`animation-property`** property
    * @category RBProperty
    */
-  animationName: PropValue
+  animationName: AnimationNamePropValue
 }
 
 export type AnimationNameDeclarationJSS = {
@@ -51,5 +50,5 @@ export type AnimationNameDeclarationJSS = {
    * Maps to CSS's **`animation-property`** property
    * @category RBProperty
    */
-  animationName: ValueOrFunc<PropValue>
+  animationName: ValueOrFunc<AnimationNamePropValue>
 }

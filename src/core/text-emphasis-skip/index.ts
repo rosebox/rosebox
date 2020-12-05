@@ -8,7 +8,7 @@ export const serializeTextEmphasisSkip = (
 })
 
 /** @hide */
-type PropValue = DoubleBar4<'spaces', 'punctuation', 'symbols', 'narrow'>
+type TextEmphasisSkipPropValue = DoubleBar4<'spaces', 'punctuation', 'symbols', 'narrow'>
 | GlobalCssKeyword
 
 /**
@@ -19,9 +19,9 @@ export type TextEmphasisSkipDeclaration = {
    * Maps to CSS's **`text-emphasis-skip`** property
    * @category RBProperty
    */
-  textEmphasisSkip: PropValue
+  textEmphasisSkip: TextEmphasisSkipPropValue
 }
 
 export type TextEmphasisSkipDeclarationJSS = {
-  textEmphasisSkip: ValueOrFunc<PropValue>
+  textEmphasisSkip: ValueOrFunc<TextEmphasisSkipPropValue>
 }

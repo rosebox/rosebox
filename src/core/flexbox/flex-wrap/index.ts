@@ -7,7 +7,7 @@ export const serializeFlexWrap = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue = 'nowrap' | 'wrap' | 'wrap-reverse' | GlobalCssKeyword
+type FlexWrapPropValue = 'nowrap' | 'wrap' | 'wrap-reverse' | GlobalCssKeyword
 
 export type FlexWrapDeclaration = {
   /**
@@ -17,8 +17,8 @@ export type FlexWrapDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-wrap-property
    */
-  flexWrap: PropValue
+  flexWrap: FlexWrapPropValue
 }
 export type FlexWrapDeclarationJSS = {
-  flexWrap: ValueOrFunc<PropValue>
+  flexWrap: ValueOrFunc<FlexWrapPropValue>
 }

@@ -16,11 +16,12 @@ export const serializeLineHeight = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue = 'normal'
-| number
-| LengthPercentage
-| Calculation
-| GlobalCssKeyword
+type LineHeightPropValue =
+  | 'normal'
+  | number
+  | LengthPercentage
+  | Calculation
+  | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -33,9 +34,9 @@ export type LineHeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-line-height
    */
-  lineHeight: PropValue
+  lineHeight: LineHeightPropValue
 }
 
 export type LineHeightDeclarationJSS = {
-  lineHeight: ValueOrFunc<PropValue>
+  lineHeight: ValueOrFunc<LineHeightPropValue>
 }

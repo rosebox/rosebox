@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, isGlobalCssKeyword } from '.'
+import { isGlobalCssKeyword } from '.'
 import { getData, RBType, serializeAtomicValue } from './shared'
 
 const serializeBezier = (x: CubicBezierFunction): string => {
@@ -90,7 +90,6 @@ type TimingFunction = 'linear' | StepTimingFunction | CubicBezierTimingFunction
  * @hide
  */
 export type TimingFunctionValue =
-  | GlobalCssKeyword
   | TimingFunction
   | TimingFunction[]
 

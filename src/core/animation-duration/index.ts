@@ -28,7 +28,7 @@ export const serializeAnimationDuration = (type: PropType) => (
 }
 
 /** @hide */
-type PropValue = AnimationDuration | GlobalCssKeyword
+type AnimationDurationPropValue = AnimationDuration | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -38,8 +38,8 @@ export type AnimationDurationDeclaration = {
    * Maps to CSS's **`animation-duration`** property
    * @category RBProperty
    */
-  animationDuration: PropValue
+  animationDuration: AnimationDurationPropValue
 }
 export type AnimationDurationDeclarationJSS = {
-  animationDuration: ValueOrFunc<PropValue>
+  animationDuration: ValueOrFunc<AnimationDurationPropValue>
 }

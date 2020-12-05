@@ -17,7 +17,7 @@ export const serializeWritingMode = (
 })
 
 /** @hide */
-type PropValue =  WritingModeValue | GlobalCssKeyword
+type WritingModePropValue =  WritingModeValue | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -27,9 +27,9 @@ export type WritingModeDeclaration = {
    * Maps to CSS's **`writing-mode`** property
    * @category RBProperty
    */
-  writingMode: PropValue
+  writingMode: WritingModePropValue
 }
 
 export type WritingModeDeclarationJSS = {
-  writingMode: ValueOrFunc<PropValue>
+  writingMode: ValueOrFunc<WritingModePropValue>
 }

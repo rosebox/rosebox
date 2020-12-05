@@ -23,7 +23,7 @@ export const serializeOutline = (
 })
 
 /** @hide */
-type PropValue = DoubleBar3<Color, LineStyle, LineWidth> | GlobalCssKeyword
+type OutlinePropValue = DoubleBar3<Color, LineStyle, LineWidth> | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -33,9 +33,9 @@ export type OutlineDeclaration = {
    * Maps to CSS's **`outline`** property
    * @category RBProperty
    */
-  outline: PropValue
+  outline: OutlinePropValue
 }
 
 export type OutlineDeclarationJSS = {
-  outline: ValueOrFunc<PropValue>
+  outline: ValueOrFunc<OutlinePropValue>
 }

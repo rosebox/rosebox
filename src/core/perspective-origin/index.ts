@@ -7,13 +7,13 @@ import {
 import { Position } from '../shared'
 
 export const serializePerspectiveOrigin = (
-  x: Position | GlobalCssKeyword
+  x: PerspectiveOriginPropValue
 ): { perspectiveOrigin: string } => ({
   perspectiveOrigin: isGlobalCssKeyword(x) ? x : serializePosition(x),
 })
 
 /** @hide */
-type PropValue = Position | GlobalCssKeyword
+type PerspectiveOriginPropValue = Position | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -23,9 +23,9 @@ export type PerspectiveOriginDeclaration = {
    * Maps to CSS's **`perspective-origin`** property
    * @category RBProperty
    */
-  perspectiveOrigin: PropValue
+  perspectiveOrigin: PerspectiveOriginPropValue
 }
 
 export type PerspectiveOriginDeclarationJSS = {
-  perspectiveOrigin: ValueOrFunc<PropValue>
+  perspectiveOrigin: ValueOrFunc<PerspectiveOriginPropValue>
 }

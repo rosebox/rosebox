@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue = 'none'
+type TextGroupAlignPropValue = 'none'
 | 'start'
 | 'end'
 | 'left'
@@ -17,9 +17,9 @@ export type TextGroupAlignDeclaration = {
    * Maps to CSS's **`text-group-align`** property
    * @category RBProperty
    */
-  textGroupAlign: PropValue
+  textGroupAlign: TextGroupAlignPropValue
 }
 
 export type TextGroupAlignDeclarationJSS = {
-  textGroupAlign: ValueOrFunc<PropValue>
+  textGroupAlign: ValueOrFunc<TextGroupAlignPropValue>
 }

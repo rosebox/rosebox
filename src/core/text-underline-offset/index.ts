@@ -12,7 +12,7 @@ export const serializeTextUnderlineOffset = (
 })
 
 /** @hide */
-type PropValue = LengthPercentage | 'auto' | GlobalCssKeyword
+type TextUnderlineOffsetPropValue = LengthPercentage | 'auto' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -22,9 +22,9 @@ export type TextUnderlineOffsetDeclaration = {
    * Maps to CSS's **`text-underline-position`** property
    * @category RBProperty
    */
-  textUnderlineOffset: PropValue
+  textUnderlineOffset: TextUnderlineOffsetPropValue
 }
 
 export type TextUnderlineOffsetDeclarationJSS = {
-  textUnderlineOffset: ValueOrFunc<PropValue>
+  textUnderlineOffset: ValueOrFunc<TextUnderlineOffsetPropValue>
 }

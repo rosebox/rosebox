@@ -19,7 +19,7 @@ type Offset =
 /**
  * @hide
  */
-type PropValue = Offset | GlobalCssKeyword
+type TransformOriginPropValue = Offset | GlobalCssKeyword
 
 export const serializeTransformOrigin = (
   x: Offset | GlobalCssKeyword
@@ -47,9 +47,9 @@ export type TransformOriginDeclaration = {
    * @category RBProperty
    * @added 0.2.3
    */
-  transformOrigin: PropValue
+  transformOrigin: TransformOriginPropValue
 }
 
 export type TransformOriginDeclarationJSS = {
-  transformOrigin: ValueOrFunc<PropValue>
+  transformOrigin: ValueOrFunc<TransformOriginPropValue>
 }

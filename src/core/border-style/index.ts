@@ -112,7 +112,7 @@ export const serializeBorderStyle = (type: PropType) => (
   }
 }
 /** @hide */
-type PropValue = BorderStyle | GlobalCssKeyword
+type BorderStylePropValue = BorderStyle | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -125,7 +125,7 @@ export type BorderStyleDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
    */
-  borderStyle: PropValue
+  borderStyle: BorderStylePropValue
 }
 export type BorderStyleDeclarationJSS = {
   /**
@@ -135,5 +135,5 @@ export type BorderStyleDeclarationJSS = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
    */
-  borderStyle: ValueOrFunc<PropValue>
+  borderStyle: ValueOrFunc<BorderStylePropValue>
 }

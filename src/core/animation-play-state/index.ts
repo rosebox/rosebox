@@ -8,9 +8,8 @@ type AnimationPlayStateKeyword = 'running' | 'paused'
 export type AnimationPlayState =
   | AnimationPlayStateKeyword
   | AnimationPlayStateKeyword[]
-  | GlobalCssKeyword
 
-const serializeValue = (value: AnimationPlayState) => {
+const serializeValue = (value: AnimationPlayStatePropValue) => {
   const valArray = Array.isArray(value) ? value : [value]
   return valArray.reduce(
     (acc, item, idx) => acc + item + (idx === valArray.length - 1 ? '' : ', '),
@@ -18,7 +17,7 @@ const serializeValue = (value: AnimationPlayState) => {
   )
 }
 
-export const serializeAnimationPlayState = (type: PropType) => (x: AnimationPlayState) => {
+export const serializeAnimationPlayState = (type: PropType) => (x: AnimationPlayStatePropValue) => {
   const propName = type === 'inline' ? 'animationPlayState' : 'animation-play-state'
   return {
     [propName]: serializeValue(x),
@@ -26,7 +25,7 @@ export const serializeAnimationPlayState = (type: PropType) => (x: AnimationPlay
 }
 
 /** @hide */
-type PropValue = AnimationPlayState | GlobalCssKeyword
+type AnimationPlayStatePropValue = AnimationPlayState | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -36,8 +35,8 @@ export type AnimationPlayStateDeclaration = {
    * Maps to CSS's **`animation-play-state`** property
    * @category RBProperty
    */
-  animationPlayState: PropValue
+  animationPlayState: AnimationPlayStatePropValue
 }
 export type AnimationPlayStateDeclarationJSS = {
-  animationPlayState: ValueOrFunc<PropValue>
+  animationPlayState: ValueOrFunc<AnimationPlayStatePropValue>
 }

@@ -14,7 +14,7 @@ export const serializeFontSynthesis = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue = 'none'
+type FontSynthesisPropValue = 'none'
 | 'weight'
 | 'style'
 | ['weight', 'style']
@@ -31,8 +31,8 @@ export type FontSynthesisDeclaration = {
    * @formalSyntaxForValue none | [ weight || style ]
    * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-synthesis
    */
-  fontSynthesis: PropValue
+  fontSynthesis: FontSynthesisPropValue
 }
 export type FontSynthesisDeclarationJSS = {
-  fontSynthesis: ValueOrFunc<PropValue>
+  fontSynthesis: ValueOrFunc<FontSynthesisPropValue>
 }

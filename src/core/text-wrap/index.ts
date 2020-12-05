@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue = 'wrap'
+type TextWrapPropValue = 'wrap'
 | 'nowrap'
 | 'balance'
 | 'stable'
@@ -16,9 +16,9 @@ export type TextWrapDeclaration = {
    *  Maps to CSS's **`text-wrap`** property
    * @category RBProperty
    */
-  textWrap: PropValue
+  textWrap: TextWrapPropValue
 }
 
 export type TextWrapDeclarationJSS = {
-  textWrap: ValueOrFunc<PropValue>
+  textWrap: ValueOrFunc<TextWrapPropValue>
 }

@@ -32,7 +32,7 @@ export const serializeWillChange = (
 })
 
 /** @hide */
-type PropValue = WillChangeValue | GlobalCssKeyword
+type WillChangePropValue = WillChangeValue | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -42,9 +42,9 @@ export type WillChangeDeclaration = {
    * Maps to CSS's **`will-change`** property
    * @category RBProperty
    */
-  willChange: PropValue
+  willChange: WillChangePropValue
 }
 
 export type WillChangeDeclarationJSS = {
-  willChange: ValueOrFunc<PropValue>
+  willChange: ValueOrFunc<WillChangePropValue>
 }

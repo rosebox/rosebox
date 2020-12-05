@@ -25,7 +25,7 @@ export const serializeVoiceVolume = (x: VoiceVolume | GlobalCssKeyword) => ({
 })
 
 /** @hide */
-type PropValue = VoiceVolume | GlobalCssKeyword
+type VoiceVolumePropValue = VoiceVolume | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -35,7 +35,7 @@ export type VoiceVolumeDeclaration = {
    * Maps to CSS's **`voice-volume`** property
    * @category RBProperty
    */
-  voiceVolume: PropValue
+  voiceVolume: VoiceVolumePropValue
 }
 
 export type VoiceVolumeDeclarationJSS = {
@@ -43,5 +43,5 @@ export type VoiceVolumeDeclarationJSS = {
    * Maps to CSS's **`voice-volume`** property
    * @category RBProperty
    */
-  voiceVolume: ValueOrFunc<PropValue>
+  voiceVolume: ValueOrFunc<VoiceVolumePropValue>
 }

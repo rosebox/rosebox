@@ -212,7 +212,7 @@ type PaddingObject = {
 }
 
 /** @hide */
-type PropValue = PaddingValue
+type PaddingPropValue = PaddingValue
 | [PaddingValue, PaddingValue]
 | [PaddingValue, PaddingValue, PaddingValue]
 | [PaddingValue, PaddingValue, PaddingValue, PaddingValue]
@@ -229,9 +229,9 @@ export type PaddingDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2018/WD-css-box-3-20181218/#padding-physical
    */
-  padding: PropValue
+  padding: PaddingPropValue
 }
 
 export type PaddingDeclarationJSS = {
-  padding: ValueOrFunc<PropValue>
+  padding: ValueOrFunc<PaddingPropValue>
 }

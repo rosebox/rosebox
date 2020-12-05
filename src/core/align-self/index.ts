@@ -50,7 +50,7 @@ export const serializeAlignSelf = (type: PropType) => (
 }
 
 /** @hide */
-type PropValue = AlignSelf | GlobalCssKeyword
+type AlignSelfPropValue = AlignSelf | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -61,9 +61,9 @@ export type AlignSelfDeclaration = {
    * @inital auto
    * @basedOn https://drafts.csswg.org/css-align-3/#propdef-align-self
    */
-  alignSelf: PropValue
+  alignSelf: AlignSelfPropValue
 }
 
 export type AlignSelfDeclarationJSS = {
-  alignSelf: ValueOrFunc<PropValue>
+  alignSelf: ValueOrFunc<AlignSelfPropValue>
 }

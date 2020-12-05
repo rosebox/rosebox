@@ -27,7 +27,7 @@ export const serializeVoiceRate = (x: VoiceRate | GlobalCssKeyword) => ({
 })
 
 /** @hide */
-type PropValue = VoiceRate | GlobalCssKeyword
+type VoiceRatePropValue = VoiceRate | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -37,9 +37,9 @@ export type VoiceRateDeclaration = {
    * Maps to CSS's **`voice-rate`** property
    * @category RBProperty
    */
-  voiceRate: PropValue
+  voiceRate: VoiceRatePropValue
 }
 
 export type VoiceRateDeclarationJSS = {
-  voiceRate: ValueOrFunc<PropValue>
+  voiceRate: ValueOrFunc<VoiceRatePropValue>
 }

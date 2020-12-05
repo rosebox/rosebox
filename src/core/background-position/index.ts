@@ -24,7 +24,7 @@ export const serializeBackgroundPosition = (type: PropType) => (
 }
 
 /** @hide */
-type PropValue = Position | Position[] | GlobalCssKeyword
+type BgPositionPropValue = Position | Position[] | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -34,8 +34,8 @@ export type BgPositionDeclaration = {
    * A RB property that maps to CSS's **`background-position`** property
    * @category RBProperty
    */
-  backgroundPosition: PropValue
+  backgroundPosition: BgPositionPropValue
 }
 export type BgPositionDeclarationJSS = {
-  backgroundPosition: ValueOrFunc<PropValue>
+  backgroundPosition: ValueOrFunc<BgPositionPropValue>
 }

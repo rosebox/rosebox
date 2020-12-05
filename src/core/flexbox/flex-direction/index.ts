@@ -13,7 +13,7 @@ export const serializeFlexDirectionValue = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue = FlexDirection | GlobalCssKeyword
+type FlexDirectionPropValue = FlexDirection | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -26,8 +26,8 @@ export type FlexDirectionDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-direction-property
    */
-  flexDirection: PropValue
+  flexDirection: FlexDirectionPropValue
 }
 export type FlexDirectionDeclarationJSS = {
-  flexDirection: ValueOrFunc<PropValue>
+  flexDirection: ValueOrFunc<FlexDirectionPropValue>
 }

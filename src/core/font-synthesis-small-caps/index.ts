@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue = 'auto' | 'none' | GlobalCssKeyword
+type FontSynthesisSmallPropValue = 'auto' | 'none' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -13,8 +13,8 @@ export type FontSynthesisSmallCapsDeclaration = {
    * @formalSyntaxForValue auto | none
    * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-synthesis-small-caps
    */
-  fontSynthesisSmallCaps: PropValue
+  fontSynthesisSmallCaps: FontSynthesisSmallPropValue
 }
 export type FontSynthesisSmallCapsDeclarationJSS = {
-  fontSynthesisSmallCaps: ValueOrFunc<PropValue>
+  fontSynthesisSmallCaps: ValueOrFunc<FontSynthesisSmallPropValue>
 }

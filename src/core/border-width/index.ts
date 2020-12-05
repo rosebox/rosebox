@@ -122,7 +122,7 @@ type BorderWidth =
   | [LineWidth, LineWidth, LineWidth, LineWidth]
 
 /** @hide */
-type PropValue = BorderWidth | GlobalCssKeyword
+type BorderWidthPropValue = BorderWidth | GlobalCssKeyword
 
 export const serializeBorderWidth = (type: PropType) => (
   x: BorderWidth | GlobalCssKeyword
@@ -151,8 +151,8 @@ export type BorderWidthDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
    */
-  borderWidth: PropValue
+  borderWidth: BorderWidthPropValue
 }
 export type BorderWidthDeclarationJSS = {
-  borderWidth: ValueOrFunc<PropValue>
+  borderWidth: ValueOrFunc<BorderWidthPropValue>
 }

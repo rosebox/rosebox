@@ -42,7 +42,7 @@ export const serializeBackgroundSize = (type: PropType) => (
 }
 
 /** @hide */
-type PropValue = BackgroundSize | BackgroundSize[] | GlobalCssKeyword
+type BackgroundSizePropValue = BackgroundSize | BackgroundSize[] | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -52,8 +52,8 @@ export type BackgroundSizeDeclaration = {
    * A RB property that maps to CSS's **`background-size`** property
    * @category RBProperty
    */
-  backgroundSize: PropValue
+  backgroundSize: BackgroundSizePropValue
 }
 export type BackgroundSizeDeclarationJSS = {
-  backgroundSize: ValueOrFunc<PropValue>
+  backgroundSize: ValueOrFunc<BackgroundSizePropValue>
 }

@@ -9,7 +9,7 @@ export const serializeOrder = (
 })
 
 /** @hide */
-type PropValue = number | GlobalCssKeyword
+type OrderPropValue = number | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -22,9 +22,9 @@ export type OrderDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/css-flexbox-1/#order-property
    */
-  order: PropValue
+  order: OrderPropValue
 }
 
 export type OrderDeclarationJSS = {
-  order: ValueOrFunc<PropValue>
+  order: ValueOrFunc<OrderPropValue>
 }

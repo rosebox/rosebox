@@ -56,7 +56,7 @@ export const serializeAnimation = (
 })
 
 /** @hide */
-type PropValue = Animation | Animation[] | GlobalCssKeyword
+type AnimationPropValue = Animation | Animation[] | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -68,9 +68,9 @@ export type AnimationDeclaration = {
    * @docsUrL https://www.rosebox.dev/api/#rb-prop-animation
    * @basedOn https://drafts.csswg.org/css-animations-1/#animation
    */
-  animation: PropValue
+  animation: AnimationPropValue
 }
 
 export type AnimationDeclarationJSS = {
-  animation: ValueOrFunc<PropValue>
+  animation: ValueOrFunc<AnimationPropValue>
 }

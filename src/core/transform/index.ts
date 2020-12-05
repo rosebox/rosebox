@@ -61,6 +61,7 @@ type TransformPropertyValue =
 export const serializeTransformPropertyValue = (
   x: TransformPropertyValue
 ): string => {
+  // @refactor
   if (isGlobalCssKeyword(x) || x === 'none') return x
   else if (Array.isArray(x))
     return x.reduce(

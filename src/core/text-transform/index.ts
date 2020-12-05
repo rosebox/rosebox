@@ -45,7 +45,7 @@ type ThreeValues =
 type TextTransform = OneValue | TwoValues | ThreeValues
 
 /** @hide */
-type Propvalue = TextTransform | GlobalCssKeyword
+type TextTransformPropvalue = TextTransform | GlobalCssKeyword
 
 export const serializeTextTransform = (value: TextTransform) => ({
   textTransform: !Array.isArray(value)
@@ -64,9 +64,9 @@ export type TextTransformDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-transform-property
    */
-  textTransform: Propvalue
+  textTransform: TextTransformPropvalue
 }
 
 export type TextTransformDeclarationJSS = {
-  textTransform: ValueOrFunc<Propvalue>
+  textTransform: ValueOrFunc<TextTransformPropvalue>
 }

@@ -22,7 +22,7 @@ export const serializeTextUnderlinePosition = (
 })
 
 /** @hide */
-type PropValue = TextUnderlinePosition | GlobalCssKeyword
+type TextUnderlinePositionPropValue = TextUnderlinePosition | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -32,9 +32,9 @@ export type TextUnderlinePositionDeclaration = {
    * Maps to CSS's **`text-underline-position`** property
    * @category RBProperty
    */
-  textUnderlinePosition: PropValue
+  textUnderlinePosition: TextUnderlinePositionPropValue
 }
 
 export type TextUnderlinePositionDeclarationJSS = {
-  textUnderlinePosition: ValueOrFunc<PropValue>
+  textUnderlinePosition: ValueOrFunc<TextUnderlinePositionPropValue>
 }

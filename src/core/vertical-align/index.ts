@@ -34,7 +34,7 @@ export const serializeVerticalAlign = (
 })
 
 /** @hide */
-type PropValue = BaselineSource
+type VerticalAlignPropValue = BaselineSource
 | AlignmentBaseline
 | BaselineShift
 | GlobalCssKeyword
@@ -47,9 +47,9 @@ export type VerticalAlignDeclaration = {
    * Maps to CSS's **`vertical-align`** property
    * @category RBProperty
    */
-  verticalAlign: PropValue
+  verticalAlign: VerticalAlignPropValue
 }
 
 export type VerticalAlignDeclarationJSS = {
-  verticalAlign: ValueOrFunc<PropValue>
+  verticalAlign: ValueOrFunc<VerticalAlignPropValue>
 }

@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue = number | 'auto' | GlobalCssKeyword
+type ZIndexPropValue = number | 'auto' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -14,7 +14,7 @@ export type ZIndexDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#propdef-z-index
    */
-  zIndex: PropValue
+  zIndex: ZIndexPropValue
 }
 
 export type ZIndexDeclarationJSS = {
@@ -25,5 +25,5 @@ export type ZIndexDeclarationJSS = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#propdef-z-index
    */
-  zIndex: ValueOrFunc<PropValue>
+  zIndex: ValueOrFunc<ZIndexPropValue>
 }

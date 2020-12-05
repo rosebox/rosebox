@@ -152,7 +152,7 @@ export const serializeBorderRadius = (type: PropType) => (
 }
 
 /** @hide */
-type PropValue = OneRadius | TwoRadius | GlobalCssKeyword
+type BorderRadiusPropValue = OneRadius | TwoRadius | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -165,8 +165,8 @@ export type BorderRadiusDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
    */
-  borderRadius: PropValue
+  borderRadius: BorderRadiusPropValue
 }
 export type BorderRadiusDeclarationJSS = {
-  borderRadius: ValueOrFunc<PropValue>
+  borderRadius: ValueOrFunc<BorderRadiusPropValue>
 }

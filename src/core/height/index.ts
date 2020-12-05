@@ -16,9 +16,8 @@ export const serializeHeight = (
   height: serializeAtomicValue(x),
 })
 
-
 /** @hide */
-type PropValue = Width | Calculation | GlobalCssKeyword
+type HeightPropValue = Width | Calculation | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -31,9 +30,9 @@ export type HeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-height
    */
-  height: PropValue
+  height: HeightPropValue
 }
 
 export type HeightDeclarationJSS = {
-  height: ValueOrFunc<PropValue>
+  height: ValueOrFunc<HeightPropValue>
 }

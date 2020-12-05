@@ -7,7 +7,7 @@ export const serializeWordSpacing = (
 })
 
 /** @hide */
-type PropValue = 'normal' | Length | GlobalCssKeyword
+type WordSpacingPropValue = 'normal' | Length | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -20,9 +20,9 @@ export type WordSpacingDeclaration = {
    * @added 0.2.0
    * @implentationReference https://drafts.csswg.org/css-text-3/#propdef-word-spacing
    */
-  wordSpacing: PropValue
+  wordSpacing: WordSpacingPropValue
 }
 
 export type WordSpacingDeclarationJSS = {
-  wordSpacing: ValueOrFunc<PropValue>
+  wordSpacing: ValueOrFunc<WordSpacingPropValue>
 }

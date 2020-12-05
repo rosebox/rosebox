@@ -19,7 +19,7 @@ export const serializeFlex = (
 })
 
 /** @hide */
-type PropValue = Flex | GlobalCssKeyword
+type FlexPropValue = Flex | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -29,8 +29,8 @@ export type FlexDeclaration = {
    * Maps to CSS's **`flex`** property
    * @category RBProperty
    */
-  flex: PropValue
+  flex: FlexPropValue
 }
 export type FlexDeclarationJSS = {
-  flex: ValueOrFunc<PropValue>
+  flex: ValueOrFunc<FlexPropValue>
 }

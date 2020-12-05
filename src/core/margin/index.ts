@@ -44,7 +44,7 @@ export type MarginTopDeclarationJSS = {
 }
 
 export const serializeMarginRightValue = (type: PropType) =>
-serializeMarginSide(type === 'inline' ? 'marginRight' : 'margin-right')
+  serializeMarginSide(type === 'inline' ? 'marginRight' : 'margin-right')
 
 export type MarginRightDeclaration = {
   /**
@@ -62,7 +62,7 @@ export type MarginRightDeclarationJSS = {
 }
 
 export const serializeMarginBottomValue = (type: PropType) =>
-serializeMarginSide(type === 'inline' ? 'marginBottom' : 'margin-bottom')
+  serializeMarginSide(type === 'inline' ? 'marginBottom' : 'margin-bottom')
 
 export type MarginBottomDeclaration = {
   /**
@@ -80,7 +80,7 @@ export type MarginBottomDeclarationJSS = {
 }
 
 export const serializeMarginLeftValue = (type: PropType) =>
-serializeMarginSide(type === 'inline' ? 'marginLeft' : 'margin-left')
+  serializeMarginSide(type === 'inline' ? 'marginLeft' : 'margin-left')
 
 export type MarginLeftDeclaration = {
   /**
@@ -118,10 +118,13 @@ type Margin =
 /**
  * @hide
  */
-type PropValue = Margin
+type MarginPropValue = Margin
 
 /** @hide */
-type MarginAxisPropValue = MarginValue | [MarginValue, MarginValue] | GlobalCssKeyword
+type MarginAxisPropValue =
+  | MarginValue
+  | [MarginValue, MarginValue]
+  | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -231,9 +234,9 @@ export type MarginDeclaration = {
    * Maps to CSS's **`margin`** property
    * @category RBProperty
    */
-  margin: PropValue
+  margin: MarginPropValue
 }
 
 export type MarginDeclarationJSS = {
-  margin: ValueOrFunc<PropValue>
+  margin: ValueOrFunc<MarginPropValue>
 }

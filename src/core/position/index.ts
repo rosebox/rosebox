@@ -11,7 +11,7 @@ export const serializePositionPropValue = (
 ) => value
 
 /** @hide */
-type PropValue = 'relative'
+type PositionPropValue = 'relative'
 | 'absolute'
 | 'static'
 | 'fixed'
@@ -29,9 +29,9 @@ export type PositionDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#position-property
    */
-  position: PropValue
+  position: PositionPropValue
 }
 
 export type PositionDeclarationJSS = {
-  position: ValueOrFunc<PropValue>
+  position: ValueOrFunc<PositionPropValue>
 }

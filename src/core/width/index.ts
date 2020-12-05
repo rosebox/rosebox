@@ -8,7 +8,7 @@ export const serializeWidth = (
 })
 
 /** @hide */
-type PropValue = Width | Calculation | GlobalCssKeyword
+type WidthPropValue = Width | Calculation | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -21,9 +21,9 @@ export type WidthDeclaration = {
    * @added 0.2.0
    * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-width
    */
-  width: PropValue
+  width: WidthPropValue
 }
 
 export type WidthDeclarationJSS = {
-  width: PropValue | ValueOrFunc<PropValue>
+  width: ValueOrFunc<WidthPropValue>
 }

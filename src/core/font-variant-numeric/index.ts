@@ -5,7 +5,7 @@ type NumericSpacingValues = 'proportional-nums' | 'tabular-nums'
 type NumericFractionValues = 'diagonal-fractions' | 'stacked-fractions'
 
 /** @hide */
-type PropValue = 'normal'
+type FontVariantNumericPropValue = 'normal'
 | 'ordinal'
 | 'slashed-zero'
 | NumericFigureValues
@@ -23,9 +23,9 @@ export type FontVariantNumericDeclaration = {
    * @formalSyntaxForValue 	normal | [ <numeric-figure-values> || <numeric-spacing-values> || <numeric-fraction-values> || ordinal || slashed-zero ]
    * @implementationReference https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-numeric
    */
-  fontVariantNumeric: PropValue
+  fontVariantNumeric: FontVariantNumericPropValue
 }
 
 export type FontVariantNumericDeclarationJSS = {
-  fontVariantNumeric: ValueOrFunc<PropValue>
+  fontVariantNumeric: ValueOrFunc<FontVariantNumericPropValue>
 }

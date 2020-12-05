@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue =
+type UnicodeBidiPropValue =
   | 'normal'
   | 'embed'
   | 'isolate'
@@ -18,7 +18,7 @@ export type UnicodeBidiDeclaration = {
    * Maps to CSS's **`unicode-bidi`** property
    * @category RBProperty
    */
-  unicodeBidi: PropValue
+  unicodeBidi: UnicodeBidiPropValue
 }
 
 export type UnicodeBidiDeclarationJSS = {
@@ -26,5 +26,5 @@ export type UnicodeBidiDeclarationJSS = {
    * Maps to CSS's **`unicode-bidi`** property
    * @category RBProperty
    */
-  unicodeBidi: ValueOrFunc<PropValue>
+  unicodeBidi: ValueOrFunc<UnicodeBidiPropValue>
 }

@@ -14,7 +14,11 @@ export const serializeBoxOffset = (property: string) => (
 
 export const serializeTop = serializeBoxOffset('top')
 
-type PropValue = LengthPercentage | 'auto' | Calculation | GlobalCssKeyword
+type BoxOffsetPropValue =
+  | LengthPercentage
+  | 'auto'
+  | Calculation
+  | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -27,10 +31,10 @@ export type TopDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
    */
-  top: PropValue
+  top: BoxOffsetPropValue
 }
 export type TopDeclarationJSS = {
-  top: ValueOrFunc<PropValue>
+  top: ValueOrFunc<BoxOffsetPropValue>
 }
 
 /**
@@ -44,10 +48,10 @@ export type RightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
    */
-  right: PropValue
+  right: BoxOffsetPropValue
 }
 export type RightDeclarationJSS = {
-  right: ValueOrFunc<PropValue>
+  right: ValueOrFunc<BoxOffsetPropValue>
 }
 
 export const serializeRight = serializeBoxOffset('right')
@@ -63,10 +67,10 @@ export type BottomDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
    */
-  bottom: PropValue
+  bottom: BoxOffsetPropValue
 }
 export type BottomDeclarationJSS = {
-  bottom: ValueOrFunc<PropValue>
+  bottom: ValueOrFunc<BoxOffsetPropValue>
 }
 
 export const serializeBottom = serializeBoxOffset('bottom')
@@ -82,10 +86,10 @@ export type LeftDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
    */
-  left: PropValue
+  left: BoxOffsetPropValue
 }
 export type LeftDeclarationJSS = {
-  left: ValueOrFunc<PropValue>
+  left: ValueOrFunc<BoxOffsetPropValue>
 }
 
 export const serializeLeft = serializeBoxOffset('left')

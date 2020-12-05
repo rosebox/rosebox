@@ -11,7 +11,7 @@ export const serializeOutlineColor = (
 })
 
 /** @hide */
-type Propvalue = Color | 'invert' | GlobalCssKeyword
+type OutlineColorPropvalue = Color | 'invert' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -21,9 +21,9 @@ export type OutlineColorDeclaration = {
    * Maps to CSS's **`outline-color`** property
    * @category RBProperty
    */
-  outlineColor: Propvalue
+  outlineColor: OutlineColorPropvalue
 }
 
 export type OutlineColorDeclarationJSS = {
-  outlineColor: ValueOrFunc<Propvalue>
+  outlineColor: ValueOrFunc<OutlineColorPropvalue>
 }

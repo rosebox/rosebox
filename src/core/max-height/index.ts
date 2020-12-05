@@ -17,7 +17,11 @@ export const serializeMaxHeight = (
 }
 
 /** @hide */
-type PropValue = LengthPercentage | Calculation | GlobalCssKeyword | 'none'
+type MaxHeightPropValue =
+  | LengthPercentage
+  | Calculation
+  | GlobalCssKeyword
+  | 'none'
 
 /**
  * @category RBDeclarationTypeAlias
@@ -30,9 +34,9 @@ export type MaxHeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#min-max-heights
    */
-  maxHeight: PropValue
+  maxHeight: MaxHeightPropValue
 }
 
 export type MaxHeightDeclarationJSS = {
-  maxHeight: ValueOrFunc<PropValue>
+  maxHeight: ValueOrFunc<MaxHeightPropValue>
 }

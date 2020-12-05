@@ -186,7 +186,7 @@ export const serializeDisplay = (
 })
 
 /** @hide */
-type PropValue = DisplayValue | GlobalCssKeyword
+type DisplayPropValue = DisplayValue | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -199,9 +199,9 @@ export type DisplayDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2019/CR-css-display-3-20190711/
    */
-  display: PropValue
+  display: DisplayPropValue
 }
 
 export type DisplayDeclarationJSS = {
-  display: ValueOrFunc<PropValue>
+  display: ValueOrFunc<DisplayPropValue>
 }

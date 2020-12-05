@@ -30,7 +30,7 @@ export const serializeAnimationDirection = (type: PropType) => (x: AnimationDire
 }
 
 /** @hide */
-type PropValue = AnimationDirection
+type AnimationDirectioPropValue = AnimationDirection
 
 /**
  * @category RBDeclarationTypeAlias
@@ -42,8 +42,8 @@ export type AnimationDirectionDeclaration = {
    * @initial normal
    * @basedOn https://drafts.csswg.org/css-animations/#animation-direction
    */
-  animationDirection: PropValue
+  animationDirection: AnimationDirectioPropValue
 }
 export type AnimationDirectionDeclarationJSS = {
-  animationDirection: ValueOrFunc<PropValue>
+  animationDirection: ValueOrFunc<AnimationDirectioPropValue>
 }

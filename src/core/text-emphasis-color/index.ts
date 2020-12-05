@@ -6,7 +6,7 @@ export const serializeTextEmphasisColor = (x: Color | GlobalCssKeyword) => ({
 })
 
 /** @hide */
-type PropValue = Color | GlobalCssKeyword
+type TextEmphasisColorPropValue = Color | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -16,9 +16,9 @@ export type TextEmphasisColorDeclaration = {
    * Maps to CSS's **`text-emphasis-color`** property
    * @category RBProperty
    */
-  textEmphasisColor: PropValue
+  textEmphasisColor: TextEmphasisColorPropValue
 }
 
 export type TextEmphasisColorDeclarationJSS = {
-  textEmphasisColor: ValueOrFunc<PropValue>
+  textEmphasisColor: ValueOrFunc<TextEmphasisColorPropValue>
 }

@@ -7,7 +7,7 @@ export const serializeFontStyle = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue = 'normal' | 'italic' | 'oblique' | GlobalCssKeyword
+type FontStylePropValue = 'normal' | 'italic' | 'oblique' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -19,7 +19,7 @@ export type FontStyleDeclaration = {
    * @formalSyntaxForValue normal | italic | oblique
    * @implementationReference https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/#font-style-prop
    */
-  fontStyle: PropValue
+  fontStyle: FontStylePropValue
 }
 export type FontStyleDeclarationJSS = {
   /**
@@ -28,5 +28,5 @@ export type FontStyleDeclarationJSS = {
    * @formalSyntaxForValue normal | italic | oblique
    * @implementationReference https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/#font-style-prop
    */
-  fontStyle: ValueOrFunc<PropValue>
+  fontStyle: ValueOrFunc<FontStylePropValue>
 }

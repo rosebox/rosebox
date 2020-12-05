@@ -15,7 +15,7 @@ export const serializeFontFamily = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue = string | string[]
+type FontFamilyPropValue = string | string[]
 
 /**
  * @category RBDeclarationTypeAlias
@@ -27,8 +27,8 @@ export type FontFamilyDeclaration = {
    * @formalSyntaxForValue auto | <integer>
    * @added 0.2.0
    */
-  fontFamily: PropValue
+  fontFamily: FontFamilyPropValue
 }
 export type FontFamilyDeclarationJSS = {
-  fontFamily: ValueOrFunc<PropValue>
+  fontFamily: ValueOrFunc<FontFamilyPropValue>
 }

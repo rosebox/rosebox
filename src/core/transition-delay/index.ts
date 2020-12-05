@@ -4,7 +4,7 @@ import { Duration } from '../shared'
 export type TransitionDelayCSSProp = 'transition-delay'
 
 /**
- *@hide
+ * @hide
  */
 type TransitionDelayPropValue = GlobalCssKeyword | Duration | Duration[]
 

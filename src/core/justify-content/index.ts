@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue = 'flex-start'
+type JustifyContentPropValue = 'flex-start'
 | 'flex-end'
 | 'center'
 | 'space-between'
@@ -19,9 +19,9 @@ export type JustifyContentDeclaration = {
    * @added 0.2.2
    * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#justify-content-property
    */
-  justifyContent: PropValue
+  justifyContent: JustifyContentPropValue
 }
 
 export type JustifyContentDeclarationJSS = {
-  justifyContent: ValueOrFunc<PropValue>
+  justifyContent: ValueOrFunc<JustifyContentPropValue>
 }

@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue =
+type TextAlignPropValue =
   | 'start'
   | 'end'
   | 'left'
@@ -23,7 +23,7 @@ export type TextAlignDeclaration = {
    * @added 0.2.0
    * @implentationReference @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-align-property
    */
-  textAlign: PropValue
+  textAlign: TextAlignPropValue
 }
 
 export type TextAlignDeclarationJSS = {
@@ -34,5 +34,5 @@ export type TextAlignDeclarationJSS = {
    * @added 0.2.0
    * @implentationReference @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-align-property
    */
-  textAlign: ValueOrFunc<PropValue>
+  textAlign: ValueOrFunc<TextAlignPropValue>
 }

@@ -94,7 +94,7 @@ export const serializeFontVariantLigatures = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue =
+type FontVariantLigaturesPropValue =
   | 'normal'
   | 'none'
   | DoubleBar4<
@@ -115,9 +115,9 @@ export type FontVariantLigaturesDeclaration = {
    * @formalSyntaxForValue normal | none | [ <common-lig-values> || <discretionary-lig-values> || <historical-lig-values> || <contextual-alt-values> ]
    * @implementationReference https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-ligatures
    */
-  fontVariantLigatures: PropValue
+  fontVariantLigatures: FontVariantLigaturesPropValue
 }
 
 export type FontVariantLigaturesDeclarationJSS = {
-  fontVariantLigatures: ValueOrFunc<PropValue>
+  fontVariantLigatures: ValueOrFunc<FontVariantLigaturesPropValue>
 }

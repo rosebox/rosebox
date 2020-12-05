@@ -30,7 +30,7 @@ export const serializeAnimationIterationCount = (type: PropType) => (
 }
 
 /** @hide */
-export type PropValue = AnimationIterationCount
+export type AnimationIterationCountPropValue = AnimationIterationCount
 
 /**
  * @category RBDeclarationTypeAlias
@@ -40,8 +40,8 @@ export type AnimationIterationCountDeclaration = {
    * Maps to CSS's **`animation-iteration-count`** property
    * @category RBProperty
    */
-  animationIterationCount: PropValue
+  animationIterationCount: AnimationIterationCountPropValue
 }
 export type AnimationIterationCountDeclarationJSS = {
-  animationIterationCount: ValueOrFunc<PropValue>
+  animationIterationCount: ValueOrFunc<AnimationIterationCountPropValue>
 }

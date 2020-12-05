@@ -72,7 +72,7 @@ export const serializeCursor = (value: Cursor) => ({
 })
 
 /** @hide */
-type PropValue = Cursor | GlobalCssKeyword
+type CursorPropValue = Cursor | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -92,8 +92,8 @@ export type CursorDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2020/WD-css-ui-4-20200124/#cursor
    */
-  cursor: PropValue
+  cursor: CursorPropValue
 }
 export type CursorDeclarationJSS = {
-  cursor: ValueOrFunc<PropValue>
+  cursor: ValueOrFunc<CursorPropValue>
 }

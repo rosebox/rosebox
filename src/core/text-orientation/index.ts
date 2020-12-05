@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue = 'mixed' | 'upright' | 'sideways' | GlobalCssKeyword
+type TextOrientationPropValue = 'mixed' | 'upright' | 'sideways' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -11,9 +11,9 @@ export type TextOrientationDeclaration = {
    * Maps to CSS's **`text-orientation`** property
    * @category RBProperty
    */
-  textOrientation: PropValue
+  textOrientation: TextOrientationPropValue
 }
 
 export type TextOrientationDeclarationJSS = {
-  textOrientation: ValueOrFunc<PropValue>
+  textOrientation: ValueOrFunc<TextOrientationPropValue>
 }

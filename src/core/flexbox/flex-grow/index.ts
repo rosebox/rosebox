@@ -10,7 +10,7 @@ export const serializeFlexGrow = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue = ShrinkGrow | GlobalCssKeyword
+type FlexGrowPropValue = ShrinkGrow | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -23,9 +23,9 @@ export type FlexGrowDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-grow-property
    */
-  flexGrow: PropValue
+  flexGrow: FlexGrowPropValue
 }
 
 export type FlexGrowDeclarationJSS = {
-  flexGrow: ValueOrFunc<PropValue>
+  flexGrow: ValueOrFunc<FlexGrowPropValue>
 }

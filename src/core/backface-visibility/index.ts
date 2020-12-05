@@ -6,7 +6,7 @@ import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 type BackfaceVisibility = 'visible' | 'hidden'
 
 export const serializeBackfaceVisibility = (type: PropType) => (
-  x: BackfaceVisibility | GlobalCssKeyword
+  x: BackfaceVisibilityPropValue
 ) => {
   const propName = type === 'inline' ? 'backfaceVisibility' : 'backface-visibility'
   return ({
@@ -15,7 +15,7 @@ export const serializeBackfaceVisibility = (type: PropType) => (
 }
 
 /** @hide */
-type PropValue = BackfaceVisibility | GlobalCssKeyword
+type BackfaceVisibilityPropValue = BackfaceVisibility | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -25,8 +25,8 @@ export type BackfaceVisibilityDeclaration = {
    * Maps to CSS's **`backface-visibility`** property
    * @category RBProperty
    */
-  backfaceVisibility: PropValue
+  backfaceVisibility: BackfaceVisibilityPropValue
 }
 export type BackfaceVisibilityDeclarationJSS = {
-  backfaceVisibility: ValueOrFunc<PropValue>
+  backfaceVisibility: ValueOrFunc<BackfaceVisibilityPropValue>
 }

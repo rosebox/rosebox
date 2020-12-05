@@ -6,7 +6,7 @@ export const serializeFontOpticalSizing = (type: PropType) => (
   [type === 'inline' ? 'fontOpticalSizing' : 'font-optical-sizing']: x,
 })
 
-type PropValue = 'auto' | 'none' | GlobalCssKeyword
+type FontOpticalSizingPropValue = 'auto' | 'none' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -18,8 +18,8 @@ export type FontOpticalSizingDeclaration = {
    * @formalSyntaxForValue auto | none
    * @implementationReference https://drafts.csswg.org/css-fonts-4/#font-optical-sizing-def
    */
-  fontOpticalSizing: PropValue
+  fontOpticalSizing: FontOpticalSizingPropValue
 }
 export type FontOpticalSizingDeclarationJSS = {
-  fontOpticalSizing: ValueOrFunc<FontOpticalSizingDeclarationJSS>
+  fontOpticalSizing: ValueOrFunc<FontOpticalSizingPropValue>
 }

@@ -11,7 +11,11 @@ import { isDuration } from '../shared'
 const toHyphenCase = (x: string) =>
   x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
 
-type SingleTransition = 'none' | AnimatableProperty | Duration | TimingFunctionValue
+type SingleTransition =
+  | 'none'
+  | AnimatableProperty
+  | Duration
+  | TimingFunctionValue
 
 type SingleTransitionOneValueTupleSyntax = [SingleTransition]
 
@@ -57,6 +61,7 @@ type SingleTransitionTuple =
   | SingleTransitionThreeValuesSyntax
   | SingleTransitionFourValuesSyntax
 
+/** @hide */
 type TransitionPropertyValue =
   | SingleTransitionTuple
   | SingleTransitionTuple[]

@@ -9,10 +9,10 @@ import {
 /**
  * @hide
  */
-type PropValue = 'none' | Length | Calculation | GlobalCssKeyword
+type PerspectivePropValue = 'none' | Length | Calculation | GlobalCssKeyword
 
 export const serializePerspectivePropertyValue = (
-  x: PropValue
+  x: PerspectivePropValue
 ): { perspective: string } => ({
   perspective: serializeAtomicValue(x),
 })
@@ -25,9 +25,9 @@ export type PerspectiveDeclaration = {
    * Maps to CSS's **`perspective`** property
    * @category RBProperty
    */
-  perspective: PropValue
+  perspective: PerspectivePropValue
 }
 
 export type PerspectiveDeclarationJSS = {
-  perspective: ValueOrFunc<PropValue>
+  perspective: ValueOrFunc<PerspectivePropValue>
 }

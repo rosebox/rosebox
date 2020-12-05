@@ -5,10 +5,10 @@ import { GlobalCssKeyword } from '../shared'
 /**
  * @hide
  */
-type PropValue = Length | 'thin' | 'medium' | 'thick' | GlobalCssKeyword
+type OutlineWidthPropValue = Length | 'thin' | 'medium' | 'thick' | GlobalCssKeyword
 
 export const serializeOutlineWidth = (
-  x: PropValue
+  x: OutlineWidthPropValue
 ): {
   outlineWidth: string
 } => ({
@@ -23,7 +23,7 @@ export type OutlineWidthDeclaration = {
    * Maps to CSS's **`outline-width`** property
    * @category RBProperty
    */
-  outlineWidth: PropValue
+  outlineWidth: OutlineWidthPropValue
 }
 
 export type OutlineWidthDeclarationJSS = {
@@ -31,5 +31,5 @@ export type OutlineWidthDeclarationJSS = {
    * Maps to CSS's **`outline-width`** property
    * @category RBProperty
    */
-  outlineWidth: ValueOrFunc<PropValue>
+  outlineWidth: ValueOrFunc<OutlineWidthPropValue>
 }

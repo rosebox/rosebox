@@ -9,7 +9,7 @@ export const serializeOpacity = (
 })
 
 /** @hide */
-type PropValue = number | Percentage | GlobalCssKeyword
+type OpacityPropValue = number | Percentage | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -22,11 +22,11 @@ export type OpacityDeclaration = {
    * @added 0.2.0
    * @implementationReference https://drafts.csswg.org/css-color-4/#typedef-alpha-value
    */
-  opacity: PropValue
+  opacity: OpacityPropValue
 }
 
 export type OpacityDeclarationJSS = {
-  opacity: ValueOrFunc<PropValue>
+  opacity: ValueOrFunc<OpacityPropValue>
 }
 
 export const op01 = { opacity: 0.1 }

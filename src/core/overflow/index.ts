@@ -47,7 +47,7 @@ export const serializeOverflow = (
 })
 
 /** @hide */
-type PropValue = OverflowKeyword
+type OverflowPropValue = OverflowKeyword
 | [OverflowKeyword, OverflowKeyword]
 | GlobalCssKeyword
 
@@ -62,9 +62,9 @@ export type OverflowDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/css-overflow-3/#overflow-properties
    */
-  overflow: PropValue
+  overflow: OverflowPropValue
 }
 
 export type OverflowDeclarationJSS = {
-  overflow: ValueOrFunc<PropValue>
+  overflow: ValueOrFunc<OverflowPropValue>
 }

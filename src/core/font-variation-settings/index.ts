@@ -16,10 +16,11 @@ export const serializeFontVariationSettings = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue = 'normal'
-| [string, number]
-| [string, number][]
-| GlobalCssKeyword
+type FontVariationSettingsPropValue =
+  | 'normal'
+  | [string, number]
+  | [string, number][]
+  | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -30,9 +31,9 @@ export type FontVariationSettingsDeclaration = {
    * @category RBProperty
    * @formalSyntaxForValue auto | none
    */
-  fontVariationSettings:PropValue
+  fontVariationSettings: FontVariationSettingsPropValue
 }
 
 export type FontVariationSettingsDeclarationJSS = {
-  fontVariationSettings: ValueOrFunc<PropValue>
+  fontVariationSettings: ValueOrFunc<FontVariationSettingsPropValue>
 }

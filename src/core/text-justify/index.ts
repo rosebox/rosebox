@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue = 'auto'
+type TextJustifyPropValue = 'auto'
 | 'none'
 | 'inter-word'
 | 'inter-character'
@@ -15,9 +15,9 @@ export type TextJustifyDeclaration = {
    * Maps to CSS's **`text-justify`** property
    * @category RBProperty
    */
-  textJustify: PropValue
+  textJustify: TextJustifyPropValue
 }
 
 export type TextJustifyDeclarationJSS = {
-  textJustify: ValueOrFunc<PropValue>
+  textJustify: ValueOrFunc<TextJustifyPropValue>
 }

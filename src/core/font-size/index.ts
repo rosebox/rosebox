@@ -32,7 +32,7 @@ export const serializeFontSize = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue =
+type FontSizePropValue =
   | RelativeSizeKeyword
   | AbsoluteSizeKeyword
   | LengthPercentage
@@ -50,8 +50,8 @@ export type FontSizeDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-size-prop
    */
-  fontSize: PropValue
+  fontSize: FontSizePropValue
 }
 export type FontSizeDeclarationJSS = {
-  fontSize: ValueOrFunc<PropValue>
+  fontSize: ValueOrFunc<FontSizePropValue>
 }

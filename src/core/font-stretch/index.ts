@@ -7,7 +7,7 @@ export const serializeFontStretch = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue = Percentage
+type FontStretchPropValue = Percentage
 | 'normal'
 | 'ultra-condensed'
 | 'extra-condensed'
@@ -28,8 +28,8 @@ export type FontStretchDeclaration = {
    * @category RBProperty
    * @formalSyntaxForValu normal | <percentage> | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded
    */
-  fontStretch: PropValue
+  fontStretch: FontStretchPropValue
 }
 export type FontStretchDeclarationJSS = {
-  fontStretch: ValueOrFunc<PropValue>
+  fontStretch: ValueOrFunc<FontStretchPropValue>
 }

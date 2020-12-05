@@ -6,7 +6,7 @@ export const serializeFontSizeAdjust = (type: PropType) => (
   [type === 'inline' ? 'fontSizeAdjust' : 'font-size-adjust']: typeof x === 'string' ? x : x,
 })
 
-type PropValue = number | 'none' | GlobalCssKeyword
+type FontSizeAdjustPropValue = number | 'none' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -18,8 +18,8 @@ export type FontSizeAdjustDeclaration = {
    * @formalSyntaxForValue none | <number>
    * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#propdef-font-size-adjust
    */
-  fontSizeAdjust: PropValue
+  fontSizeAdjust: FontSizeAdjustPropValue
 }
 export type FontSizeAdjustDeclarationJSS = {
-  fontSizeAdjust: ValueOrFunc<PropValue>
+  fontSizeAdjust: ValueOrFunc<FontSizeAdjustPropValue>
 }

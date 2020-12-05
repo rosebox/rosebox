@@ -8,9 +8,8 @@ type AnimationFillModeKeyword = 'none' | 'forwards' | 'backwards' | 'both'
 export type AnimationFillMode =
   | AnimationFillModeKeyword
   | AnimationFillModeKeyword[]
-  | GlobalCssKeyword
 
-const serializeValue = (value: AnimationFillMode) => {
+const serializeValue = (value: AnimationFillModePropValue) => {
   const valArray = Array.isArray(value) ? value : [value]
   return valArray.reduce(
     (acc, item, idx) => acc + item + (idx === valArray.length - 1 ? '' : ', '),
@@ -18,7 +17,7 @@ const serializeValue = (value: AnimationFillMode) => {
   )
 }
 
-export const serializeAnimationFillMode =  (type: PropType) => (x: AnimationFillMode) => {
+export const serializeAnimationFillMode =  (type: PropType) => (x: AnimationFillModePropValue) => {
   const propName = type === 'inline' ? 'animationFillMode' : 'animation-fill-mode'
   return {
     [propName]: serializeValue(x),
@@ -26,7 +25,7 @@ export const serializeAnimationFillMode =  (type: PropType) => (x: AnimationFill
 }
 
 /** @hide */
-type PropValue = AnimationFillMode | GlobalCssKeyword 
+type AnimationFillModePropValue = AnimationFillMode | GlobalCssKeyword 
 
 /**
  * @category RBDeclarationTypeAlias
@@ -36,8 +35,8 @@ export type AnimationFillModeDeclaration = {
    * Maps to CSS's **`animation-fill-mode`** property
    * @category RBProperty
    */
-  animationFillMode: PropValue
+  animationFillMode: AnimationFillModePropValue
 }
 export type AnimationFillModeDeclarationJSS = {
-  animationFillMode: ValueOrFunc<PropValue>
+  animationFillMode: ValueOrFunc<AnimationFillModePropValue>
 }

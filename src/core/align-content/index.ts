@@ -35,7 +35,7 @@ type AlignContent =
   | ['unsafe', 'flex-end']
 
 /** @hide */
-type PropValue = AlignContent | GlobalCssKeyword
+type AlignContentPropValue = AlignContent | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -46,11 +46,11 @@ export type AlignContentDeclaration = {
    * @inital normal
    * @basedOn https://drafts.csswg.org/css-align-3/#propdef-align-content 
    */
-  alignContent: PropValue
+  alignContent: AlignContentPropValue
 }
 
 export type AlignContentDeclarationJSS = {
-  alignContent: ValueOrFunc<PropValue>
+  alignContent: ValueOrFunc<AlignContentPropValue>
 }
 
 export const serializeAlignContentPropValue = (

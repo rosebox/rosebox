@@ -79,7 +79,7 @@ export const serializeBoxShadow = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue = Shadow | Shadow[] | 'none' | GlobalCssKeyword
+type BoxShadowPropValue = Shadow | Shadow[] | 'none' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -92,8 +92,8 @@ export type BoxShadowDeclaration = {
    * @added 0.2.1
    * @implementationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-box-shadow
    */
-  boxShadow: PropValue
+  boxShadow: BoxShadowPropValue
 }
 export type BoxShadowDeclarationJSS = {
-  boxShadow: ValueOrFunc<PropValue>
+  boxShadow: ValueOrFunc<BoxShadowPropValue>
 }

@@ -23,7 +23,7 @@ type TextIndentValue =
   | ['each-line', 'hanging', LengthPercentage]
 
 /** @hide */
-type PropValue = TextIndentValue | GlobalCssKeyword
+type TextIndentPropValue = TextIndentValue | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -33,9 +33,9 @@ export type TextIndentDeclaration = {
    * Maps to CSS's **`text-indent`** property
    * @category RBProperty
    */
-  textIndent: PropValue
+  textIndent: TextIndentPropValue
 }
 
 export type TextIndentDeclarationJSS = {
-  textIndent: PropValue
+  textIndent: TextIndentPropValue
 }

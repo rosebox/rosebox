@@ -27,7 +27,7 @@ export const serializeAnimationDelay = (type: PropType) => (
 }
 
 /** @hide */
-type PropValue = AnimationDelay
+type AnimationDelayPropValue = AnimationDelay
 
 /**
  * @category RBDeclarationTypeAlias
@@ -39,9 +39,9 @@ export type AnimationDelayDeclaration = {
    * @docsUrl https://www.rosebox.dev/api/#rb-prop-animationdelay
    * @basedOn https://drafts.csswg.org/css-animations/#animation-delay
    */
-  animationDelay: PropValue
+  animationDelay: AnimationDelayPropValue
 }
 
 export type AnimationDelayDeclarationJSS = {
-  animationDelay: ValueOrFunc<PropValue>
+  animationDelay: ValueOrFunc<AnimationDelayPropValue>
 }

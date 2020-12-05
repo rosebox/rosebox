@@ -21,7 +21,7 @@ type BorderColorValue = Color
 type Border = [BorderWidthValue, BorderStyleValue, BorderColorValue]
 
 /** @hide */
-type PropValue = Border | GlobalCssKeyword | 'none'
+type BorderSidePropValue = Border | GlobalCssKeyword | 'none'
 
 const serializeBorderValue = (property: string) => (
   value: Border | GlobalCssKeyword
@@ -57,10 +57,10 @@ export type BorderTopDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderTop: PropValue
+  borderTop: BorderSidePropValue
 }
 export type BorderTopDeclarationJSS = {
-  borderTop: ValueOrFunc<PropValue>
+  borderTop: ValueOrFunc<BorderSidePropValue>
 }
 
 /**
@@ -74,10 +74,10 @@ export type BorderRightDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderRight: PropValue
+  borderRight: BorderSidePropValue
 }
 export type BorderRightDeclarationJSS = {
-  borderRight: ValueOrFunc<PropValue>
+  borderRight: ValueOrFunc<BorderSidePropValue>
 }
 
 /**
@@ -91,10 +91,10 @@ export type BorderBottomDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderBottom: PropValue
+  borderBottom: BorderSidePropValue
 }
 export type BorderBottomDeclarationJSS = {
-  borderBottom: ValueOrFunc<PropValue>
+  borderBottom: ValueOrFunc<BorderSidePropValue>
 }
 
 /**
@@ -108,10 +108,10 @@ export type BorderLeftDeclaration = {
    * @added 0.2.0
    * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
    */
-  borderLeft: PropValue
+  borderLeft: BorderSidePropValue
 }
 export type BorderLeftDeclarationJSS = {
-  borderLeft: ValueOrFunc<PropValue>
+  borderLeft: ValueOrFunc<BorderSidePropValue>
 }
 
 /**
@@ -123,8 +123,8 @@ export type BorderDeclaration = {
    * @category RBProperty
    * @added 0.2.0
    */
-  border: PropValue
+  border: BorderSidePropValue
 }
 export type BorderDeclarationJSS = {
-  border: ValueOrFunc<PropValue>
+  border: ValueOrFunc<BorderSidePropValue>
 }

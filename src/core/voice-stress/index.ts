@@ -1,7 +1,7 @@
 import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type PropValue = 'normal'
+type VoiceStressPropValue = 'normal'
 | 'strong'
 | 'moderate'
 | 'none'
@@ -16,9 +16,9 @@ export type VoiceStressDeclaration = {
    * Maps to CSS's **`voice-stress`** property
    * @category RBProperty
    */
-  voiceStress: PropValue
+  voiceStress: VoiceStressPropValue
 }
 
 export type VoiceStressDeclarationJSS = {
-  voiceStress: ValueOrFunc<PropValue>
+  voiceStress: ValueOrFunc<VoiceStressPropValue>
 }

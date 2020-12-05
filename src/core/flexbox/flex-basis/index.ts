@@ -31,7 +31,7 @@ export const serializeFlexBasis = (type: PropType) => (
 })
 
 /** @hide */
-type PropValue = FlexBasis | GlobalCssKeyword
+type FlexBasisPropValue = FlexBasis | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -44,8 +44,8 @@ export type FlexBasisDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-basis-property
    */
-  flexBasis: PropValue
+  flexBasis: FlexBasisPropValue
 }
 export type FlexBasisDeclarationJSS = {
-  flexBasis: ValueOrFunc<PropValue>
+  flexBasis: ValueOrFunc<FlexBasisPropValue>
 }

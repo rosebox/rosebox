@@ -17,9 +17,9 @@ type FontWeight =
   | 800
   | 900
 
- /** @hide */
- type PropValue = FontWeight | GlobalCssKeyword
- 
+/** @hide */
+type FontWeightPropValue = FontWeight | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
@@ -31,9 +31,9 @@ export type FontWeightDeclaration = {
    * @added 0.2.0
    * @implementationReference https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/#font-weight-prop
    */
-  fontWeight: FontWeight | GlobalCssKeyword
+  fontWeight: FontWeightPropValue
 }
 
 export type FontWeightDeclarationJSS = {
-  fontWeight: ValueOrFunc<PropValue>
+  fontWeight: ValueOrFunc<FontWeightPropValue>
 }

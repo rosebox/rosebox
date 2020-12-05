@@ -10,7 +10,7 @@ export const serializeAnimationTimingFunction = (type: PropType) => (
 }
 
 /** @hide */
-type PropValue = TimingFunctionValue | GlobalCssKeyword
+type AnimationTimingPropValue = TimingFunctionValue | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -20,8 +20,8 @@ export type AnimationTimingFunctionDeclaration = {
    * Maps to CSS's **`animation-timing-function`** property
    * @category RBProperty
    */
-  animationTimingFunction: PropValue
+  animationTimingFunction: AnimationTimingPropValue
 }
 export type AnimationTimingFunctionDeclarationJSS = {
-  animationTimingFunction: ValueOrFunc<PropValue>
+  animationTimingFunction: ValueOrFunc<AnimationTimingPropValue>
 }
