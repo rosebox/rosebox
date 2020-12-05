@@ -22,10 +22,10 @@ type PropValue = AlignItems | GlobalCssKeyword
 export type AlignItemsDeclaration = {
   /**
    * Maps to CSS's **`align-items`** property
-   * @added 0.2.2
+   * @inital stretch
    * @basedOn https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#align-items-property
    */
-  alignItems: AlignItems | GlobalCssKeyword
+  alignItems: PropValue
 }
 
 export type AlignItemsDeclarationJSS = {

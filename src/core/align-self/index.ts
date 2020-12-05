@@ -58,7 +58,8 @@ type PropValue = AlignSelf | GlobalCssKeyword
 export type AlignSelfDeclaration = {
   /**
    * Maps to CSS's **`align-self`** property
-   * @category RBProperty
+   * @inital auto
+   * @basedOn https://drafts.csswg.org/css-align-3/#propdef-align-self
    */
   alignSelf: PropValue
 }
