@@ -1,6 +1,6 @@
 {
   "name": "rosebox",
-  "version": "0.3.99",
+  "version": "0.4.0",
   "private": false,
   "description": "Rosebox is a Typescript library that models CSS in Typescript in a way that leverages the capabilities of Typescript's type system and Javascript as a programming language, providing strong types, functions, and an overall more structured and improved syntax.",
   "main": "es5/index.js",
@@ -34,7 +34,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@types/react": "^16.9.21",
     "color": "^3.1.3",
     "ramda": "^0.27.1"
   },
@@ -52,6 +51,7 @@
   },
   "peerDependencies": {
     "@material-ui/styles": "^4.11.2",
-    "react": "^16.13.1"
+    "react": "^16.13.1",
+    "@types/react": "^16.9.21"
   }
 }

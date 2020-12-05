@@ -1,2 +1,2 @@
-export * from './material-ui'
+export {makeStylesRB} from './material-ui'
 export * from './rb-jss'

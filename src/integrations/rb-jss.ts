@@ -350,6 +350,7 @@ const style2 = (obj: any) => {
   }, {})
 }
 
+/** A JSS plugin for Rosebox */
 export const rbJSS = () => {
   return {
     onProcessStyle: (style: any) => {
