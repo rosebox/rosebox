@@ -34,14 +34,17 @@ type AlignContent =
   | ['safe', 'flex-end']
   | ['unsafe', 'flex-end']
 
+/** @hide */
 type PropValue = AlignContent | GlobalCssKeyword
+
 /**
  * @category RBDeclarationTypeAlias
  */
 export type AlignContentDeclaration = {
   /**
    * Maps to CSS's **`align-content`** property
-   * @category RBProperty
+   * @inital normal
+   * @basedOn https://drafts.csswg.org/css-align-3/#propdef-align-content 
    */
   alignContent: PropValue
 }
