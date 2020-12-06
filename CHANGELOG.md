@@ -1,8 +1,10 @@
 # Chagngelog
 
 ## [0.4.0] - 2020-12-05
-- 🎉 Added support for a class-strategy using @material-ui/styles.
-- Added support for mathematical functions for Duration and Length (add, sub, mult, div) and eq.
+
+## Added
+- 🎉 🎉🎉 Support for a class-strategy using `@material-ui/styles` and `jss`.
+- Mathematical functions for Duration and Length (`add`, `sub`, `mult`, `div`) and `eq`.
 
 ## [0.3.97] - 
 
