@@ -1,8 +1,29 @@
 import { makeStyles } from '@material-ui/styles'
-import { RBJSSStyle } from './rb-jss'
+import functions from 'jss-plugin-rule-value-function'
+import global from 'jss-plugin-global'
+import nested from 'jss-plugin-nested'
+import camelCase from 'jss-plugin-camel-case'
+import vendorPrefixer from 'jss-plugin-vendor-prefixer'
+import propsSort from 'jss-plugin-props-sort'
+
+import { RBJSSStyle, rbJSS } from './rb-jss'
 
 type StyleMap = {
   [key: string]: RBJSSStyle
+}
+
+export const jssPreset = () => {
+  return {
+    plugins: [
+      functions(),
+      global(),
+      nested(),
+      camelCase(),
+      propsSort(),
+      rbJSS(),
+      typeof window === 'undefined' ? null : vendorPrefixer(),
+    ],
+  }
 }
 
 /**
