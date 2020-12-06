@@ -6,9 +6,6 @@
 ## [0.3.89] - 2020-11-23
 - Implemented outlineWidth, outlineStyle, outlineColor and outline.
 
-## [0.3.89] - 2020-11-21
-- Added back suuport for 2-values and 3-values syntax for padding.
-
 ## [0.3.88] - 2020-11-20
 - Added support for linearGradient (with the value constructor linGrad()).
 
