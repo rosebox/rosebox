@@ -1,3 +1,5 @@
+import { Plugin } from 'jss'
+
 import { funcMap } from '../func-mapper'
 import {
   OverflowXDeclarationJSS,
@@ -351,7 +353,7 @@ const style2 = (obj: any) => {
 }
 
 /** A JSS plugin for Rosebox */
-export const rbJSS = () => {
+export const rbJSS = (): Plugin => {
   return {
     onProcessStyle: (style: any) => {
       return style ? style2(style) : style
