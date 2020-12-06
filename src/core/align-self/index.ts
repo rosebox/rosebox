@@ -59,7 +59,7 @@ export type AlignSelfDeclaration = {
   /**
    * Maps to CSS's **`align-self`** property
    * @inital auto
-   * @basedOn https://drafts.csswg.org/css-align-3/#propdef-align-self
+   * @specification https://drafts.csswg.org/css-align-3/#propdef-align-self
    */
   alignSelf: AlignSelfPropValue
 }

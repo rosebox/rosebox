@@ -44,7 +44,7 @@ export type AlignContentDeclaration = {
   /**
    * Maps to CSS's **`align-content`** property
    * @inital normal
-   * @basedOn https://drafts.csswg.org/css-align-3/#propdef-align-content 
+   * @specification https://drafts.csswg.org/css-align-3/#propdef-align-content 
    */
   alignContent: AlignContentPropValue
 }

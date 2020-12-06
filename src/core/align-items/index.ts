@@ -23,7 +23,7 @@ export type AlignItemsDeclaration = {
   /**
    * Maps to CSS's **`align-items`** property
    * @inital stretch
-   * @basedOn https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#align-items-property
+   * @specification https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#align-items-property
    */
   alignItems: AlignItemsPropValue
 }
