@@ -1,4 +1,4 @@
-import { Plugin } from 'jss'
+import { Plugin, JssStyle } from 'jss'
 
 import { funcMap } from '../func-mapper'
 import {
@@ -355,7 +355,7 @@ const style2 = (obj: any) => {
 /** A JSS plugin for Rosebox */
 export const rbJSS = (): Plugin => {
   return {
-    onProcessStyle: (style: any) => {
+    onProcessStyle: (style: JssStyle) => {
       return style ? style2(style) : style
     },
     onChangeValue: (value: any) => {

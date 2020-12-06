@@ -13,6 +13,9 @@ type StyleMap = {
 }
 
 export const jssPreset = () => {
+  const clientSideOnly = typeof window === 'undefined' 
+  ? [] 
+  : [vendorPrefixer()]
   return {
     plugins: [
       functions(),
@@ -21,8 +24,7 @@ export const jssPreset = () => {
       camelCase(),
       propsSort(),
       rbJSS(),
-      typeof window === 'undefined' ? null : vendorPrefixer(),
-    ],
+    ].concat(clientSideOnly)
   }
 }
 
