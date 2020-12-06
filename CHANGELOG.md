@@ -4,6 +4,15 @@
 - 🎉 Added support for a class-strategy using @material-ui/styles.
 - Added support for mathematical functions for Duration and Length (add, sub, mult, div) and eq.
 
+## [0.3.97] - 
+
+## Changed
+- The `Length` type is now more fine-grained; now we have `Length<LengthUnit>`
+- The `Duration` type is now more fine-grained; now we have `Duration<DurationUnit>`
+- The `Calculation` type is now more fine-grained; now we have `Calculation<CalcOperation>`
+- The `Angle` type is now more fine-grained; now we have `Angle<AngleUnit>`
+- The `Gradient` type is now more fine-grained; now we have `Gradient<GradientType>`
+
 ## [0.3.89] - 2020-11-23
 - Implemented outlineWidth, outlineStyle, outlineColor and outline.
 
