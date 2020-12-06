@@ -9,3 +9,14 @@ test('justifyContent: keyword', () => {
   }
   expect(received).toEqual(expected)
 })
+
+
+test('justifyContent: [keyword, keyword]', () => {
+  const received = style({
+    justifyContent: ['first', 'baseline'],
+  })
+  const expected = {
+    justifyContent: 'first baseline',
+  }
+  expect(received).toEqual(expected)
+})

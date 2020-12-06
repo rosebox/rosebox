@@ -35,7 +35,7 @@ type AlignSelf =
   | ['safe', 'self-end']
   | ['unsafe', 'self-end']
 
-export const serializeAlignSelfPropValue = (x: string | string[]): string =>
+const serializeAlignSelfPropValue = (x: string | string[]): string =>
   Array.isArray(x)
     ? `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}`
     : serializeAtomicValue(x)
@@ -59,7 +59,8 @@ export type AlignSelfDeclaration = {
   /**
    * Maps to CSS's **`align-self`** property
    * @inital auto
-   * @basedOn https://drafts.csswg.org/css-align-3/#propdef-align-self
+   * @definition https://www.w3.org/TR/2020/WD-css-align-3-20200421/#align-self-property
+   * @specification {@link https://www.w3.org/TR/2020/WD-css-align-3-20200421/ CSS Box Alignment Module Level 3}.
    */
   alignSelf: AlignSelfPropValue
 }

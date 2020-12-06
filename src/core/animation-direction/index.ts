@@ -40,7 +40,7 @@ export type AnimationDirectionDeclaration = {
    * Maps to CSS's **`animation-direction`** property
    * @docsUrl https://www.rosebox.dev/api/#rb-prop-animationdirection
    * @initial normal
-   * @basedOn https://drafts.csswg.org/css-animations/#animation-direction
+   * @definition https://drafts.csswg.org/css-animations/#animation-direction
    */
   animationDirection: AnimationDirectioPropValue
 }

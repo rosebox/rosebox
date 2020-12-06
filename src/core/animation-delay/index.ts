@@ -37,7 +37,7 @@ export type AnimationDelayDeclaration = {
    * Maps to CSS's **`animation-delay`** property
    * @inital 0s
    * @docsUrl https://www.rosebox.dev/api/#rb-prop-animationdelay
-   * @basedOn https://drafts.csswg.org/css-animations/#animation-delay
+   * @definition https://drafts.csswg.org/css-animations/#animation-delay
    */
   animationDelay: AnimationDelayPropValue
 }
