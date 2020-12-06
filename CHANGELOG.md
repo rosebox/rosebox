@@ -1,7 +1,7 @@
 # Chagngelog
 
 ## [0.4.0] - 2020-12-05
-- Added support for a class-strategy using @material-ui/styles.
+- 🎉 Added support for a class-strategy using @material-ui/styles.
 
 ## [0.3.89] - 2020-11-23
 - Implemented outlineWidth, outlineStyle, outlineColor and outline.
