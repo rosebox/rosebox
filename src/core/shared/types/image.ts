@@ -14,23 +14,26 @@ type AtLeastOneRequired<T, Keys extends keyof T = keyof T> = Pick<
 type ImageTag = 'ltr' | 'rtl'
 
 const serializeSrc = (x: URI | URL): string => {
-    return `"${x.data}"`
+  return `"${x.data}"`
 }
 
 type ImageParamsObj = {
-  direction?: ImageTag 
+  direction?: ImageTag
 } & AtLeastOneRequired<{
-    src: URL | URI
-    color: Color
-  }>
+  src: URL | URI
+  color: Color
+}>
 
 const serializeImage = (x: Image): string => {
-    const { direction, src, color } = x.data
-    const firstPart = direction ? `${direction} `: ''
-    const secondsPart = src && color 
-    ? `${serializeSrc(src)} , ${serializeAtomicValue(color)}`
-    : `${src ? serializeAtomicValue(src) : serializeAtomicValue(color as Color)}`
-    return `image(${firstPart}${secondsPart})`
+  const { direction, src, color } = x.data
+  const firstPart = direction ? `${direction} ` : ''
+  const secondsPart =
+    src && color
+      ? `${serializeSrc(src)} , ${serializeAtomicValue(color)}`
+      : `${
+          src ? serializeAtomicValue(src) : serializeAtomicValue(color as Color)
+        }`
+  return `image(${firstPart}${secondsPart})`
 }
 
 export class Image implements RBType<ImageParamsObj> {
@@ -44,12 +47,16 @@ export class Image implements RBType<ImageParamsObj> {
     this.serialize = () => serializeImage(this)
   }
 
+  /**
+   *
+   * Constructs a value of type **`Image`** where the unit is **`mm`**.
+   */
   static image(x: ImageParamsObj): Image {
-      return new Image(x)
+    return new Image(x)
   }
 }
 /** @category Value constructor */
 export const image = Image.image
 
 /** @global */
-export type ImageValue = URI | URL | Gradient | Image
+export type ImageValue = URI | URL | Gradient | Image

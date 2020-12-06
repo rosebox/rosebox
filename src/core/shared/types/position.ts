@@ -20,7 +20,9 @@ export class Position
     this.serialize = () => serializePosition(this)
   }
 
-  /** @category Value constructor */
+  /**
+   * Constructs a value of type `Position`.
+   */
   static pos(x: LengthPercentage, y: LengthPercentage): Position {
     return new Position([x, y])
   }

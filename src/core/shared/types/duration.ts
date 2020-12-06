@@ -56,14 +56,14 @@ export class Duration<A extends DurationUnit = DurationUnit>
   }
 
   /**
-   * Constructs a value of type **`Duration`** where the unit is **`milliseconds`**
-  */
+   * Constructs a value of type **`Duration<"milliseconds">`**
+   */
   static ms(x: number): Duration<'milliseconds'> {
     return new Duration('milliseconds', x)
   }
   /**
-   * Constructs a value of type **`Duration`** where the unit is **`seconds`**
-  */
+   * Constructs a value of type **`Duration<"seconds">`**
+   */
   static s(x: number): Duration<'seconds'> {
     return new Duration('seconds', x)
   }
@@ -86,7 +86,6 @@ export const ms = Duration.ms
  * @category Value constructor
  * @added 0.2.1
  */
-
 export const s = Duration.s
 
 export const isDuration = (x: any): x is Duration => x instanceof Duration

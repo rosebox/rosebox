@@ -318,7 +318,10 @@ export class RGB implements RBType<RGBInput> {
     this.valueConstructor = RGB.rgb
     this.serialize = () => serializeRGB(this)
   }
-  /** @category Value constructor */
+
+  /**
+   * Constructs a value of type `RGB`.
+   */
   static rgb(x1: Percentage, x2: Percentage, x3: Percentage): RGB
   static rgb(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger): RGB
   static rgb(x1: any, x2: any, x3: any): RGB {
@@ -343,7 +346,9 @@ export class RGBA implements RBType<RGBAInput> {
     this.serialize = () => serializeRGBA(this)
   }
 
-  /** @category Value constructor */
+  /**
+   * Constructs a value of type `RGBA`.
+   */
   static rgba(x1: Percentage, x2: Percentage, x3: Percentage, x4: number): RGBA
   static rgba(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger, x4: number): RGBA
   static rgba(
@@ -373,7 +378,9 @@ export class HSL implements RBType<HSLInput> {
     this.valueConstructor = HSL.hsl
     this.serialize = () => serializeHSL(this)
   }
-  /** @category Value constructor */
+  /**
+   * Constructs a value of type `HSL`.
+   */
   static hsl(x1: number, x2: Percentage, x3: Percentage): HSL {
     return new HSL([x1, x2, x3])
   }
@@ -397,7 +404,9 @@ export class HSLA implements RBType<HSLAInput> {
     this.serialize = () => serializeHSLA(this)
   }
 
-  /** @category Value constructor */
+  /**
+   * Constructs a value of type `HSLA`.
+   */
   static hsla(x1: number, x2: Percentage, x3: Percentage, x4: number): HSLA {
     return new HSLA([x1, x2, x3, x4])
   }
@@ -423,7 +432,9 @@ export class HEX implements RBType<string> {
       return this.data
     }
   }
-  /** @valueConstructor */
+  /**
+   * Constructs a value of type `HEX`.
+   */
   static hex(x: string): HEX {
     return new HEX(x)
   }

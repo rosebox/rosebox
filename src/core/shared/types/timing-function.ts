@@ -23,11 +23,12 @@ export class CubicBezierFunction
     this.serialize = () => serializeBezier(this)
   }
 
-  /** @category Value constructor */
+  /**
+   * Constructs a value of type `CubicBezierFunction`.
+   */
   static bezier(x1: number, x2: number, x3: number, x4: number) {
     return new CubicBezierFunction([x1, x2, x3, x4])
   }
- 
 }
 
 export const bezier = CubicBezierFunction.bezier
@@ -57,7 +58,9 @@ export class StepsFunction
     this.serialize = () => serializeStepsFunction(this)
   }
 
-  /** @category Value constructor */
+  /**
+   * Constructs a value of type `StepsFunction`.
+   */
   static steps(num: number, stepPosition?: StepPosition) {
     return new StepsFunction(num, stepPosition)
   }
@@ -89,9 +92,7 @@ type TimingFunction = 'linear' | StepTimingFunction | CubicBezierTimingFunction
 /**
  * @hide
  */
-export type TimingFunctionValue =
-  | TimingFunction
-  | TimingFunction[]
+export type TimingFunctionValue = TimingFunction | TimingFunction[]
 
 export const serializeTimingFunctionValue = (
   value: TimingFunctionValue

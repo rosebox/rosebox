@@ -16,7 +16,7 @@ export class CustomIdent implements RBType<string> {
     this.serialize = () => this.data
   }
   /**
-   * @category Value constructor
+   * Constructs a value of type `CustomIdent`.
    */
   static ident(x: string): CustomIdent {
     return new CustomIdent(x)

@@ -18,11 +18,12 @@ export class URL implements RBType<string> {
     this.serialize = () => serializeURL(this)
   }
 
-  /** @category Value constructor */
+  /**
+   * Constructs a value of type `URL`.
+   */
   static url(x: string) {
     return new URL(x)
   }
-  
 }
 
 export const url = URL.url
@@ -41,7 +42,9 @@ export class URI implements RBType<string> {
     this.valueConstructor = URI.uri
   }
 
-  /** @category Value constructor */
+  /**
+   * Constructs a value of type `URI`.
+   */
   static uri(x: string) {
     return new URI(x)
   }
