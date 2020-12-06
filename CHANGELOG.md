@@ -6,7 +6,7 @@
 - 🎉 🎉🎉 Support for css-classes using `@material-ui/styles` and `jss`.
 - Mathematical functions for Duration and Length (`add`, `sub`, `mult`, `div`) and `eq`.
 
-## [0.3.97] - 
+## [0.3.97] - 2020-11-30
 
 ## Changed
 - The `Length` type is now more fine-grained; now we have `Length<LengthUnit>`
