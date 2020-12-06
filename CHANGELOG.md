@@ -2,6 +2,7 @@
 
 ## [0.4.0] - 2020-12-05
 - 🎉 Added support for a class-strategy using @material-ui/styles.
+- Added support for mathematical functions for Duration and Length (add, sub, mult, div) and eq.
 
 ## [0.3.89] - 2020-11-23
 - Implemented outlineWidth, outlineStyle, outlineColor and outline.
@@ -15,7 +16,7 @@
 - Added calc() support for more properties.
 - Readded support for 2-values and 3-values syntax for padding and margin.
 - Added missing value for border.
-- Update the names for calc functions from (add, subs, multi, div) to (cadd, csubs, cmulti, cdiv) in repsective order.
+- Update the names for calc functions from (add, subs, multi, div) to (cadd, csubs, cmult, cdiv) in repsective order.
 
 ## [0.3.6] - 2020-08-27
 
