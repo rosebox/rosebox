@@ -1,15 +1,15 @@
-import { Color, GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared';
+import { Color, GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 export const serializeColor = (
     x: Color | GlobalCssKeyword,
 ): {
-    color: string;
+    color: string
 } => ({
     color: serializeAtomicValue(x),
-});
+})
 
 /** @hide */
-type ColorPropValue = Color | GlobalCssKeyword;
+type ColorPropValue = Color | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -22,8 +22,8 @@ export type ColorDeclaration = {
      * @added 0.2.0
      * @implementationReference https://www.w3.org/TR/2018/REC-css-color-3-20180619/#color0
      */
-    color: ColorPropValue;
-};
+    color: ColorPropValue
+}
 export type ColorDeclarationJSS = {
-    color: ValueOrFunc<ColorPropValue>;
-};
+    color: ValueOrFunc<ColorPropValue>
+}

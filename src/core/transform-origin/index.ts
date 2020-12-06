@@ -1,14 +1,14 @@
-import { LengthPercentage, GlobalCssKeyword, Length, Calculation, serializeAtomicValue, ValueOrFunc } from '../shared';
-const WHITESPACE = ' ';
+import { LengthPercentage, GlobalCssKeyword, Length, Calculation, serializeAtomicValue, ValueOrFunc } from '../shared'
+const WHITESPACE = ' '
 
 type Offset =
     | [LengthPercentage | Calculation, LengthPercentage | Calculation]
-    | [LengthPercentage | Calculation, LengthPercentage | Calculation, Length | Calculation];
+    | [LengthPercentage | Calculation, LengthPercentage | Calculation, Length | Calculation]
 
 /**
  * @hide
  */
-type TransformOriginPropValue = Offset | GlobalCssKeyword;
+type TransformOriginPropValue = Offset | GlobalCssKeyword
 
 export const serializeTransformOrigin = (x: Offset | GlobalCssKeyword): { transformOrigin: string } => ({
     transformOrigin:
@@ -18,7 +18,7 @@ export const serializeTransformOrigin = (x: Offset | GlobalCssKeyword): { transf
                   (acc, val, idx) => acc + serializeAtomicValue(val) + (idx === x.length - 1 ? '' : WHITESPACE),
                   '',
               ),
-});
+})
 
 /**
  * @category RBDeclarationTypeAlias
@@ -31,9 +31,9 @@ export type TransformOriginDeclaration = {
      * @category RBProperty
      * @added 0.2.3
      */
-    transformOrigin: TransformOriginPropValue;
-};
+    transformOrigin: TransformOriginPropValue
+}
 
 export type TransformOriginDeclarationJSS = {
-    transformOrigin: ValueOrFunc<TransformOriginPropValue>;
-};
+    transformOrigin: ValueOrFunc<TransformOriginPropValue>
+}

@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
 export const serializeFontVariationSettings = (type: PropType) => (
     x: 'normal' | [string, number] | [string, number][] | GlobalCssKeyword,
@@ -12,10 +12,10 @@ export const serializeFontVariationSettings = (type: PropType) => (
                   (acc, val, idx) => acc + `"${val[0]}" ${val[1]}` + (x.length - 1 !== idx ? ', ' : ''),
                   '',
               ),
-});
+})
 
 /** @hide */
-type FontVariationSettingsPropValue = 'normal' | [string, number] | [string, number][] | GlobalCssKeyword;
+type FontVariationSettingsPropValue = 'normal' | [string, number] | [string, number][] | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -26,9 +26,9 @@ export type FontVariationSettingsDeclaration = {
      * @category RBProperty
      * @formalSyntaxForValue auto | none
      */
-    fontVariationSettings: FontVariationSettingsPropValue;
-};
+    fontVariationSettings: FontVariationSettingsPropValue
+}
 
 export type FontVariationSettingsDeclarationJSS = {
-    fontVariationSettings: ValueOrFunc<FontVariationSettingsPropValue>;
-};
+    fontVariationSettings: ValueOrFunc<FontVariationSettingsPropValue>
+}

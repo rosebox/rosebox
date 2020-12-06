@@ -1,6 +1,6 @@
-import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
-type BaseLinePosition = ['first', 'baseline'] | ['last', 'baseline'] | 'baseline';
+type BaseLinePosition = ['first', 'baseline'] | ['last', 'baseline'] | 'baseline'
 
 /**
  * @hide
@@ -30,20 +30,20 @@ type AlignSelf =
     | ['unsafe', 'self-start']
     | 'self-end'
     | ['safe', 'self-end']
-    | ['unsafe', 'self-end'];
+    | ['unsafe', 'self-end']
 
 const serializeAlignSelfPropValue = (x: string | string[]): string =>
-    Array.isArray(x) ? `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}` : serializeAtomicValue(x);
+    Array.isArray(x) ? `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}` : serializeAtomicValue(x)
 
 export const serializeAlignSelf = (type: PropType) => (x: AlignSelf | GlobalCssKeyword): { [key: string]: string } => {
-    const propName = type === 'inline' ? 'alignSelf' : 'align-self';
+    const propName = type === 'inline' ? 'alignSelf' : 'align-self'
     return {
         [propName]: serializeAlignSelfPropValue(x),
-    };
-};
+    }
+}
 
 /** @hide */
-type AlignSelfPropValue = AlignSelf | GlobalCssKeyword;
+type AlignSelfPropValue = AlignSelf | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -55,9 +55,9 @@ export type AlignSelfDeclaration = {
      * @definition https://www.w3.org/TR/2020/WD-css-align-3-20200421/#align-self-property
      * @specification {@link https://www.w3.org/TR/2020/WD-css-align-3-20200421/ CSS Box Alignment Module Level 3}.
      */
-    alignSelf: AlignSelfPropValue;
-};
+    alignSelf: AlignSelfPropValue
+}
 
 export type AlignSelfDeclarationJSS = {
-    alignSelf: ValueOrFunc<AlignSelfPropValue>;
-};
+    alignSelf: ValueOrFunc<AlignSelfPropValue>
+}

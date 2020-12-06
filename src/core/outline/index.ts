@@ -1,7 +1,7 @@
-import { GlobalCssKeyword, LineStyle } from '../shared';
-import { Color, DoubleBar3, LineWidth, ValueOrFunc } from '../shared/types';
+import { GlobalCssKeyword, LineStyle } from '../shared'
+import { Color, DoubleBar3, LineWidth, ValueOrFunc } from '../shared/types'
 
-import { serializeAtomicValue } from '../shared';
+import { serializeAtomicValue } from '../shared'
 
 export const serializeOutline = (x: DoubleBar3<Color, LineStyle, LineWidth> | GlobalCssKeyword) => ({
     outline: !Array.isArray(x)
@@ -12,10 +12,10 @@ export const serializeOutline = (x: DoubleBar3<Color, LineStyle, LineWidth> | Gl
               (acc, item, idx) => acc + serializeAtomicValue(item) + (idx === x.length - 1 ? '' : ' '),
               '',
           ),
-});
+})
 
 /** @hide */
-type OutlinePropValue = DoubleBar3<Color, LineStyle, LineWidth> | GlobalCssKeyword;
+type OutlinePropValue = DoubleBar3<Color, LineStyle, LineWidth> | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -25,9 +25,9 @@ export type OutlineDeclaration = {
      * Maps to CSS's **`outline`** property
      * @category RBProperty
      */
-    outline: OutlinePropValue;
-};
+    outline: OutlinePropValue
+}
 
 export type OutlineDeclarationJSS = {
-    outline: ValueOrFunc<OutlinePropValue>;
-};
+    outline: ValueOrFunc<OutlinePropValue>
+}

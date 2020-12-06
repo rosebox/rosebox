@@ -1,1 +1,1 @@
-export * from './perspective';
+export * from './perspective'

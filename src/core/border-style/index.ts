@@ -1,22 +1,22 @@
-import { GlobalCssKeyword, LineStyle, PropType, serializeAtomicValue, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, LineStyle, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
-export type BorderStyleCSSProp = 'border-style';
+export type BorderStyleCSSProp = 'border-style'
 
 const serializeBorderSideStyle = (property: string) => (value: LineStyle | GlobalCssKeyword) => ({
     [property]: value,
-});
+})
 
 export const serializeBorderTopStyle = (type: PropType) =>
-    serializeBorderSideStyle(type === 'inline' ? 'borderTopStyle' : 'border-top-style');
+    serializeBorderSideStyle(type === 'inline' ? 'borderTopStyle' : 'border-top-style')
 export const serializeBorderRightStyle = (type: PropType) =>
-    serializeBorderSideStyle(type === 'inline' ? 'borderRightStyle' : 'border-right-style');
+    serializeBorderSideStyle(type === 'inline' ? 'borderRightStyle' : 'border-right-style')
 export const serializeBorderBottomStyle = (type: PropType) =>
-    serializeBorderSideStyle(type === 'inline' ? 'borderBottomStyle' : 'border-bottom-style');
+    serializeBorderSideStyle(type === 'inline' ? 'borderBottomStyle' : 'border-bottom-style')
 export const serializeBorderLeftStyle = (type: PropType) =>
-    serializeBorderSideStyle(type === 'inline' ? 'borderLeftStyle' : 'border-Left-style');
+    serializeBorderSideStyle(type === 'inline' ? 'borderLeftStyle' : 'border-Left-style')
 
 /** @hide */
-type BorderSideStylePropValue = LineStyle | GlobalCssKeyword;
+type BorderSideStylePropValue = LineStyle | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -29,11 +29,11 @@ export type BorderTopStyleDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
      */
-    borderTopStyle: LineStyle | GlobalCssKeyword;
-};
+    borderTopStyle: LineStyle | GlobalCssKeyword
+}
 export type BorderTopStyleDeclarationJSS = {
-    borderTopStyle: ValueOrFunc<BorderSideStylePropValue>;
-};
+    borderTopStyle: ValueOrFunc<BorderSideStylePropValue>
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -46,11 +46,11 @@ export type BorderRightStyleDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
      */
-    borderRightStyle: BorderSideStylePropValue;
-};
+    borderRightStyle: BorderSideStylePropValue
+}
 export type BorderRightStyleDeclarationJSS = {
-    borderRightStyle: ValueOrFunc<BorderSideStylePropValue>;
-};
+    borderRightStyle: ValueOrFunc<BorderSideStylePropValue>
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -63,11 +63,11 @@ export type BorderBottomStyleDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
      */
-    borderBottomStyle: BorderSideStylePropValue;
-};
+    borderBottomStyle: BorderSideStylePropValue
+}
 export type BorderBottomStyleDeclarationJSS = {
-    borderBottomStyle: ValueOrFunc<BorderSideStylePropValue>;
-};
+    borderBottomStyle: ValueOrFunc<BorderSideStylePropValue>
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -80,31 +80,31 @@ export type BorderLeftStyleDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
      */
-    borderLeftStyle: BorderSideStylePropValue;
-};
+    borderLeftStyle: BorderSideStylePropValue
+}
 export type BorderLeftStyleDeclarationJSS = {
-    borderLeftStyle: ValueOrFunc<BorderSideStylePropValue>;
-};
+    borderLeftStyle: ValueOrFunc<BorderSideStylePropValue>
+}
 
 /**
  * @hide
  */
-type BorderStyle = LineStyle | [LineStyle, LineStyle, LineStyle, LineStyle];
+type BorderStyle = LineStyle | [LineStyle, LineStyle, LineStyle, LineStyle]
 
 export const serializeBorderStyle = (type: PropType) => (
     x: BorderStyle | GlobalCssKeyword,
 ): {
-    [key: string]: string;
+    [key: string]: string
 } => {
-    const propName = type === 'inline' ? 'borderStyle' : 'border-style';
+    const propName = type === 'inline' ? 'borderStyle' : 'border-style'
     return {
         [propName]: !Array.isArray(x)
             ? serializeAtomicValue(x)
-            : (x as LineStyle[]).reduce((acc: any, item) => acc + ' ' + item, '').trim(),
-    };
-};
+            : (x as LineStyle[]).reduce((acc, item) => acc + ' ' + item, '').trim(),
+    }
+}
 /** @hide */
-type BorderStylePropValue = BorderStyle | GlobalCssKeyword;
+type BorderStylePropValue = BorderStyle | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -117,8 +117,8 @@ export type BorderStyleDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
      */
-    borderStyle: BorderStylePropValue;
-};
+    borderStyle: BorderStylePropValue
+}
 export type BorderStyleDeclarationJSS = {
     /**
      * Maps to CSS's **`border-style`** property
@@ -127,5 +127,5 @@ export type BorderStyleDeclarationJSS = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
      */
-    borderStyle: ValueOrFunc<BorderStylePropValue>;
-};
+    borderStyle: ValueOrFunc<BorderStylePropValue>
+}

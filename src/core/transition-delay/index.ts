@@ -1,21 +1,21 @@
-import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared';
-import { Duration } from '../shared';
+import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
+import { Duration } from '../shared'
 
-export type TransitionDelayCSSProp = 'transition-delay';
+export type TransitionDelayCSSProp = 'transition-delay'
 
 /**
  * @hide
  */
-type TransitionDelayPropValue = GlobalCssKeyword | Duration | Duration[];
+type TransitionDelayPropValue = GlobalCssKeyword | Duration | Duration[]
 
 export const serializeValue = (x: TransitionDelayPropValue): string =>
     !Array.isArray(x)
         ? serializeAtomicValue(x)
-        : x.reduce((acc, item, idx) => acc + serializeAtomicValue(item) + (idx === x.length - 1 ? '' : ', '), '');
+        : x.reduce((acc, item, idx) => acc + serializeAtomicValue(item) + (idx === x.length - 1 ? '' : ', '), '')
 
 export const serializeTransitionDelay = (value: TransitionDelayPropValue) => ({
     transitionDelay: serializeValue(value),
-});
+})
 
 /**
  * @category RBDeclarationTypeAlias
@@ -28,9 +28,9 @@ export type TransitionDelayDeclaration = {
      * @added 0.2.1
      * @implentationReference @implentationReference https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-delay-property
      */
-    transitionDelay: TransitionDelayPropValue;
-};
+    transitionDelay: TransitionDelayPropValue
+}
 
 export type TransitionDelayDeclarationJSS = {
-    transitionDelay: ValueOrFunc<TransitionDelayPropValue>;
-};
+    transitionDelay: ValueOrFunc<TransitionDelayPropValue>
+}

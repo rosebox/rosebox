@@ -1,7 +1,7 @@
-import { GlobalCssKeyword, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type FontSynthesisWeightPropValue = 'auto' | 'none' | GlobalCssKeyword;
+type FontSynthesisWeightPropValue = 'auto' | 'none' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -13,8 +13,9 @@ export type FontSynthesisWeightDeclaration = {
      * @formalSyntaxForValue auto | none
      * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-synthesis-weight
      */
-    fontSynthesisWeight: FontSynthesisWeightPropValue;
-};
+    fontSynthesisWeight: FontSynthesisWeightPropValue
+}
+
 export type FontSynthesisWeightDeclarationJSS = {
-    fontSynthesisWeight: ValueOrFunc<FontSynthesisWeightPropValue>;
-};
+    fontSynthesisWeight: ValueOrFunc<FontSynthesisWeightPropValue>
+}

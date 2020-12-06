@@ -1,5 +1,5 @@
-import { RBStyle, style } from '../..';
-import { per, px, rem } from '../shared';
+import { RBStyle, style } from '../..'
+import { per, px, rem } from '../shared'
 
 const styleObj: RBStyle = {
     borderTopRightRadius: px(3),
@@ -7,16 +7,16 @@ const styleObj: RBStyle = {
     borderBottomLeftRadius: rem(3),
     borderTopLeftRadius: 'unset',
     borderRadius: [per(10), per(20)],
-};
+}
 
 test('borderRadius', () => {
-    const received = style(styleObj);
+    const received = style(styleObj)
     const expected = {
         borderTopRightRadius: '3px',
         borderBottomRightRadius: '20%',
         borderBottomLeftRadius: '3rem',
         borderTopLeftRadius: 'unset',
         borderRadius: '10% 20%',
-    };
-    expect(received).toEqual(expected);
-});
+    }
+    expect(received).toEqual(expected)
+})

@@ -179,6 +179,6 @@ const AnimatablePropArray = [
     'wordSpacing',
     'zIndex',
     'zoom',
-] as const;
+] as const
 
-export type AnimatableProperty = typeof AnimatablePropArray[number];
+export type AnimatableProperty = typeof AnimatablePropArray[number]

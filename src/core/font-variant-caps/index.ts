@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
 type FontVariantCapsPropValue =
@@ -9,7 +9,7 @@ type FontVariantCapsPropValue =
     | 'all-petite-caps'
     | 'unicase'
     | 'titling-caps'
-    | GlobalCssKeyword;
+    | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -21,9 +21,9 @@ export type FontVariantCapsDeclaration = {
      * @formalSyntaxForValue 	normal | small-caps | all-small-caps | petite-caps | all-petite-caps | unicase | titling-caps
      * @implementationReference https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-caps
      */
-    fontVariantCaps: FontVariantCapsPropValue;
-};
+    fontVariantCaps: FontVariantCapsPropValue
+}
 
 export type FontVariantCapsDeclarationJSS = {
-    fontVariantCaps: ValueOrFunc<FontVariantCapsPropValue>;
-};
+    fontVariantCaps: ValueOrFunc<FontVariantCapsPropValue>
+}

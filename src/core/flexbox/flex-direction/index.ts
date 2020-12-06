@@ -1,17 +1,17 @@
-import { GlobalCssKeyword, PropType, ValueOrFunc } from '../../shared';
+import { GlobalCssKeyword, PropType, ValueOrFunc } from '../../shared'
 
 /**
  * Formal syntax: row | row-reverse | column | column-reverse
  * @hide
  * */
-export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse'
 
 export const serializeFlexDirectionValue = (type: PropType) => (value: FlexDirection | GlobalCssKeyword) => ({
     [type === 'inline' ? 'flexDirection' : 'flex-direction']: value,
-});
+})
 
 /** @hide */
-type FlexDirectionPropValue = FlexDirection | GlobalCssKeyword;
+type FlexDirectionPropValue = FlexDirection | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -24,8 +24,8 @@ export type FlexDirectionDeclaration = {
      * @added 0.2.0
      * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-direction-property
      */
-    flexDirection: FlexDirectionPropValue;
-};
+    flexDirection: FlexDirectionPropValue
+}
 export type FlexDirectionDeclarationJSS = {
-    flexDirection: ValueOrFunc<FlexDirectionPropValue>;
-};
+    flexDirection: ValueOrFunc<FlexDirectionPropValue>
+}

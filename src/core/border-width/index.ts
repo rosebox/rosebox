@@ -1,16 +1,16 @@
-import { LineWidth, GlobalCssKeyword, Calculation, serializeAtomicValue, PropType, ValueOrFunc } from '../shared';
+import { LineWidth, GlobalCssKeyword, Calculation, serializeAtomicValue, PropType, ValueOrFunc } from '../shared'
 
-export type BorderWidthCSSProp = 'border-width';
+export type BorderWidthCSSProp = 'border-width'
 
 const serializeBorderSideWidthValue = (property: string) => (x: LineWidth | Calculation | GlobalCssKeyword) => ({
     [property]: serializeAtomicValue(x),
-});
+})
 
 export const serializeBorderTopWidth = (type: PropType) =>
-    serializeBorderSideWidthValue(type === 'inline' ? 'borderTopWidth' : 'border-top-width');
+    serializeBorderSideWidthValue(type === 'inline' ? 'borderTopWidth' : 'border-top-width')
 
 /** @hide */
-type BorderSideWidthPropValue = LineWidth | GlobalCssKeyword;
+type BorderSideWidthPropValue = LineWidth | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -23,14 +23,14 @@ export type BorderTopWidthDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
      */
-    borderTopWidth: BorderSideWidthPropValue;
-};
+    borderTopWidth: BorderSideWidthPropValue
+}
 export type BorderTopWidthDeclarationJSS = {
-    borderTopWidth: ValueOrFunc<BorderSideWidthPropValue>;
-};
+    borderTopWidth: ValueOrFunc<BorderSideWidthPropValue>
+}
 
 export const serializeBorderRightWidth = (type: PropType) =>
-    serializeBorderSideWidthValue(type === 'inline' ? 'borderRightWidth' : 'border-right-width');
+    serializeBorderSideWidthValue(type === 'inline' ? 'borderRightWidth' : 'border-right-width')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -43,14 +43,14 @@ export type BorderRightWidthDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
      */
-    borderRightWidth: BorderSideWidthPropValue;
-};
+    borderRightWidth: BorderSideWidthPropValue
+}
 export type BorderRightWidthDeclarationJSS = {
-    borderRightWidth: ValueOrFunc<BorderSideWidthPropValue>;
-};
+    borderRightWidth: ValueOrFunc<BorderSideWidthPropValue>
+}
 
 export const serializeBorderBottomWidth = (type: PropType) =>
-    serializeBorderSideWidthValue(type === 'inline' ? 'borderBottomWidth' : 'border-bottom-width');
+    serializeBorderSideWidthValue(type === 'inline' ? 'borderBottomWidth' : 'border-bottom-width')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -63,8 +63,8 @@ export type BorderBottomWidthDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
      */
-    borderBottomWidth: BorderSideWidthPropValue;
-};
+    borderBottomWidth: BorderSideWidthPropValue
+}
 export type BorderBottomWidthDeclarationJSS = {
     /**
      * Maps to CSS's **`border-bottom-width`** property
@@ -73,11 +73,11 @@ export type BorderBottomWidthDeclarationJSS = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
      */
-    borderBottomWidth: ValueOrFunc<BorderSideWidthPropValue>;
-};
+    borderBottomWidth: ValueOrFunc<BorderSideWidthPropValue>
+}
 
 export const serializeBorderLeftWidth = (type: PropType) =>
-    serializeBorderSideWidthValue(type === 'inline' ? 'borderLeftWidth' : 'border-left-width');
+    serializeBorderSideWidthValue(type === 'inline' ? 'borderLeftWidth' : 'border-left-width')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -90,32 +90,32 @@ export type BorderLeftWidthDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
      */
-    borderLeftWidth: BorderSideWidthPropValue;
-};
+    borderLeftWidth: BorderSideWidthPropValue
+}
 export type BorderLeftWidthDeclarationJSS = {
-    borderLeftWidth: ValueOrFunc<BorderSideWidthPropValue>;
-};
+    borderLeftWidth: ValueOrFunc<BorderSideWidthPropValue>
+}
 
 type BorderWidth =
     | LineWidth
     | [LineWidth]
     | [LineWidth, LineWidth]
     | [LineWidth, LineWidth, LineWidth]
-    | [LineWidth, LineWidth, LineWidth, LineWidth];
+    | [LineWidth, LineWidth, LineWidth, LineWidth]
 
 /** @hide */
-type BorderWidthPropValue = BorderWidth | GlobalCssKeyword;
+type BorderWidthPropValue = BorderWidth | GlobalCssKeyword
 
 export const serializeBorderWidth = (type: PropType) => (
     x: BorderWidth | GlobalCssKeyword,
 ): { [key: string]: string } => {
-    const propName = type === 'inline' ? 'borderWidth' : 'border-width';
+    const propName = type === 'inline' ? 'borderWidth' : 'border-width'
     return {
         [propName]: !Array.isArray(x)
             ? serializeAtomicValue(x)
-            : (x as LineWidth[]).reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '').trim(),
-    };
-};
+            : (x as LineWidth[]).reduce((acc, item) => acc + ' ' + serializeAtomicValue(item), '').trim(),
+    }
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -128,8 +128,8 @@ export type BorderWidthDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
      */
-    borderWidth: BorderWidthPropValue;
-};
+    borderWidth: BorderWidthPropValue
+}
 export type BorderWidthDeclarationJSS = {
-    borderWidth: ValueOrFunc<BorderWidthPropValue>;
-};
+    borderWidth: ValueOrFunc<BorderWidthPropValue>
+}

@@ -1,6 +1,6 @@
-import { GlobalCssKeyword, LengthPercentage, serializeAtomicValue, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, LengthPercentage, serializeAtomicValue, ValueOrFunc } from '../shared'
 
-type BaselineSource = 'auto' | 'first' | 'last';
+type BaselineSource = 'auto' | 'first' | 'last'
 type AlignmentBaseline =
     | 'baseline'
     | 'text-bottom'
@@ -12,16 +12,16 @@ type AlignmentBaseline =
     | 'text-top'
     | 'bottom'
     | 'center'
-    | 'top';
+    | 'top'
 
-type BaselineShift = 'sub' | 'super' | 'top' | 'center' | 'bottom' | LengthPercentage;
+type BaselineShift = 'sub' | 'super' | 'top' | 'center' | 'bottom' | LengthPercentage
 
 export const serializeVerticalAlign = (x: BaselineSource | AlignmentBaseline | BaselineShift | GlobalCssKeyword) => ({
     verticalAlign: serializeAtomicValue(x),
-});
+})
 
 /** @hide */
-type VerticalAlignPropValue = BaselineSource | AlignmentBaseline | BaselineShift | GlobalCssKeyword;
+type VerticalAlignPropValue = BaselineSource | AlignmentBaseline | BaselineShift | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -31,9 +31,9 @@ export type VerticalAlignDeclaration = {
      * Maps to CSS's **`vertical-align`** property
      * @category RBProperty
      */
-    verticalAlign: VerticalAlignPropValue;
-};
+    verticalAlign: VerticalAlignPropValue
+}
 
 export type VerticalAlignDeclarationJSS = {
-    verticalAlign: ValueOrFunc<VerticalAlignPropValue>;
-};
+    verticalAlign: ValueOrFunc<VerticalAlignPropValue>
+}

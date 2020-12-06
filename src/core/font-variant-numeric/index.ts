@@ -1,8 +1,8 @@
-import { GlobalCssKeyword, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
-type NumericFigureValues = 'lining-nums' | 'oldstyle-num';
-type NumericSpacingValues = 'proportional-nums' | 'tabular-nums';
-type NumericFractionValues = 'diagonal-fractions' | 'stacked-fractions';
+type NumericFigureValues = 'lining-nums' | 'oldstyle-num'
+type NumericSpacingValues = 'proportional-nums' | 'tabular-nums'
+type NumericFractionValues = 'diagonal-fractions' | 'stacked-fractions'
 
 /** @hide */
 type FontVariantNumericPropValue =
@@ -12,7 +12,7 @@ type FontVariantNumericPropValue =
     | NumericFigureValues
     | NumericSpacingValues
     | NumericFractionValues
-    | GlobalCssKeyword;
+    | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -24,9 +24,9 @@ export type FontVariantNumericDeclaration = {
      * @formalSyntaxForValue 	normal | [ <numeric-figure-values> || <numeric-spacing-values> || <numeric-fraction-values> || ordinal || slashed-zero ]
      * @implementationReference https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-numeric
      */
-    fontVariantNumeric: FontVariantNumericPropValue;
-};
+    fontVariantNumeric: FontVariantNumericPropValue
+}
 
 export type FontVariantNumericDeclarationJSS = {
-    fontVariantNumeric: ValueOrFunc<FontVariantNumericPropValue>;
-};
+    fontVariantNumeric: ValueOrFunc<FontVariantNumericPropValue>
+}

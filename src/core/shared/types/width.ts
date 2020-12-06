@@ -1,14 +1,14 @@
-import { LengthPercentage, serializeAtomicValue } from './shared';
-import { isLengthType } from './length';
-import { isPercentageType } from './percentage';
+import { LengthPercentage, serializeAtomicValue } from './shared'
+import { isLengthType } from './length'
+import { isPercentageType } from './percentage'
 
 /**
  * @global
  */
-export type Width = LengthPercentage | 'auto';
+export type Width = LengthPercentage | 'auto'
 
 /** Type-guard */
 export const isWidthType = (value: any): value is Width =>
-    isLengthType(value) || isPercentageType(value) || value === 'auto';
+    isLengthType(value) || isPercentageType(value) || value === 'auto'
 
-export const serializeWidth = (value: Width): string => serializeAtomicValue(value);
+export const serializeWidth = (value: Width): string => serializeAtomicValue(value)

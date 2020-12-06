@@ -1,22 +1,15 @@
-import {
-    GlobalCssKeyword,
-    LengthPercentage,
-    serializeAtomicValue,
-    Calculation,
-    PropType,
-    ValueOrFunc,
-} from '../shared';
+import { GlobalCssKeyword, LengthPercentage, serializeAtomicValue, Calculation, PropType, ValueOrFunc } from '../shared'
 
-export type LineHeightCSSProp = 'line-height';
+export type LineHeightCSSProp = 'line-height'
 
 export const serializeLineHeight = (type: PropType) => (
     x: 'normal' | number | LengthPercentage | Calculation | GlobalCssKeyword,
 ) => ({
     [type === 'inline' ? 'lineHeight' : 'line-height']: serializeAtomicValue(x),
-});
+})
 
 /** @hide */
-type LineHeightPropValue = 'normal' | number | LengthPercentage | Calculation | GlobalCssKeyword;
+type LineHeightPropValue = 'normal' | number | LengthPercentage | Calculation | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -29,9 +22,9 @@ export type LineHeightDeclaration = {
      * @added 0.2.0
      * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-line-height
      */
-    lineHeight: LineHeightPropValue;
-};
+    lineHeight: LineHeightPropValue
+}
 
 export type LineHeightDeclarationJSS = {
-    lineHeight: ValueOrFunc<LineHeightPropValue>;
-};
+    lineHeight: ValueOrFunc<LineHeightPropValue>
+}

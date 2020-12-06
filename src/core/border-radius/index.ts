@@ -1,30 +1,30 @@
-import { ValueOfRecord } from 'ramda';
-import { GlobalCssKeyword, LengthPercentage, PropType, serializeAtomicValue, ValueOrFunc } from '../shared';
+import { ValueOfRecord } from 'ramda'
+import { GlobalCssKeyword, LengthPercentage, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
-export type BorderRadiusCSSProp = 'border-radius';
+export type BorderRadiusCSSProp = 'border-radius'
 
 /**
  * @hide
  */
-export type BorderCornerRadius = LengthPercentage | [LengthPercentage, LengthPercentage];
+export type BorderCornerRadius = LengthPercentage | [LengthPercentage, LengthPercentage]
 
 const serializeCornerRadius = (property: string) => (x: BorderCornerRadius | GlobalCssKeyword) => ({
     [property]: !Array.isArray(x)
         ? serializeAtomicValue(x)
         : x.reduce((acc, item) => acc + ' ' + serializeAtomicValue(item), '').trim(),
-});
+})
 
 export const serializeBorderTopRightRadius = (type: PropType) =>
-    serializeCornerRadius(type === 'inline' ? 'borderTopRightRadius' : 'border-top-right-radius');
+    serializeCornerRadius(type === 'inline' ? 'borderTopRightRadius' : 'border-top-right-radius')
 export const serializeBorderBottomRightRadius = (type: PropType) =>
-    serializeCornerRadius(type === 'inline' ? 'borderBottomRightRadius' : 'border-bottom-right-radius');
+    serializeCornerRadius(type === 'inline' ? 'borderBottomRightRadius' : 'border-bottom-right-radius')
 export const serializeBorderBottomLeftRadius = (type: PropType) =>
-    serializeCornerRadius(type === 'inline' ? 'borderBottomLeftRadius' : 'border-bottom-left-radius');
+    serializeCornerRadius(type === 'inline' ? 'borderBottomLeftRadius' : 'border-bottom-left-radius')
 export const serializeBorderTopLeftRadius = (type: PropType) =>
-    serializeCornerRadius(type === 'inline' ? 'borderTopLeftRadius' : 'border-top-left-radius');
+    serializeCornerRadius(type === 'inline' ? 'borderTopLeftRadius' : 'border-top-left-radius')
 
 /** @hide */
-type BorderCornerPropValue = BorderCornerRadius | GlobalCssKeyword;
+type BorderCornerPropValue = BorderCornerRadius | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -37,11 +37,11 @@ export type BorderTopRightRadiusDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
      */
-    borderTopRightRadius: BorderCornerPropValue;
-};
+    borderTopRightRadius: BorderCornerPropValue
+}
 export type BorderTopRightRadiusDeclarationJSS = {
-    borderTopRightRadius: ValueOrFunc<BorderCornerPropValue>;
-};
+    borderTopRightRadius: ValueOrFunc<BorderCornerPropValue>
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -54,11 +54,11 @@ export type BorderBottomRightRadiusDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
      */
-    borderBottomRightRadius: BorderCornerPropValue;
-};
+    borderBottomRightRadius: BorderCornerPropValue
+}
 export type BorderBottomRightRadiusDeclarationJSS = {
-    borderBottomRightRadius: ValueOrFunc<BorderCornerPropValue>;
-};
+    borderBottomRightRadius: ValueOrFunc<BorderCornerPropValue>
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -71,11 +71,11 @@ export type BorderBottomLeftRadiusDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
      */
-    borderBottomLeftRadius: BorderCornerPropValue;
-};
+    borderBottomLeftRadius: BorderCornerPropValue
+}
 export type BorderBottomLeftRadiusDeclarationJSS = {
-    borderBottomLeftRadius: ValueOrFunc<BorderCornerPropValue>;
-};
+    borderBottomLeftRadius: ValueOrFunc<BorderCornerPropValue>
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -88,50 +88,50 @@ export type BorderTopLeftRadiusDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
      */
-    borderTopLeftRadius: BorderCornerPropValue;
-};
+    borderTopLeftRadius: BorderCornerPropValue
+}
 
 export type BorderTopLeftRadiusDeclarationJSS = {
-    borderTopLeftRadius: ValueOfRecord<BorderCornerPropValue>;
-};
+    borderTopLeftRadius: ValueOfRecord<BorderCornerPropValue>
+}
 
 type RadiusTuple =
     | [LengthPercentage]
     | [LengthPercentage, LengthPercentage]
     | [LengthPercentage, LengthPercentage, LengthPercentage]
-    | [LengthPercentage, LengthPercentage, LengthPercentage, LengthPercentage];
+    | [LengthPercentage, LengthPercentage, LengthPercentage, LengthPercentage]
 
-type OneRadius = LengthPercentage | RadiusTuple;
+type OneRadius = LengthPercentage | RadiusTuple
 
-type TwoRadius = [RadiusTuple, RadiusTuple];
+type TwoRadius = [RadiusTuple, RadiusTuple]
 
 const serializRadiusTuple = (value: RadiusTuple): string =>
-    (value as LengthPercentage[]).reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '').trim();
+    (value as LengthPercentage[]).reduce((acc, item) => acc + ' ' + serializeAtomicValue(item), '').trim()
 
 const serializeTwoRadius = (value: TwoRadius): string =>
     (value as RadiusTuple[])
         .reduce(
-            (acc: any, item, idx: number) =>
+            (acc, item, idx: number) =>
                 idx === value.length - 1 ? acc + serializRadiusTuple(item) : acc + serializRadiusTuple(item) + ' / ',
             '',
         )
-        .trim();
+        .trim()
 
 export const serializeBorderRadius = (type: PropType) => (
     value: OneRadius | TwoRadius | GlobalCssKeyword,
 ): { [key: string]: string } => {
-    const propName = type === 'inline' ? 'borderRadius' : 'border-radiuss';
+    const propName = type === 'inline' ? 'borderRadius' : 'border-radiuss'
     return {
         [propName]: !Array.isArray(value)
             ? serializeAtomicValue(value)
             : !Array.isArray(value[0])
             ? serializRadiusTuple(value as RadiusTuple)
             : serializeTwoRadius(value as TwoRadius),
-    };
-};
+    }
+}
 
 /** @hide */
-type BorderRadiusPropValue = OneRadius | TwoRadius | GlobalCssKeyword;
+type BorderRadiusPropValue = OneRadius | TwoRadius | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -144,8 +144,8 @@ export type BorderRadiusDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
      */
-    borderRadius: BorderRadiusPropValue;
-};
+    borderRadius: BorderRadiusPropValue
+}
 export type BorderRadiusDeclarationJSS = {
-    borderRadius: ValueOrFunc<BorderRadiusPropValue>;
-};
+    borderRadius: ValueOrFunc<BorderRadiusPropValue>
+}

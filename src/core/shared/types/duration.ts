@@ -1,40 +1,40 @@
-import { Setoid } from './math';
+import { Setoid } from './math'
 
 export const serialize = (x: Duration<any>): string => {
-    const unitSuffix = x.unit === 'milliseconds' ? 'ms' : 's';
-    return `${x.data}${unitSuffix}`;
-};
+    const unitSuffix = x.unit === 'milliseconds' ? 'ms' : 's'
+    return `${x.data}${unitSuffix}`
+}
 
 export const toSeconds = (x: Duration): Duration<'seconds'> => {
-    const value = x.unit === 'seconds' ? x.data : x.data / 1000;
-    return Duration.s(value);
-};
+    const value = x.unit === 'seconds' ? x.data : x.data / 1000
+    return Duration.s(value)
+}
 
 export const toMilliseconds = (x: Duration): Duration<'milliseconds'> => {
-    const value = x.unit === 'milliseconds' ? x.data : x.data * 1000;
-    return Duration.ms(value);
-};
+    const value = x.unit === 'milliseconds' ? x.data : x.data * 1000
+    return Duration.ms(value)
+}
 
 /** @ignore */
 const eq = (x: any, y: any): boolean => {
-    return toMilliseconds(x).data === toMilliseconds(y).data;
-};
+    return toMilliseconds(x).data === toMilliseconds(y).data
+}
 
 /** @ignore */
 const add = (x1: Duration, x2: Duration): Duration<'milliseconds'> => {
-    const x1ms = x1.unit === 'milliseconds' ? x1.data : x1.data * 1000;
-    const x2m2 = x2.unit === 'milliseconds' ? x2.data : x2.data * 1000;
-    return ms(x1ms + x2m2);
-};
+    const x1ms = x1.unit === 'milliseconds' ? x1.data : x1.data * 1000
+    const x2m2 = x2.unit === 'milliseconds' ? x2.data : x2.data * 1000
+    return ms(x1ms + x2m2)
+}
 
 /** @ignore */
 const sub = (x1: Duration, x2: Duration): Duration<'milliseconds'> => {
-    const x1ms = x1.unit === 'milliseconds' ? x1.data : x1.data * 1000;
-    const x2m2 = x2.unit === 'milliseconds' ? x2.data : x2.data * 1000;
-    return ms(x1ms - x2m2);
-};
+    const x1ms = x1.unit === 'milliseconds' ? x1.data : x1.data * 1000
+    const x2m2 = x2.unit === 'milliseconds' ? x2.data : x2.data * 1000
+    return ms(x1ms - x2m2)
+}
 
-export type DurationUnit = 'milliseconds' | 'seconds';
+export type DurationUnit = 'milliseconds' | 'seconds'
 
 /**
  *
@@ -42,35 +42,35 @@ export type DurationUnit = 'milliseconds' | 'seconds';
  * @added 0.1.0
  */
 export class Duration<A extends DurationUnit = DurationUnit> implements Setoid<Duration<A>> {
-    valueConstructor: Function;
-    public unit: A;
-    public data: number;
-    serialize: () => string;
+    valueConstructor: Function
+    public unit: A
+    public data: number
+    serialize: () => string
 
     private constructor(unit: A, data: number) {
-        this.unit = unit;
-        this.data = data;
-        this.valueConstructor = unit === 'milliseconds' ? Duration.ms : Duration.s;
-        this.serialize = () => serialize(this);
+        this.unit = unit
+        this.data = data
+        this.valueConstructor = unit === 'milliseconds' ? Duration.ms : Duration.s
+        this.serialize = () => serialize(this)
     }
 
     /**
      * Constructs a value of type **`Duration<"milliseconds">`**
      */
     static ms(x: number): Duration<'milliseconds'> {
-        return new Duration('milliseconds', x);
+        return new Duration('milliseconds', x)
     }
     /**
      * Constructs a value of type **`Duration<"seconds">`**
      */
     static s(x: number): Duration<'seconds'> {
-        return new Duration('seconds', x);
+        return new Duration('seconds', x)
     }
 
-    eq = eq;
-    mult = mult;
-    add = add;
-    sub = sub;
+    eq = eq
+    mult = mult
+    add = add
+    sub = sub
 }
 
 /**
@@ -78,19 +78,19 @@ export class Duration<A extends DurationUnit = DurationUnit> implements Setoid<D
  * @category Value constructor
  * @added 0.2.1
  */
-export const ms = Duration.ms;
+export const ms = Duration.ms
 
 /**
  * Constructs a value of type **`Duration`** where the unit is **`seconds`**.
  * @category Value constructor
  * @added 0.2.1
  */
-export const s = Duration.s;
+export const s = Duration.s
 
-export const isDuration = (x: any): x is Duration => x instanceof Duration;
+export const isDuration = (x: any): x is Duration => x instanceof Duration
 
 function mult(x: any, y: any): Duration {
-    const val = isDuration(x) ? x.data * y : (y as Duration).data * x;
-    const valueConstructor = x?.valueConstructor ?? y?.valueConstructor;
-    return valueConstructor(val);
+    const val = isDuration(x) ? x.data * y : (y as Duration).data * x
+    const valueConstructor = x?.valueConstructor ?? y?.valueConstructor
+    return valueConstructor(val)
 }

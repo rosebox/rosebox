@@ -1,5 +1,6 @@
-import { getTypeName, Percentage } from '.';
-import { RBType, serializeAtomicValue } from './shared';
+/* eslint-disable @typescript-eslint/ban-types */
+import { getTypeName, Percentage } from '.'
+import { RBType, serializeAtomicValue } from './shared'
 
 /**
  * @typeTag IntRange
@@ -261,36 +262,36 @@ export type RGBInteger =
     | 252
     | 253
     | 254
-    | 255;
+    | 255
 
-type RGBInput = [RGBInteger, RGBInteger, RGBInteger] | [Percentage, Percentage, Percentage];
-type RGBAInput = [RGBInteger, RGBInteger, RGBInteger, number] | [Percentage, Percentage, Percentage, number];
-type HSLInput = [number, Percentage, Percentage];
-type HSLAInput = [number, Percentage, Percentage, number];
+type RGBInput = [RGBInteger, RGBInteger, RGBInteger] | [Percentage, Percentage, Percentage]
+type RGBAInput = [RGBInteger, RGBInteger, RGBInteger, number] | [Percentage, Percentage, Percentage, number]
+type HSLInput = [number, Percentage, Percentage]
+type HSLAInput = [number, Percentage, Percentage, number]
 
 const serializeRGB = (x: RGB) => {
-    const { data } = x;
-    return `rgb(${serializeAtomicValue(data[0])}, ${serializeAtomicValue(data[1])}, ${serializeAtomicValue(data[2])})`;
-};
+    const { data } = x
+    return `rgb(${serializeAtomicValue(data[0])}, ${serializeAtomicValue(data[1])}, ${serializeAtomicValue(data[2])})`
+}
 
 const serializeRGBA = (x: RGBA) => {
-    const { data } = x;
+    const { data } = x
     return `rgba(${serializeAtomicValue(data[0])}, ${serializeAtomicValue(data[1])}, ${serializeAtomicValue(
         data[2],
-    )}, ${serializeAtomicValue(data[3])})`;
-};
+    )}, ${serializeAtomicValue(data[3])})`
+}
 
 const serializeHSL = (x: HSL) => {
-    const { data } = x;
-    return `hsl(${serializeAtomicValue(data[0])}, ${serializeAtomicValue(data[1])}, ${serializeAtomicValue(data[2])})`;
-};
+    const { data } = x
+    return `hsl(${serializeAtomicValue(data[0])}, ${serializeAtomicValue(data[1])}, ${serializeAtomicValue(data[2])})`
+}
 
 const serializeHSLA = (x: HSLA) => {
-    const { data } = x;
+    const { data } = x
     return `hsla(${serializeAtomicValue(data[0])}, ${serializeAtomicValue(data[1])}, ${serializeAtomicValue(
         data[2],
-    )}, ${serializeAtomicValue(data[3])})`;
-};
+    )}, ${serializeAtomicValue(data[3])})`
+}
 
 /**
  *
@@ -298,26 +299,27 @@ const serializeHSLA = (x: HSLA) => {
  * @added 0.1.4
  */
 export class RGB implements RBType<RGBInput> {
-    valueConstructor: Function;
-    data: RGBInput;
-    serialize: () => string;
+    valueConstructor: Function
+    data: RGBInput
+    serialize: () => string
 
     private constructor(data: RGBInput) {
-        this.data = data;
-        this.valueConstructor = RGB.rgb;
-        this.serialize = () => serializeRGB(this);
+        this.data = data
+        this.valueConstructor = RGB.rgb
+        this.serialize = () => serializeRGB(this)
     }
 
     /**
      * Constructs a value of type `RGB`.
      */
-    static rgb(x1: Percentage, x2: Percentage, x3: Percentage): RGB;
-    static rgb(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger): RGB;
+    static rgb(x1: Percentage, x2: Percentage, x3: Percentage): RGB
+    static rgb(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger): RGB
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     static rgb(x1: any, x2: any, x3: any): RGB {
-        return new RGB([x1, x2, x3]);
+        return new RGB([x1, x2, x3])
     }
 }
-export const rgb = RGB.rgb;
+export const rgb = RGB.rgb
 
 /**
  *
@@ -325,32 +327,28 @@ export const rgb = RGB.rgb;
  * @added 0.1.4
  */
 export class RGBA implements RBType<RGBAInput> {
-    valueConstructor: Function;
-    data: RGBAInput;
-    serialize: () => string;
+    valueConstructor: Function
+    data: RGBAInput
+    serialize: () => string
 
     private constructor(data: RGBAInput) {
-        this.data = data;
-        this.valueConstructor = RGBA.rgba;
-        this.serialize = () => serializeRGBA(this);
+        this.data = data
+        this.valueConstructor = RGBA.rgba
+        this.serialize = () => serializeRGBA(this)
     }
 
     /**
      * Constructs a value of type `RGBA`.
      */
-    static rgba(x1: Percentage, x2: Percentage, x3: Percentage, x4: number): RGBA;
-    static rgba(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger, x4: number): RGBA;
-    static rgba(
-        x1: Percentage | RGBInteger,
-        x2: Percentage | RGBInteger,
-        x3: Percentage | RGBInteger,
-        x4: number,
-    ): RGBA {
-        return new RGBA([x1, x2, x3, x4] as any);
+    static rgba(x1: Percentage, x2: Percentage, x3: Percentage, x4: number): RGBA
+    static rgba(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger, x4: number): RGBA
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    static rgba(x1: any, x2: any, x3: any, x4: number): RGBA {
+        return new RGBA([x1, x2, x3, x4])
     }
 }
 
-export const rgba = RGBA.rgba;
+export const rgba = RGBA.rgba
 
 /**
  *
@@ -358,24 +356,24 @@ export const rgba = RGBA.rgba;
  * @added 0.1.4
  */
 export class HSL implements RBType<HSLInput> {
-    valueConstructor: Function;
-    data: HSLInput;
-    serialize: () => string;
+    valueConstructor: Function
+    data: HSLInput
+    serialize: () => string
 
     private constructor(data: HSLInput) {
-        this.data = data;
-        this.valueConstructor = HSL.hsl;
-        this.serialize = () => serializeHSL(this);
+        this.data = data
+        this.valueConstructor = HSL.hsl
+        this.serialize = () => serializeHSL(this)
     }
     /**
      * Constructs a value of type `HSL`.
      */
     static hsl(x1: number, x2: Percentage, x3: Percentage): HSL {
-        return new HSL([x1, x2, x3]);
+        return new HSL([x1, x2, x3])
     }
 }
 
-export const hsl = HSL.hsl;
+export const hsl = HSL.hsl
 
 /**
  *
@@ -383,25 +381,25 @@ export const hsl = HSL.hsl;
  * @added 0.1.0
  */
 export class HSLA implements RBType<HSLAInput> {
-    valueConstructor: Function;
-    data: HSLAInput;
-    serialize: () => string;
+    valueConstructor: Function
+    data: HSLAInput
+    serialize: () => string
 
     private constructor(data: HSLAInput) {
-        this.data = data;
-        this.valueConstructor = HSLA.hsla;
-        this.serialize = () => serializeHSLA(this);
+        this.data = data
+        this.valueConstructor = HSLA.hsla
+        this.serialize = () => serializeHSLA(this)
     }
 
     /**
      * Constructs a value of type `HSLA`.
      */
     static hsla(x1: number, x2: Percentage, x3: Percentage, x4: number): HSLA {
-        return new HSLA([x1, x2, x3, x4]);
+        return new HSLA([x1, x2, x3, x4])
     }
 }
 
-export const hsla = HSLA.hsla;
+export const hsla = HSLA.hsla
 
 /**
  *
@@ -410,26 +408,26 @@ export const hsla = HSLA.hsla;
  * @note Currently this type is just a wrapper around the **`string`** type, and is not safe, consider using other color types if you need type-safe colors.
  */
 export class HEX implements RBType<string> {
-    valueConstructor: Function;
-    data: string;
-    serialize: () => string;
+    valueConstructor: Function
+    data: string
+    serialize: () => string
 
     private constructor(data: string) {
-        this.data = data;
-        this.valueConstructor = HEX.hex;
+        this.data = data
+        this.valueConstructor = HEX.hex
         this.serialize = (): string => {
-            return this.data;
-        };
+            return this.data
+        }
     }
     /**
      * Constructs a value of type `HEX`.
      */
     static hex(x: string): HEX {
-        return new HEX(x);
+        return new HEX(x)
     }
 }
 
-export const hex = HEX.hex;
+export const hex = HEX.hex
 
 const extendedColorKeywords = [
     'aliceblue',
@@ -580,33 +578,33 @@ const extendedColorKeywords = [
     'whitesmoke',
     'yellow',
     'yellowgreen',
-] as const;
+] as const
 
-export type NamedColorKeyword = typeof extendedColorKeywords[number];
+export type NamedColorKeyword = typeof extendedColorKeywords[number]
 
-export const standaloneKeywords = ['currentColor', 'transparent'] as const;
-export type StandaloneColorKeyword = typeof standaloneKeywords[number];
+export const standaloneKeywords = ['currentColor', 'transparent'] as const
+export type StandaloneColorKeyword = typeof standaloneKeywords[number]
 
 /** @global */
-export type Color = HEX | RGB | RGBA | HSL | HSLA | StandaloneColorKeyword | NamedColorKeyword;
+export type Color = HEX | RGB | RGBA | HSL | HSLA | StandaloneColorKeyword | NamedColorKeyword
 
-const isHex = (x: any): x is HEX => getTypeName(x) === 'HEX';
-const isRGB = (x: any): x is RGB => x instanceof RGB;
-const isRGBA = (x: any): x is RGBA => x instanceof RGBA;
-const isHSL = (x: any): x is HSL => x instanceof HSL;
-const isHSLA = (x: any): x is HSLA => getTypeName(x) === 'HSLA';
-const isExtendedColorKeyword = (value: any): value is NamedColorKeyword => extendedColorKeywords.includes(value);
-const isStandaloneColorKeyword = (value: any): value is StandaloneColorKeyword => standaloneKeywords.includes(value);
+const isHex = (x: any): x is HEX => getTypeName(x) === 'HEX'
+const isRGB = (x: any): x is RGB => x instanceof RGB
+const isRGBA = (x: any): x is RGBA => x instanceof RGBA
+const isHSL = (x: any): x is HSL => x instanceof HSL
+const isHSLA = (x: any): x is HSLA => getTypeName(x) === 'HSLA'
+const isExtendedColorKeyword = (value: any): value is NamedColorKeyword => extendedColorKeywords.includes(value)
+const isStandaloneColorKeyword = (value: any): value is StandaloneColorKeyword => standaloneKeywords.includes(value)
 
 /**
  *
- * @deprecated
+ * @deprecated due to performance issues
  */
-export const isColor = (value: any): value is Color =>
+export const isColor = (value: unknown): value is Color =>
     isHex(value) ||
     isRGB(value) ||
     isRGBA(value) ||
     isHSL(value) ||
     isHSLA(value) ||
     isStandaloneColorKeyword(value) ||
-    isExtendedColorKeyword(value);
+    isExtendedColorKeyword(value)

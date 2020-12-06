@@ -1,4 +1,4 @@
-export type DoubleBar2<A, B> = A | B | [B, A] | [A, B];
+export type DoubleBar2<A, B> = A | B | [B, A] | [A, B]
 export type DoubleBar3<A, B, C> =
     | DoubleBar2<A, B>
     | C
@@ -11,7 +11,7 @@ export type DoubleBar3<A, B, C> =
     | [B, C, A]
     | [B, A, C]
     | [A, C, B]
-    | [A, B, C];
+    | [A, B, C]
 export type DoubleBar4<A, B, C, D> =
     | DoubleBar3<A, B, C>
     | D
@@ -62,7 +62,7 @@ export type DoubleBar4<A, B, C, D> =
     | [A, C, D, B]
     | [A, C, B, D]
     | [A, B, D, C]
-    | [A, B, C, D];
+    | [A, B, C, D]
 export type DoubleBar5<A, B, C, D, E> =
     | DoubleBar4<A, B, C, D>
     | E
@@ -325,4 +325,4 @@ export type DoubleBar5<A, B, C, D, E> =
     | [A, B, D, E, C]
     | [A, B, D, C, E]
     | [A, B, C, E, D]
-    | [A, B, C, D, E];
+    | [A, B, C, D, E]

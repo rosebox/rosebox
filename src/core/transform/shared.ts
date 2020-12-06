@@ -1,5 +1,5 @@
-import { LengthPercentage, Length } from '../shared';
-import { Angle } from '../shared';
+import { LengthPercentage, Length } from '../shared'
+import { Angle } from '../shared'
 
 /**
  *
@@ -7,8 +7,8 @@ import { Angle } from '../shared';
  * @added 0.2.3
  */
 export interface TransformFunction<A = any> {
-    type: 'TransformFunction';
-    valueConstructor: Function;
+    type: 'TransformFunction'
+    valueConstructor: Function
     value: A extends 'translateX'
         ? [LengthPercentage]
         : A extends 'translateY'
@@ -62,5 +62,5 @@ export interface TransformFunction<A = any> {
           ]
         : A extends 'perspective'
         ? Length
-        : any;
+        : any
 }

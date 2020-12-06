@@ -1,7 +1,7 @@
-import { DoubleBar2 } from '../shared';
-import { Decibel, GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared/types';
+import { DoubleBar2 } from '../shared'
+import { Decibel, GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared/types'
 
-type VoiceVolume = 'silent' | DoubleBar2<'x-soft' | 'soft' | 'medium' | 'loud' | 'x-loud', Decibel>;
+type VoiceVolume = 'silent' | DoubleBar2<'x-soft' | 'soft' | 'medium' | 'loud' | 'x-loud', Decibel>
 
 export const serializeVoiceVolume = (x: VoiceVolume | GlobalCssKeyword) => ({
     voiceVolume: !Array.isArray(x)
@@ -12,10 +12,10 @@ export const serializeVoiceVolume = (x: VoiceVolume | GlobalCssKeyword) => ({
                   '',
               )
               .trim(),
-});
+})
 
 /** @hide */
-type VoiceVolumePropValue = VoiceVolume | GlobalCssKeyword;
+type VoiceVolumePropValue = VoiceVolume | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -25,13 +25,13 @@ export type VoiceVolumeDeclaration = {
      * Maps to CSS's **`voice-volume`** property
      * @category RBProperty
      */
-    voiceVolume: VoiceVolumePropValue;
-};
+    voiceVolume: VoiceVolumePropValue
+}
 
 export type VoiceVolumeDeclarationJSS = {
     /**
      * Maps to CSS's **`voice-volume`** property
      * @category RBProperty
      */
-    voiceVolume: ValueOrFunc<VoiceVolumePropValue>;
-};
+    voiceVolume: ValueOrFunc<VoiceVolumePropValue>
+}

@@ -1,6 +1,6 @@
-import { GlobalCssKeyword, AnimatableProperty, CustomIdent, serializeAtomicValue, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, AnimatableProperty, CustomIdent, serializeAtomicValue, ValueOrFunc } from '../shared'
 
-const toHyphenCase = (x: string) => x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase());
+const toHyphenCase = (x: string) => x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
 
 /**
  * @hide
@@ -11,22 +11,22 @@ export type TransitionPropertyPropValue =
     | GlobalCssKeyword
     | AnimatableProperty
     | CustomIdent
-    | (AnimatableProperty | CustomIdent)[];
+    | (AnimatableProperty | CustomIdent)[]
 
 const serializeValue = (value: TransitionPropertyPropValue): string => {
-    const valArray = Array.isArray(value) ? value : [value];
+    const valArray = Array.isArray(value) ? value : [value]
     return valArray.reduce(
         (acc, item, idx) =>
             acc +
             (typeof item === 'string' ? toHyphenCase(item) : toHyphenCase(serializeAtomicValue(item))) +
             (idx === valArray.length - 1 ? '' : ', '),
         '',
-    );
-};
+    )
+}
 
 export const serializeTransitionProperty = (x: TransitionPropertyPropValue): { transitionProperty: string } => ({
     transitionProperty: serializeValue(x),
-});
+})
 
 /**
  * @category RBDeclarationTypeAlias
@@ -39,9 +39,9 @@ export type TransitionPropertyDeclaration = {
      * @added 0.2.1
      * @implentationReference @implentationReference https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-property-property
      */
-    transitionProperty: TransitionPropertyPropValue;
-};
+    transitionProperty: TransitionPropertyPropValue
+}
 
 export type TransitionPropertyDeclarationJSS = {
-    transitionProperty: ValueOrFunc<TransitionPropertyPropValue>;
-};
+    transitionProperty: ValueOrFunc<TransitionPropertyPropValue>
+}

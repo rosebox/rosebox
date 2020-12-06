@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
 type UnicodeBidiPropValue =
@@ -8,7 +8,7 @@ type UnicodeBidiPropValue =
     | 'bidi-override'
     | 'isolate-override'
     | 'plaintext'
-    | GlobalCssKeyword;
+    | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -18,13 +18,13 @@ export type UnicodeBidiDeclaration = {
      * Maps to CSS's **`unicode-bidi`** property
      * @category RBProperty
      */
-    unicodeBidi: UnicodeBidiPropValue;
-};
+    unicodeBidi: UnicodeBidiPropValue
+}
 
 export type UnicodeBidiDeclarationJSS = {
     /**
      * Maps to CSS's **`unicode-bidi`** property
      * @category RBProperty
      */
-    unicodeBidi: ValueOrFunc<UnicodeBidiPropValue>;
-};
+    unicodeBidi: ValueOrFunc<UnicodeBidiPropValue>
+}

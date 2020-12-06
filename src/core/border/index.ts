@@ -6,40 +6,40 @@ import {
     serializeAtomicValue,
     PropType,
     ValueOrFunc,
-} from '../shared';
-import { Color } from '../shared';
+} from '../shared'
+import { Color } from '../shared'
 
-type AtomicValue = Color | LineStyle | LineWidth;
+type AtomicValue = Color | LineStyle | LineWidth
 
-type BorderWidthValue = LineWidth;
-type BorderStyleValue = LineStyle;
-type BorderColorValue = Color;
+type BorderWidthValue = LineWidth
+type BorderStyleValue = LineStyle
+type BorderColorValue = Color
 
 /**
  * @hide
  */
-type Border = [BorderWidthValue, BorderStyleValue, BorderColorValue];
+type Border = [BorderWidthValue, BorderStyleValue, BorderColorValue]
 
 /** @hide */
-type BorderSidePropValue = Border | GlobalCssKeyword | 'none';
+type BorderSidePropValue = Border | GlobalCssKeyword | 'none'
 
 const serializeBorderValue = (property: string) => (value: Border | GlobalCssKeyword) => ({
     [property]: isGlobalCssKeyword(value)
         ? value
         : !Array.isArray(value)
         ? serializeAtomicValue(value)
-        : (value as AtomicValue[]).reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '').trim(),
-});
+        : (value as AtomicValue[]).reduce((acc, item) => acc + ' ' + serializeAtomicValue(item), '').trim(),
+})
 
 export const serializeBorderTop = (type: PropType) =>
-    serializeBorderValue(type === 'inline' ? 'borderTop' : 'border-top');
+    serializeBorderValue(type === 'inline' ? 'borderTop' : 'border-top')
 export const serializeBorderRight = (type: PropType) =>
-    serializeBorderValue(type === 'inline' ? 'borderRight' : 'border-right');
+    serializeBorderValue(type === 'inline' ? 'borderRight' : 'border-right')
 export const serializeBorderBottom = (type: PropType) =>
-    serializeBorderValue(type === 'inline' ? 'borderBottom' : 'border-bottom');
+    serializeBorderValue(type === 'inline' ? 'borderBottom' : 'border-bottom')
 export const serializeBorderLeft = (type: PropType) =>
-    serializeBorderValue(type === 'inline' ? 'borderLeft' : 'border-left');
-export const serializeBorder = (type: PropType) => serializeBorderValue(type === 'inline' ? 'border' : 'border');
+    serializeBorderValue(type === 'inline' ? 'borderLeft' : 'border-left')
+export const serializeBorder = (type: PropType) => serializeBorderValue(type === 'inline' ? 'border' : 'border')
 
 /**
  * @category RBDeclarationTypeAlias
@@ -52,11 +52,11 @@ export type BorderTopDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
      */
-    borderTop: BorderSidePropValue;
-};
+    borderTop: BorderSidePropValue
+}
 export type BorderTopDeclarationJSS = {
-    borderTop: ValueOrFunc<BorderSidePropValue>;
-};
+    borderTop: ValueOrFunc<BorderSidePropValue>
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -69,11 +69,11 @@ export type BorderRightDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
      */
-    borderRight: BorderSidePropValue;
-};
+    borderRight: BorderSidePropValue
+}
 export type BorderRightDeclarationJSS = {
-    borderRight: ValueOrFunc<BorderSidePropValue>;
-};
+    borderRight: ValueOrFunc<BorderSidePropValue>
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -86,11 +86,11 @@ export type BorderBottomDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
      */
-    borderBottom: BorderSidePropValue;
-};
+    borderBottom: BorderSidePropValue
+}
 export type BorderBottomDeclarationJSS = {
-    borderBottom: ValueOrFunc<BorderSidePropValue>;
-};
+    borderBottom: ValueOrFunc<BorderSidePropValue>
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -103,11 +103,11 @@ export type BorderLeftDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
      */
-    borderLeft: BorderSidePropValue;
-};
+    borderLeft: BorderSidePropValue
+}
 export type BorderLeftDeclarationJSS = {
-    borderLeft: ValueOrFunc<BorderSidePropValue>;
-};
+    borderLeft: ValueOrFunc<BorderSidePropValue>
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -118,8 +118,8 @@ export type BorderDeclaration = {
      * @category RBProperty
      * @added 0.2.0
      */
-    border: BorderSidePropValue;
-};
+    border: BorderSidePropValue
+}
 export type BorderDeclarationJSS = {
-    border: ValueOrFunc<BorderSidePropValue>;
-};
+    border: ValueOrFunc<BorderSidePropValue>
+}

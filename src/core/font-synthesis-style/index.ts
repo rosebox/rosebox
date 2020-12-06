@@ -1,7 +1,7 @@
-import { GlobalCssKeyword, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
-type FontSynthesisStylePropValue = 'auto' | 'none' | GlobalCssKeyword;
+type FontSynthesisStylePropValue = 'auto' | 'none' | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -13,9 +13,9 @@ export type FontSynthesisStyleDeclaration = {
      * @formalSyntaxForValue auto | none
      * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-synthesis-style
      */
-    fontSynthesisStyle: FontSynthesisStylePropValue;
-};
+    fontSynthesisStyle: FontSynthesisStylePropValue
+}
 
 export type FontSynthesisStyleDeclarationJSS = {
-    fontSynthesisStyle: ValueOrFunc<FontSynthesisStylePropValue>;
-};
+    fontSynthesisStyle: ValueOrFunc<FontSynthesisStylePropValue>
+}

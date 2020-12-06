@@ -1,8 +1,8 @@
-import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
 
-type BaseLinePosition = ['first', 'baseline'] | ['last', 'baseline'] | 'baseline';
+type BaseLinePosition = ['first', 'baseline'] | ['last', 'baseline'] | 'baseline'
 
-type ContentDistribution = 'space-between' | 'space-around' | 'space-evenly' | 'stretch';
+type ContentDistribution = 'space-between' | 'space-around' | 'space-evenly' | 'stretch'
 
 /**
  * @hide
@@ -25,10 +25,10 @@ type AlignContent =
     | ['unsafe', 'flex-start']
     | 'flex-end'
     | ['safe', 'flex-end']
-    | ['unsafe', 'flex-end'];
+    | ['unsafe', 'flex-end']
 
 /** @hide */
-type AlignContentPropValue = AlignContent | GlobalCssKeyword;
+type AlignContentPropValue = AlignContent | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -40,19 +40,19 @@ export type AlignContentDeclaration = {
      * @definition https://www.w3.org/TR/2020/WD-css-align-3-20200421/#propdef-align-content
      * @specification {@link https://www.w3.org/TR/2020/WD-css-align-3-20200421/ CSS Box Alignment Module Level 3}.
      */
-    alignContent: AlignContentPropValue;
-};
+    alignContent: AlignContentPropValue
+}
 
 export type AlignContentDeclarationJSS = {
-    alignContent: ValueOrFunc<AlignContentPropValue>;
-};
+    alignContent: ValueOrFunc<AlignContentPropValue>
+}
 
 export const serializeAlignContentPropValue = (x: AlignContent | GlobalCssKeyword): string =>
-    Array.isArray(x) ? `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}` : serializeAtomicValue(x);
+    Array.isArray(x) ? `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}` : serializeAtomicValue(x)
 
 export const serializeAlignContent = (type: 'css' | 'inline') => (x: AlignContent | GlobalCssKeyword) => {
-    const propName = type === 'inline' ? 'alignContent' : 'align-content';
+    const propName = type === 'inline' ? 'alignContent' : 'align-content'
     return {
         [propName]: serializeAlignContentPropValue(x),
-    };
-};
+    }
+}

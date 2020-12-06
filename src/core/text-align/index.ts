@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 /** @hide */
 type TextAlignPropValue =
@@ -10,7 +10,7 @@ type TextAlignPropValue =
     | 'justify'
     | 'match-parent'
     | 'justify-all'
-    | GlobalCssKeyword;
+    | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -23,8 +23,8 @@ export type TextAlignDeclaration = {
      * @added 0.2.0
      * @implentationReference @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-align-property
      */
-    textAlign: TextAlignPropValue;
-};
+    textAlign: TextAlignPropValue
+}
 
 export type TextAlignDeclarationJSS = {
     /**
@@ -34,5 +34,5 @@ export type TextAlignDeclarationJSS = {
      * @added 0.2.0
      * @implentationReference @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-align-property
      */
-    textAlign: ValueOrFunc<TextAlignPropValue>;
-};
+    textAlign: ValueOrFunc<TextAlignPropValue>
+}

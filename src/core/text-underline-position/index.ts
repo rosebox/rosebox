@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 type TextUnderlinePosition =
     | 'auto'
@@ -13,14 +13,14 @@ type TextUnderlinePosition =
     | ['left', 'from-font']
     | ['left', 'under']
     | ['right', 'from-font']
-    | ['right', 'under'];
+    | ['right', 'under']
 
 export const serializeTextUnderlinePosition = (x: TextUnderlinePosition | GlobalCssKeyword) => ({
     textUnderlinePosition: typeof x === 'string' ? x : `${x[0]} ${x[1]}`,
-});
+})
 
 /** @hide */
-type TextUnderlinePositionPropValue = TextUnderlinePosition | GlobalCssKeyword;
+type TextUnderlinePositionPropValue = TextUnderlinePosition | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -30,9 +30,9 @@ export type TextUnderlinePositionDeclaration = {
      * Maps to CSS's **`text-underline-position`** property
      * @category RBProperty
      */
-    textUnderlinePosition: TextUnderlinePositionPropValue;
-};
+    textUnderlinePosition: TextUnderlinePositionPropValue
+}
 
 export type TextUnderlinePositionDeclarationJSS = {
-    textUnderlinePosition: ValueOrFunc<TextUnderlinePositionPropValue>;
-};
+    textUnderlinePosition: ValueOrFunc<TextUnderlinePositionPropValue>
+}

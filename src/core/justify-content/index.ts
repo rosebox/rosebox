@@ -1,6 +1,6 @@
 // @reviewed
 
-import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 /** @hide */
 type JustifyContentValue =
@@ -36,20 +36,20 @@ type JustifyContentValue =
     | ['unsafe', 'left']
     | 'right'
     | ['safe', 'right']
-    | ['unsafe', 'right'];
+    | ['unsafe', 'right']
 
 /** @hide */
-type JustifyContentPropValue = JustifyContentValue | GlobalCssKeyword;
+type JustifyContentPropValue = JustifyContentValue | GlobalCssKeyword
 
 const serializeAlignItemsPropValue = (x: JustifyContentPropValue): string =>
-    Array.isArray(x) ? `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}` : serializeAtomicValue(x);
+    Array.isArray(x) ? `${serializeAtomicValue(x[0])} ${serializeAtomicValue(x[1])}` : serializeAtomicValue(x)
 
 export const serializeJustifyContent = (type: PropType) => (x: JustifyContentPropValue): { [key: string]: string } => {
-    const propName = type === 'inline' ? 'justifyContent' : 'justify-content';
+    const propName = type === 'inline' ? 'justifyContent' : 'justify-content'
     return {
         [propName]: serializeAlignItemsPropValue(x),
-    };
-};
+    }
+}
 
 /**
  * @category RBDeclarationTypeAlias
@@ -60,9 +60,9 @@ export type JustifyContentDeclaration = {
      * @inital auto
      * @definition https://www.w3.org/TR/2020/WD-css-align-3-20200421/#justify-self-property
      */
-    justifyContent: JustifyContentPropValue;
-};
+    justifyContent: JustifyContentPropValue
+}
 
 export type JustifyContentDeclarationJSS = {
-    justifyContent: ValueOrFunc<JustifyContentPropValue>;
-};
+    justifyContent: ValueOrFunc<JustifyContentPropValue>
+}

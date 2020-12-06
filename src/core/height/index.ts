@@ -1,17 +1,17 @@
-import { GlobalCssKeyword, Width, Calculation, serializeAtomicValue, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, Width, Calculation, serializeAtomicValue, ValueOrFunc } from '../shared'
 
-export type HeightCSSProp = 'height';
+export type HeightCSSProp = 'height'
 
 export const serializeHeight = (
     x: Width | GlobalCssKeyword,
 ): {
-    height: string;
+    height: string
 } => ({
     height: serializeAtomicValue(x),
-});
+})
 
 /** @hide */
-type HeightPropValue = Width | Calculation | GlobalCssKeyword;
+type HeightPropValue = Width | Calculation | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -24,9 +24,9 @@ export type HeightDeclaration = {
      * @added 0.2.0
      * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-height
      */
-    height: HeightPropValue;
-};
+    height: HeightPropValue
+}
 
 export type HeightDeclarationJSS = {
-    height: ValueOrFunc<HeightPropValue>;
-};
+    height: ValueOrFunc<HeightPropValue>
+}

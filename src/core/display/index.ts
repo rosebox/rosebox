@@ -1,6 +1,6 @@
-import { GlobalCssKeyword, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
-export type DisplayCSSProp = 'display';
+export type DisplayCSSProp = 'display'
 
 /**
  * @hide
@@ -59,7 +59,7 @@ type DisplayInsideOutsideDoubleBar =
     | ['table', 'run-in']
     | ['flex', 'run-in']
     | ['grid', 'run-in']
-    | ['ruby', 'run-in'];
+    | ['ruby', 'run-in']
 
 /**
  * @skip
@@ -112,7 +112,7 @@ type DisplayListItem =
     | ['run-in', 'flow-root', 'list-item']
     | ['run-in', 'list-item', 'flow-root']
     | ['flow-root', 'run-in', 'list-item']
-    | ['flow-root', 'list-item', 'run-in'];
+    | ['flow-root', 'list-item', 'run-in']
 
 /**
  * @hide
@@ -141,12 +141,12 @@ type DisplayInternal =
     | ['ruby-base']
     | ['ruby-text']
     | ['ruby-base-container']
-    | ['ruby-text-container'];
+    | ['ruby-text-container']
 
 /**
  * @hide
  */
-type DisplayBox = 'contents' | 'none';
+type DisplayBox = 'contents' | 'none'
 
 /**
  * @hide
@@ -159,7 +159,7 @@ type DisplayLegacy =
     | ['inline-block']
     | ['inline-table']
     | ['inline-flex']
-    | ['inline-grid'];
+    | ['inline-grid']
 
 /**
  * @hide
@@ -171,7 +171,7 @@ export type DisplayValue =
     | DisplayListItem
     | DisplayLegacy
     | DisplayInternal
-    | DisplayBox;
+    | DisplayBox
 
 export const serializeDisplay = (x: DisplayValue | GlobalCssKeyword): { display: string } => ({
     display: Array.isArray(x)
@@ -180,10 +180,10 @@ export const serializeDisplay = (x: DisplayValue | GlobalCssKeyword): { display:
               '',
           )
         : x,
-});
+})
 
 /** @hide */
-type DisplayPropValue = DisplayValue | GlobalCssKeyword;
+type DisplayPropValue = DisplayValue | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -196,9 +196,9 @@ export type DisplayDeclaration = {
      * @added 0.2.0
      * @implementationReference https://www.w3.org/TR/2019/CR-css-display-3-20190711/
      */
-    display: DisplayPropValue;
-};
+    display: DisplayPropValue
+}
 
 export type DisplayDeclarationJSS = {
-    display: ValueOrFunc<DisplayPropValue>;
-};
+    display: ValueOrFunc<DisplayPropValue>
+}

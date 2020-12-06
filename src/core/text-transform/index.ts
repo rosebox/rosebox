@@ -1,6 +1,6 @@
-import { GlobalCssKeyword, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
-type OneValue = 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana ';
+type OneValue = 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana '
 
 type TwoValues =
     | ['capitalize', 'full-width']
@@ -14,7 +14,7 @@ type TwoValues =
     | ['uppercase', 'full-size-kana']
     | ['full-size-kana', 'uppercase']
     | ['lowercase', 'full-size-kana']
-    | ['full-size-kana', 'lowercase'];
+    | ['full-size-kana', 'lowercase']
 
 type ThreeValues =
     | ['capitalize', 'full-width', 'full-size-kana']
@@ -34,18 +34,18 @@ type ThreeValues =
     | ['full-size-kana', 'lowercase', 'full-width']
     | ['full-size-kana', 'full-width', 'lowercase']
     | ['full-width', 'full-size-kana', 'lowercase']
-    | ['full-width', 'lowercase', 'full-size-kana'];
+    | ['full-width', 'lowercase', 'full-size-kana']
 
-type TextTransform = OneValue | TwoValues | ThreeValues;
+type TextTransform = OneValue | TwoValues | ThreeValues
 
 /** @hide */
-type TextTransformPropvalue = TextTransform | GlobalCssKeyword;
+type TextTransformPropvalue = TextTransform | GlobalCssKeyword
 
 export const serializeTextTransform = (value: TextTransform) => ({
     textTransform: !Array.isArray(value)
         ? value
         : (value as string[]).reduce((acc, item) => acc + ' ' + item, '').trim(),
-});
+})
 
 /**
  * @category RBDeclarationTypeAlias
@@ -58,9 +58,9 @@ export type TextTransformDeclaration = {
      * @added 0.2.0
      * @implentationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#text-transform-property
      */
-    textTransform: TextTransformPropvalue;
-};
+    textTransform: TextTransformPropvalue
+}
 
 export type TextTransformDeclarationJSS = {
-    textTransform: ValueOrFunc<TextTransformPropvalue>;
-};
+    textTransform: ValueOrFunc<TextTransformPropvalue>
+}

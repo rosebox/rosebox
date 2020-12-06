@@ -1,6 +1,6 @@
-import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared';
+import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
-type DoubleBar2<A, B> = A | B | [A, B] | [B, A];
+type DoubleBar2<A, B> = A | B | [A, B] | [B, A]
 type DoubleBar3<A, B, C> =
     | DoubleBar2<A, B>
     | C
@@ -13,7 +13,7 @@ type DoubleBar3<A, B, C> =
     | [B, A, C]
     | [B, C, A]
     | [C, A, B]
-    | [C, B, A];
+    | [C, B, A]
 
 type DoubleBar4<A, B, C, D> =
     | DoubleBar3<A, B, C>
@@ -65,12 +65,12 @@ type DoubleBar4<A, B, C, D> =
     | [A, C, D, B]
     | [A, C, B, D]
     | [A, B, D, C]
-    | [A, B, C, D];
+    | [A, B, C, D]
 
-type CommonLigValues = 'common-ligatures' | 'no-common-ligatures';
-type DiscretionaryLigValues = 'discretionary-ligatures' | 'no-discretionary-ligatures';
-type HistoricalLigValues = 'historical-ligatures' | 'no-historical-ligatures';
-type ContextualAltValues = 'contextual' | 'no-contextual';
+type CommonLigValues = 'common-ligatures' | 'no-common-ligatures'
+type DiscretionaryLigValues = 'discretionary-ligatures' | 'no-discretionary-ligatures'
+type HistoricalLigValues = 'historical-ligatures' | 'no-historical-ligatures'
+type ContextualAltValues = 'contextual' | 'no-contextual'
 
 export const serializeFontVariantLigatures = (type: PropType) => (
     x:
@@ -81,15 +81,15 @@ export const serializeFontVariantLigatures = (type: PropType) => (
 ) => ({
     [type === 'inline' ? 'fontVariantLigatures' : 'font-variant-ligatures']: !Array.isArray(x)
         ? x
-        : (x as string[]).reduce((acc: any, item) => acc + ' ' + item, '').trim(),
-});
+        : (x as string[]).reduce((acc, item) => acc + ' ' + item, '').trim(),
+})
 
 /** @hide */
 type FontVariantLigaturesPropValue =
     | 'normal'
     | 'none'
     | DoubleBar4<CommonLigValues, DiscretionaryLigValues, HistoricalLigValues, ContextualAltValues>
-    | GlobalCssKeyword;
+    | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -101,9 +101,9 @@ export type FontVariantLigaturesDeclaration = {
      * @formalSyntaxForValue normal | none | [ <common-lig-values> || <discretionary-lig-values> || <historical-lig-values> || <contextual-alt-values> ]
      * @implementationReference https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-ligatures
      */
-    fontVariantLigatures: FontVariantLigaturesPropValue;
-};
+    fontVariantLigatures: FontVariantLigaturesPropValue
+}
 
 export type FontVariantLigaturesDeclarationJSS = {
-    fontVariantLigatures: ValueOrFunc<FontVariantLigaturesPropValue>;
-};
+    fontVariantLigatures: ValueOrFunc<FontVariantLigaturesPropValue>
+}
