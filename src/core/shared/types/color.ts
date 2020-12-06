@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { getTypeName, Percentage } from '.'
+import { Percentage } from '.'
 import { RBType, serializeAtomicValue } from './shared'
 
 /**
@@ -588,12 +588,14 @@ export type StandaloneColorKeyword = typeof standaloneKeywords[number]
 /** @global */
 export type Color = HEX | RGB | RGBA | HSL | HSLA | StandaloneColorKeyword | NamedColorKeyword
 
-const isHex = (x: any): x is HEX => getTypeName(x) === 'HEX'
-const isRGB = (x: any): x is RGB => x instanceof RGB
-const isRGBA = (x: any): x is RGBA => x instanceof RGBA
-const isHSL = (x: any): x is HSL => x instanceof HSL
-const isHSLA = (x: any): x is HSLA => getTypeName(x) === 'HSLA'
+const isHex = (x: unknown): x is HEX => x instanceof HEX
+const isRGB = (x: unknown): x is RGB => x instanceof RGB
+const isRGBA = (x: unknown): x is RGBA => x instanceof RGBA
+const isHSL = (x: unknown): x is HSL => x instanceof HSL
+const isHSLA = (x: unknown): x is HSLA => x instanceof HSLA
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isExtendedColorKeyword = (value: any): value is NamedColorKeyword => extendedColorKeywords.includes(value)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isStandaloneColorKeyword = (value: any): value is StandaloneColorKeyword => standaloneKeywords.includes(value)
 
 /**
