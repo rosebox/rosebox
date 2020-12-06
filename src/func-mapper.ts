@@ -17,6 +17,7 @@ import { serializeMaxWidth } from './core/max-width'
 import { serializeMinHeightValue } from './core/min-height'
 import { serializeMinWidth } from './core/min-width'
 import { serializeOpacity } from './core/opacity'
+import { serializeJustifyContent } from './core/justify-content'
 import {
   serializeBorderColor,
   serializeBorderTopColor,
@@ -134,7 +135,7 @@ import { serializeFontKerning } from './core/font-kerning'
 import { serializeFontOpticalSizing } from './core/font-optical-sizing'
 import { serializeFontStyle } from './core/font-style'
 
-export const funcMap: any = (type: 'inline' | 'css') => ({
+export const funcMap: any = (type: 'inline' | 'css') => ({
   alignContent: serializeAlignContent(type),
   alignItems: serializeAlignItems(type),
   animation: serializeAnimation,
@@ -198,6 +199,7 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
   opacity: serializeOpacity,
   overflow: serializeOverflow,
   //textDecoration: serializeTextDecorationValue,
+  justifyContent: serializeJustifyContent(type),
   textTransform: serializeTextTransform,
   textEmphasisColor: serializeTextEmphasisColor,
   textEmphasisSkip: serializeTextEmphasisSkip,
@@ -216,7 +218,7 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
   marginTop: serializeMarginTopValue(type),
   marginRight: serializeMarginRightValue(type),
   marginBottom: serializeMarginBottomValue(type),
-  marginLeft: serializeMarginLeftValue(type), 
+  marginLeft: serializeMarginLeftValue(type),
   margin: serializeMargin,
   marginX: serializeMarginX,
   marginY: serializeMarginY,
@@ -252,5 +254,5 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
   voiceRate: serializeVoiceRate,
   outlineColor: serializeOutlineColor,
   outlineWidth: serializeOutlineWidth,
-  outline: serializeOutline
+  outline: serializeOutline,
 })
