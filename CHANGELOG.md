@@ -3,7 +3,7 @@
 ## [0.4.0] - 2020-12-05
 
 ## Added
-- 🎉 🎉🎉 Support for a class-strategy using `@material-ui/styles` and `jss`.
+- 🎉 🎉🎉 Support for css-classes using `@material-ui/styles` and `jss`.
 - Mathematical functions for Duration and Length (`add`, `sub`, `mult`, `div`) and `eq`.
 
 ## [0.3.97] - 
