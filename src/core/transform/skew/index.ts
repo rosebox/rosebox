@@ -1,1 +1,1 @@
-export * from './skew'
+export * from './skew';

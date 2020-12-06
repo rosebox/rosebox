@@ -1,20 +1,19 @@
-import { GlobalCssKeyword, ValueOrFunc } from '../shared'
+import { GlobalCssKeyword, ValueOrFunc } from '../shared';
 
 /** @hide */
-type WidowsPropValue = number | GlobalCssKeyword
+type WidowsPropValue = number | GlobalCssKeyword;
 
 /**
  * @category RBDeclarationTypeAlias
  */
 export type WidowsDeclaration = {
-  /**
-   * Maps to CSS's **`widows`** property
-   * @category RBProperty
-   */
-  widows: WidowsPropValue
-}
+    /**
+     * Maps to CSS's **`widows`** property
+     * @category RBProperty
+     */
+    widows: WidowsPropValue;
+};
 
 export type WidowsDeclarationJSS = {
-  widows: ValueOrFunc<WidowsPropValue>
-}
-
+    widows: ValueOrFunc<WidowsPropValue>;
+};

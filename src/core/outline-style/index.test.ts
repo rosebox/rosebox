@@ -1,11 +1,11 @@
-import { style } from '../..'
+import { style } from '../..';
 
 test('outlineStyle', () => {
-  const received = style({
-    outlineStyle :'dotted'
-  })
-  const expected = {
-    outlineStyle: 'dotted',
-  }
-  expect(received).toEqual(expected)
-})
+    const received = style({
+        outlineStyle: 'dotted',
+    });
+    const expected = {
+        outlineStyle: 'dotted',
+    };
+    expect(received).toEqual(expected);
+});
