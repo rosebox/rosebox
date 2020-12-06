@@ -1,7 +1,4 @@
-import ColorM from 'color'
-import { pipe } from 'ramda'
-
-import { getData, getTypeName, per, Percentage } from '.'
+import { getTypeName, Percentage } from '.'
 import { RBType, serializeAtomicValue } from './shared'
 
 /**
@@ -632,69 +629,4 @@ export const isColor = (value: any): value is Color =>
   isStandaloneColorKeyword(value) ||
   isExtendedColorKeyword(value)
 
-export function lighten(x: HEX, y: number): HEX
-export function lighten(x: RGB, y: number): RGB
-export function lighten(x: HSL, y: number): HSL
 
-/**
- * Takes a color and a number between 0 and 1 and returns a tint of that color
- * @category Utility function
- */
-export function lighten(x: HEX | RGB | HSL, y: number): HEX | RGB | HSL {
-  if (isRGB(x)) {
-    const lightened = ColorM.rgb(getData(x)).lighten(y)
-    return rgb(
-      lightened.red() as RGBInteger,
-      lightened.green() as RGBInteger,
-      lightened.blue() as RGBInteger
-    )
-  }
-
-  if (isHSL(x)) {
-    const fn = pipe(
-      (x: HSL) => getData(x),
-      (x: HSLInput) => ColorM.hsl(x[0], getData(x[1]), getData(x[2])),
-      (x) => x.lighten(y).array(),
-      (x) => hsl(x[0], per(x[1]), per(x[2]))
-    )
-    return fn(x)
-  }
-
-  const darkened = ColorM(getData(x)).lighten(y).hex()
-  return hex(darkened)
-}
-
-export function darken(x: HEX, y: number): HEX
-export function darken(x: RGB, y: number): RGB
-export function darken(x: HSL, y: number): HSL
-
-/**
- * Takes a color and a number between 0 and 1 and returns a shade of that color
- * @category Utility function
- */
-export function darken(x: HEX | RGB | HSL, y: number): HEX | RGB | HSL {
-  if (isRGB(x)) {
-    const darkened = ColorM.rgb(getData(x)).darken(y)
-    return rgb(
-      darkened.red() as RGBInteger,
-      darkened.green() as RGBInteger,
-      darkened.blue() as RGBInteger
-    )
-  }
-
-  if (isHSL(x)) {
-    const fn = pipe(
-      (x: HSL) => getData(x),
-      (x: HSLInput) => ColorM.hsl(x[0], getData(x[1]), getData(x[2])),
-      (x) => x.darken(y).array(),
-      (x) => hsl(x[0], per(x[1]), per(x[2]))
-    )
-    return fn(x)
-  }
-
-  if (isHex(x)) {
-    const darkened = ColorM(getData(x)).darken(y).hex()
-    return hex(darkened)
-  }
-  return x
-}
