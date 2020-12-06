@@ -1,4 +1,9 @@
 import { Plugin, JssStyle } from 'jss'
+import functions from 'jss-plugin-rule-value-function'
+import global from 'jss-plugin-global'
+import camelCase from 'jss-plugin-camel-case'
+import vendorPrefixer from 'jss-plugin-vendor-prefixer'
+import propsSort from 'jss-plugin-props-sort'
 
 import { funcMap } from '../func-mapper'
 import {
@@ -321,7 +326,8 @@ export type RBJSSStyle = Partial<
     }
 >
 
-const isIntrinsic = (val: any) => typeof val === 'number' || typeof val === 'string'
+const isIntrinsic = (val: any) =>
+  typeof val === 'number' || typeof val === 'string'
 
 const toCSSMap = (obj: RBStyle) => {
   // NEEDS improvement
@@ -361,5 +367,19 @@ export const rbJSS = (): Plugin => {
     onChangeValue: (value: any) => {
       return value ? serializeAtomicValue(value) : value
     },
+  }
+}
+
+export const jssPreset = () => {
+  const clientSideOnly = typeof window === 'undefined' ? [] : [vendorPrefixer()]
+  const plugins = [
+    functions(),
+    global(),
+    camelCase(),
+    propsSort(),
+    rbJSS(),
+  ].concat(clientSideOnly)
+  return {
+    plugins,
   }
 }
