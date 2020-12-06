@@ -34,13 +34,11 @@ Refer to [milestones](https://github.com/hugonteifeh/rosebox/milestones/) for in
      <tr>
       <th>Property</th>
       <th>Specification</th>
-      <th><abbr title="Status">St.</abbr></th>
       </tr>
 </thead>
 <tbody>
 <tr class="cr">
 <td><a href="https://www.w3.org/TR/2020/WD-css-align-3-20200421/#propdef-align-content">alignContent</a>
 </td><td><a href="https://www.w3.org/TR/2020/WD-css-align-3-20200421/">CSS Box Alignment Module Level 3</a>
-</td><td>WD
 </td></tr></tbod>
 </table>

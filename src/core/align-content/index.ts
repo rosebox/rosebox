@@ -44,7 +44,8 @@ export type AlignContentDeclaration = {
   /**
    * Maps to CSS's **`align-content`** property
    * @inital normal
-   * @specification https://drafts.csswg.org/css-align-3/#propdef-align-content 
+   * @definition https://www.w3.org/TR/2020/WD-css-align-3-20200421/#propdef-align-content 
+   * @specification {@link https://www.w3.org/TR/2020/WD-css-align-3-20200421/ CSS Box Alignment Module Level 3}.
    */
   alignContent: AlignContentPropValue
 }
