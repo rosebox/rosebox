@@ -167,7 +167,7 @@ import { OutlineStyleDeclaration } from './core/outline-style'
 import { OutlineDeclaration } from './core/outline'
 
 export * from './core'
-export { rbJSS, makeStylesRB } from './integrations'
+export { rbJSS, makeStylesRB, jssPreset } from './integrations'
 export { toNum } from './utils'
 
 export type RBStyle = Partial<
