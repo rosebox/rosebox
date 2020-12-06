@@ -15,6 +15,7 @@ module.exports = {
     ],
     rules: {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
-        'eslint@typescript-eslint/ban-types': 'off'
+        '@typescript-eslint/ban-types': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
     },
-};
+}
