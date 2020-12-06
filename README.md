@@ -40,5 +40,17 @@ Refer to [milestones](https://github.com/hugonteifeh/rosebox/milestones/) for in
 <tr class="cr">
 <td><a href="https://www.w3.org/TR/2020/WD-css-align-3-20200421/#propdef-align-content">alignContent</a>
 </td><td><a href="https://www.w3.org/TR/2020/WD-css-align-3-20200421/">CSS Box Alignment Module Level 3</a>
-</td></tr></tbod>
+</td></tr>
+
+<tr class="cr">
+<td><a href="https://www.w3.org/TR/2020/WD-css-align-3-20200421/#propdef-align-items">alignItems</a>
+</td><td><a href="https://www.w3.org/TR/2020/WD-css-align-3-20200421/">CSS Box Alignment Module Level 3</a>
+</td></tr>
+
+<tr class="cr">
+<td><a href="https://www.w3.org/TR/2020/WD-css-align-3-20200421/#propdef-align-self">alignSelf</a>
+</td><td><a href="https://www.w3.org/TR/2020/WD-css-align-3-20200421/">CSS Box Alignment Module Level 3</a>
+</td></tr>
+
+</tbody>
 </table>
