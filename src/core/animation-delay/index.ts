@@ -28,7 +28,6 @@ type AnimationDelayPropValue = AnimationDelay
  * @category RBDeclarationTypeAlias
  */
 export type AnimationDelayDeclaration = {
-    // @reviewed
     /**
      * Maps to CSS's **`animation-delay`** property
      * @inital 0s

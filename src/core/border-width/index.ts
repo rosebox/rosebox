@@ -18,10 +18,9 @@ type BorderSideWidthPropValue = LineWidth | GlobalCssKeyword
 export type BorderTopWidthDeclaration = {
     /**
      * Maps to CSS's **`border-top-width`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-width>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+     * @initial medium
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderTopWidth: BorderSideWidthPropValue
 }
@@ -38,10 +37,9 @@ export const serializeBorderRightWidth = (type: PropType) =>
 export type BorderRightWidthDeclaration = {
     /**
      * Maps to CSS's **`border-right-width`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-width>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+     * @initial medium
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderRightWidth: BorderSideWidthPropValue
 }
@@ -58,20 +56,18 @@ export const serializeBorderBottomWidth = (type: PropType) =>
 export type BorderBottomWidthDeclaration = {
     /**
      * Maps to CSS's **`border-bottom-width`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-width>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+     * @initial medium
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderBottomWidth: BorderSideWidthPropValue
 }
 export type BorderBottomWidthDeclarationJSS = {
     /**
      * Maps to CSS's **`border-bottom-width`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-width>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+     * @initial medium
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderBottomWidth: ValueOrFunc<BorderSideWidthPropValue>
 }
@@ -85,10 +81,9 @@ export const serializeBorderLeftWidth = (type: PropType) =>
 export type BorderLeftWidthDeclaration = {
     /**
      * Maps to CSS's **`border-left-width`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-width>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+     * @initial medium
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderLeftWidth: BorderSideWidthPropValue
 }
@@ -123,13 +118,13 @@ export const serializeBorderWidth = (type: PropType) => (
 export type BorderWidthDeclaration = {
     /**
      * Maps to CSS's **`border-width`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-width>{1,4}
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-width
+     * @initial (see individual properties)
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-border-width
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderWidth: BorderWidthPropValue
 }
+
 export type BorderWidthDeclarationJSS = {
     borderWidth: ValueOrFunc<BorderWidthPropValue>
 }

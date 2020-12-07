@@ -26,7 +26,6 @@ type AnimationDirectioPropValue = AnimationDirection
  * @category RBDeclarationTypeAlias
  */
 export type AnimationDirectionDeclaration = {
-    // @reviewed
     /**
      * Maps to CSS's **`animation-direction`** property
      * @initial normal
