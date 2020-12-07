@@ -15,9 +15,8 @@ test('Serialize URI', () => {
 
 test('Serialize URI', () => {
     const received = style({
-        transition: ['all', ms(300), bezier(0.25, 0.8, 0.25, 1)]
+        transition: ['all', ms(300), bezier(0.25, 0.8, 0.25, 1)],
     })
-    const expected = {transition: "all 300ms cubic-bezier(0.25, 0.8, 0.25, 1)"}
+    const expected = { transition: 'all 300ms cubic-bezier(0.25, 0.8, 0.25, 1)' }
     expect(received).toEqual(expected)
 })
-

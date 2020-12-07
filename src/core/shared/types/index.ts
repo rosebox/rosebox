@@ -28,7 +28,6 @@ export const globalCssKeywords = <const>['inherit', 'initial', 'unset']
  */
 export type GlobalCssKeyword = typeof globalCssKeywords[number]
 
-export const isGlobalCssKeyword = (value: any): value is GlobalCssKeyword =>
-  globalCssKeywords.includes(value)
+export const isGlobalCssKeyword = (value: any): value is GlobalCssKeyword => globalCssKeywords.includes(value)
 
 export const serializeKeyword = (value: string) => value

@@ -6,21 +6,12 @@ import vendorPrefixer from 'jss-plugin-vendor-prefixer'
 import propsSort from 'jss-plugin-props-sort'
 
 import { funcMap } from '../func-mapper'
-import {
-  OverflowXDeclarationJSS,
-  OverflowYDeclarationJSS,
-  OverflowDeclarationJSS,
-} from '../core/overflow'
+import { OverflowXDeclarationJSS, OverflowYDeclarationJSS, OverflowDeclarationJSS } from '../core/overflow'
 import { TextTransformDeclarationJSS } from '../core/text-transform'
 import { WidthDeclarationJSS } from '../core/width'
 import { HeightDeclarationJSS } from '../core/height'
 import { BgColorDeclarationJSS } from '../core/background-color'
-import {
-  TopDeclarationJSS,
-  RightDeclarationJSS,
-  BottomDeclarationJSS,
-  LeftDeclarationJSS,
-} from '../core/box-offsets'
+import { TopDeclarationJSS, RightDeclarationJSS, BottomDeclarationJSS, LeftDeclarationJSS } from '../core/box-offsets'
 import { BoxSizingDeclarationJSS } from '../core/box-sizing'
 import { ColorDeclarationJSS } from '../core/color'
 import { MaxHeightDeclarationJSS } from '../core/max-height'
@@ -31,43 +22,43 @@ import { OpacityDeclarationJSS } from '../core/opacity'
 import { PositionDeclarationJSS } from '../core/position'
 import { VisibilityDeclarationJSS } from '../core/visibility'
 import {
-  BorderColorDeclarationJSS,
-  BorderTopColorDeclarationJSS,
-  BorderRightColorDeclarationJSS,
-  BorderBottomColorDeclarationJSS,
-  BorderLeftColorDeclarationJSS,
+    BorderColorDeclarationJSS,
+    BorderTopColorDeclarationJSS,
+    BorderRightColorDeclarationJSS,
+    BorderBottomColorDeclarationJSS,
+    BorderLeftColorDeclarationJSS,
 } from '../core/border-color'
 import { CursorDeclarationJSS } from '../core/cursor'
 import { DisplayDeclarationJSS } from '../core/display'
 import {
-  BorderTopRightRadiusDeclarationJSS,
-  BorderBottomRightRadiusDeclarationJSS,
-  BorderBottomLeftRadiusDeclarationJSS,
-  BorderRadiusDeclarationJSS,
-  BorderTopLeftRadiusDeclarationJSS,
+    BorderTopRightRadiusDeclarationJSS,
+    BorderBottomRightRadiusDeclarationJSS,
+    BorderBottomLeftRadiusDeclarationJSS,
+    BorderRadiusDeclarationJSS,
+    BorderTopLeftRadiusDeclarationJSS,
 } from '../core/border-radius'
 import {
-  BorderTopStyleDeclarationJSS,
-  BorderRightStyleDeclarationJSS,
-  BorderBottomStyleDeclarationJSS,
-  BorderLeftStyleDeclarationJSS,
-  BorderStyleDeclarationJSS,
+    BorderTopStyleDeclarationJSS,
+    BorderRightStyleDeclarationJSS,
+    BorderBottomStyleDeclarationJSS,
+    BorderLeftStyleDeclarationJSS,
+    BorderStyleDeclarationJSS,
 } from '../core/border-style'
 import {
-  BorderTopWidthDeclarationJSS,
-  BorderRightWidthDeclarationJSS,
-  BorderBottomWidthDeclarationJSS,
-  BorderLeftWidthDeclarationJSS,
-  BorderWidthDeclarationJSS,
+    BorderTopWidthDeclarationJSS,
+    BorderRightWidthDeclarationJSS,
+    BorderBottomWidthDeclarationJSS,
+    BorderLeftWidthDeclarationJSS,
+    BorderWidthDeclarationJSS,
 } from '../core/border-width'
 import { ZIndexDeclarationJSS } from '../core/z-index/index'
 //import { TextDecorationDeclarationJSS } from './core/text-decoration'
 import {
-  BorderTopDeclarationJSS,
-  BorderRightDeclarationJSS,
-  BorderBottomDeclarationJSS,
-  BorderLeftDeclarationJSS,
-  BorderDeclarationJSS,
+    BorderTopDeclarationJSS,
+    BorderRightDeclarationJSS,
+    BorderBottomDeclarationJSS,
+    BorderLeftDeclarationJSS,
+    BorderDeclarationJSS,
 } from '../core/border'
 import { FontSizeDeclarationJSS } from '../core/font-size'
 import { FontWeightDeclarationJSS } from '../core/font-weight'
@@ -81,21 +72,21 @@ import { FlexDeclarationJSS } from '../core/flexbox/flex'
 import { LetterSpacingDeclarationJSS } from '../core/letter-spacing'
 import { LineHeightDeclarationJSS } from '../core/line-height'
 import {
-  MarginTopDeclarationJSS,
-  MarginRightDeclarationJSS,
-  MarginBottomDeclarationJSS,
-  MarginLeftDeclarationJSS,
-  MarginDeclarationJSS,
-  MarginXDeclarationJSS,
-  MarginYDeclarationJSS,
+    MarginTopDeclarationJSS,
+    MarginRightDeclarationJSS,
+    MarginBottomDeclarationJSS,
+    MarginLeftDeclarationJSS,
+    MarginDeclarationJSS,
+    MarginXDeclarationJSS,
+    MarginYDeclarationJSS,
 } from '../core/margin'
 import {
-  PaddingTopDeclarationJSS,
-  PaddingRightDeclarationJSS,
-  PaddingBottomDeclarationJSS,
-  PaddingLeftDeclarationJSS,
-  PaddingDeclarationJSS,
-  PaddingXDeclarationJSS,
+    PaddingTopDeclarationJSS,
+    PaddingRightDeclarationJSS,
+    PaddingBottomDeclarationJSS,
+    PaddingLeftDeclarationJSS,
+    PaddingDeclarationJSS,
+    PaddingXDeclarationJSS,
 } from '../core/padding'
 import { TextAlignDeclarationJSS } from '../core/text-align'
 import { OrderDeclarationJSS } from '../core/flexbox/order'
@@ -175,211 +166,201 @@ import { camelCaseToDash } from '../dom'
 import { serializeAtomicValue } from '../core'
 
 export type RBJSSStyle = Partial<
-  WidthDeclarationJSS &
-    HeightDeclarationJSS &
-    BgColorDeclarationJSS &
-    ColorDeclarationJSS &
-    TopDeclarationJSS &
-    RightDeclarationJSS &
-    BottomDeclarationJSS &
-    LeftDeclarationJSS &
-    BoxSizingDeclarationJSS &
-    MaxHeightDeclarationJSS &
-    MaxWidthDeclarationJSS &
-    MinHeightDeclarationJSS &
-    MinWidthDeclarationJSS &
-    OpacityDeclarationJSS &
-    OverflowXDeclarationJSS &
-    OverflowYDeclarationJSS &
-    OverflowDeclarationJSS &
-    PositionDeclarationJSS &
-    VisibilityDeclarationJSS &
-    BorderColorDeclarationJSS &
-    BorderTopColorDeclarationJSS &
-    BorderRightColorDeclarationJSS &
-    BorderBottomColorDeclarationJSS &
-    BorderLeftColorDeclarationJSS &
-    CursorDeclarationJSS &
-    DisplayDeclarationJSS &
-    BorderTopRightRadiusDeclarationJSS &
-    BorderBottomRightRadiusDeclarationJSS &
-    BorderBottomLeftRadiusDeclarationJSS &
-    BorderTopLeftRadiusDeclarationJSS &
-    BorderRadiusDeclarationJSS &
-    BorderTopStyleDeclarationJSS &
-    BorderRightStyleDeclarationJSS &
-    BorderBottomStyleDeclarationJSS &
-    BorderLeftStyleDeclarationJSS &
-    BorderStyleDeclarationJSS &
-    BorderTopWidthDeclarationJSS &
-    BorderTopWidthDeclarationJSS &
-    BorderRightWidthDeclarationJSS &
-    BorderBottomWidthDeclarationJSS &
-    BorderLeftWidthDeclarationJSS &
-    BorderWidthDeclarationJSS &
-    ZIndexDeclarationJSS &
-    TextTransformDeclarationJSS &
-    //TextDecorationDeclarationJSS &
-    BorderTopDeclarationJSS &
-    BorderRightDeclarationJSS &
-    BorderBottomDeclarationJSS &
-    BorderLeftDeclarationJSS &
-    BorderDeclarationJSS &
-    FontSizeDeclarationJSS &
-    FontWeightDeclarationJSS &
-    FontFamilyDeclarationJSS &
-    FlexBasisDeclarationJSS &
-    FlexDirectionDeclarationJSS &
-    FlexGrowDeclarationJSS &
-    FlexShrinkDeclarationJSS &
-    FlexWrapDeclarationJSS &
-    FlexDeclarationJSS &
-    LetterSpacingDeclarationJSS &
-    LineHeightDeclarationJSS &
-    MarginTopDeclarationJSS &
-    MarginRightDeclarationJSS &
-    MarginBottomDeclarationJSS &
-    MarginLeftDeclarationJSS &
-    MarginDeclarationJSS &
-    MarginXDeclarationJSS &
-    MarginYDeclarationJSS &
-    PaddingXDeclarationJSS &
-    PaddingTopDeclarationJSS &
-    PaddingRightDeclarationJSS &
-    PaddingBottomDeclarationJSS &
-    PaddingLeftDeclarationJSS &
-    PaddingDeclarationJSS &
-    TextAlignDeclarationJSS &
-    OrderDeclarationJSS &
-    TransitionPropertyDeclarationJSS &
-    TransitionDelayDeclarationJSS &
-    TransitionTimingDeclarationJSS &
-    TransitionDeclarationJSS &
-    TransitionDurationDeclarationJSS &
-    BoxShadowDeclarationJSS &
-    JustifyContentDeclarationJSS &
-    AlignItemsDeclarationJSS &
-    TransformDeclarationJSS &
-    TransformOriginDeclarationJSS &
-    AlignContentDeclarationJSS &
-    BackfaceVisibilityDeclarationJSS &
-    TransformStyleDeclarationJSS &
-    PerspectiveOriginDeclarationJSS &
-    PerspectiveDeclarationJSS &
-    TransformBoxDeclarationJSS &
-    FontStretchDeclarationJSS &
-    FontSizeAdjustDeclarationJSS &
-    FontSynthesisWeightDeclarationJSS &
-    FontSynthesisStyleDeclarationJSS &
-    FontSynthesisSmallCapsDeclarationJSS &
-    FontSynthesisDeclarationJSS &
-    FontVariantPositionDeclarationJSS &
-    FontVariationSettingsDeclarationJSS &
-    FontVariantNumericDeclarationJSS &
-    FontVariantCapsDeclarationJSS &
-    FontVariantEmojiDeclarationJSS &
-    FontKerningDeclarationJSS &
-    FontStyleDeclarationJSS &
-    FontVariantLigaturesDeclarationJSS &
-    FontOpticalSizingDeclarationJSS &
-    BgImageDeclarationJSS &
-    BgPositionDeclarationJSS &
-    WordSpacingDeclarationJSS &
-    ObjectFitDeclarationJSS &
-    AlignSelfDeclarationJSS &
-    AnimationNameDeclarationJSS &
-    AnimationDurationDeclarationJSS &
-    AnimationTimingFunctionDeclarationJSS &
-    AnimationDelayDeclarationJSS &
-    AnimationIterationCountDeclarationJSS &
-    AnimationDirectionDeclarationJSS &
-    AnimationPlayStateDeclarationJSS &
-    AnimationFillModeDeclarationJSS &
-    AnimationDeclarationJSS &
-    BackgroundSizeDeclarationJSS &
-    WritingModeDeclarationJSS &
-    WillChangeDeclarationJSS &
-    WidowsDeclarationJSS &
-    WhiteSpaceDeclarationJSS &
-    VolumeDeclarationJSS &
-    VerticalAlignDeclarationJSS &
-    UserSelectDeclarationJSS &
-    UnicodeBidiDeclarationJSS &
-    TextWrapDeclarationJSS &
-    TextUnderlinePositionDeclarationJSS &
-    TextUnderlineOffsetDeclarationJSS &
-    VoiceVolumeDeclarationJSS &
-    VoiceStressDeclarationJSS &
-    TextEmphasisColorDeclarationJSS &
-    TextEmphasisSkipDeclarationJSS &
-    TextEmphasisPositionDeclarationJSS &
-    TextIndentDeclarationJSS &
-    TextJustifyDeclarationJSS &
-    TextGroupAlignDeclarationJSS &
-    TextOrientationDeclarationJSS &
-    OutlineColorDeclarationJSS &
-    OutlineWidthDeclarationJSS &
-    OutlineStyleDeclarationJSS &
-    OutlineDeclarationJSS &
-    VoiceRateDeclarationJSS & {
-      [x: string]: any
-    }
+    WidthDeclarationJSS &
+        HeightDeclarationJSS &
+        BgColorDeclarationJSS &
+        ColorDeclarationJSS &
+        TopDeclarationJSS &
+        RightDeclarationJSS &
+        BottomDeclarationJSS &
+        LeftDeclarationJSS &
+        BoxSizingDeclarationJSS &
+        MaxHeightDeclarationJSS &
+        MaxWidthDeclarationJSS &
+        MinHeightDeclarationJSS &
+        MinWidthDeclarationJSS &
+        OpacityDeclarationJSS &
+        OverflowXDeclarationJSS &
+        OverflowYDeclarationJSS &
+        OverflowDeclarationJSS &
+        PositionDeclarationJSS &
+        VisibilityDeclarationJSS &
+        BorderColorDeclarationJSS &
+        BorderTopColorDeclarationJSS &
+        BorderRightColorDeclarationJSS &
+        BorderBottomColorDeclarationJSS &
+        BorderLeftColorDeclarationJSS &
+        CursorDeclarationJSS &
+        DisplayDeclarationJSS &
+        BorderTopRightRadiusDeclarationJSS &
+        BorderBottomRightRadiusDeclarationJSS &
+        BorderBottomLeftRadiusDeclarationJSS &
+        BorderTopLeftRadiusDeclarationJSS &
+        BorderRadiusDeclarationJSS &
+        BorderTopStyleDeclarationJSS &
+        BorderRightStyleDeclarationJSS &
+        BorderBottomStyleDeclarationJSS &
+        BorderLeftStyleDeclarationJSS &
+        BorderStyleDeclarationJSS &
+        BorderTopWidthDeclarationJSS &
+        BorderTopWidthDeclarationJSS &
+        BorderRightWidthDeclarationJSS &
+        BorderBottomWidthDeclarationJSS &
+        BorderLeftWidthDeclarationJSS &
+        BorderWidthDeclarationJSS &
+        ZIndexDeclarationJSS &
+        TextTransformDeclarationJSS &
+        //TextDecorationDeclarationJSS &
+        BorderTopDeclarationJSS &
+        BorderRightDeclarationJSS &
+        BorderBottomDeclarationJSS &
+        BorderLeftDeclarationJSS &
+        BorderDeclarationJSS &
+        FontSizeDeclarationJSS &
+        FontWeightDeclarationJSS &
+        FontFamilyDeclarationJSS &
+        FlexBasisDeclarationJSS &
+        FlexDirectionDeclarationJSS &
+        FlexGrowDeclarationJSS &
+        FlexShrinkDeclarationJSS &
+        FlexWrapDeclarationJSS &
+        FlexDeclarationJSS &
+        LetterSpacingDeclarationJSS &
+        LineHeightDeclarationJSS &
+        MarginTopDeclarationJSS &
+        MarginRightDeclarationJSS &
+        MarginBottomDeclarationJSS &
+        MarginLeftDeclarationJSS &
+        MarginDeclarationJSS &
+        MarginXDeclarationJSS &
+        MarginYDeclarationJSS &
+        PaddingXDeclarationJSS &
+        PaddingTopDeclarationJSS &
+        PaddingRightDeclarationJSS &
+        PaddingBottomDeclarationJSS &
+        PaddingLeftDeclarationJSS &
+        PaddingDeclarationJSS &
+        TextAlignDeclarationJSS &
+        OrderDeclarationJSS &
+        TransitionPropertyDeclarationJSS &
+        TransitionDelayDeclarationJSS &
+        TransitionTimingDeclarationJSS &
+        TransitionDeclarationJSS &
+        TransitionDurationDeclarationJSS &
+        BoxShadowDeclarationJSS &
+        JustifyContentDeclarationJSS &
+        AlignItemsDeclarationJSS &
+        TransformDeclarationJSS &
+        TransformOriginDeclarationJSS &
+        AlignContentDeclarationJSS &
+        BackfaceVisibilityDeclarationJSS &
+        TransformStyleDeclarationJSS &
+        PerspectiveOriginDeclarationJSS &
+        PerspectiveDeclarationJSS &
+        TransformBoxDeclarationJSS &
+        FontStretchDeclarationJSS &
+        FontSizeAdjustDeclarationJSS &
+        FontSynthesisWeightDeclarationJSS &
+        FontSynthesisStyleDeclarationJSS &
+        FontSynthesisSmallCapsDeclarationJSS &
+        FontSynthesisDeclarationJSS &
+        FontVariantPositionDeclarationJSS &
+        FontVariationSettingsDeclarationJSS &
+        FontVariantNumericDeclarationJSS &
+        FontVariantCapsDeclarationJSS &
+        FontVariantEmojiDeclarationJSS &
+        FontKerningDeclarationJSS &
+        FontStyleDeclarationJSS &
+        FontVariantLigaturesDeclarationJSS &
+        FontOpticalSizingDeclarationJSS &
+        BgImageDeclarationJSS &
+        BgPositionDeclarationJSS &
+        WordSpacingDeclarationJSS &
+        ObjectFitDeclarationJSS &
+        AlignSelfDeclarationJSS &
+        AnimationNameDeclarationJSS &
+        AnimationDurationDeclarationJSS &
+        AnimationTimingFunctionDeclarationJSS &
+        AnimationDelayDeclarationJSS &
+        AnimationIterationCountDeclarationJSS &
+        AnimationDirectionDeclarationJSS &
+        AnimationPlayStateDeclarationJSS &
+        AnimationFillModeDeclarationJSS &
+        AnimationDeclarationJSS &
+        BackgroundSizeDeclarationJSS &
+        WritingModeDeclarationJSS &
+        WillChangeDeclarationJSS &
+        WidowsDeclarationJSS &
+        WhiteSpaceDeclarationJSS &
+        VolumeDeclarationJSS &
+        VerticalAlignDeclarationJSS &
+        UserSelectDeclarationJSS &
+        UnicodeBidiDeclarationJSS &
+        TextWrapDeclarationJSS &
+        TextUnderlinePositionDeclarationJSS &
+        TextUnderlineOffsetDeclarationJSS &
+        VoiceVolumeDeclarationJSS &
+        VoiceStressDeclarationJSS &
+        TextEmphasisColorDeclarationJSS &
+        TextEmphasisSkipDeclarationJSS &
+        TextEmphasisPositionDeclarationJSS &
+        TextIndentDeclarationJSS &
+        TextJustifyDeclarationJSS &
+        TextGroupAlignDeclarationJSS &
+        TextOrientationDeclarationJSS &
+        OutlineColorDeclarationJSS &
+        OutlineWidthDeclarationJSS &
+        OutlineStyleDeclarationJSS &
+        OutlineDeclarationJSS &
+        VoiceRateDeclarationJSS & {
+            [x: string]: any
+        }
 >
 
-const isIntrinsic = (val: any) =>
-  typeof val === 'number' || typeof val === 'string'
+const isIntrinsic = (val: any) => typeof val === 'number' || typeof val === 'string'
 
 const toCSSMap = (obj: RBStyle) => {
-  // NEEDS improvement
-  const js = style(obj)
-  const objs = Object.keys(js).map((key) => [
-    camelCaseToDash(key),
-    (js as any)[key],
-  ])
-  return Object.fromEntries(objs)
+    // NEEDS improvement
+    const js = style(obj)
+    const objs = Object.keys(js).map((key) => [camelCaseToDash(key), (js as any)[key]])
+    return Object.fromEntries(objs)
 }
 
 const style2 = (obj: any) => {
-  // NEEDS improvement
-  return Object.keys(obj).reduce((acc, key) => {
-    const serializerKey = key.replace(/-([a-z])/g, function (g) {
-      return g[1].toUpperCase()
-    })
-    const serializer = (funcMap as any)('inline')[serializerKey]
-    return serializer && !isIntrinsic((obj as any)[key])
-      ? {
-          ...acc,
-          ...toCSSMap(serializer((obj as any)[key])),
-        }
-      : {
-          ...acc,
-          [key]: (obj as any)[key],
-        }
-  }, {})
+    // NEEDS improvement
+    return Object.keys(obj).reduce((acc, key) => {
+        const serializerKey = key.replace(/-([a-z])/g, function (g) {
+            return g[1].toUpperCase()
+        })
+        const serializer = (funcMap as any)('inline')[serializerKey]
+        return serializer && !isIntrinsic((obj as any)[key])
+            ? {
+                  ...acc,
+                  ...toCSSMap(serializer((obj as any)[key])),
+              }
+            : {
+                  ...acc,
+                  [key]: (obj as any)[key],
+              }
+    }, {})
 }
 
 /** A JSS plugin for Rosebox */
 export const rbJSS = (): Plugin => {
-  return {
-    onProcessStyle: (style: JssStyle) => {
-      return style ? style2(style) : style
-    },
-    onChangeValue: (value: any) => {
-      return value ? serializeAtomicValue(value) : value
-    },
-  }
+    return {
+        onProcessStyle: (style: JssStyle) => {
+            return style ? style2(style) : style
+        },
+        onChangeValue: (value: any) => {
+            return value ? serializeAtomicValue(value) : value
+        },
+    }
 }
 
 export const jssPreset = () => {
-  const clientSideOnly = typeof window === 'undefined' ? [] : [vendorPrefixer()]
-  const plugins = [
-    functions(),
-    global(),
-    camelCase(),
-    propsSort(),
-    rbJSS(),
-  ].concat(clientSideOnly)
-  return {
-    plugins,
-  }
+    const clientSideOnly = typeof window === 'undefined' ? [] : [vendorPrefixer()]
+    const plugins = [functions(), global(), camelCase(), propsSort(), rbJSS()].concat(clientSideOnly)
+    return {
+        plugins,
+    }
 }

@@ -13,13 +13,13 @@ test('Serialize Image', () => {
 })
 
 test('Serialize Image', () => {
-    const received = image({ color: 'black', src: url('google.se')  }).serialize()
+    const received = image({ color: 'black', src: url('google.se') }).serialize()
     const expected = 'image("google.se" , black)'
     expect(received).toEqual(expected)
 })
 
 test('Serialize Image', () => {
-    const received = image({ direction: 'ltr', color: 'black', src: url('google.se')  }).serialize()
+    const received = image({ direction: 'ltr', color: 'black', src: url('google.se') }).serialize()
     const expected = 'image(ltr "google.se" , black)'
     expect(received).toEqual(expected)
 })

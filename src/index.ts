@@ -1,21 +1,12 @@
 import { CSSProperties } from 'react'
 import { funcMap } from './func-mapper'
 
-import {
-  OverflowXDeclaration,
-  OverflowYDeclaration,
-  OverflowDeclaration,
-} from './core/overflow'
+import { OverflowXDeclaration, OverflowYDeclaration, OverflowDeclaration } from './core/overflow'
 import { TextTransformDeclaration } from './core/text-transform'
 import { WidthDeclaration } from './core/width'
 import { HeightDeclaration } from './core/height'
 import { BgColorDeclaration } from './core/background-color'
-import {
-  TopDeclaration,
-  RightDeclaration,
-  BottomDeclaration,
-  LeftDeclaration,
-} from './core/box-offsets'
+import { TopDeclaration, RightDeclaration, BottomDeclaration, LeftDeclaration } from './core/box-offsets'
 import { BoxSizingDeclaration } from './core/box-sizing'
 import { ColorDeclaration } from './core/color'
 import { MaxHeightDeclaration } from './core/max-height'
@@ -26,43 +17,43 @@ import { OpacityDeclaration } from './core/opacity'
 import { PositionDeclaration } from './core/position'
 import { VisibilityDeclaration } from './core/visibility'
 import {
-  BorderColorDeclaration,
-  BorderTopColorDeclaration,
-  BorderRightColorDeclaration,
-  BorderBottomColorDeclaration,
-  BorderLeftColorDeclaration,
+    BorderColorDeclaration,
+    BorderTopColorDeclaration,
+    BorderRightColorDeclaration,
+    BorderBottomColorDeclaration,
+    BorderLeftColorDeclaration,
 } from './core/border-color'
 import { CursorDeclaration } from './core/cursor'
 import { DisplayDeclaration } from './core/display'
 import {
-  BorderTopRightRadiusDeclaration,
-  BorderBottomRightRadiusDeclaration,
-  BorderBottomLeftRadiusDeclaration,
-  BorderRadiusDeclaration,
-  BorderTopLeftRadiusDeclaration,
+    BorderTopRightRadiusDeclaration,
+    BorderBottomRightRadiusDeclaration,
+    BorderBottomLeftRadiusDeclaration,
+    BorderRadiusDeclaration,
+    BorderTopLeftRadiusDeclaration,
 } from './core/border-radius'
 import {
-  BorderTopStyleDeclaration,
-  BorderRightStyleDeclaration,
-  BorderBottomStyleDeclaration,
-  BorderLeftStyleDeclaration,
-  BorderStyleDeclaration,
+    BorderTopStyleDeclaration,
+    BorderRightStyleDeclaration,
+    BorderBottomStyleDeclaration,
+    BorderLeftStyleDeclaration,
+    BorderStyleDeclaration,
 } from './core/border-style'
 import {
-  BorderTopWidthDeclaration,
-  BorderRightWidthDeclaration,
-  BorderBottomWidthDeclaration,
-  BorderLeftWidthDeclaration,
-  BorderWidthDeclaration,
+    BorderTopWidthDeclaration,
+    BorderRightWidthDeclaration,
+    BorderBottomWidthDeclaration,
+    BorderLeftWidthDeclaration,
+    BorderWidthDeclaration,
 } from './core/border-width'
 import { ZIndexDeclaration } from './core/z-index'
 //import { TextDecorationDeclaration } from './core/text-decoration'
 import {
-  BorderTopDeclaration,
-  BorderRightDeclaration,
-  BorderBottomDeclaration,
-  BorderLeftDeclaration,
-  BorderDeclaration,
+    BorderTopDeclaration,
+    BorderRightDeclaration,
+    BorderBottomDeclaration,
+    BorderLeftDeclaration,
+    BorderDeclaration,
 } from './core/border'
 import { FontSizeDeclaration } from './core/font-size'
 import { FontWeightDeclaration } from './core/font-weight'
@@ -76,21 +67,21 @@ import { FlexDeclaration } from './core/flexbox/flex'
 import { LetterSpacingDeclaration } from './core/letter-spacing'
 import { LineHeightDeclaration } from './core/line-height'
 import {
-  MarginTopDeclaration,
-  MarginRightDeclaration,
-  MarginBottomDeclaration,
-  MarginLeftDeclaration,
-  MarginDeclaration,
-  MarginXDeclaration,
-  MarginYDeclaration,
+    MarginTopDeclaration,
+    MarginRightDeclaration,
+    MarginBottomDeclaration,
+    MarginLeftDeclaration,
+    MarginDeclaration,
+    MarginXDeclaration,
+    MarginYDeclaration,
 } from './core/margin'
 import {
-  PaddingTopDeclaration,
-  PaddingRightDeclaration,
-  PaddingBottomDeclaration,
-  PaddingLeftDeclaration,
-  PaddingDeclaration,
-  PaddingXDeclaration,
+    PaddingTopDeclaration,
+    PaddingRightDeclaration,
+    PaddingBottomDeclaration,
+    PaddingLeftDeclaration,
+    PaddingDeclaration,
+    PaddingXDeclaration,
 } from './core/padding'
 import { TextAlignDeclaration } from './core/text-align'
 import { OrderDeclaration } from './core/flexbox/order'
@@ -171,155 +162,155 @@ export { rbJSS, makeStylesRB, jssPreset } from './integrations'
 export { toNum } from './utils'
 
 export type RBStyle = Partial<
-  WidthDeclaration &
-    HeightDeclaration &
-    BgColorDeclaration &
-    ColorDeclaration &
-    TopDeclaration &
-    RightDeclaration &
-    BottomDeclaration &
-    LeftDeclaration &
-    BoxSizingDeclaration &
-    MaxHeightDeclaration &
-    MaxWidthDeclaration &
-    MinHeightDeclaration &
-    MinWidthDeclaration &
-    OpacityDeclaration &
-    OverflowXDeclaration &
-    OverflowYDeclaration &
-    OverflowDeclaration &
-    PositionDeclaration &
-    VisibilityDeclaration &
-    BorderColorDeclaration &
-    BorderTopColorDeclaration &
-    BorderRightColorDeclaration &
-    BorderBottomColorDeclaration &
-    BorderLeftColorDeclaration &
-    CursorDeclaration &
-    DisplayDeclaration &
-    BorderTopRightRadiusDeclaration &
-    BorderBottomRightRadiusDeclaration &
-    BorderBottomLeftRadiusDeclaration &
-    BorderTopLeftRadiusDeclaration &
-    BorderRadiusDeclaration &
-    BorderTopStyleDeclaration &
-    BorderRightStyleDeclaration &
-    BorderBottomStyleDeclaration &
-    BorderLeftStyleDeclaration &
-    BorderStyleDeclaration &
-    BorderTopWidthDeclaration &
-    BorderTopWidthDeclaration &
-    BorderRightWidthDeclaration &
-    BorderBottomWidthDeclaration &
-    BorderLeftWidthDeclaration &
-    BorderWidthDeclaration &
-    ZIndexDeclaration &
-    TextTransformDeclaration &
-    //TextDecorationDeclaration &
-    BorderTopDeclaration &
-    BorderRightDeclaration &
-    BorderBottomDeclaration &
-    BorderLeftDeclaration &
-    BorderDeclaration &
-    FontSizeDeclaration &
-    FontWeightDeclaration &
-    FontFamilyDeclaration &
-    FlexBasisDeclaration &
-    FlexDirectionDeclaration &
-    FlexGrowDeclaration &
-    FlexShrinkDeclaration &
-    FlexWrapDeclaration &
-    FlexDeclaration &
-    LetterSpacingDeclaration &
-    LineHeightDeclaration &
-    MarginTopDeclaration &
-    MarginRightDeclaration &
-    MarginBottomDeclaration &
-    MarginLeftDeclaration &
-    MarginDeclaration &
-    MarginXDeclaration &
-    MarginYDeclaration &
-    PaddingXDeclaration &
-    PaddingTopDeclaration &
-    PaddingRightDeclaration &
-    PaddingBottomDeclaration &
-    PaddingLeftDeclaration &
-    PaddingDeclaration &
-    TextAlignDeclaration &
-    OrderDeclaration &
-    TransitionPropertyDeclaration &
-    TransitionDelayDeclaration &
-    TransitionTimingDeclaration &
-    TransitionDeclaration &
-    TransitionDurationDeclaration &
-    BoxShadowDeclaration &
-    JustifyContentDeclaration &
-    AlignItemsDeclaration &
-    TransformDeclaration &
-    TransformOriginDeclaration &
-    AlignContentDeclaration &
-    BackfaceVisibilityDeclaration &
-    TransformStyleDeclaration &
-    PerspectiveOriginDeclaration &
-    PerspectiveDeclaration &
-    TransformBoxDeclaration &
-    FontStretchDeclaration &
-    FontSizeAdjustDeclaration &
-    FontSynthesisWeightDeclaration &
-    FontSynthesisStyleDeclaration &
-    FontSynthesisSmallCapsDeclaration &
-    FontSynthesisDeclaration &
-    FontVariantPositionDeclaration &
-    FontVariationSettingsDeclaration &
-    FontVariantNumericDeclaration &
-    FontVariantCapsDeclaration &
-    FontVariantEmojiDeclaration &
-    FontKerningDeclaration &
-    FontStyleDeclaration &
-    FontVariantLigaturesDeclaration &
-    FontOpticalSizingDeclaration &
-    BgImageDeclaration &
-    BgPositionDeclaration &
-    WordSpacingDeclaration &
-    ObjectFitDeclaration &
-    AlignSelfDeclaration &
-    AnimationNameDeclaration &
-    AnimationDurationDeclaration &
-    AnimationTimingFunctionDeclaration &
-    AnimationDelayDeclaration &
-    AnimationIterationCountDeclaration &
-    AnimationDirectionDeclaration &
-    AnimationPlayStateDeclaration &
-    AnimationFillModeDeclaration &
-    AnimationDeclaration &
-    BackgroundSizeDeclaration &
-    WritingModeDeclaration &
-    WillChangeDeclaration &
-    WidowsDeclaration &
-    WhiteSpaceDeclaration &
-    VolumeDeclaration &
-    VerticalAlignDeclaration &
-    UserSelectDeclaration &
-    UnicodeBidiDeclaration &
-    TextWrapDeclaration &
-    TextUnderlinePositionDeclaration &
-    TextUnderlineOffsetDeclaration &
-    VoiceVolumeDeclaration &
-    VoiceStressDeclaration &
-    TextEmphasisColorDeclaration &
-    TextEmphasisSkipDeclaration &
-    TextEmphasisPositionDeclaration &
-    TextIndentDeclaration &
-    TextJustifyDeclaration &
-    TextGroupAlignDeclaration &
-    TextOrientationDeclaration &
-    OutlineColorDeclaration &
-    OutlineWidthDeclaration &
-    OutlineStyleDeclaration &
-    OutlineDeclaration &
-    VoiceRateDeclaration & {
-      [x: string]: any
-    }
+    WidthDeclaration &
+        HeightDeclaration &
+        BgColorDeclaration &
+        ColorDeclaration &
+        TopDeclaration &
+        RightDeclaration &
+        BottomDeclaration &
+        LeftDeclaration &
+        BoxSizingDeclaration &
+        MaxHeightDeclaration &
+        MaxWidthDeclaration &
+        MinHeightDeclaration &
+        MinWidthDeclaration &
+        OpacityDeclaration &
+        OverflowXDeclaration &
+        OverflowYDeclaration &
+        OverflowDeclaration &
+        PositionDeclaration &
+        VisibilityDeclaration &
+        BorderColorDeclaration &
+        BorderTopColorDeclaration &
+        BorderRightColorDeclaration &
+        BorderBottomColorDeclaration &
+        BorderLeftColorDeclaration &
+        CursorDeclaration &
+        DisplayDeclaration &
+        BorderTopRightRadiusDeclaration &
+        BorderBottomRightRadiusDeclaration &
+        BorderBottomLeftRadiusDeclaration &
+        BorderTopLeftRadiusDeclaration &
+        BorderRadiusDeclaration &
+        BorderTopStyleDeclaration &
+        BorderRightStyleDeclaration &
+        BorderBottomStyleDeclaration &
+        BorderLeftStyleDeclaration &
+        BorderStyleDeclaration &
+        BorderTopWidthDeclaration &
+        BorderTopWidthDeclaration &
+        BorderRightWidthDeclaration &
+        BorderBottomWidthDeclaration &
+        BorderLeftWidthDeclaration &
+        BorderWidthDeclaration &
+        ZIndexDeclaration &
+        TextTransformDeclaration &
+        //TextDecorationDeclaration &
+        BorderTopDeclaration &
+        BorderRightDeclaration &
+        BorderBottomDeclaration &
+        BorderLeftDeclaration &
+        BorderDeclaration &
+        FontSizeDeclaration &
+        FontWeightDeclaration &
+        FontFamilyDeclaration &
+        FlexBasisDeclaration &
+        FlexDirectionDeclaration &
+        FlexGrowDeclaration &
+        FlexShrinkDeclaration &
+        FlexWrapDeclaration &
+        FlexDeclaration &
+        LetterSpacingDeclaration &
+        LineHeightDeclaration &
+        MarginTopDeclaration &
+        MarginRightDeclaration &
+        MarginBottomDeclaration &
+        MarginLeftDeclaration &
+        MarginDeclaration &
+        MarginXDeclaration &
+        MarginYDeclaration &
+        PaddingXDeclaration &
+        PaddingTopDeclaration &
+        PaddingRightDeclaration &
+        PaddingBottomDeclaration &
+        PaddingLeftDeclaration &
+        PaddingDeclaration &
+        TextAlignDeclaration &
+        OrderDeclaration &
+        TransitionPropertyDeclaration &
+        TransitionDelayDeclaration &
+        TransitionTimingDeclaration &
+        TransitionDeclaration &
+        TransitionDurationDeclaration &
+        BoxShadowDeclaration &
+        JustifyContentDeclaration &
+        AlignItemsDeclaration &
+        TransformDeclaration &
+        TransformOriginDeclaration &
+        AlignContentDeclaration &
+        BackfaceVisibilityDeclaration &
+        TransformStyleDeclaration &
+        PerspectiveOriginDeclaration &
+        PerspectiveDeclaration &
+        TransformBoxDeclaration &
+        FontStretchDeclaration &
+        FontSizeAdjustDeclaration &
+        FontSynthesisWeightDeclaration &
+        FontSynthesisStyleDeclaration &
+        FontSynthesisSmallCapsDeclaration &
+        FontSynthesisDeclaration &
+        FontVariantPositionDeclaration &
+        FontVariationSettingsDeclaration &
+        FontVariantNumericDeclaration &
+        FontVariantCapsDeclaration &
+        FontVariantEmojiDeclaration &
+        FontKerningDeclaration &
+        FontStyleDeclaration &
+        FontVariantLigaturesDeclaration &
+        FontOpticalSizingDeclaration &
+        BgImageDeclaration &
+        BgPositionDeclaration &
+        WordSpacingDeclaration &
+        ObjectFitDeclaration &
+        AlignSelfDeclaration &
+        AnimationNameDeclaration &
+        AnimationDurationDeclaration &
+        AnimationTimingFunctionDeclaration &
+        AnimationDelayDeclaration &
+        AnimationIterationCountDeclaration &
+        AnimationDirectionDeclaration &
+        AnimationPlayStateDeclaration &
+        AnimationFillModeDeclaration &
+        AnimationDeclaration &
+        BackgroundSizeDeclaration &
+        WritingModeDeclaration &
+        WillChangeDeclaration &
+        WidowsDeclaration &
+        WhiteSpaceDeclaration &
+        VolumeDeclaration &
+        VerticalAlignDeclaration &
+        UserSelectDeclaration &
+        UnicodeBidiDeclaration &
+        TextWrapDeclaration &
+        TextUnderlinePositionDeclaration &
+        TextUnderlineOffsetDeclaration &
+        VoiceVolumeDeclaration &
+        VoiceStressDeclaration &
+        TextEmphasisColorDeclaration &
+        TextEmphasisSkipDeclaration &
+        TextEmphasisPositionDeclaration &
+        TextIndentDeclaration &
+        TextJustifyDeclaration &
+        TextGroupAlignDeclaration &
+        TextOrientationDeclaration &
+        OutlineColorDeclaration &
+        OutlineWidthDeclaration &
+        OutlineStyleDeclaration &
+        OutlineDeclaration &
+        VoiceRateDeclaration & {
+            [x: string]: any
+        }
 >
 
 /**
@@ -328,17 +319,17 @@ export type RBStyle = Partial<
 export type RoseboxProperties = RBStyle
 
 export const style = (obj: RBStyle): CSSProperties => {
-  // NEEDS improvement
-  return Object.keys(obj).reduce((acc, key) => {
-    const serializer = (funcMap as any)('inline')[key]
-    return serializer
-      ? {
-          ...acc,
-          ...serializer((obj as any)[key]),
-        }
-      : {
-          ...acc,
-          [key]: (obj as any)[key],
-        }
-  }, {}) as CSSProperties
+    // NEEDS improvement
+    return Object.keys(obj).reduce((acc, key) => {
+        const serializer = (funcMap as any)('inline')[key]
+        return serializer
+            ? {
+                  ...acc,
+                  ...serializer((obj as any)[key]),
+              }
+            : {
+                  ...acc,
+                  [key]: (obj as any)[key],
+              }
+    }, {}) as CSSProperties
 }

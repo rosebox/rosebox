@@ -2,4 +2,5 @@
  * @hide
  */
 export type ShrinkGrow = number
-export const isShrinkGrow = (value: any) => typeof value === 'number'
+
+export const isShrinkGrow = (value: unknown) => typeof value === 'number'

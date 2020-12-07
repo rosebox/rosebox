@@ -7,13 +7,13 @@ type TextOrientationPropValue = 'mixed' | 'upright' | 'sideways' | GlobalCssKeyw
  * @category RBDeclarationTypeAlias
  */
 export type TextOrientationDeclaration = {
-  /**
-   * Maps to CSS's **`text-orientation`** property
-   * @category RBProperty
-   */
-  textOrientation: TextOrientationPropValue
+    /**
+     * Maps to CSS's **`text-orientation`** property
+     * @category RBProperty
+     */
+    textOrientation: TextOrientationPropValue
 }
 
 export type TextOrientationDeclarationJSS = {
-  textOrientation: ValueOrFunc<TextOrientationPropValue>
+    textOrientation: ValueOrFunc<TextOrientationPropValue>
 }

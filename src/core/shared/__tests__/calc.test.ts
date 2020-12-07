@@ -18,7 +18,6 @@ test('Serialize Calculation<substraction>', () => {
     expect(received).toEqual(expected)
 })
 
-
 test('Serialize Calculation<multiplication>', () => {
     const received = cmult(per(100), 3).serialize()
     const expected = 'calc(100% * 3)'

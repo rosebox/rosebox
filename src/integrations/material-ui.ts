@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/styles'
 import { RBJSSStyle } from './rb-jss'
 
 type StyleMap = {
-  [key: string]: RBJSSStyle
+    [key: string]: RBJSSStyle
 }
 
 /**
@@ -11,5 +11,5 @@ type StyleMap = {
  * Its purpose is to provide rosebox-specific types
  */
 export const makeStylesRB = (styleMap: StyleMap, options?: any) => {
-  return makeStyles(styleMap as any, options)
+    return makeStyles(styleMap as any, options)
 }
