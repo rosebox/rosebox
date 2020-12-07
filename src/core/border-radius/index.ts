@@ -32,10 +32,9 @@ type BorderCornerPropValue = BorderCornerRadius | GlobalCssKeyword
 export type BorderTopRightRadiusDeclaration = {
     /**
      * Maps to CSS's **`border-top-right-radius`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <length-percentage>{1,2}
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+     * @initial 0
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderTopRightRadius: BorderCornerPropValue
 }
@@ -49,10 +48,9 @@ export type BorderTopRightRadiusDeclarationJSS = {
 export type BorderBottomRightRadiusDeclaration = {
     /**
      * Maps to CSS's **`border-bottom-right-radius`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <length-percentage>{1,2}
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+     * @initial 0
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderBottomRightRadius: BorderCornerPropValue
 }
@@ -66,10 +64,9 @@ export type BorderBottomRightRadiusDeclarationJSS = {
 export type BorderBottomLeftRadiusDeclaration = {
     /**
      * Maps to CSS's **`border-bottom-left-radius`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <length-percentage>{1,2}
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+     * @initial 0
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderBottomLeftRadius: BorderCornerPropValue
 }
@@ -83,10 +80,9 @@ export type BorderBottomLeftRadiusDeclarationJSS = {
 export type BorderTopLeftRadiusDeclaration = {
     /**
      * Maps to CSS's **`border-top-left-radius`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <length-percentage>{1,2}
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+     * @initial 0
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderTopLeftRadius: BorderCornerPropValue
 }
@@ -103,12 +99,12 @@ type RadiusTuple =
 
 type OneRadius = LengthPercentage | RadiusTuple
 
-type TwoRadius = [RadiusTuple, RadiusTuple]
+type TwoRadii = [RadiusTuple, RadiusTuple]
 
 const serializRadiusTuple = (value: RadiusTuple): string =>
     (value as LengthPercentage[]).reduce((acc, item) => acc + ' ' + serializeAtomicValue(item), '').trim()
 
-const serializeTwoRadius = (value: TwoRadius): string =>
+const serializeTwoRadius = (value: TwoRadii): string =>
     (value as RadiusTuple[])
         .reduce(
             (acc, item, idx: number) =>
@@ -118,7 +114,7 @@ const serializeTwoRadius = (value: TwoRadius): string =>
         .trim()
 
 export const serializeBorderRadius = (type: PropType) => (
-    value: OneRadius | TwoRadius | GlobalCssKeyword,
+    value: OneRadius | TwoRadii | GlobalCssKeyword,
 ): { [key: string]: string } => {
     const propName = type === 'inline' ? 'borderRadius' : 'border-radiuss'
     return {
@@ -126,12 +122,12 @@ export const serializeBorderRadius = (type: PropType) => (
             ? serializeAtomicValue(value)
             : !Array.isArray(value[0])
             ? serializRadiusTuple(value as RadiusTuple)
-            : serializeTwoRadius(value as TwoRadius),
+            : serializeTwoRadius(value as TwoRadii),
     }
 }
 
 /** @hide */
-type BorderRadiusPropValue = OneRadius | TwoRadius | GlobalCssKeyword
+type BorderRadiusPropValue = OneRadius | TwoRadii | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -139,10 +135,9 @@ type BorderRadiusPropValue = OneRadius | TwoRadius | GlobalCssKeyword
 export type BorderRadiusDeclaration = {
     /**
      * Maps to CSS's **`border-radius`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <length-percentage>{1,4} [ / <length-percentage>{1,4} ]?
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+     * @initial see individual properties
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#border-radius
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderRadius: BorderRadiusPropValue
 }
