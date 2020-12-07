@@ -156,6 +156,7 @@ import { OutlineColorDeclaration } from './core/outline-color'
 import { OutlineWidthDeclaration } from './core/outline-width'
 import { OutlineStyleDeclaration } from './core/outline-style'
 import { OutlineDeclaration } from './core/outline'
+import { UntypedProps } from './untyped-props'
 
 export * from './core'
 export { rbJSS, makeStylesRB, jssPreset } from './integrations'
@@ -308,9 +309,8 @@ export type RBStyle = Partial<
         OutlineWidthDeclaration &
         OutlineStyleDeclaration &
         OutlineDeclaration &
-        VoiceRateDeclaration & {
-            [x: string]: any
-        }
+        VoiceRateDeclaration &
+        UntypedProps
 >
 
 /**

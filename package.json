@@ -54,6 +54,7 @@
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-prettier": "^3.2.0",
+    "html-table-to-json": "^1.0.0",
     "jest": "^24.9.0",
     "jss": "10.5.0",
     "madge": "^3.9.2",
