@@ -17,6 +17,11 @@ export * from './math'
 export * from './gradient'
 export * from './image'
 
+export type AtLeastOnePropRequired<T, Keys extends keyof T = keyof T> = Pick<T, Exclude<keyof T, Keys>> &
+    {
+        [K in Keys]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<Keys, K>>>
+    }[Keys]
+
 export type ValueOrFunc<T> = T | ((x: any) => T)
 
 export type PropType = 'css' | 'inline'

@@ -1,10 +1,17 @@
 import { KeyFramesName } from '../animation-name'
-import { Duration, GlobalCssKeyword, serializeAtomicValue, TimingFunction, ValueOrFunc } from '../shared'
+import {
+    AtLeastOnePropRequired,
+    Duration,
+    GlobalCssKeyword,
+    serializeAtomicValue,
+    TimingFunction,
+    ValueOrFunc,
+} from '../shared'
 import { AnimationDirectionKeyword } from '../animation-direction'
 import { AnimationFillModeKeyword } from '../animation-fill-mode'
 import { AnimationPlayStateKeyword } from '../animation-play-state'
 
-export type Animation = {
+export type Animation = AtLeastOnePropRequired<{
     name?: KeyFramesName | GlobalCssKeyword
     duration?: Duration | GlobalCssKeyword
     timingFunction?: TimingFunction | GlobalCssKeyword
@@ -13,7 +20,7 @@ export type Animation = {
     direction?: AnimationDirectionKeyword | GlobalCssKeyword
     fillMode?: AnimationFillModeKeyword | GlobalCssKeyword
     playState?: AnimationPlayStateKeyword
-}
+}>
 
 const serializeSingleAnimationValue = (x: Animation): string => {
     const name = x.name || 'none'

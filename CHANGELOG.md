@@ -3,6 +3,11 @@
 ## [0.4.18] - 2020-12-07
 
 ### Changed
+- Type `Animation`.
+
+## [0.4.18] - 2020-12-07
+
+### Changed
 - Signature for animation.
 - Annotations for some properties.
 - Type parameter for Duration
