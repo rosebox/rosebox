@@ -1,6 +1,6 @@
 {
   "name": "rosebox",
-  "version": "0.4.19",
+  "version": "0.4.2",
   "private": false,
   "description": "Rosebox is a Typescript library that models CSS in Typescript in a way that leverages the capabilities of Typescript's type system and Javascript as a programming language, providing strong types, functions, and an overall more structured and improved syntax.",
   "main": "es5/index.js",
@@ -54,6 +54,7 @@
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-prettier": "^3.2.0",
+    "html-table-to-json": "^1.0.0",
     "jest": "^24.9.0",
     "jss": "10.5.0",
     "madge": "^3.9.2",
