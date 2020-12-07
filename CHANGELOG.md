@@ -1,5 +1,10 @@
 # Chagngelog
 
+## [0.4.2] - 2020-12-07
+
+### Added
+- Safe support for untyped props [see here](https://github.com/hugonteifeh/rosebox/issues/111).
+
 ## [0.4.18] - 2020-12-07
 
 ### Changed
