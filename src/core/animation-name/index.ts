@@ -2,10 +2,12 @@ import { CustomIdent, GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrF
 
 const toHyphenCase = (x: string) => x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
 
+type KeyFramesName = CustomIdent | string
+
 /**
  * @hide
  */
-export type AnimationName = 'none' | CustomIdent | string | (string | CustomIdent)[]
+export type AnimationName = 'none' | KeyFramesName | ('none' | KeyFramesName)[]
 
 const cb = (x: string | CustomIdent): string => toHyphenCase(serializeAtomicValue(x))
 
