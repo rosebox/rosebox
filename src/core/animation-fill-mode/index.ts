@@ -28,10 +28,13 @@ type AnimationFillModePropValue = AnimationFillMode | GlobalCssKeyword
 export type AnimationFillModeDeclaration = {
     /**
      * Maps to CSS's **`animation-fill-mode`** property
-     * @category RBProperty
+     * @initial none
+     * @definition https://www.w3.org/TR/2018/WD-css-animations-1-20181011/#propdef-animation-fill-mode
+     * @specification {@link https://www.w3.org/TR/2018/WD-css-animations-1-20181011/ CSS Animations Level 1}.
      */
     animationFillMode: AnimationFillModePropValue
 }
+
 export type AnimationFillModeDeclarationJSS = {
     animationFillMode: ValueOrFunc<AnimationFillModePropValue>
 }

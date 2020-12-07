@@ -1,6 +1,6 @@
 import { Setoid } from './math'
 
-export const serialize = (x: Duration<any>): string => {
+const serialize = (x: Duration<any>): string => {
     const unitSuffix = x.unit === 'ms' ? 'ms' : 's'
     return `${x.data}${unitSuffix}`
 }

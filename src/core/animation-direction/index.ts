@@ -26,14 +26,16 @@ type AnimationDirectioPropValue = AnimationDirection
  * @category RBDeclarationTypeAlias
  */
 export type AnimationDirectionDeclaration = {
+    // @reviewed
     /**
      * Maps to CSS's **`animation-direction`** property
-     * @docsUrl https://www.rosebox.dev/api/#rb-prop-animationdirection
      * @initial normal
-     * @definition https://drafts.csswg.org/css-animations/#animation-direction
+     * @definition https://www.w3.org/TR/2018/WD-css-animations-1-20181011/#propdef-animation-direction
+     * @specification {@link https://www.w3.org/TR/2018/WD-css-animations-1-20181011/ CSS Animations Level 1}.
      */
     animationDirection: AnimationDirectioPropValue
 }
+
 export type AnimationDirectionDeclarationJSS = {
     animationDirection: ValueOrFunc<AnimationDirectioPropValue>
 }

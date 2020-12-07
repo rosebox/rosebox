@@ -29,16 +29,14 @@ type AnimationNamePropValue = AnimationName | GlobalCssKeyword
  */
 export type AnimationNameDeclaration = {
     /**
-     * Maps to CSS's **`animation-property`** property
-     * @category RBProperty
+     * Maps to CSS's **`animation-name`** property
+     * @initial none
+     * @definition https://www.w3.org/TR/2018/WD-css-animations-1-20181011/#animation-name
+     * @specification {@link https://www.w3.org/TR/2018/WD-css-animations-1-20181011/ CSS Animations Level 1}.
      */
     animationName: AnimationNamePropValue
 }
 
 export type AnimationNameDeclarationJSS = {
-    /**
-     * Maps to CSS's **`animation-property`** property
-     * @category RBProperty
-     */
     animationName: ValueOrFunc<AnimationNamePropValue>
 }
