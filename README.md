@@ -8,7 +8,7 @@ Rosebox is a Typescript library that models CSS in Typescript in a way that leve
 
 ## IMPORTANT NOTE 📢
 
-You can already use all the CSS properties in Rosebox. Missing ones on the API page only indicates that they are not **YET** strongly typed. To use an untyped property, write the property's name prefixed by an underscore (e.g., `_borderImageStyle`, `_all`). Those untyped props will have a type of `string`. When a property gets a strong type, its underscore-prefixed counterpart gets deprecated immediately. However, its removal may only be considered after a minimum of 2 major releases since the deprecation—for example, if `_borderImageStyle` gets deprecated in 0.6.4 means that it will be removed in 2.0.0
+You can already use all the CSS properties in Rosebox. Missing ones on the API page only indicates that they are not **YET** strongly typed. To use an untyped property, write the property's name prefixed by an underscore (e.g., `_borderImageStyle`, `_all`). Those untyped props will have a type of `string`. When a property gets a strong type, its underscore-prefixed counterpart gets deprecated immediately. However, its removal may only be considered after a minimum of 2 major releases since the deprecation—for example, if `_borderImageStyle` gets deprecated in 0.6.4 it means that it will be removed in 2.0.0.
 
 ## Docs
 
