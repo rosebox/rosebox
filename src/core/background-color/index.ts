@@ -13,7 +13,7 @@ type BackgroundColorPropValue = Color | GlobalCssKeyword
  */
 export type BgColorDeclaration = {
     /**
-     * A RB property that maps to CSS's **`background-color`** property
+     * Maps to CSS's **`background-color`** property
      * @initial transparent
      * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-background-color
      * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.

@@ -21,6 +21,7 @@ const isLengthTuple = (value: unknown): value is LengthTuple => Array.isArray(va
 const serializeLengthTuple = (value: LengthTuple): string =>
     (value as Length[]).reduce((acc, item) => acc + serializeAtomicValue(item) + ' ', '').trim()
 
+// @refactor
 export const serializeShadow = (value: Shadow): string => {
     return (value as (Color | LengthTuple | Color)[])
         .reduce((acc, item) => {
@@ -68,13 +69,13 @@ type BoxShadowPropValue = Shadow | Shadow[] | 'none' | GlobalCssKeyword
 export type BoxShadowDeclaration = {
     /**
      * Maps to CSS's **`box-shadow`** property
-     * @category RBProperty
-     * @formalSyntaxForValue none | <shadow>#
-     * @added 0.2.1
-     * @implementationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-box-shadow
+     * @initial none
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-box-shadow
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/ CSS Backgrounds and Borders Module Level 3}.
      */
     boxShadow: BoxShadowPropValue
 }
+
 export type BoxShadowDeclarationJSS = {
     boxShadow: ValueOrFunc<BoxShadowPropValue>
 }
