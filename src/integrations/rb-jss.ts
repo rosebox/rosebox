@@ -164,6 +164,7 @@ import { OutlineDeclarationJSS } from '../core/outline'
 import { RBStyle, style } from '..'
 import { camelCaseToDash } from '../dom'
 import { serializeAtomicValue } from '../core'
+import { UntypedPropsJSS } from '../untyped-props'
 
 export type RBJSSStyle = Partial<
     WidthDeclarationJSS &
@@ -312,9 +313,8 @@ export type RBJSSStyle = Partial<
         OutlineWidthDeclarationJSS &
         OutlineStyleDeclarationJSS &
         OutlineDeclarationJSS &
-        VoiceRateDeclarationJSS & {
-            [x: string]: any
-        }
+        VoiceRateDeclarationJSS &
+        UntypedPropsJSS
 >
 
 const isIntrinsic = (val: any) => typeof val === 'number' || typeof val === 'string'
