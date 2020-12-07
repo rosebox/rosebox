@@ -1,7 +1,7 @@
 import { Setoid } from './math'
 
 export const serialize = (x: Duration<any>): string => {
-    const unitSuffix = x.unit === 'milliseconds' ? 'ms' : 's'
+    const unitSuffix = x.unit === 'ms' ? 'ms' : 's'
     return `${x.data}${unitSuffix}`
 }
 
@@ -10,8 +10,8 @@ export const toSeconds = (x: Duration): Duration<'seconds'> => {
     return Duration.s(value)
 }
 
-export const toMilliseconds = (x: Duration): Duration<'milliseconds'> => {
-    const value = x.unit === 'milliseconds' ? x.data : x.data * 1000
+export const toMilliseconds = (x: Duration): Duration<'ms'> => {
+    const value = x.unit === 'ms' ? x.data : x.data * 1000
     return Duration.ms(value)
 }
 
@@ -21,20 +21,20 @@ const eq = (x: any, y: any): boolean => {
 }
 
 /** @ignore */
-const add = (x1: Duration, x2: Duration): Duration<'milliseconds'> => {
-    const x1ms = x1.unit === 'milliseconds' ? x1.data : x1.data * 1000
-    const x2m2 = x2.unit === 'milliseconds' ? x2.data : x2.data * 1000
+const add = (x1: Duration, x2: Duration): Duration<'ms'> => {
+    const x1ms = x1.unit === 'ms' ? x1.data : x1.data * 1000
+    const x2m2 = x2.unit === 'ms' ? x2.data : x2.data * 1000
     return ms(x1ms + x2m2)
 }
 
 /** @ignore */
-const sub = (x1: Duration, x2: Duration): Duration<'milliseconds'> => {
-    const x1ms = x1.unit === 'milliseconds' ? x1.data : x1.data * 1000
-    const x2m2 = x2.unit === 'milliseconds' ? x2.data : x2.data * 1000
+const sub = (x1: Duration, x2: Duration): Duration<'ms'> => {
+    const x1ms = x1.unit === 'ms' ? x1.data : x1.data * 1000
+    const x2m2 = x2.unit === 'ms' ? x2.data : x2.data * 1000
     return ms(x1ms - x2m2)
 }
 
-export type DurationUnit = 'milliseconds' | 'seconds'
+export type DurationUnit = 'ms' | 'seconds'
 
 /**
  *
@@ -50,15 +50,15 @@ export class Duration<A extends DurationUnit = DurationUnit> implements Setoid<D
     private constructor(unit: A, data: number) {
         this.unit = unit
         this.data = data
-        this.valueConstructor = unit === 'milliseconds' ? Duration.ms : Duration.s
+        this.valueConstructor = unit === 'ms' ? Duration.ms : Duration.s
         this.serialize = () => serialize(this)
     }
 
     /**
      * Constructs a value of type **`Duration<"milliseconds">`**
      */
-    static ms(x: number): Duration<'milliseconds'> {
-        return new Duration('milliseconds', x)
+    static ms(x: number): Duration<'ms'> {
+        return new Duration('ms', x)
     }
     /**
      * Constructs a value of type **`Duration<"seconds">`**
