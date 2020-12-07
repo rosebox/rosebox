@@ -30,7 +30,7 @@ type AnimationDurationPropValue = AnimationDuration | GlobalCssKeyword
 export type AnimationDurationDeclaration = {
     /**
      * Maps to CSS's **`animation-duration`** property
-     * @initial normal
+     * @initial 0s
      * @definition https://www.w3.org/TR/2018/WD-css-animations-1-20181011/#propdef-animation-duration
      * @specification {@link https://www.w3.org/TR/2018/WD-css-animations-1-20181011/ CSS Animations Level 1}.
      */

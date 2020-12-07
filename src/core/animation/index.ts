@@ -1,27 +1,25 @@
-import { AnimationName } from '../animation-name'
-import { AnimationDuration, serializeValue as serializeDuration } from '../animation-duration'
-import { GlobalCssKeyword, TimingFunctionValue, ValueOrFunc } from '../shared'
-import { AnimationDelay } from '../animation-delay'
-import { AnimationIterationCount } from '../animation-iteration-count'
-import { AnimationDirection } from '../animation-direction'
-import { AnimationFillMode } from '../animation-fill-mode'
+import { KeyFramesName } from '../animation-name'
+import { Duration, GlobalCssKeyword, serializeAtomicValue, TimingFunction, ValueOrFunc } from '../shared'
+import { AnimationDirectionKeyword } from '../animation-direction'
+import { AnimationFillModeKeyword } from '../animation-fill-mode'
+import { AnimationPlayStateKeyword } from '../animation-play-state'
 
 export type Animation = {
-    name?: AnimationName
-    duration?: AnimationDuration
-    timingFunction?: TimingFunctionValue
-    delay?: AnimationDelay
-    iterationCount?: AnimationIterationCount
-    direction?: AnimationDirection
-    fillMode?: AnimationFillMode
-    playState?: AnimationPlayState
+    name?: KeyFramesName | GlobalCssKeyword
+    duration?: Duration | GlobalCssKeyword
+    timingFunction?: TimingFunction | GlobalCssKeyword
+    delay?: Duration | GlobalCssKeyword
+    iterationCount?: 'infinit' | number | GlobalCssKeyword
+    direction?: AnimationDirectionKeyword | GlobalCssKeyword
+    fillMode?: AnimationFillModeKeyword | GlobalCssKeyword
+    playState?: AnimationPlayStateKeyword
 }
 
 const serializeSingleAnimationValue = (x: Animation): string => {
     const name = x.name || 'none'
-    const duration = x.duration ? serializeDuration(x.duration) : '0s'
+    const delay = serializeAtomicValue(x.delay) || '0s'
+    const duration = serializeAtomicValue(x.duration) || '0s'
     const timingFunction = x.timingFunction || 'ease'
-    const delay = x.delay ? serializeDuration(x.delay) : '0s'
     const iterationCount = x.iterationCount || 1
     const direction = x.direction || 'normal'
     const fillMode = x.fillMode || 'none'

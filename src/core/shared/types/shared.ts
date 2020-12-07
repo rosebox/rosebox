@@ -36,9 +36,10 @@ export type LineStyle =
 
 export const NAMESPACE = 'npmjs.com/package/rosebox'
 
-export const serializeAtomicValue = (x: string | number | RBType): string => {
+export const serializeAtomicValue = (x: string | number | null | undefined | RBType): string => {
     if (typeof x === 'number') return `${x}`
     if (typeof x === 'string') return x
+    if (x === undefined || x === null) return ''
     return x.serialize()
 }
 

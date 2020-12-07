@@ -69,7 +69,7 @@ type CubicBezierTimingFunction = 'ease' | 'ease-in' | 'ease-out' | 'ease-in-out'
 
 type StepTimingFunction = 'step-start' | 'step-end' | 'ease-out' | 'ease-in-out' | StepsFunction
 
-type TimingFunction = 'linear' | StepTimingFunction | CubicBezierTimingFunction
+export type TimingFunction = 'linear' | StepTimingFunction | CubicBezierTimingFunction
 
 /**
  * @hide

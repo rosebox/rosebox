@@ -1,11 +1,11 @@
 import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
-type AnimationFillModeKeyword = 'none' | 'forwards' | 'backwards' | 'both'
+export type AnimationFillModeKeyword = 'none' | 'forwards' | 'backwards' | 'both'
 
 /**
  * @hide
  */
-export type AnimationFillMode = AnimationFillModeKeyword | AnimationFillModeKeyword[]
+type AnimationFillMode = AnimationFillModeKeyword | AnimationFillModeKeyword[]
 
 const serializeValue = (value: AnimationFillModePropValue) => {
     const valArray = Array.isArray(value) ? value : [value]

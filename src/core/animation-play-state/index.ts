@@ -1,11 +1,6 @@
 import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
-type AnimationPlayStateKeyword = 'running' | 'paused'
-
-/**
- * @hide
- */
-export type AnimationPlayState = AnimationPlayStateKeyword | AnimationPlayStateKeyword[]
+export type AnimationPlayStateKeyword = 'running' | 'paused'
 
 const serializeValue = (value: AnimationPlayStatePropValue) => {
     const valArray = Array.isArray(value) ? value : [value]
@@ -20,7 +15,7 @@ export const serializeAnimationPlayState = (type: PropType) => (x: AnimationPlay
 }
 
 /** @hide */
-type AnimationPlayStatePropValue = AnimationPlayState | GlobalCssKeyword
+type AnimationPlayStatePropValue = AnimationPlayStateKeyword | AnimationPlayStateKeyword[] | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias

@@ -1,6 +1,6 @@
 import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
-type AnimationDirectionKeyword = 'normal' | 'reverse' | 'alternate' | 'alternate-reverse'
+export type AnimationDirectionKeyword = 'normal' | 'reverse' | 'alternate' | 'alternate-reverse'
 
 /**
  * @hide
