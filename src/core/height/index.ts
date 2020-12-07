@@ -19,10 +19,9 @@ type HeightPropValue = Width | Calculation | GlobalCssKeyword
 export type HeightDeclaration = {
     /**
      * Maps to CSS's **`height`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <length> | <percentage> | auto
-     * @added 0.2.0
-     * @implementationReference https://drafts.csswg.org/css2/visudet.html#propdef-height
+     * @initial auto
+     * @definition https://www.w3.org/TR/2011/REC-CSS2-20110607/visudet.html#propdef-height
+     * @specification {@link https://www.w3.org/TR/2011/REC-CSS2-20110607/visudet.html CSS 2.1}
      */
     height: HeightPropValue
 }
