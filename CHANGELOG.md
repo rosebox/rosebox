@@ -1,8 +1,9 @@
 # Chagngelog
 
-## [0.4.17] - 2020-12-07
+## [0.4.18] - 2020-12-07
 
 ### Changed
+- Signature for animation.
 - Annotations for some properties.
 - Type parameter for Duration
 
