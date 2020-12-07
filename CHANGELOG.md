@@ -1,7 +1,7 @@
 # Chagngelog
 
 ## [0.4.18] - 2020-12-07
-- Fixed type-guards for HEX and HSLA
+- Fixed type-guards for `HEX` and `HSLA`
 
 ## [0.4.0] - 2020-12-05
 
