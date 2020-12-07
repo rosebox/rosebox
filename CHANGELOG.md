@@ -1,17 +1,25 @@
 # Chagngelog
 
 ## [0.4.17] - 2020-12-07
-- Fixed type-guards for `HEX` and `HSLA`
+
+### Changed
+- Annotations for some properties.
+- Type parameter for Duration
+
+## [0.4.17] - 2020-12-07
+
+### Fixed
+- Type-guards for `HEX` and `HSLA`
 
 ## [0.4.0] - 2020-12-05
 
-## Added
+### Added
 - 🎉 🎉🎉 Support for CSS-classes using `@material-ui/styles` and `jss`.
 - Mathematical functions for Duration and Length (`add`, `sub`, `mult`, `div`) and `eq`.
 
 ## [0.3.97] - 2020-11-30
 
-## Changed
+### Changed
 - The `Length` type is now more fine-grained; now we have `Length<LengthUnit>`
 - The `Duration` type is now more fine-grained; now we have `Duration<DurationUnit>`
 - The `Calculation` type is now more fine-grained; now we have `Calculation<CalcOperation>`
