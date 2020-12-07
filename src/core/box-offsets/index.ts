@@ -14,10 +14,9 @@ type BoxOffsetPropValue = LengthPercentage | 'auto' | Calculation | GlobalCssKey
 export type TopDeclaration = {
     /**
      * Maps to CSS's **`top`** property
-     * @category RBProperty
-     * @formalSyntaxForValue auto | <length> | <percentage>
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
+     * @initial auto
+     * @definition https://www.w3.org/TR/2020/WD-css-position-3-20200519/#propdef-top
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-position-3-20200519/ CSS Positioned Layout Module Level 3}.
      */
     top: BoxOffsetPropValue
 }
@@ -31,10 +30,9 @@ export type TopDeclarationJSS = {
 export type RightDeclaration = {
     /**
      * Maps to CSS's **`right`** property
-     * @category RBProperty
-     * @formalSyntaxForValue auto | <length> | <percentage>
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
+     * @initial auto
+     * @definition https://www.w3.org/TR/2020/WD-css-position-3-20200519/#propdef-left
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-position-3-20200519/ CSS Positioned Layout Module Level 3}.
      */
     right: BoxOffsetPropValue
 }
@@ -50,10 +48,9 @@ export const serializeRight = serializeBoxOffset('right')
 export type BottomDeclaration = {
     /**
      * Maps to CSS's **`bottom`** property
-     * @category RBProperty
-     * @formalSyntaxForValue auto | <length> | <percentage>
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
+     * @initial auto
+     * @definition https://www.w3.org/TR/2020/WD-css-position-3-20200519/#propdef-bottom
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-position-3-20200519/ CSS Positioned Layout Module Level 3}.
      */
     bottom: BoxOffsetPropValue
 }
@@ -69,13 +66,13 @@ export const serializeBottom = serializeBoxOffset('bottom')
 export type LeftDeclaration = {
     /**
      * Maps to CSS's **`left`** property
-     * @category RBProperty
-     * @formalSyntaxForValue auto | <length> | <percentage>
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2016/WD-css-position-3-20160517/#box-offsets-trbl
+     * @initial auto
+     * @definition https://www.w3.org/TR/2020/WD-css-position-3-20200519/#propdef-left
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-position-3-20200519/ CSS Positioned Layout Module Level 3}.
      */
     left: BoxOffsetPropValue
 }
+
 export type LeftDeclarationJSS = {
     left: ValueOrFunc<BoxOffsetPropValue>
 }

@@ -19,13 +19,13 @@ type FlexDirectionPropValue = FlexDirection | GlobalCssKeyword
 export type FlexDirectionDeclaration = {
     /**
      * Maps to CSS's **`flex-direction`** property
-     * @category RBProperty
-     * @formalSyntaxForValue row | row-reverse | column | column-reverse
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-direction-property
+     * @initial row
+     * @definition https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#propdef-flex-direction
+     * @specification {@link https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/ CSS Flexible Box Layout Module Level 1}
      */
     flexDirection: FlexDirectionPropValue
 }
+
 export type FlexDirectionDeclarationJSS = {
     flexDirection: ValueOrFunc<FlexDirectionPropValue>
 }

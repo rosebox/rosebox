@@ -1,5 +1,3 @@
-// @reviewed
-
 import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 /** @hide */
@@ -59,6 +57,7 @@ export type JustifyContentDeclaration = {
      * Maps to CSS's **`justify-content`** property
      * @inital auto
      * @definition https://www.w3.org/TR/2020/WD-css-align-3-20200421/#justify-self-property
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-align-3-20200421/ CSS Box Alignment Module Level 3}.
      */
     justifyContent: JustifyContentPropValue
 }

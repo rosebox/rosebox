@@ -17,10 +17,9 @@ type LineHeightPropValue = 'normal' | number | LengthPercentage | Calculation | 
 export type LineHeightDeclaration = {
     /**
      * Maps to CSS's **`line-height`** property
-     * @category RBProperty
-     * @formalSyntaxForValue normal | <number> | <length> | <percentage> | inherit
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/CSS22/visudet.html#propdef-line-height
+     * @initial normal
+     * @definition https://www.w3.org/TR/2020/WD-css-inline-3-20200827/#propdef-line-height
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-inline-3-20200827/ CSS Inline Layout Module Level 3}
      */
     lineHeight: LineHeightPropValue
 }

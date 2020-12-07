@@ -25,13 +25,13 @@ type FlexBasisPropValue = FlexBasis | GlobalCssKeyword
 export type FlexBasisDeclaration = {
     /**
      * Maps to CSS's **`flex-basis`** property
-     * @category RBProperty
-     * @formalSyntaxForValue content | <‘width’>
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-basis-property
+     * @initial auto
+     * @definition https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#propdef-flex-basis
+     * @specification {@link https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/ CSS Flexible Box Layout Module Level 1}
      */
     flexBasis: FlexBasisPropValue
 }
+
 export type FlexBasisDeclarationJSS = {
     flexBasis: ValueOrFunc<FlexBasisPropValue>
 }

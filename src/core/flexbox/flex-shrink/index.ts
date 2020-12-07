@@ -16,13 +16,13 @@ type FlexShrinkPropValue = ShrinkGrow | GlobalCssKeyword
 export type FlexShrinkDeclaration = {
     /**
      * Maps to CSS's **`flex-shrink`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <number>
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-shrink-property
+     * @initial 1
+     * @definition https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#propdef-flex-shrink
+     * @specification {@link https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/ CSS Flexible Box Layout Module Level 1}
      */
     flexShrink: FlexShrinkPropValue
 }
+
 export type FlexShrinkDeclarationJSS = {
     flexShrink: ValueOrFunc<FlexShrinkPropValue>
 }

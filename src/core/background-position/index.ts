@@ -24,7 +24,6 @@ type BgPositionPropValue = Position | Position[] | GlobalCssKeyword
 export type BgPositionDeclaration = {
     /**
      * A RB property that maps to CSS's **`background-position`** property
-     * @category RBProperty
      */
     backgroundPosition: BgPositionPropValue
 }

@@ -10,7 +10,7 @@ export const serializeFlexGrow = (type: PropType) => (
 })
 
 /** @hide */
-type FlexGrowPropValue = ShrinkGrow | GlobalCssKeyword
+type FlexGrowPropValue = number | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias
@@ -18,10 +18,9 @@ type FlexGrowPropValue = ShrinkGrow | GlobalCssKeyword
 export type FlexGrowDeclaration = {
     /**
      * Maps to CSS's **`flex-grow`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <number>
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#flex-grow-property
+     * @initial 0
+     * @definition https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#propdef-flex-grow
+     * @specification {@link https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/ CSS Flexible Box Layout Module Level 1}
      */
     flexGrow: FlexGrowPropValue
 }

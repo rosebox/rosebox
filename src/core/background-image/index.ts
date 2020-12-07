@@ -19,9 +19,9 @@ type BackgroundImagePropValue = BackgroundImageValue | GlobalCssKeyword
 export type BgImageDeclaration = {
     /**
      * A RB property that maps to CSS's **`background-image`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <uri> | none | inherit
-     * @added https://www.w3.org/TR/2011/REC-CSS2-20110607/colors.html#propdef-background-image
+     * @initial none
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-background-image
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     backgroundImage: BackgroundImagePropValue
 }

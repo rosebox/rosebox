@@ -29,10 +29,9 @@ type BorderSidePropValue = Color | GlobalCssKeyword
 export type BorderTopColorDeclaration = {
     /**
      * Maps to CSS's **`border-top-color`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <color>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
+     * @initial currentColor
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderTopColor: BorderSidePropValue
 }
@@ -46,10 +45,9 @@ export type BorderTopColorDeclarationJSS = {
 export type BorderRightColorDeclaration = {
     /**
      * Maps to CSS's **`border-right-color`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <color>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
+     * @initial currentColor
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderRightColor: BorderSidePropValue
 }
@@ -63,10 +61,9 @@ export type BorderRightColorDeclarationJSS = {
 export type BorderBottomColorDeclaration = {
     /**
      * Maps to CSS's **`border-bottom-color`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <color>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
+     * @initial currentColor
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderBottomColor: BorderSidePropValue
 }
@@ -80,10 +77,9 @@ export type BorderBottomColorDeclarationJSS = {
 export type BorderLeftColorDeclaration = {
     /**
      * Maps to CSS's **`border-left-color`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <color>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
+     * @initial currentColor
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderLeftColor: BorderSidePropValue
 }
@@ -118,10 +114,9 @@ type BorderColorPropValue = BorderColor | GlobalCssKeyword
 export type BorderColorDeclaration = {
     /**
      * Maps to CSS's **`border-color`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <color>{1,4}
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
+     * @initial (see individual properties)
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-color
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderColor: BorderColorPropValue
 }

@@ -17,13 +17,13 @@ type ColorPropValue = Color | GlobalCssKeyword
 export type ColorDeclaration = {
     /**
      * Maps to CSS's **`color`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <color>
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2018/REC-css-color-3-20180619/#color0
+     * @initial transparent
+     * @definition https://www.w3.org/TR/2020/WD-css-color-4-20201112/#propdef-color
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-color-4-20201112/ CSS Backgrounds and Borders Module Level 4}.
      */
     color: ColorPropValue
 }
+
 export type ColorDeclarationJSS = {
     color: ValueOrFunc<ColorPropValue>
 }

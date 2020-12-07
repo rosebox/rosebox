@@ -191,10 +191,9 @@ type DisplayPropValue = DisplayValue | GlobalCssKeyword
 export type DisplayDeclaration = {
     /**
      * Maps to CSS's **`display`** property
-     * @category RBProperty
-     * @formalSyntaxForValue [ <display-outside> || <display-inside> ] | <display-listitem> | <display-internal> | <display-box> | <display-legacy>
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2019/CR-css-display-3-20190711/
+     * @initial inline
+     * @definition https://www.w3.org/TR/2020/CR-css-display-3-20200519/#propdef-display
+     * @specification {@link https://www.w3.org/TR/2020/CR-css-display-3-20200519/ CSS Display Module Level 3}
      */
     display: DisplayPropValue
 }

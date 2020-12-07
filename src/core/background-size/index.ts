@@ -33,7 +33,9 @@ type BackgroundSizePropValue = BackgroundSize | BackgroundSize[] | GlobalCssKeyw
 export type BackgroundSizeDeclaration = {
     /**
      * A RB property that maps to CSS's **`background-size`** property
-     * @category RBProperty
+     * @initial auto
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-background-size
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     backgroundSize: BackgroundSizePropValue
 }

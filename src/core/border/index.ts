@@ -8,6 +8,7 @@ import {
     ValueOrFunc,
 } from '../shared'
 import { Color } from '../shared'
+import { DoubleBar3 } from '../shared/types'
 
 type AtomicValue = Color | LineStyle | LineWidth
 
@@ -18,12 +19,12 @@ type BorderColorValue = Color
 /**
  * @hide
  */
-type Border = [BorderWidthValue, BorderStyleValue, BorderColorValue]
+type BorderValue = DoubleBar3<BorderWidthValue, BorderStyleValue, BorderColorValue>
 
 /** @hide */
-type BorderSidePropValue = Border | GlobalCssKeyword | 'none'
+type BorderSidePropValue = BorderValue | GlobalCssKeyword | 'none'
 
-const serializeBorderValue = (property: string) => (value: Border | GlobalCssKeyword) => ({
+const serializeBorderValue = (property: string) => (value: BorderSidePropValue) => ({
     [property]: isGlobalCssKeyword(value)
         ? value
         : !Array.isArray(value)
@@ -47,10 +48,9 @@ export const serializeBorder = (type: PropType) => serializeBorderValue(type ===
 export type BorderTopDeclaration = {
     /**
      * Maps to CSS's **`border-top`** property
-     * @category RBProperty
-     * @formalSyntaxForValue [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
+     * @initial See individual properties
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-border-top
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderTop: BorderSidePropValue
 }
@@ -64,10 +64,9 @@ export type BorderTopDeclarationJSS = {
 export type BorderRightDeclaration = {
     /**
      * Maps to CSS's **`border-right`** property
-     * @category RBProperty
-     * @formalSyntaxForValue [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
+     * @initial See individual properties
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-border-top
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderRight: BorderSidePropValue
 }
@@ -81,10 +80,9 @@ export type BorderRightDeclarationJSS = {
 export type BorderBottomDeclaration = {
     /**
      * Maps to CSS's **`border-bottom`** property
-     * @category RBProperty
-     * @formalSyntaxForValue [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
+     * @initial See individual properties
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-border-top
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderBottom: BorderSidePropValue
 }
@@ -98,10 +96,9 @@ export type BorderBottomDeclarationJSS = {
 export type BorderLeftDeclaration = {
     /**
      * Maps to CSS's **`border-left`** property
-     * @category RBProperty
-     * @formalSyntaxForValue [ <border-width> || <border-style> || <'border-top-color'> ] | inherit
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/CSS2/box.html#propdef-border-top
+     * @initial See individual properties
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-border-top
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderLeft: BorderSidePropValue
 }
@@ -115,8 +112,9 @@ export type BorderLeftDeclarationJSS = {
 export type BorderDeclaration = {
     /**
      * Maps to CSS's **`border`** property
-     * @category RBProperty
-     * @added 0.2.0
+     * @initial See individual properties
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-shorthands
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     border: BorderSidePropValue
 }

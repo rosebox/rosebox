@@ -15,10 +15,9 @@ type LetterSpacingPropValue = 'normal' | Length | GlobalCssKeyword
 export type LetterSpacingDeclaration = {
     /**
      * Maps to CSS's **`letter-spacing`** property
-     * @category RBProperty
-     * @formalSyntaxForValue normal | <length>
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2019/WD-css-text-3-20191113/#letter-spacing-property
+     * @initial normal
+     * @definition https://www.w3.org/TR/2020/WD-css-text-3-20201119/#propdef-letter-spacing
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-text-3-20201119/ CSS Text Module Level 3}
      */
     letterSpacing: LetterSpacingPropValue
 }

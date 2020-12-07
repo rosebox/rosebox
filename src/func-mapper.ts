@@ -78,7 +78,6 @@ import {
     serializePaddingX,
     serializePaddingY,
 } from './core/padding'
-import { serializeOrder } from './core/flexbox/order'
 import { serializeTransitionProperty } from './core/transition-property'
 import { serializeTransitionDelay } from './core/transition-delay'
 import { serializeTransitionTimingFunction } from './core/transition-timing-function'
@@ -224,7 +223,6 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
     padding: serializePadding,
     paddingX: serializePaddingX,
     paddingY: serializePaddingY,
-    order: serializeOrder,
     transitionProperty: serializeTransitionProperty,
     transitionDelay: serializeTransitionDelay,
     transitionTimingFunction: serializeTransitionTimingFunction,

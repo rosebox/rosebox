@@ -4,7 +4,7 @@ import { Duration } from '../shared'
 /**
  * @hide
  */
-export type AnimationDuration = GlobalCssKeyword | Duration | Duration[]
+export type AnimationDuration = Duration | Duration[]
 
 export const serializeValue = (value: AnimationDuration): string =>
     !Array.isArray(value)
@@ -30,7 +30,9 @@ type AnimationDurationPropValue = AnimationDuration | GlobalCssKeyword
 export type AnimationDurationDeclaration = {
     /**
      * Maps to CSS's **`animation-duration`** property
-     * @category RBProperty
+     * @initial normal
+     * @definition https://www.w3.org/TR/2018/WD-css-animations-1-20181011/#propdef-animation-duration
+     * @specification {@link https://www.w3.org/TR/2018/WD-css-animations-1-20181011/ CSS Animations Level 1}.
      */
     animationDuration: AnimationDurationPropValue
 }

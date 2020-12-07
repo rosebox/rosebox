@@ -24,10 +24,9 @@ type BorderSideStylePropValue = LineStyle | GlobalCssKeyword
 export type BorderTopStyleDeclaration = {
     /**
      * Maps to CSS's **`border-top-style`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-style>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-radius
+     * @initial none
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-style
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderTopStyle: LineStyle | GlobalCssKeyword
 }
@@ -41,10 +40,9 @@ export type BorderTopStyleDeclarationJSS = {
 export type BorderRightStyleDeclaration = {
     /**
      * Maps to CSS's **`border-right-style`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-style>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
+     * @initial none
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-style
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderRightStyle: BorderSideStylePropValue
 }
@@ -58,10 +56,9 @@ export type BorderRightStyleDeclarationJSS = {
 export type BorderBottomStyleDeclaration = {
     /**
      * Maps to CSS's **`border-bottom-style`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-style>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
+     * @initial none
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-style
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderBottomStyle: BorderSideStylePropValue
 }
@@ -75,10 +72,9 @@ export type BorderBottomStyleDeclarationJSS = {
 export type BorderLeftStyleDeclaration = {
     /**
      * Maps to CSS's **`border-left-style`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-style>
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
+     * @initial none
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#the-border-style
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderLeftStyle: BorderSideStylePropValue
 }
@@ -112,20 +108,12 @@ type BorderStylePropValue = BorderStyle | GlobalCssKeyword
 export type BorderStyleDeclaration = {
     /**
      * Maps to CSS's **`border-style`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-style>{1,4}
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
+     * @initial (see individual properties)
+     * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-border-style
+     * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderStyle: BorderStylePropValue
 }
 export type BorderStyleDeclarationJSS = {
-    /**
-     * Maps to CSS's **`border-style`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <line-style>{1,4}
-     * @added 0.2.0
-     * @implentationReference https://www.w3.org/TR/css-backgrounds-3/#the-border-style
-     */
     borderStyle: ValueOrFunc<BorderStylePropValue>
 }

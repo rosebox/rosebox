@@ -28,7 +28,9 @@ type AnimationPlayStatePropValue = AnimationPlayState | GlobalCssKeyword
 export type AnimationPlayStateDeclaration = {
     /**
      * Maps to CSS's **`animation-play-state`** property
-     * @category RBProperty
+     * @initial running
+     * @definition https://www.w3.org/TR/2018/WD-css-animations-1-20181011/#animation-play-state
+     * @specification {@link https://www.w3.org/TR/2018/WD-css-animations-1-20181011/ CSS Animations Level 1}.
      */
     animationPlayState: AnimationPlayStatePropValue
 }

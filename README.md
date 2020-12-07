@@ -4,7 +4,11 @@
 
 # Rosebox 🌹
 
-Rosebox is a Typescript library that models CSS in Typescript in a way that leverages the capabilities of Typescript's type system and Javascript as a programming language, providing strong types, functions, and an overall more structured and improved syntax.
+Rosebox is a Typescript library that models CSS in Typescript in a way that leverages the capabilities of Typescript's type system and Javascript as a programming language, providing strong types, functions, and overall a more structured syntax.
+
+## IMPORTANT NOTE
+
+You can already use all the CSS properties in Rosebox, missing props in the API only indicates that they are not **YET** strongly typed.
 
 ## Docs
 

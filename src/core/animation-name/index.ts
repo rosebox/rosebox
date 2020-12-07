@@ -2,10 +2,12 @@ import { CustomIdent, GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrF
 
 const toHyphenCase = (x: string) => x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())
 
+type KeyFramesName = CustomIdent | string
+
 /**
  * @hide
  */
-export type AnimationName = 'none' | CustomIdent | string | (string | CustomIdent)[]
+export type AnimationName = 'none' | KeyFramesName | ('none' | KeyFramesName)[]
 
 const cb = (x: string | CustomIdent): string => toHyphenCase(serializeAtomicValue(x))
 
@@ -29,16 +31,14 @@ type AnimationNamePropValue = AnimationName | GlobalCssKeyword
  */
 export type AnimationNameDeclaration = {
     /**
-     * Maps to CSS's **`animation-property`** property
-     * @category RBProperty
+     * Maps to CSS's **`animation-name`** property
+     * @initial none
+     * @definition https://www.w3.org/TR/2018/WD-css-animations-1-20181011/#animation-name
+     * @specification {@link https://www.w3.org/TR/2018/WD-css-animations-1-20181011/ CSS Animations Level 1}.
      */
     animationName: AnimationNamePropValue
 }
 
 export type AnimationNameDeclarationJSS = {
-    /**
-     * Maps to CSS's **`animation-property`** property
-     * @category RBProperty
-     */
     animationName: ValueOrFunc<AnimationNamePropValue>
 }
