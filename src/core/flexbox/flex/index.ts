@@ -1,3 +1,5 @@
+// @revisionRequired
+
 import { GlobalCssKeyword, ValueOrFunc } from '../../shared'
 import { ShrinkGrow } from '../shared'
 import { FlexBasis, serializeFlexBasisValue } from '../flex-basis'
