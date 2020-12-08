@@ -157,6 +157,8 @@ import { OutlineWidthDeclaration } from './core/outline-width'
 import { OutlineStyleDeclaration } from './core/outline-style'
 import { OutlineDeclaration } from './core/outline'
 import { UntypedProps } from './untyped-props'
+import { justifySelfDeclaration } from './core/justify-self'
+import { JustifyItemsDeclaration } from './core/justify-items'
 
 export * from './core'
 export { rbJSS, makeStylesRB, jssPreset } from './integrations'
@@ -310,6 +312,8 @@ export type RBStyle = Partial<
         OutlineStyleDeclaration &
         OutlineDeclaration &
         VoiceRateDeclaration &
+        justifySelfDeclaration &
+        JustifyItemsDeclaration &
         UntypedProps
 >
 

@@ -97,6 +97,7 @@ import { TransitionDeclarationJSS } from '../core/transition'
 import { TransitionDurationDeclarationJSS } from '../core/transition-duration'
 import { BoxShadowDeclarationJSS } from '../core/box-shadow'
 import { JustifyContentDeclarationJSS } from '../core/justify-content'
+import { JustifyItemsDeclarationJSS } from '../core/justify-items'
 import { AlignItemsDeclarationJSS } from '../core/align-items'
 import { TransformDeclarationJSS } from '../core/transform'
 import { TransformOriginDeclarationJSS } from '../core/transform-origin'
@@ -165,6 +166,7 @@ import { RBStyle, style } from '..'
 import { camelCaseToDash } from '../dom'
 import { serializeAtomicValue } from '../core'
 import { UntypedPropsJSS } from '../untyped-props'
+import { justifySelfDeclarationJSS } from '../core/justify-self'
 
 export type RBJSSStyle = Partial<
     WidthDeclarationJSS &
@@ -314,6 +316,8 @@ export type RBJSSStyle = Partial<
         OutlineStyleDeclarationJSS &
         OutlineDeclarationJSS &
         VoiceRateDeclarationJSS &
+        justifySelfDeclarationJSS &
+        JustifyItemsDeclarationJSS &
         UntypedPropsJSS
 >
 
