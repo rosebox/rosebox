@@ -1,13 +1,10 @@
 import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
-/** @hide */
+type ContentDistribution = 'space-between' | 'space-around' | 'space-evenly' | 'stretch'
+
 type JustifyContentValue =
-    | 'auto'
     | 'normal'
-    | 'stretch'
-    | ['first', 'baseline']
-    | ['last', 'baseline']
-    | 'baseline'
+    | ContentDistribution
     | 'center'
     | ['safe', 'center']
     | ['unsafe', 'center']
@@ -17,12 +14,6 @@ type JustifyContentValue =
     | 'end'
     | ['safe', 'end']
     | ['unsafe', 'end']
-    | 'self-start'
-    | ['safe', 'self-start']
-    | ['unsafe', 'self-start']
-    | 'self-end'
-    | ['safe', 'self-end']
-    | ['unsafe', 'self-end']
     | 'flex-start'
     | ['safe', 'flex-start']
     | ['unsafe', 'flex-start']
