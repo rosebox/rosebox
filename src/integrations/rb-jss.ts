@@ -167,6 +167,7 @@ import { camelCaseToDash } from '../dom'
 import { serializeAtomicValue } from '../core'
 import { UntypedPropsJSS } from '../untyped-props'
 import { justifySelfDeclarationJSS } from '../core/justify-self'
+import { BorderImageSourceDeclarationJSS } from '../core/border-image-source'
 
 export type RBJSSStyle = Partial<
     WidthDeclarationJSS &
@@ -318,6 +319,7 @@ export type RBJSSStyle = Partial<
         VoiceRateDeclarationJSS &
         justifySelfDeclarationJSS &
         JustifyItemsDeclarationJSS &
+        BorderImageSourceDeclarationJSS &
         UntypedPropsJSS
 >
 
@@ -330,7 +332,7 @@ const toCSSMap = (obj: RBStyle) => {
     return Object.fromEntries(objs)
 }
 
-const style2 = (obj: any) => {
+export const styleCSS__ = (obj: any) => {
     // NEEDS improvement
     return Object.keys(obj).reduce((acc, key) => {
         const serializerKey = key.replace(/-([a-z])/g, function (g) {
@@ -353,7 +355,7 @@ const style2 = (obj: any) => {
 export const rbJSS = (): Plugin => {
     return {
         onProcessStyle: (style: JssStyle) => {
-            return style ? style2(style) : style
+            return style ? styleCSS__(style) : style
         },
         onChangeValue: (value: any) => {
             return value ? serializeAtomicValue(value) : value

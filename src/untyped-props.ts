@@ -94,6 +94,7 @@ export type UntypedProps = {
     _borderImageOutset: string
     _borderImageRepeat: string
     _borderImageSlice: string
+    /** @deprecated since 0.4.5 */
     _borderImageSource: string
     _borderImageWidth: string
     _borderInline: string
@@ -769,6 +770,7 @@ export type UntypedPropsJSS = {
     _borderImageOutset: ValueOrFunc<string>
     _borderImageRepeat: ValueOrFunc<string>
     _borderImageSlice: ValueOrFunc<string>
+    /** @deprecated since 0.4.5 */
     _borderImageSource: ValueOrFunc<string>
     _borderImageWidth: ValueOrFunc<string>
     _borderInline: ValueOrFunc<string>
