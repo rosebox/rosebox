@@ -165,6 +165,7 @@ import { RBStyle, style } from '..'
 import { camelCaseToDash } from '../dom'
 import { serializeAtomicValue } from '../core'
 import { UntypedPropsJSS } from '../untyped-props'
+import { justifySelfDeclarationJSS } from '../core/justify-self'
 
 export type RBJSSStyle = Partial<
     WidthDeclarationJSS &
@@ -314,6 +315,7 @@ export type RBJSSStyle = Partial<
         OutlineStyleDeclarationJSS &
         OutlineDeclarationJSS &
         VoiceRateDeclarationJSS &
+        justifySelfDeclarationJSS &
         UntypedPropsJSS
 >
 

@@ -1,50 +1,50 @@
 import { ValueOrFunc } from './core'
 
 export type UntypedProps = {
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _alignContent: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _alignItems: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _alignSelf: string
     _alignmentBaseline: string
     _all: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animation: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationDelay: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationDirection: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationDuration: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationFillMode: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationIterationCount: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationName: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationPlayState: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationTimingFunction: string
     _appearance: string
     _aspectRatio: string
     _azimuth: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _backfaceVisibility: string
     _background: string
     _backgroundAttachment: string
     _backgroundBlendMode: string
     _backgroundClip: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _backgroundColor: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _backgroundImage: string
     _backgroundOrigin: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _backgroundPosition: string
     _backgroundRepeat: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _backgroundSize: string
     _baselineShift: string
     _baselineSource: string
@@ -58,7 +58,7 @@ export type UntypedProps = {
     _bookmarkLabel: string
     _bookmarkLevel: string
     _bookmarkState: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _border: string
     _borderBlock: string
     _borderBlockColor: string
@@ -72,21 +72,21 @@ export type UntypedProps = {
     _borderBlockStartWidth: string
     _borderBlockStyle: string
     _borderBlockWidth: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottom: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottomColor: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottomLeftRadius: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottomRightRadius: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottomStyle: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottomWidth: string
     _borderBoundary: string
     _borderCollapse: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderColor: string
     _borderEndEndRadius: string
     _borderEndStartRadius: string
@@ -108,49 +108,49 @@ export type UntypedProps = {
     _borderInlineStartWidth: string
     _borderInlineStyle: string
     _borderInlineWidth: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderLeft: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderLeftColor: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderLeftStyle: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderLeftWidth: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderRadius: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderRight: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderRightColor: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderRightStyle: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderRightWidth: string
     _borderSpacing: string
     _borderStartEndRadius: string
     _borderStartStartRadius: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderStyle: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTop: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTopColor: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTopLeftRadius: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTopRightRadius: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTopStyle: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTopWidth: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderWidth: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _bottom: string
     _boxDecorationBreak: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _boxShadow: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _boxSizing: string
     _boxSnap: string
     _breakAfter: string
@@ -165,7 +165,7 @@ export type UntypedProps = {
     _clip: string
     _clipPath: string
     _clipRule: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _color: string
     _colorAdjust: string
     _colorInterpolationFilters: string
@@ -193,7 +193,7 @@ export type UntypedProps = {
     _cueBefore: string
     _cursor: string
     _direction: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _display: string
     _dominantBaseline: string
     _elevation: string
@@ -209,19 +209,19 @@ export type UntypedProps = {
     _fillRule: string
     _fillSize: string
     _filter: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flex: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexBasis: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexDirection: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexFlow: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexGrow: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexShrink: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexWrap: string
     _float: string
     _floatDefer: string
@@ -233,47 +233,47 @@ export type UntypedProps = {
     _flowFrom: string
     _flowInto: string
     _font: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontFamily: string
     _fontFeatureSettings: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontKerning: string
     _fontLanguageOverride: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontOpticalSizing: string
     _fontPalette: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSize: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSizeAdjust: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontStretch: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontStyle: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSynthesis: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSynthesisSmallCaps: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSynthesisStyle: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSynthesisWeight: string
     _fontVariant: string
     _fontVariantAlternates: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariantCaps: string
     _fontVariantEastAsian: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariantEmoji: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariantLigatures: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariantNumeric: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariantPosition: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariationSettings: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontWeight: string
     _footnoteDisplay: string
     _footnotePolicy: string
@@ -296,7 +296,7 @@ export type UntypedProps = {
     _gridTemplateColumns: string
     _gridTemplateRows: string
     _hangingPunctuation: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _height: string
     _hyphenateCharacter: string
     _hyphenateLimitChars: string
@@ -320,20 +320,21 @@ export type UntypedProps = {
     _insetInlineEnd: string
     _insetInlineStart: string
     _isolation: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _justifyContent: string
     _justifyItems: string
+    /** @deprecated since 0.4.4 */
     _justifySelf: string
     _leadingTrim: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _left: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _letterSpacing: string
     _lightingColor: string
     _lineBreak: string
     _lineClamp: string
     _lineGrid: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _lineHeight: string
     _lineHeightStep: string
     _linePadding: string
@@ -342,22 +343,22 @@ export type UntypedProps = {
     _listStyleImage: string
     _listStylePosition: string
     _listStyleType: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _margin: string
     _marginBlock: string
     _marginBlockEnd: string
     _marginBlockStart: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _marginBottom: string
     _marginBreak: string
     _marginInline: string
     _marginInlineEnd: string
     _marginInlineStart: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _marginLeft: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _marginRight: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _marginTop: string
     _marginTrim: string
     _marker: string
@@ -390,10 +391,10 @@ export type UntypedProps = {
     _maxHeight: string
     _maxInlineSize: string
     _maxLines: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _maxWidth: string
     _minBlockSize: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _minHeight: string
     _minInlineSize: string
     _minIntrinsicSizing: string
@@ -411,51 +412,51 @@ export type UntypedProps = {
     _offsetPath: string
     _offsetPosition: string
     _offsetRotate: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _opacity: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _order: string
     _orphans: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _outline: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _outlineColor: string
     _outlineOffset: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _outlineStyle: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _outlineWidth: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _overflow: string
     _overflowAnchor: string
     _overflowBlock: string
     _overflowClipMargin: string
     _overflowInline: string
     _overflowWrap: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _overflowX: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _overflowY: string
     _overscrollBehavior: string
     _overscrollBehaviorBlock: string
     _overscrollBehaviorInline: string
     _overscrollBehaviorX: string
     _overscrollBehaviorY: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _padding: string
     _paddingBlock: string
     _paddingBlockEnd: string
     _paddingBlockStart: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _paddingBottom: string
     _paddingInline: string
     _paddingInlineEnd: string
     _paddingInlineStart: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _paddingLeft: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _paddingRight: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _paddingTop: string
     _page: string
     _pageBreakAfter: string
@@ -472,7 +473,7 @@ export type UntypedProps = {
     _placeItems: string
     _placeSelf: string
     _playDuring: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _position: string
     _propertyName: string
     _quotes: string
@@ -482,7 +483,7 @@ export type UntypedProps = {
     _restAfter: string
     _restBefore: string
     _richness: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _right: string
     _rotate: string
     _rowGap: string
@@ -559,7 +560,7 @@ export type UntypedProps = {
     _strokeWidth: string
     _tabSize: string
     _tableLayout: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textAlign: string
     _textAlignAll: string
     _textAlignLast: string
@@ -576,90 +577,90 @@ export type UntypedProps = {
     _textDecorationStyle: string
     _textDecorationThickness: string
     _textEdge: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textEmphasis: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textEmphasisColor: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textEmphasisPosition: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textEmphasisSkip: string
     _textEmphasisStyle: string
     _textGroupAlign: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textIndent: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textJustify: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textOrientation: string
     _textOverflow: string
     _textShadow: string
     _textSpaceCollapse: string
     _textSpaceTrim: string
     _textSpacing: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textTransform: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textUnderlineOffset: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textUnderlinePosition: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textWrap: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _top: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transform: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transformBox: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transformOrigin: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transformStyle: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transition: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transitionDelay: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transitionDuration: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transitionProperty: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transitionTimingFunction: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _translate: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _unicodeBidi: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _userSelect: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _verticalAlign: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _visibility: string
     _voiceBalance: string
     _voiceDuration: string
     _voiceFamily: string
     _voicePitch: string
     _voiceRange: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _voiceRate: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _voiceStress: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _voiceVolume: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _volume: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _whiteSpace: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _widows: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _width: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _willChange: string
     _wordBoundaryDetection: string
     _wordBoundaryExpansion: string
     _wordBreak: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _wordSpacing: string
     _wordWrap: string
     _wrapAfter: string
@@ -667,57 +668,57 @@ export type UntypedProps = {
     _wrapFlow: string
     _wrapInside: string
     _wrapThrough: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _writingMode: string
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _zIndex: string
 }
 
 export type UntypedPropsJSS = {
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _alignContent: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _alignItems: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _alignSelf: ValueOrFunc<string>
     _alignmentBaseline: ValueOrFunc<string>
     _all: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animation: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationDelay: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationDirection: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationDuration: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationFillMode: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationIterationCount: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationName: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationPlayState: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _animationTimingFunction: ValueOrFunc<string>
     _appearance: ValueOrFunc<string>
     _aspectRatio: ValueOrFunc<string>
     _azimuth: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _backfaceVisibility: ValueOrFunc<string>
     _background: ValueOrFunc<string>
     _backgroundAttachment: ValueOrFunc<string>
     _backgroundBlendMode: ValueOrFunc<string>
     _backgroundClip: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _backgroundColor: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _backgroundImage: ValueOrFunc<string>
     _backgroundOrigin: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _backgroundPosition: ValueOrFunc<string>
     _backgroundRepeat: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _backgroundSize: ValueOrFunc<string>
     _baselineShift: ValueOrFunc<string>
     _baselineSource: ValueOrFunc<string>
@@ -731,7 +732,7 @@ export type UntypedPropsJSS = {
     _bookmarkLabel: ValueOrFunc<string>
     _bookmarkLevel: ValueOrFunc<string>
     _bookmarkState: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _border: ValueOrFunc<string>
     _borderBlock: ValueOrFunc<string>
     _borderBlockColor: ValueOrFunc<string>
@@ -745,21 +746,21 @@ export type UntypedPropsJSS = {
     _borderBlockStartWidth: ValueOrFunc<string>
     _borderBlockStyle: ValueOrFunc<string>
     _borderBlockWidth: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottom: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottomColor: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottomLeftRadius: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottomRightRadius: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottomStyle: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderBottomWidth: ValueOrFunc<string>
     _borderBoundary: ValueOrFunc<string>
     _borderCollapse: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderColor: ValueOrFunc<string>
     _borderEndEndRadius: ValueOrFunc<string>
     _borderEndStartRadius: ValueOrFunc<string>
@@ -781,49 +782,49 @@ export type UntypedPropsJSS = {
     _borderInlineStartWidth: ValueOrFunc<string>
     _borderInlineStyle: ValueOrFunc<string>
     _borderInlineWidth: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderLeft: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderLeftColor: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderLeftStyle: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderLeftWidth: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderRadius: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderRight: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderRightColor: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderRightStyle: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderRightWidth: ValueOrFunc<string>
     _borderSpacing: ValueOrFunc<string>
     _borderStartEndRadius: ValueOrFunc<string>
     _borderStartStartRadius: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderStyle: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTop: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTopColor: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTopLeftRadius: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTopRightRadius: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTopStyle: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderTopWidth: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _borderWidth: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _bottom: ValueOrFunc<string>
     _boxDecorationBreak: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _boxShadow: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _boxSizing: ValueOrFunc<string>
     _boxSnap: ValueOrFunc<string>
     _breakAfter: ValueOrFunc<string>
@@ -838,7 +839,7 @@ export type UntypedPropsJSS = {
     _clip: ValueOrFunc<string>
     _clipPath: ValueOrFunc<string>
     _clipRule: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _color: ValueOrFunc<string>
     _colorAdjust: ValueOrFunc<string>
     _colorInterpolationFilters: ValueOrFunc<string>
@@ -866,7 +867,7 @@ export type UntypedPropsJSS = {
     _cueBefore: ValueOrFunc<string>
     _cursor: ValueOrFunc<string>
     _direction: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _display: ValueOrFunc<string>
     _dominantBaseline: ValueOrFunc<string>
     _elevation: ValueOrFunc<string>
@@ -882,19 +883,19 @@ export type UntypedPropsJSS = {
     _fillRule: ValueOrFunc<string>
     _fillSize: ValueOrFunc<string>
     _filter: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flex: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexBasis: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexDirection: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexFlow: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexGrow: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexShrink: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _flexWrap: ValueOrFunc<string>
     _float: ValueOrFunc<string>
     _floatDefer: ValueOrFunc<string>
@@ -906,47 +907,47 @@ export type UntypedPropsJSS = {
     _flowFrom: ValueOrFunc<string>
     _flowInto: ValueOrFunc<string>
     _font: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontFamily: ValueOrFunc<string>
     _fontFeatureSettings: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontKerning: ValueOrFunc<string>
     _fontLanguageOverride: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontOpticalSizing: ValueOrFunc<string>
     _fontPalette: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSize: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSizeAdjust: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontStretch: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontStyle: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSynthesis: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSynthesisSmallCaps: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSynthesisStyle: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontSynthesisWeight: ValueOrFunc<string>
     _fontVariant: ValueOrFunc<string>
     _fontVariantAlternates: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariantCaps: ValueOrFunc<string>
     _fontVariantEastAsian: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariantEmoji: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariantLigatures: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariantNumeric: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariantPosition: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontVariationSettings: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _fontWeight: ValueOrFunc<string>
     _footnoteDisplay: ValueOrFunc<string>
     _footnotePolicy: ValueOrFunc<string>
@@ -969,7 +970,7 @@ export type UntypedPropsJSS = {
     _gridTemplateColumns: ValueOrFunc<string>
     _gridTemplateRows: ValueOrFunc<string>
     _hangingPunctuation: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _height: ValueOrFunc<string>
     _hyphenateCharacter: ValueOrFunc<string>
     _hyphenateLimitChars: ValueOrFunc<string>
@@ -993,20 +994,21 @@ export type UntypedPropsJSS = {
     _insetInlineEnd: ValueOrFunc<string>
     _insetInlineStart: ValueOrFunc<string>
     _isolation: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _justifyContent: ValueOrFunc<string>
     _justifyItems: ValueOrFunc<string>
+    /** @deprecated since 0.4.4 */
     _justifySelf: ValueOrFunc<string>
     _leadingTrim: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _left: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _letterSpacing: ValueOrFunc<string>
     _lightingColor: ValueOrFunc<string>
     _lineBreak: ValueOrFunc<string>
     _lineClamp: ValueOrFunc<string>
     _lineGrid: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _lineHeight: ValueOrFunc<string>
     _lineHeightStep: ValueOrFunc<string>
     _linePadding: ValueOrFunc<string>
@@ -1015,22 +1017,22 @@ export type UntypedPropsJSS = {
     _listStyleImage: ValueOrFunc<string>
     _listStylePosition: ValueOrFunc<string>
     _listStyleType: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _margin: ValueOrFunc<string>
     _marginBlock: ValueOrFunc<string>
     _marginBlockEnd: ValueOrFunc<string>
     _marginBlockStart: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _marginBottom: ValueOrFunc<string>
     _marginBreak: ValueOrFunc<string>
     _marginInline: ValueOrFunc<string>
     _marginInlineEnd: ValueOrFunc<string>
     _marginInlineStart: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _marginLeft: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _marginRight: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _marginTop: ValueOrFunc<string>
     _marginTrim: ValueOrFunc<string>
     _marker: ValueOrFunc<string>
@@ -1063,10 +1065,10 @@ export type UntypedPropsJSS = {
     _maxHeight: ValueOrFunc<string>
     _maxInlineSize: ValueOrFunc<string>
     _maxLines: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _maxWidth: ValueOrFunc<string>
     _minBlockSize: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _minHeight: ValueOrFunc<string>
     _minInlineSize: ValueOrFunc<string>
     _minIntrinsicSizing: ValueOrFunc<string>
@@ -1084,51 +1086,51 @@ export type UntypedPropsJSS = {
     _offsetPath: ValueOrFunc<string>
     _offsetPosition: ValueOrFunc<string>
     _offsetRotate: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _opacity: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _order: ValueOrFunc<string>
     _orphans: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _outline: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _outlineColor: ValueOrFunc<string>
     _outlineOffset: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _outlineStyle: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _outlineWidth: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _overflow: ValueOrFunc<string>
     _overflowAnchor: ValueOrFunc<string>
     _overflowBlock: ValueOrFunc<string>
     _overflowClipMargin: ValueOrFunc<string>
     _overflowInline: ValueOrFunc<string>
     _overflowWrap: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _overflowX: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _overflowY: ValueOrFunc<string>
     _overscrollBehavior: ValueOrFunc<string>
     _overscrollBehaviorBlock: ValueOrFunc<string>
     _overscrollBehaviorInline: ValueOrFunc<string>
     _overscrollBehaviorX: ValueOrFunc<string>
     _overscrollBehaviorY: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _padding: ValueOrFunc<string>
     _paddingBlock: ValueOrFunc<string>
     _paddingBlockEnd: ValueOrFunc<string>
     _paddingBlockStart: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _paddingBottom: ValueOrFunc<string>
     _paddingInline: ValueOrFunc<string>
     _paddingInlineEnd: ValueOrFunc<string>
     _paddingInlineStart: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _paddingLeft: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _paddingRight: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _paddingTop: ValueOrFunc<string>
     _page: ValueOrFunc<string>
     _pageBreakAfter: ValueOrFunc<string>
@@ -1145,7 +1147,7 @@ export type UntypedPropsJSS = {
     _placeItems: ValueOrFunc<string>
     _placeSelf: ValueOrFunc<string>
     _playDuring: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _position: ValueOrFunc<string>
     _propertyName: ValueOrFunc<string>
     _quotes: ValueOrFunc<string>
@@ -1155,7 +1157,7 @@ export type UntypedPropsJSS = {
     _restAfter: ValueOrFunc<string>
     _restBefore: ValueOrFunc<string>
     _richness: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _right: ValueOrFunc<string>
     _rotate: ValueOrFunc<string>
     _rowGap: ValueOrFunc<string>
@@ -1232,7 +1234,7 @@ export type UntypedPropsJSS = {
     _strokeWidth: ValueOrFunc<string>
     _tabSize: ValueOrFunc<string>
     _tableLayout: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textAlign: ValueOrFunc<string>
     _textAlignAll: ValueOrFunc<string>
     _textAlignLast: ValueOrFunc<string>
@@ -1249,90 +1251,90 @@ export type UntypedPropsJSS = {
     _textDecorationStyle: ValueOrFunc<string>
     _textDecorationThickness: ValueOrFunc<string>
     _textEdge: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textEmphasis: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textEmphasisColor: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textEmphasisPosition: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textEmphasisSkip: ValueOrFunc<string>
     _textEmphasisStyle: ValueOrFunc<string>
     _textGroupAlign: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textIndent: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textJustify: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textOrientation: ValueOrFunc<string>
     _textOverflow: ValueOrFunc<string>
     _textShadow: ValueOrFunc<string>
     _textSpaceCollapse: ValueOrFunc<string>
     _textSpaceTrim: ValueOrFunc<string>
     _textSpacing: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textTransform: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textUnderlineOffset: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textUnderlinePosition: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _textWrap: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _top: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transform: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transformBox: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transformOrigin: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transformStyle: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transition: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transitionDelay: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transitionDuration: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transitionProperty: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _transitionTimingFunction: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _translate: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _unicodeBidi: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _userSelect: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _verticalAlign: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _visibility: ValueOrFunc<string>
     _voiceBalance: ValueOrFunc<string>
     _voiceDuration: ValueOrFunc<string>
     _voiceFamily: ValueOrFunc<string>
     _voicePitch: ValueOrFunc<string>
     _voiceRange: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _voiceRate: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _voiceStress: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _voiceVolume: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _volume: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _whiteSpace: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _widows: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _width: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _willChange: ValueOrFunc<string>
     _wordBoundaryDetection: ValueOrFunc<string>
     _wordBoundaryExpansion: ValueOrFunc<string>
     _wordBreak: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _wordSpacing: ValueOrFunc<string>
     _wordWrap: ValueOrFunc<string>
     _wrapAfter: ValueOrFunc<string>
@@ -1340,8 +1342,8 @@ export type UntypedPropsJSS = {
     _wrapFlow: ValueOrFunc<string>
     _wrapInside: ValueOrFunc<string>
     _wrapThrough: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _writingMode: ValueOrFunc<string>
-    /** @deprecated */
+    /** @deprecated since 0.4.3 */
     _zIndex: ValueOrFunc<string>
 }
