@@ -97,6 +97,7 @@ import { TransitionDeclarationJSS } from '../core/transition'
 import { TransitionDurationDeclarationJSS } from '../core/transition-duration'
 import { BoxShadowDeclarationJSS } from '../core/box-shadow'
 import { JustifyContentDeclarationJSS } from '../core/justify-content'
+import { JustifyItemsDeclarationJSS } from '../core/justify-items'
 import { AlignItemsDeclarationJSS } from '../core/align-items'
 import { TransformDeclarationJSS } from '../core/transform'
 import { TransformOriginDeclarationJSS } from '../core/transform-origin'
@@ -316,6 +317,7 @@ export type RBJSSStyle = Partial<
         OutlineDeclarationJSS &
         VoiceRateDeclarationJSS &
         justifySelfDeclarationJSS &
+        JustifyItemsDeclarationJSS &
         UntypedPropsJSS
 >
 

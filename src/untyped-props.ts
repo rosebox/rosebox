@@ -322,6 +322,7 @@ export type UntypedProps = {
     _isolation: string
     /** @deprecated since 0.4.3 */
     _justifyContent: string
+    /** @deprecated since 0.4.4 */
     _justifyItems: string
     /** @deprecated since 0.4.4 */
     _justifySelf: string
@@ -996,6 +997,7 @@ export type UntypedPropsJSS = {
     _isolation: ValueOrFunc<string>
     /** @deprecated since 0.4.3 */
     _justifyContent: ValueOrFunc<string>
+    /** @deprecated since 0.4.4 */
     _justifyItems: ValueOrFunc<string>
     /** @deprecated since 0.4.4 */
     _justifySelf: ValueOrFunc<string>

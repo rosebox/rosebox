@@ -129,6 +129,7 @@ import { serializeFontKerning } from './core/font-kerning'
 import { serializeFontOpticalSizing } from './core/font-optical-sizing'
 import { serializeFontStyle } from './core/font-style'
 import { serializejustifySelf } from './core/justify-self'
+import { serializejustifyItems } from './core/justify-items'
 
 export const funcMap: any = (type: 'inline' | 'css') => ({
     alignContent: serializeAlignContent(type),
@@ -196,6 +197,7 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
     //textDecoration: serializeTextDecorationValue,
     justifyContent: serializeJustifyContent(type),
     justifySelf: serializejustifySelf(type),
+    justifyItems: serializejustifyItems(type),
     textTransform: serializeTextTransform,
     textEmphasisColor: serializeTextEmphasisColor,
     textEmphasisSkip: serializeTextEmphasisSkip,
