@@ -1,5 +1,14 @@
 # Chagngelog
 
+## [0.4.4] - 2020-12-08
+
+### Added
+- `justifySelf`
+- `justifyItems`
+
+### Fixed
+- A bug in `justifyContent`'s type
+
 ## [0.4.2] - 2020-12-07
 
 ### Added
