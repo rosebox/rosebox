@@ -11,3 +11,20 @@ export function toNum(x: any): number {
 export const serializeShorthandleValue = <A>(value: (RBType<A> | string | number)[]): string => {
     return (value.reduce((acc: any, item) => acc + ' ' + serializeAtomicValue(item), '') as string).trim()
 }
+
+export type ArrayMin2Max4<T> =
+    | {
+          0: T
+          1: T
+      }
+    | {
+          0: T
+          1: T
+          2: T
+      }
+    | {
+          0: T
+          1: T
+          2: T
+          3: T
+      }

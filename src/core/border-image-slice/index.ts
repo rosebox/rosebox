@@ -3,7 +3,7 @@ import { GlobalCssKeyword, Percentage, PropType, serializeAtomicValue, ValueOrFu
 
 type PercentageOrNumber = Percentage | number
 
-type ArrayMin2Max4<T> =
+export type ArrayMin2Max4<T> =
     | {
           0: T
           1: T

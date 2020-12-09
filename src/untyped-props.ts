@@ -91,11 +91,13 @@ export type UntypedProps = {
     _borderEndEndRadius: string
     _borderEndStartRadius: string
     _borderImage: string
+    /** @deprecated since 0.4.5 */
     _borderImageOutset: string
     _borderImageRepeat: string
     _borderImageSlice: string
     /** @deprecated since 0.4.5 */
     _borderImageSource: string
+    /** @deprecated since 0.4.5 */
     _borderImageWidth: string
     _borderInline: string
     _borderInlineColor: string
@@ -767,11 +769,13 @@ export type UntypedPropsJSS = {
     _borderEndEndRadius: ValueOrFunc<string>
     _borderEndStartRadius: ValueOrFunc<string>
     _borderImage: ValueOrFunc<string>
+    /** @deprecated since 0.4.5 */
     _borderImageOutset: ValueOrFunc<string>
     _borderImageRepeat: ValueOrFunc<string>
     _borderImageSlice: ValueOrFunc<string>
     /** @deprecated since 0.4.5 */
     _borderImageSource: ValueOrFunc<string>
+    /** @deprecated since 0.4.5 */
     _borderImageWidth: ValueOrFunc<string>
     _borderInline: ValueOrFunc<string>
     _borderInlineColor: ValueOrFunc<string>
