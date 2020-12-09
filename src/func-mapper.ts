@@ -131,6 +131,7 @@ import { serializeFontStyle } from './core/font-style'
 import { serializejustifySelf } from './core/justify-self'
 import { serializejustifyItems } from './core/justify-items'
 import { serializeBorderImageSource } from './core/border-image-source'
+import { serializeBorderImageSlice } from './core/border-image-slice'
 
 export const funcMap: any = (type: 'inline' | 'css') => ({
     alignContent: serializeAlignContent(type),
@@ -169,6 +170,7 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
     borderLeftWidth: serializeBorderLeftWidth(type),
     borderWidth: serializeBorderWidth(type),
     borderImageSource: serializeBorderImageSource(type),
+    borderImageSlice: serializeBorderImageSlice(type),
     backgroundColor: serializeBackgroundColor(type),
     backgroundImage: serializeBackgroundImage(type),
     backgroundPosition: serializeBackgroundPosition(type),

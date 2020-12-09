@@ -168,6 +168,7 @@ import { serializeAtomicValue } from '../core'
 import { UntypedPropsJSS } from '../untyped-props'
 import { justifySelfDeclarationJSS } from '../core/justify-self'
 import { BorderImageSourceDeclarationJSS } from '../core/border-image-source'
+import { borderImageSliceDeclarationJSS } from '../core/border-image-slice'
 
 export type RBJSSStyle = Partial<
     WidthDeclarationJSS &
@@ -320,6 +321,7 @@ export type RBJSSStyle = Partial<
         justifySelfDeclarationJSS &
         JustifyItemsDeclarationJSS &
         BorderImageSourceDeclarationJSS &
+        borderImageSliceDeclarationJSS &
         UntypedPropsJSS
 >
 
