@@ -169,6 +169,7 @@ import { UntypedPropsJSS } from '../untyped-props'
 import { justifySelfDeclarationJSS } from '../core/justify-self'
 import { BorderImageSourceDeclarationJSS } from '../core/border-image-source'
 import { borderImageSliceDeclarationJSS } from '../core/border-image-slice'
+import { BorderImageWidthDeclarationJSS } from '../core/border-image-width'
 
 export type RBJSSStyle = Partial<
     WidthDeclarationJSS &
@@ -322,6 +323,7 @@ export type RBJSSStyle = Partial<
         JustifyItemsDeclarationJSS &
         BorderImageSourceDeclarationJSS &
         borderImageSliceDeclarationJSS &
+        BorderImageWidthDeclarationJSS &
         UntypedPropsJSS
 >
 
