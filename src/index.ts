@@ -163,6 +163,7 @@ import { BorderImageSourceDeclaration } from './core/border-image-source'
 import { BorderImageSliceDeclaration } from './core/border-image-slice'
 import { BorderImageWidthDeclaration } from './core/border-image-width'
 import { BorderImageOutsetDeclaration } from './core/border-image-outset'
+import { BorderImageRepeatDeclaration } from './core/border-image-repeat'
 
 export * from './core'
 export { rbJSS, makeStylesRB, jssPreset } from './integrations'
@@ -322,6 +323,7 @@ export type RBStyle = Partial<
         BorderImageSliceDeclaration &
         BorderImageWidthDeclaration &
         BorderImageOutsetDeclaration &
+        BorderImageRepeatDeclaration &
         UntypedProps
 >
 

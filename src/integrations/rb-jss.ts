@@ -171,6 +171,7 @@ import { BorderImageSourceDeclarationJSS } from '../core/border-image-source'
 import { borderImageSliceDeclarationJSS } from '../core/border-image-slice'
 import { BorderImageWidthDeclarationJSS } from '../core/border-image-width'
 import { BorderImageOutsetDeclarationJSS } from '../core/border-image-outset'
+import { BorderImageRepeatDeclarationJSS } from '../core/border-image-repeat'
 
 export type RBJSSStyle = Partial<
     WidthDeclarationJSS &
@@ -326,6 +327,7 @@ export type RBJSSStyle = Partial<
         borderImageSliceDeclarationJSS &
         BorderImageWidthDeclarationJSS &
         BorderImageOutsetDeclarationJSS &
+        BorderImageRepeatDeclarationJSS &
         UntypedPropsJSS
 >
 

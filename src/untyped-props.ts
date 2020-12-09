@@ -93,6 +93,7 @@ export type UntypedProps = {
     _borderImage: string
     /** @deprecated since 0.4.5 */
     _borderImageOutset: string
+    /** @deprecated since 0.4.5 */
     _borderImageRepeat: string
     _borderImageSlice: string
     /** @deprecated since 0.4.5 */
@@ -771,6 +772,7 @@ export type UntypedPropsJSS = {
     _borderImage: ValueOrFunc<string>
     /** @deprecated since 0.4.5 */
     _borderImageOutset: ValueOrFunc<string>
+    /** @deprecated since 0.4.5 */
     _borderImageRepeat: ValueOrFunc<string>
     _borderImageSlice: ValueOrFunc<string>
     /** @deprecated since 0.4.5 */
