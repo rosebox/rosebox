@@ -159,6 +159,9 @@ import { OutlineDeclaration } from './core/outline'
 import { UntypedProps } from './untyped-props'
 import { justifySelfDeclaration } from './core/justify-self'
 import { JustifyItemsDeclaration } from './core/justify-items'
+import { BorderImageSourceDeclaration } from './core/border-image-source'
+import { BorderImageSliceDeclaration } from './core/border-image-slice'
+import { BorderImageWidthDeclaration } from './core/border-image-width'
 
 export * from './core'
 export { rbJSS, makeStylesRB, jssPreset } from './integrations'
@@ -314,6 +317,9 @@ export type RBStyle = Partial<
         VoiceRateDeclaration &
         justifySelfDeclaration &
         JustifyItemsDeclaration &
+        BorderImageSourceDeclaration &
+        BorderImageSliceDeclaration &
+        BorderImageWidthDeclaration &
         UntypedProps
 >
 

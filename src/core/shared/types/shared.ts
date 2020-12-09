@@ -43,7 +43,9 @@ export const serializeAtomicValue = (x: string | number | null | undefined | RBT
     return x.serialize()
 }
 
-export const getData = (x: any) => x.data
+export const getData = <B>(x: RBType<B> | string | number): string | number | B =>
+    ['string', 'number'].includes(typeof x) ? (x as string | number) : (x as RBType<B>).data
+
 export const getValConstructor = <B>(x: RBType<B>) => x.valueConstructor
-export const getTypeName = (x: any): string => x?.type ?? ''
+
 export const getSerializer = (x: RBType): Function => x.serialize
