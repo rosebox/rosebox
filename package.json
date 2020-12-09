@@ -1,8 +1,8 @@
 {
   "name": "rosebox",
-  "version": "0.4.4",
+  "version": "0.4.41",
   "private": false,
-  "description": "Rosebox is a Typescript library that models CSS in Typescript in a way that leverages the capabilities of Typescript's type system and Javascript as a programming language, providing strong types, functions, and an overall more structured and improved syntax.",
+  "description": "CSS-in-TS",
   "main": "es5/index.js",
   "module": "lib/index.js",
   "files": [
