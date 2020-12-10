@@ -6,11 +6,11 @@ import { BorderImageWidthValue, serializeBorderImageWidthPropValue } from '../bo
 import { AtLeastOnePropRequired, GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
 
 type BorderImageObject = AtLeastOnePropRequired<{
-    source: BorderImageSourceValue | GlobalCssKeyword
-    slice: BorderImageSliceValue | GlobalCssKeyword
-    width: BorderImageWidthValue | GlobalCssKeyword
-    repeat: BorderImageRepeatValue | GlobalCssKeyword
-    outset: BorderImageOutsetValue | GlobalCssKeyword
+    source: BorderImageSourceValue
+    slice: BorderImageSliceValue
+    width: BorderImageWidthValue
+    repeat: BorderImageRepeatValue
+    outset: BorderImageOutsetValue
 }>
 
 /** @hide */
