@@ -85,6 +85,7 @@ export type UntypedProps = {
     /** @deprecated since 0.4.3 */
     _borderBottomWidth: string
     _borderBoundary: string
+    /** @deprecated since 0.4.5 */
     _borderCollapse: string
     /** @deprecated since 0.4.3 */
     _borderColor: string
@@ -764,6 +765,7 @@ export type UntypedPropsJSS = {
     /** @deprecated since 0.4.3 */
     _borderBottomWidth: ValueOrFunc<string>
     _borderBoundary: ValueOrFunc<string>
+    /** @deprecated since 0.4.5 */
     _borderCollapse: ValueOrFunc<string>
     /** @deprecated since 0.4.3 */
     _borderColor: ValueOrFunc<string>
