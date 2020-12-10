@@ -1,5 +1,7 @@
 import { Duration, Length, RBType, serializeAtomicValue } from '../core'
 
+export const camelCaseToDash = (str: string) => str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+
 export const isObject = (value: any) => Object.prototype.toString.call(value) === '[object Object]'
 
 export function toNum(x: Duration): number

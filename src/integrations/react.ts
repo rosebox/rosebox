@@ -8,7 +8,7 @@ import vendorPrefixer from 'jss-plugin-vendor-prefixer'
 import propsSort from 'jss-plugin-props-sort'
 import { createUseStyles as createUseStyles_ } from 'react-jss'
 
-import { camelCaseToDash } from '../dom'
+import { camelCaseToDash } from '../utils'
 import { OverflowXDeclaration, OverflowYDeclaration, OverflowDeclaration } from '../core/overflow'
 import { TextTransformDeclaration } from '../core/text-transform'
 import { WidthDeclaration } from '../core/width'
