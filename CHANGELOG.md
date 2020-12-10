@@ -1,5 +1,10 @@
 # Chagngelog
 
+## [0.4.51] - 2020-12-10
+
+### CHANGED
+- Made `flex` more permissive so that now it supports a two-values syntax (pairs).
+
 ## [0.4.5] - 2020-12-10
 
 ### Added
