@@ -8,7 +8,7 @@ Rosebox is a CSS-in-TS library that models CSS in a way that leverages the capab
 
 ## IMPORTANT NOTE 📢
 
-You can already use all the CSS properties in Rosebox. Missing ones on the API page only indicate that they are not **YET** strongly typed. To use an untyped property, write the property's name prefixed by an underscore (e.g., `_borderImageStyle`, `_all`). Those untyped props will have a type of `string`. When a property gets a strong type, its underscore-prefixed counterpart gets deprecated immediately. However, its removal may only be considered after a minimum of 2 major releases since the deprecation—for example, if `_borderImageStyle` gets deprecated in 0.6.4 it means that it will be removed in 2.0.0.
+Already today, you can use all the CSS properties in Rosebox. Missing ones on the API page only indicate that they are not **YET** strongly typed. The library exposes all untyped/loosely-typed properties by prefixing them with an underscore (e.g., `_borderImageStyle`, `_all`). Those loosely-typed props will have a type of `string`. When a property becomes strongly-typed, its underscore-prefixed version gets deprecated immediately. However, its removal may only be considered after a minimum of 2 major releases since the deprecation—for example, if `_borderImageStyle` gets deprecated in 0.6.4, it means that it will be removed in 2.0.0.
 
 ## Docs
 
