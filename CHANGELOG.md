@@ -1,5 +1,21 @@
 # Chagngelog
 
+## [0.4.5] - 2020-12-10
+
+### Added
+- `borderImage`
+- `borderImageSlice`
+- `borderImageWidth`
+- `borderImageRepeat`
+- `borderImageSource`
+- `borderImageOutset`
+- `borderCollapse`
+- `borderImageSpace`
+
+### CHANGED
+- Use `react-jss` instead of `@material-ui/styles`
+- `makeStylesRB` to `createUseStyles`
+
 ## [0.4.4] - 2020-12-08
 
 ### Added

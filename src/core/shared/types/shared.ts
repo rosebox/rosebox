@@ -43,8 +43,11 @@ export const serializeAtomicValue = (x: string | number | null | undefined | RBT
     return x.serialize()
 }
 
-export const getData = <B>(x: RBType<B> | string | number): string | number | B =>
-    ['string', 'number'].includes(typeof x) ? (x as string | number) : (x as RBType<B>).data
+export const getData = <B>(x: RBType<B> | string | number): any => {
+    if (typeof x === 'string') return x
+    if (typeof x === 'number') return x
+    return x.data
+}
 
 export const getValConstructor = <B>(x: RBType<B>) => x.valueConstructor
 
