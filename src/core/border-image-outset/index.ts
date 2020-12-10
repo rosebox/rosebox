@@ -4,7 +4,7 @@ import { GlobalCssKeyword, Length, PropType, serializeAtomicValue, ValueOrFunc }
 /** @hide */
 export type BorderImageOutsetValue = Length | number | ArrayMin2Max4<Length | number>
 
-const serializeBorderImageOutsetPropValue = (x: BorderImageOutsetPropValue | GlobalCssKeyword): string => {
+export const serializeBorderImageOutsetPropValue = (x: BorderImageOutsetPropValue | GlobalCssKeyword): string => {
     return !Array.isArray(x)
         ? serializeAtomicValue(x as Length | number | GlobalCssKeyword)
         : serializeShorthandleValue(x)
@@ -26,7 +26,7 @@ type BorderImageOutsetPropValue = BorderImageOutsetValue | GlobalCssKeyword
 export type BorderImageOutsetDeclaration = {
     /**
      * A RB property that maps to CSS's **`border-image-outset`** property
-     * @initial 1
+     * @initial 0
      * @definition https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017/#propdef-border-image-outset
      * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */

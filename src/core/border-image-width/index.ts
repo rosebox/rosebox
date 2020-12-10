@@ -1,11 +1,11 @@
-import { serializeShorthandleValue } from '../../utils'
+import { ArrayMin2Max4, serializeShorthandleValue } from '../../utils'
 import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc, Width } from '../shared'
 
 /** @hide */
-export type BorderImageWidthValue = Width | Width[]
+export type BorderImageWidthValue = Width | ArrayMin2Max4<Width>
 
-const serializeBorderImageWidthPropValue = (x: BorderImageWidthPropValue): string => {
-    return !Array.isArray(x) ? serializeAtomicValue(x) : serializeShorthandleValue(x)
+export const serializeBorderImageWidthPropValue = (x: BorderImageWidthPropValue): string => {
+    return !Array.isArray(x) ? serializeAtomicValue(x as Width) : serializeShorthandleValue(x)
 }
 
 export const serializeBorderImageWidth = (type: PropType) => (x: BorderImageWidthPropValue) => {

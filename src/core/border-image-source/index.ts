@@ -4,6 +4,8 @@ import { ImageValue } from '../shared/types/image'
 /** @hide */
 export type BorderImageSourceValue = ImageValue | 'none'
 
+export const serializeBorderImageSourcePropValue = serializeAtomicValue
+
 export const serializeBorderImageSource = (type: PropType) => (x: BorderImageSourcePropValue) => {
     const propName = type === 'inline' ? 'borderImageSource' : 'border-image-source'
     return {

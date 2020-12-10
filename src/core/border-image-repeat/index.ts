@@ -1,12 +1,12 @@
 import { serializeShorthandleValue } from '../../utils'
-import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc, Width } from '../shared'
+import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 type BorderImageRepeatKeyword = 'stretch' | 'repeat' | 'round' | 'space'
 
 /** @hide */
 export type BorderImageRepeatValue = BorderImageRepeatKeyword | [BorderImageRepeatKeyword, BorderImageRepeatKeyword]
 
-const serializeBorderImageRepeatPropValue = (x: BorderImageRepeatPropValue): string => {
+export const serializeBorderImageRepeatPropValue = (x: BorderImageRepeatPropValue): string => {
     return !Array.isArray(x) ? serializeAtomicValue(x) : serializeShorthandleValue(x)
 }
 

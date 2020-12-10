@@ -1,24 +1,7 @@
-import { isObject } from '../../utils'
+import { ArrayMin2Max4, isObject } from '../../utils'
 import { GlobalCssKeyword, Percentage, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 type PercentageOrNumber = Percentage | number
-
-export type ArrayMin2Max4<T> =
-    | {
-          0: T
-          1: T
-      }
-    | {
-          0: T
-          1: T
-          2: T
-      }
-    | {
-          0: T
-          1: T
-          2: T
-          3: T
-      }
 
 /** Perfered over BorderImageSliceArray */
 type BorderImageSliceObject = {
@@ -52,14 +35,18 @@ const serializeObjectValue = (x: BorderImageSliceObject): string => {
     return `${offsetsSerialized}${fillSerialized}`
 }
 
+export const serializeBorderImageSlicePropValue = (x: BorderImageSlicePropValue): string => {
+    return isObject(x)
+        ? serializeObjectValue(x as BorderImageSliceObject)
+        : Array.isArray(x)
+        ? serializeArrayValue(x as BorderImageSliceArray)
+        : serializeAtomicValue(x as PercentageOrNumber | GlobalCssKeyword)
+}
+
 export const serializeBorderImageSlice = (type: PropType) => (x: BorderImageSlicePropValue) => {
     const propName = type === 'inline' ? 'borderImageSlice' : 'border-image-source'
     return {
-        [propName]: isObject(x)
-            ? serializeObjectValue(x as BorderImageSliceObject)
-            : Array.isArray(x)
-            ? serializeArrayValue(x as BorderImageSliceArray)
-            : serializeAtomicValue(x as PercentageOrNumber | GlobalCssKeyword),
+        [propName]: serializeBorderImageSlicePropValue(x),
     }
 }
 

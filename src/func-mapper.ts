@@ -137,6 +137,7 @@ import { serializeBorderImageOutset } from './core/border-image-outset'
 import { serializeBorderImageRepeat } from './core/border-image-repeat'
 import { serializeBorderCollapse } from './core/border-collapse'
 import { serializeBorderSpacing } from './core/border-spacing'
+import { serializeBorderImage } from './core/border-image'
 
 export const funcMap: any = (type: 'inline' | 'css') => ({
     alignContent: serializeAlignContent(type),
@@ -170,6 +171,7 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
     borderLeftStyle: serializeBorderLeftStyle(type),
     borderStyle: serializeBorderStyle(type),
     borderSpacing: serializeBorderSpacing(type),
+    borderImage: serializeBorderImage(type),
     borderTopWidth: serializeBorderTopWidth(type),
     borderRightWidth: serializeBorderRightWidth(type),
     borderBottomWidth: serializeBorderBottomWidth(type),
