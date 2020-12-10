@@ -4,6 +4,7 @@ import global from 'jss-plugin-global'
 import camelCase from 'jss-plugin-camel-case'
 import vendorPrefixer from 'jss-plugin-vendor-prefixer'
 import propsSort from 'jss-plugin-props-sort'
+import { createUseStyles as createUseStyles_ } from 'react-jss'
 
 import { funcMap } from '../func-mapper'
 import { OverflowXDeclarationJSS, OverflowYDeclarationJSS, OverflowDeclarationJSS } from '../core/overflow'
@@ -377,4 +378,12 @@ export const jssPreset = () => {
     return {
         plugins,
     }
+}
+
+type StyleMap = {
+    [key: string]: RBJSSStyle
+}
+
+export const createUseStyles = (styleMap: StyleMap, options?: any) => {
+    return createUseStyles_(styleMap as any, options)
 }
