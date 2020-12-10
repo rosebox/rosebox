@@ -1,5 +1,5 @@
 import { style } from '../../..'
-import { px } from '../../shared'
+import { per, px } from '../../shared'
 
 test('flex', () => {
     const received = style({
@@ -7,6 +7,16 @@ test('flex', () => {
     })
     const expected = {
         flex: '0 1 100px',
+    }
+    expect(received).toEqual(expected)
+})
+
+test('flex', () => {
+    const received = style({
+        flex: per(50),
+    })
+    const expected = {
+        flex: '50%',
     }
     expect(received).toEqual(expected)
 })

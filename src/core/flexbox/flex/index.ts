@@ -1,24 +1,28 @@
 // @revisionRequired
 
-import { GlobalCssKeyword, ValueOrFunc } from '../../shared'
-import { ShrinkGrow } from '../shared'
-import { FlexBasis, serializeFlexBasisValue } from '../flex-basis'
+import { serializeShorthandleValue } from '../../../utils'
+import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../../shared'
+import { FlexBasisValue, serializeFlexBasisValue } from '../flex-basis'
 
 /**
  * @hide
  */
-type Flex = 'none' | [ShrinkGrow, ShrinkGrow, FlexBasis]
+type FlexValue = FlexSingleValue | FlexTwoValues | FlexThreeValues
+
+/** @hide */
+type FlexPropValue = FlexValue | GlobalCssKeyword
+
+export type FlexSingleValue = 'none' | number | FlexBasisValue
+export type FlexTwoValues = [number, FlexBasisValue] | [FlexBasisValue, number]
+export type FlexThreeValues = [number, number, FlexBasisValue] | [FlexBasisValue, number, number]
 
 export const serializeFlex = (
-    value: Flex | GlobalCssKeyword,
+    x: FlexPropValue,
 ): {
     flex: string
 } => ({
-    flex: typeof value === 'string' ? value : `${value[0]} ${value[1]} ${serializeFlexBasisValue(value[2])}`,
+    flex: !Array.isArray(x) ? serializeAtomicValue(x) : serializeShorthandleValue(x),
 })
-
-/** @hide */
-type FlexPropValue = Flex | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias

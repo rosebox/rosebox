@@ -4,20 +4,20 @@ import { serializeKeyword, serializeWidth } from '../../shared'
 /**
  * @hide
  * */
-export type FlexBasis = 'content' | Width
+export type FlexBasisValue = 'content' | Width
 
-export const isFlexBasis = (value: unknown): value is FlexBasis => value === 'content' || isWidthType(value)
-export const serializeFlexBasisValue = (value: FlexBasis): string =>
+export const isFlexBasis = (value: unknown): value is FlexBasisValue => value === 'content' || isWidthType(value)
+export const serializeFlexBasisValue = (value: FlexBasisValue): string =>
     value === 'content' ? 'content' : isGlobalCssKeyword(value) ? serializeKeyword(value) : serializeWidth(value)
 
-export const serializeFlexBasis = (type: PropType) => (value: FlexBasis | GlobalCssKeyword) => ({
+export const serializeFlexBasis = (type: PropType) => (value: FlexBasisValue | GlobalCssKeyword) => ({
     [type === 'inline' ? 'flexBasis' : 'flex-basis']: isGlobalCssKeyword(value)
         ? serializeKeyword(value)
         : serializeFlexBasisValue(value),
 })
 
 /** @hide */
-type FlexBasisPropValue = FlexBasis | GlobalCssKeyword
+type FlexBasisPropValue = FlexBasisValue | GlobalCssKeyword
 
 /**
  * @category RBDeclarationTypeAlias

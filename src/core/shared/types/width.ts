@@ -1,4 +1,4 @@
-import { LengthPercentage, serializeAtomicValue } from './shared'
+import { LengthPercentage, serializeAtomicValue } from '.'
 import { isLengthType } from './length'
 import { isPercentageType } from './percentage'
 
