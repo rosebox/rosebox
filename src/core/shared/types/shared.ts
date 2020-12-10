@@ -1,23 +1,8 @@
-import { Length } from './length'
-import { Percentage } from './percentage'
-
 export interface RBType<B = any> {
     data: B
     valueConstructor: Function
     serialize: () => string
 }
-
-/**
- * @global
- */
-export type LengthPercentage = Length | Percentage
-
-/**
- * @global
- */
-export type LineWidth = Length | 'thin' | 'medium' | 'thick'
-
-export const serializeLineWidth = (x: LineWidth) => (typeof x === 'string' ? x : x.serialize())
 
 /**
  * @global
@@ -33,8 +18,6 @@ export type LineStyle =
     | 'ridge'
     | 'inset'
     | 'outset'
-
-export const NAMESPACE = 'npmjs.com/package/rosebox'
 
 export const serializeAtomicValue = (x: string | number | null | undefined | RBType): string => {
     if (typeof x === 'number') return `${x}`

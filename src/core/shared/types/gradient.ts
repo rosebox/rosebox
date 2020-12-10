@@ -1,8 +1,4 @@
-import { Angle } from './angle'
-import { Color } from './color'
-import { Percentage } from './percentage'
-import { Position } from './position'
-import { LengthPercentage, RBType, serializeAtomicValue } from './shared'
+import { Angle, Color, Position, Percentage, LengthPercentage, RBType, serializeAtomicValue } from '.'
 
 type LinearColorStop = Color | [Color, LengthPercentage]
 type ColorStopList = (LinearColorStop | Percentage)[]

@@ -1,4 +1,4 @@
-import { getData, RBType, serializeAtomicValue } from './shared'
+import { getData, RBType, serializeAtomicValue } from '.'
 
 const serialize = (x: Env) => {
     const [x1, x2] = getData(x)

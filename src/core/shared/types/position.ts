@@ -1,5 +1,5 @@
 import { Calculation } from './calc'
-import { LengthPercentage, RBType, serializeAtomicValue } from './shared'
+import { LengthPercentage, RBType, serializeAtomicValue } from '.'
 
 /**
  * A value of this type defines an (x, y) coordinate.

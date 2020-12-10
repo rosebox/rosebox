@@ -1,6 +1,7 @@
 export * from './types'
 export * from './animatable-props'
 export * from './utilities'
+export * from './utils'
 
 export type DoubleBar2<A, B> = A | B | [B, A] | [A, B]
 export type DoubleBar3<A, B, C> =

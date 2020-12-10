@@ -1,4 +1,5 @@
-import { add, eq, ms, mult, px, sub, div, s } from '../types'
+import { add, eq, mult, sub, div } from '../math'
+import { ms, px, s } from '../../types'
 
 test('mult(Length, number)', () => {
     const received = mult(px(300), 3).serialize()

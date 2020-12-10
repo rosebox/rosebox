@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { Env } from './env'
-import { LengthPercentage, RBType, serializeAtomicValue } from './shared'
+import { LengthPercentage, RBType, serializeAtomicValue } from '.'
 
 type CalcOperation = 'addition' | 'substraction' | 'multiplication' | 'division'
 

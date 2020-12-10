@@ -19,7 +19,7 @@ export class URL implements RBType<string> {
     }
 
     /**
-     * Constructs a value of type `URL`.
+     * Constructs a value of type **`URL`**.
      */
     static url(x: string) {
         return new URL(x)
@@ -43,7 +43,7 @@ export class URI implements RBType<string> {
     }
 
     /**
-     * Constructs a value of type `URI`.
+     * Constructs a value of type **`URI`**.
      */
     static uri(x: string) {
         return new URI(x)

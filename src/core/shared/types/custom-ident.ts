@@ -1,4 +1,4 @@
-import { RBType } from './shared'
+import { RBType } from '.'
 
 /**
  *

@@ -40,105 +40,105 @@ export class Length<A extends LengthUnit = LengthUnit> implements RBType<number>
 
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`px`**.
+     * Constructs a value of type **`Length<'px'>**`.
      */
     static px(x: number): Length<'px'> {
         return new Length(x, 'px', Length.px)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`em`**.
+     * Constructs a value of type **`Length<'em'>`**.
      */
     static em(x: number): Length<'em'> {
         return new Length(x, 'em', Length.em)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`rem`**.
+     * Constructs a value of type **`Length<'rem'>`**.
      */
     static rem(x: number): Length<'rem'> {
         return new Length(x, 'rem', Length.rem)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`ex`**.
+     * Constructs a value of type **`Length<'ex'>`**.
      */
     static ex(x: number): Length<'ex'> {
         return new Length(x, 'ex', Length.ex)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`vw`**.
+     * Constructs a value of type **`Length<'vw'>`**.
      */
     static vw(x: number): Length<'vw'> {
         return new Length(x, 'vw', Length.vw)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`vh`**.
+     * Constructs a value of type **`Length<'vh'>`**.
      */
     static vh(x: number): Length<'vh'> {
         return new Length(x, 'vh', Length.vh)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`vmin`**.
+     * Constructs a value of type **`Length<'vmin'>`**.
      */
     static vmin(x: number): Length<'vmin'> {
         return new Length(x, 'vmin', Length.vmin)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`vmax`**.
+     * Constructs a value of type **`Length<'vmax'>`**.
      */
     static vmax(x: number): Length<'vmax'> {
         return new Length(x, 'vmax', Length.vmax)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`ch`**.
+     * Constructs a value of type **`Length<'ch'>`**.
      */
     static ch(x: number): Length<'ch'> {
         return new Length(x, 'ch', Length.ch)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`q`**.
+     * Constructs a value of type **`Length<'q'>`**.
      */
     static q(x: number): Length<'q'> {
         return new Length(x, 'q', Length.q)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`cm`**.
+     * Constructs a value of type **`Length<'cm'>`**.
      */
     static cm(x: number): Length<'cm'> {
         return new Length(x, 'cm', Length.cm)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`mm`**.
+     * Constructs a value of type **`Length<'mm'>`**.
      */
     static mm(x: number): Length<'mm'> {
         return new Length(x, 'mm', Length.mm)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`in`**.
+     * Constructs a value of type **`Length<'in'>`**.
      */
     static in(x: number): Length<'in'> {
         return new Length(x, 'in', Length.in)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`pc`**.
+     * Constructs a value of type **`Length<'pc'>`**.
      */
     static pc(x: number): Length<'pc'> {
         return new Length(x, 'pc', Length.pc)
     }
     /**
      *
-     * Constructs a value of type **`Length`** where the unit is **`pt`**.
+     * Constructs a value of type **`Length<'pt'>`**.
      */
     static pt(x: number): Length<'pt'> {
         return new Length(x, 'pt', Length.pt)

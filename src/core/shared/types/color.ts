@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { Percentage } from '.'
-import { RBType, serializeAtomicValue } from './shared'
+import { RBType, serializeAtomicValue } from '.'
 
 /**
  * @typeTag IntRange
@@ -310,7 +310,7 @@ export class RGB implements RBType<RGBInput> {
     }
 
     /**
-     * Constructs a value of type `RGB`.
+     * Constructs a value of type **`RGB`**.
      */
     static rgb(x1: Percentage, x2: Percentage, x3: Percentage): RGB
     static rgb(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger): RGB
@@ -338,7 +338,7 @@ export class RGBA implements RBType<RGBAInput> {
     }
 
     /**
-     * Constructs a value of type `RGBA`.
+     * Constructs a value of type **`RGBA`**.
      */
     static rgba(x1: Percentage, x2: Percentage, x3: Percentage, x4: number): RGBA
     static rgba(x1: RGBInteger, x2: RGBInteger, x3: RGBInteger, x4: number): RGBA
@@ -366,7 +366,7 @@ export class HSL implements RBType<HSLInput> {
         this.serialize = () => serializeHSL(this)
     }
     /**
-     * Constructs a value of type `HSL`.
+     * Constructs a value of type **`HSL`**.
      */
     static hsl(x1: number, x2: Percentage, x3: Percentage): HSL {
         return new HSL([x1, x2, x3])
@@ -392,7 +392,7 @@ export class HSLA implements RBType<HSLAInput> {
     }
 
     /**
-     * Constructs a value of type `HSLA`.
+     * Constructs a value of type **`HSLA`**.
      */
     static hsla(x1: number, x2: Percentage, x3: Percentage, x4: number): HSLA {
         return new HSLA([x1, x2, x3, x4])
@@ -420,7 +420,7 @@ export class HEX implements RBType<string> {
         }
     }
     /**
-     * Constructs a value of type `HEX`.
+     * Constructs a value of type **`HEX`**.
      */
     static hex(x: string): HEX {
         return new HEX(x)
@@ -585,7 +585,10 @@ export type NamedColorKeyword = typeof extendedColorKeywords[number]
 export const standaloneKeywords = ['currentColor', 'transparent'] as const
 export type StandaloneColorKeyword = typeof standaloneKeywords[number]
 
-/** @global */
+/**
+ * @global
+ * A type that maps to CSS's **`<color>`** data-type
+ * */
 export type Color = HEX | RGB | RGBA | HSL | HSLA | StandaloneColorKeyword | NamedColorKeyword
 
 const isHex = (x: unknown): x is HEX => x instanceof HEX

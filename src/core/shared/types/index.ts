@@ -1,3 +1,4 @@
+export * from './derived-types'
 export * from './position'
 export * from './duration'
 export * from './percentage'

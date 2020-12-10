@@ -1,4 +1,4 @@
-import { mult } from '../types'
+import { mult } from '../utils'
 import { px, em, rem, ex, vw, vh, vmax, vmin, ch, q, cm, mm, In, pc, pt } from '../types/length'
 
 test('Serialize Length<"px">', () => {
