@@ -56,7 +56,6 @@
     "html-table-to-json": "^1.0.0",
     "jest": "^24.9.0",
     "jss": "10.5.0",
-    "madge": "^3.9.2",
     "prettier": "^2.2.1",
     "react": "^16.13.1",
     "react-jss": "^10.5.0",
