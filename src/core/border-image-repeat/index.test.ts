@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { styleCSS__ } from '../../integrations/rb-jss'
+import { styleCSS__ } from '../../integrations'
 
 test('borderImageRepeat: stretch', () => {
     const received = style({

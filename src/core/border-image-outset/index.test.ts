@@ -1,6 +1,6 @@
 import { style } from '../../index'
 import { px } from '../shared'
-import { styleCSS__ } from '../../integrations/rb-jss'
+import { styleCSS__ } from '../../integrations'
 
 test('borderImageOutset: number', () => {
     const received = style({

@@ -1,1 +1,1 @@
-export * from './rb-jss'
+export * from './react'

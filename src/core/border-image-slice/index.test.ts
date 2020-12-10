@@ -1,6 +1,6 @@
 import { style } from '../../index'
 import { per } from '../shared'
-import { styleCSS__ } from '../../integrations/rb-jss'
+import { styleCSS__ } from '../../integrations'
 
 test('borderImageSlice: Object', () => {
     const received = style({

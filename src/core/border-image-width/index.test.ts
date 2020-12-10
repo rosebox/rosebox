@@ -1,6 +1,6 @@
 import { style } from '../../index'
 import { per, px } from '../shared'
-import { styleCSS__ } from '../../integrations/rb-jss'
+import { styleCSS__ } from '../../integrations'
 
 test('borderImageSource: Width', () => {
     const received = style({

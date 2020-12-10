@@ -165,8 +165,7 @@ import { OutlineStyleDeclarationJSS } from '../core/outline-style'
 import { OutlineDeclarationJSS } from '../core/outline'
 import { RBStyle, style } from '..'
 import { camelCaseToDash } from '../dom'
-import { serializeAtomicValue } from '../core'
-import { UntypedPropsJSS } from '../untyped-props'
+import { serializeAtomicValue, ValueOrFunc } from '../core'
 import { justifySelfDeclarationJSS } from '../core/justify-self'
 import { BorderImageSourceDeclarationJSS } from '../core/border-image-source'
 import { borderImageSliceDeclarationJSS } from '../core/border-image-slice'
@@ -176,6 +175,9 @@ import { BorderImageRepeatDeclarationJSS } from '../core/border-image-repeat'
 import { BorderCollapseDeclarationJSS } from '../core/border-collapse'
 import { BorderSpacingDeclarationJSS } from '../core/border-spacing'
 import { BorderImageDeclarationJSS } from '../core/border-image'
+import { UntypedProps } from '../untyped-props'
+
+type UntypedPropsJSS = { [key in keyof UntypedProps]: ValueOrFunc<UntypedProps[key]> }
 
 export type RBJSSStyle = Partial<
     WidthDeclarationJSS &
