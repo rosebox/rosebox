@@ -48,7 +48,7 @@ export class URI implements RBType<string> {
     static uri(x: string) {
         return new URI(x)
     }
-    serialize = () => serializeURI(this)
+    serialize = (): string => serializeURI(this)
 }
 export const uri = URI.uri
 export const isURI = (x: any): x is URI => x instanceof URI
