@@ -174,6 +174,7 @@ import { BorderImageWidthDeclarationJSS } from '../core/border-image-width'
 import { BorderImageOutsetDeclarationJSS } from '../core/border-image-outset'
 import { BorderImageRepeatDeclarationJSS } from '../core/border-image-repeat'
 import { BorderCollapseDeclarationJSS } from '../core/border-collapse'
+import { BorderSpacingDeclarationJSS } from '../core/border-spacing'
 
 export type RBJSSStyle = Partial<
     WidthDeclarationJSS &
@@ -331,6 +332,7 @@ export type RBJSSStyle = Partial<
         BorderImageOutsetDeclarationJSS &
         BorderImageRepeatDeclarationJSS &
         BorderCollapseDeclarationJSS &
+        BorderSpacingDeclarationJSS &
         UntypedPropsJSS
 >
 

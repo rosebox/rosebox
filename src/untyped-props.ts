@@ -131,6 +131,7 @@ export type UntypedProps = {
     _borderRightStyle: string
     /** @deprecated since 0.4.3 */
     _borderRightWidth: string
+    /** @deprecated since 0.4.5 */
     _borderSpacing: string
     _borderStartEndRadius: string
     _borderStartStartRadius: string
@@ -811,6 +812,7 @@ export type UntypedPropsJSS = {
     _borderRightStyle: ValueOrFunc<string>
     /** @deprecated since 0.4.3 */
     _borderRightWidth: ValueOrFunc<string>
+    /** @deprecated since 0.4.5 */
     _borderSpacing: ValueOrFunc<string>
     _borderStartEndRadius: ValueOrFunc<string>
     _borderStartStartRadius: ValueOrFunc<string>
