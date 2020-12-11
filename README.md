@@ -4,7 +4,7 @@
 
 # Rosebox 🌹
 
-The Rosebox project is an effort to improve the CSS-in-JS experience by providing features like strong types, typed functions(instead of CSS-functions in strings), extra shorthand properties(e.g., `marginX`, [`paddingX`](https://www.rosebox.dev/api/#rb-prop-paddingx), an object-based syntax for the values of complex properties (e.g., `animation`), and support for high-quality IntelliSense.
+The Rosebox project is an effort to improve the CSS-in-JS experience by providing features like strong types, typed functions (e.g., [`linGrad`](https://www.rosebox.dev/api/#rb-vc-lingrad)), extra shorthand properties(e.g., [`marginX`](https://www.rosebox.dev/api/#rb-prop-paddingx), [`paddingX`](https://www.rosebox.dev/api/#rb-prop-paddingx), an object-based syntax for the values of complex properties (e.g., [`animation`](https://www.rosebox.dev/api/#rb-prop-animation)), and support for high-quality IntelliSense.
 
 ## IMPORTANT NOTE 📢
 
