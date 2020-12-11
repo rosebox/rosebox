@@ -4,7 +4,7 @@
 
 # Rosebox 🌹
 
-Rosebox is a CSS-in-TS library that models CSS in a way that leverages the capabilities of Typescript's type system and Javascript as a programming language, providing strong types, functions, and overall cleaner and more expressive syntax over CSS.
+The Rosebox project is an effort to improve the CSS-in-JS experience by providing features like strong types, typed functions(instead of CSS-functions in strings), extra shorthand properties(e.g., `paddingX`, `marginX`), an object-based syntax for the values of complex properties (e.g., `animation`), and support for high-quality IntelliSense.
 
 ## IMPORTANT NOTE 📢
 
