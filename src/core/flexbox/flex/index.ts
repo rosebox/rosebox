@@ -2,7 +2,7 @@
 
 import { serializeShorthandleValue } from '../../../utils'
 import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../../shared'
-import { FlexBasisValue, serializeFlexBasisValue } from '../flex-basis'
+import { FlexBasisValue } from '../flex-basis'
 
 /**
  * @hide

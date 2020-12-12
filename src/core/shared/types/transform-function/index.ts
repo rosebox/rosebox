@@ -214,12 +214,12 @@ export class TransformFunction<A extends TransformationType = TransformationType
         this.valueConstructor = valueConstructor
     }
 
-    /** Constructs a value of type **`TransformationFunction<'matrix'>`**. */
+    /** Constructs a value of type **`TransformFunction<'matrix'>`**. */
     static matrix(x1: number, x2: number, x3: number, x4: number, x5: number, x6: number): TransformFunction<'matrix'> {
         return new TransformFunction([x1, x2, x3, x4, x5, x6], TransformFunction.matrix)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'matrix3d'>`**. */
+    /** Constructs a value of type **`TransformFunction<'matrix3d'>`**. */
     static matrix3d(
         x1: number,
         x2: number,
@@ -244,97 +244,97 @@ export class TransformFunction<A extends TransformationType = TransformationType
         )
     }
 
-    /** Constructs a value of type **`TransformationFunction<'perspective'>`**. */
+    /** Constructs a value of type **`TransformFunction<'perspective'>`**. */
     static perspective(x: Length): TransformFunction<'perspective'> {
         return new TransformFunction(x, TransformFunction.perspective)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'rotateX'>`**. */
+    /** Constructs a value of type **`TransformFunction<'rotateX'>`**. */
     static rotateX(x: Angle): TransformFunction<'rotateX'> {
         return new TransformFunction(x, TransformFunction.rotateX)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'rotateY'>`**. */
+    /** Constructs a value of type **`TransformFunction<'rotateY'>`**. */
     static rotateY(x: Angle): TransformFunction<'rotateY'> {
         return new TransformFunction(x, TransformFunction.rotateY)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'rotateZ'>`**. */
+    /** Constructs a value of type **`TransformFunction<'rotateZ'>`**. */
     static rotateZ(x: Angle): TransformFunction<'rotateZ'> {
         return new TransformFunction(x, TransformFunction.rotateZ)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'rotate'>`**. */
+    /** Constructs a value of type **`TransformFunction<'rotate'>`**. */
     static rotate(x: Angle): TransformFunction<'rotate'> {
         return new TransformFunction(x, TransformFunction.rotate)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'rotateY'>`**. */
+    /** Constructs a value of type **`TransformFunction<'rotate3d'>`**. */
     static rotate3d(x: number, y: number, z: number, a: Angle): TransformFunction<'rotate3d'> {
         return new TransformFunction([x, y, z, a], TransformFunction.rotate3d)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'scaleX'>`**. */
+    /** Constructs a value of type **`TransformFunction<'scaleX'>`**. */
     static scaleX(x: number): TransformFunction<'scaleX'> {
         return new TransformFunction(x, TransformFunction.scaleX)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'scaleY'>`**. */
+    /** Constructs a value of type **`TransformFunction<'scaleY'>`**. */
     static scaleY(x: number): TransformFunction<'scaleY'> {
         return new TransformFunction(x, TransformFunction.scaleY)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'scaleZ'>`**. */
+    /** Constructs a value of type **`TransformFunction<'scaleZ'>`**. */
     static scaleZ(x: number): TransformFunction<'scaleZ'> {
         return new TransformFunction(x, TransformFunction.scaleZ)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'scaleZ'>`**. */
+    /** Constructs a value of type **`TransformFunction<'scale'>`**. */
     static scale(x: number, y?: number): TransformFunction<'scale'> {
         return new TransformFunction(y ? [x, y] : [x], TransformFunction.scale)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'scaleZ'>`**. */
+    /** Constructs a value of type **`TransformFunction<'scale3d'>`**. */
     static scale3d(x: number, y: number, z: number): TransformFunction<'scale3d'> {
         return new TransformFunction([x, y, z], TransformFunction.scale3d)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'skewX'>`**. */
+    /** Constructs a value of type **`TransformFunction<'skewX'>`**. */
     static skewX(x: Angle): TransformFunction<'skewX'> {
         return new TransformFunction(x, TransformFunction.skewX)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'skewY'>`**. */
+    /** Constructs a value of type **`TransformFunction<'skewY'>`**. */
     static skewY(x: Angle): TransformFunction<'skewY'> {
         return new TransformFunction(x, TransformFunction.skewY)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'skewY'>`**. */
+    /** Constructs a value of type **`TransformFunction<'skew'>`**. */
     static skew(x: Angle, y?: Angle): TransformFunction<'skew'> {
         return new TransformFunction(y ? [x, y] : [x], TransformFunction.skew)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'translateX'>`**. */
+    /** Constructs a value of type **`TransformFunction<'translateX'>`**. */
     static translateX(x: LengthPercentage): TransformFunction<'translateX'> {
         return new TransformFunction([x], TransformFunction.translateX)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'translateX'>`**. */
+    /** Constructs a value of type **`TransformFunction<'translateY'>`**. */
     static translateY(x: LengthPercentage): TransformFunction<'translateY'> {
         return new TransformFunction([x], TransformFunction.translateY)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'translateX'>`**. */
+    /** Constructs a value of type **`TransformFunction<'translateZ'>`**. */
     static translateZ(x: LengthPercentage): TransformFunction<'translateZ'> {
         return new TransformFunction([x], TransformFunction.translateZ)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'translateX'>`**. */
-    static translate(x: LengthPercentage, y?: LengthPercentage, z?: LengthPercentage): TransformFunction<'translateZ'> {
+    /** Constructs a value of type **`TransformFunction<'translate'>`**. */
+    static translate(x: LengthPercentage, y?: LengthPercentage, z?: LengthPercentage): TransformFunction<'translate'> {
         return new TransformFunction([x, y, z], TransformFunction.translate)
     }
 
-    /** Constructs a value of type **`TransformationFunction<'translate3d'>`**. */
+    /** Constructs a value of type **`TransformFunction<'translate3d'>`**. */
     static translate3d(
         x: LengthPercentage,
         y: LengthPercentage,
@@ -349,127 +349,127 @@ export class TransformFunction<A extends TransformationType = TransformationType
 }
 
 /**
- * Constructs a value of type **`TransformationFunction<'matrix'>`**.
+ * Constructs a value of type **`TransformFunction<'matrix'>`**.
  * @category Value constructor
  */
 export const matrix = TransformFunction.matrix
 
 /**
- * Constructs a value of type **`TransformationFunction<'matrix3d'>`**.
+ * Constructs a value of type **`TransformFunction<'matrix3d'>`**.
  * @category Value constructor
  */
 export const matrix3d = TransformFunction.matrix3d
 
 /**
- * Constructs a value of type **`TransformationFunction<'perspective'>`**.
+ * Constructs a value of type **`TransformFunction<'perspective'>`**.
  * @category Value constructor
  */
 export const perspective = TransformFunction.perspective
 
 /**
- * Constructs a value of type **`TransformationFunction<'rotateX'>`**.
+ * Constructs a value of type **`TransformFunction<'rotateX'>`**.
  * @category Value constructor
  */
 export const rotateX = TransformFunction.rotateX
 
 /**
- * Constructs a value of type **`TransformationFunction<'rotateY'>`**.
+ * Constructs a value of type **`TransformFunction<'rotateY'>`**.
  * @category Value constructor
  */
 export const rotateY = TransformFunction.rotateY
 
 /**
- * Constructs a value of type **`TransformationFunction<'rotateZ'>`**.
+ * Constructs a value of type **`TransformFunction<'rotateZ'>`**.
  * @category Value constructor
  */
 export const rotateZ = TransformFunction.rotateZ
 
 /**
- * Constructs a value of type **`TransformationFunction<'rotate'>`**.
+ * Constructs a value of type **`TransformFunction<'rotate'>`**.
  * @category Value constructor
  */
 export const rotate = TransformFunction.rotate
 
 /**
- * Constructs a value of type **`TransformationFunction<'rotate3d'>`**.
+ * Constructs a value of type **`TransformFunction<'rotate3d'>`**.
  * @category Value constructor
  */
 export const rotate3d = TransformFunction.rotate3d
 
 /**
- * Constructs a value of type **`TransformationFunction<'scaleX'>`**.
+ * Constructs a value of type **`TransformFunction<'scaleX'>`**.
  * @category Value constructor
  */
 export const scaleX = TransformFunction.scaleX
 
 /**
- * Constructs a value of type **`TransformationFunction<'scaleY'>`**.
+ * Constructs a value of type **`TransformFunction<'scaleY'>`**.
  * @category Value constructor
  */
 export const scaleY = TransformFunction.scaleY
 
 /**
- * Constructs a value of type **`TransformationFunction<'scaleZ'>`**.
+ * Constructs a value of type **`TransformFunction<'scaleZ'>`**.
  * @category Value constructor
  */
 export const scaleZ = TransformFunction.scaleZ
 
 /**
- * Constructs a value of type **`TransformationFunction<'scale'>`**.
+ * Constructs a value of type **`TransformFunction<'scale'>`**.
  * @category Value constructor
  */
 export const scale = TransformFunction.scale
 
 /**
- * Constructs a value of type **`TransformationFunction<'scale3d'>`**.
+ * Constructs a value of type **`TransformFunction<'scale3d'>`**.
  * @category Value constructor
  */
 export const scale3d = TransformFunction.scale3d
 
 /**
- * Constructs a value of type **`TransformationFunction<'skewX'>`**.
+ * Constructs a value of type **`TransformFunction<'skewX'>`**.
  * @category Value constructor
  */
 export const skewX = TransformFunction.skewX
 
 /**
- * Constructs a value of type **`TransformationFunction<'skewY'>`**.
+ * Constructs a value of type **`TransformFunction<'skewY'>`**.
  * @category Value constructor
  */
 export const skewY = TransformFunction.skewY
 
 /**
- * Constructs a value of type **`TransformationFunction<'skew'>`**.
+ * Constructs a value of type **`TransformFunction<'skew'>`**.
  * @category Value constructor
  */
 export const skew = TransformFunction.skew
 
 /**
- * Constructs a value of type **`TransformationFunction<'translateX'>`**.
+ * Constructs a value of type **`TransformFunction<'translateX'>`**.
  * @category Value constructor
  */
 export const translateX = TransformFunction.translateX
 
 /**
- * Constructs a value of type **`TransformationFunction<'translateY'>`**.
+ * Constructs a value of type **`TransformFunction<'translateY'>`**.
  * @category Value constructor
  */
 export const translateY = TransformFunction.translateY
 
 /**
- * Constructs a value of type **`TransformationFunction<'translateZ'>`**.
+ * Constructs a value of type **`TransformFunction<'translateZ'>`**.
  * @category Value constructor
  */
 export const translateZ = TransformFunction.translateZ
 
 /**
- * Constructs a value of type **`TransformationFunction<'translate'>`**.
+ * Constructs a value of type **`TransformFunction<'translate'>`**.
  * @category Value constructor
  */
 export const translate = TransformFunction.translate
 
 /**
- * Constructs a value of type **`TransformationFunction<'translate3d'>`**.
+ * Constructs a value of type **`TransformFunction<'translate3d'>`**.
  * @category Value constructor
  */
 export const translate3d = TransformFunction.translate3d

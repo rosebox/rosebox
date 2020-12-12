@@ -249,7 +249,7 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
     transition: serializeTransition,
     transitionDuration: serializeTransitionDuration,
     animationName: serializeAnimationName(type),
-    transform: serializeTransform(type),
+    transform: serializeTransform,
     transformOrigin: serializeTransformOrigin,
     perspectiveOrigin: serializePerspectiveOrigin,
     perspective: serializePerspectivePropertyValue,
