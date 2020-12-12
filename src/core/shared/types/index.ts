@@ -17,6 +17,7 @@ export * from './env'
 export * from './math'
 export * from './gradient'
 export * from './image'
+export * from './transform-function'
 
 export type AtLeastOnePropRequired<T, Keys extends keyof T = keyof T> = Pick<T, Exclude<keyof T, Keys>> &
     {
