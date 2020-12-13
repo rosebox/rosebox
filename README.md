@@ -30,3 +30,15 @@ npm i rosebox
 ## Roadmap and future releases
 
 Refer to [milestones](https://github.com/hugonteifeh/rosebox/milestones/) for information about releases and the [roadmap project](https://github.com/hugonteifeh/rosebox/projects/12) for roadmap.
+
+## Contribute
+
+There are many way in which you can contribute:
+
+* Submit a feature request.
+* Report a bug.
+* Suggest a useful integration with another library.
+
+## Help and questions 🙋
+
+If you have a question or need help, feel free to create an issue here 👌.
