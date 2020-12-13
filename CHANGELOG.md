@@ -1,5 +1,10 @@
 # Chagngelog
 
+## [0.4.55]
+
+## FIXED
+- Serialization of underscore-prefixed props https://github.com/hugonteifeh/rosebox/issues/131.
+
 ## [0.4.51] - 2020-12-10
 
 ### CHANGED
