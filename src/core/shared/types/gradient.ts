@@ -1,7 +1,8 @@
 import { Angle, Color, Position, Percentage, LengthPercentage, RBType, serializeAtomicValue } from '.'
 
 type LinearColorStop = Color | [Color, LengthPercentage]
-type ColorStopList = (LinearColorStop | Percentage)[]
+type LinearColorHint = LengthPercentage
+type ColorStopList = (LinearColorStop | LinearColorHint)[]
 
 type AtLeastOneRequired<T, Keys extends keyof T = keyof T> = Pick<T, Exclude<keyof T, Keys>> &
     {
