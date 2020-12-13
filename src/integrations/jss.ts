@@ -352,7 +352,7 @@ const toCSSMap = (obj: RBStyle) => {
 export const styleCSS__ = (obj: any) => {
     // NEEDS improvement
     return Object.keys(obj).reduce((acc, key) => {
-        const serializerKey = key.replace(/-([a-z])/g, function (g) {
+        const serializerKey = (key[0] === '_' ? key.slice(1) : key).replace(/-([a-z])/g, function (g) {
             return g[1].toUpperCase()
         })
         const serializer = (funcMap as any)('inline')[serializerKey]
@@ -363,7 +363,7 @@ export const styleCSS__ = (obj: any) => {
               }
             : {
                   ...acc,
-                  [key]: (obj as any)[key],
+                  [key[0] === '_' ? camelCaseToDash(key.slice(1)) : key]: (obj as any)[key],
               }
     }, {})
 }

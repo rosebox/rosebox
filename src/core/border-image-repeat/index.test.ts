@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { styleCSS__ } from '../../integrations'
+import { styleCSS__ } from '../../integrations/jss'
 
 test('borderImageRepeat: stretch', () => {
     const received = style({

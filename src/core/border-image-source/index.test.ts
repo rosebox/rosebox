@@ -1,6 +1,6 @@
 import { style } from '../../index'
 import { uri } from '../shared'
-import { styleCSS__ } from '../../integrations'
+import { styleCSS__ } from '../../integrations/jss'
 
 test('borderImageSource: URI', () => {
     const received = style({

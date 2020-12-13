@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { styleCSS__ } from '../../integrations'
+import { styleCSS__ } from '../../integrations/jss'
 import { px } from '../shared'
 
 test('borderCollapse: Length', () => {

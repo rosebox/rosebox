@@ -1,6 +1,6 @@
 import { style } from '../../index'
 import { px } from '../shared'
-import { styleCSS__ } from '../../integrations'
+import { styleCSS__ } from '../../integrations/jss'
 
 test('borderImageOutset: number', () => {
     const received = style({

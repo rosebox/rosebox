@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { styleCSS__ } from '../../integrations'
+import { styleCSS__ } from '../../integrations/jss'
 
 test('borderCollapse: collapse', () => {
     const received = style({

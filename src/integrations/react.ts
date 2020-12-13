@@ -1,14 +1,7 @@
 import { CSSProperties } from 'react'
 import { funcMap } from '../func-mapper'
-import { Plugin, JssStyle } from 'jss'
-import functions from 'jss-plugin-rule-value-function'
-import global from 'jss-plugin-global'
-import camelCase from 'jss-plugin-camel-case'
-import vendorPrefixer from 'jss-plugin-vendor-prefixer'
-import propsSort from 'jss-plugin-props-sort'
 import { createUseStyles as createUseStyles_ } from 'react-jss'
 
-import { camelCaseToDash } from '../utils'
 import { OverflowXDeclaration, OverflowYDeclaration, OverflowDeclaration } from '../core/overflow'
 import { TextTransformDeclaration } from '../core/text-transform'
 import { WidthDeclaration } from '../core/width'
@@ -176,7 +169,6 @@ import { BorderCollapseDeclaration } from '../core/border-collapse'
 import { BorderSpacingDeclaration } from '../core/border-spacing'
 import { BorderImageDeclaration } from '../core/border-image'
 import { RBJSSStyle } from './jss'
-import { serializeAtomicValue } from '../core'
 
 export type RBStyle = Partial<
     WidthDeclaration &
@@ -355,63 +347,17 @@ export const style = (obj: RBStyle): CSSProperties => {
               }
             : {
                   ...acc,
-                  [key]: (obj as any)[key],
+                  [key[0] === '_' ? key.slice(1) : key]: (obj as any)[key],
               }
     }, {}) as CSSProperties
 }
 
-const isIntrinsic = (val: any) => typeof val === 'number' || typeof val === 'string'
-
-const toCSSMap = (obj: RBStyle) => {
-    // NEEDS improvement
-    const js = style(obj)
-    const objs = Object.keys(js).map((key) => [camelCaseToDash(key), (js as any)[key]])
-    return Object.fromEntries(objs)
-}
-
-export const styleCSS__ = (obj: any) => {
-    // NEEDS improvement
-    return Object.keys(obj).reduce((acc, key) => {
-        const serializerKey = key.replace(/-([a-z])/g, function (g) {
-            return g[1].toUpperCase()
-        })
-        const serializer = (funcMap as any)('inline')[serializerKey]
-        return serializer && !isIntrinsic((obj as any)[key])
-            ? {
-                  ...acc,
-                  ...toCSSMap(serializer((obj as any)[key])),
-              }
-            : {
-                  ...acc,
-                  [key]: (obj as any)[key],
-              }
-    }, {})
-}
-
-/** A JSS plugin for Rosebox */
-export const rbJSS = (): Plugin => {
-    return {
-        onProcessStyle: (style: JssStyle) => {
-            return style ? styleCSS__(style) : style
-        },
-        onChangeValue: (value: any) => {
-            return value ? serializeAtomicValue(value) : value
-        },
-    }
-}
-
-export const jssPreset = () => {
-    const clientSideOnly = typeof window === 'undefined' ? [] : [vendorPrefixer()]
-    const plugins = [functions(), global(), camelCase(), propsSort(), rbJSS()].concat(clientSideOnly)
-    return {
-        plugins,
-    }
-}
-
-type StyleMap = {
+export type StyleMap = {
     [key: string]: RBJSSStyle
 }
 
 export const createUseStyles = (styleMap: StyleMap, options?: any) => {
     return createUseStyles_(styleMap as any, options)
 }
+
+export * from './jss'

@@ -1,5 +1,5 @@
 import { style } from '../../index'
-import { styleCSS__ } from '../../integrations'
+import { styleCSS__ } from '../../integrations/jss'
 import { per, px, url } from '../shared'
 
 test('borderImage: Object', () => {
