@@ -1,6 +1,6 @@
 {
   "name": "rosebox",
-  "version": "0.4.53",
+  "version": "0.4.54",
   "private": false,
   "description": "CSS-in-TS",
   "main": "es5/index.js",
