@@ -20,9 +20,9 @@ type FontVariantNumericPropValue =
 export type FontVariantNumericDeclaration = {
     /**
      * Maps to CSS's **`font-variant-numeric`** property
-     * @category RBProperty
-     * @formalSyntaxForValue 	normal | [ <numeric-figure-values> || <numeric-spacing-values> || <numeric-fraction-values> || ordinal || slashed-zero ]
-     * @implementationReference https://drafts.csswg.org/css-fonts-3/#propdef-font-variant-numeric
+     * @initial normal
+     * @definition https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/#font-variant-numeric-prop
+     * @specification {@link https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/ CSS Fonts Module Level 4}
      */
     fontVariantNumeric: FontVariantNumericPropValue
 }

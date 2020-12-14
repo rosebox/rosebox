@@ -79,8 +79,8 @@ export type CursorDeclaration = {
     /**
      * Maps to CSS's **`cursor`** property
      * @initial transparent
-     * @definition https://www.w3.org/TR/2020/WD-css-color-4-20201112/#propdef-color
-     * @specification {@link https://www.w3.org/TR/2020/WD-css-color-4-20201112/ CSS Backgrounds and Borders Module Level 4}.
+     * @definition https://www.w3.org/TR/2020/WD-css-ui-4-20200124/#cursor
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-ui-4-20200124/ CSS Basic User Interface Module Level 4}.
      */
     cursor: CursorPropValue
 }

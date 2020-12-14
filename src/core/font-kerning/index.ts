@@ -13,9 +13,9 @@ type FontKerningPropValue = 'auto' | 'normal' | 'none' | GlobalCssKeyword
 export type FontKerningDeclaration = {
     /**
      * Maps to CSS's **`font-kerning`** property
-     * @category RBProperty
-     * @formalSyntaxForValue auto | normal | none
-     * @implementationReference https://drafts.csswg.org/css-fonts-4/#propdef-font-kerning
+     * @initial auto
+     * @definition https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/#font-kerning-prop
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/ CSS Fonts Module Level 4}
      */
     fontKerning: FontKerningPropValue
 }

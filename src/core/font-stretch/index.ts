@@ -24,8 +24,9 @@ type FontStretchPropValue =
 export type FontStretchDeclaration = {
     /**
      * Maps to CSS's **`font-stretch`** property
-     * @category RBProperty
-     * @formalSyntaxForValu normal | <percentage> | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded
+     * @initial normal
+     * @definition https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/#propdef-font-stretch
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/ CSS Fonts Module Level 4}
      */
     fontStretch: FontStretchPropValue
 }

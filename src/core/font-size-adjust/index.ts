@@ -12,9 +12,9 @@ type FontSizeAdjustPropValue = number | 'none' | GlobalCssKeyword
 export type FontSizeAdjustDeclaration = {
     /**
      * Maps to CSS's **`font-size-adjust`** property
-     * @category RBProperty
-     * @formalSyntaxForValue none | <number>
-     * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#propdef-font-size-adjust
+     * @initial none
+     * @definition https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/#propdef-font-size-adjust
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/ CSS Fonts Module Level 4}
      */
     fontSizeAdjust: FontSizeAdjustPropValue
 }
