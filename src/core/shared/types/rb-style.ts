@@ -164,6 +164,7 @@ import { BorderCollapseDeclaration } from '../../../core/border-collapse'
 import { BorderSpacingDeclaration } from '../../../core/border-spacing'
 import { BorderImageDeclaration } from '../../../core/border-image'
 import { UntypedProps } from '../../../untyped-props'
+import { BackgroundAttachmentDeclaration } from '../../background-attachment'
 
 export type RBStyle = Partial<
     WidthDeclaration &
@@ -254,6 +255,7 @@ export type RBStyle = Partial<
         TransformOriginDeclaration &
         AlignContentDeclaration &
         BackfaceVisibilityDeclaration &
+        BackgroundAttachmentDeclaration &
         TransformStyleDeclaration &
         PerspectiveOriginDeclaration &
         PerspectiveDeclaration &

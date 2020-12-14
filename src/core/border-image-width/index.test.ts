@@ -1,6 +1,5 @@
 import { style } from '../../index'
 import { per, px } from '../shared'
-import { styleCSS__ } from '../../integrations/jss'
 
 test('borderImageSource: Width', () => {
     const received = style({
@@ -18,16 +17,6 @@ test('borderImageSource: [Width, Width, Width, Width]', () => {
     })
     const expected = {
         borderImageWidth: '30% auto auto 30px',
-    }
-    expect(received).toEqual(expected)
-})
-
-test('border-image-width: [Width, Width, Width, Width]', () => {
-    const received = styleCSS__({
-        'border-image-width': [per(30), 'auto', 'auto', px(30)],
-    })
-    const expected = {
-        'border-image-width': '30% auto auto 30px',
     }
     expect(received).toEqual(expected)
 })

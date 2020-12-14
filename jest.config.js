@@ -1,9 +1,9 @@
 module.exports = {
-  preset: 'ts-jest',
-  globals: {
-    'ts-jest': {
-      diagnostics: false
-    }
-  },
-  testMatch: ['<rootDir>/src/**/*.test.ts']
+    preset: 'ts-jest',
+    globals: {
+        'ts-jest': {
+            diagnostics: true,
+        },
+    },
+    testMatch: ['<rootDir>/src/**/*.test.ts'],
 }

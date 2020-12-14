@@ -1,5 +1,4 @@
 import { style } from '../../index'
-import { styleCSS__ } from '../../integrations/jss'
 
 test('borderImageRepeat: stretch', () => {
     const received = style({
@@ -17,16 +16,6 @@ test('borderImageRepeat: [stretch, space]', () => {
     })
     const expected = {
         borderImageRepeat: 'stretch space',
-    }
-    expect(received).toEqual(expected)
-})
-
-test('border-image-repeat: [stretch, space]', () => {
-    const received = styleCSS__({
-        'border-image-repeat': ['stretch', 'space'],
-    })
-    const expected = {
-        'border-image-repeat': 'stretch space',
     }
     expect(received).toEqual(expected)
 })

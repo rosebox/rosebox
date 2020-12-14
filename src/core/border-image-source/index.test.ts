@@ -1,6 +1,5 @@
 import { style } from '../../index'
 import { uri } from '../shared'
-import { styleCSS__ } from '../../integrations/jss'
 
 test('borderImageSource: URI', () => {
     const received = style({
@@ -12,12 +11,3 @@ test('borderImageSource: URI', () => {
     expect(received).toEqual(expected)
 })
 
-test('border-image-source: URI', () => {
-    const received = styleCSS__({
-        'border-image-source': uri('/hidden-stuff'),
-    })
-    const expected = {
-        'border-image-source': 'uri(/hidden-stuff)',
-    }
-    expect(received).toEqual(expected)
-})
