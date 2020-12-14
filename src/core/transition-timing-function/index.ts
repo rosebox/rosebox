@@ -9,7 +9,9 @@ export const serializeTransitionTimingFunction = (x: TimingFunctionValue): { tra
 export type TransitionTimingDeclaration = {
     /**
      * Maps to CSS's **`transition-timing-function`** property
-     * @category RBProperty
+     * @initial ease
+     * @definition https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-timing-function-property
+     * @specification {@link https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/ CSS Transitions}.
      */
     transitionTimingFunction: TimingFunctionValue
 }

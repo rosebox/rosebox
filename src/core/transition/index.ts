@@ -87,7 +87,9 @@ export const serializeTransition = (value: TransitionPropertyValue): { transitio
 export type TransitionDeclaration = {
     /**
      * Maps to CSS's **`transition`** property
-     * @category RBProperty
+     * @initial see individual properties
+     * @definition https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-shorthand-property
+     * @specification {@link https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/ CSS Transitions}.
      */
     transition: TransitionPropertyValue
 }
