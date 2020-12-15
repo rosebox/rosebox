@@ -1,12 +1,5 @@
 import { KeyFramesName } from '../animation-name'
-import {
-    AtLeastOnePropRequired,
-    Duration,
-    GlobalCssKeyword,
-    serializeAtomicValue,
-    TimingFunction,
-    ValueOrFunc,
-} from '../shared'
+import { AtLeastOnePropRequired, Duration, GlobalCssKeyword, serializeAtomicValue, TimingFunction } from '../shared'
 import { AnimationDirectionKeyword } from '../animation-direction'
 import { AnimationFillModeKeyword } from '../animation-fill-mode'
 import { AnimationPlayStateKeyword } from '../animation-play-state'
@@ -64,8 +57,4 @@ export type AnimationDeclaration = {
      * @definition https://drafts.csswg.org/css-animations-1/#animation
      */
     animation: AnimationPropValue
-}
-
-export type AnimationDeclarationJSS = {
-    animation: ValueOrFunc<AnimationPropValue>
 }

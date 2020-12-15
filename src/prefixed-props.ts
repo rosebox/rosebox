@@ -1,4 +1,4 @@
-export type UntypedProps = {
+export type PrefixedProps = {
     /** @deprecated since 0.4.3 */
     _alignContent: string
     /** @deprecated since 0.4.3 */

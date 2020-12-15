@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
+import { GlobalCssKeyword, serializeAtomicValue } from '../shared'
 
 type BaseLinePosition = ['first', 'baseline'] | ['last', 'baseline'] | 'baseline'
 
@@ -41,10 +41,6 @@ export type AlignContentDeclaration = {
      * @specification {@link https://www.w3.org/TR/2020/WD-css-align-3-20200421/ CSS Box Alignment Module Level 3}.
      */
     alignContent: AlignContentPropValue
-}
-
-export type AlignContentDeclarationJSS = {
-    alignContent: ValueOrFunc<AlignContentPropValue>
 }
 
 export const serializeAlignContentPropValue = (x: AlignContent | GlobalCssKeyword): string =>

@@ -163,7 +163,7 @@ import { BorderImageRepeatDeclaration } from '../../../core/border-image-repeat'
 import { BorderCollapseDeclaration } from '../../../core/border-collapse'
 import { BorderSpacingDeclaration } from '../../../core/border-spacing'
 import { BorderImageDeclaration } from '../../../core/border-image'
-import { UntypedProps } from '../../../untyped-props'
+import { PrefixedProps } from '../../../prefixed-props'
 import { BackgroundAttachmentDeclaration } from '../../background-attachment'
 
 export type RBStyle = Partial<
@@ -325,7 +325,7 @@ export type RBStyle = Partial<
         BorderCollapseDeclaration &
         BorderSpacingDeclaration &
         BorderImageDeclaration &
-        UntypedProps
+        PrefixedProps
 >
 
 /**

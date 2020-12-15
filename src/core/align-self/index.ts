@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
+import { GlobalCssKeyword, PropType, serializeAtomicValue } from '../shared'
 
 type BaseLinePosition = ['first', 'baseline'] | ['last', 'baseline'] | 'baseline'
 
@@ -56,8 +56,4 @@ export type AlignSelfDeclaration = {
      * @specification {@link https://www.w3.org/TR/2020/WD-css-align-3-20200421/ CSS Box Alignment Module Level 3}.
      */
     alignSelf: AlignSelfPropValue
-}
-
-export type AlignSelfDeclarationJSS = {
-    alignSelf: ValueOrFunc<AlignSelfPropValue>
 }
