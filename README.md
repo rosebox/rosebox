@@ -14,6 +14,56 @@ Using npm:
 npm i rosebox
 ```
 
+## Usage
+
+## Example
+
+```tsx
+
+import React from "react";
+import { px, ms, rgb } from "rosebox";
+import { StylesProvider, createUseStyles } from 'rosebox/styles-manager'
+import useHover from "@react-hook/hover";
+
+const useStyles = createUseStyles({
+  titleStyle: {
+    fontSize: px(48),
+    transitionDuration: ms(300),
+    transitionTimingFunction: 'ease-in-out',
+    // props will be provided by the component using the created hook
+    color: props => props.isHovering ? rgb(244, 244, 244) : 'blue',
+    transitionProperty: props => props.isHovering ? 'color' : 'none'
+  }
+});
+
+const MyHoverableComponent: React.FC = () => {
+  const target = React.useRef(null);
+  const isHovering = useHover(target);
+  // Passing "props" to useStyles
+  const classes = useStyles({
+    isHovering: isHovering
+  });
+  return (
+    <div>
+      <h1 ref={target} className={classes.titleStyle}>
+        Hover over me please
+      </h1>
+    </div>
+  );
+};
+
+function App() {
+  return (
+    <StylesProvider>
+      <MyHoverableComponent />
+    </StylesProvider>
+  );
+}
+
+export default App;
+
+```
+
 ## IMPORTANT NOTE 📢
 
 Already today, you can use all the CSS properties in Rosebox. Missing ones on the API page only indicate that they are not **YET** strongly typed. The library exposes all untyped/loosely-typed properties by prefixing them with an underscore (e.g., `_borderImageStyle`, `_all`). Those loosely-typed props will have a type of `string`. When a property becomes strongly-typed, its underscore-prefixed version gets deprecated immediately. However, its removal may only be considered after a minimum of 2 major releases since the deprecation—for example, if `_borderImageStyle` gets deprecated in 0.6.4, it means that it will be removed in 2.0.0.

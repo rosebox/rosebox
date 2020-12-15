@@ -20,4 +20,3 @@ test('borderImageOutset: [number, Percentage]', () => {
     }
     expect(received).toEqual(expected)
 })
-

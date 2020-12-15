@@ -10,4 +10,3 @@ test('borderCollapse: Length', () => {
     }
     expect(received).toEqual(expected)
 })
-

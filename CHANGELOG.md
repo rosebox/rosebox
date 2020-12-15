@@ -3,7 +3,7 @@
 ## [0.4.56]
 
 ### CHANGED
-- changed/fixed the docs for some properties.
+- Changed/fixed the docs for some properties.
 
 ## [0.4.55]
 

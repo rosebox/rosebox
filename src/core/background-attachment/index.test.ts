@@ -9,4 +9,3 @@ test('backgroundAttachment: keyword', () => {
     }
     expect(received).toEqual(expected)
 })
-

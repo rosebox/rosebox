@@ -22,7 +22,7 @@
     "build": "tsc -p ./tsconfig.build.json && tsc -p ./tsconfig.build-es6.json",
     "test": "jest",
     "prettier:ck": "prettier --check 'src/**/*.ts'",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "prettier:ck && prettier --check && npm run build"
   },
   "author": "Hugo Nteifeh <hugonteifeh@gmail.com>",
   "keywords": [
@@ -38,6 +38,8 @@
     "jss-plugin-props-sort": "^10.5.0",
     "jss-plugin-rule-value-function": "^10.5.0",
     "jss-plugin-vendor-prefixer": "^10.5.0",
+    "jss": "^10.5.0",
+    "react-jss": "^10.5.0",
     "ramda": "^0.27.1"
   },
   "devDependencies": {
@@ -54,10 +56,8 @@
     "eslint-plugin-prettier": "^3.2.0",
     "html-table-to-json": "^1.0.0",
     "jest": "^24.9.0",
-    "jss": "^10.5.0",
     "prettier": "^2.2.1",
     "react": ">=15",
-    "react-jss": "^10.5.0",
     "ts-jest": "^24.3.0",
     "typescript": "^4.1.3"
   },

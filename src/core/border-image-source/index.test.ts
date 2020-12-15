@@ -10,4 +10,3 @@ test('borderImageSource: URI', () => {
     }
     expect(received).toEqual(expected)
 })
-
