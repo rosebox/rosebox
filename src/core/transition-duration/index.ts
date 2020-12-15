@@ -26,10 +26,9 @@ export const serializeTransitionDuration = (x: TransitionDurationPropValue) => (
 export type TransitionDurationDeclaration = {
     /**
      * Maps to CSS's **`transition-duration`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <Duration>#
-     * @added 0.2.1
-     * @implentationReference @implentationReference https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-duration-property
+     * @initial 0s
+     * @definition https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-duration-property
+     * @specification {@link https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/ CSS Transitions}.
      */
     transitionDuration: TransitionDurationPropValue
 }

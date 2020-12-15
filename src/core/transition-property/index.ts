@@ -8,10 +8,10 @@ const toHyphenCase = (x: string) => x.replace(/[A-Z]/g, (m) => '-' + m.toLowerCa
 export type TransitionPropertyPropValue =
     | 'none'
     | 'all'
-    | GlobalCssKeyword
     | AnimatableProperty
     | CustomIdent
     | (AnimatableProperty | CustomIdent)[]
+    | GlobalCssKeyword
 
 const serializeValue = (value: TransitionPropertyPropValue): string => {
     const valArray = Array.isArray(value) ? value : [value]
@@ -34,10 +34,9 @@ export const serializeTransitionProperty = (x: TransitionPropertyPropValue): { t
 export type TransitionPropertyDeclaration = {
     /**
      * Maps to CSS's **`transition-property`** property
-     * @category RBProperty
-     * @formalSyntaxForValue none | <single-transition-property>#
-     * @added 0.2.1
-     * @implentationReference @implentationReference https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-property-property
+     * @initial all
+     * @definition https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-property-property
+     * @specification {@link https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/ CSS Transitions}.
      */
     transitionProperty: TransitionPropertyPropValue
 }

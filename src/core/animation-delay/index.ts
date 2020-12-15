@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
+import { GlobalCssKeyword, PropType, serializeAtomicValue } from '../shared'
 import { Duration } from '../shared'
 
 /**
@@ -35,8 +35,4 @@ export type AnimationDelayDeclaration = {
      * @specification {@link https://www.w3.org/TR/2018/WD-css-animations-1-20181011/ CSS Animations Level 1}.
      */
     animationDelay: AnimationDelayPropValue
-}
-
-export type AnimationDelayDeclarationJSS = {
-    animationDelay: ValueOrFunc<AnimationDelayPropValue>
 }

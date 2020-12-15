@@ -21,10 +21,9 @@ type FontSizePropValue = RelativeSizeKeyword | AbsoluteSizeKeyword | LengthPerce
 export type FontSizeDeclaration = {
     /**
      * Maps to CSS's **`font-size`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <absolute-size> | <relative-size> | <length-percentage>
-     * @added 0.2.0
-     * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-size-prop
+     * @initial medium
+     * @definition https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/#propdef-font-size
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/ CSS Fonts Module Level 4}
      */
     fontSize: FontSizePropValue
 }

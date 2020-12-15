@@ -15,9 +15,9 @@ type FontSynthesisPropValue = 'none' | 'weight' | 'style' | ['weight', 'style'] 
 export type FontSynthesisDeclaration = {
     /**
      * Maps to CSS's **`font-synthesis`** property
-     * @category RBProperty
-     * @formalSyntaxForValue none | [ weight || style ]
-     * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-synthesis
+     * @initial weight style
+     * @definition https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-synthesis
+     * @specification {@link https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/ CSS Fonts Module Level 4}
      */
     fontSynthesis: FontSynthesisPropValue
 }

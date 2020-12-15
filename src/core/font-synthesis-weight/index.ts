@@ -9,9 +9,9 @@ type FontSynthesisWeightPropValue = 'auto' | 'none' | GlobalCssKeyword
 export type FontSynthesisWeightDeclaration = {
     /**
      * Maps to CSS's **`font-synthesis-weight`** property
-     * @category RBProperty
-     * @formalSyntaxForValue auto | none
-     * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-synthesis-weight
+     * @initial auto
+     * @definition https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/#font-synthesis-weight
+     * @specification {@link https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/ CSS Fonts Module Level 4}
      */
     fontSynthesisWeight: FontSynthesisWeightPropValue
 }

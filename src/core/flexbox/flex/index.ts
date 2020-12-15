@@ -30,7 +30,9 @@ export const serializeFlex = (
 export type FlexDeclaration = {
     /**
      * Maps to CSS's **`flex`** property
-     * @category RBProperty
+     * @initial 0 1 auto
+     * @definition https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/#propdef-flex
+     * @specification {@link https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/ CSS Flexible Box Layout Module Level 1}
      */
     flex: FlexPropValue
 }

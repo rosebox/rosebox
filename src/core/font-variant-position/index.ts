@@ -9,9 +9,9 @@ type FontVariantPositionPropValue = 'normal' | 'sub' | 'super' | GlobalCssKeywor
 export type FontVariantPositionDeclaration = {
     /**
      * Maps to CSS's **`font-variant-position`** property
-     * @category RBProperty
-     * @formalSyntaxForValue auto | none
-     * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#propdef-font-variant-position
+     * @initial normal
+     * @definition https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/#font-variant-position-prop
+     * @specification {@link https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/ CSS Fonts Module Level 4}
      */
     fontVariantPosition: FontVariantPositionPropValue
 }

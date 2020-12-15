@@ -9,9 +9,9 @@ type FontSynthesisStylePropValue = 'auto' | 'none' | GlobalCssKeyword
 export type FontSynthesisStyleDeclaration = {
     /**
      * Maps to CSS's **`font-synthesis-style`** property
-     * @category RBProperty
-     * @formalSyntaxForValue auto | none
-     * @implementationReference https://www.w3.org/TR/2019/WD-css-fonts-4-20191113/#font-synthesis-style
+     * @initial auto
+     * @definition https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/#font-synthesis-style
+     * @specification {@link https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/ CSS Fonts Module Level 4}
      */
     fontSynthesisStyle: FontSynthesisStylePropValue
 }

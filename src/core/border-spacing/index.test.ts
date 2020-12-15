@@ -1,5 +1,4 @@
 import { style } from '../../index'
-import { styleCSS__ } from '../../integrations/jss'
 import { px } from '../shared'
 
 test('borderCollapse: Length', () => {
@@ -8,16 +7,6 @@ test('borderCollapse: Length', () => {
     })
     const expected = {
         borderSpacing: '30px',
-    }
-    expect(received).toEqual(expected)
-})
-
-test('border-spacing: Length', () => {
-    const received = styleCSS__({
-        'border-spacing': px(30),
-    })
-    const expected = {
-        'border-spacing': '30px',
     }
     expect(received).toEqual(expected)
 })

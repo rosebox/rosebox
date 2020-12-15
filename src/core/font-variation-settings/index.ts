@@ -23,8 +23,9 @@ type FontVariationSettingsPropValue = 'normal' | [string, number] | [string, num
 export type FontVariationSettingsDeclaration = {
     /**
      * Maps to CSS's **`font-variation-settings`** property
-     * @category RBProperty
-     * @formalSyntaxForValue auto | none
+     * @initial normal
+     * @definition https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/#font-rend-desc
+     * @specification {@link https://www.w3.org/TR/2018/REC-css-fonts-3-20180920/ CSS Fonts Module Level 4}
      */
     fontVariationSettings: FontVariationSettingsPropValue
 }

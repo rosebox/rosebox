@@ -12,9 +12,9 @@ type FontOpticalSizingPropValue = 'auto' | 'none' | GlobalCssKeyword
 export type FontOpticalSizingDeclaration = {
     /**
      * Maps to CSS's **`font-optical-sizing`** property
-     * @category RBProperty
-     * @formalSyntaxForValue auto | none
-     * @implementationReference https://drafts.csswg.org/css-fonts-4/#font-optical-sizing-def
+     * @initial auto
+     * @definition https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/#propdef-font-optical-sizing
+     * @specification {@link https://www.w3.org/TR/2020/WD-css-fonts-4-20201117/ CSS Fonts Module Level 4}
      */
     fontOpticalSizing: FontOpticalSizingPropValue
 }

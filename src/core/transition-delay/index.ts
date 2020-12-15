@@ -23,10 +23,9 @@ export const serializeTransitionDelay = (value: TransitionDelayPropValue) => ({
 export type TransitionDelayDeclaration = {
     /**
      * Maps to CSS's **`transition-delay`** property
-     * @category RBProperty
-     * @formalSyntaxForValue <Duration>#
-     * @added 0.2.1
-     * @implentationReference @implentationReference https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-delay-property
+     * @initial 0s
+     * @definition https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/#transition-delay-property
+     * @specification {@link https://www.w3.org/TR/2018/WD-css-transitions-1-20181011/ CSS Transitions}.
      */
     transitionDelay: TransitionDelayPropValue
 }
