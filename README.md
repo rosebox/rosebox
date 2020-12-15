@@ -14,9 +14,9 @@ Using npm:
 npm i rosebox
 ```
 
-## Usage
+## Examples
 
-## Example
+Here is a simple example of how you can use rosebox in your react-app:
 
 ```tsx
 
