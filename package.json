@@ -1,6 +1,6 @@
 {
   "name": "rosebox",
-  "version": "0.4.56",
+  "version": "0.4.57",
   "private": false,
   "description": "CSS-in-TS",
   "main": "es5/index.js",
@@ -22,7 +22,7 @@
     "build": "tsc -p ./tsconfig.build.json && tsc -p ./tsconfig.build-es6.json",
     "test": "jest",
     "prettier:ck": "prettier --check 'src/**/*.ts'",
-    "prepublishOnly": "prettier:ck && prettier --check && npm run build"
+    "prepublishOnly": "npm run prettier:ck && npm run build"
   },
   "author": "Hugo Nteifeh <hugonteifeh@gmail.com>",
   "keywords": [

@@ -25,6 +25,12 @@ test('sub(Length, Length)', () => {
     expect(received).toEqual(expected)
 })
 
+test('sub(Duration, Duration)', () => {
+    const received = sub(ms(600), ms(500)).serialize()
+    const expected = '100ms'
+    expect(received).toEqual(expected)
+})
+
 test('div(Length, Length)', () => {
     const received = eq(div(px(600), 2), px(300))
     const expected = true

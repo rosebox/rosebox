@@ -5,6 +5,7 @@ import { Length, LengthUnit } from '../types/length'
  * @category Utility function
  */
 export function sub<A extends LengthUnit>(x1: Length<A>, x2: Length<A>): Length<A>
+export function sub(x1: Duration, x2: Duration): Duration
 export function sub(x1: any, x2: any): any {
     return x1.sub(x1, x2)
 }

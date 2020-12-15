@@ -1,6 +1,11 @@
 # Chagngelog
 
+## [0.4.57]
+
 ## [0.4.56]
+
+### Added
+- `sub` for `Duration`.
 
 ### CHANGED
 - Changed/fixed the docs for some properties.
