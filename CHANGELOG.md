@@ -4,6 +4,7 @@
 
 ### CHANGED
 - Changed/fixed the docs for some properties.
+- Added the numerical value 1000 as an allowed value for fontWeight.
 
 ## [0.4.55]
 
