@@ -9,7 +9,7 @@ The Rosebox project is an effort to improve the CSS-in-JS experience by providin
 ## Installation
 
 ```shell
-npm i rosebox
+npm i @rosebox/core
 ```
 
 ## Example

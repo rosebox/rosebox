@@ -1,6 +1,6 @@
 {
-  "name": "rosebox",
-  "version": "0.4.58",
+  "name": "@rosebox/core",
+  "version": "0.4.6",
   "private": false,
   "description": "CSS-in-TS",
   "main": "es5/index.js",
@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hugonteifeh/rosebox"
+    "url": "https://github.com/rosebox/rosebox"
   },
   "_moduleAliases": {
     "@shared": "src/shared"
