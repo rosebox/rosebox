@@ -1,11 +1,16 @@
 # Chagngelog
 
-## [0.4.57]
+## [0.4.58]
 
-## [0.4.56]
+### Changed
+- `Duration<'seconds'>` to `Duration<'s'>`.
+
+## [0.4.57]
 
 ### Added
 - `sub` for `Duration`.
+
+## [0.4.56]
 
 ### CHANGED
 - Changed/fixed the docs for some properties.

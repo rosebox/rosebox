@@ -5,8 +5,8 @@ const serialize = (x: Duration<any>): string => {
     return `${x.data}${unitSuffix}`
 }
 
-export const toSeconds = (x: Duration): Duration<'seconds'> => {
-    const value = x.unit === 'seconds' ? x.data : x.data / 1000
+export const toSeconds = (x: Duration): Duration<'s'> => {
+    const value = x.unit === 's' ? x.data : x.data / 1000
     return Duration.s(value)
 }
 
@@ -34,7 +34,7 @@ const sub = (x1: Duration, x2: Duration): Duration<'ms'> => {
     return ms(x1ms - x2m2)
 }
 
-export type DurationUnit = 'ms' | 'seconds'
+export type DurationUnit = 'ms' | 's'
 
 /**
  *
@@ -63,8 +63,8 @@ export class Duration<A extends DurationUnit = DurationUnit> implements Setoid<D
     /**
      * Constructs a value of type **`Duration<"seconds">`**
      */
-    static s(x: number): Duration<'seconds'> {
-        return new Duration('seconds', x)
+    static s(x: number): Duration<'s'> {
+        return new Duration('s', x)
     }
 
     eq = eq
