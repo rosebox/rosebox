@@ -1,5 +1,11 @@
 # Chagngelog
 
+## @rosebox/core@0.5.0
+
+### Removed
+
+- Moved all the react-integration code to `@rosebox/react` including `createUseStyles` nad `StylesProvider`.
+
 ## [0.4.58]
 
 ### Changed
