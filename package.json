@@ -24,7 +24,9 @@
     "Typed CSS"
   ],
   "license": "MIT",
-  "dependencies": {
-    "jest": "^24.9.0"
+  "devDependencies": {
+    "@types/jest": "^24.9.1",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.3.0"
   }
 }
