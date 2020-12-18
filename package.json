@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.4.61",
   "description": "CSS-in-TS",
+  "workspaces": [
+    "packages/core",
+    "packages/react-rosebox"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/rosebox/rosebox"
@@ -16,9 +20,5 @@
     "declarative styling",
     "Typed CSS"
   ],
-  "license": "MIT",
-  "workspaces": [
-    "packages/core",
-    "packages/react-rosebox"
-  ]
+  "license": "MIT"
 }
