@@ -5,5 +5,5 @@ module.exports = {
             diagnostics: true,
         },
     },
-    testMatch: ['<rootDir>/src/**/*.test.ts'],
+    testMatch: ['<rootDir>/packages/**/*.test.ts'],
 }

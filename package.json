@@ -1,28 +1,21 @@
 {
-  "name": "@rosebox/core",
+  "name": "rosebox",
+  "private": true,
   "version": "0.4.61",
-  "private": false,
   "description": "CSS-in-TS",
-  "main": "es5/index.js",
-  "module": "lib/index.js",
-  "files": [
-    "es5",
-    "lib/",
-    "README.md",
-    "LICENSE"
+  "workspaces": [
+    "./packages/core",
+    "./packages/react-rosebox"
   ],
+  "scripts": {
+    "test": "jest"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/rosebox/rosebox"
   },
   "_moduleAliases": {
     "@shared": "src/shared"
-  },
-  "scripts": {
-    "build": "tsc -p ./tsconfig.build.json && tsc -p ./tsconfig.build-es6.json",
-    "test": "jest",
-    "prettier:ck": "prettier --check 'src/**/*.ts'",
-    "prepublishOnly": "npm run prettier:ck && npm run build"
   },
   "author": "Hugo Nteifeh <hugonteifeh@gmail.com>",
   "keywords": [
@@ -31,38 +24,10 @@
     "Typed CSS"
   ],
   "license": "MIT",
-  "dependencies": {
-    "jss-plugin-camel-case": "^10.5.0",
-    "jss-plugin-global": "^10.5.0",
-    "jss-plugin-nested": "^10.5.0",
-    "jss-plugin-props-sort": "^10.5.0",
-    "jss-plugin-rule-value-function": "^10.5.0",
-    "jss-plugin-vendor-prefixer": "^10.5.0",
-    "jss": "^10.5.0",
-    "react-jss": "^10.5.0",
-    "ramda": "^0.27.1"
-  },
   "devDependencies": {
-    "@testing-library/dom": "^7.1.3",
-    "@testing-library/jest-dom": "^5.3.0",
     "@types/jest": "^24.9.1",
-    "@types/node": "^13.7.0",
-    "@types/ramda": "^0.27.14",
-    "@types/react": ">=15",
-    "@typescript-eslint/eslint-plugin": "^4.9.0",
-    "@typescript-eslint/parser": "^4.9.0",
-    "eslint": "^7.15.0",
-    "eslint-config-prettier": "^7.0.0",
-    "eslint-plugin-prettier": "^3.2.0",
-    "html-table-to-json": "^1.0.0",
     "jest": "^24.9.0",
-    "prettier": "^2.2.1",
-    "react": ">=15",
     "ts-jest": "^24.3.0",
     "typescript": "^4.1.3"
-  },
-  "peerDependencies": {
-    "react-jss": "^10.5.0",
-    "react": ">=15"
   }
 }

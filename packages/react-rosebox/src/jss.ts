@@ -1,4 +1,4 @@
-import { style, serializeAtomicValue, RBStyle } from '../core'
+import { style, serializeAtomicValue, RBStyle } from '@rosebox/core'
 import { create, JssStyle, Plugin } from 'jss'
 import functions from 'jss-plugin-rule-value-function'
 import global from 'jss-plugin-global'
@@ -35,7 +35,7 @@ export const defaultJss = create({
 
 type ValueOrFunction<T> = T | ((x: any) => T)
 
-type RBStyleDynamic = { [key in keyof RBStyle]: ValueOrFunction<RBStyle[key]> }
+export type RBStyleDynamic = { [key in keyof RBStyle]: ValueOrFunction<RBStyle[key]> }
 
 export type StyleMap = Record<string, RBStyleDynamic>
 
