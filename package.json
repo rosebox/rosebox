@@ -7,6 +7,9 @@
     "./packages/core",
     "./packages/react-rosebox"
   ],
+  "scripts": {
+    "test": "jest"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/rosebox/rosebox"
@@ -20,5 +23,8 @@
     "declarative styling",
     "Typed CSS"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^24.9.0"
+  }
 }
