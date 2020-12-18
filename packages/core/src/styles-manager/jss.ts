@@ -44,3 +44,5 @@ type ThemeFunc = (theme: unknown) => StyleMap
 export const createUseStyles = (styleMap: StyleMap | ThemeFunc, options?: any) => {
     return createUseStylesJSS(styleMap as any, options)
 }
+
+export { useTheme, ThemeProvider } from 'react-jss'

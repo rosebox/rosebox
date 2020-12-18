@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "noEmit": true,
-    "outDir": "./es5",
+    "module": "es6",
+    "composite": true,
+    "noEmit": false,
     "target": "ES2015",
-    "module": "commonjs",
     "moduleResolution": "node",
     "lib": ["es2019", "ESNext.Array", "dom"],
     "sourceMap": false,
@@ -17,6 +17,4 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["./src"],
-  "exclude": ["src/**/*.test.ts"]
 }

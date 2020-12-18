@@ -1,0 +1,36 @@
+{
+  "name": "@rosebox/react",
+  "version": "0.0.2",
+  "description": "Rosebox integration with React",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "keywords": ["rosebox", "react-rosebox"],
+  "author": "Hugo Nteifeh <hugonteifeh@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "prettier:ck": "prettier --check 'src/**/*.ts'",
+    "prepublishOnly": "npm run prettier:ck && npm run build"
+  },
+  "dependencies": {
+    "@rosebox/core": "^0.4.61",
+    "jss": "^10.5.0",
+    "jss-plugin-camel-case": "^10.5.0",
+    "jss-plugin-global": "^10.5.0",
+    "jss-plugin-nested": "^10.5.0",
+    "jss-plugin-props-sort": "^10.5.0",
+    "jss-plugin-rule-value-function": "^10.5.0",
+    "jss-plugin-vendor-prefixer": "^10.5.0",
+    "react-jss": "^10.5.0"
+  },
+  "devDependencies": {
+    "@types/react": ">=15",
+    "react": ">=15",
+    "typescript": "^4.1.3"
+  },
+  "peerDependencies": {
+    "react": ">=15",
+    "react-jss": "^10.5.0"
+  }
+}

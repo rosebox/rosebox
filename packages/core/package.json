@@ -1,0 +1,19 @@
+{
+  "name": "@rosebox/core",
+  "version": "0.4.61",
+  "description": "CSS-in-TS",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Hugo Nteifeh <hugonteifeh@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/ramda": "^0.27.34",
+    "ramda": "^0.27.1"
+  }
+}

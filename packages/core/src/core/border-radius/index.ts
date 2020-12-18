@@ -1,4 +1,3 @@
-import { ValueOfRecord } from 'ramda'
 import { GlobalCssKeyword, LengthPercentage, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 export type BorderRadiusCSSProp = 'border-radius'
@@ -85,10 +84,6 @@ export type BorderTopLeftRadiusDeclaration = {
      * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     borderTopLeftRadius: BorderCornerPropValue
-}
-
-export type BorderTopLeftRadiusDeclarationJSS = {
-    borderTopLeftRadius: ValueOfRecord<BorderCornerPropValue>
 }
 
 type RadiusTuple =
