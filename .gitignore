@@ -6,3 +6,4 @@ lib/
 to-do
 es5
 scripts/
+tsconfig.tsbuildinfo

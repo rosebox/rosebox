@@ -1,17 +1,24 @@
 {
   "name": "@rosebox/react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Rosebox integration with React",
   "main": "lib/index.js",
   "module": "lib/index.js",
-  "keywords": ["rosebox", "react-rosebox"],
+  "keywords": [
+    "rosebox",
+    "react-rosebox"
+  ],
   "author": "Hugo Nteifeh <hugonteifeh@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rosebox/rosebox"
+  },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p ./tsconfig.json",
     "test": "jest",
     "prettier:ck": "prettier --check 'src/**/*.ts'",
-    "prepublishOnly": "npm run prettier:ck && npm run build"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@rosebox/core": "^0.4.61",

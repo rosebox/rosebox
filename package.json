@@ -4,8 +4,8 @@
   "version": "0.4.61",
   "description": "CSS-in-TS",
   "workspaces": [
-    "packages/core",
-    "packages/react-rosebox"
+    "./packages/core",
+    "./packages/react-rosebox"
   ],
   "repository": {
     "type": "git",
