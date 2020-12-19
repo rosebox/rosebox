@@ -591,15 +591,16 @@ export type StandaloneColorKeyword = typeof standaloneKeywords[number]
  * */
 export type Color = HEX | RGB | RGBA | HSL | HSLA | StandaloneColorKeyword | NamedColorKeyword
 
-const isHex = (x: unknown): x is HEX => x instanceof HEX
-const isRGB = (x: unknown): x is RGB => x instanceof RGB
-const isRGBA = (x: unknown): x is RGBA => x instanceof RGBA
-const isHSL = (x: unknown): x is HSL => x instanceof HSL
-const isHSLA = (x: unknown): x is HSLA => x instanceof HSLA
+export const isHex = (x: unknown): x is HEX => x instanceof HEX
+export const isRGB = (x: unknown): x is RGB => x instanceof RGB
+export const isRGBA = (x: unknown): x is RGBA => x instanceof RGBA
+export const isHSL = (x: unknown): x is HSL => x instanceof HSL
+export const isHSLA = (x: unknown): x is HSLA => x instanceof HSLA
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const isExtendedColorKeyword = (value: any): value is NamedColorKeyword => extendedColorKeywords.includes(value)
+export const isExtendedColorKeyword = (value: any): value is NamedColorKeyword => extendedColorKeywords.includes(value)
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const isStandaloneColorKeyword = (value: any): value is StandaloneColorKeyword => standaloneKeywords.includes(value)
+export const isStandaloneColorKeyword = (value: any): value is StandaloneColorKeyword =>
+    standaloneKeywords.includes(value)
 
 /**
  *
