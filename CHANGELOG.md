@@ -1,5 +1,16 @@
 # Chagngelog
 
+## @rosebox/core@0.5.2
+
+### Added
+-`break-before` strongly-typed
+-`break-after` strongly-typed
+-`break-inside` strongly-typed
+-`list-style-image` strongly-typed
+-`list-style-position` strongly-typed
+-`list-style-type` weakly-typed
+-`list-style` weakly-typed
+
 ## @rosebox/react@0.1.0
 
 ### Changed
