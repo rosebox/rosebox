@@ -157,8 +157,11 @@ export type PrefixedProps = {
     /** @deprecated since 0.4.3 */
     _boxSizing: string
     _boxSnap: string
+    /** @deprecated since 0.4.3 */
     _breakAfter: string
+    /** @deprecated since 0.4.3 */
     _breakBefore: string
+    /** @deprecated since 0.4.3 */
     _breakInside: string
     _captionSide: string
     _caret: string
@@ -344,9 +347,13 @@ export type PrefixedProps = {
     _lineHeightStep: string
     _linePadding: string
     _lineSnap: string
+    /** @deprecated since 0.5.2 */
     _listStyle: string
+    /** @deprecated since 0.5.2 */
     _listStyleImage: string
+    /** @deprecated since 0.5.2 */
     _listStylePosition: string
+    /** @deprecated since 0.5.2 */
     _listStyleType: string
     /** @deprecated since 0.4.3 */
     _margin: string

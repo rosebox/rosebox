@@ -165,6 +165,13 @@ import { BorderSpacingDeclaration } from '../../../core/border-spacing'
 import { BorderImageDeclaration } from '../../../core/border-image'
 import { PrefixedProps } from '../../../prefixed-props'
 import { BackgroundAttachmentDeclaration } from '../../background-attachment'
+import { BreakBeforeDeclaration } from '../../break-before'
+import { BreakAfterDeclaration } from '../../break-after'
+import { BreakInsideDeclaration } from '../../break-inside'
+import { ListStyleImageDeclaration } from '../../list-style-image'
+import { ListStylePositionDeclaration } from '../../list-style-position'
+import { ListStyleTypeDeclaration } from '../../list-style-type'
+import { ListStyleDeclaration } from '../../list-style'
 
 export type RBStyle = Partial<
     WidthDeclaration &
@@ -325,6 +332,13 @@ export type RBStyle = Partial<
         BorderCollapseDeclaration &
         BorderSpacingDeclaration &
         BorderImageDeclaration &
+        BreakBeforeDeclaration &
+        BreakAfterDeclaration &
+        BreakInsideDeclaration &
+        ListStyleImageDeclaration &
+        ListStylePositionDeclaration &
+        ListStyleTypeDeclaration &
+        ListStyleDeclaration &
         PrefixedProps
 >
 

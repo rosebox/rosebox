@@ -138,6 +138,13 @@ import { serializeBorderImageRepeat } from './core/border-image-repeat'
 import { serializeBorderCollapse } from './core/border-collapse'
 import { serializeBorderSpacing } from './core/border-spacing'
 import { serializeBorderImage } from './core/border-image'
+import { serializeBreakBefore } from './core/break-before'
+import { serializeBreakAfter } from './core/break-after'
+import { serializeBreakInside } from './core/break-inside'
+import { serializeListStyleImage } from './core/list-style-image'
+import { serializeListStylePosition } from './core/list-style-position'
+import { serializeListStyleType } from './core/list-style-type'
+import { serializeListStyle } from './core/list-style'
 
 export const funcMap: any = (type: 'inline' | 'css') => ({
     alignContent: serializeAlignContent(type),
@@ -187,6 +194,9 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
     backgroundImage: serializeBackgroundImage(type),
     backgroundPosition: serializeBackgroundPosition(type),
     boxShadow: serializeBoxShadow(type),
+    breakBefore: serializeBreakBefore,
+    breakAfter: serializeBreakAfter,
+    breakInside: serializeBreakInside,
     cursor: serializeCursor,
     display: serializeDisplay,
     width: serializeWidth,
@@ -194,6 +204,10 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
     fontStyle: serializeFontStyle(type),
     fontKerning: serializeFontKerning(type),
     fontOpticalSizing: serializeFontOpticalSizing(type),
+    listStyleImage: serializeListStyleImage,
+    listStylePosition: serializeListStylePosition,
+    listStyleType: serializeListStyleType,
+    listStyle: serializeListStyle,
     minHeight: serializeMinHeightValue,
     maxHeight: serializeMaxHeight,
     minWidth: serializeMinWidth,
