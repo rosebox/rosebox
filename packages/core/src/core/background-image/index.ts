@@ -1,4 +1,4 @@
-import { GlobalCssKeyword, PropType, serializeAtomicValue, ValueOrFunc } from '../shared'
+import { GlobalCssKeyword, PropType, serializeAtomicValue } from '../shared'
 import { ImageValue } from '../shared/types/image'
 
 export type BackgroundImageValue = ImageValue | 'none'
@@ -24,7 +24,4 @@ export type BgImageDeclaration = {
      * @specification {@link https://www.w3.org/TR/2017/CR-css-backgrounds-3-20171017 CSS Backgrounds and Borders Module Level 3}.
      */
     backgroundImage: BackgroundImagePropValue
-}
-export type BgImageDeclarationJSS = {
-    backgroundImage: ValueOrFunc<BackgroundImagePropValue>
 }

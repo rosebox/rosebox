@@ -1,5 +1,5 @@
 import { DoubleBar2 } from '../shared'
-import { GlobalCssKeyword, Percentage, serializeAtomicValue, ValueOrFunc } from '../shared/types'
+import { GlobalCssKeyword, Percentage, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 type VoiceRate = DoubleBar2<'normal' | 'x-slow' | 'slow' | 'medium' | 'fast' | 'x-fast', Percentage>
 

@@ -8,7 +8,7 @@ import {
     ValueOrFunc,
 } from '../shared'
 import { Color } from '../shared'
-import { DoubleBar3 } from '../shared/types'
+import { DoubleBar3 } from '../shared'
 
 type AtomicValue = Color | LineStyle | LineWidth
 

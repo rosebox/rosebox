@@ -1,5 +1,5 @@
 import { GlobalCssKeyword, serializeDoubleBar } from '../shared'
-import { DoubleBar4, ValueOrFunc } from '../shared/types'
+import { DoubleBar4, ValueOrFunc } from '../shared'
 
 export const serializeTextEmphasisSkip = (
     x: DoubleBar4<'spaces', 'punctuation', 'symbols', 'narrow'> | GlobalCssKeyword,

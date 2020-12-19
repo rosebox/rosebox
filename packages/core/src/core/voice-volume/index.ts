@@ -1,5 +1,5 @@
 import { DoubleBar2 } from '../shared'
-import { Decibel, GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared/types'
+import { Decibel, GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../shared'
 
 type VoiceVolume = 'silent' | DoubleBar2<'x-soft' | 'soft' | 'medium' | 'loud' | 'x-loud', Decibel>
 

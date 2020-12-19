@@ -4,6 +4,7 @@ import { serializeDisplay } from './core/display'
 import { serializeWidth } from './core/width'
 import { serializeHeight } from './core/height'
 import { serializeBackgroundColor } from './core/background-color'
+import { serializeBackgroundOrigin } from './core/background-origin'
 import { serializeTop, serializeRight, serializeBottom, serializeLeft } from './core/box-offsets'
 import { serializeBoxSizingValue } from './core/box-sizing'
 import { serializeColor } from './core/color'
@@ -271,6 +272,7 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
     wordSpacing: serializeWordSpacing,
     alignSelf: serializeAlignSelf(type),
     backgroundSize: serializeBackgroundSize(type),
+    backgroundOrigin: serializeBackgroundOrigin,
     backfaceVisibility: serializeBackfaceVisibility(type),
     willChange: serializeWillChange,
     volume: serializeVolume,

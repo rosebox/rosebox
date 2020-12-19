@@ -172,6 +172,7 @@ import { ListStyleImageDeclaration } from '../../list-style-image'
 import { ListStylePositionDeclaration } from '../../list-style-position'
 import { ListStyleTypeDeclaration } from '../../list-style-type'
 import { ListStyleDeclaration } from '../../list-style'
+import { backgroundOriginDeclaration } from '../../background-origin'
 
 export type RBStyle = Partial<
     WidthDeclaration &
@@ -339,6 +340,7 @@ export type RBStyle = Partial<
         ListStylePositionDeclaration &
         ListStyleTypeDeclaration &
         ListStyleDeclaration &
+        backgroundOriginDeclaration &
         PrefixedProps
 >
 
