@@ -1,0 +1,34 @@
+{
+    "name": "@rosebox/colors",
+    "version": "0.0.1",
+    "description": "Color manipulation in Rosebox",
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "keywords": [
+        "rosebox",
+        "rosebox-colors"
+    ],
+    "author": "Hugo Nteifeh <hugonteifeh@gmail.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rosebox/rosebox"
+    },
+    "scripts": {
+        "build": "tsc -p ./tsconfig.json",
+        "prettier:ck": "prettier --check 'src/**/*.ts'",
+        "prepublishOnly": "npm run build"
+    },
+    "devDependencies": {
+        "@types/color": "^3.0.1",
+        "@types/ramda": "^0.27.34",
+        "typescript": "^4.1.3"
+    },
+    "peerDependencies": {
+        "@rosebox/core": "^0.5.0"
+    },
+    "dependencies": {
+        "color": "^3.1.3",
+        "ramda": "^0.27.1"
+    }
+}
