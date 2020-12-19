@@ -1,6 +1,6 @@
 {
   "name": "@rosebox/react",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Rosebox integration with React",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -20,7 +20,6 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@rosebox/core": "^0.4.61",
     "jss": "^10.5.0",
     "jss-plugin-camel-case": "^10.5.0",
     "jss-plugin-global": "^10.5.0",
@@ -37,6 +36,6 @@
   },
   "peerDependencies": {
     "react": ">=15",
-    "react-jss": "^10.5.0"
+    "@rosebox/core": "^0.5.0"
   }
 }

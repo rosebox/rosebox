@@ -1,5 +1,11 @@
 # Chagngelog
 
+## @rosebox/react@0.1.0
+
+### Changed
+
+- Made `@rosebox/core` a peer dependency instead of an internal dependency.
+
 ## @rosebox/core@0.5.0
 
 ### Removed

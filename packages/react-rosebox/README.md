@@ -19,7 +19,8 @@ Here is a simple example of how you can use rosebox in your react-app:
 ```tsx
 
 import React from "react";
-import { px, ms, rgb, StylesProvider, createUseStyles } from "@rosebox/react";
+import { px, ms, rgb } from "@rosebox/core";
+import { StylesProvider, createUseStyles } from "@rosebox/react";
 import useHover from "@react-hook/hover";
 
 const useStyles = createUseStyles({
