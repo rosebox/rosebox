@@ -347,6 +347,7 @@ export type PrefixedProps = {
     _lineHeightStep: string
     _linePadding: string
     _lineSnap: string
+    /** @deprecated since 0.5.2 */
     _listStyle: string
     /** @deprecated since 0.5.2 */
     _listStyleImage: string

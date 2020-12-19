@@ -144,6 +144,7 @@ import { serializeBreakInside } from './core/break-inside'
 import { serializeListStyleImage } from './core/list-style-image'
 import { serializeListStylePosition } from './core/list-style-position'
 import { serializeListStyleType } from './core/list-style-type'
+import { serializeListStyle } from './core/list-style'
 
 export const funcMap: any = (type: 'inline' | 'css') => ({
     alignContent: serializeAlignContent(type),
@@ -206,6 +207,7 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
     listStyleImage: serializeListStyleImage,
     listStylePosition: serializeListStylePosition,
     listStyleType: serializeListStyleType,
+    listStyle: serializeListStyle,
     minHeight: serializeMinHeightValue,
     maxHeight: serializeMaxHeight,
     minWidth: serializeMinWidth,
