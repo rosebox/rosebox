@@ -170,6 +170,7 @@ import { BreakAfterDeclaration } from '../../break-after'
 import { BreakInsideDeclaration } from '../../break-inside'
 import { ListStyleImageDeclaration } from '../../list-style-image'
 import { ListStylePositionDeclaration } from '../../list-style-position'
+import { ListStyleTypeDeclaration } from '../../list-style-type'
 
 export type RBStyle = Partial<
     WidthDeclaration &
@@ -335,6 +336,7 @@ export type RBStyle = Partial<
         BreakInsideDeclaration &
         ListStyleImageDeclaration &
         ListStylePositionDeclaration &
+        ListStyleTypeDeclaration &
         PrefixedProps
 >
 

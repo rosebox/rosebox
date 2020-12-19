@@ -352,6 +352,7 @@ export type PrefixedProps = {
     _listStyleImage: string
     /** @deprecated since 0.5.2 */
     _listStylePosition: string
+    /** @deprecated since 0.5.2 */
     _listStyleType: string
     /** @deprecated since 0.4.3 */
     _margin: string
