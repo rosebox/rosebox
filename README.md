@@ -9,7 +9,7 @@ The Rosebox project is an effort to improve the CSS-in-JS experience by providin
 ## Usage
 
 ```shell
-npm i @rosebox/react
+npm i @rosebox/core @rosebox/react
 ```
 
 ## Example
@@ -19,6 +19,7 @@ Here is a simple example of how you can use rosebox in your react-app:
 ```tsx
 
 import React from "react";
+import { px, ms, rgb } from "@rosebox/core";
 import { px, ms, rgb, StylesProvider, createUseStyles } from "@rosebox/react";
 import useHover from "@react-hook/hover";
 
