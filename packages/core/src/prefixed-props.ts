@@ -157,8 +157,11 @@ export type PrefixedProps = {
     /** @deprecated since 0.4.3 */
     _boxSizing: string
     _boxSnap: string
+    /** @deprecated since 0.4.3 */
     _breakAfter: string
+    /** @deprecated since 0.4.3 */
     _breakBefore: string
+    /** @deprecated since 0.4.3 */
     _breakInside: string
     _captionSide: string
     _caret: string
