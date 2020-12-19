@@ -168,6 +168,7 @@ import { BackgroundAttachmentDeclaration } from '../../background-attachment'
 import { BreakBeforeDeclaration } from '../../break-before'
 import { BreakAfterDeclaration } from '../../break-after'
 import { BreakInsideDeclaration } from '../../break-inside'
+import { ListStyleImageDeclaration } from '../../list-style-image'
 
 export type RBStyle = Partial<
     WidthDeclaration &
@@ -331,6 +332,7 @@ export type RBStyle = Partial<
         BreakBeforeDeclaration &
         BreakAfterDeclaration &
         BreakInsideDeclaration &
+        ListStyleImageDeclaration &
         PrefixedProps
 >
 

@@ -141,6 +141,7 @@ import { serializeBorderImage } from './core/border-image'
 import { serializeBreakBefore } from './core/break-before'
 import { serializeBreakAfter } from './core/break-after'
 import { serializeBreakInside } from './core/break-inside'
+import { serializeListStyleImage } from './core/list-style-image'
 
 export const funcMap: any = (type: 'inline' | 'css') => ({
     alignContent: serializeAlignContent(type),
@@ -200,6 +201,7 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
     fontStyle: serializeFontStyle(type),
     fontKerning: serializeFontKerning(type),
     fontOpticalSizing: serializeFontOpticalSizing(type),
+    listStyleImage: serializeListStyleImage,
     minHeight: serializeMinHeightValue,
     maxHeight: serializeMaxHeight,
     minWidth: serializeMinWidth,
