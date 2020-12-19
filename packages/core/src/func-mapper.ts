@@ -146,6 +146,7 @@ import { serializeListStyleImage } from './core/list-style-image'
 import { serializeListStylePosition } from './core/list-style-position'
 import { serializeListStyleType } from './core/list-style-type'
 import { serializeListStyle } from './core/list-style'
+import { serializebackgroundClip } from './core/background-clip'
 
 export const funcMap: any = (type: 'inline' | 'css') => ({
     alignContent: serializeAlignContent(type),
@@ -273,6 +274,7 @@ export const funcMap: any = (type: 'inline' | 'css') => ({
     alignSelf: serializeAlignSelf(type),
     backgroundSize: serializeBackgroundSize(type),
     backgroundOrigin: serializeBackgroundOrigin,
+    backgroundClip: serializebackgroundClip,
     backfaceVisibility: serializeBackfaceVisibility(type),
     willChange: serializeWillChange,
     volume: serializeVolume,

@@ -15,7 +15,7 @@ export const serializeBackgroundOrigin = (x: BackgroundOriginPropValue) => {
 /**
  * @category RBDeclarationTypeAlias
  */
-export type backgroundOriginDeclaration = {
+export type BackgroundOriginDeclaration = {
     /**
      * Maps to CSS's **`background-origin`** property
      * @initial padding-box
