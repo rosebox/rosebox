@@ -1,5 +1,5 @@
 import { GlobalCssKeyword } from '..'
-import { serializeHashMultiplier } from '../shared'
+import { serializeAtomicValue, serializeHashMultiplier } from '../shared'
 
 type Box = 'border-box' | 'padding-box' | 'content-box'
 
@@ -8,7 +8,7 @@ type BackgroundOriginPropValue = Box | Box[] | GlobalCssKeyword
 
 export const serializeBackgroundOrigin = (x: BackgroundOriginPropValue) => {
     return {
-        backgroundOrigin: !Array.isArray(x) ? x : serializeHashMultiplier(x),
+        backgroundOrigin: !Array.isArray(x) ? x : serializeHashMultiplier(x, serializeAtomicValue),
     }
 }
 

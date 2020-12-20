@@ -1,5 +1,5 @@
 import { GlobalCssKeyword } from '..'
-import { serializeHashMultiplier } from '../shared'
+import { serializeAtomicValue, serializeHashMultiplier } from '../shared'
 
 type Box = 'border-box' | 'padding-box' | 'content-box'
 
@@ -8,7 +8,7 @@ type BackgroundClipPropValue = Box | Box[] | GlobalCssKeyword
 
 export const serializebackgroundClip = (x: BackgroundClipPropValue) => {
     return {
-        backgroundClip: !Array.isArray(x) ? x : serializeHashMultiplier(x),
+        backgroundClip: !Array.isArray(x) ? x : serializeHashMultiplier(x, serializeAtomicValue),
     }
 }
 

@@ -1,12 +1,8 @@
-import { RBType, serializeAtomicValue } from '../types'
-
 export * from './math'
 
-type AtomicType = number | string | RBType
-
-export const serializeHashMultiplier = (x: AtomicType[]): string => {
+export const serializeHashMultiplier = <A>(x: A[], serializer: (x: A) => string): string => {
     return x.reduce<string>((acc, item, idx) => {
-        const itemSerialized = serializeAtomicValue(item)
+        const itemSerialized = serializer(item)
         return idx !== x.length - 1 ? acc + `${itemSerialized}, ` : acc + itemSerialized
     }, '')
 }

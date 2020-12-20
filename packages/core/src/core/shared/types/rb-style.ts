@@ -174,6 +174,7 @@ import { ListStyleTypeDeclaration } from '../../list-style-type'
 import { ListStyleDeclaration } from '../../list-style'
 import { BackgroundOriginDeclaration } from '../../background-origin'
 import { BackgroundClipDeclaration } from '../../background-clip'
+import { BackgroundRepeatDeclaration } from '../../background-repeat'
 
 export type RBStyle = Partial<
     WidthDeclaration &
@@ -343,6 +344,7 @@ export type RBStyle = Partial<
         ListStyleDeclaration &
         BackgroundOriginDeclaration &
         BackgroundClipDeclaration &
+        BackgroundRepeatDeclaration &
         PrefixedProps
 >
 

@@ -43,6 +43,7 @@ export type PrefixedProps = {
     _backgroundOrigin: string
     /** @deprecated since 0.4.3 */
     _backgroundPosition: string
+    /** @deprecated since 0.5.4 */
     _backgroundRepeat: string
     /** @deprecated since 0.4.3 */
     _backgroundSize: string
