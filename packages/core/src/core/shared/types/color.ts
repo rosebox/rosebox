@@ -271,14 +271,14 @@ export type HSLAInput = [number, Percentage, Percentage, number]
 
 const serializeRGB = (x: RGB) => {
     const { data } = x
-    return `rgb(${serializeAtomicValue(data[0])}, ${serializeAtomicValue(data[1])}, ${serializeAtomicValue(data[2])})`
+    const arr = (data as number[]).map(Math.round).map(serializeAtomicValue)
+    return `rgb(${arr[0]}, ${arr[1]}, ${arr[2]})`
 }
 
 const serializeRGBA = (x: RGBA) => {
     const { data } = x
-    return `rgba(${serializeAtomicValue(data[0])}, ${serializeAtomicValue(data[1])}, ${serializeAtomicValue(
-        data[2],
-    )}, ${serializeAtomicValue(data[3])})`
+    const numArray = (data as any[]).slice(0, 3).map(Math.round).map(serializeAtomicValue)
+    return `rgba(${numArray[0]}, ${numArray[1]}, ${numArray[2]}, ${serializeAtomicValue(data[3])})`
 }
 
 const serializeHSL = (x: HSL) => {
