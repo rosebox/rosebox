@@ -1,5 +1,11 @@
 # Chagngelog
 
+## @rosebox/core@0.5.5
+
+### Changed
+
+- Serialization behavior in `RGB` and `RGBA` (numbers get rounded).
+
 ## @rosebox/core@0.5.4
 
 ### Added
