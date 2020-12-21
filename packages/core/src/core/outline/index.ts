@@ -1,5 +1,5 @@
 import { GlobalCssKeyword, LineStyle } from '../shared'
-import { Color, DoubleBar3, LineWidth, ValueOrFunc } from '../shared/types'
+import { Color, DoubleBar3, LineWidth, ValueOrFunc } from '../shared'
 
 import { serializeAtomicValue } from '../shared'
 

@@ -1,5 +1,5 @@
 import { GlobalCssKeyword, serializeDoubleBar } from '../shared'
-import { LengthPercentage, serializeAtomicValue } from '../shared/types'
+import { LengthPercentage, serializeAtomicValue } from '../shared'
 
 export const serializeTexIndent = (x: TextIndentValue) => ({
     textIndent: typeof x === 'string' ? x : serializeDoubleBar(!Array.isArray(x) ? [x] : x, serializeAtomicValue),

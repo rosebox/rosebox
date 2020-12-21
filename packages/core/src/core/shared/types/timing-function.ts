@@ -1,5 +1,5 @@
 import { isGlobalCssKeyword } from '.'
-import { getData, RBType, serializeAtomicValue } from './shared'
+import { getData, RBType, serializeAtomicValue } from '..'
 
 const serializeBezier = (x: CubicBezierFunction): string => {
     const [x1, x2, x3, x4] = getData(x)

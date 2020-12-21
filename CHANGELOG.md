@@ -1,15 +1,23 @@
 # Chagngelog
 
-## @rosebox/core@0.5.2
+## @rosebox/core@0.5.4
 
 ### Added
--`break-before` strongly-typed
--`break-after` strongly-typed
--`break-inside` strongly-typed
--`list-style-image` strongly-typed
--`list-style-position` strongly-typed
--`list-style-type` weakly-typed
--`list-style` weakly-typed
+
+- `backgroundAttachment` strongly-typed.
+- `backgroundOrigin` strongly-typed.
+- `backgroundRepeat` strongly-typed.
+- `backgroundClip` strongly-typed.
+
+### Added
+
+- `breakBefore` strongly-typed
+- `breakAfter` strongly-typed
+- `breakInside` strongly-typed
+- `listStyleImage` strongly-typed
+- `listStylePosition` strongly-typed
+- `listStyleType` weakly-typed
+- `listStyle` weakly-typed
 
 ## @rosebox/react@0.1.0
 

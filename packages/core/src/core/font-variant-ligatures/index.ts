@@ -1,5 +1,5 @@
 import { GlobalCssKeyword, PropType, ValueOrFunc } from '../shared'
-import { DoubleBar4 } from '../shared/types'
+import { DoubleBar4 } from '../shared'
 
 type CommonLigValues = 'common-ligatures' | 'no-common-ligatures'
 type DiscretionaryLigValues = 'discretionary-ligatures' | 'no-discretionary-ligatures'

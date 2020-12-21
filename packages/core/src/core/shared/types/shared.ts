@@ -19,13 +19,6 @@ export type LineStyle =
     | 'inset'
     | 'outset'
 
-export const serializeAtomicValue = (x: string | number | null | undefined | RBType): string => {
-    if (typeof x === 'number') return `${x}`
-    if (typeof x === 'string') return x
-    if (x === undefined || x === null) return ''
-    return x.serialize()
-}
-
 export const getData = <B>(x: RBType<B> | string | number): any => {
     if (typeof x === 'string') return x
     if (typeof x === 'number') return x
@@ -35,3 +28,10 @@ export const getData = <B>(x: RBType<B> | string | number): any => {
 export const getValConstructor = <B>(x: RBType<B>) => x.valueConstructor
 
 export const getSerializer = (x: RBType): Function => x.serialize
+
+export const serializeAtomicValue = (x: string | number | null | undefined | RBType): string => {
+    if (typeof x === 'number') return `${x}`
+    if (typeof x === 'string') return x
+    if (x === undefined || x === null) return ''
+    return x.serialize()
+}
