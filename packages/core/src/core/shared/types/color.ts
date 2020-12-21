@@ -264,10 +264,10 @@ export type RGBInteger =
     | 254
     | 255
 
-type RGBInput = [RGBInteger, RGBInteger, RGBInteger] | [Percentage, Percentage, Percentage]
-type RGBAInput = [RGBInteger, RGBInteger, RGBInteger, number] | [Percentage, Percentage, Percentage, number]
-type HSLInput = [number, Percentage, Percentage]
-type HSLAInput = [number, Percentage, Percentage, number]
+export type RGBInput = [RGBInteger, RGBInteger, RGBInteger] | [Percentage, Percentage, Percentage]
+export type RGBAInput = [RGBInteger, RGBInteger, RGBInteger, number] | [Percentage, Percentage, Percentage, number]
+export type HSLInput = [number, Percentage, Percentage]
+export type HSLAInput = [number, Percentage, Percentage, number]
 
 const serializeRGB = (x: RGB) => {
     const { data } = x
