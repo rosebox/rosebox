@@ -40,7 +40,8 @@ export function darken(x: HSL, y: number): HSL
 export function darken(x: HEX | RGB | HSL, y: number): HEX | RGB | HSL {
     if (isRGB(x)) {
         const darkened = ColorM.rgb(x.data).darken(y)
-        return rgb(darkened.red() as RGBInteger, darkened.green() as RGBInteger, darkened.blue() as RGBInteger)
+        const arr = [darkened.red(), darkened.green(), darkened.blue()] as [RGBInteger, RGBInteger, RGBInteger]
+        return rgb(...arr)
     }
 
     if (isHSL(x)) {
