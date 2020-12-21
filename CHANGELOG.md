@@ -4,7 +4,7 @@
 
 ### Changed
 
-- Serialization behaviour for `RGB` and `RGBA` (numbers get rounded).
+- Serialization behavior in `RGB` and `RGBA` (numbers get rounded).
 
 ## @rosebox/core@0.5.4
 
