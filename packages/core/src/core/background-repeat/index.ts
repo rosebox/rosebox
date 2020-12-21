@@ -3,7 +3,7 @@ import { serializeHashMultiplier } from '../shared'
 
 type TupleKeyword = 'repeat' | 'space' | 'round' | 'no-repeat'
 
-type RepeatStyle = [horizontally: TupleKeyword, vertically: TupleKeyword]
+type RepeatStyle = [TupleKeyword, TupleKeyword]
 
 const serializeRepeatTuple = (x: RepeatStyle) => `${x[0]} ${x[1]}`
 

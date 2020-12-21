@@ -2,9 +2,6 @@ import { GlobalCssKeyword, ValueOrFunc } from '../shared'
 
 export type DisplayCSSProp = 'display'
 
-/**
- * @hide
- */
 type DisplayInsideOutsideDoubleBar =
     | 'block'
     | 'inline'
@@ -61,9 +58,6 @@ type DisplayInsideOutsideDoubleBar =
     | ['grid', 'run-in']
     | ['ruby', 'run-in']
 
-/**
- * @skip
- */
 type DisplayListItem =
     | 'list-item'
     | ['list-item']
@@ -114,9 +108,6 @@ type DisplayListItem =
     | ['flow-root', 'run-in', 'list-item']
     | ['flow-root', 'list-item', 'run-in']
 
-/**
- * @hide
- */
 type DisplayInternal =
     | 'table-row-group'
     | 'table-header-group'
@@ -143,14 +134,8 @@ type DisplayInternal =
     | ['ruby-base-container']
     | ['ruby-text-container']
 
-/**
- * @hide
- */
 type DisplayBox = 'contents' | 'none'
 
-/**
- * @hide
- */
 type DisplayLegacy =
     | 'inline-block'
     | 'inline-table'
