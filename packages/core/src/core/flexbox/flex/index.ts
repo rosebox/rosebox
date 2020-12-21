@@ -1,27 +1,42 @@
 // @revisionRequired
 
 import { serializeShorthandleValue } from '../../../utils'
-import { GlobalCssKeyword, serializeAtomicValue, ValueOrFunc } from '../../shared'
+import { AtLeastOnePropRequired, GlobalCssKeyword, serializeAtomicValue } from '../../shared'
 import { FlexBasisValue } from '../flex-basis'
+
+type FlexThreeValues = [number, number, FlexBasisValue]
+
+type FlexObject = AtLeastOnePropRequired<{
+    grow: number
+    shirnk: number
+    basis: FlexBasisValue
+}>
+
+const serializeFlexObject = (x: FlexObject): string => {
+    const grow = x.grow || '0'
+    const shirnk = x.shirnk || '1'
+    const basis = x.basis ? serializeAtomicValue(x.basis) : 'auto'
+    return `${grow} ${shirnk} ${basis}`
+}
+
+const serializeArrayOrObject = (x: FlexObject | FlexThreeValues): string => {
+    return Array.isArray(x) ? serializeShorthandleValue(x) : serializeFlexObject(x)
+}
 
 /**
  * @hide
  */
-type FlexValue = FlexSingleValue | FlexTwoValues | FlexThreeValues
+type FlexValue = FlexThreeValues
 
 /** @hide */
-type FlexPropValue = FlexValue | GlobalCssKeyword
-
-export type FlexSingleValue = 'none' | number | FlexBasisValue
-export type FlexTwoValues = [number, FlexBasisValue] | [FlexBasisValue, number]
-export type FlexThreeValues = [number, number, FlexBasisValue] | [FlexBasisValue, number, number]
+type FlexPropValue = FlexValue | FlexObject | GlobalCssKeyword
 
 export const serializeFlex = (
     x: FlexPropValue,
 ): {
     flex: string
 } => ({
-    flex: !Array.isArray(x) ? serializeAtomicValue(x) : serializeShorthandleValue(x),
+    flex: typeof x === 'string' ? x : serializeArrayOrObject(x),
 })
 
 /**
@@ -35,7 +50,4 @@ export type FlexDeclaration = {
      * @specification {@link https://www.w3.org/TR/2018/CR-css-flexbox-1-20181119/ CSS Flexible Box Layout Module Level 1}
      */
     flex: FlexPropValue
-}
-export type FlexDeclarationJSS = {
-    flex: ValueOrFunc<FlexPropValue>
 }
