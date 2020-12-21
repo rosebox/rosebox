@@ -1,5 +1,10 @@
 # Chagngelog
 
+## @rosebox/colors@0.0.1
+
+### Added
+- First release of `@rosebox/colors`.
+
 ## @rosebox/core@0.5.5
 
 ### Changed
