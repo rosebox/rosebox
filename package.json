@@ -9,7 +9,8 @@
     "./packages/colors"
   ],
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "npm run --prefix packages/core build"
   },
   "repository": {
     "type": "git",
