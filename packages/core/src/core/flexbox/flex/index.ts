@@ -4,7 +4,7 @@ import { serializeShorthandleValue } from '../../../utils'
 import { AtLeastOnePropRequired, GlobalCssKeyword, serializeAtomicValue } from '../../shared'
 import { FlexBasisValue } from '../flex-basis'
 
-type FlexThreeValues = [number, number, FlexBasisValue]
+type FlexTuple = [number, number, FlexBasisValue]
 
 type FlexObject = AtLeastOnePropRequired<{
     grow: number
@@ -19,17 +19,12 @@ const serializeFlexObject = (x: FlexObject): string => {
     return `${grow} ${shirnk} ${basis}`
 }
 
-const serializeArrayOrObject = (x: FlexObject | FlexThreeValues): string => {
+const serializeArrayOrObject = (x: FlexObject | FlexTuple): string => {
     return Array.isArray(x) ? serializeShorthandleValue(x) : serializeFlexObject(x)
 }
 
-/**
- * @hide
- */
-type FlexValue = FlexThreeValues
-
 /** @hide */
-type FlexPropValue = FlexValue | FlexObject | GlobalCssKeyword
+type FlexPropValue = FlexTuple | FlexObject | GlobalCssKeyword
 
 export const serializeFlex = (
     x: FlexPropValue,
