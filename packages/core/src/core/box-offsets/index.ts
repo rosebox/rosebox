@@ -6,6 +6,7 @@ export const serializeBoxOffset = (property: string) => (x: LengthPercentage | '
 
 export const serializeTop = serializeBoxOffset('top')
 
+/** @hide */
 type BoxOffsetPropValue = LengthPercentage | 'auto' | Calculation | GlobalCssKeyword
 
 /**
