@@ -9,14 +9,22 @@ import { createUseStyles as createUseStylesJSS } from 'react-jss'
 
 const styleJSS = (x: JssStyle) => style(x) as JssStyle
 
+const serializeChangedValue = (value: any, prop: string) => {
+    return Object.values(
+        styleJSS({
+            [prop]: value,
+        }),
+    )[0]
+}
+
 /** A JSS plugin for Rosebox */
 export const rbJSS = (): Plugin => {
     return {
         onProcessStyle: (x: JssStyle) => {
             return x ? styleJSS(x) : x
         },
-        onChangeValue: (value: any) => {
-            return value ? serializeAtomicValue(value) : value
+        onChangeValue: (value: any, key) => {
+            return value ? serializeChangedValue(value, key) : value
         },
     }
 }
