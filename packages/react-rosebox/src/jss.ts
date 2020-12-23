@@ -1,4 +1,4 @@
-import { style, serializeAtomicValue, RBStyle } from '@rosebox/core'
+import { style, RBStyle } from '@rosebox/core'
 import { create, JssStyle, Plugin } from 'jss'
 import functions from 'jss-plugin-rule-value-function'
 import global from 'jss-plugin-global'
