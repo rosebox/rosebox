@@ -1,5 +1,11 @@
 # Chagngelog
 
+## @rosebox/react@0.1.6
+
+### Changed
+
+- The return type of `createUseStyles` so that it's not possible anymore to use a class-name that is not a key of the passed object.
+
 ## @rosebox/colors@0.0.1
 
 ### Added

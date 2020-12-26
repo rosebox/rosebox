@@ -45,10 +45,13 @@ type ValueOrFunction<T> = T | ((x: any) => T)
 
 export type RBStyleDynamic = { [key in keyof RBStyle]: ValueOrFunction<RBStyle[key]> }
 
-export type StyleMap = Record<string, RBStyleDynamic>
+export type StyleMap<A extends string> = Record<A, RBStyleDynamic>
 
-type ThemeFunc = (theme: unknown) => StyleMap
+type ThemeFunc = <A extends string>(theme: unknown) => StyleMap<A>
 
-export const createUseStyles = (styleMap: StyleMap | ThemeFunc, options?: any) => {
+export const createUseStyles = <A extends string>(
+    styleMap: StyleMap<A> | ThemeFunc,
+    options?: any,
+): ((data?: unknown) => Record<A, string>) => {
     return createUseStylesJSS(styleMap as any, options)
 }
