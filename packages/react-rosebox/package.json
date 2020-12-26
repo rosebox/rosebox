@@ -15,9 +15,11 @@
     "url": "https://github.com/rosebox/rosebox"
   },
   "scripts": {
+    "clean": "rimraf ./lib",
     "build": "tsc -p ./tsconfig.json",
+    "prettify:build": "prettier --write './lib/**/*'",
     "prettier:ck": "prettier --check 'src/**/*.ts'",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run clean && npm run build && npm run prettify:build"
   },
   "dependencies": {
     "jss": "^10.5.0",
