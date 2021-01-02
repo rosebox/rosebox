@@ -76,13 +76,17 @@ Already today, you can use all the CSS properties in Rosebox. Missing ones in th
 - [A Simple image carousel](https://codesandbox.io/s/image-carousel-rosebox-h1urb?file=/src/App.tsx)
 - More examples of react-components using Rosebox can be found [here](https://github.com/hugonteifeh/react-components)
 
+## VScode extension 📟
+
+There is a new [VScode-extension](https://marketplace.visualstudio.com/items?itemName=hugonteifeh.rosebox-language-server-extension) for rosebox, which provides color intellisense in files matching the `*.rb.ts` pattern.
+
 ## Roadmap and future releases
 
 Refer to [milestones](https://github.com/hugonteifeh/rosebox/milestones/) for information about releases and the [roadmap project](https://github.com/hugonteifeh/rosebox/projects/12) for roadmap.
 
 ## Contribute
 
-There are many way in which you can contribute:
+There are many ways in which you can contribute:
 
 * Submit a feature request.
 * Report a bug.
