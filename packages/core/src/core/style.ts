@@ -3,7 +3,6 @@ import { RBStyle } from '.'
 import { funcMap } from '../func-mapper'
 
 export const style = (obj: RBStyle): CSSProperties => {
-    // NEEDS improvement
     return Object.keys(obj).reduce((acc, key) => {
         const serializer = (funcMap as any)('inline')[key]
         return serializer
