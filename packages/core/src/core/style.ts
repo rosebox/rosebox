@@ -13,7 +13,7 @@ export const style = (obj: RBStyle): CSSProperties => {
               }
             : {
                   ...acc,
-                  [key[0] === '_' ? key.slice(1) : key]: (obj as any)[key],
+                  [key[0] === '_' ? key.slice(1) : key]: key[0] === '&' ? style((obj as any)[key]) : (obj as any)[key],
               }
     }, {}) as CSSProperties
 }
