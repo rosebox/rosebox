@@ -1,5 +1,11 @@
 # Chagngelog
 
+## @rosebox/core@0.5.7
+
+#### Added
+
+- Support for pseudo-classes and pseudo-elements.
+
 ## @rosebox/react@0.1.6
 
 ### Changed
