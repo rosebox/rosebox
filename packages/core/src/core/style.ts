@@ -36,6 +36,10 @@ export const style = (obj: RBStyle): CSSProperties => {
             }
         }
 
-        throw new Error(`Invalid key ${key}`)
+        return {
+            ...acc,
+            [key]: (obj as any)[key],
+        }
+        
     }, {}) as CSSProperties
 }
