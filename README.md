@@ -18,49 +18,38 @@ npm i @rosebox/core @rosebox/react
 Here is a simple example of how you can use rosebox in your react-app:
 
 ```tsx
-
-import React from "react";
-import { px, ms, rgb } from "@rosebox/core";
-import { StylesProvider, createUseStyles } from "@rosebox/react";
-import useHover from "@react-hook/hover";
+import * as React from "react";
+import "./styles.css";
+import { rgb, px, ms } from "@rosebox/core";
+import { createUseStyles, StylesProvider } from "@rosebox/react";
 
 const useStyles = createUseStyles({
   titleStyle: {
     fontSize: px(48),
-    transitionDuration: ms(300),
-    transitionTimingFunction: 'ease-in-out',
-    // props will be provided by the component using the created hook
-    color: props => props.isHovering ? rgb(244, 244, 244) : 'blue',
-    transitionProperty: props => props.isHovering ? 'color' : 'none'
+    transition: ["color", ms(300), "ease-in-out"],
+    color: "black",
+    "&query": {
+      "&:nth-child(2)": {
+        fontSize: px(32)
+      },
+      "&:hover": {
+        color: rgb(239, 71, 111)
+      }
+    }
   }
 });
 
-const MyHoverableComponent: React.FC = () => {
-  const target = React.useRef(null);
-  const isHovering = useHover(target);
-  // Passing "props" to useStyles
-  const classes = useStyles({
-    isHovering: isHovering
-  });
-  return (
-    <div>
-      <h1 ref={target} className={classes.titleStyle}>
-        Hover over me please
-      </h1>
-    </div>
-  );
-};
-
-function App() {
+export default function App() {
+  const classes = useStyles();
   return (
     <StylesProvider>
-      <MyHoverableComponent />
+      <div className="App">
+        <h1 className={classes.titleStyle}>Hover over me please</h1>
+        <h1 className={classes.titleStyle}>I come next</h1>
+      </div>
     </StylesProvider>
   );
 }
-
-export default App;
-
 ```
 
 ## IMPORTANT NOTE 📢
