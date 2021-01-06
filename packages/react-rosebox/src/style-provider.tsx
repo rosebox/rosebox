@@ -8,7 +8,10 @@ type StylesProviderProps = {
     jss?: Jss | undefined
 }
 
-export const StylesProvider: FC<StylesProviderProps> = ({ children, ...props }) => (
+export const StylesProvider: FC<StylesProviderProps> = ({
+    children,
+    ...props
+}) => (
     <JssProvider {...props} jss={props.jss || defaultJss}>
         {children}
     </JssProvider>

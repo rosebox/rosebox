@@ -5,6 +5,7 @@ import global from 'jss-plugin-global'
 import camelCase from 'jss-plugin-camel-case'
 import vendorPrefixer from 'jss-plugin-vendor-prefixer'
 import propsSort from 'jss-plugin-props-sort'
+import nested from 'jss-plugin-nested'
 import { createUseStyles as createUseStylesJSS } from 'react-jss'
 
 const styleJSS = (x: JssStyle) => style(x) as JssStyle
@@ -30,8 +31,16 @@ export const rbJSS = (): Plugin => {
 }
 
 export const jssPreset = () => {
-    const clientSideOnly = typeof window === 'undefined' ? [] : [vendorPrefixer()]
-    const plugins = [functions(), rbJSS(), global(), camelCase(), propsSort()].concat(clientSideOnly)
+    const clientSideOnly =
+        typeof window === 'undefined' ? [] : [vendorPrefixer()]
+    const plugins = [
+        functions(),
+        rbJSS(),
+        nested(),
+        global(),
+        camelCase(),
+        propsSort(),
+    ].concat(clientSideOnly)
     return {
         plugins,
     }
@@ -43,7 +52,9 @@ export const defaultJss = create({
 
 type ValueOrFunction<T> = T | ((x: any) => T)
 
-export type RBStyleDynamic = { [key in keyof RBStyle]: ValueOrFunction<RBStyle[key]> }
+export type RBStyleDynamic = {
+    [key in keyof RBStyle]: ValueOrFunction<RBStyle[key]>
+}
 
 export type StyleMap<A extends string> = Record<A, RBStyleDynamic>
 

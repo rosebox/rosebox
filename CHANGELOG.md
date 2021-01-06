@@ -1,5 +1,12 @@
 # Chagngelog
 
+## @rosebox/react@0.1.7
+
+#### Added
+
+- Support for pseudos and nested selectors via the 'jss-plugin-nested' package.
+
+
 ## @rosebox/core@0.5.8
 
 - Add a new key '&query' in the RBStyle interface to support pseudos and nested selectors.
