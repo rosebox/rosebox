@@ -1,9 +1,18 @@
-import { OverflowXDeclaration, OverflowYDeclaration, OverflowDeclaration } from '../../../core/overflow'
+import {
+    OverflowXDeclaration,
+    OverflowYDeclaration,
+    OverflowDeclaration,
+} from '../../../core/overflow'
 import { TextTransformDeclaration } from '../../../core/text-transform'
 import { WidthDeclaration } from '../../../core/width'
 import { HeightDeclaration } from '../../../core/height'
 import { BgColorDeclaration } from '../../../core/background-color'
-import { TopDeclaration, RightDeclaration, BottomDeclaration, LeftDeclaration } from '../../../core/box-offsets'
+import {
+    TopDeclaration,
+    RightDeclaration,
+    BottomDeclaration,
+    LeftDeclaration,
+} from '../../../core/box-offsets'
 import { BoxSizingDeclaration } from '../../../core/box-sizing'
 import { ColorDeclaration } from '../../../core/color'
 import { MaxHeightDeclaration } from '../../../core/max-height'
@@ -176,6 +185,12 @@ import { BackgroundOriginDeclaration } from '../../background-origin'
 import { BackgroundClipDeclaration } from '../../background-clip'
 import { BackgroundRepeatDeclaration } from '../../background-repeat'
 
+type QueryDeclaration = {
+    '&query': {
+        [key: string]: RBStyle
+    }
+}
+
 export type RBStyle = Partial<
     WidthDeclaration &
         HeightDeclaration &
@@ -345,7 +360,8 @@ export type RBStyle = Partial<
         BackgroundOriginDeclaration &
         BackgroundClipDeclaration &
         BackgroundRepeatDeclaration &
-        PrefixedProps
+        PrefixedProps &
+        QueryDeclaration
 >
 
 /**
