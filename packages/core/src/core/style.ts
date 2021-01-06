@@ -2,17 +2,44 @@ import { CSSProperties } from 'react'
 import { RBStyle } from '.'
 import { funcMap } from '../func-mapper'
 
+const isQueryKey = (key: string): boolean => key === '&query'
+
+const serializeQueryDeclaration = (queryDeclaration: any) =>
+    Object.keys(queryDeclaration).reduce(
+        (acc, item) => ({
+            ...acc,
+            [item]: style(queryDeclaration[item]),
+        }),
+        {},
+    )
+
 export const style = (obj: RBStyle): CSSProperties => {
-    return Object.keys(obj).reduce((acc, key) => {
+    return Object.keys(<any>obj).reduce((acc, key) => {
+        const assertedObj = obj as any
         const serializer = (funcMap as any)('inline')[key]
-        return serializer
-            ? {
-                  ...acc,
-                  ...serializer((obj as any)[key]),
-              }
-            : {
-                  ...acc,
-                  [key[0] === '_' ? key.slice(1) : key]: key[0] === '&' ? style((obj as any)[key]) : (obj as any)[key],
-              }
+        if (serializer) {
+            return {
+                ...acc,
+                ...serializer(assertedObj[key]),
+            }
+        }
+        if (key[0] === '_') {
+            return {
+                ...acc,
+                [key.slice(1)]: (obj as any)[key],
+            }
+        }
+        if (isQueryKey(key)) {
+            return {
+                ...acc,
+                ...serializeQueryDeclaration(assertedObj[key]),
+            }
+        }
+
+        return {
+            ...acc,
+            [key]: (obj as any)[key],
+        }
+        
     }, {}) as CSSProperties
 }

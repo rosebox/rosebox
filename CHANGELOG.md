@@ -1,5 +1,9 @@
 # Chagngelog
 
+## @rosebox/core@0.5.8
+
+- Add a new key '&query' in the RBStyle interface to support pseudos and nested selectors.
+
 ## @rosebox/core@0.5.7
 
 #### Added
