@@ -41,7 +41,8 @@ export type DurationUnit = 'ms' | 's'
  * A type that maps to CSS's **`<time>`** type.
  * @added 0.1.0
  */
-export class Duration<A extends DurationUnit = DurationUnit> implements Setoid<Duration<A>> {
+export class Duration<A extends DurationUnit = DurationUnit>
+    implements Setoid<Duration<A>> {
     valueConstructor: Function
     public unit: A
     public data: number

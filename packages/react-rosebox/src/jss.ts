@@ -19,7 +19,7 @@ const serializeChangedValue = (value: any, prop: string) => {
 }
 
 /** A JSS plugin for Rosebox */
-export const rbJSS = (): Plugin => {
+export const rosebox = (): Plugin => {
     return {
         onProcessStyle: (x: JssStyle) => {
             return x ? styleJSS(x) : x
@@ -35,7 +35,7 @@ export const jssPreset = () => {
         typeof window === 'undefined' ? [] : [vendorPrefixer()]
     const plugins = [
         functions(),
-        rbJSS(),
+        rosebox(),
         nested(),
         global(),
         camelCase(),

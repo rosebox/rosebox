@@ -82,7 +82,6 @@ Refer to [milestones](https://github.com/hugonteifeh/rosebox/milestones/) for in
 
 If you have a question or need help, feel free to create an issue here 👌.
 
-
 ## More information
 
 For more information on this package and other related packages, visit the [official website](https://www.rosebox.dev/) or the [Github repository](https://github.com/rosebox/rosebox).

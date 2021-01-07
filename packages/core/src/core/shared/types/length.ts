@@ -23,7 +23,8 @@ export type LengthUnit =
  * A type that maps to CSS's **`<length>`** type.
  * @added 0.1.0
  */
-export class Length<A extends LengthUnit = LengthUnit> implements RBType<number> {
+export class Length<A extends LengthUnit = LengthUnit>
+    implements RBType<number> {
     unit: A
     data: number
     valueConstructor: Function
