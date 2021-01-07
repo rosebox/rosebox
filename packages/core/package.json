@@ -1,12 +1,12 @@
 {
   "name": "@rosebox/core",
-  "version": "0.5.8",
+  "version": "0.5.85",
   "description": "CSS-in-TS",
   "author": "Hugo Nteifeh <hugonteifeh@gmail.com>",
   "keywords": [
-    "Functional css",
-    "declarative styling",
-    "Typed CSS"
+    "css-in-ts",
+    "css-in-js",
+    "typed CSS"
   ],
   "license": "MIT",
   "main": "lib/index.js",
