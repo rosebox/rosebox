@@ -66,7 +66,7 @@ You can already use all the CSS properties with Rosebox. Missing ones in the api
 
 [Docs](https://rosebox.dev)
 
-## Demos and more examples (using inline-styling)
+## Demos
 
 - [https://codesandbox.io/s/rosebox-in-react-q5854](https://codesandbox.io/s/rosebox-in-react-q5854)
 
