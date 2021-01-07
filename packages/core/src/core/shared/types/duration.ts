@@ -55,13 +55,13 @@ export class Duration<A extends DurationUnit = DurationUnit> implements Setoid<D
     }
 
     /**
-     * Constructs a value of type **`Duration<"milliseconds">`**
+     * Constructs a value of type **`Duration<'ms'>`**
      */
     static ms(x: number): Duration<'ms'> {
         return new Duration('ms', x)
     }
     /**
-     * Constructs a value of type **`Duration<"seconds">`**
+     * Constructs a value of type **`Duration<'s'>`**
      */
     static s(x: number): Duration<'s'> {
         return new Duration('s', x)
@@ -74,16 +74,14 @@ export class Duration<A extends DurationUnit = DurationUnit> implements Setoid<D
 }
 
 /**
- * Constructs a value of type **`Duration`** where the unit is **`milliseconds`**.
+ * Constructs a value of type **`Duration<'ms'>`** where the unit is **`ms`**.
  * @category Value constructor
- * @added 0.2.1
  */
 export const ms = Duration.ms
 
 /**
- * Constructs a value of type **`Duration`** where the unit is **`seconds`**.
+ * Constructs a value of type **`Duration<'s'>`** where the unit is **`s`**.
  * @category Value constructor
- * @added 0.2.1
  */
 export const s = Duration.s
 

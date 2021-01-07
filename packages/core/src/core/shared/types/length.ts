@@ -40,7 +40,7 @@ export class Length<A extends LengthUnit = LengthUnit> implements RBType<number>
 
     /**
      *
-     * Constructs a value of type **`Length<'px'>**`.
+     * Constructs a value of type **`Length<'px'>`**.
      */
     static px(x: number): Length<'px'> {
         return new Length(x, 'px', Length.px)
