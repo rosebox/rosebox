@@ -59,4 +59,4 @@ export default function App() {
 
 ## Docs and more info
 
-For more information on this package and other related packages, visit the [official website]() or the [Github repository](https://www.rosebox.dev/).
+For more information on this package and other related packages, visit the [official website](https://www.rosebox.dev/) or the [Github repository](https://github.com/rosebox/rosebox).
