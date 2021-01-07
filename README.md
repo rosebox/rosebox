@@ -9,7 +9,7 @@ Rosebox is a CSS-in-Typescript library that provides features like strong types 
 
 ## Usage
 
-1. Install the following packages
+1. Install the following packages:
 
 ```shell
 npm i @rosebox/core @rosebox/react

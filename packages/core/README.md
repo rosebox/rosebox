@@ -8,13 +8,7 @@ This package contains the types and the serializers used in rosebox.
 
 ## Usage
 
-```shell
-npm i @rosebox/core @rosebox/react
-```
-
-## Usage
-
-1. Install the following packages
+1. Install the following packages:
 
 ```shell
 npm i @rosebox/core @rosebox/react
