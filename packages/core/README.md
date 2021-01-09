@@ -25,14 +25,13 @@ Here is a simple example of how you can use rosebox in your react-app:
 
 ```tsx
 import * as React from "react";
-import "./styles.css";
 import { rgb, px, ms } from "@rosebox/core";
 import { createUseStyles, StylesProvider } from "@rosebox/react";
 
 const useStyles = createUseStyles({
   titleStyle: {
     fontSize: px(48),
-    transition: ["color", ms(300), "ease-in-out"],
+    transition: ["color", ms(150), "ease-in-out"],
     color: "black",
     "&query": {
       "&:nth-child(2)": {
@@ -45,14 +44,21 @@ const useStyles = createUseStyles({
   }
 });
 
+const MyComponent = () => {
+  const classes = useStyles();
+  return (
+    <div className="App">
+      <h1 className={classes.titleStyle}>Hover over me please</h1>
+      <h1 className={classes.titleStyle}>I come next</h1>
+    </div>
+  );
+};
+
 export default function App() {
   const classes = useStyles();
   return (
     <StylesProvider>
-      <div className="App">
-        <h1 className={classes.titleStyle}>Hover over me please</h1>
-        <h1 className={classes.titleStyle}>I come next</h1>
-      </div>
+      <MyComponent />
     </StylesProvider>
   );
 }
