@@ -5,7 +5,9 @@ const isMatrix = (x: TransformFunction): x is TransformFunction<'matrix'> =>
     x.valueConstructor === TransformFunction.matrix
 const isMatrix3d = (x: TransformFunction): x is TransformFunction<'matrix3d'> =>
     x.valueConstructor === TransformFunction.matrix3d
-const isPerspective = (x: TransformFunction): x is TransformFunction<'perspective'> =>
+const isPerspective = (
+    x: TransformFunction,
+): x is TransformFunction<'perspective'> =>
     x.valueConstructor === TransformFunction.perspective
 const isRotateX = (x: TransformFunction): x is TransformFunction<'rotateX'> =>
     x.valueConstructor === TransformFunction.rotateX
@@ -17,37 +19,65 @@ const isRotate = (x: TransformFunction): x is TransformFunction<'rotate'> =>
     x.valueConstructor === TransformFunction.rotate
 const isRotate3d = (x: TransformFunction): x is TransformFunction<'rotate3d'> =>
     x.valueConstructor === TransformFunction.rotate3d
-const isScaleX = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.scaleX
-const isScaleY = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.scaleY
-const isScaleZ = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.scaleZ
-const isScale = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.scale
-const isScale3d = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.scale3d
-const isSkewX = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.skewX
-const isSkewY = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.skewY
-const isSkew = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.skew
-const isTranslateX = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.translateX
-const isTranslateY = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.translateY
-const isTranslateZ = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.translateZ
-const isTranslate = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.translate
-const isTranslate3d = (x: TransformFunction): boolean => x.valueConstructor === TransformFunction.translate3d
+const isScaleX = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.scaleX
+const isScaleY = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.scaleY
+const isScaleZ = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.scaleZ
+const isScale = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.scale
+const isScale3d = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.scale3d
+const isSkewX = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.skewX
+const isSkewY = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.skewY
+const isSkew = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.skew
+const isTranslateX = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.translateX
+const isTranslateY = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.translateY
+const isTranslateZ = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.translateZ
+const isTranslate = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.translate
+const isTranslate3d = (x: TransformFunction): boolean =>
+    x.valueConstructor === TransformFunction.translate3d
 
-const serializeSkewX = (x: TransformFunction<'skewX'>): string => `skewX(${serializeAtomicValue(x.data)})`
-const serializeSkewY = (x: TransformFunction<'skewY'>): string => `skewY(${serializeAtomicValue(x.data)})`
+const serializeSkewX = (x: TransformFunction<'skewX'>): string =>
+    `skewX(${serializeAtomicValue(x.data)})`
+const serializeSkewY = (x: TransformFunction<'skewY'>): string =>
+    `skewY(${serializeAtomicValue(x.data)})`
 const serializeSkew = (x: TransformFunction<'skew'>): string =>
-    `skew(${serializeAtomicValue(x.data[0])}${x.data[1] ? `, ${serializeAtomicValue(x.data[1])}` : ''})`
+    `skew(${serializeAtomicValue(x.data[0])}${
+        x.data[1] ? `, ${serializeAtomicValue(x.data[1])}` : ''
+    })`
 
 const serializeMatrix = (x: TransformFunction<'matrix'>): string =>
-    `matrix(${x.data.reduce((acc, val, idx) => (idx !== x.data.length - 1 ? acc + `${val}, ` : acc + val), '')})`
+    `matrix(${x.data.reduce(
+        (acc, val, idx) =>
+            idx !== x.data.length - 1 ? acc + `${val}, ` : acc + val,
+        '',
+    )})`
 
 const serializeMatrix3d = (x: TransformFunction<'matrix3d'>): string =>
-    `matrix3d(${x.data.reduce((acc, val, idx) => (idx !== x.data.length - 1 ? acc + `${val}, ` : acc + val), '')})`
+    `matrix3d(${x.data.reduce(
+        (acc, val, idx) =>
+            idx !== x.data.length - 1 ? acc + `${val}, ` : acc + val,
+        '',
+    )})`
 
 const serializePerspective = (x: TransformFunction<'perspective'>): string =>
     `perspective(${serializeAtomicValue(x.data)})`
 
-const serializeScaleX = (x: TransformFunction<'scaleX'>): string => `scaleX(${x.data})`
-const serializeScaleY = (x: TransformFunction<'scaleY'>): string => `scaleY(${x.data})`
-const serializeScaleZ = (x: TransformFunction<'scaleZ'>): string => `scaleZ(${x.data})`
+const serializeScaleX = (x: TransformFunction<'scaleX'>): string =>
+    `scaleX(${x.data})`
+const serializeScaleY = (x: TransformFunction<'scaleY'>): string =>
+    `scaleY(${x.data})`
+const serializeScaleZ = (x: TransformFunction<'scaleZ'>): string =>
+    `scaleZ(${x.data})`
 
 const serializeScale = (x: TransformFunction<'scale'>): string =>
     `scale(${x.data[0]}${x.data[1] ? `, ${x.data[1]}` : ''})`
@@ -55,13 +85,17 @@ const serializeScale = (x: TransformFunction<'scale'>): string =>
 const serializeScale3d = (x: TransformFunction<'scale3d'>): string =>
     `scale3d(${x.data[0]}, ${x.data[1]}, ${x.data[2]})`
 
-const serializeRotateX = (x: TransformFunction<'rotateX'>): string => `rotateX(${serializeAtomicValue(x.data)})`
+const serializeRotateX = (x: TransformFunction<'rotateX'>): string =>
+    `rotateX(${serializeAtomicValue(x.data)})`
 
-const serializeRotateY = (x: TransformFunction<'rotateY'>): string => `rotateY(${serializeAtomicValue(x.data)})`
+const serializeRotateY = (x: TransformFunction<'rotateY'>): string =>
+    `rotateY(${serializeAtomicValue(x.data)})`
 
-const serializeRotateZ = (x: TransformFunction<'rotateZ'>): string => `rotateZ(${serializeAtomicValue(x.data)})`
+const serializeRotateZ = (x: TransformFunction<'rotateZ'>): string =>
+    `rotateZ(${serializeAtomicValue(x.data)})`
 
-const serializeRotate = (x: TransformFunction<'rotate'>): string => `rotate(${serializeAtomicValue(x.data)})`
+const serializeRotate = (x: TransformFunction<'rotate'>): string =>
+    `rotate(${serializeAtomicValue(x.data)})`
 
 const serializeRotate3d = (x: TransformFunction<'rotate3d'>): string => {
     const [x0, x1, x2, x3] = x.data
@@ -79,15 +113,21 @@ const serializeTranslateZ = (value: TransformFunction<'translateZ'>): string =>
 
 const serializeTranslate = (value: TransformFunction<'translate'>): string => {
     const xAxis = serializeAtomicValue(value.data[0])
-    const yAxis = value.data[1] ? `, ${serializeAtomicValue(value.data[1])}` : ''
-    const zAxis = value.data[2] ? `, ${serializeAtomicValue(value.data[2])}` : ''
+    const yAxis = value.data[1]
+        ? `, ${serializeAtomicValue(value.data[1])}`
+        : ''
+    const zAxis = value.data[2]
+        ? `, ${serializeAtomicValue(value.data[2])}`
+        : ''
     return `translate(${xAxis}${yAxis}${zAxis})`
 }
 
-const serializeTranslate3d = (value: TransformFunction<'translate3d'>): string =>
-    `translate3d(${serializeAtomicValue(value.data[0])}, ${serializeAtomicValue(value.data[1])}, ${serializeAtomicValue(
-        value.data[2],
-    )})`
+const serializeTranslate3d = (
+    value: TransformFunction<'translate3d'>,
+): string =>
+    `translate3d(${serializeAtomicValue(value.data[0])}, ${serializeAtomicValue(
+        value.data[1],
+    )}, ${serializeAtomicValue(value.data[2])})`
 
 const serializeTransformFunction = (x: TransformFunction): string => {
     if (isMatrix(x)) return serializeMatrix(x)
@@ -141,9 +181,11 @@ type TransformationType =
 /**
  *
  * A type that maps to CSS's **`<transform-function>`** type.
- * @added 0.2.3
  */
-export class TransformFunction<A extends TransformationType = TransformationType> implements RBType<any> {
+export class TransformFunction<
+    A extends TransformationType = TransformationType
+> implements RBType<any> {
+    serialize: () => string
     valueConstructor: Function
     data: A extends 'translateX'
         ? [LengthPercentage]
@@ -212,11 +254,22 @@ export class TransformFunction<A extends TransformationType = TransformationType
     private constructor(data: any, valueConstructor: Function) {
         this.data = data
         this.valueConstructor = valueConstructor
+        this.serialize = () => serializeTransformFunction(this)
     }
 
     /** Constructs a value of type **`TransformFunction<'matrix'>`**. */
-    static matrix(x1: number, x2: number, x3: number, x4: number, x5: number, x6: number): TransformFunction<'matrix'> {
-        return new TransformFunction([x1, x2, x3, x4, x5, x6], TransformFunction.matrix)
+    static matrix(
+        x1: number,
+        x2: number,
+        x3: number,
+        x4: number,
+        x5: number,
+        x6: number,
+    ): TransformFunction<'matrix'> {
+        return new TransformFunction(
+            [x1, x2, x3, x4, x5, x6],
+            TransformFunction.matrix,
+        )
     }
 
     /** Constructs a value of type **`TransformFunction<'matrix3d'>`**. */
@@ -239,7 +292,24 @@ export class TransformFunction<A extends TransformationType = TransformationType
         x16: number,
     ): TransformFunction<'matrix3d'> {
         return new TransformFunction(
-            [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16],
+            [
+                x1,
+                x2,
+                x3,
+                x4,
+                x5,
+                x6,
+                x7,
+                x8,
+                x9,
+                x10,
+                x11,
+                x12,
+                x13,
+                x14,
+                x15,
+                x16,
+            ],
             TransformFunction.matrix3d,
         )
     }
@@ -270,7 +340,12 @@ export class TransformFunction<A extends TransformationType = TransformationType
     }
 
     /** Constructs a value of type **`TransformFunction<'rotate3d'>`**. */
-    static rotate3d(x: number, y: number, z: number, a: Angle): TransformFunction<'rotate3d'> {
+    static rotate3d(
+        x: number,
+        y: number,
+        z: number,
+        a: Angle,
+    ): TransformFunction<'rotate3d'> {
         return new TransformFunction([x, y, z, a], TransformFunction.rotate3d)
     }
 
@@ -295,7 +370,11 @@ export class TransformFunction<A extends TransformationType = TransformationType
     }
 
     /** Constructs a value of type **`TransformFunction<'scale3d'>`**. */
-    static scale3d(x: number, y: number, z: number): TransformFunction<'scale3d'> {
+    static scale3d(
+        x: number,
+        y: number,
+        z: number,
+    ): TransformFunction<'scale3d'> {
         return new TransformFunction([x, y, z], TransformFunction.scale3d)
     }
 
@@ -330,7 +409,11 @@ export class TransformFunction<A extends TransformationType = TransformationType
     }
 
     /** Constructs a value of type **`TransformFunction<'translate'>`**. */
-    static translate(x: LengthPercentage, y?: LengthPercentage, z?: LengthPercentage): TransformFunction<'translate'> {
+    static translate(
+        x: LengthPercentage,
+        y?: LengthPercentage,
+        z?: LengthPercentage,
+    ): TransformFunction<'translate'> {
         return new TransformFunction([x, y, z], TransformFunction.translate)
     }
 
@@ -341,10 +424,6 @@ export class TransformFunction<A extends TransformationType = TransformationType
         z: LengthPercentage,
     ): TransformFunction<'translate3d'> {
         return new TransformFunction([x, y, z], TransformFunction.translate3d)
-    }
-
-    serialize(): string {
-        return serializeTransformFunction(this)
     }
 }
 
