@@ -85,7 +85,7 @@ There is a new [VScode-extension](https://marketplace.visualstudio.com/items?ite
 
 ## Roadmap and future releases
 
-Refer to [milestones](https://github.com/hugonteifeh/rosebox/milestones/) for information about releases and the [roadmap project](https://github.com/hugonteifeh/rosebox/projects/14) for roadmap.
+Refer to [milestones](https://github.com/hugonteifeh/rosebox/milestones/) for information about future releases.
 
 ## Help and questions 🙋
 
