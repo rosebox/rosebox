@@ -80,7 +80,7 @@ You can already use all the CSS properties with Rosebox. Missing ones in the api
 
 ## VScode extension 📟
 
-There is a new [VScode-extension](https://marketplace.visualstudio.com/items?itemName=hugonteifeh.rosebox-language-server-extension) for rosebox, which provides color intellisense in files matching the `*.rb.ts` pattern.
+There is a new [VScode-extension](https://marketplace.visualstudio.com/items?itemName=hugonteifeh.rosebox-language-server-extension) for rosebox, which enhances the IDE experience by providing features like color highlighting and color pickers.
 
 ## Roadmap and future releases
 
