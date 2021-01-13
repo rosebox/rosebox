@@ -1,5 +1,11 @@
 # Chagngelog
 
+## @rosebox/core@0.5.86
+
+### Fixed
+
+- Fixed the serialization behavior for the `transform` property when used with `@rosebox/react`.
+
 ## @rosebox/react@0.1.7
 
 #### Added
