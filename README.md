@@ -72,6 +72,7 @@ You can already use all the CSS properties with Rosebox. Missing ones in the api
 
 - [Using calc()](https://www.rosebox.dev/docs/using-calc)
 - [Using pseudos](https://www.rosebox.dev/docs/pseudo)
+- [add, sub, mult, div, eq](https://www.rosebox.dev/docs/utility-functions)
 - [Homepage](https://www.rosebox.dev)
 
 ## Demos
