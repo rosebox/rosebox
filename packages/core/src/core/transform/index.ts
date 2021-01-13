@@ -1,11 +1,21 @@
 import { serializeShorthandleValue } from '../../utils'
-import { TransformFunction, GlobalCssKeyword, serializeAtomicValue } from '../shared'
+import {
+    TransformFunction,
+    GlobalCssKeyword,
+    serializeAtomicValue,
+} from '../shared'
 
 /** @hide */
-type PropValue = TransformFunction | TransformFunction[] | GlobalCssKeyword | 'none'
+type PropValue =
+    | TransformFunction
+    | TransformFunction[]
+    | GlobalCssKeyword
+    | 'none'
 
 export const serializeTransform = (x: PropValue) => ({
-    transform: !Array.isArray(x) ? serializeAtomicValue(x) : serializeShorthandleValue(x),
+    transform: !Array.isArray(x)
+        ? serializeAtomicValue(x)
+        : serializeShorthandleValue(x),
 })
 
 /**

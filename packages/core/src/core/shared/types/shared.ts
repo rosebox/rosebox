@@ -29,7 +29,9 @@ export const getValConstructor = <B>(x: RBType<B>) => x.valueConstructor
 
 export const getSerializer = (x: RBType): Function => x.serialize
 
-export const serializeAtomicValue = (x: string | number | null | undefined | RBType): string => {
+export const serializeAtomicValue = (
+    x: string | number | null | undefined | RBType,
+): string => {
     if (typeof x === 'number') return `${x}`
     if (typeof x === 'string') return x
     if (x === undefined || x === null) return ''

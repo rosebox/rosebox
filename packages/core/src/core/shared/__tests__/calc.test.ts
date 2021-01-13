@@ -7,6 +7,12 @@ test('Serialize Calculation<addition>', () => {
 })
 
 test('Serialize Calculation<addition>', () => {
+    const received = cadd(px(300), vw(100)).serialize()
+    const expected = 'calc(300px + 100vw)'
+    expect(received).toEqual(expected)
+})
+
+test('Serialize Calculation<addition>: nested', () => {
     const received = cadd(px(300), cadd(px(200), per(100))).serialize()
     const expected = 'calc(300px + calc(200px + 100%))'
     expect(received).toEqual(expected)
