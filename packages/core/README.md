@@ -68,10 +68,11 @@ export default function App() {
 
 You can already use all the CSS properties with Rosebox. Missing ones in the api only indicate that they are not **YET** strongly typed. The library exposes all the weakly-typed properties by prefixing them with an underscore (e.g., `_borderImageStyle`, `_all`). These weakly-typed props have type `string`. When a property becomes strongly-typed, its underscore-prefixed version gets deprecated immediately. However, its removal may only be considered after a minimum of 1 major release since the deprecation—for example, if `_borderImageStyle` gets deprecated in 0.6.4, it means that it will be removed in 1.0.0.
 
-## Quick docs
+## Docs
 
 - [Using calc()](https://www.rosebox.dev/docs/using-calc)
 - [Using pseudos](https://www.rosebox.dev/docs/pseudo)
+- [Homepage](https://www.rosebox.dev)
 
 ## Demos
 
