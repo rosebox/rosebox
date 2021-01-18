@@ -14,7 +14,7 @@ Rosebox is a CSS-in-Typescript library that provides features like:
 - Extra shorthand properties(e.g., [`marginX`](https://www.rosebox.dev/api/#rb-prop-paddingx), [`paddingX`](https://www.rosebox.dev/api/#rb-prop-paddingx)).
 - An object-based syntax for the values of complex properties (e.g., [`animation`](https://www.rosebox.dev/api/#rb-prop-animation)).
 
-Rosebox uses the excellent `jss` and `react-jss` under the hood in `@rosebox/react`.
+Rosebox uses the excellent `jss` and `react-jss` under the hood in `@rosebox/react` to provide support for runtime generation of CSS-classes and other jss-features.
 
 ## Usage
 
