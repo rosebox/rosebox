@@ -6,12 +6,15 @@
 <div align="center"><h2>CSS in Typescript</h2></div>
 
 Rosebox is a CSS-in-Typescript library that provides features like:
+
 - Support for high-quality autocomplete.
 - Support for color highlighting and color pickers.
 - Strong types (e.g., [`Length`](https://www.rosebox.dev/api/#rb-type-length)).
 - Typed functions (e.g., [`linGrad`](https://www.rosebox.dev/api/#rb-vc-lingrad)).
 - Extra shorthand properties(e.g., [`marginX`](https://www.rosebox.dev/api/#rb-prop-paddingx), [`paddingX`](https://www.rosebox.dev/api/#rb-prop-paddingx)).
 - An object-based syntax for the values of complex properties (e.g., [`animation`](https://www.rosebox.dev/api/#rb-prop-animation)).
+
+Rosebox uses the excellent `jss` and `react-jss` under the hood in `@rosebox/react`.
 
 ## Usage
 
