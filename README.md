@@ -1,4 +1,5 @@
-![Node.js CI](https://github.com/rosebox/rosebox/workflows/Node.js%20CI/badge.svg)
+> 🔴 **WARNING**: This repository and its packages are no longer maintained
+
 <p align="center">
 <img width="400" style="margin-left: auto; margin-right:auto; display: block" alt="portfolio_view" src="./logo.svg">
 </p>
