@@ -78,7 +78,7 @@ export default function App() {
 - [Using calc()](https://hugonteifeh.github.io/rosebox-docs/docs/using-calc)
 - [Using pseudos](https://hugonteifeh.github.io/rosebox-docs/docs/pseudo)
 - [add, sub, mult, div, eq](https://hugonteifeh.github.io/rosebox-docs/docs/utility-functions)
-- [Homepage](https://www.rosebox.dev)
+- [Homepage](https://hugonteifeh.github.io/rosebox-docs/)
 
 ## Demos
 

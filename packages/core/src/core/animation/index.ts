@@ -53,7 +53,7 @@ export type AnimationDeclaration = {
     /**
      * Maps to CSS's **`animation`** property
      * @initial See individual properties
-     * @docsUrL https://www.rosebox.dev/api/#rb-prop-animation
+     * @docsUrL https://hugonteifeh.github.io/rosebox-docs/api/#rb-prop-animation
      * @definition https://drafts.csswg.org/css-animations-1/#animation
      */
     animation: AnimationPropValue
