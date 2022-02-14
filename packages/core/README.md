@@ -9,10 +9,10 @@ Rosebox is a CSS-in-Typescript library that provides features like:
 
 - Support for high-quality autocomplete.
 - Support for color highlighting and color pickers.
-- Strong types (e.g., [`Length`](https://www.rosebox.dev/api/#rb-type-length)).
-- Typed functions (e.g., [`linGrad`](https://www.rosebox.dev/api/#rb-vc-lingrad)).
-- Extra shorthand properties(e.g., [`marginX`](https://www.rosebox.dev/api/#rb-prop-paddingx), [`paddingX`](https://www.rosebox.dev/api/#rb-prop-paddingx)).
-- An object-based syntax for the values of complex properties (e.g., [`animation`](https://www.rosebox.dev/api/#rb-prop-animation)).
+- Strong types (e.g., [`Length`](https://hugonteifeh.github.io/rosebox-docs/api/#rb-type-length)).
+- Typed functions (e.g., [`linGrad`](https://hugonteifeh.github.io/rosebox-docs/api/#rb-vc-lingrad)).
+- Extra shorthand properties(e.g., [`marginX`](https://hugonteifeh.github.io/rosebox-docs/api/#rb-prop-paddingx), [`paddingX`](https://hugonteifeh.github.io/rosebox-docs/api/#rb-prop-paddingx)).
+- An object-based syntax for the values of complex properties (e.g., [`animation`](https://hugonteifeh.github.io/rosebox-docs/api/#rb-prop-animation)).
 
 Rosebox uses the packages `jss` and `react-jss` under the hood in `@rosebox/react` to support runtime generation of CSS-classes and other features.
 
@@ -75,9 +75,9 @@ export default function App() {
 
 ## Docs
 
-- [Using calc()](https://www.rosebox.dev/docs/using-calc)
-- [Using pseudos](https://www.rosebox.dev/docs/pseudo)
-- [add, sub, mult, div, eq](https://www.rosebox.dev/docs/utility-functions)
+- [Using calc()](https://hugonteifeh.github.io/rosebox-docs/docs/using-calc)
+- [Using pseudos](https://hugonteifeh.github.io/rosebox-docs/docs/pseudo)
+- [add, sub, mult, div, eq](https://hugonteifeh.github.io/rosebox-docs/docs/utility-functions)
 - [Homepage](https://www.rosebox.dev)
 
 ## Demos
